@@ -7,7 +7,8 @@ const state = {
   search: "",
   sort: "index",
   back: [],
-  forward: []
+  forward: [],
+  expandedFolders: new Set()
 };
 
 const $ = (id) => document.getElementById(id);
@@ -67,10 +68,14 @@ async function loadTree() {
   const [root] = await bookmarks("getTree");
   state.tree = root;
   indexTree(root);
+  if (state.expandedFolders.size === 0) {
+    for (const folder of rootFolders()) state.expandedFolders.add(folder.id);
+  }
   if (!state.folderId || !nodes.has(state.folderId)) {
     // Chrome root's first children are normally Bookmarks Bar / Other / Mobile.
     state.folderId = root.children?.[0]?.id || root.id;
   }
+  ensureExpandedPath(state.folderId);
   render();
 }
 
@@ -78,14 +83,74 @@ function rootFolders() {
   return (state.tree?.children || []).filter(isFolder);
 }
 
+function childFolders(folder) {
+  return (folder.children || []).filter(isFolder);
+}
+
+function ensureExpandedPath(folderId) {
+  for (let n = nodes.get(folderId)?.parentNode; n && n.id !== "0"; n = n.parentNode) {
+    state.expandedFolders.add(n.id);
+  }
+}
+
+function toggleFolder(folderId) {
+  if (state.expandedFolders.has(folderId)) {
+    state.expandedFolders.delete(folderId);
+  } else {
+    state.expandedFolders.add(folderId);
+  }
+  renderRoots();
+}
+
+function renderFolderTreeNode(folder, depth = 0) {
+  const children = childFolders(folder);
+  const isExpanded = state.expandedFolders.has(folder.id);
+  const container = document.createElement("div");
+  container.className = "tree-node";
+
+  const row = document.createElement("div");
+  row.className = "tree-row";
+  row.style.setProperty("--depth", depth);
+  row.setAttribute("role", "treeitem");
+  row.setAttribute("aria-selected", String(folder.id === state.folderId));
+  if (children.length) row.setAttribute("aria-expanded", String(isExpanded));
+
+  const twisty = document.createElement("button");
+  twisty.className = "twisty";
+  twisty.type = "button";
+  twisty.disabled = children.length === 0;
+  twisty.textContent = children.length ? (isExpanded ? "▾" : "▸") : "";
+  twisty.title = isExpanded ? "Collapse folder" : "Expand folder";
+  twisty.onclick = (e) => {
+    e.stopPropagation();
+    toggleFolder(folder.id);
+  };
+
+  const label = document.createElement("button");
+  label.className = "tree-label";
+  label.type = "button";
+  label.textContent = folder.title || "(root)";
+  label.setAttribute("aria-current", String(folder.id === state.folderId));
+  label.onclick = () => navigate(folder.id);
+
+  row.append(twisty, label);
+  container.append(row);
+
+  if (children.length && isExpanded) {
+    const group = document.createElement("div");
+    group.className = "tree-children";
+    group.setAttribute("role", "group");
+    group.append(...children.map((child) => renderFolderTreeNode(child, depth + 1)));
+    container.append(group);
+  }
+
+  return container;
+}
+
 function renderRoots() {
-  $("roots").replaceChildren(...rootFolders().map((folder) => {
-    const button = document.createElement("button");
-    button.textContent = folder.title || "(root)";
-    button.setAttribute("aria-current", String(folder.id === state.folderId));
-    button.onclick = () => navigate(folder.id);
-    return button;
-  }));
+  ensureExpandedPath(state.folderId);
+  $("roots").setAttribute("role", "tree");
+  $("roots").replaceChildren(...rootFolders().map((folder) => renderFolderTreeNode(folder)));
 }
 
 function renderCrumbs() {

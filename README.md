@@ -23,3 +23,9 @@ A Manifest V3 Chrome extension that maps Firefox Places Library ideas to Chrome'
 
 - Chrome bookmarks do not expose Firefox Places tags, keywords, history/downloads queries, or JSONLZ4 backups.
 - Bookmarklets with `javascript:` URLs are not executed by this manager; they are opened as URLs only.
+
+
+## 0.1.1
+
+- Added a nested, collapsible folder tree in the left pane.
+- Current folder ancestors auto-expand so the selected folder remains visible.
