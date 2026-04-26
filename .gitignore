@@ -1,0 +1,14 @@
+.vscode
+.vs
+*.lnk
+*.VC.db
+*.opensdf
+*.opendb
+*.sdf
+*.suo
+*.xcodeproj
+*.xcworkspace
+~$*.xlsx
+ExcludeFromGit
+TestRoot
+_Test.tags

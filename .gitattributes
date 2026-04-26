@@ -1,0 +1,4 @@
+* text=auto
+*.bin binary
+*.zip binary
+*.reg text eol=crlf
