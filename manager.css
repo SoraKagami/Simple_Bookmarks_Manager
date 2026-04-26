@@ -1,6 +1,7 @@
 :root { font: 14px/1.4 system-ui, sans-serif; color-scheme: light dark; }
 body { margin: 0; height: 100vh; display: flex; flex-direction: column; }
 .toolbar { display: flex; gap: 8px; padding: 10px; border-bottom: 1px solid CanvasText; align-items: center; }
+.app-title { white-space: nowrap; margin: 0 4px; }
 .toolbar input { flex: 1; min-width: 180px; padding: 6px; }
 button, select, input { font: inherit; }
 .layout { flex: 1; display: grid; grid-template-columns: 260px 1fr 320px; min-height: 0; }

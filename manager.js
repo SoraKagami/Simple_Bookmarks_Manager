@@ -101,7 +101,7 @@ async function loadTree() {
   }
   if (!state.folderId || !nodes.has(state.folderId)) {
     // Chrome root's first children are normally Bookmarks Bar / Other / Mobile.
-    state.folderId = root.children?.[0]?.id || root.id;
+    state.folderId = defaultFolderId();
   }
   ensureExpandedPath(state.folderId);
   render();
@@ -109,6 +109,10 @@ async function loadTree() {
 
 function rootFolders() {
   return (state.tree?.children || []).filter(isFolder);
+}
+
+function defaultFolderId() {
+  return rootFolders()[0]?.id || state.tree?.id || null;
 }
 
 function childFolders(folder) {
@@ -182,8 +186,13 @@ async function moveWithIntent(draggedId, targetId, intent) {
   if (!validDrop(dragged, target, intent, "any")) return;
 
   if (intent === "into") {
+    const previousFolderId = state.folderId && nodes.has(state.folderId) ? state.folderId : null;
     await bookmarks("move", dragged.id, { parentId: target.id });
-    state.folderId = target.id;
+
+    // Keep the user in their current folder after a successful move-into.
+    // If there is no current folder, move the view to the drop target. If that
+    // is unavailable after refresh, loadTree() falls back to the root folder.
+    state.folderId = previousFolderId || target.id || null;
     state.selectedId = dragged.id;
     state.expandedFolders.add(target.id);
     if (isFolder(dragged)) ensureExpandedPath(dragged.id);

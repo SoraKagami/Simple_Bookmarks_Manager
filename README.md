@@ -1,6 +1,6 @@
-# Firefox-style Bookmark Manager for Chrome
+# Simple Bookmarks Manager
 
-A Manifest V3 Chrome extension that maps Firefox Places Library ideas to Chrome's `chrome.bookmarks` API.
+A Manifest V3 Chrome/Chromium extension that provides a simple local bookmark manager inspired by Firefox Places Library ideas.
 
 This Source Code Form is subject to the terms of the Mozilla Public License, v. 2.0. See `LICENSE`.
 
@@ -25,7 +25,7 @@ This Source Code Form is subject to the terms of the Mozilla Public License, v. 
 
 ## Chrome/Chromium implementation
 
-- Uses `chrome_url_overrides.bookmarks` to replace Chrome's bookmark manager page.
+- Opens from the extension toolbar action and preserves the built-in Chromium bookmark manager.
 - Uses `chrome.bookmarks` to read, create, update, move, move-into folders, reorder, and remove bookmark nodes.
 - Uses `chrome.tabs` only to open the manager from the extension action.
 
@@ -48,7 +48,9 @@ See `SOURCE_AUDIT.md` for more detail.
 2. Enable Developer mode.
 3. Click **Load unpacked**.
 4. Select this folder.
-5. Open `chrome://bookmarks` or click the extension action.
+5. Click the **Simple Bookmarks Manager** extension action.
+
+Note: v0.2.2 no longer overrides `chrome://bookmarks`, so Chromium/Brave's built-in Bookmark Manager remains available from the browser menu.
 
 ## Limits
 
@@ -57,6 +59,7 @@ See `SOURCE_AUDIT.md` for more detail.
 - Drag-and-drop before/after reordering in the middle list is disabled while search is active or while sorted by Name, URL, or Date added; Chrome only persists explicit bookmark indices in natural order.
 - Dragging onto the center of a folder row moves the dragged item into that folder, including middle-pane to left-pane moves; dragging near the top/bottom of a row keeps before/after reorder behavior where allowed.
 - Top-level Chromium/Brave root folders such as `Bookmarks` / `Bookmarks Bar` and `Other bookmarks` are intentionally not draggable.
+- Chrome extensions cannot add a normal item directly under Chromium/Brave's built-in Bookmark Manager menu entry; this extension uses its toolbar action instead.
 
 ## References
 
@@ -67,9 +70,18 @@ See `SOURCE_AUDIT.md` for more detail.
 - Mozilla MPL 2.0: https://www.mozilla.org/MPL/2.0/
 - Chrome bookmarks API: https://developer.chrome.com/docs/extensions/reference/api/bookmarks
 - Chrome override pages: https://developer.chrome.com/docs/extensions/develop/ui/override-chrome-pages
+- Chrome action API: https://developer.chrome.com/docs/extensions/reference/api/action
 - Chromium BSD license reference: https://chromium.googlesource.com/chromium/src/+/HEAD/LICENSE
 
 ## Changelog
+
+### 0.2.2
+
+- Renamed the extension to **Simple Bookmarks Manager**.
+- Added extension icons generated from `icons/icon-16.png`, `icons/icon-32.png`, `icons/icon-48.png`, and `icons/icon-128.png`.
+- Removed `chrome_url_overrides.bookmarks` so the default Chromium/Brave Bookmark Manager is no longer replaced.
+- Kept moved items' drag/drop target behavior, but after moving an item into a folder the view now remains in the current folder when possible.
+- Documented that Chrome extensions cannot insert a first-class item directly below Chromium/Brave's built-in Bookmark Manager menu entry.
 
 ### 0.2.1
 

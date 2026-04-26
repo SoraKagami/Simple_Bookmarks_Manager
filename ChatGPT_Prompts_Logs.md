@@ -219,3 +219,43 @@ Double-check:
 #### Sources
 [1](https://www.google.com/s2/favicons?domain=https://developer.chrome.com&sz=32)
 
+## You said:
+Thank you, that went very well during testing.
+Updates for v0.2.2:
+* After moving a dragged item into a new folder/subfolder, stay in the "current" folder/subfolder if not a null folder/location. If null, move to the target location where the dragged item went. Or if that's also null for whatever reason, default back to the root bookmarks folder.
+* Let's rename the plugin to "Simple Bookmarks Manager".
+* Currently the plugin appears to replace the chromium "Bookmark Manager" in the menus. Can this plugin have it's own entry called "Simple Bookmarks Manager" right below the default chromium Bookmark Manager entry in the menus?
+* Can you please use the attached image as this extension's icon and resize it appropriately for the extension?
+
+Once done please update the file README.md with the version number change as well as document the changes applied. Please apply the above & provide an updated zip containing the updates thanks!
+
+## Chromium & Extensions Engineer said:
+
+Thought for 1m 41s
+
+Done: download v0.2.2 ZIP.
+
+Changes applied:
+
+- Bumped version to `0.2.2`.
+- Renamed extension to **Simple Bookmarks Manager**.
+- Added the provided icon at `16`, `32`, `48`, and `128` px.
+- Updated drag/drop behavior so after “move into folder,” the manager stays in the current folder when possible.
+- Removed `chrome_url_overrides.bookmarks`, so Chromium/Brave’s default Bookmark Manager is no longer replaced.
+- Updated `README.md` with v0.2.2 notes and limitations.
+
+Menu note:
+
+- Chrome extensions can override the built-in bookmark manager page, but that replaces the default page. [Chrome for Developers](https://developer.chrome.com/docs/extensions/develop/ui/override-chrome-pages?utm_source=chatgpt.com)
+- Chrome does not expose an extension API to insert a normal browser-menu item directly below the built-in **Bookmark Manager** entry. The supported path here is the extension toolbar action; Chrome’s action API supports toolbar icons/titles and multiple icon sizes. [Chrome for Developers](https://developer.chrome.com/docs/extensions/reference/api/action?utm_source=chatgpt.com)
+
+Validated:
+
+- `manifest.json` parses successfully.
+- `manager.js` passes `node --check`.
+- `service_worker.js` passes `node --check`.
+- Generated icon files are valid PNGs.
+
+#### Sources
+[1](https://www.google.com/s2/favicons?domain=https://developer.chrome.com&sz=32)
+
