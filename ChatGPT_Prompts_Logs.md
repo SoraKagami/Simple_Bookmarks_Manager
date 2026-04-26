@@ -429,3 +429,48 @@ Double-check:
 - Hover each column header to confirm tooltip wording.
 - Click **Order** and confirm it returns to natural Chromium bookmark order.
 - Confirm drag reorder is available only when sort is **Unsorted/Order** and search is empty.
+
+## You said:
+
+Thank you very much.
+Updates for v0.2.6:
+* Can you please add the ability to hide the right "Details" panel? For this to work, there needs to be a couple of changes:
+* A toggle control added (Toggle Details) to the folder path bar in the top of the middle pane, very right-most side to show/hide the right "Details" pane. By default the right details pane is visible so the toggle control should start as "on" and show an appropriate short text (please help me figure out something obvious; unsure if "Toggle Details" is intuitive enough).
+* When the toggle details toggle is switched to "off", the right details pane should be hidden, toggle's tooltip updated to reflect this.
+* When the toggle details toggle is switched to "on", the right details pane should be shown and tooltip updated back to reflect this (default showing details pane state).
+
+Once done please update the file README.md with the version number change as well as document the changes applied.
+Please apply the above & provide an updated zip containing the updates thanks!
+
+## Chromium & Extensions Engineer said:
+
+Thought for 1m 10s
+
+Done: download v0.2.6 ZIP.
+
+Changes applied:
+
+- Bumped `manifest.json` to `0.2.6`.
+- Added a right-aligned folder path bar toggle:
+
+    - **Details On** by default.
+    - **Details Off** hides the right Details pane.
+- Added dynamic tooltips:
+
+    - visible state: “Hide the Details pane”
+    - hidden state: “Show the Details pane”
+- Middle pane expands when the Details pane is hidden.
+- Updated `README.md` with v0.2.6 notes.
+
+Validated:
+
+- `manifest.json` parses successfully.
+- `manager.js` passes `node --check`.
+- `service_worker.js` passes `node --check`.
+
+Double-check:
+
+- Reload the unpacked extension.
+- Confirm the Details pane is visible by default.
+- Toggle **Details Off**, then select bookmarks/folders and confirm the pane stays hidden.
+- Toggle **Details On** and confirm current selection details render correctly.

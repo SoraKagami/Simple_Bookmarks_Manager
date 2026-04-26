@@ -10,6 +10,7 @@ const state = {
   back: [],
   forward: [],
   expandedFolders: new Set(),
+  detailsVisible: true,
   drag: null
 };
 
@@ -333,10 +334,28 @@ function renderRoots() {
   $("roots").replaceChildren(...rootFolders().map((folder) => renderFolderTreeNode(folder)));
 }
 
+function detailsToggleTooltip() {
+  return state.detailsVisible ? "Hide the Details pane" : "Show the Details pane";
+}
+
 function renderCrumbs() {
   const path = [];
   for (let n = nodes.get(state.folderId); n && n.id !== "0"; n = n.parentNode) path.unshift(n.title || "(root)");
-  $("crumbs").textContent = path.join(" / ") || "Bookmarks";
+
+  const pathText = document.createElement("span");
+  pathText.className = "path-text";
+  pathText.textContent = path.join(" / ") || "Bookmarks";
+
+  const detailsToggle = document.createElement("button");
+  detailsToggle.id = "toggle-details";
+  detailsToggle.className = "details-toggle";
+  detailsToggle.type = "button";
+  detailsToggle.textContent = state.detailsVisible ? "Details On" : "Details Off";
+  detailsToggle.title = detailsToggleTooltip();
+  detailsToggle.setAttribute("aria-pressed", String(state.detailsVisible));
+  detailsToggle.onclick = toggleDetailsPane;
+
+  $("crumbs").replaceChildren(pathText, detailsToggle);
 }
 
 function renderList() {
@@ -412,6 +431,10 @@ function renderParents() {
 }
 
 function renderDetails() {
+  $("layout").classList.toggle("details-hidden", !state.detailsVisible);
+  $("details-pane").hidden = !state.detailsVisible;
+  if (!state.detailsVisible) return;
+
   const selected = nodes.get(state.selectedId);
   const form = $("details-form");
   form.hidden = !selected;
@@ -460,6 +483,12 @@ function renderColumnHeaders() {
 function renderNavButtons() {
   $("back").disabled = state.back.length === 0;
   $("forward").disabled = state.forward.length === 0;
+}
+
+function toggleDetailsPane() {
+  state.detailsVisible = !state.detailsVisible;
+  renderCrumbs();
+  renderDetails();
 }
 
 function render() {

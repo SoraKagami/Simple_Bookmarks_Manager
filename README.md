@@ -21,7 +21,7 @@ This Source Code Form is subject to the terms of the Mozilla Public License, v. 
 - Search scoped to the active folder, recursively.
 - Back/forward navigation between selected folders.
 - Mouse4/Mouse5 history navigation while the manager page is active.
-- Details pane for title, URL, parent folder, and deletion.
+- Hideable details pane for title, URL, parent folder, and deletion.
 - Live refresh from Chrome bookmark events.
 
 ## Chrome/Chromium implementation
@@ -72,6 +72,13 @@ Note: v0.2.2+ no longer overrides `chrome://bookmarks`, so Chromium/Brave's buil
 - Chromium BSD license reference: https://chromium.googlesource.com/chromium/src/+/HEAD/LICENSE
 
 ## Changelog
+
+### 0.2.6
+
+- Added a **Details On / Details Off** toggle at the right side of the folder path bar.
+- The Details pane is visible by default.
+- Turning the toggle off hides the right Details pane and lets the middle bookmark list use the extra width.
+- Toggle tooltips update between **Hide the Details pane** and **Show the Details pane**.
 
 ### 0.2.5
 
