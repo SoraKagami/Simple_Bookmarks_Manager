@@ -6,6 +6,7 @@ const state = {
   selectedId: null,
   search: "",
   sort: "index",
+  sortDirection: "asc",
   back: [],
   forward: [],
   expandedFolders: new Set(),
@@ -72,6 +73,26 @@ function flattenBookmarks(folder) {
   return out;
 }
 
+function compareNodes(a, b, key) {
+  const value = (node) => {
+    if (key === "dateAdded") return node.dateAdded || 0;
+    if (key === "id") {
+      const numeric = Number(node.id);
+      return Number.isFinite(numeric) ? numeric : node.id;
+    }
+    return node[key] || "";
+  };
+
+  const av = value(a);
+  const bv = value(b);
+  if (typeof av === "number" && typeof bv === "number") return av - bv;
+  return String(av).localeCompare(String(bv), undefined, { numeric: true, sensitivity: "base" });
+}
+
+function defaultSortDirection(key) {
+  return key === "dateAdded" || key === "id" ? "desc" : "asc";
+}
+
 function visibleItems() {
   const folder = nodes.get(state.folderId);
   if (!folder) return [];
@@ -82,11 +103,8 @@ function visibleItems() {
       [n.title, n.url].some((v) => (v || "").toLocaleLowerCase().includes(needle)));
   }
   if (state.sort !== "index") {
-    items = [...items].sort((a, b) => {
-      const av = state.sort === "dateAdded" ? (a.dateAdded || 0) : (a[state.sort] || "");
-      const bv = state.sort === "dateAdded" ? (b.dateAdded || 0) : (b[state.sort] || "");
-      return typeof av === "number" ? bv - av : String(av).localeCompare(String(bv));
-    });
+    const direction = state.sortDirection === "desc" ? -1 : 1;
+    items = [...items].sort((a, b) => compareNodes(a, b, state.sort) * direction);
   }
   return items;
 }
@@ -358,7 +376,11 @@ function renderList() {
     date.className = "muted";
     date.textContent = item.dateAdded ? new Date(item.dateAdded).toLocaleDateString() : "";
 
-    row.append(title, url, date);
+    const id = document.createElement("span");
+    id.className = "muted";
+    id.textContent = item.id;
+
+    row.append(title, url, date, id);
     row.onclick = () => select(item.id);
     row.ondblclick = () => openOrNavigate(item);
     row.onkeydown = (e) => {
@@ -406,6 +428,15 @@ function folderPath(folder) {
   return path.join(" / ");
 }
 
+function renderColumnHeaders() {
+  for (const button of document.querySelectorAll(".columns [data-sort-key]")) {
+    const key = button.dataset.sortKey;
+    const active = state.sort === key;
+    button.setAttribute("aria-pressed", String(active));
+    button.textContent = `${button.dataset.label || button.textContent.replace(/[ ▲▼]$/u, "")}${active ? (state.sortDirection === "asc" ? " ▲" : " ▼") : ""}`;
+  }
+}
+
 function renderNavButtons() {
   $("back").disabled = state.back.length === 0;
   $("forward").disabled = state.forward.length === 0;
@@ -415,6 +446,7 @@ function render() {
   renderRoots();
   renderCrumbs();
   renderList();
+  renderColumnHeaders();
   renderDetails();
   renderNavButtons();
 }
@@ -526,8 +558,26 @@ $("search").oninput = (e) => {
 };
 $("sort").onchange = (e) => {
   state.sort = e.target.value;
+  state.sortDirection = defaultSortDirection(state.sort);
   renderList();
+  renderColumnHeaders();
 };
+
+for (const button of document.querySelectorAll(".columns [data-sort-key]")) {
+  button.dataset.label = button.textContent;
+  button.onclick = () => {
+    const key = button.dataset.sortKey;
+    if (state.sort === key) {
+      state.sortDirection = state.sortDirection === "asc" ? "desc" : "asc";
+    } else {
+      state.sort = key;
+      state.sortDirection = defaultSortDirection(key);
+    }
+    $("sort").value = state.sort;
+    renderList();
+    renderColumnHeaders();
+  };
+}
 $("details-form").onsubmit = saveSelected;
 $("delete").onclick = removeSelected;
 $("new-folder").onclick = createFolder;

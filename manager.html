@@ -19,6 +19,7 @@
       <option value="title">Name</option>
       <option value="url">URL</option>
       <option value="dateAdded">Date added</option>
+      <option value="id">ID</option>
     </select>
   </header>
 
@@ -26,19 +27,15 @@
     <nav class="left">
       <h2>Library</h2>
       <div id="roots" class="tree"></div>
-      <div class="library-footer">
-        <label class="override-toggle" title="Chromium only supports bookmark-manager replacement through static manifest configuration.">
-          <input id="replace-default-manager" type="checkbox" disabled>
-          <span>Replace default bookmark manager</span>
-        </label>
-        <small>Runtime switching is not exposed by Chromium extensions.</small>
-      </div>
     </nav>
 
     <section class="content">
       <div id="crumbs" class="crumbs"></div>
-      <div class="columns">
-        <span>Name</span><span>URL</span><span>Date Added</span>
+      <div class="columns" aria-label="Bookmark list columns">
+        <button type="button" data-sort-key="title">Name</button>
+        <button type="button" data-sort-key="url">URL</button>
+        <button type="button" data-sort-key="dateAdded">Date Added</button>
+        <button type="button" data-sort-key="id">ID</button>
       </div>
       <div id="list" class="list" tabindex="0" aria-label="Bookmarks"></div>
     </section>

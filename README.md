@@ -29,7 +29,6 @@ This Source Code Form is subject to the terms of the Mozilla Public License, v. 
 - Opens from the extension toolbar action and preserves the built-in Chromium bookmark manager.
 - Uses `chrome.bookmarks` to read, create, update, move, move-into folders, reorder, and remove bookmark nodes.
 - Uses `chrome.tabs` only to open the manager from the extension action.
-- Shows a bottom-left `Replace default bookmark manager` control, but it is disabled because Chromium exposes bookmark-manager replacement only through the static `chrome_url_overrides` manifest key, not a runtime API.
 
 ## Source audit summary
 
@@ -60,7 +59,6 @@ Note: v0.2.2+ no longer overrides `chrome://bookmarks`, so Chromium/Brave's buil
 - Bookmarklets with `javascript:` URLs are not executed by this manager.
 - Drag reordering is disabled while search or non-index sorting is active because visible order no longer matches persisted bookmark order.
 - Chromium root/special folders cannot be moved, renamed, or removed.
-- Chromium/Chrome do not expose a runtime API to toggle `chrome_url_overrides.bookmarks`; bookmark-manager replacement must be declared statically in `manifest.json`.
 
 ## References
 
@@ -68,7 +66,6 @@ Note: v0.2.2+ no longer overrides `chrome://bookmarks`, so Chromium/Brave's buil
 - Firefox ESR 140 source tree used for design review only: https://github.com/mozilla-firefox/firefox/tree/FIREFOX_ESR_140_10_X_RELBRANCH
 - MPL 2.0: https://www.mozilla.org/en-US/MPL/2.0/
 - Chrome bookmarks API: https://developer.chrome.com/docs/extensions/reference/api/bookmarks
-- Chrome override pages: https://developer.chrome.com/docs/extensions/develop/ui/override-chrome-pages
 - Chrome action API: https://developer.chrome.com/docs/extensions/reference/api/action
 - MDN MouseEvent.button: https://developer.mozilla.org/en-US/docs/Web/API/MouseEvent/button
 - MDN auxclick: https://developer.mozilla.org/en-US/docs/Web/API/Element/auxclick_event
@@ -76,10 +73,16 @@ Note: v0.2.2+ no longer overrides `chrome://bookmarks`, so Chromium/Brave's buil
 
 ## Changelog
 
+### 0.2.4
+
+- Removed the disabled `Replace default bookmark manager` UI and related documentation because runtime replacement is not available to extensions.
+- Added sortable middle-pane column headers for **Name**, **URL**, **Date Added**, and **ID**.
+- Added a narrow **ID** column showing each bookmark/folder node ID.
+- Added the same **ID** sort option to the toolbar sort selector.
+- Kept drag reordering disabled while sorted/search views are active.
+
 ### 0.2.3
 
-- Added a bottom-left `Replace default bookmark manager` control with explanatory disabled state.
-- Kept the default Chromium/Brave Bookmark Manager unmodified because replacement is static manifest behavior, not runtime-toggleable from an extension page.
 - Added Mouse4/Mouse5 support while the manager page is active:
   - Mouse4 calls the same function as **Back**.
   - Mouse5 calls the same function as **Forward**.

@@ -21,8 +21,23 @@ h2 { font-size: 13px; margin: 0 0 10px; opacity: .75; text-transform: uppercase;
 .tree-label { width: 100%; text-align: left; padding: 5px 6px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 .item.selected { background: Highlight; color: HighlightText; }
 .crumbs { padding: 10px; border-bottom: 1px solid color-mix(in srgb, CanvasText 25%, transparent); }
-.columns, .item { display: grid; grid-template-columns: minmax(220px, 1.2fr) minmax(260px, 2fr) 140px; gap: 10px; align-items: center; }
-.columns { padding: 8px 12px; font-size: 12px; opacity: .7; border-bottom: 1px solid color-mix(in srgb, CanvasText 25%, transparent); }
+.columns, .item { display: grid; grid-template-columns: minmax(220px, 1.2fr) minmax(260px, 2fr) 140px 72px; gap: 10px; align-items: center; }
+.columns { padding: 6px 12px; font-size: 12px; border-bottom: 1px solid color-mix(in srgb, CanvasText 25%, transparent); }
+.columns button {
+  border: 0;
+  background: transparent;
+  color: inherit;
+  font: inherit;
+  font-weight: 600;
+  opacity: .75;
+  padding: 2px 0;
+  text-align: left;
+}
+.columns button:hover,
+.columns button[aria-pressed="true"] {
+  opacity: 1;
+  text-decoration: underline;
+}
 .list { overflow: auto; min-height: 0; }
 .item { padding: 8px 12px; cursor: default; border-bottom: 1px solid color-mix(in srgb, CanvasText 10%, transparent); }
 .item:hover { background: color-mix(in srgb, Highlight 20%, transparent); }
@@ -48,26 +63,3 @@ h2 { font-size: 13px; margin: 0 0 10px; opacity: .75; text-transform: uppercase;
   .left, .details { max-height: 35vh; }
 }
 
-.library-footer {
-  margin-top: auto;
-  padding-top: 12px;
-  border-top: 1px solid color-mix(in srgb, CanvasText 18%, transparent);
-}
-.override-toggle {
-  display: flex;
-  gap: 8px;
-  align-items: flex-start;
-  line-height: 1.25;
-  white-space: normal;
-}
-.override-toggle input {
-  margin-top: 2px;
-}
-.override-toggle span {
-  overflow-wrap: anywhere;
-}
-.library-footer small {
-  display: block;
-  margin-top: 6px;
-  opacity: .65;
-}
