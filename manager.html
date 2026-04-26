@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Bookmark Manager</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="manager.css">
+</head>
+<body>
+  <header class="toolbar">
+    <button id="back" title="Back" disabled>←</button>
+    <button id="forward" title="Forward" disabled>→</button>
+    <button id="new-folder">New Folder</button>
+    <button id="new-bookmark">New Bookmark</button>
+    <input id="search" type="search" placeholder="Search bookmarks">
+    <select id="sort">
+      <option value="index">Unsorted</option>
+      <option value="title">Name</option>
+      <option value="url">URL</option>
+      <option value="dateAdded">Date added</option>
+    </select>
+  </header>
+
+  <main class="layout">
+    <nav class="left">
+      <h2>Library</h2>
+      <div id="roots" class="tree"></div>
+    </nav>
+
+    <section class="content">
+      <div id="crumbs" class="crumbs"></div>
+      <div class="columns">
+        <span>Name</span><span>URL</span><span>Date Added</span>
+      </div>
+      <div id="list" class="list" tabindex="0" aria-label="Bookmarks"></div>
+    </section>
+
+    <aside class="details">
+      <h2>Details</h2>
+      <form id="details-form">
+        <label>Name <input id="title" autocomplete="off"></label>
+        <label>URL <input id="url" autocomplete="off"></label>
+        <label>Parent folder <select id="parent"></select></label>
+        <div class="row">
+          <button id="save" type="submit">Save</button>
+          <button id="delete" type="button">Delete</button>
+        </div>
+      </form>
+      <p id="empty-details">Select one item, or select a folder to show its contents.</p>
+    </aside>
+  </main>
+
+  <script type="module" src="manager.js"></script>
+</body>
+</html>
