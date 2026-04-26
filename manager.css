@@ -27,6 +27,13 @@ h2 { font-size: 13px; margin: 0 0 10px; opacity: .75; text-transform: uppercase;
 .details label { display: block; margin: 10px 0; }
 .details input, .details select { box-sizing: border-box; width: 100%; padding: 6px; margin-top: 4px; }
 .row { display: flex; gap: 8px; margin-top: 12px; }
+
+.tree-row[draggable="true"], .item[draggable="true"] { cursor: grab; }
+.tree-row.dragging, .item.dragging { opacity: .45; }
+.tree-row.drop-before, .item.drop-before { box-shadow: inset 0 2px 0 Highlight; }
+.tree-row.drop-after, .item.drop-after { box-shadow: inset 0 -2px 0 Highlight; }
+.list.reorder-disabled .item { cursor: default; }
+
 [hidden] { display: none !important; }
 @media (max-width: 900px) {
   .layout { grid-template-columns: 1fr; }

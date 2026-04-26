@@ -15,7 +15,8 @@ This Source Code Form is subject to the terms of the Mozilla Public License, v. 
 ## Firefox-inspired behavior
 
 - Left-pane folder tree with collapsible subfolders.
-- Right-pane active folder contents.
+- Drag-and-drop reordering for non-root folders in the left-pane tree.
+- Right-pane active folder contents with drag-and-drop reordering in natural order.
 - Search scoped to the active folder, recursively.
 - Back/forward navigation between selected folders.
 - Details pane for title, URL, parent folder, and deletion.
@@ -24,7 +25,7 @@ This Source Code Form is subject to the terms of the Mozilla Public License, v. 
 ## Chrome/Chromium implementation
 
 - Uses `chrome_url_overrides.bookmarks` to replace Chrome's bookmark manager page.
-- Uses `chrome.bookmarks` to read, create, update, move, and remove bookmark nodes.
+- Uses `chrome.bookmarks` to read, create, update, move, reorder, and remove bookmark nodes.
 - Uses `chrome.tabs` only to open the manager from the extension action.
 
 ## Source audit summary
@@ -52,6 +53,8 @@ See `SOURCE_AUDIT.md` for more detail.
 
 - Chrome bookmarks do not expose Firefox Places tags, keywords, history/downloads queries, separators, Places transactions, or JSONLZ4 backups.
 - Bookmarklets with `javascript:` URLs are not executed by this manager; they are opened as URLs only.
+- Drag-and-drop reordering is disabled while search is active or while sorted by Name, URL, or Date added; Chrome only persists explicit bookmark indices in natural order.
+- Top-level Chromium/Brave root folders such as `Bookmarks` / `Bookmarks Bar` and `Other bookmarks` are intentionally not draggable.
 
 ## References
 
@@ -65,6 +68,14 @@ See `SOURCE_AUDIT.md` for more detail.
 - Chromium BSD license reference: https://chromium.googlesource.com/chromium/src/+/HEAD/LICENSE
 
 ## Changelog
+
+### 0.2.0
+
+- Added drag-and-drop reordering in the main bookmark list when viewing natural order.
+- Added drag-and-drop reordering for non-root folders in the left tree.
+- Protected Chromium/Brave root folders from drag moves.
+- Added visual drop indicators and guarded drag behavior while search/sort views are active.
+- Bumped extension version to `0.2.0`.
 
 ### 0.1.2
 

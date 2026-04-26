@@ -8,7 +8,8 @@ const state = {
   sort: "index",
   back: [],
   forward: [],
-  expandedFolders: new Set()
+  expandedFolders: new Set(),
+  drag: null
 };
 
 const $ = (id) => document.getElementById(id);
@@ -30,9 +31,34 @@ function isFolder(node) {
   return !!node && !node.url;
 }
 
+function isRootFolder(node) {
+  return !!node && node.parentId === "0";
+}
+
+function canContainChildren(node) {
+  return isFolder(node) && node.id !== "0" && !node.unmodifiable && node.folderType !== "managed";
+}
+
 function isMutable(node) {
-  // Chrome forbids modifying root and special managed folders.
-  return !!node && node.id !== "0" && !node.unmodifiable && node.folderType !== "managed";
+  // Chrome forbids modifying the root, special root children, and managed folders.
+  return (canContainChildren(node) && !isRootFolder(node)) || (!!node && !isFolder(node) && !node.unmodifiable);
+}
+
+function isReorderable(node) {
+  return isMutable(node) && !isRootFolder(node);
+}
+
+function canDragListItem(node) {
+  return canReorderList() && isReorderable(node);
+}
+
+function canDragTreeFolder(node) {
+  return isFolder(node) && isReorderable(node);
+}
+
+function canReorderList() {
+  // Drag order only makes sense in the natural direct-child order.
+  return !state.search && state.sort === "index";
 }
 
 function flattenBookmarks(folder) {
@@ -102,6 +128,74 @@ function toggleFolder(folderId) {
   renderRoots();
 }
 
+function isDescendantOf(node, possibleAncestor) {
+  for (let n = node?.parentNode; n; n = n.parentNode) {
+    if (n.id === possibleAncestor?.id) return true;
+  }
+  return false;
+}
+
+function dropPosition(event, element) {
+  const rect = element.getBoundingClientRect();
+  return event.clientY < rect.top + rect.height / 2 ? "before" : "after";
+}
+
+function clearDropIndicators() {
+  document.querySelectorAll(".drop-before,.drop-after,.dragging").forEach((el) => {
+    el.classList.remove("drop-before", "drop-after", "dragging");
+  });
+}
+
+function validRelativeDrop(dragged, target) {
+  if (!dragged || !target || dragged.id === target.id) return false;
+  if (!isReorderable(dragged) || !isReorderable(target)) return false;
+  if (isFolder(dragged) && isDescendantOf(target, dragged)) return false;
+  return !!target.parentId && target.parentId !== "0";
+}
+
+async function moveRelativeTo(draggedId, targetId, position) {
+  const dragged = nodes.get(draggedId);
+  const target = nodes.get(targetId);
+  if (!validRelativeDrop(dragged, target)) return;
+
+  const destination = {
+    parentId: target.parentId,
+    index: target.index + (position === "after" ? 1 : 0)
+  };
+
+  await bookmarks("move", dragged.id, destination);
+  state.selectedId = dragged.id;
+  if (isFolder(dragged)) ensureExpandedPath(dragged.id);
+  await loadTree();
+}
+
+function attachRelativeDrop(row, target, source) {
+  row.ondragover = (e) => {
+    const dragged = nodes.get(state.drag?.id);
+    if (state.drag?.source !== source || !validRelativeDrop(dragged, target)) return;
+    e.preventDefault();
+    clearDropIndicators();
+    row.classList.add(dropPosition(e, row) === "before" ? "drop-before" : "drop-after");
+  };
+
+  row.ondragleave = () => row.classList.remove("drop-before", "drop-after");
+
+  row.ondrop = async (e) => {
+    const draggedId = state.drag?.id || e.dataTransfer.getData("text/plain");
+    const position = dropPosition(e, row);
+    e.preventDefault();
+    clearDropIndicators();
+    state.drag = null;
+    try {
+      await moveRelativeTo(draggedId, target.id, position);
+    } catch (err) {
+      console.error(err);
+      alert(`Could not reorder bookmark: ${err.message || err}`);
+      await loadTree();
+    }
+  };
+}
+
 function renderFolderTreeNode(folder, depth = 0) {
   const children = childFolders(folder);
   const isExpanded = state.expandedFolders.has(folder.id);
@@ -114,6 +208,22 @@ function renderFolderTreeNode(folder, depth = 0) {
   row.setAttribute("role", "treeitem");
   row.setAttribute("aria-selected", String(folder.id === state.folderId));
   if (children.length) row.setAttribute("aria-expanded", String(isExpanded));
+
+  if (canDragTreeFolder(folder)) {
+    row.draggable = true;
+    row.title = "Drag to reorder this folder";
+    row.ondragstart = (e) => {
+      state.drag = { id: folder.id, source: "tree" };
+      e.dataTransfer.effectAllowed = "move";
+      e.dataTransfer.setData("text/plain", folder.id);
+      row.classList.add("dragging");
+    };
+    row.ondragend = () => {
+      state.drag = null;
+      clearDropIndicators();
+    };
+    attachRelativeDrop(row, folder, "tree");
+  }
 
   const twisty = document.createElement("button");
   twisty.className = "twisty";
@@ -167,6 +277,22 @@ function renderList() {
     row.tabIndex = 0;
     if (item.id === state.selectedId) row.classList.add("selected");
 
+    if (canDragListItem(item)) {
+      row.draggable = true;
+      row.title = "Drag to reorder this item";
+      row.ondragstart = (e) => {
+        state.drag = { id: item.id, source: "list" };
+        e.dataTransfer.effectAllowed = "move";
+        e.dataTransfer.setData("text/plain", item.id);
+        row.classList.add("dragging");
+      };
+      row.ondragend = () => {
+        state.drag = null;
+        clearDropIndicators();
+      };
+      attachRelativeDrop(row, item, "list");
+    }
+
     const title = document.createElement("span");
     title.textContent = isFolder(item) ? `▸ ${item.title || "(folder)"}` : item.title || item.url || "(bookmark)";
 
@@ -187,12 +313,16 @@ function renderList() {
     };
     return row;
   });
+  $("list").classList.toggle("reorder-disabled", !canReorderList());
   $("list").replaceChildren(...rows);
 }
 
 function renderParents() {
   const selected = nodes.get(state.selectedId);
-  const options = [...nodes.values()].filter((n) => isFolder(n) && isMutable(n) && n.id !== selected?.id);
+  const options = [...nodes.values()].filter((n) =>
+    canContainChildren(n) &&
+    n.id !== selected?.id &&
+    !(selected && isFolder(selected) && isDescendantOf(n, selected)));
   $("parent").replaceChildren(...options.map((folder) => {
     const opt = document.createElement("option");
     opt.value = folder.id;
@@ -330,6 +460,10 @@ $("details-form").onsubmit = saveSelected;
 $("delete").onclick = removeSelected;
 $("new-folder").onclick = createFolder;
 $("new-bookmark").onclick = createBookmark;
+document.addEventListener("dragover", (e) => {
+  if (state.drag) e.preventDefault();
+});
+document.addEventListener("drop", clearDropIndicators);
 
 // Keep the view live, mirroring Firefox Places' model/view update pattern.
 for (const eventName of ["onCreated", "onRemoved", "onChanged", "onMoved", "onChildrenReordered"]) {

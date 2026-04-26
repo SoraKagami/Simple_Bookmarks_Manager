@@ -126,3 +126,48 @@ Firefox-derived summary:
 [2](https://www.google.com/s2/favicons?domain=https://chromium.googlesource.com&sz=32),
 [3](https://www.google.com/s2/favicons?domain=https://www.mozilla.org&sz=32)
 
+## You said:
+
+Thank you.
+Let's return to the extension's logic. This update will be v0.2.0 as it may involve a large change.
+Can you please add the ability to rearrange the order of bookmarks in the bookmarks manager?
+* Bookmarks in the main middle pane should allow for drag and drop reordering.
+* The folder structure on the left pane should also allow for a drag and drop reordering except for the "root" folders, which on Brave (chromium) is "Bookmarks" and "Other bookmarks".
+Once done please update the file README.md with the version number change as well as document the changes applied.
+
+Please apply the above & provide an updated zip containing the updates as well as an updated README.md, thanks!
+
+2/2
+
+## Chromium & Extensions Engineer said:
+
+I’ll update the v0.1.2 package directly: add drag/drop move logic for middle-pane bookmarks and left-pane folders, protect Chromium root folders, then bump docs/version to v0.2.0 and package a new ZIP.
+
+I found one API edge case to handle: Chrome’s `bookmarks.move()` supports `parentId` + `index`, but root/special folders cannot be moved, renamed, or removed, so drag handles need to be disabled for those nodes.
+
+Thought for 1m 55s
+
+Done: download v0.2.0 ZIP.
+
+Changes applied:
+
+- Bumped `manifest.json` to `0.2.0`.
+- Added drag-and-drop reordering in the middle bookmark list.
+- Added drag-and-drop reordering for non-root folders in the left folder tree.
+- Protected Chromium/Brave root folders from drag moves.
+- Disabled drag reordering while search or non-index sort is active.
+- Added visual drop indicators.
+- Updated `README.md` with v0.2.0 changes and limitations.
+
+Validated:
+
+- `manifest.json` parses successfully.
+- `manager.js` passes `node --check`.
+- `service_worker.js` passes `node --check`.
+
+Double-check:
+
+- Reload the unpacked extension at `chrome://extensions`.
+- Open `chrome://bookmarks`.
+- Set sort to **Unsorted** before testing drag reorder.
+- Verify Brave root folders like **Bookmarks** and **Other bookmarks** cannot be dragged.
