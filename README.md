@@ -1,5 +1,7 @@
 # Simple Bookmarks Manager
 
+Version: 0.2.10
+
 A Manifest V3 Chrome/Chromium extension that provides a simple local bookmark manager inspired by Firefox Places Library ideas.
 
 This Source Code Form is subject to the terms of the Mozilla Public License, v. 2.0. See `LICENSE`.
@@ -14,7 +16,7 @@ This Source Code Form is subject to the terms of the Mozilla Public License, v. 
 
 ## Firefox-inspired behavior
 
-- Left-pane folder tree with collapsible subfolders.
+- Left-pane folder tree with collapsible subfolders, including double-click expand/collapse on folders with subfolders.
 - Drag-and-drop reordering for non-root folders in the left-pane tree.
 - Drag-and-drop moves into folder rows from either the main list or left folder tree.
 - Right-pane active folder contents with drag-and-drop reordering in natural order.
@@ -72,6 +74,12 @@ Note: v0.2.2+ no longer overrides `chrome://bookmarks`, so Chromium/Brave's buil
 - Chromium BSD license reference: https://chromium.googlesource.com/chromium/src/+/HEAD/LICENSE
 
 ## Changelog
+
+### 0.2.10
+
+- Added double-click expand/collapse behavior in the left Library folder tree.
+- Double-clicking a folder row or label with child subfolders now toggles that branch open or closed at that level.
+- Single-click selection/navigation behavior remains unchanged.
 
 ### 0.2.9
 

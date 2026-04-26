@@ -307,12 +307,22 @@ function renderFolderTreeNode(folder, depth = 0) {
     toggleFolder(folder.id);
   };
 
+  const toggleFolderOnDoubleClick = (e) => {
+    if (!children.length) return;
+    e.preventDefault();
+    e.stopPropagation();
+    toggleFolder(folder.id);
+  };
+
   const label = document.createElement("button");
   label.className = "tree-label";
   label.type = "button";
   label.textContent = folder.title || "(root)";
   label.setAttribute("aria-current", String(folder.id === state.folderId));
+  label.title = children.length ? "Double-click to expand or collapse this folder" : "";
   label.onclick = () => navigate(folder.id);
+  label.ondblclick = toggleFolderOnDoubleClick;
+  row.ondblclick = toggleFolderOnDoubleClick;
 
   row.append(twisty, label);
   container.append(row);
