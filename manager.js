@@ -490,18 +490,36 @@ async function createBookmark() {
   select(node.id);
 }
 
-$("back").onclick = () => {
+function goBack() {
   const id = state.back.shift();
   if (!id) return;
   state.forward.unshift(state.folderId);
   navigate(id, false);
-};
-$("forward").onclick = () => {
+}
+
+function goForward() {
   const id = state.forward.shift();
   if (!id) return;
   state.back.unshift(state.folderId);
   navigate(id, false);
-};
+}
+
+function handleMouseHistoryButton(e) {
+  // Mouse4/Mouse5 are commonly exposed as button 3/4 in Chromium.
+  // Prevent the browser's default history navigation inside the manager page.
+  if (e.button === 3) {
+    e.preventDefault();
+    e.stopPropagation();
+    goBack();
+  } else if (e.button === 4) {
+    e.preventDefault();
+    e.stopPropagation();
+    goForward();
+  }
+}
+
+$("back").onclick = goBack;
+$("forward").onclick = goForward;
 $("search").oninput = (e) => {
   state.search = e.target.value;
   renderList();
@@ -518,6 +536,8 @@ document.addEventListener("dragover", (e) => {
   if (state.drag) e.preventDefault();
 });
 document.addEventListener("drop", clearDropIndicators);
+window.addEventListener("mousedown", handleMouseHistoryButton, { capture: true });
+window.addEventListener("auxclick", handleMouseHistoryButton, { capture: true });
 
 // Keep the view live, mirroring Firefox Places' model/view update pattern.
 for (const eventName of ["onCreated", "onRemoved", "onChanged", "onMoved", "onChildrenReordered"]) {

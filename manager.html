@@ -26,6 +26,13 @@
     <nav class="left">
       <h2>Library</h2>
       <div id="roots" class="tree"></div>
+      <div class="library-footer">
+        <label class="override-toggle" title="Chromium only supports bookmark-manager replacement through static manifest configuration.">
+          <input id="replace-default-manager" type="checkbox" disabled>
+          <span>Replace default bookmark manager</span>
+        </label>
+        <small>Runtime switching is not exposed by Chromium extensions.</small>
+      </div>
     </nav>
 
     <section class="content">

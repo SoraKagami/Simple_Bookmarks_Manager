@@ -20,6 +20,7 @@ This Source Code Form is subject to the terms of the Mozilla Public License, v. 
 - Right-pane active folder contents with drag-and-drop reordering in natural order.
 - Search scoped to the active folder, recursively.
 - Back/forward navigation between selected folders.
+- Mouse4/Mouse5 history navigation while the manager page is active.
 - Details pane for title, URL, parent folder, and deletion.
 - Live refresh from Chrome bookmark events.
 
@@ -28,6 +29,7 @@ This Source Code Form is subject to the terms of the Mozilla Public License, v. 
 - Opens from the extension toolbar action and preserves the built-in Chromium bookmark manager.
 - Uses `chrome.bookmarks` to read, create, update, move, move-into folders, reorder, and remove bookmark nodes.
 - Uses `chrome.tabs` only to open the manager from the extension action.
+- Shows a bottom-left `Replace default bookmark manager` control, but it is disabled because Chromium exposes bookmark-manager replacement only through the static `chrome_url_overrides` manifest key, not a runtime API.
 
 ## Source audit summary
 
@@ -50,30 +52,38 @@ See `SOURCE_AUDIT.md` for more detail.
 4. Select this folder.
 5. Click the **Simple Bookmarks Manager** extension action.
 
-Note: v0.2.2 no longer overrides `chrome://bookmarks`, so Chromium/Brave's built-in Bookmark Manager remains available from the browser menu.
+Note: v0.2.2+ no longer overrides `chrome://bookmarks`, so Chromium/Brave's built-in Bookmark Manager remains available from the browser menu.
 
 ## Limits
 
 - Chrome bookmarks do not expose Firefox Places tags, keywords, history/downloads queries, separators, Places transactions, or JSONLZ4 backups.
-- Bookmarklets with `javascript:` URLs are not executed by this manager; they are opened as URLs only.
-- Drag-and-drop before/after reordering in the middle list is disabled while search is active or while sorted by Name, URL, or Date added; Chrome only persists explicit bookmark indices in natural order.
-- Dragging onto the center of a folder row moves the dragged item into that folder, including middle-pane to left-pane moves; dragging near the top/bottom of a row keeps before/after reorder behavior where allowed.
-- Top-level Chromium/Brave root folders such as `Bookmarks` / `Bookmarks Bar` and `Other bookmarks` are intentionally not draggable.
-- Chrome extensions cannot add a normal item directly under Chromium/Brave's built-in Bookmark Manager menu entry; this extension uses its toolbar action instead.
+- Bookmarklets with `javascript:` URLs are not executed by this manager.
+- Drag reordering is disabled while search or non-index sorting is active because visible order no longer matches persisted bookmark order.
+- Chromium root/special folders cannot be moved, renamed, or removed.
+- Chromium/Chrome do not expose a runtime API to toggle `chrome_url_overrides.bookmarks`; bookmark-manager replacement must be declared statically in `manifest.json`.
 
 ## References
 
-- Firefox ESR 140 source reference: https://github.com/mozilla-firefox/firefox/tree/FIREFOX_ESR_140_10_X_RELBRANCH
-- Firefox Places docs: https://firefox-source-docs.mozilla.org/browser/places/index.html
-- Firefox Bookmarks API internals docs: https://firefox-source-docs.mozilla.org/browser/places/Bookmarks.html
-- Firefox Places architecture docs: https://firefox-source-docs.mozilla.org/browser/places/architecture-overview.html
-- Mozilla MPL 2.0: https://www.mozilla.org/MPL/2.0/
+- Mozilla Places docs: https://firefox-source-docs.mozilla.org/browser/places/index.html
+- Firefox ESR 140 source tree used for design review only: https://github.com/mozilla-firefox/firefox/tree/FIREFOX_ESR_140_10_X_RELBRANCH
+- MPL 2.0: https://www.mozilla.org/en-US/MPL/2.0/
 - Chrome bookmarks API: https://developer.chrome.com/docs/extensions/reference/api/bookmarks
 - Chrome override pages: https://developer.chrome.com/docs/extensions/develop/ui/override-chrome-pages
 - Chrome action API: https://developer.chrome.com/docs/extensions/reference/api/action
+- MDN MouseEvent.button: https://developer.mozilla.org/en-US/docs/Web/API/MouseEvent/button
+- MDN auxclick: https://developer.mozilla.org/en-US/docs/Web/API/Element/auxclick_event
 - Chromium BSD license reference: https://chromium.googlesource.com/chromium/src/+/HEAD/LICENSE
 
 ## Changelog
+
+### 0.2.3
+
+- Added a bottom-left `Replace default bookmark manager` control with explanatory disabled state.
+- Kept the default Chromium/Brave Bookmark Manager unmodified because replacement is static manifest behavior, not runtime-toggleable from an extension page.
+- Added Mouse4/Mouse5 support while the manager page is active:
+  - Mouse4 calls the same function as **Back**.
+  - Mouse5 calls the same function as **Forward**.
+- Updated README references and limitations.
 
 ### 0.2.2
 
