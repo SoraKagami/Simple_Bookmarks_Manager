@@ -16,6 +16,7 @@ This Source Code Form is subject to the terms of the Mozilla Public License, v. 
 
 - Left-pane folder tree with collapsible subfolders.
 - Drag-and-drop reordering for non-root folders in the left-pane tree.
+- Drag-and-drop moves into folder rows from either the main list or left folder tree.
 - Right-pane active folder contents with drag-and-drop reordering in natural order.
 - Search scoped to the active folder, recursively.
 - Back/forward navigation between selected folders.
@@ -25,7 +26,7 @@ This Source Code Form is subject to the terms of the Mozilla Public License, v. 
 ## Chrome/Chromium implementation
 
 - Uses `chrome_url_overrides.bookmarks` to replace Chrome's bookmark manager page.
-- Uses `chrome.bookmarks` to read, create, update, move, reorder, and remove bookmark nodes.
+- Uses `chrome.bookmarks` to read, create, update, move, move-into folders, reorder, and remove bookmark nodes.
 - Uses `chrome.tabs` only to open the manager from the extension action.
 
 ## Source audit summary
@@ -53,7 +54,8 @@ See `SOURCE_AUDIT.md` for more detail.
 
 - Chrome bookmarks do not expose Firefox Places tags, keywords, history/downloads queries, separators, Places transactions, or JSONLZ4 backups.
 - Bookmarklets with `javascript:` URLs are not executed by this manager; they are opened as URLs only.
-- Drag-and-drop reordering is disabled while search is active or while sorted by Name, URL, or Date added; Chrome only persists explicit bookmark indices in natural order.
+- Drag-and-drop before/after reordering in the middle list is disabled while search is active or while sorted by Name, URL, or Date added; Chrome only persists explicit bookmark indices in natural order.
+- Dragging onto the center of a folder row moves the dragged item into that folder, including middle-pane to left-pane moves; dragging near the top/bottom of a row keeps before/after reorder behavior where allowed.
 - Top-level Chromium/Brave root folders such as `Bookmarks` / `Bookmarks Bar` and `Other bookmarks` are intentionally not draggable.
 
 ## References
@@ -68,6 +70,14 @@ See `SOURCE_AUDIT.md` for more detail.
 - Chromium BSD license reference: https://chromium.googlesource.com/chromium/src/+/HEAD/LICENSE
 
 ## Changelog
+
+### 0.2.1
+
+- Added “drop into folder” behavior for folder rows in both the middle list and left tree.
+- Enabled dragging bookmarks/folders from the middle pane onto left-pane folders.
+- Enabled dragging folders from the left pane into folders shown in the middle pane.
+- Preserved before/after row reordering when dropping near the top or bottom of a target row.
+- Improved same-parent index calculation for before/after moves.
 
 ### 0.2.0
 

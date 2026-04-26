@@ -49,7 +49,9 @@ function isReorderable(node) {
 }
 
 function canDragListItem(node) {
-  return canReorderList() && isReorderable(node);
+  // Items can always be dragged to a folder. Before/after reordering is
+  // separately gated by canReorderList() in validDrop().
+  return isReorderable(node);
 }
 
 function canDragTreeFolder(node) {
@@ -135,62 +137,102 @@ function isDescendantOf(node, possibleAncestor) {
   return false;
 }
 
-function dropPosition(event, element) {
+function dropIntent(event, element, target) {
   const rect = element.getBoundingClientRect();
-  return event.clientY < rect.top + rect.height / 2 ? "before" : "after";
+  const y = event.clientY - rect.top;
+
+  if (isFolder(target) && canContainChildren(target)) {
+    if (y < rect.height * 0.25) return "before";
+    if (y > rect.height * 0.75) return "after";
+    return "into";
+  }
+
+  return y < rect.height / 2 ? "before" : "after";
+}
+
+function dropClass(intent) {
+  return intent === "into" ? "drop-into" : intent === "before" ? "drop-before" : "drop-after";
 }
 
 function clearDropIndicators() {
-  document.querySelectorAll(".drop-before,.drop-after,.dragging").forEach((el) => {
-    el.classList.remove("drop-before", "drop-after", "dragging");
+  document.querySelectorAll(".drop-before,.drop-after,.drop-into,.dragging").forEach((el) => {
+    el.classList.remove("drop-before", "drop-after", "drop-into", "dragging");
   });
 }
 
-function validRelativeDrop(dragged, target) {
+function validDrop(dragged, target, intent, context) {
   if (!dragged || !target || dragged.id === target.id) return false;
+  if (!isMutable(dragged)) return false;
+
+  if (intent === "into") {
+    if (!canContainChildren(target)) return false;
+    if (isFolder(dragged) && isDescendantOf(target, dragged)) return false;
+    return true;
+  }
+
+  if (context === "list" && !canReorderList()) return false;
   if (!isReorderable(dragged) || !isReorderable(target)) return false;
   if (isFolder(dragged) && isDescendantOf(target, dragged)) return false;
   return !!target.parentId && target.parentId !== "0";
 }
 
-async function moveRelativeTo(draggedId, targetId, position) {
+async function moveWithIntent(draggedId, targetId, intent) {
   const dragged = nodes.get(draggedId);
   const target = nodes.get(targetId);
-  if (!validRelativeDrop(dragged, target)) return;
+  if (!validDrop(dragged, target, intent, "any")) return;
 
-  const destination = {
+  if (intent === "into") {
+    await bookmarks("move", dragged.id, { parentId: target.id });
+    state.folderId = target.id;
+    state.selectedId = dragged.id;
+    state.expandedFolders.add(target.id);
+    if (isFolder(dragged)) ensureExpandedPath(dragged.id);
+    await loadTree();
+    return;
+  }
+
+  let index = target.index + (intent === "after" ? 1 : 0);
+  if (dragged.parentId === target.parentId && dragged.index < target.index) {
+    index -= 1;
+  }
+
+  await bookmarks("move", dragged.id, {
     parentId: target.parentId,
-    index: target.index + (position === "after" ? 1 : 0)
-  };
-
-  await bookmarks("move", dragged.id, destination);
+    index: Math.max(0, index)
+  });
   state.selectedId = dragged.id;
   if (isFolder(dragged)) ensureExpandedPath(dragged.id);
   await loadTree();
 }
 
-function attachRelativeDrop(row, target, source) {
+function attachDropTarget(row, target, context) {
   row.ondragover = (e) => {
-    const dragged = nodes.get(state.drag?.id);
-    if (state.drag?.source !== source || !validRelativeDrop(dragged, target)) return;
+    const dragged = nodes.get(state.drag?.id || e.dataTransfer.getData("text/plain"));
+    const intent = dropIntent(e, row, target);
+    if (!validDrop(dragged, target, intent, context)) return;
+
     e.preventDefault();
+    e.dataTransfer.dropEffect = "move";
     clearDropIndicators();
-    row.classList.add(dropPosition(e, row) === "before" ? "drop-before" : "drop-after");
+    row.classList.add(dropClass(intent));
   };
 
-  row.ondragleave = () => row.classList.remove("drop-before", "drop-after");
+  row.ondragleave = () => row.classList.remove("drop-before", "drop-after", "drop-into");
 
   row.ondrop = async (e) => {
     const draggedId = state.drag?.id || e.dataTransfer.getData("text/plain");
-    const position = dropPosition(e, row);
+    const intent = dropIntent(e, row, target);
+    const dragged = nodes.get(draggedId);
+    if (!validDrop(dragged, target, intent, context)) return;
+
     e.preventDefault();
     clearDropIndicators();
     state.drag = null;
     try {
-      await moveRelativeTo(draggedId, target.id, position);
+      await moveWithIntent(draggedId, target.id, intent);
     } catch (err) {
       console.error(err);
-      alert(`Could not reorder bookmark: ${err.message || err}`);
+      alert(`Could not move bookmark item: ${err.message || err}`);
       await loadTree();
     }
   };
@@ -222,8 +264,9 @@ function renderFolderTreeNode(folder, depth = 0) {
       state.drag = null;
       clearDropIndicators();
     };
-    attachRelativeDrop(row, folder, "tree");
   }
+
+  attachDropTarget(row, folder, "tree");
 
   const twisty = document.createElement("button");
   twisty.className = "twisty";
@@ -279,7 +322,7 @@ function renderList() {
 
     if (canDragListItem(item)) {
       row.draggable = true;
-      row.title = "Drag to reorder this item";
+      row.title = "Drag to move or reorder this item";
       row.ondragstart = (e) => {
         state.drag = { id: item.id, source: "list" };
         e.dataTransfer.effectAllowed = "move";
@@ -290,8 +333,10 @@ function renderList() {
         state.drag = null;
         clearDropIndicators();
       };
-      attachRelativeDrop(row, item, "list");
+
     }
+
+    attachDropTarget(row, item, "list");
 
     const title = document.createElement("span");
     title.textContent = isFolder(item) ? `▸ ${item.title || "(folder)"}` : item.title || item.url || "(bookmark)";
