@@ -73,6 +73,12 @@ Note: v0.2.2+ no longer overrides `chrome://bookmarks`, so Chromium/Brave's buil
 
 ## Changelog
 
+### 0.2.8
+
+- Restored middle-pane horizontal scrolling by wrapping headers and rows in one shared table content area.
+- Column headers and bookmark/folder rows now scroll horizontally together when the available width is too narrow.
+- Kept the header row sticky for vertical scrolling.
+
 ### 0.2.7
 
 - Fixed narrow-window horizontal scrolling so the middle-pane column headers and bookmark rows scroll together.
