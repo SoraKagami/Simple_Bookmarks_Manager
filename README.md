@@ -73,6 +73,13 @@ Note: v0.2.2+ no longer overrides `chrome://bookmarks`, so Chromium/Brave's buil
 
 ## Changelog
 
+### 0.2.9
+
+- Renamed the Details pane button text from **Details On / Details Off** to action-oriented labels:
+  - **Click to Hide Details** when the pane is visible.
+  - **Click to Show Details** when the pane is hidden.
+- Kept the existing Details pane show/hide behavior and tooltips unchanged.
+
 ### 0.2.8
 
 - Restored middle-pane horizontal scrolling by wrapping headers and rows in one shared table content area.
@@ -86,10 +93,10 @@ Note: v0.2.2+ no longer overrides `chrome://bookmarks`, so Chromium/Brave's buil
 
 ### 0.2.6
 
-- Added a **Details On / Details Off** toggle at the right side of the folder path bar.
+- Added a **Click to Hide Details / Click to Show Details** button at the right side of the folder path bar.
 - The Details pane is visible by default.
 - Turning the toggle off hides the right Details pane and lets the middle bookmark list use the extra width.
-- Toggle tooltips update between **Hide the Details pane** and **Show the Details pane**.
+- Button tooltips update between **Hide the Details pane** and **Show the Details pane**.
 
 ### 0.2.5
 

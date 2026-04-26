@@ -350,7 +350,7 @@ function renderCrumbs() {
   detailsToggle.id = "toggle-details";
   detailsToggle.className = "details-toggle";
   detailsToggle.type = "button";
-  detailsToggle.textContent = state.detailsVisible ? "Details On" : "Details Off";
+  detailsToggle.textContent = state.detailsVisible ? "Click to Hide Details" : "Click to Show Details";
   detailsToggle.title = detailsToggleTooltip();
   detailsToggle.setAttribute("aria-pressed", String(state.detailsVisible));
   detailsToggle.onclick = toggleDetailsPane;
