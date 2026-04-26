@@ -347,3 +347,85 @@ Double-check:
 - Click each column header and confirm sort direction toggles.
 - Confirm drag reordering is still disabled while sorted/search views are active.
 - Confirm the left pane no longer shows the removed toggle.
+
+## You said:
+
+Questions about functionality, not a code update request:
+1. When a middle pane's column is sorted, is the "Unsorted" state identical to sorting by "ID" (Up arrow)?
+2. Logically is the "Up" and "Down" arrows as is the correct assignment? I somehow seem to mentally link the "Down" arrow with the natural alphabetical / numerical sort instead of the current "Up" & am confused as to what is the correct convention here?
+
+## Chromium & Extensions Engineer said:
+
+Thought for a few seconds
+
+1. **No. “Unsorted” is not identical to “ID ↑”.**
+
+    - In this extension, **Unsorted** should mean Chrome’s actual bookmark order inside the parent folder: the node’s `index` / `children` order.
+    - **ID ↑** sorts by the bookmark node’s `id` string/number value.
+    - Those often correlate loosely for older bookmarks, but they are not guaranteed to match after moves, imports, sync, restores, or browser-specific behavior.
+    - Chrome’s bookmarks API exposes `id`, `parentId`, `index`, and ordered children; order within a folder is the UI/tree order, not ID order. [Chrome for Developers+1](https://developer.chrome.com/docs/extensions/reference/api/bookmarks?utm_source=chatgpt.com)
+2. **Arrow convention is ambiguous, but the current assignment is defensible.**
+
+    - Common table convention:
+
+          - **↑ / ascending** = A → Z, 0 → 9, oldest → newest.
+          - **↓ / descending** = Z → A, 9 → 0, newest → oldest.
+    - Your mental model is also common: “down arrow” feels like “sort downward from the top starting at A/0.” That is more visual/spatial than database-style terminology.
+    - For clarity, I would recommend changing the UI labels/tooltips to avoid ambiguity:
+
+          - `Name ↑` tooltip: “A to Z”
+          - `Name ↓` tooltip: “Z to A”
+          - `Date Added ↑`: “Oldest first”
+          - `Date Added ↓`: “Newest first”
+          - `ID ↑`: “Lowest ID first”
+          - `ID ↓`: “Highest ID first”
+
+**My recommendation:** keep **↑ = ascending** and **↓ = descending**, but add explicit tooltip text and maybe show header labels like `Name ↑ A–Z` in the status/tooltip. That matches common table-sort behavior while removing the mental mismatch.
+
+#### Sources
+[1](https://www.google.com/s2/favicons?domain=https://developer.chrome.com&sz=32)
+
+## You said:
+
+Thanks, that was educational. Let's go with your correct up/down arrow assignment and tooltip addition suggestion too.
+Updates for v0.2.5:
+* Please implement your suggestion for the sort tooltips above.
+* Middle pane: Please add a new 5th narrow column that uses chromium's actual bookmark order. When the this new column header is clicked, please use the same function call as the top bar's sort dropdown menu entry "Unsorted". Let's leave out a reversed chrome sort option as this adds complexity and potential for unexpected behavior, so this column header essentially functions like a button for "Unsorted". Please add a tooltip to reflect that this header only reverts to "default" sorting. I will need to trouble you with this text as I am currently a bit too tired to think coherently. Also please suggest and name this new column with something appropriate and obvious.
+
+Once done please update the file README.md with the version number change as well as document the changes applied.
+Please apply the above & provide an updated zip containing the updates thanks!
+
+## Chromium & Extensions Engineer said:
+
+Thought for 1m 18s
+
+Done: download v0.2.5 ZIP.
+
+Changes applied:
+
+- Bumped `manifest.json` to `0.2.5`.
+- Added sort tooltips:
+
+    - `Name ↑` = A to Z, `Name ↓` = Z to A
+    - `URL ↑` = A to Z, `URL ↓` = Z to A
+    - `Date Added ↑` = oldest first, `Date Added ↓` = newest first
+    - `ID ↑` = lowest first, `ID ↓` = highest first
+- Added a narrow **Order** column showing Chromium’s actual per-folder bookmark `index`.
+- Made the **Order** header act like the toolbar **Unsorted** option:
+
+    - returns to Chromium’s default bookmark order
+    - does not toggle reverse order
+- Updated `README.md` with v0.2.5 notes.
+
+Validated:
+
+- `manifest.json` parses successfully.
+- `manager.js` passes `node --check`.
+- `service_worker.js` passes `node --check`.
+
+Double-check:
+
+- Reload the unpacked extension.
+- Hover each column header to confirm tooltip wording.
+- Click **Order** and confirm it returns to natural Chromium bookmark order.
+- Confirm drag reorder is available only when sort is **Unsorted/Order** and search is empty.

@@ -380,7 +380,11 @@ function renderList() {
     id.className = "muted";
     id.textContent = item.id;
 
-    row.append(title, url, date, id);
+    const order = document.createElement("span");
+    order.className = "muted";
+    order.textContent = Number.isInteger(item.index) ? String(item.index) : "";
+
+    row.append(title, url, date, id, order);
     row.onclick = () => select(item.id);
     row.ondblclick = () => openOrNavigate(item);
     row.onkeydown = (e) => {
@@ -428,12 +432,28 @@ function folderPath(folder) {
   return path.join(" / ");
 }
 
+function sortTooltip(key, direction = state.sortDirection) {
+  if (key === "index") {
+    return "Default Chromium folder order. Click to return to Unsorted; this column does not reverse-sort.";
+  }
+  const ascending = direction === "asc";
+  if (key === "title") return ascending ? "Sort by name: A to Z" : "Sort by name: Z to A";
+  if (key === "url") return ascending ? "Sort by URL: A to Z" : "Sort by URL: Z to A";
+  if (key === "dateAdded") return ascending ? "Sort by date added: oldest first" : "Sort by date added: newest first";
+  if (key === "id") return ascending ? "Sort by ID: lowest first" : "Sort by ID: highest first";
+  return "Sort bookmarks";
+}
+
 function renderColumnHeaders() {
   for (const button of document.querySelectorAll(".columns [data-sort-key]")) {
     const key = button.dataset.sortKey;
     const active = state.sort === key;
     button.setAttribute("aria-pressed", String(active));
-    button.textContent = `${button.dataset.label || button.textContent.replace(/[ ▲▼]$/u, "")}${active ? (state.sortDirection === "asc" ? " ▲" : " ▼") : ""}`;
+    button.title = sortTooltip(key, active ? state.sortDirection : defaultSortDirection(key));
+
+    const label = button.dataset.label || button.textContent.replace(/[ ▲▼]$/u, "");
+    const arrow = active && key !== "index" ? (state.sortDirection === "asc" ? " ▲" : " ▼") : "";
+    button.textContent = `${label}${arrow}`;
   }
 }
 
@@ -550,6 +570,20 @@ function handleMouseHistoryButton(e) {
   }
 }
 
+function setSortSelectTooltips() {
+  const labels = {
+    index: sortTooltip("index"),
+    title: "Name sort. Ascending is A to Z; descending is Z to A.",
+    url: "URL sort. Ascending is A to Z; descending is Z to A.",
+    dateAdded: "Date added sort. Ascending is oldest first; descending is newest first.",
+    id: "ID sort. Ascending is lowest first; descending is highest first."
+  };
+
+  for (const option of $("sort").options) {
+    option.title = labels[option.value] || "Sort bookmarks";
+  }
+}
+
 $("back").onclick = goBack;
 $("forward").onclick = goForward;
 $("search").oninput = (e) => {
@@ -567,7 +601,12 @@ for (const button of document.querySelectorAll(".columns [data-sort-key]")) {
   button.dataset.label = button.textContent;
   button.onclick = () => {
     const key = button.dataset.sortKey;
-    if (state.sort === key) {
+    if (key === "index") {
+      // Same behavior as the toolbar's "Unsorted" entry: show Chromium's
+      // persisted child order exactly as returned by chrome.bookmarks.
+      state.sort = "index";
+      state.sortDirection = "asc";
+    } else if (state.sort === key) {
       state.sortDirection = state.sortDirection === "asc" ? "desc" : "asc";
     } else {
       state.sort = key;
@@ -588,6 +627,8 @@ document.addEventListener("dragover", (e) => {
 document.addEventListener("drop", clearDropIndicators);
 window.addEventListener("mousedown", handleMouseHistoryButton, { capture: true });
 window.addEventListener("auxclick", handleMouseHistoryButton, { capture: true });
+
+setSortSelectTooltips();
 
 // Keep the view live, mirroring Firefox Places' model/view update pattern.
 for (const eventName of ["onCreated", "onRemoved", "onChanged", "onMoved", "onChildrenReordered"]) {

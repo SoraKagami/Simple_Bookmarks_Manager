@@ -73,6 +73,16 @@ Note: v0.2.2+ no longer overrides `chrome://bookmarks`, so Chromium/Brave's buil
 
 ## Changelog
 
+### 0.2.5
+
+- Added explicit sort tooltips for column headers and the sort selector:
+  - Name: A to Z / Z to A.
+  - URL: A to Z / Z to A.
+  - Date Added: oldest first / newest first.
+  - ID: lowest first / highest first.
+- Added a narrow **Order** column that shows Chromium's actual per-folder bookmark order/index.
+- Made the **Order** column header act like the toolbar **Unsorted** option: it returns the middle pane to Chromium's default folder order and does not reverse-sort.
+
 ### 0.2.4
 
 - Removed the disabled `Replace default bookmark manager` UI and related documentation because runtime replacement is not available to extensions.

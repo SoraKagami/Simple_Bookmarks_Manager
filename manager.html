@@ -14,7 +14,7 @@
     <button id="new-folder">New Folder</button>
     <button id="new-bookmark">New Bookmark</button>
     <input id="search" type="search" placeholder="Search bookmarks">
-    <select id="sort">
+    <select id="sort" title="Choose the middle-pane sort mode. Unsorted uses Chromium’s default folder order.">
       <option value="index">Unsorted</option>
       <option value="title">Name</option>
       <option value="url">URL</option>
@@ -36,6 +36,7 @@
         <button type="button" data-sort-key="url">URL</button>
         <button type="button" data-sort-key="dateAdded">Date Added</button>
         <button type="button" data-sort-key="id">ID</button>
+        <button type="button" data-sort-key="index">Order</button>
       </div>
       <div id="list" class="list" tabindex="0" aria-label="Bookmarks"></div>
     </section>

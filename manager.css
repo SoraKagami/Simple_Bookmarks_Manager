@@ -21,7 +21,7 @@ h2 { font-size: 13px; margin: 0 0 10px; opacity: .75; text-transform: uppercase;
 .tree-label { width: 100%; text-align: left; padding: 5px 6px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 .item.selected { background: Highlight; color: HighlightText; }
 .crumbs { padding: 10px; border-bottom: 1px solid color-mix(in srgb, CanvasText 25%, transparent); }
-.columns, .item { display: grid; grid-template-columns: minmax(220px, 1.2fr) minmax(260px, 2fr) 140px 72px; gap: 10px; align-items: center; }
+.columns, .item { display: grid; grid-template-columns: minmax(220px, 1.2fr) minmax(260px, 2fr) 140px 72px 72px; gap: 10px; align-items: center; }
 .columns { padding: 6px 12px; font-size: 12px; border-bottom: 1px solid color-mix(in srgb, CanvasText 25%, transparent); }
 .columns button {
   border: 0;
