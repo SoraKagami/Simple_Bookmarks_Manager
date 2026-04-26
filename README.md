@@ -73,6 +73,11 @@ Note: v0.2.2+ no longer overrides `chrome://bookmarks`, so Chromium/Brave's buil
 
 ## Changelog
 
+### 0.2.7
+
+- Fixed narrow-window horizontal scrolling so the middle-pane column headers and bookmark rows scroll together.
+- The header row now stays visible while vertically scrolling the bookmark list.
+
 ### 0.2.6
 
 - Added a **Details On / Details Off** toggle at the right side of the folder path bar.

@@ -1,4 +1,4 @@
-:root { font: 14px/1.4 system-ui, sans-serif; color-scheme: light dark; }
+:root { font: 14px/1.4 system-ui, sans-serif; color-scheme: light dark; --bookmark-table-min-width: 828px; }
 body { margin: 0; height: 100vh; display: flex; flex-direction: column; }
 .toolbar { display: flex; gap: 8px; padding: 10px; border-bottom: 1px solid CanvasText; align-items: center; }
 .app-title { white-space: nowrap; margin: 0 4px; }
@@ -38,8 +38,9 @@ h2 { font-size: 13px; margin: 0 0 10px; opacity: .75; text-transform: uppercase;
   margin-left: auto;
   white-space: nowrap;
 }
-.columns, .item { display: grid; grid-template-columns: minmax(220px, 1.2fr) minmax(260px, 2fr) 140px 72px 72px; gap: 10px; align-items: center; }
-.columns { padding: 6px 12px; font-size: 12px; border-bottom: 1px solid color-mix(in srgb, CanvasText 25%, transparent); }
+.columns, .item { box-sizing: border-box; display: grid; grid-template-columns: minmax(220px, 1.2fr) minmax(260px, 2fr) 140px 72px 72px; gap: 10px; align-items: center; min-width: var(--bookmark-table-min-width); }
+.table-scroll { flex: 1; min-height: 0; overflow: auto; }
+.columns { position: sticky; top: 0; z-index: 2; background: Canvas; padding: 6px 12px; font-size: 12px; border-bottom: 1px solid color-mix(in srgb, CanvasText 25%, transparent); }
 .columns button {
   border: 0;
   background: transparent;
@@ -55,7 +56,7 @@ h2 { font-size: 13px; margin: 0 0 10px; opacity: .75; text-transform: uppercase;
   opacity: 1;
   text-decoration: underline;
 }
-.list { overflow: auto; min-height: 0; }
+.list { min-height: 0; }
 .item { padding: 8px 12px; cursor: default; border-bottom: 1px solid color-mix(in srgb, CanvasText 10%, transparent); }
 .item:hover { background: color-mix(in srgb, Highlight 20%, transparent); }
 .muted, .url { opacity: .7; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }

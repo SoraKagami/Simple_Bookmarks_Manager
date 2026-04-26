@@ -31,14 +31,16 @@
 
     <section class="content">
       <div id="crumbs" class="crumbs"></div>
-      <div class="columns" aria-label="Bookmark list columns">
-        <button type="button" data-sort-key="title">Name</button>
-        <button type="button" data-sort-key="url">URL</button>
-        <button type="button" data-sort-key="dateAdded">Date Added</button>
-        <button type="button" data-sort-key="id">ID</button>
-        <button type="button" data-sort-key="index">Order</button>
+      <div id="table-scroll" class="table-scroll">
+        <div class="columns" aria-label="Bookmark list columns">
+          <button type="button" data-sort-key="title">Name</button>
+          <button type="button" data-sort-key="url">URL</button>
+          <button type="button" data-sort-key="dateAdded">Date Added</button>
+          <button type="button" data-sort-key="id">ID</button>
+          <button type="button" data-sort-key="index">Order</button>
+        </div>
+        <div id="list" class="list" tabindex="0" aria-label="Bookmarks"></div>
       </div>
-      <div id="list" class="list" tabindex="0" aria-label="Bookmarks"></div>
     </section>
 
     <aside id="details-pane" class="details">
