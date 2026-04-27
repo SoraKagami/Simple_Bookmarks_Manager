@@ -10,5 +10,3 @@
 *.xcworkspace
 ~$*.xlsx
 ExcludeFromGit
-TestRoot
-_Test.tags
