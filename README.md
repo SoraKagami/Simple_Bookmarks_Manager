@@ -1,6 +1,6 @@
 # Simple Bookmarks Manager
 
-Version: 0.2.10
+Version: 0.2.11
 
 A Manifest V3 Chrome/Chromium extension that provides a simple local bookmark manager inspired by Firefox Places Library ideas.
 
@@ -24,6 +24,7 @@ This Source Code Form is subject to the terms of the Mozilla Public License, v. 
 - Back/forward navigation between selected folders.
 - Mouse4/Mouse5 history navigation while the manager page is active.
 - Hideable details pane for title, URL, parent folder, and deletion.
+- Bookmark favicons and folder icons in the left Library tree and middle bookmark list.
 - Live refresh from Chrome bookmark events.
 
 ## Chrome/Chromium implementation
@@ -31,6 +32,7 @@ This Source Code Form is subject to the terms of the Mozilla Public License, v. 
 - Opens from the extension toolbar action and preserves the built-in Chromium bookmark manager.
 - Uses `chrome.bookmarks` to read, create, update, move, move-into folders, reorder, and remove bookmark nodes.
 - Uses `chrome.tabs` only to open the manager from the extension action.
+- Uses Chromium's extension favicon endpoint for bookmark favicons, plus a bundled folder icon for bookmark folders.
 
 ## Source audit summary
 
@@ -61,6 +63,7 @@ Note: v0.2.2+ no longer overrides `chrome://bookmarks`, so Chromium/Brave's buil
 - Bookmarklets with `javascript:` URLs are not executed by this manager.
 - Drag reordering is disabled while search or non-index sorting is active because visible order no longer matches persisted bookmark order.
 - Chromium root/special folders cannot be moved, renamed, or removed.
+- Bookmark favicons depend on Chromium's cached favicon data and normal fallback handling.
 
 ## References
 
@@ -69,11 +72,20 @@ Note: v0.2.2+ no longer overrides `chrome://bookmarks`, so Chromium/Brave's buil
 - MPL 2.0: https://www.mozilla.org/en-US/MPL/2.0/
 - Chrome bookmarks API: https://developer.chrome.com/docs/extensions/reference/api/bookmarks
 - Chrome action API: https://developer.chrome.com/docs/extensions/reference/api/action
+- Chrome favicons in extensions: https://developer.chrome.com/docs/extensions/how-to/ui/favicons
 - MDN MouseEvent.button: https://developer.mozilla.org/en-US/docs/Web/API/MouseEvent/button
 - MDN auxclick: https://developer.mozilla.org/en-US/docs/Web/API/Element/auxclick_event
 - Chromium BSD license reference: https://chromium.googlesource.com/chromium/src/+/HEAD/LICENSE
 
 ## Changelog
+
+### 0.2.11
+
+- Added icons to the left of folder labels in the Library tree.
+- Added icons to the left of each folder/bookmark in the middle bookmark list.
+- Uses the bundled `SBM FolderIcon.png`-derived folder icon for folders.
+- Uses Chromium's extension favicon endpoint for bookmark favicons, allowing cached site icons and Chromium fallback behavior where available.
+- Added the `favicon` permission needed for Chromium extension favicon access.
 
 ### 0.2.10
 

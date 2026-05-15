@@ -33,6 +33,45 @@ function isFolder(node) {
   return !!node && !node.url;
 }
 
+function extensionIconPath(name) {
+  return api.runtime.getURL(`icons/${name}`);
+}
+
+function bookmarkFaviconUrl(url, size = 16) {
+  if (!url) return "";
+  const favicon = new URL(api.runtime.getURL("/_favicon/"));
+  favicon.searchParams.set("pageUrl", url);
+  favicon.searchParams.set("size", String(size));
+  return favicon.toString();
+}
+
+function makeIcon(src, alt = "") {
+  const img = document.createElement("img");
+  img.className = "row-icon";
+  img.alt = alt;
+  img.src = src;
+  img.width = 16;
+  img.height = 16;
+  img.loading = "lazy";
+  return img;
+}
+
+function makeTitleCell(item) {
+  const cell = document.createElement("span");
+  cell.className = "title-cell";
+
+  const icon = isFolder(item)
+    ? makeIcon(extensionIconPath("folder-16.png"), "Folder")
+    : makeIcon(bookmarkFaviconUrl(item.url, 16), "Bookmark");
+
+  const text = document.createElement("span");
+  text.className = "title-text";
+  text.textContent = item.title || item.url || (isFolder(item) ? "(folder)" : "(bookmark)");
+
+  cell.append(icon, text);
+  return cell;
+}
+
 function isRootFolder(node) {
   return !!node && node.parentId === "0";
 }
@@ -317,12 +356,19 @@ function renderFolderTreeNode(folder, depth = 0) {
   const label = document.createElement("button");
   label.className = "tree-label";
   label.type = "button";
-  label.textContent = folder.title || "(root)";
   label.setAttribute("aria-current", String(folder.id === state.folderId));
   label.title = children.length ? "Double-click to expand or collapse this folder" : "";
   label.onclick = () => navigate(folder.id);
   label.ondblclick = toggleFolderOnDoubleClick;
   row.ondblclick = toggleFolderOnDoubleClick;
+
+  const labelContent = document.createElement("span");
+  labelContent.className = "tree-label-content";
+  const labelText = document.createElement("span");
+  labelText.className = "tree-label-text";
+  labelText.textContent = folder.title || "(root)";
+  labelContent.append(makeIcon(extensionIconPath("folder-16.png"), "Folder"), labelText);
+  label.append(labelContent);
 
   row.append(twisty, label);
   container.append(row);
@@ -394,8 +440,7 @@ function renderList() {
 
     attachDropTarget(row, item, "list");
 
-    const title = document.createElement("span");
-    title.textContent = isFolder(item) ? `▸ ${item.title || "(folder)"}` : item.title || item.url || "(bookmark)";
+    const title = makeTitleCell(item);
 
     const url = document.createElement("span");
     url.className = "url";
