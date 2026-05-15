@@ -1,6 +1,6 @@
 # Simple Bookmarks Manager
 
-Version: 0.2.11
+Version: 0.2.12
 
 A Manifest V3 Chrome/Chromium extension that provides a simple local bookmark manager inspired by Firefox Places Library ideas.
 
@@ -31,8 +31,9 @@ This Source Code Form is subject to the terms of the Mozilla Public License, v. 
 
 - Opens from the extension toolbar action and preserves the built-in Chromium bookmark manager.
 - Uses `chrome.bookmarks` to read, create, update, move, move-into folders, reorder, and remove bookmark nodes.
-- Uses `chrome.tabs` only to open the manager from the extension action.
+- Opens pages with `chrome.tabs.create()` without requesting the sensitive `tabs` permission.
 - Uses Chromium's extension favicon endpoint for bookmark favicons, plus a bundled folder icon for bookmark folders.
+- Refreshes visible bookmark favicon image URLs when switching folders so newly cached icons can appear without keeping an in-memory favicon cache.
 
 ## Source audit summary
 
@@ -64,6 +65,7 @@ Note: v0.2.2+ no longer overrides `chrome://bookmarks`, so Chromium/Brave's buil
 - Drag reordering is disabled while search or non-index sorting is active because visible order no longer matches persisted bookmark order.
 - Chromium root/special folders cannot be moved, renamed, or removed.
 - Bookmark favicons depend on Chromium's cached favicon data and normal fallback handling.
+- Favicons are refreshed when switching folders; icons already visible in the current folder may still need a folder switch to pick up newly cached site icons.
 
 ## References
 
@@ -78,6 +80,13 @@ Note: v0.2.2+ no longer overrides `chrome://bookmarks`, so Chromium/Brave's buil
 - Chromium BSD license reference: https://chromium.googlesource.com/chromium/src/+/HEAD/LICENSE
 
 ## Changelog
+
+### 0.2.12
+
+- Removed the unnecessary `tabs` permission from `manifest.json`.
+- Kept tab-opening behavior via `chrome.tabs.create()` for the toolbar action and bookmark opening.
+- Added an efficient favicon refresh token that updates when switching folders.
+- The refresh only affects visible bookmark row image URLs and does not store favicons in memory, avoiding long-lived favicon cache growth inside the extension page.
 
 ### 0.2.11
 

@@ -11,7 +11,8 @@ const state = {
   forward: [],
   expandedFolders: new Set(),
   detailsVisible: true,
-  drag: null
+  drag: null,
+  faviconRefreshToken: String(Date.now())
 };
 
 const $ = (id) => document.getElementById(id);
@@ -37,11 +38,20 @@ function extensionIconPath(name) {
   return api.runtime.getURL(`icons/${name}`);
 }
 
+function refreshFaviconToken() {
+  // Chromium's extension favicon endpoint can keep returning the same cached
+  // image URL while the browser learns new favicons in the background.  This
+  // tiny token is updated only when switching folders, so visible bookmark
+  // icons get a fresh request without building an in-memory favicon cache.
+  state.faviconRefreshToken = String(Date.now());
+}
+
 function bookmarkFaviconUrl(url, size = 16) {
   if (!url) return "";
   const favicon = new URL(api.runtime.getURL("/_favicon/"));
   favicon.searchParams.set("pageUrl", url);
   favicon.searchParams.set("size", String(size));
+  favicon.searchParams.set("refresh", state.faviconRefreshToken);
   return favicon.toString();
 }
 
@@ -557,6 +567,7 @@ function render() {
 
 function navigate(folderId, pushHistory = true) {
   if (folderId === state.folderId) return;
+  refreshFaviconToken();
   if (pushHistory && state.folderId) {
     state.back.unshift(state.folderId);
     state.forward = [];
