@@ -12,6 +12,9 @@ const state = {
   expandedFolders: new Set(),
   detailsVisible: true,
   drag: null,
+  clipboard: null,
+  contextMenu: null,
+  suppressBookmarkEvents: false,
   faviconRefreshToken: String(Date.now())
 };
 
@@ -209,6 +212,214 @@ function isDescendantOf(node, possibleAncestor) {
   return false;
 }
 
+
+function isInDetailsPane(element) {
+  return !!element?.closest?.("#details-pane");
+}
+
+function folderUrls(folder) {
+  const urls = [];
+  const visit = (node) => {
+    for (const child of node.children || []) {
+      if (child.url) urls.push(child.url);
+      else visit(child);
+    }
+  };
+  visit(folder);
+  return urls;
+}
+
+function cloneBookmarkNode(node) {
+  const copy = { title: node.title || "" };
+  if (node.url) copy.url = node.url;
+  if (node.children) copy.children = node.children.map(cloneBookmarkNode);
+  return copy;
+}
+
+async function createFromSnapshot(snapshot, parentId, index = null) {
+  const createDetails = { parentId, title: snapshot.title || "" };
+  if (snapshot.url) createDetails.url = snapshot.url;
+  if (Number.isInteger(index)) createDetails.index = index;
+  const created = await bookmarks("create", createDetails);
+  for (const child of snapshot.children || []) {
+    await createFromSnapshot(child, created.id);
+  }
+  return created;
+}
+
+function canPasteInto(parentFolder, clipboard = state.clipboard) {
+  if (!clipboard || !canContainChildren(parentFolder)) return false;
+  if (clipboard.mode === "cut") {
+    const cutNode = nodes.get(clipboard.id);
+    if (!cutNode || !isMutable(cutNode)) return false;
+    if (cutNode.id === parentFolder.id) return false;
+    if (isFolder(cutNode) && isDescendantOf(parentFolder, cutNode)) return false;
+  }
+  return true;
+}
+
+
+function canPasteForContext(context) {
+  const target = pasteTargetForContext(context);
+  if (!target || !canPasteInto(target.parent)) return false;
+  if (state.clipboard?.mode === "cut" && state.clipboard.id === context?.id) return false;
+  return true;
+}
+
+function pasteTargetForContext(context) {
+  if (!context) return null;
+  const item = nodes.get(context.id);
+  if (context.kind === "folder") {
+    return { parent: item, index: null };
+  }
+  if (context.kind === "bookmark") {
+    const parent = nodes.get(item?.parentId);
+    const index = Number.isInteger(item?.index) ? item.index + 1 : null;
+    return { parent, index };
+  }
+  return { parent: nodes.get(state.folderId), index: null };
+}
+
+async function pasteClipboard(context = state.contextMenu) {
+  if (!canPasteForContext(context)) return;
+  const target = pasteTargetForContext(context);
+
+  if (state.clipboard.mode === "cut") {
+    const moveDetails = { parentId: target.parent.id };
+    if (Number.isInteger(target.index)) moveDetails.index = target.index;
+    await bookmarks("move", state.clipboard.id, moveDetails);
+    state.selectedId = state.clipboard.id;
+    state.clipboard = null;
+  } else {
+    const created = await createFromSnapshot(state.clipboard.snapshot, target.parent.id, target.index);
+    state.selectedId = created.id;
+  }
+
+  await loadTree();
+}
+
+async function sortFolderChildren(folder, key) {
+  if (!canContainChildren(folder)) return;
+  const children = [...(folder.children || [])];
+  if (children.length < 2) return;
+  const sorted = children.sort((a, b) => compareNodes(a, b, key));
+  state.suppressBookmarkEvents = true;
+  try {
+    for (let i = 0; i < sorted.length; i += 1) {
+      await bookmarks("move", sorted[i].id, { parentId: folder.id, index: i });
+    }
+  } finally {
+    state.suppressBookmarkEvents = false;
+  }
+  state.folderId = folder.id;
+  state.selectedId = folder.id;
+  await loadTree();
+}
+
+async function openUrlsInCurrentWindow(urls) {
+  for (const [i, url] of urls.entries()) {
+    await api.tabs.create({ url, active: i === 0 });
+  }
+}
+
+async function openUrlsInWindow(urls, incognito = false) {
+  try {
+    await api.windows.create({ url: urls, incognito });
+  } catch (err) {
+    alert(`Could not open ${incognito ? "private" : "new"} window: ${err.message || err}`);
+  }
+}
+
+async function openUrlsInTabGroup(urls) {
+  if (!api.tabs?.group) return;
+  try {
+    const createdTabs = [];
+    for (const [i, url] of urls.entries()) {
+      createdTabs.push(await api.tabs.create({ url, active: i === 0 }));
+    }
+    const tabIds = createdTabs.map((tab) => tab.id).filter(Number.isInteger);
+    if (tabIds.length) await api.tabs.group({ tabIds });
+  } catch (err) {
+    alert(`Could not open tab group: ${err.message || err}`);
+  }
+}
+
+function isTabGroupSupported() {
+  return typeof api.tabs?.group === "function";
+}
+
+function isSplitViewSupported() {
+  // Chromium does not currently expose a stable cross-browser extension API
+  // for browser-specific split-view features, so the menu item stays hidden.
+  return false;
+}
+
+function contextUrls(context) {
+  const item = nodes.get(context?.id);
+  if (!item) return [];
+  return isFolder(item) ? folderUrls(item) : item.url ? [item.url] : [];
+}
+
+async function renameFolder(folder) {
+  if (!isMutable(folder)) return;
+  const title = prompt("New folder name", folder.title || "");
+  if (!title) return;
+  await bookmarks("update", folder.id, { title: title.trim() });
+  await loadTree();
+  select(folder.id);
+}
+
+async function editBookmark(bookmark) {
+  if (!bookmark || isFolder(bookmark) || !isMutable(bookmark)) return;
+  const title = prompt("Bookmark name", bookmark.title || bookmark.url || "");
+  if (title === null) return;
+  const url = prompt("Bookmark URL", bookmark.url || "https://");
+  if (url === null || !url.trim()) return;
+  await bookmarks("update", bookmark.id, { title: title.trim() || url.trim(), url: url.trim() });
+  await loadTree();
+  select(bookmark.id);
+}
+
+async function deleteNode(item) {
+  if (!item || !isMutable(item)) return;
+  const label = item.title || item.url || "this item";
+  if (!confirm(`Delete "${label}"?`)) return;
+  if (isFolder(item)) await bookmarks("removeTree", item.id);
+  else await bookmarks("remove", item.id);
+  if (state.clipboard?.mode === "cut" && state.clipboard.id === item.id) state.clipboard = null;
+  state.selectedId = state.folderId;
+  await loadTree();
+}
+
+async function createFolderIn(parentId) {
+  const title = prompt("Folder name", "New Folder");
+  if (!title) return;
+  const node = await bookmarks("create", { parentId, title });
+  await loadTree();
+  select(node.id);
+}
+
+async function createBookmarkIn(parentId) {
+  const url = prompt("Bookmark URL", "https://");
+  if (!url) return;
+  const title = prompt("Bookmark name", url) || url;
+  const node = await bookmarks("create", { parentId, title, url });
+  await loadTree();
+  select(node.id);
+}
+
+function cutNode(item) {
+  if (!item || !isMutable(item)) return;
+  state.clipboard = { mode: "cut", id: item.id };
+  render();
+}
+
+function copyNode(item) {
+  if (!item || item.id === "0") return;
+  state.clipboard = { mode: "copy", snapshot: cloneBookmarkNode(item) };
+  render();
+}
+
 function dropIntent(event, element, target) {
   const rect = element.getBoundingClientRect();
   const y = event.clientY - rect.top;
@@ -315,6 +526,152 @@ function attachDropTarget(row, target, context) {
   };
 }
 
+
+function hideContextMenu() {
+  document.querySelector(".context-menu")?.remove();
+  state.contextMenu = null;
+}
+
+function makeMenuItem(label, action, { disabled = false, hidden = false } = {}) {
+  if (hidden) return null;
+  const button = document.createElement("button");
+  button.type = "button";
+  button.className = "context-menu-item";
+  button.textContent = label;
+  button.disabled = disabled;
+  button.onclick = async () => {
+    if (disabled) return;
+    const context = state.contextMenu;
+    hideContextMenu();
+    try {
+      await action(context);
+    } catch (err) {
+      console.error(err);
+      alert(`Action failed: ${err.message || err}`);
+      await loadTree();
+    }
+  };
+  return button;
+}
+
+function makeSeparator() {
+  const sep = document.createElement("div");
+  sep.className = "context-menu-separator";
+  sep.setAttribute("role", "separator");
+  return sep;
+}
+
+function contextParentId(context) {
+  const item = nodes.get(context?.id);
+  if (context?.kind === "folder") return item?.id || state.folderId;
+  if (context?.kind === "bookmark") return item?.parentId || state.folderId;
+  return state.folderId;
+}
+
+function buildFolderMenu(context) {
+  const folder = nodes.get(context.id);
+  const urls = contextUrls(context);
+  const pasteDisabled = !canPasteForContext(context);
+  const mutable = isMutable(folder);
+  const copyAllowed = !!folder && folder.id !== "0" && !isRootFolder(folder);
+
+  return [
+    makeMenuItem("Rename Folder", () => renameFolder(folder), { disabled: !mutable }),
+    makeMenuItem("Delete Folder", () => deleteNode(folder), { disabled: !mutable }),
+    makeSeparator(),
+    makeMenuItem("Cut", () => cutNode(folder), { disabled: !mutable }),
+    makeMenuItem("Copy", () => copyNode(folder), { disabled: !copyAllowed }),
+    makeMenuItem("Paste", () => pasteClipboard(context), { disabled: pasteDisabled }),
+    makeSeparator(),
+    makeMenuItem("Sort by Name", () => sortFolderChildren(folder, "title"), { disabled: !canContainChildren(folder) || (folder.children || []).length < 2 }),
+    makeMenuItem("Sort by Date", () => sortFolderChildren(folder, "dateAdded"), { disabled: !canContainChildren(folder) || (folder.children || []).length < 2 }),
+    makeSeparator(),
+    makeMenuItem("Add Bookmark", () => createBookmarkIn(folder.id), { disabled: !canContainChildren(folder) }),
+    makeMenuItem("Add Folder", () => createFolderIn(folder.id), { disabled: !canContainChildren(folder) }),
+    makeSeparator(),
+    makeMenuItem("Open All Bookmarks", () => openUrlsInCurrentWindow(urls), { disabled: urls.length === 0 }),
+    makeMenuItem("Open All in New Window", () => openUrlsInWindow(urls, false), { disabled: urls.length === 0 }),
+    makeMenuItem("Open All in Private Window", () => openUrlsInWindow(urls, true), { disabled: urls.length === 0 }),
+    makeMenuItem("Open All in New Tab Group", () => openUrlsInTabGroup(urls), { disabled: urls.length === 0, hidden: !isTabGroupSupported() }),
+    makeMenuItem("Open All in Split View", () => {}, { hidden: !isSplitViewSupported() })
+  ];
+}
+
+function buildBookmarkMenu(context) {
+  const bookmark = nodes.get(context.id);
+  const urls = contextUrls(context);
+  const pasteDisabled = !canPasteForContext(context);
+  const parentId = contextParentId(context);
+
+  return [
+    makeMenuItem("Edit", () => editBookmark(bookmark), { disabled: !isMutable(bookmark) }),
+    makeSeparator(),
+    makeMenuItem("Delete", () => deleteNode(bookmark), { disabled: !isMutable(bookmark) }),
+    makeSeparator(),
+    makeMenuItem("Cut", () => cutNode(bookmark), { disabled: !isMutable(bookmark) }),
+    makeMenuItem("Copy", () => copyNode(bookmark), { disabled: !bookmark }),
+    makeMenuItem("Paste", () => pasteClipboard(context), { disabled: pasteDisabled }),
+    makeSeparator(),
+    makeMenuItem("Open in New Tab", () => openUrlsInCurrentWindow(urls), { disabled: urls.length === 0 }),
+    makeMenuItem("Open in New Window", () => openUrlsInWindow(urls, false), { disabled: urls.length === 0 }),
+    makeMenuItem("Open in Private Window", () => openUrlsInWindow(urls, true), { disabled: urls.length === 0 }),
+    makeMenuItem("Open in New Tab Group", () => openUrlsInTabGroup(urls), { disabled: urls.length === 0, hidden: !isTabGroupSupported() }),
+    makeMenuItem("Open in Split View", () => {}, { hidden: !isSplitViewSupported() }),
+    makeSeparator(),
+    makeMenuItem("Add New Bookmark", () => createBookmarkIn(parentId), { disabled: !canContainChildren(nodes.get(parentId)) }),
+    makeMenuItem("Add New Folder", () => createFolderIn(parentId), { disabled: !canContainChildren(nodes.get(parentId)) })
+  ];
+}
+
+function buildEmptyMenu(context) {
+  const parentId = contextParentId(context);
+  const parent = nodes.get(parentId);
+  return [
+    makeMenuItem("Add New Bookmark", () => createBookmarkIn(parentId), { disabled: !canContainChildren(parent) }),
+    makeMenuItem("Add New Folder", () => createFolderIn(parentId), { disabled: !canContainChildren(parent) })
+  ];
+}
+
+function contextFromEvent(e) {
+  const row = e.target.closest?.(".item,.tree-row");
+  if (row?.dataset?.id) {
+    const item = nodes.get(row.dataset.id);
+    if (isFolder(item)) return { kind: "folder", id: item.id };
+    if (item) return { kind: "bookmark", id: item.id };
+  }
+  return { kind: "empty", id: state.folderId };
+}
+
+function showContextMenu(e) {
+  if (isInDetailsPane(e.target)) return;
+  e.preventDefault();
+  e.stopPropagation();
+  hideContextMenu();
+
+  const context = contextFromEvent(e);
+  state.contextMenu = context;
+  const menu = document.createElement("div");
+  menu.className = "context-menu";
+  menu.setAttribute("role", "menu");
+
+  const items = context.kind === "folder"
+    ? buildFolderMenu(context)
+    : context.kind === "bookmark"
+      ? buildBookmarkMenu(context)
+      : buildEmptyMenu(context);
+
+  menu.append(...items.filter(Boolean));
+  document.body.append(menu);
+
+  const margin = 8;
+  const rect = menu.getBoundingClientRect();
+  const left = Math.min(e.clientX, window.innerWidth - rect.width - margin);
+  const top = Math.min(e.clientY, window.innerHeight - rect.height - margin);
+  menu.style.left = `${Math.max(margin, left)}px`;
+  menu.style.top = `${Math.max(margin, top)}px`;
+  menu.querySelector("button:not(:disabled)")?.focus({ preventScroll: true });
+}
+
 function renderFolderTreeNode(folder, depth = 0) {
   const children = childFolders(folder);
   const isExpanded = state.expandedFolders.has(folder.id);
@@ -323,9 +680,11 @@ function renderFolderTreeNode(folder, depth = 0) {
 
   const row = document.createElement("div");
   row.className = "tree-row";
+  row.dataset.id = folder.id;
   row.style.setProperty("--depth", depth);
   row.setAttribute("role", "treeitem");
   row.setAttribute("aria-selected", String(folder.id === state.folderId));
+  if (state.clipboard?.mode === "cut" && state.clipboard.id === folder.id) row.classList.add("clipboard-cut");
   if (children.length) row.setAttribute("aria-expanded", String(isExpanded));
 
   if (canDragTreeFolder(folder)) {
@@ -430,6 +789,7 @@ function renderList() {
     row.className = "item";
     row.dataset.id = item.id;
     row.tabIndex = 0;
+    if (state.clipboard?.mode === "cut" && state.clipboard.id === item.id) row.classList.add("clipboard-cut");
     if (item.id === state.selectedId) row.classList.add("selected");
 
     if (canDragListItem(item)) {
@@ -611,30 +971,15 @@ async function saveSelected(e) {
 }
 
 async function removeSelected() {
-  const selected = nodes.get(state.selectedId);
-  if (!selected || !isMutable(selected)) return;
-  if (!confirm(`Delete "${selected.title || selected.url}"?`)) return;
-  if (isFolder(selected)) await bookmarks("removeTree", selected.id);
-  else await bookmarks("remove", selected.id);
-  state.selectedId = state.folderId;
-  await loadTree();
+  await deleteNode(nodes.get(state.selectedId));
 }
 
 async function createFolder() {
-  const title = prompt("Folder name", "New Folder");
-  if (!title) return;
-  const node = await bookmarks("create", { parentId: state.folderId, title });
-  await loadTree();
-  select(node.id);
+  await createFolderIn(state.folderId);
 }
 
 async function createBookmark() {
-  const url = prompt("Bookmark URL", "https://");
-  if (!url) return;
-  const title = prompt("Bookmark name", url) || url;
-  const node = await bookmarks("create", { parentId: state.folderId, title, url });
-  await loadTree();
-  select(node.id);
+  await createBookmarkIn(state.folderId);
 }
 
 function goBack() {
@@ -722,12 +1067,17 @@ document.addEventListener("dragover", (e) => {
 document.addEventListener("drop", clearDropIndicators);
 window.addEventListener("mousedown", handleMouseHistoryButton, { capture: true });
 window.addEventListener("auxclick", handleMouseHistoryButton, { capture: true });
+window.addEventListener("contextmenu", showContextMenu, { capture: true });
+window.addEventListener("click", (e) => { if (!e.target.closest?.(".context-menu")) hideContextMenu(); });
+window.addEventListener("resize", hideContextMenu);
+window.addEventListener("scroll", hideContextMenu, true);
+window.addEventListener("keydown", (e) => { if (e.key === "Escape") hideContextMenu(); });
 
 setSortSelectTooltips();
 
 // Keep the view live, mirroring Firefox Places' model/view update pattern.
 for (const eventName of ["onCreated", "onRemoved", "onChanged", "onMoved", "onChildrenReordered"]) {
-  api.bookmarks[eventName].addListener(() => loadTree());
+  api.bookmarks[eventName].addListener(() => { if (!state.suppressBookmarkEvents) loadTree(); });
 }
 
 loadTree().catch((err) => {

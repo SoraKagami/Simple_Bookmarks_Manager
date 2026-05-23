@@ -1,6 +1,6 @@
 # Simple Bookmarks Manager
 
-Version: 0.2.12
+Version: 0.3.0
 
 A Manifest V3 Chrome/Chromium extension that provides a simple local bookmark manager inspired by Firefox Places Library ideas.
 
@@ -26,6 +26,7 @@ This Source Code Form is subject to the terms of the Mozilla Public License, v. 
 - Hideable details pane for title, URL, parent folder, and deletion.
 - Bookmark favicons and folder icons in the left Library tree and middle bookmark list.
 - Live refresh from Chrome bookmark events.
+- In-page custom right-click menu for folders/bookmarks outside the Details pane.
 
 ## Chrome/Chromium implementation
 
@@ -34,6 +35,7 @@ This Source Code Form is subject to the terms of the Mozilla Public License, v. 
 - Opens pages with `chrome.tabs.create()` without requesting the sensitive `tabs` permission.
 - Uses Chromium's extension favicon endpoint for bookmark favicons, plus a bundled folder icon for bookmark folders.
 - Refreshes visible bookmark favicon image URLs when switching folders so newly cached icons can appear without keeping an in-memory favicon cache.
+- Uses an in-page custom context menu for bookmark/folder actions; the Details pane keeps the normal browser context menu.
 
 ## Source audit summary
 
@@ -66,6 +68,9 @@ Note: v0.2.2+ no longer overrides `chrome://bookmarks`, so Chromium/Brave's buil
 - Chromium root/special folders cannot be moved, renamed, or removed.
 - Bookmark favicons depend on Chromium's cached favicon data and normal fallback handling.
 - Favicons are refreshed when switching folders; icons already visible in the current folder may still need a folder switch to pick up newly cached site icons.
+- Browser-specific Split View features are hidden because Chromium does not expose a stable cross-browser extension API for them.
+- Tab Group menu entries are hidden when the browser does not expose `chrome.tabs.group()`.
+- Opening private/incognito windows may fail if the browser or extension settings disallow it.
 
 ## References
 
@@ -80,6 +85,18 @@ Note: v0.2.2+ no longer overrides `chrome://bookmarks`, so Chromium/Brave's buil
 - Chromium BSD license reference: https://chromium.googlesource.com/chromium/src/+/HEAD/LICENSE
 
 ## Changelog
+
+### 0.3.0
+
+- Added a custom in-page right-click menu for bookmark and folder rows outside the Details pane.
+- Folder menu actions include rename, delete, cut/copy/paste, sort by name/date, add bookmark/folder, and open-all variants.
+- Bookmark menu actions include edit, delete, cut/copy/paste, open variants, and add bookmark/folder.
+- Empty-area right-click outside the Details pane offers add bookmark/folder actions.
+- Cut items remain visible and are dimmed until pasted elsewhere.
+- Copy/paste supports bookmark nodes and recursive folder copies inside the manager session.
+- Split View menu entries are hidden because no stable Chromium extension API is available.
+- Tab Group entries are shown only if the browser supports `chrome.tabs.group()`.
+- Updated version to `0.3.0`.
 
 ### 0.2.12
 
