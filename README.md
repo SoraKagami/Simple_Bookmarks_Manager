@@ -1,6 +1,6 @@
 # Simple Bookmarks Manager
 
-Version: 0.3.0
+Version: 0.3.1
 
 A Manifest V3 Chrome/Chromium extension that provides a simple local bookmark manager inspired by Firefox Places Library ideas.
 
@@ -85,6 +85,12 @@ Note: v0.2.2+ no longer overrides `chrome://bookmarks`, so Chromium/Brave's buil
 - Chromium BSD license reference: https://chromium.googlesource.com/chromium/src/+/HEAD/LICENSE
 
 ## Changelog
+
+### 0.3.1
+
+- Added a conditional **Paste** entry to the empty-area right-click menu outside the Details pane.
+- The empty-area **Paste** entry appears only when the manager has a valid cut/copied bookmark or folder that can be pasted into the current folder.
+- Updated version to `0.3.1`.
 
 ### 0.3.0
 

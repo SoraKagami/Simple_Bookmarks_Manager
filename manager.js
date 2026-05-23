@@ -626,10 +626,18 @@ function buildBookmarkMenu(context) {
 function buildEmptyMenu(context) {
   const parentId = contextParentId(context);
   const parent = nodes.get(parentId);
-  return [
+  const canPaste = canPasteForContext(context);
+  const items = [
     makeMenuItem("Add New Bookmark", () => createBookmarkIn(parentId), { disabled: !canContainChildren(parent) }),
     makeMenuItem("Add New Folder", () => createFolderIn(parentId), { disabled: !canContainChildren(parent) })
   ];
+
+  if (canPaste) {
+    items.push(makeSeparator());
+    items.push(makeMenuItem("Paste", () => pasteClipboard(context)));
+  }
+
+  return items;
 }
 
 function contextFromEvent(e) {
