@@ -1,6 +1,6 @@
 # Simple Bookmarks Manager
 
-Version: 0.3.1
+Version: 0.3.2
 
 A Manifest V3 Chrome/Chromium extension that provides a simple local bookmark manager inspired by Firefox Places Library ideas.
 
@@ -23,7 +23,7 @@ This Source Code Form is subject to the terms of the Mozilla Public License, v. 
 - Search scoped to the active folder, recursively.
 - Back/forward navigation between selected folders.
 - Mouse4/Mouse5 history navigation while the manager page is active.
-- Hideable details pane for title, URL, parent folder, and deletion.
+- Hideable details pane for title, URL, parent folder, deletion, discard, and unsaved-change warnings.
 - Bookmark favicons and folder icons in the left Library tree and middle bookmark list.
 - Live refresh from Chrome bookmark events.
 - In-page custom right-click menu for folders/bookmarks outside the Details pane.
@@ -85,6 +85,16 @@ Note: v0.2.2+ no longer overrides `chrome://bookmarks`, so Chromium/Brave's buil
 - Chromium BSD license reference: https://chromium.googlesource.com/chromium/src/+/HEAD/LICENSE
 
 ## Changelog
+
+### 0.3.2
+
+- Added an unsaved-changes prompt when navigating to another folder with edited Details pane fields.
+- The prompt offers **Keep Editing**, **Save**, or **Discard**.
+- Added a **Discard Changes** button between **Save** and the delete button in the Details pane.
+- Changed the Details pane delete button text dynamically to **Delete Bookmark** or **Delete Folder**.
+- Hidden the URL label/input when a folder is selected, and restored it for bookmarks.
+- Changed modified Details pane field labels to dark blue bold text until saved or discarded.
+- Updated version to `0.3.2`.
 
 ### 0.3.1
 

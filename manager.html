@@ -48,11 +48,12 @@
     <aside id="details-pane" class="details">
       <h2>Details</h2>
       <form id="details-form">
-        <label>Name <input id="title" autocomplete="off"></label>
-        <label>URL <input id="url" autocomplete="off"></label>
-        <label>Parent folder <select id="parent"></select></label>
-        <div class="row">
+        <label id="title-label"><span class="field-caption">Name</span><input id="title" autocomplete="off"></label>
+        <label id="url-label"><span class="field-caption">URL</span><input id="url" autocomplete="off"></label>
+        <label id="parent-label"><span class="field-caption">Parent folder</span><select id="parent"></select></label>
+        <div class="row details-actions">
           <button id="save" type="submit">Save</button>
+          <button id="discard" type="button">Discard Changes</button>
           <button id="delete" type="button">Delete</button>
         </div>
       </form>

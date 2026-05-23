@@ -11,6 +11,7 @@ const state = {
   forward: [],
   expandedFolders: new Set(),
   detailsVisible: true,
+  detailsOriginal: null,
   drag: null,
   clipboard: null,
   contextMenu: null,
@@ -872,20 +873,159 @@ function renderDetails() {
   const form = $("details-form");
   form.hidden = !selected;
   $("empty-details").hidden = !!selected;
-  if (!selected) return;
+  if (!selected) {
+    state.detailsOriginal = null;
+    return;
+  }
 
-  $("title").value = selected.title || "";
-  $("url").value = selected.url || "";
+  state.detailsOriginal = selectedDetailsSnapshot(selected);
+  $("title").value = state.detailsOriginal.title;
+  $("url").value = state.detailsOriginal.url;
+  $("url-label").hidden = isFolder(selected);
   $("url").disabled = isFolder(selected);
+  $("delete").textContent = isFolder(selected) ? "Delete Folder" : "Delete Bookmark";
   $("delete").disabled = !isMutable(selected);
+  $("save").disabled = !isMutable(selected);
+  $("discard").disabled = !isMutable(selected);
   renderParents();
-  $("parent").value = selected.parentId || "";
+  $("parent").value = state.detailsOriginal.parentId;
+  updateDetailsDirtyIndicators();
 }
 
 function folderPath(folder) {
   const path = [];
   for (let n = folder; n && n.id !== "0"; n = n.parentNode) path.unshift(n.title || "(root)");
   return path.join(" / ");
+}
+
+function selectedDetailsSnapshot(selected = nodes.get(state.selectedId)) {
+  if (!selected) return null;
+  return {
+    id: selected.id,
+    isFolder: isFolder(selected),
+    title: selected.title || "",
+    url: selected.url || "",
+    parentId: selected.parentId || ""
+  };
+}
+
+function currentDetailsValues() {
+  const selected = nodes.get(state.selectedId);
+  if (!selected || !state.detailsOriginal || state.detailsOriginal.id !== selected.id) return null;
+  return {
+    id: selected.id,
+    isFolder: isFolder(selected),
+    title: $("title").value.trim(),
+    url: isFolder(selected) ? "" : $("url").value.trim(),
+    parentId: $("parent").value || ""
+  };
+}
+
+function detailFieldChanged(field) {
+  const current = currentDetailsValues();
+  const original = state.detailsOriginal;
+  if (!current || !original) return false;
+  return current[field] !== original[field];
+}
+
+function hasUnsavedDetails() {
+  const selected = nodes.get(state.selectedId);
+  if (!selected || !state.detailsOriginal || state.detailsOriginal.id !== selected.id) return false;
+  if (detailFieldChanged("title")) return true;
+  if (!isFolder(selected) && detailFieldChanged("url")) return true;
+  return detailFieldChanged("parentId");
+}
+
+function updateDetailsDirtyIndicators() {
+  const selected = nodes.get(state.selectedId);
+  const titleDirty = detailFieldChanged("title");
+  const urlDirty = !isFolder(selected) && detailFieldChanged("url");
+  const parentDirty = detailFieldChanged("parentId");
+  $("title-label").classList.toggle("dirty", titleDirty);
+  $("url-label").classList.toggle("dirty", urlDirty);
+  $("parent-label").classList.toggle("dirty", parentDirty);
+}
+
+function discardDetailsChanges() {
+  const selected = nodes.get(state.selectedId);
+  if (!selected || !state.detailsOriginal || state.detailsOriginal.id !== selected.id) return;
+  $("title").value = state.detailsOriginal.title;
+  $("url").value = state.detailsOriginal.url;
+  $("parent").value = state.detailsOriginal.parentId;
+  updateDetailsDirtyIndicators();
+}
+
+function showUnsavedChangesPrompt() {
+  return new Promise((resolve) => {
+    hideContextMenu();
+
+    const backdrop = document.createElement("div");
+    backdrop.className = "unsaved-modal-backdrop";
+    backdrop.setAttribute("role", "presentation");
+
+    const modal = document.createElement("section");
+    modal.className = "unsaved-modal";
+    modal.setAttribute("role", "dialog");
+    modal.setAttribute("aria-modal", "true");
+    modal.setAttribute("aria-labelledby", "unsaved-title");
+
+    const heading = document.createElement("h3");
+    heading.id = "unsaved-title";
+    heading.textContent = "Unsaved changes";
+
+    const message = document.createElement("p");
+    message.textContent = "The Details pane has unsaved changes. What would you like to do?";
+
+    const actions = document.createElement("div");
+    actions.className = "unsaved-modal-actions";
+
+    const finish = (choice) => {
+      backdrop.remove();
+      resolve(choice);
+    };
+
+    const keep = document.createElement("button");
+    keep.type = "button";
+    keep.textContent = "Keep Editing";
+    keep.onclick = () => finish("keep");
+
+    const save = document.createElement("button");
+    save.type = "button";
+    save.textContent = "Save";
+    save.onclick = () => finish("save");
+
+    const discard = document.createElement("button");
+    discard.type = "button";
+    discard.textContent = "Discard";
+    discard.onclick = () => finish("discard");
+
+    actions.append(keep, save, discard);
+    modal.append(heading, message, actions);
+    backdrop.append(modal);
+    document.body.append(backdrop);
+    keep.focus();
+  });
+}
+
+async function confirmUnsavedDetailsBeforeNavigation() {
+  if (!hasUnsavedDetails()) return true;
+  const choice = await showUnsavedChangesPrompt();
+  if (choice === "keep") return false;
+  if (choice === "discard") {
+    discardDetailsChanges();
+    return true;
+  }
+  if (choice === "save") {
+    try {
+      await saveDetailsForSelected();
+      return true;
+    } catch (err) {
+      console.error(err);
+      alert(`Could not save changes: ${err.message || err}`);
+      return false;
+    }
+  }
+  return false;
 }
 
 function sortTooltip(key, direction = state.sortDirection) {
@@ -933,8 +1073,7 @@ function render() {
   renderNavButtons();
 }
 
-function navigate(folderId, pushHistory = true) {
-  if (folderId === state.folderId) return;
+function performNavigate(folderId, pushHistory = true) {
   refreshFaviconToken();
   if (pushHistory && state.folderId) {
     state.back.unshift(state.folderId);
@@ -945,6 +1084,12 @@ function navigate(folderId, pushHistory = true) {
   state.search = "";
   $("search").value = "";
   render();
+}
+
+async function navigate(folderId, pushHistory = true) {
+  if (folderId === state.folderId) return;
+  if (!(await confirmUnsavedDetailsBeforeNavigation())) return;
+  performNavigate(folderId, pushHistory);
 }
 
 function select(id) {
@@ -960,8 +1105,7 @@ function openOrNavigate(item) {
   }
 }
 
-async function saveSelected(e) {
-  e.preventDefault();
+async function saveDetailsForSelected() {
   const selected = nodes.get(state.selectedId);
   if (!selected || !isMutable(selected)) return;
 
@@ -978,6 +1122,16 @@ async function saveSelected(e) {
   select(selected.id);
 }
 
+async function saveSelected(e) {
+  e.preventDefault();
+  try {
+    await saveDetailsForSelected();
+  } catch (err) {
+    console.error(err);
+    alert(`Could not save changes: ${err.message || err}`);
+  }
+}
+
 async function removeSelected() {
   await deleteNode(nodes.get(state.selectedId));
 }
@@ -990,18 +1144,22 @@ async function createBookmark() {
   await createBookmarkIn(state.folderId);
 }
 
-function goBack() {
-  const id = state.back.shift();
+async function goBack() {
+  const id = state.back[0];
   if (!id) return;
+  if (!(await confirmUnsavedDetailsBeforeNavigation())) return;
+  state.back.shift();
   state.forward.unshift(state.folderId);
-  navigate(id, false);
+  performNavigate(id, false);
 }
 
-function goForward() {
-  const id = state.forward.shift();
+async function goForward() {
+  const id = state.forward[0];
   if (!id) return;
+  if (!(await confirmUnsavedDetailsBeforeNavigation())) return;
+  state.forward.shift();
   state.back.unshift(state.folderId);
-  navigate(id, false);
+  performNavigate(id, false);
 }
 
 function handleMouseHistoryButton(e) {
@@ -1066,7 +1224,12 @@ for (const button of document.querySelectorAll(".columns [data-sort-key]")) {
   };
 }
 $("details-form").onsubmit = saveSelected;
+$("discard").onclick = discardDetailsChanges;
 $("delete").onclick = removeSelected;
+for (const id of ["title", "url", "parent"]) {
+  $(id).addEventListener("input", updateDetailsDirtyIndicators);
+  $(id).addEventListener("change", updateDetailsDirtyIndicators);
+}
 $("new-folder").onclick = createFolder;
 $("new-bookmark").onclick = createBookmark;
 document.addEventListener("dragover", (e) => {
