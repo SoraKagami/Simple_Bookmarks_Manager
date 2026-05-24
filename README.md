@@ -1,6 +1,6 @@
 # Simple Bookmarks Manager
 
-Version: 0.3.3
+Version: 0.3.4
 
 A Manifest V3 Chrome/Chromium extension that provides a simple local bookmark manager inspired by Firefox Places Library ideas.
 
@@ -25,6 +25,7 @@ This Source Code Form is subject to the terms of the Mozilla Public License, v. 
 - Mouse4/Mouse5 history navigation while the manager page is active.
 - Hideable details pane for title, URL, parent folder, deletion, discard, and unsaved-change warnings.
 - Bookmark favicons and folder icons in the left Library tree and middle bookmark list.
+- Separator support using a Chromium-compatible bookmark convention: title `———` plus URL `about:blank`.
 - Live refresh from Chrome bookmark events.
 - In-page custom right-click menu for folders/bookmarks outside the Details pane.
 
@@ -62,7 +63,8 @@ Note: v0.2.2+ no longer overrides `chrome://bookmarks`, so Chromium/Brave's buil
 
 ## Limits
 
-- Chrome bookmarks do not expose Firefox Places tags, keywords, history/downloads queries, separators, Places transactions, or JSONLZ4 backups.
+- Chrome bookmarks do not expose Firefox Places tags, keywords, history/downloads queries, Places transactions, or JSONLZ4 backups.
+- Separator support is implemented by convention rather than a native Chromium bookmark type: a bookmark whose title is `———` and URL is `about:blank` is rendered as a separator inside the manager.
 - Bookmarklets with `javascript:` URLs are not executed by this manager.
 - Drag reordering is disabled while search or non-index sorting is active because visible order no longer matches persisted bookmark order.
 - Chromium root/special folders cannot be moved, renamed, or removed.
@@ -85,6 +87,17 @@ Note: v0.2.2+ no longer overrides `chrome://bookmarks`, so Chromium/Brave's buil
 - Chromium BSD license reference: https://chromium.googlesource.com/chromium/src/+/HEAD/LICENSE
 
 ## Changelog
+
+### 0.3.4
+
+- Replaced the extension icon set with the newly supplied book-and-bookmark icon.
+- Added separator support using a Chromium-compatible bookmark convention: any bookmark whose title is `———` and URL is `about:blank` is treated as a separator in the manager UI.
+- Rendered separator bookmarks in the middle pane as a horizontal rule spanning the table width.
+- Prevented separator bookmarks from opening on double-click while keeping them selectable, editable, draggable, and reorderable like normal bookmark entries.
+- Added **Add Separator** to the folder, bookmark, and empty-space context menus.
+- Renamed folder context-menu entries **Add Bookmark** / **Add Folder** to **Add New Bookmark** / **Add New Folder** for consistency.
+- Excluded separator bookmarks from **Open All** context-menu actions so they do not open blank tabs or windows.
+- Updated version to `0.3.4`.
 
 ### 0.3.3
 

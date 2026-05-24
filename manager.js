@@ -22,6 +22,8 @@ const state = {
 
 const $ = (id) => document.getElementById(id);
 const nodes = new Map();
+const SEPARATOR_TITLE = "———";
+const SEPARATOR_URL = "about:blank";
 
 async function bookmarks(method, ...args) {
   return await api.bookmarks[method](...args);
@@ -37,6 +39,10 @@ function indexTree(root, parent = null, out = []) {
 
 function isFolder(node) {
   return !!node && !node.url;
+}
+
+function isSeparator(node) {
+  return !!node && !isFolder(node) && (node.title || "") === SEPARATOR_TITLE && (node.url || "") === SEPARATOR_URL;
 }
 
 function extensionIconPath(name) {
@@ -223,8 +229,11 @@ function folderUrls(folder) {
   const urls = [];
   const visit = (node) => {
     for (const child of node.children || []) {
-      if (child.url) urls.push(child.url);
-      else visit(child);
+      if (child.url) {
+        if (!isSeparator(child)) urls.push(child.url);
+      } else {
+        visit(child);
+      }
     }
   };
   visit(folder);
@@ -359,7 +368,9 @@ function isSplitViewSupported() {
 function contextUrls(context) {
   const item = nodes.get(context?.id);
   if (!item) return [];
-  return isFolder(item) ? folderUrls(item) : item.url ? [item.url] : [];
+  if (isFolder(item)) return folderUrls(item);
+  if (isSeparator(item)) return [];
+  return item.url ? [item.url] : [];
 }
 
 async function renameFolder(folder) {
@@ -406,6 +417,12 @@ async function createBookmarkIn(parentId) {
   if (!url) return;
   const title = prompt("Bookmark name", url) || url;
   const node = await bookmarks("create", { parentId, title, url });
+  await loadTree();
+  performSelect(node.id);
+}
+
+async function createSeparatorIn(parentId) {
+  const node = await bookmarks("create", { parentId, title: SEPARATOR_TITLE, url: SEPARATOR_URL });
   await loadTree();
   performSelect(node.id);
 }
@@ -588,8 +605,9 @@ function buildFolderMenu(context) {
     makeMenuItem("Sort by Name", () => sortFolderChildren(folder, "title"), { disabled: !canContainChildren(folder) || (folder.children || []).length < 2 }),
     makeMenuItem("Sort by Date", () => sortFolderChildren(folder, "dateAdded"), { disabled: !canContainChildren(folder) || (folder.children || []).length < 2 }),
     makeSeparator(),
-    makeMenuItem("Add Bookmark", () => createBookmarkIn(folder.id), { disabled: !canContainChildren(folder) }),
-    makeMenuItem("Add Folder", () => createFolderIn(folder.id), { disabled: !canContainChildren(folder) }),
+    makeMenuItem("Add New Bookmark", () => createBookmarkIn(folder.id), { disabled: !canContainChildren(folder) }),
+    makeMenuItem("Add New Folder", () => createFolderIn(folder.id), { disabled: !canContainChildren(folder) }),
+    makeMenuItem("Add Separator", () => createSeparatorIn(folder.id), { disabled: !canContainChildren(folder) }),
     makeSeparator(),
     makeMenuItem("Open All Bookmarks", () => openUrlsInCurrentWindow(urls), { disabled: urls.length === 0 }),
     makeMenuItem("Open All in New Window", () => openUrlsInWindow(urls, false), { disabled: urls.length === 0 }),
@@ -621,7 +639,8 @@ function buildBookmarkMenu(context) {
     makeMenuItem("Open in Split View", () => {}, { hidden: !isSplitViewSupported() }),
     makeSeparator(),
     makeMenuItem("Add New Bookmark", () => createBookmarkIn(parentId), { disabled: !canContainChildren(nodes.get(parentId)) }),
-    makeMenuItem("Add New Folder", () => createFolderIn(parentId), { disabled: !canContainChildren(nodes.get(parentId)) })
+    makeMenuItem("Add New Folder", () => createFolderIn(parentId), { disabled: !canContainChildren(nodes.get(parentId)) }),
+    makeMenuItem("Add Separator", () => createSeparatorIn(parentId), { disabled: !canContainChildren(nodes.get(parentId)) })
   ];
 }
 
@@ -631,7 +650,8 @@ function buildEmptyMenu(context) {
   const canPaste = canPasteForContext(context);
   const items = [
     makeMenuItem("Add New Bookmark", () => createBookmarkIn(parentId), { disabled: !canContainChildren(parent) }),
-    makeMenuItem("Add New Folder", () => createFolderIn(parentId), { disabled: !canContainChildren(parent) })
+    makeMenuItem("Add New Folder", () => createFolderIn(parentId), { disabled: !canContainChildren(parent) }),
+    makeMenuItem("Add Separator", () => createSeparatorIn(parentId), { disabled: !canContainChildren(parent) })
   ];
 
   if (canPaste) {
@@ -820,25 +840,34 @@ function renderList() {
 
     attachDropTarget(row, item, "list");
 
-    const title = makeTitleCell(item);
+    if (isSeparator(item)) {
+      row.classList.add("separator-item");
+      row.title = "Separator";
+      const line = document.createElement("hr");
+      line.className = "separator-line";
+      line.setAttribute("aria-hidden", "true");
+      row.append(line);
+    } else {
+      const title = makeTitleCell(item);
 
-    const url = document.createElement("span");
-    url.className = "url";
-    url.textContent = item.url || "";
+      const url = document.createElement("span");
+      url.className = "url";
+      url.textContent = item.url || "";
 
-    const date = document.createElement("span");
-    date.className = "muted";
-    date.textContent = item.dateAdded ? new Date(item.dateAdded).toLocaleDateString() : "";
+      const date = document.createElement("span");
+      date.className = "muted";
+      date.textContent = item.dateAdded ? new Date(item.dateAdded).toLocaleDateString() : "";
 
-    const id = document.createElement("span");
-    id.className = "muted";
-    id.textContent = item.id;
+      const id = document.createElement("span");
+      id.className = "muted";
+      id.textContent = item.id;
 
-    const order = document.createElement("span");
-    order.className = "muted";
-    order.textContent = Number.isInteger(item.index) ? String(item.index) : "";
+      const order = document.createElement("span");
+      order.className = "muted";
+      order.textContent = Number.isInteger(item.index) ? String(item.index) : "";
 
-    row.append(title, url, date, id, order);
+      row.append(title, url, date, id, order);
+    }
     row.onclick = () => { select(item.id); };
     row.ondblclick = () => openOrNavigate(item);
     row.onkeydown = (e) => {
@@ -1123,7 +1152,7 @@ async function select(id) {
 function openOrNavigate(item) {
   if (isFolder(item)) {
     navigate(item.id);
-  } else if (item.url) {
+  } else if (item.url && !isSeparator(item)) {
     api.tabs.create({ url: item.url });
   }
 }

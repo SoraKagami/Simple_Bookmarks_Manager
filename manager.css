@@ -63,6 +63,23 @@ h2 { font-size: 13px; margin: 0 0 10px; opacity: .75; text-transform: uppercase;
 .list { min-height: 0; }
 .item { padding: 8px 12px; cursor: default; border-bottom: 1px solid color-mix(in srgb, CanvasText 10%, transparent); }
 .item:hover { background: color-mix(in srgb, Highlight 20%, transparent); }
+
+.item.separator-item {
+  grid-template-columns: 1fr;
+  gap: 0;
+  padding-top: 12px;
+  padding-bottom: 12px;
+}
+.separator-line {
+  grid-column: 1 / -1;
+  width: 100%;
+  margin: 0;
+  border: 0;
+  border-top: 1px solid color-mix(in srgb, CanvasText 38%, transparent);
+}
+.item.separator-item.selected .separator-line {
+  border-top-color: currentColor;
+}
 .muted, .url { opacity: .7; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 .details label { display: block; margin: 10px 0; }
 .field-caption { display: inline-block; }
