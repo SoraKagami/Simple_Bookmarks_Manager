@@ -16,6 +16,7 @@ const state = {
   clipboard: null,
   contextMenu: null,
   suppressBookmarkEvents: false,
+  unsavedPromptActive: false,
   faviconRefreshToken: String(Date.now())
 };
 
@@ -367,7 +368,7 @@ async function renameFolder(folder) {
   if (!title) return;
   await bookmarks("update", folder.id, { title: title.trim() });
   await loadTree();
-  select(folder.id);
+  performSelect(folder.id);
 }
 
 async function editBookmark(bookmark) {
@@ -378,7 +379,7 @@ async function editBookmark(bookmark) {
   if (url === null || !url.trim()) return;
   await bookmarks("update", bookmark.id, { title: title.trim() || url.trim(), url: url.trim() });
   await loadTree();
-  select(bookmark.id);
+  performSelect(bookmark.id);
 }
 
 async function deleteNode(item) {
@@ -397,7 +398,7 @@ async function createFolderIn(parentId) {
   if (!title) return;
   const node = await bookmarks("create", { parentId, title });
   await loadTree();
-  select(node.id);
+  performSelect(node.id);
 }
 
 async function createBookmarkIn(parentId) {
@@ -406,7 +407,7 @@ async function createBookmarkIn(parentId) {
   const title = prompt("Bookmark name", url) || url;
   const node = await bookmarks("create", { parentId, title, url });
   await loadTree();
-  select(node.id);
+  performSelect(node.id);
 }
 
 function cutNode(item) {
@@ -838,7 +839,7 @@ function renderList() {
     order.textContent = Number.isInteger(item.index) ? String(item.index) : "";
 
     row.append(title, url, date, id, order);
-    row.onclick = () => select(item.id);
+    row.onclick = () => { select(item.id); };
     row.ondblclick = () => openOrNavigate(item);
     row.onkeydown = (e) => {
       if (e.key === "Enter") openOrNavigate(item);
@@ -878,17 +879,25 @@ function renderDetails() {
     return;
   }
 
-  state.detailsOriginal = selectedDetailsSnapshot(selected);
-  $("title").value = state.detailsOriginal.title;
-  $("url").value = state.detailsOriginal.url;
+  const isSameDetailsItem = state.detailsOriginal?.id === selected.id;
+  const preserveUnsavedEdits = isSameDetailsItem && hasUnsavedDetails();
+
   $("url-label").hidden = isFolder(selected);
+  $("url").hidden = isFolder(selected);
   $("url").disabled = isFolder(selected);
   $("delete").textContent = isFolder(selected) ? "Delete Folder" : "Delete Bookmark";
   $("delete").disabled = !isMutable(selected);
   $("save").disabled = !isMutable(selected);
   $("discard").disabled = !isMutable(selected);
   renderParents();
-  $("parent").value = state.detailsOriginal.parentId;
+
+  if (!preserveUnsavedEdits) {
+    state.detailsOriginal = selectedDetailsSnapshot(selected);
+    $("title").value = state.detailsOriginal.title;
+    $("url").value = state.detailsOriginal.url;
+    $("parent").value = state.detailsOriginal.parentId;
+  }
+
   updateDetailsDirtyIndicators();
 }
 
@@ -1009,23 +1018,31 @@ function showUnsavedChangesPrompt() {
 
 async function confirmUnsavedDetailsBeforeNavigation() {
   if (!hasUnsavedDetails()) return true;
-  const choice = await showUnsavedChangesPrompt();
-  if (choice === "keep") return false;
-  if (choice === "discard") {
-    discardDetailsChanges();
-    return true;
-  }
-  if (choice === "save") {
-    try {
-      await saveDetailsForSelected();
+  if (state.unsavedPromptActive) return false;
+
+  state.unsavedPromptActive = true;
+  try {
+    const choice = await showUnsavedChangesPrompt();
+    if (choice === "keep") return false;
+    if (choice === "discard") {
+      discardDetailsChanges();
+      state.detailsOriginal = selectedDetailsSnapshot();
       return true;
-    } catch (err) {
-      console.error(err);
-      alert(`Could not save changes: ${err.message || err}`);
-      return false;
     }
+    if (choice === "save") {
+      try {
+        await saveDetailsForSelected();
+        return true;
+      } catch (err) {
+        console.error(err);
+        alert(`Could not save changes: ${err.message || err}`);
+        return false;
+      }
+    }
+    return false;
+  } finally {
+    state.unsavedPromptActive = false;
   }
-  return false;
 }
 
 function sortTooltip(key, direction = state.sortDirection) {
@@ -1092,9 +1109,15 @@ async function navigate(folderId, pushHistory = true) {
   performNavigate(folderId, pushHistory);
 }
 
-function select(id) {
+function performSelect(id) {
   state.selectedId = id;
   render();
+}
+
+async function select(id) {
+  if (id === state.selectedId) return;
+  if (!(await confirmUnsavedDetailsBeforeNavigation())) return;
+  performSelect(id);
 }
 
 function openOrNavigate(item) {
@@ -1119,7 +1142,7 @@ async function saveDetailsForSelected() {
     await bookmarks("move", selected.id, { parentId });
   }
   await loadTree();
-  select(selected.id);
+  performSelect(selected.id);
 }
 
 async function saveSelected(e) {
