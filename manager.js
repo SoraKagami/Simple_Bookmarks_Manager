@@ -907,18 +907,25 @@ function renderList() {
   restoreMiddleScrollPosition(scrollPosition);
 }
 
-function renderParents() {
+function renderParents(selectedValue = null) {
   const selected = nodes.get(state.selectedId);
+  const parentSelect = $("parent");
+  const desiredValue = selectedValue ?? parentSelect.value ?? selected?.parentId ?? "";
   const options = [...nodes.values()].filter((n) =>
     canContainChildren(n) &&
     n.id !== selected?.id &&
     !(selected && isFolder(selected) && isDescendantOf(n, selected)));
-  $("parent").replaceChildren(...options.map((folder) => {
+
+  parentSelect.replaceChildren(...options.map((folder) => {
     const opt = document.createElement("option");
     opt.value = folder.id;
     opt.textContent = folderPath(folder);
     return opt;
   }));
+
+  if ([...parentSelect.options].some((opt) => opt.value === desiredValue)) {
+    parentSelect.value = desiredValue;
+  }
 }
 
 function renderDetails() {
@@ -937,6 +944,9 @@ function renderDetails() {
 
   const isSameDetailsItem = state.detailsOriginal?.id === selected.id;
   const preserveUnsavedEdits = isSameDetailsItem && hasUnsavedDetails();
+  const desiredParentValue = preserveUnsavedEdits
+    ? ($("parent").value || state.detailsOriginal?.parentId || selected.parentId || "")
+    : (selected.parentId || "");
 
   $("url-label").hidden = isFolder(selected);
   $("url").hidden = isFolder(selected);
@@ -945,7 +955,7 @@ function renderDetails() {
   $("delete").disabled = !isMutable(selected);
   $("save").disabled = !isMutable(selected);
   $("discard").disabled = !isMutable(selected);
-  renderParents();
+  renderParents(desiredParentValue);
 
   if (!preserveUnsavedEdits) {
     state.detailsOriginal = selectedDetailsSnapshot(selected);
@@ -1198,8 +1208,14 @@ async function saveDetailsForSelected() {
   if (parentId && parentId !== selected.parentId) {
     await bookmarks("move", selected.id, { parentId });
   }
+
+  // Force the refreshed Details pane to use the just-saved bookmark state as
+  // the new baseline, instead of trying to preserve pre-save dirty field values.
+  state.detailsOriginal = null;
+
   await loadTree();
   performSelect(selected.id);
+  updateDetailsDirtyIndicators();
 }
 
 async function saveSelected(e) {
