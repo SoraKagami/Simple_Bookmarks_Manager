@@ -1,6 +1,6 @@
 # Simple Bookmarks Manager
 
-Version: 0.3.4
+Version: 0.3.5
 
 A Manifest V3 Chrome/Chromium extension that provides a simple local bookmark manager inspired by Firefox Places Library ideas.
 
@@ -20,6 +20,7 @@ This Source Code Form is subject to the terms of the Mozilla Public License, v. 
 - Drag-and-drop reordering for non-root folders in the left-pane tree.
 - Drag-and-drop moves into folder rows from either the main list or left folder tree.
 - Right-pane active folder contents with drag-and-drop reordering in natural order.
+- Independent scrolling for the Library tree, middle bookmark table, and Details pane.
 - Search scoped to the active folder, recursively.
 - Back/forward navigation between selected folders.
 - Mouse4/Mouse5 history navigation while the manager page is active.
@@ -87,6 +88,16 @@ Note: v0.2.2+ no longer overrides `chrome://bookmarks`, so Chromium/Brave's buil
 - Chromium BSD license reference: https://chromium.googlesource.com/chromium/src/+/HEAD/LICENSE
 
 ## Changelog
+
+### 0.3.5
+
+- Fixed middle-pane single-click selection causing the bookmark list to jump back to the top.
+- Fixed drag/drop rearranging or moving bookmark items causing the middle pane to jump back to the top after refresh.
+- Preserved middle-pane vertical and horizontal scroll position during same-folder re-renders.
+- Reset the middle-pane scroll only when intentionally navigating to a different folder.
+- Converted the main panes into independent scroll regions so the left Library pane, middle bookmark table, and right Details pane scroll separately.
+- Kept the top toolbar/search bar visible while the Library, middle, or Details panes scroll.
+- Updated version to `0.3.5`.
 
 ### 0.3.4
 

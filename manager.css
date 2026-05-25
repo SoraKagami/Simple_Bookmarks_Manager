@@ -1,15 +1,16 @@
 :root { font: 14px/1.4 system-ui, sans-serif; color-scheme: light dark; --bookmark-table-min-width: 860px; }
-body { margin: 0; height: 100vh; display: flex; flex-direction: column; }
+html { height: 100%; overflow: hidden; }
+body { margin: 0; height: 100vh; overflow: hidden; display: flex; flex-direction: column; }
 .toolbar { display: flex; gap: 8px; padding: 10px; border-bottom: 1px solid CanvasText; align-items: center; }
 .app-title { white-space: nowrap; margin: 0 4px; }
 .toolbar input { flex: 1; min-width: 180px; padding: 6px; }
 button, select, input { font: inherit; }
-.layout { flex: 1; display: grid; grid-template-columns: 260px 1fr 320px; min-height: 0; }
+.layout { flex: 1; display: grid; grid-template-columns: 260px 1fr 320px; min-height: 0; overflow: hidden; }
 .layout.details-hidden { grid-template-columns: 260px 1fr; }
-.left, .details { padding: 12px; overflow: auto; background: color-mix(in srgb, Canvas 92%, CanvasText); }
+.left, .details { min-height: 0; padding: 12px; overflow: auto; overscroll-behavior: contain; background: color-mix(in srgb, Canvas 92%, CanvasText); }
 .left { display: flex; flex-direction: column; min-height: 0; }
 .left .tree { flex: 1 1 auto; }
-.content { min-width: 0; display: flex; flex-direction: column; }
+.content { min-width: 0; min-height: 0; overflow: hidden; display: flex; flex-direction: column; }
 h2 { font-size: 13px; margin: 0 0 10px; opacity: .75; text-transform: uppercase; }
 .tree { user-select: none; }
 .tree-node { margin: 1px 0; }
@@ -42,7 +43,7 @@ h2 { font-size: 13px; margin: 0 0 10px; opacity: .75; text-transform: uppercase;
   white-space: nowrap;
 }
 .columns, .item { box-sizing: border-box; display: grid; grid-template-columns: minmax(220px, 1.2fr) minmax(260px, 2fr) 140px 72px 72px; gap: 10px; align-items: center; width: 100%; }
-.table-scroll { flex: 1; min-height: 0; min-width: 0; overflow: auto; }
+.table-scroll { flex: 1; min-height: 0; min-width: 0; overflow: auto; overscroll-behavior: contain; }
 .table-content { min-width: var(--bookmark-table-min-width); width: max(100%, var(--bookmark-table-min-width)); }
 .columns { position: sticky; top: 0; z-index: 2; background: Canvas; padding: 6px 12px; font-size: 12px; border-bottom: 1px solid color-mix(in srgb, CanvasText 25%, transparent); }
 .columns button {
@@ -101,8 +102,8 @@ h2 { font-size: 13px; margin: 0 0 10px; opacity: .75; text-transform: uppercase;
 
 [hidden] { display: none !important; }
 @media (max-width: 900px) {
-  .layout, .layout.details-hidden { grid-template-columns: 1fr; }
-  .left, .details { max-height: 35vh; }
+  .layout, .layout.details-hidden { grid-template-columns: 1fr; grid-template-rows: minmax(120px, 28vh) minmax(240px, 1fr) minmax(120px, 28vh); }
+  .left, .details { max-height: none; }
 }
 
 

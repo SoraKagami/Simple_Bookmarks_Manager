@@ -17,6 +17,7 @@ const state = {
   contextMenu: null,
   suppressBookmarkEvents: false,
   unsavedPromptActive: false,
+  resetMiddleScrollOnNextRender: false,
   faviconRefreshToken: String(Date.now())
 };
 
@@ -813,7 +814,32 @@ function renderCrumbs() {
   $("crumbs").replaceChildren(pathText, detailsToggle);
 }
 
+
+function middleScroller() {
+  return $("table-scroll");
+}
+
+function getMiddleScrollPosition() {
+  const scroller = middleScroller();
+  return scroller ? { top: scroller.scrollTop, left: scroller.scrollLeft } : { top: 0, left: 0 };
+}
+
+function setMiddleScrollPosition(position) {
+  const scroller = middleScroller();
+  if (!scroller) return;
+  scroller.scrollTop = Math.max(0, position?.top || 0);
+  scroller.scrollLeft = Math.max(0, position?.left || 0);
+}
+
+function restoreMiddleScrollPosition(position) {
+  setMiddleScrollPosition(position);
+  requestAnimationFrame(() => setMiddleScrollPosition(position));
+}
+
 function renderList() {
+  const scrollPosition = state.resetMiddleScrollOnNextRender ? { top: 0, left: 0 } : getMiddleScrollPosition();
+  state.resetMiddleScrollOnNextRender = false;
+
   const rows = visibleItems().map((item) => {
     const row = document.createElement("div");
     row.className = "item";
@@ -878,6 +904,7 @@ function renderList() {
   });
   $("list").classList.toggle("reorder-disabled", !canReorderList());
   $("list").replaceChildren(...rows);
+  restoreMiddleScrollPosition(scrollPosition);
 }
 
 function renderParents() {
@@ -1127,6 +1154,7 @@ function performNavigate(folderId, pushHistory = true) {
   }
   state.folderId = folderId;
   state.selectedId = folderId;
+  state.resetMiddleScrollOnNextRender = true;
   state.search = "";
   $("search").value = "";
   render();
