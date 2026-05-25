@@ -33,13 +33,17 @@ h2 { font-size: 13px; margin: 0 0 10px; opacity: .75; text-transform: uppercase;
   border-bottom: 1px solid color-mix(in srgb, CanvasText 25%, transparent);
 }
 .path-text {
+  flex: 1 1 auto;
   min-width: 0;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
 }
+.crumbs select {
+  flex: 0 0 auto;
+}
 .details-toggle {
-  margin-left: auto;
+  flex: 0 0 auto;
   white-space: nowrap;
 }
 .columns, .item { box-sizing: border-box; display: grid; grid-template-columns: minmax(220px, 1.2fr) minmax(260px, 2fr) 140px 72px 72px; gap: 10px; align-items: center; width: 100%; }

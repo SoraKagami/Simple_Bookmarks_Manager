@@ -10,17 +10,10 @@
   <header class="toolbar">
     <button id="back" title="Back" disabled>←</button>
     <button id="forward" title="Forward" disabled>→</button>
-    <strong class="app-title">Simple Bookmarks Manager</strong>
     <button id="new-folder">New Folder</button>
     <button id="new-bookmark">New Bookmark</button>
     <input id="search" type="search" placeholder="Search bookmarks">
-    <select id="sort" title="Choose the middle-pane sort mode. Unsorted uses Chromium’s default folder order.">
-      <option value="index">Unsorted</option>
-      <option value="title">Name</option>
-      <option value="url">URL</option>
-      <option value="dateAdded">Date added</option>
-      <option value="id">ID</option>
-    </select>
+    <strong class="app-title">Simple Bookmarks Manager</strong>
   </header>
 
   <main id="layout" class="layout">
@@ -30,7 +23,15 @@
     </nav>
 
     <section class="content">
-      <div id="crumbs" class="crumbs"></div>
+      <div id="crumbs" class="crumbs">
+        <select id="sort" title="Choose the middle-pane sort mode. Unsorted uses Chromium’s default folder order.">
+          <option value="index">Unsorted</option>
+          <option value="title">Name</option>
+          <option value="url">URL</option>
+          <option value="dateAdded">Date added</option>
+          <option value="id">ID</option>
+        </select>
+      </div>
       <div id="table-scroll" class="table-scroll">
         <div class="table-content">
           <div class="columns" aria-label="Bookmark list columns">

@@ -802,6 +802,9 @@ function renderCrumbs() {
   pathText.className = "path-text";
   pathText.textContent = path.join(" / ") || "Bookmarks";
 
+  const sortSelect = $("sort");
+  sortSelect.value = state.sort;
+
   const detailsToggle = document.createElement("button");
   detailsToggle.id = "toggle-details";
   detailsToggle.className = "details-toggle";
@@ -811,7 +814,7 @@ function renderCrumbs() {
   detailsToggle.setAttribute("aria-pressed", String(state.detailsVisible));
   detailsToggle.onclick = toggleDetailsPane;
 
-  $("crumbs").replaceChildren(pathText, detailsToggle);
+  $("crumbs").replaceChildren(pathText, sortSelect, detailsToggle);
 }
 
 
