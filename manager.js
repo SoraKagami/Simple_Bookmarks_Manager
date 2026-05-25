@@ -398,11 +398,17 @@ async function deleteNode(item) {
   if (!item || !isMutable(item)) return;
   const label = item.title || item.url || "this item";
   if (!confirm(`Delete "${label}"?`)) return;
+
+  if (state.detailsOriginal?.id === item.id) {
+    state.detailsOriginal = null;
+  }
+
   if (isFolder(item)) await bookmarks("removeTree", item.id);
   else await bookmarks("remove", item.id);
   if (state.clipboard?.mode === "cut" && state.clipboard.id === item.id) state.clipboard = null;
   state.selectedId = state.folderId;
   await loadTree();
+  setDetailsCleanBaseline(nodes.get(state.selectedId));
 }
 
 async function createFolderIn(parentId) {
@@ -987,6 +993,21 @@ function selectedDetailsSnapshot(selected = nodes.get(state.selectedId)) {
   };
 }
 
+function setDetailsCleanBaseline(selected = nodes.get(state.selectedId)) {
+  if (!selected) {
+    state.detailsOriginal = null;
+    updateDetailsDirtyIndicators();
+    return;
+  }
+
+  state.detailsOriginal = selectedDetailsSnapshot(selected);
+  $("title").value = state.detailsOriginal.title;
+  $("url").value = state.detailsOriginal.url;
+  renderParents(state.detailsOriginal.parentId);
+  $("parent").value = state.detailsOriginal.parentId;
+  updateDetailsDirtyIndicators();
+}
+
 function currentDetailsValues() {
   const selected = nodes.get(state.selectedId);
   if (!selected || !state.detailsOriginal || state.detailsOriginal.id !== selected.id) return null;
@@ -1029,6 +1050,7 @@ function discardDetailsChanges() {
   if (!selected || !state.detailsOriginal || state.detailsOriginal.id !== selected.id) return;
   $("title").value = state.detailsOriginal.title;
   $("url").value = state.detailsOriginal.url;
+  renderParents(state.detailsOriginal.parentId);
   $("parent").value = state.detailsOriginal.parentId;
   updateDetailsDirtyIndicators();
 }
@@ -1202,23 +1224,36 @@ async function saveDetailsForSelected() {
   const selected = nodes.get(state.selectedId);
   if (!selected || !isMutable(selected)) return;
 
+  const selectedId = selected.id;
   const title = $("title").value.trim();
   const url = $("url").value.trim();
   const parentId = $("parent").value;
 
   const changes = isFolder(selected) ? { title } : { title, url };
-  await bookmarks("update", selected.id, changes);
-  if (parentId && parentId !== selected.parentId) {
-    await bookmarks("move", selected.id, { parentId });
+
+  // Prevent intermediate bookmark events from re-rendering the Details pane
+  // between the update and optional move.  The clean baseline is rebuilt once
+  // from Chromium's refreshed bookmark tree after all save work finishes.
+  state.suppressBookmarkEvents = true;
+  try {
+    await bookmarks("update", selectedId, changes);
+    if (parentId && parentId !== selected.parentId) {
+      await bookmarks("move", selectedId, { parentId });
+    }
+  } finally {
+    state.suppressBookmarkEvents = false;
   }
 
-  // Force the refreshed Details pane to use the just-saved bookmark state as
-  // the new baseline, instead of trying to preserve pre-save dirty field values.
+  state.selectedId = selectedId;
   state.detailsOriginal = null;
-
   await loadTree();
-  performSelect(selected.id);
-  updateDetailsDirtyIndicators();
+
+  const freshSelected = nodes.get(selectedId);
+  if (freshSelected) {
+    state.selectedId = selectedId;
+    setDetailsCleanBaseline(freshSelected);
+    renderDetails();
+  }
 }
 
 async function saveSelected(e) {

@@ -1,6 +1,6 @@
 # Simple Bookmarks Manager
 
-Version: 0.3.7
+Version: 0.3.8
 
 A Manifest V3 Chrome/Chromium extension that provides a simple local bookmark manager inspired by Firefox Places Library ideas.
 
@@ -88,6 +88,14 @@ Note: v0.2.2+ no longer overrides `chrome://bookmarks`, so Chromium/Brave's buil
 - Chromium BSD license reference: https://chromium.googlesource.com/chromium/src/+/HEAD/LICENSE
 
 ## Changelog
+
+### 0.3.8
+
+- Fixed Details pane dirty-state handling after saving changes so navigating away no longer incorrectly triggers the **Unsaved changes** prompt.
+- Suppressed intermediate bookmark-change refreshes while saving Details pane edits, then rebuilt the clean Details baseline from the refreshed Chromium bookmark tree.
+- Ensured **Discard Changes** restores the saved baseline and refreshes the parent-folder dropdown without leaving stale dirty-state indicators.
+- Ensured deleting the selected bookmark/folder clears the old Details baseline before selecting the current folder.
+- Updated version to `0.3.8`.
 
 ### 0.3.7
 
