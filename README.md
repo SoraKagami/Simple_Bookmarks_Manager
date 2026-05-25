@@ -1,6 +1,6 @@
 # Simple Bookmarks Manager
 
-Version: 0.3.8
+Version: 0.3.9
 
 A Manifest V3 Chrome/Chromium extension that provides a simple local bookmark manager inspired by Firefox Places Library ideas.
 
@@ -88,6 +88,13 @@ Note: v0.2.2+ no longer overrides `chrome://bookmarks`, so Chromium/Brave's buil
 - Chromium BSD license reference: https://chromium.googlesource.com/chromium/src/+/HEAD/LICENSE
 
 ## Changelog
+
+### 0.3.9
+
+- Reordered the bookmark right-click menu for consistency with the folder menu.
+- Moved **Add New Bookmark**, **Add New Folder**, and **Add Separator** to immediately below **Paste**, separated by a single menu divider.
+- Removed the divider between **Edit** and **Delete** in the bookmark right-click menu.
+- Updated version to `0.3.9`.
 
 ### 0.3.8
 

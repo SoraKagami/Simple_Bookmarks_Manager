@@ -629,25 +629,25 @@ function buildBookmarkMenu(context) {
   const urls = contextUrls(context);
   const pasteDisabled = !canPasteForContext(context);
   const parentId = contextParentId(context);
+  const canAddToParent = canContainChildren(nodes.get(parentId));
 
   return [
     makeMenuItem("Edit", () => editBookmark(bookmark), { disabled: !isMutable(bookmark) }),
-    makeSeparator(),
     makeMenuItem("Delete", () => deleteNode(bookmark), { disabled: !isMutable(bookmark) }),
     makeSeparator(),
     makeMenuItem("Cut", () => cutNode(bookmark), { disabled: !isMutable(bookmark) }),
     makeMenuItem("Copy", () => copyNode(bookmark), { disabled: !bookmark }),
     makeMenuItem("Paste", () => pasteClipboard(context), { disabled: pasteDisabled }),
     makeSeparator(),
+    makeMenuItem("Add New Bookmark", () => createBookmarkIn(parentId), { disabled: !canAddToParent }),
+    makeMenuItem("Add New Folder", () => createFolderIn(parentId), { disabled: !canAddToParent }),
+    makeMenuItem("Add Separator", () => createSeparatorIn(parentId), { disabled: !canAddToParent }),
+    makeSeparator(),
     makeMenuItem("Open in New Tab", () => openUrlsInCurrentWindow(urls), { disabled: urls.length === 0 }),
     makeMenuItem("Open in New Window", () => openUrlsInWindow(urls, false), { disabled: urls.length === 0 }),
     makeMenuItem("Open in Private Window", () => openUrlsInWindow(urls, true), { disabled: urls.length === 0 }),
     makeMenuItem("Open in New Tab Group", () => openUrlsInTabGroup(urls), { disabled: urls.length === 0, hidden: !isTabGroupSupported() }),
-    makeMenuItem("Open in Split View", () => {}, { hidden: !isSplitViewSupported() }),
-    makeSeparator(),
-    makeMenuItem("Add New Bookmark", () => createBookmarkIn(parentId), { disabled: !canContainChildren(nodes.get(parentId)) }),
-    makeMenuItem("Add New Folder", () => createFolderIn(parentId), { disabled: !canContainChildren(nodes.get(parentId)) }),
-    makeMenuItem("Add Separator", () => createSeparatorIn(parentId), { disabled: !canContainChildren(nodes.get(parentId)) })
+    makeMenuItem("Open in Split View", () => {}, { hidden: !isSplitViewSupported() })
   ];
 }
 
