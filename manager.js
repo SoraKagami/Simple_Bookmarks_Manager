@@ -731,14 +731,13 @@ function makeAppMenuSeparator() {
   return sep;
 }
 
-function showNativeImportExportUnavailable(actionName) {
-  alert(`${actionName} is not implemented yet. Chromium's native bookmark ${actionName.toLowerCase()} code path is not exposed through a supported Chrome extension API, so this will need a custom importer/exporter implementation later.`);
+async function openDefaultBookmarksManager() {
+  await api.tabs.create({ url: "chrome://bookmarks/" });
 }
 
 function buildAppMenu() {
   return [
-    makeAppMenuItem("Import Bookmarks", () => showNativeImportExportUnavailable("Import Bookmarks")),
-    makeAppMenuItem("Export Bookmarks", () => showNativeImportExportUnavailable("Export Bookmarks")),
+    makeAppMenuItem("Open Default Bookmarks Manager", openDefaultBookmarksManager),
     makeAppMenuSeparator(),
     makeAppMenuItem("Options", () => {}, { disabled: true }),
     makeAppMenuItem("Help", () => {}, { disabled: true }),
