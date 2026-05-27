@@ -555,26 +555,15 @@ function childCount(parentId) {
   return (nodes.get(parentId)?.children || []).length;
 }
 
-function normalizeMoveIndex(dragged, parentId, requestedIndex, { adjustForSameParent = true } = {}) {
+function normalizeMoveIndex(dragged, parentId, requestedIndex, _options = {}) {
   if (!Number.isInteger(requestedIndex)) return null;
-  let index = requestedIndex;
-  let maxIndex = childCount(parentId);
 
-  // Drag/drop before-after targets are calculated from the current visual list.
-  // If the dragged item starts before that target in the same parent, removing
-  // it shifts the destination one slot upward before chrome.bookmarks.move()
-  // applies the requested index.
-  if (
-    adjustForSameParent &&
-    dragged.parentId === parentId &&
-    Number.isInteger(dragged.index) &&
-    dragged.index < requestedIndex
-  ) {
-    index -= 1;
-  }
-
-  if (dragged.parentId === parentId) maxIndex = Math.max(0, maxIndex - 1);
-  return Math.max(0, Math.min(index, maxIndex));
+  // chrome.bookmarks.move() already handles same-parent index adjustment when
+  // the moved node is removed from its old position.  Do not pre-subtract for
+  // downward moves, or the node lands one row too high when dropping below an
+  // item or when applying an advanced Sort order change.
+  const maxIndex = childCount(parentId);
+  return Math.max(0, Math.min(requestedIndex, maxIndex));
 }
 
 async function moveWithIntent(draggedId, targetId, intent) {
