@@ -32,11 +32,14 @@ async function bookmarks(method, ...args) {
   return await api.bookmarks[method](...args);
 }
 
-function indexTree(root, parent = null, out = []) {
+function indexTree(root, parent = null, out = [], computedIndex = null) {
   const node = { ...root, parentNode: parent };
+  if (Number.isInteger(computedIndex)) node.index = computedIndex;
   nodes.set(node.id, node);
   out.push(node);
-  for (const child of root.children || []) indexTree(child, node, out);
+  for (const [index, child] of (root.children || []).entries()) {
+    indexTree(child, node, out, index);
+  }
   return out;
 }
 
@@ -423,19 +426,25 @@ function insertionTargetAfterNode(item) {
 function insertionTargetForContext(context = null) {
   const contextItem = nodes.get(context?.id);
 
-  // Row context-menu additions are placed beside the clicked row. For root
-  // folders, where sibling insertion is not legal, fall back to adding inside
-  // that root folder.
-  if (context?.kind === "bookmark" || context?.kind === "folder") {
-    const siblingTarget = insertionTargetAfterNode(contextItem);
-    if (siblingTarget) return siblingTarget;
-    if (canContainChildren(contextItem)) return { parentId: contextItem.id, index: null };
+  // Adding from a folder context should create the new item inside that folder.
+  if (context?.kind === "folder" && canContainChildren(contextItem)) {
+    return { parentId: contextItem.id, index: null };
   }
 
-  // Toolbar and empty-space additions use the current selection when it is a
-  // visible child of the current folder, so the new item appears immediately
-  // below the selected bookmark/folder/separator.
+  // Adding from a bookmark/separator row context should create the new item
+  // immediately below that clicked row when possible.
+  if (context?.kind === "bookmark") {
+    const siblingTarget = insertionTargetAfterNode(contextItem);
+    if (siblingTarget) return siblingTarget;
+  }
+
+  // Toolbar and empty-space additions use the current selection. If a folder is
+  // selected, add inside it; if a bookmark/separator is selected in the current
+  // folder, add immediately below it.
   const selected = nodes.get(state.selectedId);
+  if (canContainChildren(selected)) {
+    return { parentId: selected.id, index: null };
+  }
   if (selected?.parentId === state.folderId) {
     const siblingTarget = insertionTargetAfterNode(selected);
     if (siblingTarget) return siblingTarget;
@@ -542,6 +551,32 @@ function validDrop(dragged, target, intent, context) {
   return !!target.parentId && target.parentId !== "0";
 }
 
+function childCount(parentId) {
+  return (nodes.get(parentId)?.children || []).length;
+}
+
+function normalizeMoveIndex(dragged, parentId, requestedIndex, { adjustForSameParent = true } = {}) {
+  if (!Number.isInteger(requestedIndex)) return null;
+  let index = requestedIndex;
+  let maxIndex = childCount(parentId);
+
+  // Drag/drop before-after targets are calculated from the current visual list.
+  // If the dragged item starts before that target in the same parent, removing
+  // it shifts the destination one slot upward before chrome.bookmarks.move()
+  // applies the requested index.
+  if (
+    adjustForSameParent &&
+    dragged.parentId === parentId &&
+    Number.isInteger(dragged.index) &&
+    dragged.index < requestedIndex
+  ) {
+    index -= 1;
+  }
+
+  if (dragged.parentId === parentId) maxIndex = Math.max(0, maxIndex - 1);
+  return Math.max(0, Math.min(index, maxIndex));
+}
+
 async function moveWithIntent(draggedId, targetId, intent) {
   const dragged = nodes.get(draggedId);
   const target = nodes.get(targetId);
@@ -562,14 +597,12 @@ async function moveWithIntent(draggedId, targetId, intent) {
     return;
   }
 
-  let index = target.index + (intent === "after" ? 1 : 0);
-  if (dragged.parentId === target.parentId && dragged.index < target.index) {
-    index -= 1;
-  }
+  const requestedIndex = (Number.isInteger(target.index) ? target.index : 0) + (intent === "after" ? 1 : 0);
+  const index = normalizeMoveIndex(dragged, target.parentId, requestedIndex);
 
   await bookmarks("move", dragged.id, {
     parentId: target.parentId,
-    index: Math.max(0, index)
+    ...(Number.isInteger(index) ? { index } : {})
   });
   state.selectedId = dragged.id;
   if (isFolder(dragged)) ensureExpandedPath(dragged.id);
@@ -1378,8 +1411,14 @@ async function saveDetailsForSelected() {
   try {
     await bookmarks("update", selectedId, changes);
     const moveDetails = {};
+    const destinationParentId = parentId || selected.parentId;
     if (parentId && parentId !== selected.parentId) moveDetails.parentId = parentId;
-    if (hasRequestedIndex && String(requestedIndex) !== String(selected.index ?? "")) moveDetails.index = requestedIndex;
+    if (hasRequestedIndex) {
+      const normalizedIndex = normalizeMoveIndex(selected, destinationParentId, requestedIndex, { adjustForSameParent: false });
+      if (Number.isInteger(normalizedIndex) && String(normalizedIndex) !== String(selected.index ?? "")) {
+        moveDetails.index = normalizedIndex;
+      }
+    }
     if (Object.keys(moveDetails).length) await bookmarks("move", selectedId, moveDetails);
   } finally {
     state.suppressBookmarkEvents = false;

@@ -1,6 +1,6 @@
 # Simple Bookmarks Manager
 
-Version: 0.3.11
+Version: 0.3.12
 
 A Manifest V3 Chrome/Chromium extension that provides a simple local bookmark manager inspired by Firefox Places Library ideas.
 
@@ -90,6 +90,15 @@ Note: v0.2.2+ no longer overrides `chrome://bookmarks`, so Chromium/Brave's buil
 - Chromium BSD license reference: https://chromium.googlesource.com/chromium/src/+/HEAD/LICENSE
 
 ## Changelog
+
+### 0.3.12
+
+- Changed add-item placement so when a folder is selected, new bookmarks, folders, and separators are added inside the selected folder instead of below it.
+- Changed folder right-click add actions to add inside the clicked folder.
+- Fixed bookmark tree indexing by computing each child node's order from Chromium's returned child array, including separator bookmarks.
+- Fixed drag/drop before/after moves around separators by normalizing destination indexes against the full child list.
+- Fixed Advanced Details **Sort order** moves around separators by using the same normalized move-index logic.
+- Updated version to `0.3.12`.
 
 ### 0.3.11
 
