@@ -501,19 +501,33 @@ async function createSeparatorIn(parentId, index = null) {
   performSelect(node.id);
 }
 
+async function blockAddIfUnsavedDetails() {
+  if (!hasUnsavedDetails()) return false;
+  // Adding a new item changes selection after creation. If the Details pane has
+  // unsaved edits, show the same unsaved-changes prompt first, but do not
+  // continue the add operation in this click. This prevents accidental loss of
+  // edits and avoids surprising item creation after the user chooses Save or
+  // Discard in the prompt.
+  await confirmUnsavedDetailsBeforeNavigation();
+  return true;
+}
+
 async function createFolderAtTarget(context = null) {
+  if (await blockAddIfUnsavedDetails()) return;
   const target = insertionTargetForContext(context);
   if (!target || !canContainChildren(nodes.get(target.parentId))) return;
   await createFolderIn(target.parentId, target.index);
 }
 
 async function createBookmarkAtTarget(context = null) {
+  if (await blockAddIfUnsavedDetails()) return;
   const target = insertionTargetForContext(context);
   if (!target || !canContainChildren(nodes.get(target.parentId))) return;
   await createBookmarkIn(target.parentId, target.index);
 }
 
 async function createSeparatorAtTarget(context = null) {
+  if (await blockAddIfUnsavedDetails()) return;
   const target = insertionTargetForContext(context);
   if (!target || !canContainChildren(nodes.get(target.parentId))) return;
   await createSeparatorIn(target.parentId, target.index);

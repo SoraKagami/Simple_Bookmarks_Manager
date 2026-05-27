@@ -1,6 +1,6 @@
 # Simple Bookmarks Manager
 
-Version: 0.3.15
+Version: 0.3.16
 
 A Manifest V3 Chrome/Chromium extension that provides a simple local bookmark manager inspired by Firefox Places Library ideas.
 
@@ -91,6 +91,14 @@ Note: v0.2.2+ no longer overrides `chrome://bookmarks`, so Chromium/Brave's buil
 - Chromium BSD license reference: https://chromium.googlesource.com/chromium/src/+/HEAD/LICENSE
 
 ## Changelog
+
+### 0.3.16
+
+- Added unsaved-change protection before creating new bookmarks, folders, or separators.
+- If the Details pane has unsaved edits, add actions now show the existing **Unsaved changes** prompt and stop the add operation for that click.
+- Prevented new-item creation from automatically discarding modified Details pane data.
+- Applies to toolbar add buttons and all right-click menu add actions.
+- Updated version to `0.3.16`.
 
 ### 0.3.15
 
