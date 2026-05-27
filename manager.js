@@ -1514,16 +1514,17 @@ async function goForward() {
 
 function handleMouseHistoryButton(e) {
   // Mouse4/Mouse5 are commonly exposed as button 3/4 in Chromium.
-  // Prevent the browser's default history navigation inside the manager page.
-  if (e.button === 3) {
-    e.preventDefault();
-    e.stopPropagation();
-    goBack();
-  } else if (e.button === 4) {
-    e.preventDefault();
-    e.stopPropagation();
-    goForward();
-  }
+  // Chromium can fire both mousedown and auxclick for the same side-button
+  // press. Navigate only once on mousedown, but still cancel auxclick so the
+  // browser's built-in history action does not also run.
+  if (e.button !== 3 && e.button !== 4) return;
+
+  e.preventDefault();
+  e.stopPropagation();
+
+  if (e.type !== "mousedown") return;
+  if (e.button === 3) goBack();
+  if (e.button === 4) goForward();
 }
 
 function setSortSelectTooltips() {
