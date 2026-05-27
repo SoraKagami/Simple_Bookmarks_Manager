@@ -699,6 +699,79 @@ function makeSeparator() {
   return sep;
 }
 
+function hideAppMenu() {
+  document.querySelector(".app-menu")?.remove();
+  $("app-menu-button")?.setAttribute("aria-expanded", "false");
+}
+
+function makeAppMenuItem(label, action, { disabled = false } = {}) {
+  const button = document.createElement("button");
+  button.type = "button";
+  button.className = "app-menu-item";
+  button.textContent = label;
+  button.disabled = disabled;
+  button.setAttribute("role", "menuitem");
+  button.onclick = async () => {
+    if (disabled) return;
+    hideAppMenu();
+    try {
+      await action();
+    } catch (err) {
+      console.error(err);
+      alert(`Action failed: ${err.message || err}`);
+    }
+  };
+  return button;
+}
+
+function makeAppMenuSeparator() {
+  const sep = document.createElement("div");
+  sep.className = "app-menu-separator";
+  sep.setAttribute("role", "separator");
+  return sep;
+}
+
+function showNativeImportExportUnavailable(actionName) {
+  alert(`${actionName} is not implemented yet. Chromium's native bookmark ${actionName.toLowerCase()} code path is not exposed through a supported Chrome extension API, so this will need a custom importer/exporter implementation later.`);
+}
+
+function buildAppMenu() {
+  return [
+    makeAppMenuItem("Import Bookmarks", () => showNativeImportExportUnavailable("Import Bookmarks")),
+    makeAppMenuItem("Export Bookmarks", () => showNativeImportExportUnavailable("Export Bookmarks")),
+    makeAppMenuSeparator(),
+    makeAppMenuItem("Options", () => {}, { disabled: true }),
+    makeAppMenuItem("Help", () => {}, { disabled: true }),
+    makeAppMenuItem("About", () => {}, { disabled: true })
+  ];
+}
+
+function toggleAppMenu() {
+  const button = $("app-menu-button");
+  const existing = document.querySelector(".app-menu");
+  hideContextMenu();
+  if (existing) {
+    hideAppMenu();
+    return;
+  }
+
+  const menu = document.createElement("div");
+  menu.className = "app-menu";
+  menu.setAttribute("role", "menu");
+  menu.append(...buildAppMenu());
+  document.body.append(menu);
+
+  const margin = 8;
+  const buttonRect = button.getBoundingClientRect();
+  const menuRect = menu.getBoundingClientRect();
+  const left = Math.min(buttonRect.right - menuRect.width, window.innerWidth - menuRect.width - margin);
+  const top = Math.min(buttonRect.bottom + 4, window.innerHeight - menuRect.height - margin);
+  menu.style.left = `${Math.max(margin, left)}px`;
+  menu.style.top = `${Math.max(margin, top)}px`;
+  button.setAttribute("aria-expanded", "true");
+  menu.querySelector("button:not(:disabled)")?.focus({ preventScroll: true });
+}
+
 function contextParentId(context) {
   const item = nodes.get(context?.id);
   if (context?.kind === "folder") return item?.id || state.folderId;
@@ -801,6 +874,7 @@ function showContextMenu(e) {
   e.preventDefault();
   e.stopPropagation();
   hideContextMenu();
+  hideAppMenu();
 
   const context = contextFromEvent(e);
   state.contextMenu = context;
@@ -1574,6 +1648,10 @@ for (const button of document.querySelectorAll(".columns [data-sort-key]")) {
     renderColumnHeaders();
   };
 }
+$("app-menu-button").onclick = (e) => {
+  e.stopPropagation();
+  toggleAppMenu();
+};
 $("details-form").onsubmit = saveSelected;
 $("discard").onclick = discardDetailsChanges;
 $("delete").onclick = removeSelected;
@@ -1603,10 +1681,18 @@ document.addEventListener("drop", clearDropIndicators);
 window.addEventListener("mousedown", handleMouseHistoryButton, { capture: true });
 window.addEventListener("auxclick", handleMouseHistoryButton, { capture: true });
 window.addEventListener("contextmenu", showContextMenu, { capture: true });
-window.addEventListener("click", (e) => { if (!e.target.closest?.(".context-menu")) hideContextMenu(); });
-window.addEventListener("resize", hideContextMenu);
-window.addEventListener("scroll", hideContextMenu, true);
-window.addEventListener("keydown", (e) => { if (e.key === "Escape") hideContextMenu(); });
+window.addEventListener("click", (e) => {
+  if (!e.target.closest?.(".context-menu")) hideContextMenu();
+  if (!e.target.closest?.(".app-menu") && !e.target.closest?.("#app-menu-button")) hideAppMenu();
+});
+window.addEventListener("resize", () => { hideContextMenu(); hideAppMenu(); });
+window.addEventListener("scroll", () => { hideContextMenu(); hideAppMenu(); }, true);
+window.addEventListener("keydown", (e) => {
+  if (e.key === "Escape") {
+    hideContextMenu();
+    hideAppMenu();
+  }
+});
 
 setSortSelectTooltips();
 

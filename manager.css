@@ -3,6 +3,7 @@ html { height: 100%; overflow: hidden; }
 body { margin: 0; height: 100vh; overflow: hidden; display: flex; flex-direction: column; }
 .toolbar { display: flex; gap: 8px; padding: 10px; border-bottom: 1px solid CanvasText; align-items: center; }
 .app-title { white-space: nowrap; margin: 0 4px; }
+.app-menu-button { min-width: 34px; padding: 4px 8px; font-size: 18px; line-height: 1; }
 .toolbar input { flex: 1; min-width: 180px; padding: 6px; }
 button, select, input { font: inherit; }
 .layout { flex: 1; display: grid; grid-template-columns: 260px 1fr 320px; min-height: 0; overflow: hidden; }
@@ -150,7 +151,7 @@ h2 { font-size: 13px; margin: 0 0 10px; opacity: .75; text-transform: uppercase;
   opacity: .45;
 }
 
-.context-menu {
+.context-menu, .app-menu {
   position: fixed;
   z-index: 10000;
   min-width: 220px;
@@ -162,7 +163,7 @@ h2 { font-size: 13px; margin: 0 0 10px; opacity: .75; text-transform: uppercase;
   color: CanvasText;
   box-shadow: 0 8px 24px color-mix(in srgb, CanvasText 25%, transparent);
 }
-.context-menu-item {
+.context-menu-item, .app-menu-item {
   box-sizing: border-box;
   display: block;
   width: 100%;
@@ -174,14 +175,16 @@ h2 { font-size: 13px; margin: 0 0 10px; opacity: .75; text-transform: uppercase;
   text-align: left;
 }
 .context-menu-item:hover:not(:disabled),
-.context-menu-item:focus-visible:not(:disabled) {
+.context-menu-item:focus-visible:not(:disabled),
+.app-menu-item:hover:not(:disabled),
+.app-menu-item:focus-visible:not(:disabled) {
   background: color-mix(in srgb, Highlight 22%, transparent);
   outline: none;
 }
-.context-menu-item:disabled {
+.context-menu-item:disabled, .app-menu-item:disabled {
   opacity: .45;
 }
-.context-menu-separator {
+.context-menu-separator, .app-menu-separator {
   height: 1px;
   margin: 6px 4px;
   background: color-mix(in srgb, CanvasText 20%, transparent);

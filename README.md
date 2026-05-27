@@ -1,6 +1,6 @@
 # Simple Bookmarks Manager
 
-Version: 0.3.17
+Version: 0.3.18
 
 A Manifest V3 Chrome/Chromium extension that provides a simple local bookmark manager inspired by Firefox Places Library ideas.
 
@@ -40,6 +40,7 @@ This Source Code Form is subject to the terms of the Mozilla Public License, v. 
 - Uses Chromium's extension favicon endpoint for bookmark favicons, plus a bundled folder icon for bookmark folders.
 - Refreshes visible bookmark favicon image URLs when switching folders so newly cached icons can appear without keeping an in-memory favicon cache.
 - Uses an in-page custom context menu for bookmark/folder actions; the Details pane keeps the normal browser context menu.
+- Provides a top-right application menu for Import/Export, Options, Help, and About entry points.
 
 ## Source audit summary
 
@@ -72,6 +73,7 @@ Note: v0.2.2+ no longer overrides `chrome://bookmarks`, so Chromium/Brave's buil
 - Drag reordering is disabled while search or non-index sorting is active because visible order no longer matches persisted bookmark order.
 - Chromium root/special folders cannot be moved, renamed, or removed.
 - Chromium exposes bookmark metadata such as ID/date fields as read-only through the bookmarks API; the temporary advanced editing path can only save fields supported by the API, currently Sort order/index.
+- Chromium does not expose a supported extension API for invoking the built-in Bookmark Manager import/export flows, so the Import/Export menu entries are placeholders until a custom importer/exporter is implemented.
 - Bookmark favicons depend on Chromium's cached favicon data and normal fallback handling.
 - Favicons are refreshed when switching folders; icons already visible in the current folder may still need a folder switch to pick up newly cached site icons.
 - Browser-specific Split View features are hidden because Chromium does not expose a stable cross-browser extension API for them.
@@ -91,6 +93,14 @@ Note: v0.2.2+ no longer overrides `chrome://bookmarks`, so Chromium/Brave's buil
 - Chromium BSD license reference: https://chromium.googlesource.com/chromium/src/+/HEAD/LICENSE
 
 ## Changelog
+
+### 0.3.18
+
+- Added a hamburger application menu button to the right of the **Simple Bookmarks Manager** title in the top toolbar.
+- Added application menu entries in this order: **Import Bookmarks**, **Export Bookmarks**, separator, **Options**, **Help**, **About**.
+- Kept **Options**, **Help**, and **About** disabled as placeholders for later implementation.
+- Added placeholder alerts for **Import Bookmarks** and **Export Bookmarks** explaining that Chromium's native Bookmark Manager import/export code path is not exposed through a supported extension API.
+- Updated version to `0.3.18`.
 
 ### 0.3.17
 
