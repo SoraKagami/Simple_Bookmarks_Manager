@@ -1093,6 +1093,19 @@ function renderParents(selectedValue = null) {
     return opt;
   }));
 
+  if (desiredValue && ![...parentSelect.options].some((opt) => opt.value === desiredValue)) {
+    // Chromium root-level folders such as Bookmarks bar / Other bookmarks
+    // report parentId "0".  The synthetic browser root is not a valid move
+    // target, so keep a disabled placeholder option to preserve the saved
+    // parent value and avoid false dirty-state / unsaved-change prompts.
+    const placeholder = document.createElement("option");
+    placeholder.value = desiredValue;
+    const parentNode = nodes.get(desiredValue);
+    placeholder.textContent = parentNode ? folderPath(parentNode) : "Browser root";
+    placeholder.disabled = true;
+    parentSelect.prepend(placeholder);
+  }
+
   if ([...parentSelect.options].some((opt) => opt.value === desiredValue)) {
     parentSelect.value = desiredValue;
   }
