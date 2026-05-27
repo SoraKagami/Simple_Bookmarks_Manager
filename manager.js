@@ -27,6 +27,7 @@ const SEPARATOR_TITLE = "———";
 const SEPARATOR_URL = "about:blank";
 let EnableAdvancedDetailsViewing = true;
 let EnableAdvancedDetailsEditing = false;
+let SortByNameNatural = true;
 
 async function bookmarks(method, ...args) {
   return await api.bookmarks[method](...args);
@@ -315,11 +316,29 @@ async function pasteClipboard(context = state.contextMenu) {
   await loadTree();
 }
 
+function naturalNameSortGroup(node) {
+  if (isFolder(node)) return 0;
+  if (isSeparator(node)) return 1;
+  return 2;
+}
+
+function compareNaturalNameSort(a, b) {
+  const groupDiff = naturalNameSortGroup(a) - naturalNameSortGroup(b);
+  if (groupDiff !== 0) return groupDiff;
+
+  // Separators intentionally remain in their existing relative order.
+  if (isSeparator(a) && isSeparator(b)) return (a.index || 0) - (b.index || 0);
+
+  return compareNodes(a, b, "title");
+}
+
 async function sortFolderChildren(folder, key) {
   if (!canContainChildren(folder)) return;
   const children = [...(folder.children || [])];
   if (children.length < 2) return;
-  const sorted = children.sort((a, b) => compareNodes(a, b, key));
+  const sorted = children.sort((a, b) => (key === "title" && SortByNameNatural)
+    ? compareNaturalNameSort(a, b)
+    : compareNodes(a, b, key));
   state.suppressBookmarkEvents = true;
   try {
     for (let i = 0; i < sorted.length; i += 1) {
@@ -1041,6 +1060,7 @@ function setAdvancedDetailsFields(snapshot) {
 function syncAdvancedDetailsControls(selected = nodes.get(state.selectedId)) {
   $("advanced-viewing-toggle").checked = EnableAdvancedDetailsViewing;
   $("advanced-editing-toggle").checked = EnableAdvancedDetailsEditing;
+  $("sort-by-name-natural-toggle").checked = SortByNameNatural;
   $("advanced-editing-toggle").disabled = !EnableAdvancedDetailsViewing;
   $("advanced-details").hidden = !EnableAdvancedDetailsViewing;
 
@@ -1540,6 +1560,10 @@ $("advanced-viewing-toggle").onchange = (e) => {
 };
 $("advanced-editing-toggle").onchange = (e) => {
   EnableAdvancedDetailsEditing = e.target.checked;
+  renderDetails();
+};
+$("sort-by-name-natural-toggle").onchange = (e) => {
+  SortByNameNatural = e.target.checked;
   renderDetails();
 };
 $("new-folder").onclick = createFolder;
