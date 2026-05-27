@@ -24,8 +24,9 @@
 
     <section class="content">
       <div id="crumbs" class="crumbs">
-        <select id="sort" title="Choose the middle-pane sort mode. Unsorted uses Chromium’s default folder order.">
-          <option value="index">Unsorted</option>
+        <label class="visual-sort-label" for="sort">Visual sort:</label>
+        <select id="sort" title="Choose the middle-pane sort mode. Default uses Chromium’s folder order.">
+          <option value="index">Default</option>
           <option value="title">Name</option>
           <option value="url">URL</option>
           <option value="dateAdded">Date added</option>
@@ -57,6 +58,18 @@
           <button id="discard" type="button">Discard Changes</button>
           <button id="delete" type="button">Delete</button>
         </div>
+        <div class="advanced-debug-controls" aria-label="Advanced details debug controls">
+          <label><input id="advanced-viewing-toggle" type="checkbox"> EnableAdvancedDetailsViewing</label>
+          <label><input id="advanced-editing-toggle" type="checkbox"> EnableAdvancedDetailsEditing</label>
+        </div>
+        <section id="advanced-details" class="advanced-details" aria-label="Advanced bookmark details">
+          <h3>Advanced Details</h3>
+          <label id="advanced-id-label"><span class="field-caption">ID</span><input id="advanced-id" autocomplete="off" readonly></label>
+          <label id="advanced-guid-label"><span class="field-caption">GUID / UUID</span><input id="advanced-guid" autocomplete="off" readonly></label>
+          <label id="advanced-date-added-label"><span class="field-caption">Date Added</span><input id="advanced-date-added" autocomplete="off" readonly></label>
+          <label id="advanced-date-last-used-label"><span class="field-caption">Date Last Used</span><input id="advanced-date-last-used" autocomplete="off" readonly></label>
+          <label id="advanced-index-label"><span class="field-caption">Sort order</span><input id="advanced-index" type="number" min="0" step="1" autocomplete="off" readonly></label>
+        </section>
       </form>
       <p id="empty-details">Select one item, or select a folder to show its contents.</p>
     </aside>

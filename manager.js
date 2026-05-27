@@ -25,6 +25,8 @@ const $ = (id) => document.getElementById(id);
 const nodes = new Map();
 const SEPARATOR_TITLE = "———";
 const SEPARATOR_URL = "about:blank";
+let EnableAdvancedDetailsViewing = true;
+let EnableAdvancedDetailsEditing = false;
 
 async function bookmarks(method, ...args) {
   return await api.bookmarks[method](...args);
@@ -808,6 +810,11 @@ function renderCrumbs() {
   pathText.className = "path-text";
   pathText.textContent = path.join(" / ") || "Bookmarks";
 
+  const sortLabel = document.createElement("label");
+  sortLabel.className = "visual-sort-label";
+  sortLabel.htmlFor = "sort";
+  sortLabel.textContent = "Visual sort:";
+
   const sortSelect = $("sort");
   sortSelect.value = state.sort;
 
@@ -820,7 +827,7 @@ function renderCrumbs() {
   detailsToggle.setAttribute("aria-pressed", String(state.detailsVisible));
   detailsToggle.onclick = toggleDetailsPane;
 
-  $("crumbs").replaceChildren(pathText, sortSelect, detailsToggle);
+  $("crumbs").replaceChildren(pathText, sortLabel, sortSelect, detailsToggle);
 }
 
 
@@ -916,6 +923,58 @@ function renderList() {
   restoreMiddleScrollPosition(scrollPosition);
 }
 
+
+function availableFieldValue(value) {
+  return value === undefined || value === null || value === "" ? "Not available" : String(value);
+}
+
+function formatBookmarkDate(value) {
+  if (!value) return "Not available";
+  const date = new Date(value);
+  if (Number.isNaN(date.getTime())) return "Not available";
+  return date.toLocaleString();
+}
+
+function advancedDetailsSnapshot(selected = nodes.get(state.selectedId)) {
+  if (!selected) return null;
+  return {
+    id: selected.id || "",
+    guid: selected.guid || selected.uuid || "",
+    dateAdded: selected.dateAdded || "",
+    dateLastUsed: selected.dateLastUsed || selected.lastVisited || "",
+    index: Number.isInteger(selected.index) ? String(selected.index) : ""
+  };
+}
+
+function setAdvancedDetailsFields(snapshot) {
+  const advanced = snapshot || advancedDetailsSnapshot();
+  if (!advanced) return;
+  $("advanced-id").value = availableFieldValue(advanced.id);
+  $("advanced-guid").value = availableFieldValue(advanced.guid);
+  $("advanced-date-added").value = formatBookmarkDate(advanced.dateAdded);
+  $("advanced-date-last-used").value = formatBookmarkDate(advanced.dateLastUsed);
+  $("advanced-index").value = advanced.index;
+}
+
+function syncAdvancedDetailsControls(selected = nodes.get(state.selectedId)) {
+  $("advanced-viewing-toggle").checked = EnableAdvancedDetailsViewing;
+  $("advanced-editing-toggle").checked = EnableAdvancedDetailsEditing;
+  $("advanced-editing-toggle").disabled = !EnableAdvancedDetailsViewing;
+  $("advanced-details").hidden = !EnableAdvancedDetailsViewing;
+
+  // Chromium exposes these metadata fields as read-only through the bookmarks
+  // API.  The debug editing toggle currently enables only the supported
+  // advanced write path: changing a node's index via chrome.bookmarks.move().
+  for (const id of ["advanced-id", "advanced-guid", "advanced-date-added", "advanced-date-last-used"]) {
+    $(id).readOnly = true;
+  }
+  $("advanced-index").readOnly = !(EnableAdvancedDetailsViewing && EnableAdvancedDetailsEditing && isMutable(selected));
+}
+
+function advancedIndexValue() {
+  return $("advanced-index").value.trim();
+}
+
 function renderParents(selectedValue = null) {
   const selected = nodes.get(state.selectedId);
   const parentSelect = $("parent");
@@ -965,12 +1024,14 @@ function renderDetails() {
   $("save").disabled = !isMutable(selected);
   $("discard").disabled = !isMutable(selected);
   renderParents(desiredParentValue);
+  syncAdvancedDetailsControls(selected);
 
   if (!preserveUnsavedEdits) {
     state.detailsOriginal = selectedDetailsSnapshot(selected);
     $("title").value = state.detailsOriginal.title;
     $("url").value = state.detailsOriginal.url;
     $("parent").value = state.detailsOriginal.parentId;
+    setAdvancedDetailsFields(state.detailsOriginal.advanced);
   }
 
   updateDetailsDirtyIndicators();
@@ -989,7 +1050,9 @@ function selectedDetailsSnapshot(selected = nodes.get(state.selectedId)) {
     isFolder: isFolder(selected),
     title: selected.title || "",
     url: selected.url || "",
-    parentId: selected.parentId || ""
+    parentId: selected.parentId || "",
+    advanced: advancedDetailsSnapshot(selected),
+    advancedIndex: advancedDetailsSnapshot(selected)?.index || ""
   };
 }
 
@@ -1005,19 +1068,25 @@ function setDetailsCleanBaseline(selected = nodes.get(state.selectedId)) {
   $("url").value = state.detailsOriginal.url;
   renderParents(state.detailsOriginal.parentId);
   $("parent").value = state.detailsOriginal.parentId;
+  setAdvancedDetailsFields(state.detailsOriginal.advanced);
+  syncAdvancedDetailsControls(selected);
   updateDetailsDirtyIndicators();
 }
 
 function currentDetailsValues() {
   const selected = nodes.get(state.selectedId);
   if (!selected || !state.detailsOriginal || state.detailsOriginal.id !== selected.id) return null;
-  return {
+  const values = {
     id: selected.id,
     isFolder: isFolder(selected),
     title: $("title").value.trim(),
     url: isFolder(selected) ? "" : $("url").value.trim(),
     parentId: $("parent").value || ""
   };
+  if (EnableAdvancedDetailsEditing) {
+    values.advancedIndex = advancedIndexValue();
+  }
+  return values;
 }
 
 function detailFieldChanged(field) {
@@ -1032,7 +1101,9 @@ function hasUnsavedDetails() {
   if (!selected || !state.detailsOriginal || state.detailsOriginal.id !== selected.id) return false;
   if (detailFieldChanged("title")) return true;
   if (!isFolder(selected) && detailFieldChanged("url")) return true;
-  return detailFieldChanged("parentId");
+  if (detailFieldChanged("parentId")) return true;
+  if (EnableAdvancedDetailsEditing && detailFieldChanged("advancedIndex")) return true;
+  return false;
 }
 
 function updateDetailsDirtyIndicators() {
@@ -1040,9 +1111,14 @@ function updateDetailsDirtyIndicators() {
   const titleDirty = detailFieldChanged("title");
   const urlDirty = !isFolder(selected) && detailFieldChanged("url");
   const parentDirty = detailFieldChanged("parentId");
+  const advancedIndexDirty = EnableAdvancedDetailsEditing && detailFieldChanged("advancedIndex");
   $("title-label").classList.toggle("dirty", titleDirty);
   $("url-label").classList.toggle("dirty", urlDirty);
   $("parent-label").classList.toggle("dirty", parentDirty);
+  $("advanced-index-label").classList.toggle("dirty", advancedIndexDirty);
+  for (const id of ["advanced-id-label", "advanced-guid-label", "advanced-date-added-label", "advanced-date-last-used-label"]) {
+    $(id).classList.remove("dirty");
+  }
 }
 
 function discardDetailsChanges() {
@@ -1052,6 +1128,8 @@ function discardDetailsChanges() {
   $("url").value = state.detailsOriginal.url;
   renderParents(state.detailsOriginal.parentId);
   $("parent").value = state.detailsOriginal.parentId;
+  setAdvancedDetailsFields(state.detailsOriginal.advanced);
+  syncAdvancedDetailsControls(selected);
   updateDetailsDirtyIndicators();
 }
 
@@ -1138,7 +1216,7 @@ async function confirmUnsavedDetailsBeforeNavigation() {
 
 function sortTooltip(key, direction = state.sortDirection) {
   if (key === "index") {
-    return "Default Chromium folder order. Click to return to Unsorted; this column does not reverse-sort.";
+    return "Default Chromium folder order. Click to return to Default sorting; this column does not reverse-sort.";
   }
   const ascending = direction === "asc";
   if (key === "title") return ascending ? "Sort by name: A to Z" : "Sort by name: Z to A";
@@ -1228,6 +1306,8 @@ async function saveDetailsForSelected() {
   const title = $("title").value.trim();
   const url = $("url").value.trim();
   const parentId = $("parent").value;
+  const requestedIndex = EnableAdvancedDetailsEditing ? Number.parseInt(advancedIndexValue(), 10) : NaN;
+  const hasRequestedIndex = EnableAdvancedDetailsEditing && Number.isInteger(requestedIndex) && requestedIndex >= 0;
 
   const changes = isFolder(selected) ? { title } : { title, url };
 
@@ -1237,9 +1317,10 @@ async function saveDetailsForSelected() {
   state.suppressBookmarkEvents = true;
   try {
     await bookmarks("update", selectedId, changes);
-    if (parentId && parentId !== selected.parentId) {
-      await bookmarks("move", selectedId, { parentId });
-    }
+    const moveDetails = {};
+    if (parentId && parentId !== selected.parentId) moveDetails.parentId = parentId;
+    if (hasRequestedIndex && String(requestedIndex) !== String(selected.index ?? "")) moveDetails.index = requestedIndex;
+    if (Object.keys(moveDetails).length) await bookmarks("move", selectedId, moveDetails);
   } finally {
     state.suppressBookmarkEvents = false;
   }
@@ -1342,7 +1423,7 @@ for (const button of document.querySelectorAll(".columns [data-sort-key]")) {
   button.onclick = () => {
     const key = button.dataset.sortKey;
     if (key === "index") {
-      // Same behavior as the toolbar's "Unsorted" entry: show Chromium's
+      // Same behavior as the toolbar's "Default" entry: show Chromium's
       // persisted child order exactly as returned by chrome.bookmarks.
       state.sort = "index";
       state.sortDirection = "asc";
@@ -1360,10 +1441,19 @@ for (const button of document.querySelectorAll(".columns [data-sort-key]")) {
 $("details-form").onsubmit = saveSelected;
 $("discard").onclick = discardDetailsChanges;
 $("delete").onclick = removeSelected;
-for (const id of ["title", "url", "parent"]) {
+for (const id of ["title", "url", "parent", "advanced-index"]) {
   $(id).addEventListener("input", updateDetailsDirtyIndicators);
   $(id).addEventListener("change", updateDetailsDirtyIndicators);
 }
+$("advanced-viewing-toggle").onchange = (e) => {
+  EnableAdvancedDetailsViewing = e.target.checked;
+  if (!EnableAdvancedDetailsViewing) EnableAdvancedDetailsEditing = false;
+  renderDetails();
+};
+$("advanced-editing-toggle").onchange = (e) => {
+  EnableAdvancedDetailsEditing = e.target.checked;
+  renderDetails();
+};
 $("new-folder").onclick = createFolder;
 $("new-bookmark").onclick = createBookmark;
 document.addEventListener("dragover", (e) => {

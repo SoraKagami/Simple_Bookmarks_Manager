@@ -1,6 +1,6 @@
 # Simple Bookmarks Manager
 
-Version: 0.3.9
+Version: 0.3.10
 
 A Manifest V3 Chrome/Chromium extension that provides a simple local bookmark manager inspired by Firefox Places Library ideas.
 
@@ -27,6 +27,7 @@ This Source Code Form is subject to the terms of the Mozilla Public License, v. 
 - Hideable details pane for title, URL, parent folder, deletion, discard, and unsaved-change warnings.
 - Bookmark favicons and folder icons in the left Library tree and middle bookmark list.
 - Separator support using a Chromium-compatible bookmark convention: title `———` plus URL `about:blank`.
+- Advanced Details debug section for bookmark metadata viewing, with a planned editing toggle for supported fields.
 - Live refresh from Chrome bookmark events.
 - In-page custom right-click menu for folders/bookmarks outside the Details pane.
 
@@ -69,6 +70,7 @@ Note: v0.2.2+ no longer overrides `chrome://bookmarks`, so Chromium/Brave's buil
 - Bookmarklets with `javascript:` URLs are not executed by this manager.
 - Drag reordering is disabled while search or non-index sorting is active because visible order no longer matches persisted bookmark order.
 - Chromium root/special folders cannot be moved, renamed, or removed.
+- Chromium exposes bookmark metadata such as ID/date fields as read-only through the bookmarks API; the temporary advanced editing path can only save fields supported by the API, currently Sort order/index.
 - Bookmark favicons depend on Chromium's cached favicon data and normal fallback handling.
 - Favicons are refreshed when switching folders; icons already visible in the current folder may still need a folder switch to pick up newly cached site icons.
 - Browser-specific Split View features are hidden because Chromium does not expose a stable cross-browser extension API for them.
@@ -88,6 +90,18 @@ Note: v0.2.2+ no longer overrides `chrome://bookmarks`, so Chromium/Brave's buil
 - Chromium BSD license reference: https://chromium.googlesource.com/chromium/src/+/HEAD/LICENSE
 
 ## Changelog
+
+### 0.3.10
+
+- Renamed the visual sort dropdown option from **Unsorted** to **Default**.
+- Added a bold **Visual sort:** label to the left of the sort dropdown in the middle-pane path bar.
+- Added an Advanced Details section below the Details pane action buttons.
+- Added read-only metadata fields for ID, GUID / UUID, Date Added, Date Last Used, and Sort order.
+- Added temporary debug toggles for `EnableAdvancedDetailsViewing` and `EnableAdvancedDetailsEditing`.
+- Added advanced dirty-state support that only checks editable advanced fields when `EnableAdvancedDetailsEditing` is enabled.
+- Added save/discard support for the editable advanced Sort order field through Chromium's bookmark move/index behavior.
+- Documented that Chromium exposes most bookmark metadata fields as read-only through the bookmarks API, so only supported fields are editable.
+- Updated version to `0.3.10`.
 
 ### 0.3.9
 
