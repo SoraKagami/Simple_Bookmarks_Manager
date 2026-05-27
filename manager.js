@@ -413,27 +413,82 @@ async function deleteNode(item) {
   setDetailsCleanBaseline(nodes.get(state.selectedId));
 }
 
-async function createFolderIn(parentId) {
+function insertionTargetAfterNode(item) {
+  if (!item || !item.parentId || item.parentId === "0") return null;
+  const parent = nodes.get(item.parentId);
+  if (!canContainChildren(parent)) return null;
+  return { parentId: parent.id, index: Number.isInteger(item.index) ? item.index + 1 : null };
+}
+
+function insertionTargetForContext(context = null) {
+  const contextItem = nodes.get(context?.id);
+
+  // Row context-menu additions are placed beside the clicked row. For root
+  // folders, where sibling insertion is not legal, fall back to adding inside
+  // that root folder.
+  if (context?.kind === "bookmark" || context?.kind === "folder") {
+    const siblingTarget = insertionTargetAfterNode(contextItem);
+    if (siblingTarget) return siblingTarget;
+    if (canContainChildren(contextItem)) return { parentId: contextItem.id, index: null };
+  }
+
+  // Toolbar and empty-space additions use the current selection when it is a
+  // visible child of the current folder, so the new item appears immediately
+  // below the selected bookmark/folder/separator.
+  const selected = nodes.get(state.selectedId);
+  if (selected?.parentId === state.folderId) {
+    const siblingTarget = insertionTargetAfterNode(selected);
+    if (siblingTarget) return siblingTarget;
+  }
+
+  return { parentId: state.folderId, index: null };
+}
+
+async function createFolderIn(parentId, index = null) {
   const title = prompt("Folder name", "New Folder");
   if (!title) return;
-  const node = await bookmarks("create", { parentId, title });
+  const details = { parentId, title };
+  if (Number.isInteger(index)) details.index = index;
+  const node = await bookmarks("create", details);
   await loadTree();
   performSelect(node.id);
 }
 
-async function createBookmarkIn(parentId) {
+async function createBookmarkIn(parentId, index = null) {
   const url = prompt("Bookmark URL", "https://");
   if (!url) return;
   const title = prompt("Bookmark name", url) || url;
-  const node = await bookmarks("create", { parentId, title, url });
+  const details = { parentId, title, url };
+  if (Number.isInteger(index)) details.index = index;
+  const node = await bookmarks("create", details);
   await loadTree();
   performSelect(node.id);
 }
 
-async function createSeparatorIn(parentId) {
-  const node = await bookmarks("create", { parentId, title: SEPARATOR_TITLE, url: SEPARATOR_URL });
+async function createSeparatorIn(parentId, index = null) {
+  const details = { parentId, title: SEPARATOR_TITLE, url: SEPARATOR_URL };
+  if (Number.isInteger(index)) details.index = index;
+  const node = await bookmarks("create", details);
   await loadTree();
   performSelect(node.id);
+}
+
+async function createFolderAtTarget(context = null) {
+  const target = insertionTargetForContext(context);
+  if (!target || !canContainChildren(nodes.get(target.parentId))) return;
+  await createFolderIn(target.parentId, target.index);
+}
+
+async function createBookmarkAtTarget(context = null) {
+  const target = insertionTargetForContext(context);
+  if (!target || !canContainChildren(nodes.get(target.parentId))) return;
+  await createBookmarkIn(target.parentId, target.index);
+}
+
+async function createSeparatorAtTarget(context = null) {
+  const target = insertionTargetForContext(context);
+  if (!target || !canContainChildren(nodes.get(target.parentId))) return;
+  await createSeparatorIn(target.parentId, target.index);
 }
 
 function cutNode(item) {
@@ -596,6 +651,11 @@ function contextParentId(context) {
   return state.folderId;
 }
 
+function canCreateAtContext(context = null) {
+  const target = insertionTargetForContext(context);
+  return !!target && canContainChildren(nodes.get(target.parentId));
+}
+
 function buildFolderMenu(context) {
   const folder = nodes.get(context.id);
   const urls = contextUrls(context);
@@ -614,9 +674,9 @@ function buildFolderMenu(context) {
     makeMenuItem("Sort by Name", () => sortFolderChildren(folder, "title"), { disabled: !canContainChildren(folder) || (folder.children || []).length < 2 }),
     makeMenuItem("Sort by Date", () => sortFolderChildren(folder, "dateAdded"), { disabled: !canContainChildren(folder) || (folder.children || []).length < 2 }),
     makeSeparator(),
-    makeMenuItem("Add New Bookmark", () => createBookmarkIn(folder.id), { disabled: !canContainChildren(folder) }),
-    makeMenuItem("Add New Folder", () => createFolderIn(folder.id), { disabled: !canContainChildren(folder) }),
-    makeMenuItem("Add Separator", () => createSeparatorIn(folder.id), { disabled: !canContainChildren(folder) }),
+    makeMenuItem("Add New Bookmark", () => createBookmarkAtTarget(context), { disabled: !canCreateAtContext(context) }),
+    makeMenuItem("Add New Folder", () => createFolderAtTarget(context), { disabled: !canCreateAtContext(context) }),
+    makeMenuItem("Add Separator", () => createSeparatorAtTarget(context), { disabled: !canCreateAtContext(context) }),
     makeSeparator(),
     makeMenuItem("Open All Bookmarks", () => openUrlsInCurrentWindow(urls), { disabled: urls.length === 0 }),
     makeMenuItem("Open All in New Window", () => openUrlsInWindow(urls, false), { disabled: urls.length === 0 }),
@@ -631,7 +691,7 @@ function buildBookmarkMenu(context) {
   const urls = contextUrls(context);
   const pasteDisabled = !canPasteForContext(context);
   const parentId = contextParentId(context);
-  const canAddToParent = canContainChildren(nodes.get(parentId));
+  const canAddToParent = canCreateAtContext(context);
 
   return [
     makeMenuItem("Edit", () => editBookmark(bookmark), { disabled: !isMutable(bookmark) }),
@@ -641,9 +701,9 @@ function buildBookmarkMenu(context) {
     makeMenuItem("Copy", () => copyNode(bookmark), { disabled: !bookmark }),
     makeMenuItem("Paste", () => pasteClipboard(context), { disabled: pasteDisabled }),
     makeSeparator(),
-    makeMenuItem("Add New Bookmark", () => createBookmarkIn(parentId), { disabled: !canAddToParent }),
-    makeMenuItem("Add New Folder", () => createFolderIn(parentId), { disabled: !canAddToParent }),
-    makeMenuItem("Add Separator", () => createSeparatorIn(parentId), { disabled: !canAddToParent }),
+    makeMenuItem("Add New Bookmark", () => createBookmarkAtTarget(context), { disabled: !canAddToParent }),
+    makeMenuItem("Add New Folder", () => createFolderAtTarget(context), { disabled: !canAddToParent }),
+    makeMenuItem("Add Separator", () => createSeparatorAtTarget(context), { disabled: !canAddToParent }),
     makeSeparator(),
     makeMenuItem("Open in New Tab", () => openUrlsInCurrentWindow(urls), { disabled: urls.length === 0 }),
     makeMenuItem("Open in New Window", () => openUrlsInWindow(urls, false), { disabled: urls.length === 0 }),
@@ -658,9 +718,9 @@ function buildEmptyMenu(context) {
   const parent = nodes.get(parentId);
   const canPaste = canPasteForContext(context);
   const items = [
-    makeMenuItem("Add New Bookmark", () => createBookmarkIn(parentId), { disabled: !canContainChildren(parent) }),
-    makeMenuItem("Add New Folder", () => createFolderIn(parentId), { disabled: !canContainChildren(parent) }),
-    makeMenuItem("Add Separator", () => createSeparatorIn(parentId), { disabled: !canContainChildren(parent) })
+    makeMenuItem("Add New Bookmark", () => createBookmarkAtTarget(context), { disabled: !canCreateAtContext(context) }),
+    makeMenuItem("Add New Folder", () => createFolderAtTarget(context), { disabled: !canCreateAtContext(context) }),
+    makeMenuItem("Add Separator", () => createSeparatorAtTarget(context), { disabled: !canCreateAtContext(context) })
   ];
 
   if (canPaste) {
@@ -1352,11 +1412,11 @@ async function removeSelected() {
 }
 
 async function createFolder() {
-  await createFolderIn(state.folderId);
+  await createFolderAtTarget();
 }
 
 async function createBookmark() {
-  await createBookmarkIn(state.folderId);
+  await createBookmarkAtTarget();
 }
 
 async function goBack() {
