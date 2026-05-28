@@ -1,6 +1,6 @@
 # Simple Bookmarks Manager
 
-Version: 0.3.23
+Version: 0.3.24
 
 A Manifest V3 Chrome/Chromium extension that provides a simple local bookmark manager inspired by Firefox Places Library ideas.
 
@@ -94,6 +94,14 @@ Note: v0.2.2+ no longer overrides `chrome://bookmarks`, so Chromium/Brave's buil
 - Chromium BSD license reference: https://chromium.googlesource.com/chromium/src/+/HEAD/LICENSE
 
 ## Changelog
+
+### 0.3.24
+
+- Fixed middle-pane add behavior so new bookmarks, folders, and separators are always created in the current visible folder.
+- When a folder row is selected or right-clicked in the middle pane, new items now insert below that folder row instead of inside that folder.
+- Kept existing placement behavior where middle-pane add actions insert below the selected/clicked row when possible, or append to the current folder when there is no valid row target.
+- Library tree folder context-menu add actions still create new items inside the clicked Library folder.
+- Updated version to `0.3.24`.
 
 ### 0.3.23
 

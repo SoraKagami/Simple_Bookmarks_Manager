@@ -514,9 +514,16 @@ function insertionTargetAfterNode(item) {
 function insertionTargetForContext(context = null) {
   const contextItem = nodes.get(context?.id);
 
-  // Adding from a folder context should create the new item inside that folder.
-  if (context?.kind === "folder" && canContainChildren(contextItem)) {
-    return { parentId: contextItem.id, index: null };
+  // Adding from the Library tree should create the new item inside the clicked
+  // folder. Adding from a folder row in the middle pane should stay in the
+  // current visible folder and insert below that row, matching other middle-pane
+  // add behavior.
+  if (context?.kind === "folder") {
+    if (context.pane === "tree" && canContainChildren(contextItem)) {
+      return { parentId: contextItem.id, index: null };
+    }
+    const siblingTarget = insertionTargetAfterNode(contextItem);
+    if (siblingTarget) return siblingTarget;
   }
 
   // Adding from a bookmark/separator row context should create the new item
@@ -526,14 +533,12 @@ function insertionTargetForContext(context = null) {
     if (siblingTarget) return siblingTarget;
   }
 
-  // Toolbar and empty-space additions use the current selection. If a folder is
-  // selected, add inside it; if a bookmark/separator is selected in the current
-  // folder, add immediately below it.
+  // Toolbar and empty-space additions operate on the current visible folder. If
+  // the active middle-pane selection is still a direct child of that folder,
+  // insert below it; otherwise append to the current folder. A selected folder
+  // row in the middle pane is treated as a sibling target, not a destination.
   const selected = nodes.get(state.selectedId);
-  if (canContainChildren(selected)) {
-    return { parentId: selected.id, index: null };
-  }
-  if (selected?.parentId === state.folderId) {
+  if (state.activePane === "list" && selected?.parentId === state.folderId) {
     const siblingTarget = insertionTargetAfterNode(selected);
     if (siblingTarget) return siblingTarget;
   }
