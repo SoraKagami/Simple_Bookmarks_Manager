@@ -1,6 +1,6 @@
 # Simple Bookmarks Manager
 
-Version: 0.3.22
+Version: 0.3.23
 
 A Manifest V3 Chrome/Chromium extension that provides a simple local bookmark manager inspired by Firefox Places Library ideas.
 
@@ -94,6 +94,14 @@ Note: v0.2.2+ no longer overrides `chrome://bookmarks`, so Chromium/Brave's buil
 - Chromium BSD license reference: https://chromium.googlesource.com/chromium/src/+/HEAD/LICENSE
 
 ## Changelog
+
+### 0.3.23
+
+- Fixed Library tree deletion fallback selection.
+- After deleting a folder from the Library tree, the manager now selects only a same-parent sibling at the same depth: next sibling first, then previous sibling.
+- If no same-parent sibling exists, the Library selection is cleared instead of selecting the parent, root, or another branch.
+- Prevented repeated Delete/Backspace from climbing the tree and deleting unrelated folders when delete warnings are disabled.
+- Updated version to `0.3.23`.
 
 ### 0.3.22
 

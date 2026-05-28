@@ -181,7 +181,8 @@ function visibleItems() {
   return items;
 }
 
-async function loadTree() {
+async function loadTree(options = {}) {
+  const { renderNow = true, fallbackFolder = true } = options;
   nodes.clear();
   const [root] = await bookmarks("getTree");
   state.tree = root;
@@ -191,10 +192,10 @@ async function loadTree() {
   }
   if (!state.folderId || !nodes.has(state.folderId)) {
     // Chrome root's first children are normally Bookmarks Bar / Other / Mobile.
-    state.folderId = defaultFolderId();
+    state.folderId = fallbackFolder ? defaultFolderId() : null;
   }
-  ensureExpandedPath(state.folderId);
-  render();
+  if (state.folderId && nodes.has(state.folderId)) ensureExpandedPath(state.folderId);
+  if (renderNow) render();
 }
 
 function rootFolders() {
@@ -479,7 +480,7 @@ async function deleteNode(item, sourcePane = state.activePane) {
   else await bookmarks("remove", item.id);
   if (state.clipboard?.mode === "cut" && state.clipboard.id === item.id) state.clipboard = null;
 
-  await loadTree();
+  await loadTree({ renderNow: false, fallbackFolder: sourcePane !== "tree" });
 
   if (sourcePane === "list") {
     state.activePane = "list";
@@ -487,7 +488,11 @@ async function deleteNode(item, sourcePane = state.activePane) {
   } else if (sourcePane === "tree") {
     const nextFolderId = chooseTreeSelectionAfterDelete(selectionSnapshot);
     state.activePane = "tree";
-    state.folderId = nextFolderId || (deletingCurrentFolder ? defaultFolderId() : state.folderId);
+    // Never jump to the parent, root, or another branch after deleting from the
+    // Library tree.  Only select a same-parent sibling at the same depth; if no
+    // sibling exists, leave the Library selection empty so repeated Delete/
+    // Backspace cannot climb the tree and remove the wrong folder.
+    state.folderId = nextFolderId || null;
     state.selectedId = nextFolderId || null;
     if (state.folderId && nodes.has(state.folderId)) ensureExpandedPath(state.folderId);
   } else {
