@@ -1,6 +1,6 @@
 # Simple Bookmarks Manager
 
-Version: 0.3.20
+Version: 0.3.21
 
 A Manifest V3 Chrome/Chromium extension that provides a simple local bookmark manager inspired by Firefox Places Library ideas.
 
@@ -94,6 +94,16 @@ Note: v0.2.2+ no longer overrides `chrome://bookmarks`, so Chromium/Brave's buil
 - Chromium BSD license reference: https://chromium.googlesource.com/chromium/src/+/HEAD/LICENSE
 
 ## Changelog
+
+### 0.3.21
+
+- Added `KeyboardDeleteAllow`, defaulted to `true`.
+- Added keyboard delete handling for **Delete** and **Backspace** when a bookmark, folder, or separator is selected outside editable text fields.
+- Keyboard deletion now calls the same delete flow used by the Details pane and context menu.
+- Added `DeleteShowWarning`, defaulted to `true`.
+- Delete confirmation prompts now respect `DeleteShowWarning`; disabling it deletes without the confirmation popup.
+- Added a temporary Details-pane debug toggle for `DeleteShowWarning` below `SortShowWarning`.
+- Updated version to `0.3.21`.
 
 ### 0.3.20
 

@@ -29,6 +29,8 @@ let EnableAdvancedDetailsViewing = true;
 let EnableAdvancedDetailsEditing = false;
 let SortByNameNatural = true;
 let SortShowWarning = true;
+let KeyboardDeleteAllow = true;
+let DeleteShowWarning = true;
 
 async function bookmarks(method, ...args) {
   return await api.bookmarks[method](...args);
@@ -433,7 +435,7 @@ async function editBookmark(bookmark) {
 async function deleteNode(item) {
   if (!item || !isMutable(item)) return;
   const label = item.title || item.url || "this item";
-  if (!confirm(`Delete "${label}"?`)) return;
+  if (DeleteShowWarning && !confirm(`Delete "${label}"?`)) return;
 
   if (state.detailsOriginal?.id === item.id) {
     state.detailsOriginal = null;
@@ -1114,7 +1116,6 @@ function renderList() {
     row.ondblclick = () => openOrNavigate(item);
     row.onkeydown = (e) => {
       if (e.key === "Enter") openOrNavigate(item);
-      if (e.key === "Delete") removeSelected();
     };
     return row;
   });
@@ -1161,6 +1162,7 @@ function syncAdvancedDetailsControls(selected = nodes.get(state.selectedId)) {
   $("advanced-editing-toggle").checked = EnableAdvancedDetailsEditing;
   $("sort-by-name-natural-toggle").checked = SortByNameNatural;
   $("sort-show-warning-toggle").checked = SortShowWarning;
+  $("delete-show-warning-toggle").checked = DeleteShowWarning;
   $("advanced-editing-toggle").disabled = !EnableAdvancedDetailsViewing;
   $("advanced-details").hidden = !EnableAdvancedDetailsViewing;
 
@@ -1616,6 +1618,26 @@ function handleMouseHistoryButton(e) {
   if (e.button === 4) goForward();
 }
 
+function isEditingTextField(element) {
+  if (!element) return false;
+  if (element.isContentEditable) return true;
+  const tag = element.tagName?.toLowerCase?.();
+  return tag === "input" || tag === "textarea" || tag === "select";
+}
+
+async function handleKeyboardDelete(e) {
+  if (!KeyboardDeleteAllow) return;
+  if (e.defaultPrevented || isEditingTextField(e.target)) return;
+  if (e.key !== "Delete" && e.key !== "Backspace") return;
+
+  const selected = nodes.get(state.selectedId);
+  if (!selected || !isMutable(selected)) return;
+
+  e.preventDefault();
+  e.stopPropagation();
+  await deleteNode(selected);
+}
+
 function setSortSelectTooltips() {
   const labels = {
     index: sortTooltip("index"),
@@ -1691,6 +1713,10 @@ $("sort-show-warning-toggle").onchange = (e) => {
   SortShowWarning = e.target.checked;
   renderDetails();
 };
+$("delete-show-warning-toggle").onchange = (e) => {
+  DeleteShowWarning = e.target.checked;
+  renderDetails();
+};
 $("new-folder").onclick = createFolder;
 $("new-bookmark").onclick = createBookmark;
 document.addEventListener("dragover", (e) => {
@@ -1710,7 +1736,9 @@ window.addEventListener("keydown", (e) => {
   if (e.key === "Escape") {
     hideContextMenu();
     hideAppMenu();
+    return;
   }
+  handleKeyboardDelete(e);
 });
 
 setSortSelectTooltips();
