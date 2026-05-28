@@ -1,6 +1,6 @@
 # Simple Bookmarks Manager
 
-Version: 0.3.21
+Version: 0.3.22
 
 A Manifest V3 Chrome/Chromium extension that provides a simple local bookmark manager inspired by Firefox Places Library ideas.
 
@@ -94,6 +94,15 @@ Note: v0.2.2+ no longer overrides `chrome://bookmarks`, so Chromium/Brave's buil
 - Chromium BSD license reference: https://chromium.googlesource.com/chromium/src/+/HEAD/LICENSE
 
 ## Changelog
+
+### 0.3.22
+
+- Added active-pane selection tracking so only the currently focused pane uses the strong selected highlight.
+- Changed inactive selections in other panes to a washed-out highlight while keeping the current folder visible in the Library tree.
+- Keyboard Delete / Backspace now only acts on the active middle-list or Library-tree selection, not a stale selection in another pane.
+- After deleting a middle-pane item, selection moves to the next visible item at the same position, then the previous item, then nothing if neither exists.
+- After deleting a Library folder, selection stays within the Library tree when possible instead of jumping to another pane.
+- Updated version to `0.3.22`.
 
 ### 0.3.21
 

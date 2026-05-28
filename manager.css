@@ -17,7 +17,8 @@ h2 { font-size: 13px; margin: 0 0 10px; opacity: .75; text-transform: uppercase;
 .tree-node { margin: 1px 0; }
 .tree-row { display: grid; grid-template-columns: 24px 1fr; align-items: center; padding-left: calc(var(--depth) * 16px); border-radius: 6px; }
 .tree-row:hover { background: color-mix(in srgb, Highlight 14%, transparent); }
-.tree-row[aria-selected="true"] .tree-label { background: Highlight; color: HighlightText; }
+.tree-row.selected-active .tree-label { background: Highlight; color: HighlightText; }
+.tree-row.selected-inactive .tree-label { background: color-mix(in srgb, Highlight 38%, Canvas); color: CanvasText; }
 .twisty, .tree-label { border: 0; background: transparent; border-radius: 6px; min-height: 28px; }
 .twisty { width: 24px; padding: 0; text-align: center; }
 .twisty:disabled { opacity: .35; }
@@ -25,7 +26,8 @@ h2 { font-size: 13px; margin: 0 0 10px; opacity: .75; text-transform: uppercase;
 .tree-label-content, .title-cell { display: flex; align-items: center; gap: 8px; min-width: 0; }
 .tree-label-text, .title-text { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; min-width: 0; }
 .row-icon { width: 16px; height: 16px; flex: 0 0 16px; object-fit: contain; }
-.item.selected { background: Highlight; color: HighlightText; }
+.item.selected-active { background: Highlight; color: HighlightText; }
+.item.selected-inactive { background: color-mix(in srgb, Highlight 38%, Canvas); color: CanvasText; }
 .crumbs {
   display: flex;
   gap: 12px;
@@ -88,7 +90,8 @@ h2 { font-size: 13px; margin: 0 0 10px; opacity: .75; text-transform: uppercase;
   border: 0;
   border-top: 1px solid color-mix(in srgb, CanvasText 38%, transparent);
 }
-.item.separator-item.selected .separator-line {
+.item.separator-item.selected-active .separator-line,
+.item.separator-item.selected-inactive .separator-line {
   border-top-color: currentColor;
 }
 .muted, .url { opacity: .7; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
