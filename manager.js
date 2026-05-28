@@ -1199,6 +1199,22 @@ function renderList() {
   restoreMiddleScrollPosition(scrollPosition);
 }
 
+function updateSelectionHighlights() {
+  document.querySelectorAll(".tree-row").forEach((row) => {
+    const selected = row.dataset.id === state.folderId;
+    row.setAttribute("aria-selected", String(selected));
+    row.classList.toggle("selected-active", selected && state.activePane === "tree");
+    row.classList.toggle("selected-inactive", selected && state.activePane !== "tree");
+  });
+
+  document.querySelectorAll(".item").forEach((row) => {
+    const selected = row.dataset.id === state.selectedId;
+    row.classList.toggle("selected", selected);
+    row.classList.toggle("selected-active", selected && state.activePane === "list");
+    row.classList.toggle("selected-inactive", selected && state.activePane !== "list");
+  });
+}
+
 
 function availableFieldValue(value) {
   return value === undefined || value === null || value === "" ? "Not available" : String(value);
@@ -1719,23 +1735,46 @@ function scrollActiveSelectionIntoView() {
   element?.scrollIntoView?.({ block: "nearest", inline: "nearest" });
 }
 
-async function moveKeyboardFocus(direction) {
-  if (direction === "right" && state.activePane === "tree") {
-    state.activePane = "list";
-    renderRoots();
-    renderList();
+async function handleTreeHorizontalNavigation(direction) {
+  if (state.activePane !== "tree") return false;
+  const folder = nodes.get(state.folderId);
+  if (!folder) return false;
+  const children = childFolders(folder);
+
+  if (direction === "left") {
+    if (children.length && state.expandedFolders.has(folder.id)) {
+      state.expandedFolders.delete(folder.id);
+      renderRoots();
+      focusActivePane();
+      scrollActiveSelectionIntoView();
+      return true;
+    }
+
+    if (!children.length && folder.parentNode && folder.parentNode.id !== "0") {
+      await navigate(folder.parentNode.id, true, "tree");
+      focusActivePane();
+      scrollActiveSelectionIntoView();
+      return true;
+    }
+    return false;
+  }
+
+  if (direction === "right") {
+    if (!children.length) return false;
+    if (!state.expandedFolders.has(folder.id)) {
+      state.expandedFolders.add(folder.id);
+      renderRoots();
+      focusActivePane();
+      scrollActiveSelectionIntoView();
+      return true;
+    }
+
+    await navigate(children[0].id, true, "tree");
     focusActivePane();
     scrollActiveSelectionIntoView();
     return true;
   }
-  if (direction === "left" && state.activePane === "list") {
-    state.activePane = "tree";
-    renderRoots();
-    renderList();
-    focusActivePane();
-    scrollActiveSelectionIntoView();
-    return true;
-  }
+
   return false;
 }
 
@@ -1791,8 +1830,8 @@ async function handleKeyboardNavigation(e) {
   if (!["ArrowLeft", "ArrowRight", "ArrowUp", "ArrowDown", "Enter"].includes(e.key)) return false;
 
   let handled = false;
-  if (e.key === "ArrowLeft") handled = await moveKeyboardFocus("left");
-  if (e.key === "ArrowRight") handled = await moveKeyboardFocus("right");
+  if (e.key === "ArrowLeft") handled = await handleTreeHorizontalNavigation("left");
+  if (e.key === "ArrowRight") handled = await handleTreeHorizontalNavigation("right");
   if (e.key === "ArrowUp") handled = state.activePane === "tree" ? await moveTreeSelection(-1) : state.activePane === "list" ? await moveListSelection(-1) : false;
   if (e.key === "ArrowDown") handled = state.activePane === "tree" ? await moveTreeSelection(1) : state.activePane === "list" ? await moveListSelection(1) : false;
   if (e.key === "Enter") handled = await openKeyboardSelection();
@@ -1876,9 +1915,9 @@ $("app-menu-button").onclick = (e) => {
   e.stopPropagation();
   toggleAppMenu();
 };
-$("roots").addEventListener("focusin", () => { state.activePane = "tree"; renderRoots(); renderList(); });
-$("list").addEventListener("focusin", () => { state.activePane = "list"; renderRoots(); renderList(); });
-$("details-form").addEventListener("focusin", () => { state.activePane = "details"; renderRoots(); renderList(); });
+$("roots").addEventListener("focusin", () => { state.activePane = "tree"; updateSelectionHighlights(); });
+$("list").addEventListener("focusin", () => { state.activePane = "list"; updateSelectionHighlights(); });
+$("details-form").addEventListener("focusin", () => { state.activePane = "details"; updateSelectionHighlights(); });
 $("details-form").onsubmit = saveSelected;
 $("discard").onclick = discardDetailsChanges;
 $("delete").onclick = removeSelected;
