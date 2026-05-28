@@ -1609,7 +1609,8 @@ async function select(id, activePane = "list") {
 
 function openOrNavigate(item) {
   if (isFolder(item)) {
-    navigate(item.id);
+    const targetPane = state.activePane === "list" ? "list" : "tree";
+    navigate(item.id, true, targetPane);
   } else if (item.url && !isSeparator(item)) {
     api.tabs.create({ url: item.url });
   }
@@ -1750,7 +1751,7 @@ async function handleTreeHorizontalNavigation(direction) {
       return true;
     }
 
-    if (!children.length && folder.parentNode && folder.parentNode.id !== "0") {
+    if (folder.parentNode && folder.parentNode.id !== "0") {
       await navigate(folder.parentNode.id, true, "tree");
       focusActivePane();
       scrollActiveSelectionIntoView();
