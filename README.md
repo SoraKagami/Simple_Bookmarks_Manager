@@ -1,6 +1,6 @@
 # Simple Bookmarks Manager
 
-Version: 0.3.19
+Version: 0.3.20
 
 A Manifest V3 Chrome/Chromium extension that provides a simple local bookmark manager inspired by Firefox Places Library ideas.
 
@@ -31,6 +31,7 @@ This Source Code Form is subject to the terms of the Mozilla Public License, v. 
 - Live refresh from Chrome bookmark events.
 - In-page custom right-click menu for folders/bookmarks outside the Details pane.
 - Optional natural folder sorting for **Sort by Name** via the temporary `SortByNameNatural` debug toggle.
+- Optional permanent-sort warning via the temporary `SortShowWarning` debug toggle.
 
 ## Chrome/Chromium implementation
 
@@ -93,6 +94,14 @@ Note: v0.2.2+ no longer overrides `chrome://bookmarks`, so Chromium/Brave's buil
 - Chromium BSD license reference: https://chromium.googlesource.com/chromium/src/+/HEAD/LICENSE
 
 ## Changelog
+
+### 0.3.20
+
+- Visual sort now resets to **Default** whenever the user navigates to a different folder, including Back/Forward navigation.
+- Added `SortShowWarning`, defaulted to `true`, to warn before applying permanent folder sorts from the right-click menu.
+- Added a temporary Details-pane debug toggle for `SortShowWarning` below `SortByNameNatural`.
+- The warning clarifies that right-click **Sort by Name** and **Sort by Date** permanently change Chromium's saved bookmark order, unlike the temporary **Visual sort** dropdown.
+- Updated version to `0.3.20`.
 
 ### 0.3.19
 

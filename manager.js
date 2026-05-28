@@ -28,6 +28,7 @@ const SEPARATOR_URL = "about:blank";
 let EnableAdvancedDetailsViewing = true;
 let EnableAdvancedDetailsEditing = false;
 let SortByNameNatural = true;
+let SortShowWarning = true;
 
 async function bookmarks(method, ...args) {
   return await api.bookmarks[method](...args);
@@ -336,6 +337,17 @@ async function sortFolderChildren(folder, key) {
   if (!canContainChildren(folder)) return;
   const children = [...(folder.children || [])];
   if (children.length < 2) return;
+
+  if (SortShowWarning) {
+    const sortName = key === "dateAdded" ? "date" : "name";
+    const ok = confirm(
+      `Sort this folder by ${sortName}?\n\n` +
+      "This permanently changes the saved bookmark order in Chromium. " +
+      "It is different from the temporary Visual sort dropdown."
+    );
+    if (!ok) return;
+  }
+
   const sorted = children.sort((a, b) => (key === "title" && SortByNameNatural)
     ? compareNaturalNameSort(a, b)
     : compareNodes(a, b, key));
@@ -1148,6 +1160,7 @@ function syncAdvancedDetailsControls(selected = nodes.get(state.selectedId)) {
   $("advanced-viewing-toggle").checked = EnableAdvancedDetailsViewing;
   $("advanced-editing-toggle").checked = EnableAdvancedDetailsEditing;
   $("sort-by-name-natural-toggle").checked = SortByNameNatural;
+  $("sort-show-warning-toggle").checked = SortShowWarning;
   $("advanced-editing-toggle").disabled = !EnableAdvancedDetailsViewing;
   $("advanced-details").hidden = !EnableAdvancedDetailsViewing;
 
@@ -1471,7 +1484,10 @@ function performNavigate(folderId, pushHistory = true) {
   state.selectedId = folderId;
   state.resetMiddleScrollOnNextRender = true;
   state.search = "";
+  state.sort = "index";
+  state.sortDirection = defaultSortDirection(state.sort);
   $("search").value = "";
+  $("sort").value = state.sort;
   render();
 }
 
@@ -1669,6 +1685,10 @@ $("advanced-editing-toggle").onchange = (e) => {
 };
 $("sort-by-name-natural-toggle").onchange = (e) => {
   SortByNameNatural = e.target.checked;
+  renderDetails();
+};
+$("sort-show-warning-toggle").onchange = (e) => {
+  SortShowWarning = e.target.checked;
   renderDetails();
 };
 $("new-folder").onclick = createFolder;
