@@ -210,6 +210,18 @@ function childFolders(folder) {
   return (folder.children || []).filter(isFolder);
 }
 
+function visibleTreeFolders() {
+  const out = [];
+  const visit = (folder) => {
+    out.push(folder);
+    if (state.expandedFolders.has(folder.id)) {
+      for (const child of childFolders(folder)) visit(child);
+    }
+  };
+  for (const folder of rootFolders()) visit(folder);
+  return out;
+}
+
 function ensureExpandedPath(folderId) {
   for (let n = nodes.get(folderId)?.parentNode; n && n.id !== "0"; n = n.parentNode) {
     state.expandedFolders.add(n.id);
@@ -1060,6 +1072,7 @@ function renderFolderTreeNode(folder, depth = 0) {
 function renderRoots() {
   ensureExpandedPath(state.folderId);
   $("roots").setAttribute("role", "tree");
+  $("roots").tabIndex = 0;
   $("roots").replaceChildren(...rootFolders().map((folder) => renderFolderTreeNode(folder)));
 }
 
@@ -1179,9 +1192,6 @@ function renderList() {
     }
     row.onclick = () => { select(item.id, "list"); };
     row.ondblclick = () => openOrNavigate(item);
-    row.onkeydown = (e) => {
-      if (e.key === "Enter") openOrNavigate(item);
-    };
     return row;
   });
   $("list").classList.toggle("reorder-disabled", !canReorderList());
@@ -1696,6 +1706,104 @@ function isEditingTextField(element) {
   return tag === "input" || tag === "textarea" || tag === "select";
 }
 
+function focusActivePane() {
+  const target = state.activePane === "tree" ? $("roots") : state.activePane === "list" ? $("list") : null;
+  target?.focus?.({ preventScroll: true });
+}
+
+function scrollActiveSelectionIntoView() {
+  const selector = state.activePane === "tree"
+    ? `.tree-row[data-id="${CSS.escape(state.folderId || "")}"]`
+    : `.item[data-id="${CSS.escape(state.selectedId || "")}"]`;
+  const element = document.querySelector(selector);
+  element?.scrollIntoView?.({ block: "nearest", inline: "nearest" });
+}
+
+async function moveKeyboardFocus(direction) {
+  if (direction === "right" && state.activePane === "tree") {
+    state.activePane = "list";
+    renderRoots();
+    renderList();
+    focusActivePane();
+    scrollActiveSelectionIntoView();
+    return true;
+  }
+  if (direction === "left" && state.activePane === "list") {
+    state.activePane = "tree";
+    renderRoots();
+    renderList();
+    focusActivePane();
+    scrollActiveSelectionIntoView();
+    return true;
+  }
+  return false;
+}
+
+async function moveTreeSelection(delta) {
+  const folders = visibleTreeFolders();
+  if (!folders.length) return false;
+  let currentIndex = folders.findIndex((folder) => folder.id === state.folderId);
+  if (currentIndex < 0) currentIndex = delta > 0 ? -1 : folders.length;
+  const nextIndex = Math.max(0, Math.min(folders.length - 1, currentIndex + delta));
+  const next = folders[nextIndex];
+  if (!next || next.id === state.folderId) return false;
+  await navigate(next.id, true, "tree");
+  focusActivePane();
+  scrollActiveSelectionIntoView();
+  return true;
+}
+
+async function moveListSelection(delta) {
+  const items = visibleItems();
+  if (!items.length) return false;
+  let currentIndex = items.findIndex((item) => item.id === state.selectedId);
+  if (currentIndex < 0 || nodes.get(state.selectedId)?.parentId !== state.folderId) {
+    currentIndex = delta > 0 ? -1 : items.length;
+  }
+  const nextIndex = Math.max(0, Math.min(items.length - 1, currentIndex + delta));
+  const next = items[nextIndex];
+  if (!next || (next.id === state.selectedId && state.activePane === "list")) return false;
+  await select(next.id, "list");
+  focusActivePane();
+  scrollActiveSelectionIntoView();
+  return true;
+}
+
+async function openKeyboardSelection() {
+  if (state.activePane === "tree") {
+    const folder = nodes.get(state.folderId);
+    if (!folder) return false;
+    await navigate(folder.id, true, "tree");
+    focusActivePane();
+    return true;
+  }
+  if (state.activePane === "list") {
+    const item = nodes.get(state.selectedId);
+    if (!item || item.parentId !== state.folderId) return false;
+    openOrNavigate(item);
+    return true;
+  }
+  return false;
+}
+
+async function handleKeyboardNavigation(e) {
+  if (e.defaultPrevented || isEditingTextField(e.target)) return false;
+  if (!["ArrowLeft", "ArrowRight", "ArrowUp", "ArrowDown", "Enter"].includes(e.key)) return false;
+
+  let handled = false;
+  if (e.key === "ArrowLeft") handled = await moveKeyboardFocus("left");
+  if (e.key === "ArrowRight") handled = await moveKeyboardFocus("right");
+  if (e.key === "ArrowUp") handled = state.activePane === "tree" ? await moveTreeSelection(-1) : state.activePane === "list" ? await moveListSelection(-1) : false;
+  if (e.key === "ArrowDown") handled = state.activePane === "tree" ? await moveTreeSelection(1) : state.activePane === "list" ? await moveListSelection(1) : false;
+  if (e.key === "Enter") handled = await openKeyboardSelection();
+
+  if (handled) {
+    e.preventDefault();
+    e.stopPropagation();
+  }
+  return handled;
+}
+
 async function handleKeyboardDelete(e) {
   if (!KeyboardDeleteAllow) return;
   if (e.defaultPrevented || isEditingTextField(e.target)) return;
@@ -1768,6 +1876,8 @@ $("app-menu-button").onclick = (e) => {
   e.stopPropagation();
   toggleAppMenu();
 };
+$("roots").addEventListener("focusin", () => { state.activePane = "tree"; renderRoots(); renderList(); });
+$("list").addEventListener("focusin", () => { state.activePane = "list"; renderRoots(); renderList(); });
 $("details-form").addEventListener("focusin", () => { state.activePane = "details"; renderRoots(); renderList(); });
 $("details-form").onsubmit = saveSelected;
 $("discard").onclick = discardDetailsChanges;
@@ -1812,12 +1922,13 @@ window.addEventListener("click", (e) => {
 });
 window.addEventListener("resize", () => { hideContextMenu(); hideAppMenu(); });
 window.addEventListener("scroll", () => { hideContextMenu(); hideAppMenu(); }, true);
-window.addEventListener("keydown", (e) => {
+window.addEventListener("keydown", async (e) => {
   if (e.key === "Escape") {
     hideContextMenu();
     hideAppMenu();
     return;
   }
+  if (await handleKeyboardNavigation(e)) return;
   handleKeyboardDelete(e);
 });
 

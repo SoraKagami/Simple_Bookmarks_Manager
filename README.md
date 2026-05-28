@@ -1,6 +1,6 @@
 # Simple Bookmarks Manager
 
-Version: 0.3.24
+Version: 0.3.25
 
 A Manifest V3 Chrome/Chromium extension that provides a simple local bookmark manager inspired by Firefox Places Library ideas.
 
@@ -94,6 +94,16 @@ Note: v0.2.2+ no longer overrides `chrome://bookmarks`, so Chromium/Brave's buil
 - Chromium BSD license reference: https://chromium.googlesource.com/chromium/src/+/HEAD/LICENSE
 
 ## Changelog
+
+### 0.3.25
+
+- Added keyboard navigation for the Library tree and middle bookmark list.
+- **Arrow Left / Arrow Right** now switches active keyboard focus between the Library tree and middle bookmark list.
+- **Arrow Up / Arrow Down** now moves selection within the active pane.
+- If no middle-list item is selected, **Arrow Down** selects the first visible entry and **Arrow Up** selects the last visible entry.
+- **Enter** opens the active selection: folders navigate into that folder, bookmarks open in a new tab, and separators do nothing.
+- Keyboard navigation ignores editable fields so Details pane text input remains normal.
+- Updated version to `0.3.25`.
 
 ### 0.3.24
 
