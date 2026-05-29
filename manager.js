@@ -1779,6 +1779,58 @@ async function handleTreeHorizontalNavigation(direction) {
   return false;
 }
 
+async function moveTreeSelectionToBoundary(position) {
+  if (state.activePane !== "tree") return false;
+  const folders = visibleTreeFolders();
+  if (!folders.length) return false;
+  const next = position === "end" ? folders[folders.length - 1] : folders[0];
+  if (!next || next.id === state.folderId) return false;
+  await navigate(next.id, true, "tree");
+  focusActivePane();
+  scrollActiveSelectionIntoView();
+  return true;
+}
+
+async function moveListSelectionToBoundary(position) {
+  if (state.activePane !== "list") return false;
+  const items = visibleItems();
+  if (!items.length) return false;
+  const next = position === "end" ? items[items.length - 1] : items[0];
+  if (!next || (next.id === state.selectedId && state.activePane === "list")) return false;
+  await select(next.id, "list");
+  focusActivePane();
+  scrollActiveSelectionIntoView();
+  return true;
+}
+
+async function navigateUpFolderNode() {
+  let folder = null;
+  let targetPane = state.activePane;
+
+  if (state.activePane === "tree") {
+    folder = nodes.get(state.folderId);
+    targetPane = "tree";
+  } else if (state.activePane === "list") {
+    folder = nodes.get(state.folderId);
+    targetPane = "list";
+  } else {
+    return false;
+  }
+
+  const parent = folder?.parentNode;
+  if (!parent || parent.id === "0") return false;
+  await navigate(parent.id, true, targetPane);
+  focusActivePane();
+  scrollActiveSelectionIntoView();
+  return true;
+}
+
+function focusSearchField() {
+  const search = $("search");
+  search.focus({ preventScroll: true });
+  search.select?.();
+}
+
 async function moveTreeSelection(delta) {
   const folders = visibleTreeFolders();
   if (!folders.length) return false;
@@ -1827,15 +1879,27 @@ async function openKeyboardSelection() {
 }
 
 async function handleKeyboardNavigation(e) {
-  if (e.defaultPrevented || isEditingTextField(e.target)) return false;
-  if (!["ArrowLeft", "ArrowRight", "ArrowUp", "ArrowDown", "Enter"].includes(e.key)) return false;
+  if (e.defaultPrevented) return false;
+
+  if (e.ctrlKey && !e.altKey && !e.shiftKey && e.key.toLowerCase() === "f") {
+    e.preventDefault();
+    e.stopPropagation();
+    focusSearchField();
+    return true;
+  }
+
+  if (isEditingTextField(e.target)) return false;
+  if (!["ArrowLeft", "ArrowRight", "ArrowUp", "ArrowDown", "Home", "End", "Enter", "Backspace"].includes(e.key)) return false;
 
   let handled = false;
   if (e.key === "ArrowLeft") handled = await handleTreeHorizontalNavigation("left");
   if (e.key === "ArrowRight") handled = await handleTreeHorizontalNavigation("right");
   if (e.key === "ArrowUp") handled = state.activePane === "tree" ? await moveTreeSelection(-1) : state.activePane === "list" ? await moveListSelection(-1) : false;
   if (e.key === "ArrowDown") handled = state.activePane === "tree" ? await moveTreeSelection(1) : state.activePane === "list" ? await moveListSelection(1) : false;
+  if (e.key === "Home") handled = state.activePane === "tree" ? await moveTreeSelectionToBoundary("home") : state.activePane === "list" ? await moveListSelectionToBoundary("home") : false;
+  if (e.key === "End") handled = state.activePane === "tree" ? await moveTreeSelectionToBoundary("end") : state.activePane === "list" ? await moveListSelectionToBoundary("end") : false;
   if (e.key === "Enter") handled = await openKeyboardSelection();
+  if (e.key === "Backspace") handled = await navigateUpFolderNode();
 
   if (handled) {
     e.preventDefault();
@@ -1847,7 +1911,7 @@ async function handleKeyboardNavigation(e) {
 async function handleKeyboardDelete(e) {
   if (!KeyboardDeleteAllow) return;
   if (e.defaultPrevented || isEditingTextField(e.target)) return;
-  if (e.key !== "Delete" && e.key !== "Backspace") return;
+  if (e.key !== "Delete") return;
 
   let selected = null;
   const sourcePane = state.activePane;
