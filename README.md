@@ -95,6 +95,13 @@ Note: v0.2.2+ no longer overrides `chrome://bookmarks`, so Chromium/Brave's buil
 
 ## Changelog
 
+### 0.3.30
+
+- Fixed Library pane **End** key behavior so it targets the lowest visible folder within the current root tree first, instead of jumping directly to another root tree.
+- Library pane **End** now only moves to the next root tree when the current selection is already on the lowest visible folder in the current root tree.
+- Fixed Library pane **Home** key behavior so it targets the root of the current tree first, and only moves to the previous root when the current selection is already a root folder.
+- Updated version to `0.3.30`.
+
 ### 0.3.29
 
 - Added `SearchLimitToFolderAndSub`, defaulted to `false`.

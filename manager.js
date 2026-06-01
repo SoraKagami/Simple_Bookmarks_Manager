@@ -1786,11 +1786,64 @@ async function handleTreeHorizontalNavigation(direction) {
   return false;
 }
 
+function visibleTreeFoldersForRoot(rootFolder) {
+  const out = [];
+  const visit = (folder) => {
+    out.push(folder);
+    if (state.expandedFolders.has(folder.id)) {
+      for (const child of childFolders(folder)) visit(child);
+    }
+  };
+  if (rootFolder) visit(rootFolder);
+  return out;
+}
+
+function rootFolderFor(folder) {
+  let current = folder;
+  while (current?.parentNode && current.parentNode.id !== "0") current = current.parentNode;
+  return current || null;
+}
+
 async function moveTreeSelectionToBoundary(position) {
   if (state.activePane !== "tree") return false;
-  const folders = visibleTreeFolders();
-  if (!folders.length) return false;
-  const next = position === "end" ? folders[folders.length - 1] : folders[0];
+
+  const roots = rootFolders();
+  if (!roots.length) return false;
+
+  const current = nodes.get(state.folderId);
+  if (!current) {
+    const folders = visibleTreeFolders();
+    const next = position === "end" ? folders[folders.length - 1] : folders[0];
+    if (!next) return false;
+    await navigate(next.id, true, "tree");
+    focusActivePane();
+    scrollActiveSelectionIntoView();
+    return true;
+  }
+
+  const currentRoot = rootFolderFor(current);
+  const currentRootIndex = roots.findIndex((folder) => folder.id === currentRoot?.id);
+  if (currentRootIndex < 0) return false;
+
+  let next = null;
+  if (position === "home") {
+    if (current.id === currentRoot.id) {
+      next = roots[currentRootIndex - 1] || null;
+    } else {
+      next = currentRoot;
+    }
+  } else {
+    const currentRootVisible = visibleTreeFoldersForRoot(currentRoot);
+    const currentRootLast = currentRootVisible[currentRootVisible.length - 1] || null;
+    if (currentRootLast && current.id !== currentRootLast.id) {
+      next = currentRootLast;
+    } else {
+      const nextRoot = roots[currentRootIndex + 1] || null;
+      const nextRootVisible = visibleTreeFoldersForRoot(nextRoot);
+      next = nextRootVisible[nextRootVisible.length - 1] || nextRoot;
+    }
+  }
+
   if (!next || next.id === state.folderId) return false;
   await navigate(next.id, true, "tree");
   focusActivePane();
