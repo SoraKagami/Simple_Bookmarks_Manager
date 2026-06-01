@@ -4,6 +4,7 @@ const state = {
   tree: null,
   folderId: null,
   selectedId: null,
+  treeSelectedId: null,
   activePane: "tree",
   search: "",
   sort: "index",
@@ -16,6 +17,7 @@ const state = {
   drag: null,
   clipboard: null,
   contextMenu: null,
+  multiSelect: { pane: null, ids: new Set(), anchorId: null, focusId: null },
   suppressBookmarkEvents: false,
   unsavedPromptActive: false,
   resetMiddleScrollOnNextRender: false,
@@ -201,6 +203,8 @@ async function loadTree(options = {}) {
     // Chrome root's first children are normally Bookmarks Bar / Other / Mobile.
     state.folderId = fallbackFolder ? defaultFolderId() : null;
   }
+  if (state.treeSelectedId && !nodes.has(state.treeSelectedId)) state.treeSelectedId = null;
+  if (state.selectedId && !nodes.has(state.selectedId)) state.selectedId = null;
   if (state.folderId && nodes.has(state.folderId)) ensureExpandedPath(state.folderId);
   if (renderNow) render();
 }
@@ -252,6 +256,158 @@ function isDescendantOf(node, possibleAncestor) {
 }
 
 
+function paneItems(pane) {
+  return pane === "tree" ? visibleTreeFolders() : pane === "list" ? visibleItems() : [];
+}
+
+function paneSelectionId(pane) {
+  return pane === "tree" ? (state.treeSelectedId || state.folderId) : state.selectedId;
+}
+
+function isMultiSelectActive(pane = state.activePane) {
+  return state.multiSelect.pane === pane && state.multiSelect.ids.size > 1;
+}
+
+function clearMultiSelect() {
+  state.multiSelect = { pane: null, ids: new Set(), anchorId: null, focusId: null };
+}
+
+function selectionIdsForPane(pane) {
+  if (isMultiSelectActive(pane)) return [...state.multiSelect.ids].filter((id) => nodes.has(id));
+  const id = paneSelectionId(pane);
+  return id && nodes.has(id) ? [id] : [];
+}
+
+function orderedIdsForPane(ids, pane) {
+  const wanted = new Set(ids);
+  return paneItems(pane).filter((item) => wanted.has(item.id)).map((item) => item.id);
+}
+
+function hasAncestorInSet(node, idSet) {
+  for (let n = node?.parentNode; n && n.id !== "0"; n = n.parentNode) {
+    if (idSet.has(n.id)) return true;
+  }
+  return false;
+}
+
+function topLevelIds(ids) {
+  const idSet = new Set(ids);
+  return ids.filter((id) => !hasAncestorInSet(nodes.get(id), idSet));
+}
+
+function normalizeTreeMultiCandidate(ids, focusId) {
+  const clean = orderedIdsForPane(ids, "tree").filter((id) => {
+    const node = nodes.get(id);
+    return node && isFolder(node) && !isRootFolder(node) && isMutable(node);
+  });
+  if (clean.length <= 1) return clean;
+
+  const cleanSet = new Set(clean);
+  const hasParentChildConflict = clean.some((id) => hasAncestorInSet(nodes.get(id), cleanSet));
+  if (!hasParentChildConflict) return clean;
+
+  const focus = nodes.get(focusId);
+  if (focus && cleanSet.has(focus.id)) {
+    const focusHasSelectedDescendant = clean.some((id) => id !== focus.id && isDescendantOf(nodes.get(id), focus));
+    if (focusHasSelectedDescendant || hasAncestorInSet(focus, cleanSet)) return [focus.id];
+  }
+
+  return [topLevelIds(clean)[0]].filter(Boolean);
+}
+
+function setPaneSelection(pane, id, options = {}) {
+  if (pane === "tree") {
+    state.treeSelectedId = id || null;
+    state.selectedId = id || null;
+    if (options.navigate) state.folderId = id || state.folderId;
+  } else if (pane === "list") {
+    state.selectedId = id || null;
+  }
+  state.activePane = pane;
+}
+
+function setMultiSelection(pane, ids, anchorId, focusId) {
+  const ordered = pane === "tree" ? normalizeTreeMultiCandidate(ids, focusId) : orderedIdsForPane(ids, pane);
+  if (ordered.length <= 1) {
+    clearMultiSelect();
+    setPaneSelection(pane, ordered[0] || focusId || null, { navigate: false });
+    return;
+  }
+  state.multiSelect = { pane, ids: new Set(ordered), anchorId: anchorId || ordered[0], focusId: focusId || ordered[ordered.length - 1] };
+  if (pane === "tree") {
+    state.treeSelectedId = state.multiSelect.focusId;
+    state.selectedId = state.multiSelect.focusId;
+  }
+  if (pane === "list") state.selectedId = state.multiSelect.focusId;
+  state.activePane = pane;
+}
+
+function rangeIds(pane, fromId, toId) {
+  const items = paneItems(pane);
+  const a = items.findIndex((item) => item.id === fromId);
+  const b = items.findIndex((item) => item.id === toId);
+  if (a < 0 || b < 0) return [toId];
+  const [start, end] = a < b ? [a, b] : [b, a];
+  return items.slice(start, end + 1).map((item) => item.id);
+}
+
+async function handlePaneClick(e, pane, item) {
+  if (!item) return;
+  const isMultiGesture = e.ctrlKey || e.shiftKey;
+  if (pane === "tree" && isMultiGesture && isRootFolder(item)) return;
+
+  if (!isMultiGesture) {
+    clearMultiSelect();
+    if (pane === "tree") await navigate(item.id, true, "tree");
+    else await select(item.id, "list");
+    return;
+  }
+
+  if (!(await confirmUnsavedDetailsBeforeNavigation())) return;
+
+  const currentIds = state.multiSelect.pane === pane ? [...state.multiSelect.ids] : selectionIdsForPane(pane);
+  let nextIds;
+  let anchorId = state.multiSelect.pane === pane ? state.multiSelect.anchorId : (paneSelectionId(pane) || item.id);
+
+  if (e.shiftKey) {
+    nextIds = rangeIds(pane, anchorId || item.id, item.id);
+  } else {
+    const set = new Set(currentIds);
+    if (set.has(item.id)) set.delete(item.id);
+    else set.add(item.id);
+    nextIds = [...set];
+    anchorId = item.id;
+  }
+
+  setMultiSelection(pane, nextIds, anchorId, item.id);
+  state.detailsOriginal = null;
+  render();
+}
+
+function cancelMultiSelectToFocus() {
+  if (!state.multiSelect.pane) return false;
+  const pane = state.multiSelect.pane;
+  const focusId = state.multiSelect.focusId || selectionIdsForPane(pane)[0] || null;
+  clearMultiSelect();
+  setPaneSelection(pane, focusId, { navigate: false });
+  render();
+  return true;
+}
+
+function multiSelectionStats() {
+  const ids = selectionIdsForPane(state.activePane);
+  const stats = { total: 0, folders: 0, bookmarks: 0, separators: 0 };
+  for (const id of ids) {
+    const item = nodes.get(id);
+    if (!item) continue;
+    stats.total += 1;
+    if (isFolder(item)) stats.folders += 1;
+    else if (isSeparator(item)) stats.separators += 1;
+    else stats.bookmarks += 1;
+  }
+  return stats;
+}
+
 function isInDetailsPane(element) {
   return !!element?.closest?.("#details-pane");
 }
@@ -289,13 +445,48 @@ async function createFromSnapshot(snapshot, parentId, index = null) {
   return created;
 }
 
+
+function selectedContextIds(context = state.contextMenu) {
+  if (context?.kind === "multi") return orderedIdsForPane(context.ids || [], context.pane);
+  return context?.id ? [context.id] : [];
+}
+
+function selectionUrls(ids) {
+  const urls = [];
+  for (const id of ids) {
+    const item = nodes.get(id);
+    if (!item) continue;
+    if (isFolder(item)) urls.push(...folderUrls(item));
+    else if (item.url && !isSeparator(item)) urls.push(item.url);
+  }
+  return urls;
+}
+
+function multiContextUrls(context) {
+  return selectionUrls(selectedContextIds(context));
+}
+
+function contextHasMultiSelection(context) {
+  return context?.kind === "multi" && (context.ids || []).length > 1;
+}
+
+function clipboardItems(clipboard = state.clipboard) {
+  if (!clipboard) return [];
+  if (clipboard.items) return clipboard.items;
+  if (clipboard.mode === "cut" && clipboard.id) return [{ id: clipboard.id }];
+  if (clipboard.mode === "copy" && clipboard.snapshot) return [{ snapshot: clipboard.snapshot }];
+  return [];
+}
+
 function canPasteInto(parentFolder, clipboard = state.clipboard) {
   if (!clipboard || !canContainChildren(parentFolder)) return false;
   if (clipboard.mode === "cut") {
-    const cutNode = nodes.get(clipboard.id);
-    if (!cutNode || !isMutable(cutNode)) return false;
-    if (cutNode.id === parentFolder.id) return false;
-    if (isFolder(cutNode) && isDescendantOf(parentFolder, cutNode)) return false;
+    for (const entry of clipboardItems(clipboard)) {
+      const cutNode = nodes.get(entry.id);
+      if (!cutNode || !isMutable(cutNode)) return false;
+      if (cutNode.id === parentFolder.id) return false;
+      if (isFolder(cutNode) && isDescendantOf(parentFolder, cutNode)) return false;
+    }
   }
   return true;
 }
@@ -311,6 +502,13 @@ function canPasteForContext(context) {
 function pasteTargetForContext(context) {
   if (!context) return null;
   const item = nodes.get(context.id);
+  if (context.kind === "multi") {
+    if (!item) return { parent: nodes.get(state.folderId), index: null };
+    if (isFolder(item)) return { parent: item, index: null };
+    const parent = nodes.get(item.parentId);
+    const index = Number.isInteger(item.index) ? item.index + 1 : null;
+    return { parent, index };
+  }
   if (context.kind === "folder") {
     return { parent: item, index: null };
   }
@@ -325,20 +523,42 @@ function pasteTargetForContext(context) {
 async function pasteClipboard(context = state.contextMenu) {
   if (!canPasteForContext(context)) return;
   const target = pasteTargetForContext(context);
+  const entries = clipboardItems(state.clipboard);
+  if (!entries.length) return;
 
-  if (state.clipboard.mode === "cut") {
-    const moveDetails = { parentId: target.parent.id };
-    if (Number.isInteger(target.index)) moveDetails.index = target.index;
-    await bookmarks("move", state.clipboard.id, moveDetails);
-    state.selectedId = state.clipboard.id;
-    state.clipboard = null;
-  } else {
-    const created = await createFromSnapshot(state.clipboard.snapshot, target.parent.id, target.index);
-    state.selectedId = created.id;
+  let lastId = null;
+  state.suppressBookmarkEvents = true;
+  try {
+    if (state.clipboard.mode === "cut") {
+      let index = Number.isInteger(target.index) ? target.index : null;
+      for (const entry of entries) {
+        const node = nodes.get(entry.id);
+        if (!node || !isMutable(node)) continue;
+        if (isFolder(node) && isDescendantOf(target.parent, node)) continue;
+        const moveDetails = { parentId: target.parent.id };
+        if (Number.isInteger(index)) moveDetails.index = index++;
+        await bookmarks("move", node.id, moveDetails);
+        lastId = node.id;
+      }
+      state.clipboard = null;
+    } else {
+      let index = Number.isInteger(target.index) ? target.index : null;
+      for (const entry of entries) {
+        const created = await createFromSnapshot(entry.snapshot, target.parent.id, index);
+        if (Number.isInteger(index)) index += 1;
+        lastId = created.id;
+      }
+    }
+  } finally {
+    state.suppressBookmarkEvents = false;
   }
 
+  clearMultiSelect();
+  state.selectedId = lastId;
+  state.activePane = "list";
   await loadTree();
 }
+
 
 function naturalNameSortGroup(node) {
   if (isFolder(node)) return 0;
@@ -497,7 +717,7 @@ async function deleteNode(item, sourcePane = state.activePane) {
 
   if (isFolder(item)) await bookmarks("removeTree", item.id);
   else await bookmarks("remove", item.id);
-  if (state.clipboard?.mode === "cut" && state.clipboard.id === item.id) state.clipboard = null;
+  if (state.clipboard?.mode === "cut" && clipboardItems().some((entry) => entry.id === item.id)) state.clipboard = null;
 
   await loadTree({ renderNow: false, fallbackFolder: sourcePane !== "tree" });
 
@@ -522,6 +742,31 @@ async function deleteNode(item, sourcePane = state.activePane) {
   setDetailsCleanBaseline(nodes.get(state.selectedId));
   render();
 }
+async function deleteSelection(context = null) {
+  const pane = context?.pane || state.activePane;
+  const ids = topLevelIds(context?.kind === "multi" ? selectedContextIds(context) : selectionIdsForPane(pane))
+    .filter((id) => isMutable(nodes.get(id)));
+  const ordered = orderedIdsForPane(ids, pane);
+  if (!ordered.length) return;
+  if (DeleteShowWarning && !confirm(`Delete ${ordered.length} selected item(s)?`)) return;
+
+  state.suppressBookmarkEvents = true;
+  try {
+    for (const id of ordered.slice().reverse()) {
+      const item = nodes.get(id);
+      if (!item || !isMutable(item)) continue;
+      if (isFolder(item)) await bookmarks("removeTree", item.id);
+      else await bookmarks("remove", item.id);
+    }
+  } finally {
+    state.suppressBookmarkEvents = false;
+  }
+  clearMultiSelect();
+  state.selectedId = null;
+  if (pane === "tree") state.treeSelectedId = null;
+  await loadTree({ fallbackFolder: pane !== "tree" });
+}
+
 
 function insertionTargetAfterNode(item) {
   if (!item || !item.parentId || item.parentId === "0") return null;
@@ -628,13 +873,32 @@ async function createSeparatorAtTarget(context = null) {
 
 function cutNode(item) {
   if (!item || !isMutable(item)) return;
-  state.clipboard = { mode: "cut", id: item.id };
+  state.clipboard = { mode: "cut", items: [{ id: item.id }] };
   render();
 }
 
 function copyNode(item) {
   if (!item || item.id === "0") return;
-  state.clipboard = { mode: "copy", snapshot: cloneBookmarkNode(item) };
+  state.clipboard = { mode: "copy", items: [{ snapshot: cloneBookmarkNode(item) }] };
+  render();
+}
+
+function cutSelection(context = state.contextMenu) {
+  const ids = topLevelIds(selectedContextIds(context)).filter((id) => isMutable(nodes.get(id)));
+  if (!ids.length) return;
+  state.clipboard = { mode: "cut", items: orderedIdsForPane(ids, context.pane).map((id) => ({ id })) };
+  clearMultiSelect();
+  render();
+}
+
+function copySelection(context = state.contextMenu) {
+  const ids = topLevelIds(selectedContextIds(context)).filter((id) => {
+    const item = nodes.get(id);
+    return item && item.id !== "0" && !isRootFolder(item);
+  });
+  if (!ids.length) return;
+  state.clipboard = { mode: "copy", items: orderedIdsForPane(ids, context.pane).map((id) => ({ snapshot: cloneBookmarkNode(nodes.get(id)) })) };
+  clearMultiSelect();
   render();
 }
 
@@ -724,11 +988,55 @@ async function moveWithIntent(draggedId, targetId, intent) {
   await loadTree();
 }
 
+function listDropIntent(event, element) {
+  const rect = element.getBoundingClientRect();
+  return (event.clientY - rect.top) < rect.height / 2 ? "before" : "after";
+}
+
+async function moveSelectedListItems(targetId, intent) {
+  if (!isMultiSelectActive("list") || !canReorderList()) return;
+  const items = visibleItems();
+  const selectedIds = orderedIdsForPane([...state.multiSelect.ids], "list").filter((id) => isReorderable(nodes.get(id)));
+  if (!selectedIds.length) return;
+  const targetIndex = items.findIndex((item) => item.id === targetId);
+  if (targetIndex < 0) return;
+
+  const selectedSet = new Set(selectedIds);
+  const remaining = items.filter((item) => !selectedSet.has(item.id));
+  const selectedBeforeTarget = items.slice(0, targetIndex).filter((item) => selectedSet.has(item.id)).length;
+  let insertIndex = targetIndex - selectedBeforeTarget + (intent === "after" ? 1 : 0);
+  insertIndex = Math.max(0, Math.min(insertIndex, remaining.length));
+  const selectedItems = selectedIds.map((id) => nodes.get(id)).filter(Boolean);
+  const finalOrder = [
+    ...remaining.slice(0, insertIndex),
+    ...selectedItems,
+    ...remaining.slice(insertIndex)
+  ];
+
+  state.suppressBookmarkEvents = true;
+  try {
+    for (let i = 0; i < finalOrder.length; i += 1) {
+      await bookmarks("move", finalOrder[i].id, { parentId: state.folderId, index: i });
+    }
+  } finally {
+    state.suppressBookmarkEvents = false;
+  }
+  clearMultiSelect();
+  state.selectedId = selectedIds[selectedIds.length - 1] || null;
+  state.activePane = "list";
+  await loadTree();
+}
+
 function attachDropTarget(row, target, context) {
   row.ondragover = (e) => {
-    const dragged = nodes.get(state.drag?.id || e.dataTransfer.getData("text/plain"));
-    const intent = dropIntent(e, row, target);
-    if (!validDrop(dragged, target, intent, context)) return;
+    const multiListDrag = state.drag?.multi && state.drag?.source === "list" && context === "list";
+    const intent = multiListDrag ? listDropIntent(e, row) : dropIntent(e, row, target);
+    if (multiListDrag) {
+      if (!canReorderList() || !target?.parentId || target.parentId !== state.folderId) return;
+    } else {
+      const dragged = nodes.get(state.drag?.id || e.dataTransfer.getData("text/plain"));
+      if (!validDrop(dragged, target, intent, context)) return;
+    }
 
     e.preventDefault();
     e.dataTransfer.dropEffect = "move";
@@ -739,16 +1047,27 @@ function attachDropTarget(row, target, context) {
   row.ondragleave = () => row.classList.remove("drop-before", "drop-after", "drop-into");
 
   row.ondrop = async (e) => {
-    const draggedId = state.drag?.id || e.dataTransfer.getData("text/plain");
-    const intent = dropIntent(e, row, target);
-    const dragged = nodes.get(draggedId);
-    if (!validDrop(dragged, target, intent, context)) return;
+    const multiListDrag = state.drag?.multi && state.drag?.source === "list" && context === "list";
+    const intent = multiListDrag ? listDropIntent(e, row) : dropIntent(e, row, target);
+    if (multiListDrag) {
+      if (!canReorderList() || !target?.parentId || target.parentId !== state.folderId) return;
+    } else {
+      const draggedId = state.drag?.id || e.dataTransfer.getData("text/plain");
+      const dragged = nodes.get(draggedId);
+      if (!validDrop(dragged, target, intent, context)) return;
+    }
 
     e.preventDefault();
     clearDropIndicators();
-    state.drag = null;
     try {
-      await moveWithIntent(draggedId, target.id, intent);
+      if (multiListDrag) {
+        state.drag = null;
+        await moveSelectedListItems(target.id, intent);
+      } else {
+        const draggedId = state.drag?.id || e.dataTransfer.getData("text/plain");
+        state.drag = null;
+        await moveWithIntent(draggedId, target.id, intent);
+      }
     } catch (err) {
       console.error(err);
       alert(`Could not move bookmark item: ${err.message || err}`);
@@ -756,6 +1075,7 @@ function attachDropTarget(row, target, context) {
     }
   };
 }
+
 
 
 function hideContextMenu() {
@@ -933,6 +1253,23 @@ function buildBookmarkMenu(context) {
   ];
 }
 
+function buildMultiMenu(context) {
+  const urls = multiContextUrls(context);
+  const pasteDisabled = !canPasteForContext(context);
+  return [
+    makeMenuItem("Delete", () => deleteSelection(context), { disabled: selectedContextIds(context).every((id) => !isMutable(nodes.get(id))) }),
+    makeSeparator(),
+    makeMenuItem("Cut", () => cutSelection(context), { disabled: selectedContextIds(context).every((id) => !isMutable(nodes.get(id))) }),
+    makeMenuItem("Copy", () => copySelection(context), { disabled: selectedContextIds(context).length === 0 }),
+    makeMenuItem("Paste", () => pasteClipboard(context), { disabled: pasteDisabled }),
+    makeSeparator(),
+    makeMenuItem("Open All in New Tab", () => openUrlsInCurrentWindow(urls), { disabled: urls.length === 0 }),
+    makeMenuItem("Open All in New Window", () => openUrlsInWindow(urls, false), { disabled: urls.length === 0 }),
+    makeMenuItem("Open All in Private Window", () => openUrlsInWindow(urls, true), { disabled: urls.length === 0 }),
+    makeMenuItem("Open All in New Tab Group", () => openUrlsInTabGroup(urls), { disabled: urls.length === 0, hidden: !isTabGroupSupported() })
+  ];
+}
+
 function buildEmptyMenu(context) {
   const parentId = contextParentId(context);
   const parent = nodes.get(parentId);
@@ -956,11 +1293,17 @@ function contextFromEvent(e) {
   if (row?.dataset?.id) {
     const item = nodes.get(row.dataset.id);
     const pane = row.classList.contains("tree-row") ? "tree" : "list";
+    const clickedSelected = state.multiSelect.pane === pane && state.multiSelect.ids.has(item?.id);
+    const keepExistingMulti = state.multiSelect.pane && (clickedSelected || ((e.ctrlKey || e.shiftKey) && state.multiSelect.ids.size > 1));
+    if (keepExistingMulti) {
+      return { kind: "multi", id: clickedSelected ? item.id : null, pane: state.multiSelect.pane, ids: [...state.multiSelect.ids] };
+    }
     if (isFolder(item)) return { kind: "folder", id: item.id, pane };
     if (item) return { kind: "bookmark", id: item.id, pane };
   }
   return { kind: "empty", id: state.folderId, pane: "list" };
 }
+
 
 function showContextMenu(e) {
   if (isInDetailsPane(e.target)) return;
@@ -970,16 +1313,24 @@ function showContextMenu(e) {
   hideAppMenu();
 
   const context = contextFromEvent(e);
+  if (context.kind !== "multi") {
+    clearMultiSelect();
+    if (context.id && context.kind !== "empty") setPaneSelection(context.pane, context.id, { navigate: false });
+    updateSelectionHighlights();
+    renderDetails();
+  }
   state.contextMenu = context;
   const menu = document.createElement("div");
   menu.className = "context-menu";
   menu.setAttribute("role", "menu");
 
-  const items = context.kind === "folder"
-    ? buildFolderMenu(context)
-    : context.kind === "bookmark"
-      ? buildBookmarkMenu(context)
-      : buildEmptyMenu(context);
+  const items = context.kind === "multi"
+    ? buildMultiMenu(context)
+    : context.kind === "folder"
+      ? buildFolderMenu(context)
+      : context.kind === "bookmark"
+        ? buildBookmarkMenu(context)
+        : buildEmptyMenu(context);
 
   menu.append(...items.filter(Boolean));
   document.body.append(menu);
@@ -1004,10 +1355,10 @@ function renderFolderTreeNode(folder, depth = 0) {
   row.dataset.id = folder.id;
   row.style.setProperty("--depth", depth);
   row.setAttribute("role", "treeitem");
-  const treeSelected = folder.id === state.folderId;
+  const treeSelected = isMultiSelectActive("tree") ? state.multiSelect.ids.has(folder.id) : folder.id === (state.treeSelectedId || state.folderId);
   row.setAttribute("aria-selected", String(treeSelected));
   if (treeSelected) row.classList.add(state.activePane === "tree" ? "selected-active" : "selected-inactive");
-  if (state.clipboard?.mode === "cut" && state.clipboard.id === folder.id) row.classList.add("clipboard-cut");
+  if (state.clipboard?.mode === "cut" && clipboardItems().some((entry) => entry.id === folder.id)) row.classList.add("clipboard-cut");
   if (children.length) row.setAttribute("aria-expanded", String(isExpanded));
 
   if (canDragTreeFolder(folder)) {
@@ -1050,7 +1401,7 @@ function renderFolderTreeNode(folder, depth = 0) {
   label.type = "button";
   label.setAttribute("aria-current", String(folder.id === state.folderId));
   label.title = children.length ? "Double-click to expand or collapse this folder" : "";
-  label.onclick = () => navigate(folder.id, true, "tree");
+  label.onclick = (e) => handlePaneClick(e, "tree", folder);
   label.ondblclick = toggleFolderOnDoubleClick;
   row.ondblclick = toggleFolderOnDoubleClick;
 
@@ -1146,8 +1497,9 @@ function renderList() {
     row.className = "item";
     row.dataset.id = item.id;
     row.tabIndex = 0;
-    if (state.clipboard?.mode === "cut" && state.clipboard.id === item.id) row.classList.add("clipboard-cut");
-    if (item.id === state.selectedId) {
+    if (state.clipboard?.mode === "cut" && clipboardItems().some((entry) => entry.id === item.id)) row.classList.add("clipboard-cut");
+    const listSelected = isMultiSelectActive("list") ? state.multiSelect.ids.has(item.id) : item.id === state.selectedId;
+    if (listSelected) {
       row.classList.add("selected", state.activePane === "list" ? "selected-active" : "selected-inactive");
     }
 
@@ -1155,7 +1507,8 @@ function renderList() {
       row.draggable = true;
       row.title = "Drag to move or reorder this item";
       row.ondragstart = (e) => {
-        state.drag = { id: item.id, source: "list" };
+        const multi = isMultiSelectActive("list") && state.multiSelect.ids.has(item.id);
+        state.drag = multi ? { ids: [...state.multiSelect.ids], source: "list", multi: true } : { id: item.id, source: "list" };
         e.dataTransfer.effectAllowed = "move";
         e.dataTransfer.setData("text/plain", item.id);
         row.classList.add("dragging");
@@ -1197,7 +1550,7 @@ function renderList() {
 
       row.append(title, url, date, id, order);
     }
-    row.onclick = () => { select(item.id, "list"); };
+    row.onclick = (e) => { handlePaneClick(e, "list", item); };
     row.ondblclick = () => openOrNavigate(item);
     return row;
   });
@@ -1208,14 +1561,14 @@ function renderList() {
 
 function updateSelectionHighlights() {
   document.querySelectorAll(".tree-row").forEach((row) => {
-    const selected = row.dataset.id === state.folderId;
+    const selected = isMultiSelectActive("tree") ? state.multiSelect.ids.has(row.dataset.id) : row.dataset.id === (state.treeSelectedId || state.folderId);
     row.setAttribute("aria-selected", String(selected));
     row.classList.toggle("selected-active", selected && state.activePane === "tree");
     row.classList.toggle("selected-inactive", selected && state.activePane !== "tree");
   });
 
   document.querySelectorAll(".item").forEach((row) => {
-    const selected = row.dataset.id === state.selectedId;
+    const selected = isMultiSelectActive("list") ? state.multiSelect.ids.has(row.dataset.id) : row.dataset.id === state.selectedId;
     row.classList.toggle("selected", selected);
     row.classList.toggle("selected-active", selected && state.activePane === "list");
     row.classList.toggle("selected-inactive", selected && state.activePane !== "list");
@@ -1316,8 +1669,25 @@ function renderDetails() {
   $("details-pane").hidden = !state.detailsVisible;
   if (!state.detailsVisible) return;
 
-  const selected = nodes.get(state.selectedId);
+  const multiActive = isMultiSelectActive(state.activePane);
   const form = $("details-form");
+  const multiDetails = $("details-multiselect");
+  const selected = nodes.get(state.selectedId);
+
+  if (multiActive) {
+    const stats = multiSelectionStats();
+    form.hidden = true;
+    $("empty-details").hidden = true;
+    multiDetails.hidden = false;
+    $("multi-total").textContent = String(stats.total);
+    $("multi-folders").textContent = String(stats.folders);
+    $("multi-bookmarks").textContent = String(stats.bookmarks);
+    $("multi-separators").textContent = String(stats.separators);
+    state.detailsOriginal = null;
+    return;
+  }
+
+  multiDetails.hidden = true;
   form.hidden = !selected;
   $("empty-details").hidden = !!selected;
   if (!selected) {
@@ -1580,7 +1950,9 @@ function performNavigate(folderId, pushHistory = true, activePane = "tree") {
     state.back.unshift(state.folderId);
     state.forward = [];
   }
+  clearMultiSelect();
   state.folderId = folderId;
+  state.treeSelectedId = folderId;
   state.selectedId = folderId;
   state.activePane = activePane;
   state.resetMiddleScrollOnNextRender = true;
@@ -1603,13 +1975,17 @@ async function navigate(folderId, pushHistory = true, activePane = "tree") {
 }
 
 function performSelect(id, activePane = "list") {
-  state.selectedId = id;
+  clearMultiSelect();
+  if (activePane === "tree") {
+    state.treeSelectedId = id;
+    state.selectedId = id;
+  } else state.selectedId = id;
   state.activePane = activePane;
   render();
 }
 
 async function select(id, activePane = "list") {
-  if (id === state.selectedId && state.activePane === activePane) return;
+  if (id === paneSelectionId(activePane) && state.activePane === activePane && !isMultiSelectActive(activePane)) return;
   if (!(await confirmUnsavedDetailsBeforeNavigation())) return;
   performSelect(id, activePane);
 }
@@ -1745,7 +2121,7 @@ function scrollActiveSelectionIntoView() {
 
 async function handleTreeHorizontalNavigation(direction) {
   if (state.activePane !== "tree") return false;
-  const folder = nodes.get(state.folderId);
+  const folder = nodes.get(paneSelectionId("tree"));
   if (!folder) return false;
   const children = childFolders(folder);
 
@@ -1810,7 +2186,7 @@ async function moveTreeSelectionToBoundary(position) {
   const roots = rootFolders();
   if (!roots.length) return false;
 
-  const current = nodes.get(state.folderId);
+  const current = nodes.get(paneSelectionId("tree"));
   if (!current) {
     const folders = visibleTreeFolders();
     const next = position === "end" ? folders[folders.length - 1] : folders[0];
@@ -1844,7 +2220,7 @@ async function moveTreeSelectionToBoundary(position) {
     }
   }
 
-  if (!next || next.id === state.folderId) return false;
+  if (!next || next.id === paneSelectionId("tree")) return false;
   await navigate(next.id, true, "tree");
   focusActivePane();
   scrollActiveSelectionIntoView();
@@ -1868,7 +2244,7 @@ async function navigateUpFolderNode() {
   let targetPane = state.activePane;
 
   if (state.activePane === "tree") {
-    folder = nodes.get(state.folderId);
+    folder = nodes.get(paneSelectionId("tree"));
     targetPane = "tree";
   } else if (state.activePane === "list") {
     folder = nodes.get(state.folderId);
@@ -1894,11 +2270,11 @@ function focusSearchField() {
 async function moveTreeSelection(delta) {
   const folders = visibleTreeFolders();
   if (!folders.length) return false;
-  let currentIndex = folders.findIndex((folder) => folder.id === state.folderId);
+  let currentIndex = folders.findIndex((folder) => folder.id === paneSelectionId("tree"));
   if (currentIndex < 0) currentIndex = delta > 0 ? -1 : folders.length;
   const nextIndex = Math.max(0, Math.min(folders.length - 1, currentIndex + delta));
   const next = folders[nextIndex];
-  if (!next || next.id === state.folderId) return false;
+  if (!next || next.id === paneSelectionId("tree")) return false;
   await navigate(next.id, true, "tree");
   focusActivePane();
   scrollActiveSelectionIntoView();
@@ -1923,7 +2299,7 @@ async function moveListSelection(delta) {
 
 async function openKeyboardSelection() {
   if (state.activePane === "tree") {
-    const folder = nodes.get(state.folderId);
+    const folder = nodes.get(paneSelectionId("tree"));
     if (!folder) return false;
     await navigate(folder.id, true, "tree");
     focusActivePane();
@@ -1951,6 +2327,13 @@ async function handleKeyboardNavigation(e) {
   if (isEditingTextField(e.target)) return false;
   if (!["ArrowLeft", "ArrowRight", "ArrowUp", "ArrowDown", "Home", "End", "Enter", "Backspace"].includes(e.key)) return false;
 
+  if (isMultiSelectActive(state.activePane)) {
+    const pane = state.activePane;
+    const focusId = state.multiSelect.focusId;
+    clearMultiSelect();
+    setPaneSelection(pane, focusId, { navigate: false });
+  }
+
   let handled = false;
   if (e.key === "ArrowLeft") handled = await handleTreeHorizontalNavigation("left");
   if (e.key === "ArrowRight") handled = await handleTreeHorizontalNavigation("right");
@@ -1973,12 +2356,19 @@ async function handleKeyboardDelete(e) {
   if (e.defaultPrevented || isEditingTextField(e.target)) return;
   if (e.key !== "Delete") return;
 
-  let selected = null;
   const sourcePane = state.activePane;
+  if (isMultiSelectActive(sourcePane)) {
+    e.preventDefault();
+    e.stopPropagation();
+    await deleteSelection({ kind: "multi", pane: sourcePane, ids: [...state.multiSelect.ids] });
+    return;
+  }
+
+  let selected = null;
   if (sourcePane === "list") {
     selected = nodes.get(state.selectedId);
   } else if (sourcePane === "tree") {
-    selected = nodes.get(state.folderId);
+    selected = nodes.get(paneSelectionId("tree"));
   } else {
     return;
   }
@@ -2096,6 +2486,10 @@ window.addEventListener("keydown", async (e) => {
   if (e.key === "Escape") {
     hideContextMenu();
     hideAppMenu();
+    if (cancelMultiSelectToFocus()) {
+      e.preventDefault();
+      e.stopPropagation();
+    }
     return;
   }
   if (await handleKeyboardNavigation(e)) return;

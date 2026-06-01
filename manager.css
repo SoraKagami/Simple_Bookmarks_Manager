@@ -152,6 +152,16 @@ h2 { font-size: 13px; margin: 0 0 10px; opacity: .75; text-transform: uppercase;
   margin: 0 0 8px;
   font-size: 13px;
 }
+.details-multiselect {
+  padding: 8px 0;
+}
+.details-multiselect h3 {
+  margin: 0 0 10px;
+  font-size: 14px;
+}
+.details-multiselect p {
+  margin: 6px 0;
+}
 
 .tree-row[draggable="true"], .item[draggable="true"] { cursor: grab; }
 .tree-row.dragging, .item.dragging { opacity: .45; }

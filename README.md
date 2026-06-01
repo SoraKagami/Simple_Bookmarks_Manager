@@ -1,6 +1,6 @@
 # Simple Bookmarks Manager
 
-Version: 0.3.29
+Version: 0.4.0
 
 A Manifest V3 Chrome/Chromium extension that provides a simple local bookmark manager inspired by Firefox Places Library ideas.
 
@@ -94,6 +94,19 @@ Note: v0.2.2+ no longer overrides `chrome://bookmarks`, so Chromium/Brave's buil
 - Chromium BSD license reference: https://chromium.googlesource.com/chromium/src/+/HEAD/LICENSE
 
 ## Changelog
+
+### 0.4.0
+
+- Added isolated multi-select support for the Library tree and middle bookmark list.
+- Added Ctrl-click toggling and Shift-click range selection modeled after Windows File Explorer selection behavior.
+- Multi-select is isolated per pane; selections are not shared across the Library tree and middle bookmark list.
+- Added Details Multiselect mode showing total selected items, folders, bookmarks, and separators.
+- Added multi-select context menu actions for Delete, Cut, Copy, Paste, and Open All variants.
+- Multi-select Delete, Cut, Copy, Paste, and folder-aware Open All operations now operate on the selected group where valid.
+- Library multi-select ignores root folders and collapses parent/child folder conflicts to a single higher-level folder selection for safer folder operations.
+- Added middle-pane drag-and-drop support for multi-selected items while preserving their relative order.
+- Escape now cancels an active multi-selection.
+- Updated version to `0.4.0`.
 
 ### 0.3.30
 
