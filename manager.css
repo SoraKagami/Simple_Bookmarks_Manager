@@ -5,6 +5,29 @@ body { margin: 0; height: 100vh; overflow: hidden; display: flex; flex-direction
 .app-title { white-space: nowrap; margin: 0 4px; }
 .app-menu-button { min-width: 34px; padding: 4px 8px; font-size: 18px; line-height: 1; }
 .toolbar input { flex: 1; min-width: 180px; padding: 6px; }
+.search-limit-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  max-height: 32px;
+  max-width: 170px;
+  font-size: 11px;
+  line-height: 1.05;
+  cursor: pointer;
+  user-select: none;
+}
+.search-limit-toggle input {
+  flex: 0 0 auto;
+  min-width: 0;
+  width: 14px;
+  height: 14px;
+  padding: 0;
+  margin: 0;
+}
+.search-limit-toggle span span {
+  display: block;
+  white-space: nowrap;
+}
 button, select, input { font: inherit; }
 .layout { flex: 1; display: grid; grid-template-columns: 260px 1fr 320px; min-height: 0; overflow: hidden; }
 .layout.details-hidden { grid-template-columns: 260px 1fr; }

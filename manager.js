@@ -32,6 +32,7 @@ let SortByNameNatural = true;
 let SortShowWarning = true;
 let KeyboardDeleteAllow = true;
 let DeleteShowWarning = true;
+let SearchLimitToFolderAndSub = false;
 
 async function bookmarks(method, ...args) {
   return await api.bookmarks[method](...args);
@@ -168,12 +169,18 @@ function defaultSortDirection(key) {
 function visibleItems() {
   const folder = nodes.get(state.folderId);
   if (!folder) return [];
-  let items = state.search ? flattenBookmarks(folder) : (folder.children || []);
   const needle = state.search.toLocaleLowerCase();
+  let items;
+
   if (needle) {
+    const searchRoot = SearchLimitToFolderAndSub ? folder : state.tree;
+    items = searchRoot ? flattenBookmarks(searchRoot) : [];
     items = items.filter((n) =>
       [n.title, n.url].some((v) => (v || "").toLocaleLowerCase().includes(needle)));
+  } else {
+    items = folder.children || [];
   }
+
   if (state.sort !== "index") {
     const direction = state.sortDirection === "desc" ? -1 : 1;
     items = [...items].sort((a, b) => compareNodes(a, b, state.sort) * direction);
@@ -1947,6 +1954,12 @@ $("back").onclick = goBack;
 $("forward").onclick = goForward;
 $("search").oninput = (e) => {
   state.search = e.target.value;
+  renderList();
+};
+
+$("search-limit").checked = SearchLimitToFolderAndSub;
+$("search-limit").onchange = (e) => {
+  SearchLimitToFolderAndSub = e.target.checked;
   renderList();
 };
 $("sort").onchange = (e) => {

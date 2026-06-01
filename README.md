@@ -1,6 +1,6 @@
 # Simple Bookmarks Manager
 
-Version: 0.3.28
+Version: 0.3.29
 
 A Manifest V3 Chrome/Chromium extension that provides a simple local bookmark manager inspired by Firefox Places Library ideas.
 
@@ -21,7 +21,7 @@ This Source Code Form is subject to the terms of the Mozilla Public License, v. 
 - Drag-and-drop moves into folder rows from either the main list or left folder tree.
 - Right-pane active folder contents with drag-and-drop reordering in natural order.
 - Independent scrolling for the Library tree, middle bookmark table, and Details pane.
-- Search scoped to the active folder, recursively.
+- Search can run globally or be limited to the current folder and its subfolders.
 - Back/forward navigation between selected folders.
 - Mouse4/Mouse5 history navigation while the manager page is active.
 - Hideable details pane for title, URL, parent folder, deletion, discard, and unsaved-change warnings.
@@ -94,6 +94,14 @@ Note: v0.2.2+ no longer overrides `chrome://bookmarks`, so Chromium/Brave's buil
 - Chromium BSD license reference: https://chromium.googlesource.com/chromium/src/+/HEAD/LICENSE
 
 ## Changelog
+
+### 0.3.29
+
+- Added `SearchLimitToFolderAndSub`, defaulted to `false`.
+- Added a top-toolbar checkbox labelled **Limit Search to / Current Folder & Subfolders** between the search box and the app title.
+- When the checkbox is enabled, bookmark search is limited to the currently viewed folder and its subfolders.
+- When the checkbox is disabled, bookmark search searches across all bookmark folders.
+- Updated version to `0.3.29`.
 
 ### 0.3.28
 
