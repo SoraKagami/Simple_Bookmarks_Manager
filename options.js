@@ -4,7 +4,12 @@ if (new URLSearchParams(location.search).has("embedded")) {
   document.body.classList.add("embedded");
 }
 
-const FONT_FAMILY_OPTIONS = Object.freeze(["system", "sans", "serif", "mono"]);
+const FONT_FAMILY_OPTIONS = Object.freeze([
+  { value: "system", css: "system-ui, sans-serif" },
+  { value: "sans", css: "Arial, Helvetica, sans-serif" },
+  { value: "serif", css: "Georgia, 'Times New Roman', serif" },
+  { value: "mono", css: "Consolas, 'Cascadia Mono', 'Courier New', monospace" }
+]);
 
 const DEFAULT_SETTINGS = Object.freeze({
   UserInterfaceFontFamily: "system",
@@ -34,17 +39,47 @@ function clampNumber(value, min, max, fallback) {
   return Math.min(max, Math.max(min, numberValue));
 }
 
+function fontFamilyCss(value) {
+  return (FONT_FAMILY_OPTIONS.find((option) => option.value === value) || FONT_FAMILY_OPTIONS[0]).css;
+}
+
 function normalizeSettingValue(key, value) {
-  if (key === "UserInterfaceFontFamily") return FONT_FAMILY_OPTIONS.includes(value) ? value : DEFAULT_SETTINGS[key];
+  if (key === "UserInterfaceFontFamily") {
+    return FONT_FAMILY_OPTIONS.some((option) => option.value === value) ? value : DEFAULT_SETTINGS[key];
+  }
   if (key === "UserInterfaceFontSize") return clampNumber(value, 11, 20, DEFAULT_SETTINGS[key]);
   if (key === "UserInterfaceLineSpacing") return clampNumber(value, 1.0, 1.8, DEFAULT_SETTINGS[key]);
   return typeof value === "boolean" ? value : DEFAULT_SETTINGS[key];
+}
+
+function applyUserInterfaceSettings(settings) {
+  const family = normalizeSettingValue("UserInterfaceFontFamily", settings.UserInterfaceFontFamily);
+  const size = normalizeSettingValue("UserInterfaceFontSize", settings.UserInterfaceFontSize);
+  const spacing = normalizeSettingValue("UserInterfaceLineSpacing", settings.UserInterfaceLineSpacing);
+  document.documentElement.style.setProperty("--sbm-ui-font-family", fontFamilyCss(family));
+  document.documentElement.style.setProperty("--sbm-ui-font-size", `${size}px`);
+  document.documentElement.style.setProperty("--sbm-ui-line-height", String(spacing));
+}
+
+function applyFontOptionStyles() {
+  const control = $("UserInterfaceFontFamily");
+  for (const optionElement of control.options) {
+    optionElement.style.fontFamily = fontFamilyCss(optionElement.value);
+  }
 }
 
 function readControlValue(key) {
   const control = $(key);
   if (control.type === "checkbox") return control.checked;
   return control.value;
+}
+
+function readAllControlValues() {
+  const values = {};
+  for (const key of Object.keys(DEFAULT_SETTINGS)) {
+    values[key] = readControlValue(key);
+  }
+  return values;
 }
 
 function setControlState(settings) {
@@ -59,6 +94,7 @@ function setControlState(settings) {
     $("EnableAdvancedDetailsEditing").checked = false;
   }
   $("EnableAdvancedDetailsEditing").disabled = !$("EnableAdvancedDetailsViewing").checked;
+  applyUserInterfaceSettings(settings);
 }
 
 async function loadOptions() {
@@ -78,7 +114,14 @@ async function saveOption(key, value) {
   showStatus("Saved");
 }
 
+applyFontOptionStyles();
+
 for (const key of Object.keys(DEFAULT_SETTINGS)) {
+  $(key).addEventListener("input", () => {
+    if (key === "UserInterfaceFontFamily" || key === "UserInterfaceFontSize" || key === "UserInterfaceLineSpacing") {
+      applyUserInterfaceSettings({ ...DEFAULT_SETTINGS, ...readAllControlValues() });
+    }
+  });
   $(key).addEventListener("change", () => {
     saveOption(key, readControlValue(key)).catch((err) => {
       console.error(err);

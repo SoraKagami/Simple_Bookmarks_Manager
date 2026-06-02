@@ -1,6 +1,6 @@
 # Simple Bookmarks Manager
 
-Version: 0.5.3
+Version: 0.5.4
 
 A Manifest V3 Chrome/Chromium extension that provides a simple local bookmark manager inspired by Firefox Places Library ideas.
 
@@ -99,6 +99,13 @@ Note: v0.2.2+ no longer overrides `chrome://bookmarks`, so Chromium/Brave's buil
 - Chromium BSD license reference: https://chromium.googlesource.com/chromium/src/+/HEAD/LICENSE
 
 ## Changelog
+
+### 0.5.4
+
+- Fixed the **Font** option so changing the font family reliably updates the bookmark manager UI.
+- Applied the configured font family, base font size, and line spacing to the Options page and embedded Options popup.
+- Updated the Font dropdown so each font option is displayed using the font it represents.
+- Updated version to `0.5.4`.
 
 ### 0.5.3
 

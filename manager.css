@@ -1,6 +1,6 @@
 :root { --sbm-ui-font-family: system-ui, sans-serif; --sbm-ui-font-size: 14px; --sbm-ui-line-height: 1.4; font-family: var(--sbm-ui-font-family); font-size: var(--sbm-ui-font-size); line-height: var(--sbm-ui-line-height); color-scheme: light dark; --bookmark-table-min-width: 860px; }
 html { height: 100%; overflow: hidden; }
-body { margin: 0; height: 100vh; overflow: hidden; display: flex; flex-direction: column; }
+body { margin: 0; height: 100vh; overflow: hidden; display: flex; flex-direction: column; font-family: var(--sbm-ui-font-family); font-size: var(--sbm-ui-font-size); line-height: var(--sbm-ui-line-height); }
 .toolbar { display: flex; gap: 8px; padding: 10px; border-bottom: 1px solid CanvasText; align-items: center; }
 .app-title { white-space: nowrap; margin: 0 4px; }
 .app-menu-button { min-width: 34px; padding: 4px 8px; font-size: 1.286rem; line-height: 1; }
@@ -28,7 +28,7 @@ body { margin: 0; height: 100vh; overflow: hidden; display: flex; flex-direction
   display: block;
   white-space: nowrap;
 }
-button, select, input { font: inherit; }
+button, select, input { font-family: var(--sbm-ui-font-family); font-size: inherit; line-height: inherit; }
 .layout { flex: 1; display: grid; grid-template-columns: 260px 1fr 320px; min-height: 0; overflow: hidden; }
 .layout.details-hidden { grid-template-columns: 260px 1fr; }
 .left, .details { min-height: 0; padding: 12px; overflow: auto; overscroll-behavior: contain; background: color-mix(in srgb, Canvas 92%, CanvasText); }
@@ -246,7 +246,7 @@ h2 { font-size: .929rem; margin: 0 0 10px; opacity: .75; text-transform: upperca
   color: CanvasText;
   box-shadow: 0 12px 36px color-mix(in srgb, CanvasText 30%, transparent);
 }
-.unsaved-modal h3 { margin: 0 0 8px; font-size: 16px; }
+.unsaved-modal h3 { margin: 0 0 8px; font-size: 1.143rem; }
 .unsaved-modal p { margin: 0 0 16px; }
 .unsaved-modal-actions { display: flex; justify-content: flex-end; gap: 8px; flex-wrap: wrap; }
 

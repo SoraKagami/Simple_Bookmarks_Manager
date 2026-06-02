@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
   "name": "Simple Bookmarks Manager",
-  "version": "0.5.3",
+  "version": "0.5.4",
   "description": "A simple local bookmark manager for Chrome/Chromium inspired by Firefox Places Library patterns.",
   "minimum_chrome_version": "114",
   "permissions": [

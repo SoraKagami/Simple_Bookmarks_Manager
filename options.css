@@ -1,10 +1,10 @@
-:root { font: 14px/1.45 system-ui, sans-serif; color-scheme: light dark; }
-body { margin: 0; background: Canvas; color: CanvasText; }
+:root { --sbm-ui-font-family: system-ui, sans-serif; --sbm-ui-font-size: 14px; --sbm-ui-line-height: 1.4; font-family: var(--sbm-ui-font-family); font-size: var(--sbm-ui-font-size); line-height: var(--sbm-ui-line-height); color-scheme: light dark; }
+body { margin: 0; background: Canvas; color: CanvasText; font-family: var(--sbm-ui-font-family); font-size: var(--sbm-ui-font-size); line-height: var(--sbm-ui-line-height); }
 .options-page { box-sizing: border-box; max-width: 860px; margin: 0 auto; padding: 24px; }
-h1 { margin: 0; font-size: 24px; }
-h2 { margin: 0 0 12px; font-size: 14px; text-transform: uppercase; opacity: .75; }
+h1 { margin: 0; font-size: 1.714rem; }
+h2 { margin: 0 0 12px; font-size: 1rem; text-transform: uppercase; opacity: .75; }
 header { display: flex; align-items: baseline; justify-content: space-between; gap: 16px; margin-bottom: 20px; }
-.status { min-height: 1.4em; margin: 0; font-size: 13px; opacity: .8; }
+.status { min-height: 1.4em; margin: 0; font-size: .929rem; opacity: .8; }
 .option-section { margin: 16px 0; padding: 16px; border: 1px solid color-mix(in srgb, CanvasText 25%, transparent); border-radius: 10px; background: color-mix(in srgb, Canvas 94%, CanvasText); }
 .option-row { display: grid; grid-template-columns: 24px 1fr; gap: 10px; align-items: start; padding: 8px 0; cursor: pointer; }
 .option-row + .option-row { border-top: 1px solid color-mix(in srgb, CanvasText 12%, transparent); }
@@ -12,9 +12,9 @@ header { display: flex; align-items: baseline; justify-content: space-between; g
 .option-row strong { display: block; }
 .option-row small { display: block; margin-top: 2px; opacity: .75; }
 .option-row-control { grid-template-columns: minmax(220px, 1fr) minmax(150px, 220px); align-items: center; }
-.option-row-control input, .option-row-control select { box-sizing: border-box; width: 100%; font: inherit; padding: 6px; }
+.option-row-control input, .option-row-control select { box-sizing: border-box; width: 100%; font-family: var(--sbm-ui-font-family); font-size: inherit; line-height: inherit; padding: 6px; }
 .actions { margin-top: 20px; }
-button, select, input { font: inherit; }
+button, select, input { font-family: var(--sbm-ui-font-family); font-size: inherit; line-height: inherit; }
 button { padding: 7px 12px; }
 
 body.embedded .options-page {
@@ -25,7 +25,7 @@ body.embedded header {
   margin-bottom: 14px;
 }
 body.embedded h1 {
-  font-size: 20px;
+  font-size: 1.429rem;
 }
 body.embedded .option-section {
   margin: 12px 0;
