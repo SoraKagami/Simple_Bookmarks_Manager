@@ -1,0 +1,497 @@
+{
+  "appName": {
+    "message": "Simple Bookmarks Manager"
+  },
+  "appDescription": {
+    "message": "受 Firefox Places Library 模式启发，适用于 Chrome/Chromium 的简易本地书签管理器。"
+  },
+  "back": {
+    "message": "后退"
+  },
+  "forward": {
+    "message": "前进"
+  },
+  "newFolder": {
+    "message": "新建文件夹"
+  },
+  "newBookmark": {
+    "message": "新建书签"
+  },
+  "searchBookmarks": {
+    "message": "搜索书签"
+  },
+  "searchLimitTitle": {
+    "message": "启用时，只搜索当前文件夹及其子文件夹。禁用时，搜索所有书签。"
+  },
+  "limitSearchTo": {
+    "message": "限制搜索至"
+  },
+  "currentFolderAndSubfolders": {
+    "message": "当前文件夹和子文件夹"
+  },
+  "openMenu": {
+    "message": "打开菜单"
+  },
+  "openSbmMenu": {
+    "message": "打开 Simple Bookmarks Manager 菜单"
+  },
+  "library": {
+    "message": "库"
+  },
+  "visualSort": {
+    "message": "视觉排序："
+  },
+  "sortDefault": {
+    "message": "默认"
+  },
+  "sortName": {
+    "message": "名称"
+  },
+  "sortUrl": {
+    "message": "网址"
+  },
+  "sortDateAdded": {
+    "message": "添加日期"
+  },
+  "sortDateAddedHeader": {
+    "message": "添加日期"
+  },
+  "sortId": {
+    "message": "ID"
+  },
+  "sortOrder": {
+    "message": "顺序"
+  },
+  "bookmarksAria": {
+    "message": "书签"
+  },
+  "bookmarkListColumns": {
+    "message": "书签列表列"
+  },
+  "chooseSortModeTitle": {
+    "message": "选择中间窗格排序模式。默认使用 Chromium 的文件夹顺序。"
+  },
+  "details": {
+    "message": "详细信息"
+  },
+  "detailsItems": {
+    "message": "项目详细信息"
+  },
+  "detailsMultiselect": {
+    "message": "多选详细信息"
+  },
+  "url": {
+    "message": "网址"
+  },
+  "parentFolder": {
+    "message": "上级文件夹"
+  },
+  "save": {
+    "message": "保存"
+  },
+  "discardChanges": {
+    "message": "放弃更改"
+  },
+  "delete": {
+    "message": "删除"
+  },
+  "deleteFolder": {
+    "message": "删除文件夹"
+  },
+  "deleteBookmark": {
+    "message": "删除书签"
+  },
+  "advancedDetails": {
+    "message": "高级详细信息"
+  },
+  "advancedBookmarkDetails": {
+    "message": "高级书签详细信息"
+  },
+  "guidUuid": {
+    "message": "GUID / UUID"
+  },
+  "dateAdded": {
+    "message": "添加日期"
+  },
+  "dateLastUsed": {
+    "message": "上次使用日期"
+  },
+  "totalSelected": {
+    "message": "已选择总数："
+  },
+  "folders": {
+    "message": "文件夹："
+  },
+  "bookmarks": {
+    "message": "书签："
+  },
+  "separators": {
+    "message": "分隔线："
+  },
+  "emptyDetails": {
+    "message": "选择一个项目，或选择文件夹以显示其内容。"
+  },
+  "optionsTitle": {
+    "message": "Simple Bookmarks Manager 选项"
+  },
+  "closeOptions": {
+    "message": "关闭选项"
+  },
+  "optionSaved": {
+    "message": "已保存"
+  },
+  "saveFailed": {
+    "message": "保存失败：{error}"
+  },
+  "loadFailed": {
+    "message": "加载失败：{error}"
+  },
+  "defaultsRestored": {
+    "message": "已恢复默认值"
+  },
+  "userInterface": {
+    "message": "用户界面"
+  },
+  "userInterfaceLanguage": {
+    "message": "用户界面语言"
+  },
+  "userInterfaceLanguageHelp": {
+    "message": "自动会跟随浏览器 UI 语言。手动选择会影响管理器和选项页面。"
+  },
+  "font": {
+    "message": "字体"
+  },
+  "fontHelp": {
+    "message": "控制书签管理器 UI 使用的主要字体。"
+  },
+  "fontSystem": {
+    "message": "系统默认"
+  },
+  "fontSans": {
+    "message": "Arial / Helvetica"
+  },
+  "fontSerif": {
+    "message": "Georgia / Times"
+  },
+  "fontMono": {
+    "message": "Consolas / 等宽字体"
+  },
+  "fontSize": {
+    "message": "字体大小"
+  },
+  "fontSizeHelp": {
+    "message": "基础文字大小。标题和列标签会按此相对缩放。"
+  },
+  "fontSpacing": {
+    "message": "字体行距"
+  },
+  "fontSpacingHelp": {
+    "message": "用于更紧凑或更易读行与标签的行距倍数。"
+  },
+  "search": {
+    "message": "搜索"
+  },
+  "searchLimitOptionHelp": {
+    "message": "启用时，主搜索框只搜索当前可见文件夹树内的内容。"
+  },
+  "safety": {
+    "message": "安全"
+  },
+  "showDeleteWarning": {
+    "message": "显示删除确认警告"
+  },
+  "showDeleteWarningHelp": {
+    "message": "删除书签项目或文件夹前先询问。"
+  },
+  "showSortWarning": {
+    "message": "显示永久排序确认警告"
+  },
+  "showSortWarningHelp": {
+    "message": "应用会永久重新排序书签文件夹的右键菜单排序前先询问。"
+  },
+  "allowKeyboardDelete": {
+    "message": "允许 Delete 键删除所选项目"
+  },
+  "allowKeyboardDeleteHelp": {
+    "message": "禁用时，Delete 键不再删除所选书签项目。"
+  },
+  "sorting": {
+    "message": "排序"
+  },
+  "naturalSort": {
+    "message": "使用自然文件夹/书签排序"
+  },
+  "naturalSortHelp": {
+    "message": "永久按名称排序会先放文件夹，然后分隔线，最后书签。"
+  },
+  "advanced": {
+    "message": "高级"
+  },
+  "enableAdvancedViewing": {
+    "message": "启用高级详细信息查看"
+  },
+  "enableAdvancedViewingHelp": {
+    "message": "在详细信息窗格显示只读高级书签元数据。"
+  },
+  "enableAdvancedEditing": {
+    "message": "启用高级详细信息编辑"
+  },
+  "enableAdvancedEditingHelp": {
+    "message": "允许受支持的高级编辑，目前仅限书签索引更改。"
+  },
+  "resetDefaults": {
+    "message": "重置为默认值"
+  },
+  "folderAlt": {
+    "message": "文件夹"
+  },
+  "bookmarkAlt": {
+    "message": "书签"
+  },
+  "folderFallback": {
+    "message": "（文件夹）"
+  },
+  "bookmarkFallback": {
+    "message": "（书签）"
+  },
+  "rootFallback": {
+    "message": "（根）"
+  },
+  "browserRoot": {
+    "message": "浏览器根目录"
+  },
+  "bookmarksPathFallback": {
+    "message": "书签"
+  },
+  "sortDate": {
+    "message": "日期"
+  },
+  "sortNameLower": {
+    "message": "名称"
+  },
+  "sortFolderConfirm": {
+    "message": "要将“{folderName}”按{sortName}排序吗？\n\n这会永久更改 Chromium 中保存的书签顺序。它不同于临时的视觉排序下拉菜单。"
+  },
+  "couldNotOpenWindow": {
+    "message": "无法打开{windowType}窗口：{error}"
+  },
+  "privateWindowType": {
+    "message": "隐私"
+  },
+  "newWindowType": {
+    "message": "新"
+  },
+  "couldNotOpenTabGroup": {
+    "message": "无法打开标签页组：{error}"
+  },
+  "newFolderNamePrompt": {
+    "message": "新文件夹名称"
+  },
+  "folderNamePrompt": {
+    "message": "文件夹名称"
+  },
+  "bookmarkNamePrompt": {
+    "message": "书签名称"
+  },
+  "bookmarkUrlPrompt": {
+    "message": "书签网址"
+  },
+  "deleteSingleConfirm": {
+    "message": "要删除“{label}”吗？"
+  },
+  "deleteMultipleConfirm": {
+    "message": "要删除 {count} 个所选项目吗？"
+  },
+  "thisItem": {
+    "message": "此项目"
+  },
+  "newFolderDefaultName": {
+    "message": "新建文件夹"
+  },
+  "couldNotMoveBookmark": {
+    "message": "无法移动书签项目：{error}"
+  },
+  "actionFailed": {
+    "message": "操作失败：{error}"
+  },
+  "openDefaultBookmarksManager": {
+    "message": "打开默认书签管理器"
+  },
+  "options": {
+    "message": "选项"
+  },
+  "help": {
+    "message": "帮助"
+  },
+  "about": {
+    "message": "关于"
+  },
+  "renameFolder": {
+    "message": "重命名文件夹"
+  },
+  "cut": {
+    "message": "剪切"
+  },
+  "copy": {
+    "message": "复制"
+  },
+  "paste": {
+    "message": "粘贴"
+  },
+  "sortByName": {
+    "message": "按名称排序"
+  },
+  "sortByDate": {
+    "message": "按日期排序"
+  },
+  "addNewBookmark": {
+    "message": "新建书签"
+  },
+  "addNewFolder": {
+    "message": "新建文件夹"
+  },
+  "addSeparator": {
+    "message": "添加分隔线"
+  },
+  "openAllBookmarks": {
+    "message": "打开所有书签"
+  },
+  "openAllInNewTab": {
+    "message": "全部在新标签页中打开"
+  },
+  "openAllInNewWindow": {
+    "message": "全部在新窗口中打开"
+  },
+  "openAllInPrivateWindow": {
+    "message": "全部在隐私窗口中打开"
+  },
+  "openAllInNewTabGroup": {
+    "message": "全部在新标签页组中打开"
+  },
+  "openAllInSplitView": {
+    "message": "全部在分屏视图中打开"
+  },
+  "edit": {
+    "message": "编辑"
+  },
+  "openInNewTab": {
+    "message": "在新标签页中打开"
+  },
+  "openInNewWindow": {
+    "message": "在新窗口中打开"
+  },
+  "openInPrivateWindow": {
+    "message": "在隐私窗口中打开"
+  },
+  "openInNewTabGroup": {
+    "message": "在新标签页组中打开"
+  },
+  "openInSplitView": {
+    "message": "在分屏视图中打开"
+  },
+  "expandAll": {
+    "message": "全部展开"
+  },
+  "collapseAll": {
+    "message": "全部折叠"
+  },
+  "dragFolderTitle": {
+    "message": "拖动以重新排序此文件夹"
+  },
+  "collapseFolderTitle": {
+    "message": "折叠文件夹"
+  },
+  "expandFolderTitle": {
+    "message": "展开文件夹"
+  },
+  "doubleClickExpandCollapseTitle": {
+    "message": "双击以展开或折叠此文件夹"
+  },
+  "hideDetailsPaneTooltip": {
+    "message": "隐藏详细信息窗格"
+  },
+  "showDetailsPaneTooltip": {
+    "message": "显示详细信息窗格"
+  },
+  "clickHideDetails": {
+    "message": "点击隐藏详细信息"
+  },
+  "clickShowDetails": {
+    "message": "点击显示详细信息"
+  },
+  "dragItemTitle": {
+    "message": "拖动以移动或重新排序此项目"
+  },
+  "separator": {
+    "message": "分隔线"
+  },
+  "unsavedChanges": {
+    "message": "未保存的更改"
+  },
+  "unsavedChangesMessage": {
+    "message": "详细信息窗格有未保存的更改。你想怎么做？"
+  },
+  "keepEditing": {
+    "message": "继续编辑"
+  },
+  "discard": {
+    "message": "放弃"
+  },
+  "couldNotSaveChanges": {
+    "message": "无法保存更改：{error}"
+  },
+  "sortDefaultTooltip": {
+    "message": "默认 Chromium 文件夹顺序。点击返回默认排序；此列不会反向排序。"
+  },
+  "sortNameAscTooltip": {
+    "message": "按名称排序：A 到 Z"
+  },
+  "sortNameDescTooltip": {
+    "message": "按名称排序：Z 到 A"
+  },
+  "sortUrlAscTooltip": {
+    "message": "按网址排序：A 到 Z"
+  },
+  "sortUrlDescTooltip": {
+    "message": "按网址排序：Z 到 A"
+  },
+  "sortDateAscTooltip": {
+    "message": "按添加日期排序：最早优先"
+  },
+  "sortDateDescTooltip": {
+    "message": "按添加日期排序：最新优先"
+  },
+  "sortIdAscTooltip": {
+    "message": "按 ID 排序：最低优先"
+  },
+  "sortIdDescTooltip": {
+    "message": "按 ID 排序：最高优先"
+  },
+  "sortBookmarks": {
+    "message": "排序书签"
+  },
+  "sortSelectDefaultTitle": {
+    "message": "默认 Chromium 文件夹顺序。"
+  },
+  "sortSelectTitleTitle": {
+    "message": "名称排序。升序为 A 到 Z；降序为 Z 到 A。"
+  },
+  "sortSelectUrlTitle": {
+    "message": "网址排序。升序为 A 到 Z；降序为 Z 到 A。"
+  },
+  "sortSelectDateAddedTitle": {
+    "message": "添加日期排序。升序为最早优先；降序为最新优先。"
+  },
+  "sortSelectIdTitle": {
+    "message": "ID 排序。升序为最低优先；降序为最高优先。"
+  },
+  "managerFailed": {
+    "message": "书签管理器失败：{error}"
+  },
+  "notAvailable": {
+    "message": "不可用"
+  },
+  "searchLimitFull": {
+    "message": "限制搜索至当前文件夹和子文件夹"
+  }
+}

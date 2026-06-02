@@ -2,7 +2,10 @@ const api = chrome;
 
 export const LANGUAGE_OPTIONS = Object.freeze([
   { value: "auto", label: "Automatic / Browser Default" },
-  { value: "en", label: "English" }
+  { value: "en", label: "English" },
+  { value: "zh_TW", label: "繁體中文" },
+  { value: "zh_CN", label: "简体中文" },
+  { value: "en_Netspeak", label: "N3tsp34k", path: "sbm_locales/en_Netspeak/messages.json" }
 ]);
 
 let currentLanguage = "en";
@@ -11,6 +14,17 @@ let fallbackMessages = Object.create(null);
 
 function normalizeLocaleTag(value) {
   return String(value || "").trim().replace(/-/g, "_");
+}
+
+function languageOption(value) {
+  return LANGUAGE_OPTIONS.find((option) => option.value === value) || null;
+}
+
+function normalizeBrowserLanguage(value) {
+  const language = normalizeLocaleTag(value);
+  if (language === "zh_Hant" || language.startsWith("zh_Hant_")) return "zh_TW";
+  if (language === "zh_Hans" || language.startsWith("zh_Hans_")) return "zh_CN";
+  return language;
 }
 
 export function supportedLanguageValues() {
@@ -25,17 +39,20 @@ export function resolveEffectiveLanguage(requested = "auto") {
   const normalized = normalizeLanguageSetting(requested);
   if (normalized !== "auto") return normalized;
 
-  const browserLanguage = normalizeLocaleTag(api.i18n?.getUILanguage?.() || "en");
+  const browserLanguage = normalizeBrowserLanguage(api.i18n?.getUILanguage?.() || "en");
   if (supportedLanguageValues().includes(browserLanguage)) return browserLanguage;
 
   const baseLanguage = browserLanguage.split("_")[0];
+  if (baseLanguage === "zh") return "zh_CN";
   if (supportedLanguageValues().includes(baseLanguage)) return baseLanguage;
 
   return "en";
 }
 
 async function fetchMessages(language) {
-  const response = await fetch(api.runtime.getURL(`_locales/${language}/messages.json`));
+  const option = languageOption(language);
+  const messagePath = option?.path || `_locales/${language}/messages.json`;
+  const response = await fetch(api.runtime.getURL(messagePath));
   if (!response.ok) throw new Error(`Unable to load language ${language}`);
   const raw = await response.json();
   const flat = Object.create(null);

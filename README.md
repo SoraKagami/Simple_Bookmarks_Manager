@@ -1,6 +1,6 @@
 # Simple Bookmarks Manager
 
-Version: 0.6.0
+Version: 0.6.1
 
 A Manifest V3 Chrome/Chromium extension that provides a simple local bookmark manager inspired by Firefox Places Library ideas.
 
@@ -42,7 +42,7 @@ This Source Code Form is subject to the terms of the Mozilla Public License, v. 
 - Uses `chrome.bookmarks` to read, create, update, move, move-into folders, reorder, and remove bookmark nodes.
 - Opens pages with `chrome.tabs.create()` without requesting the sensitive `tabs` permission.
 - Uses Chromium's extension favicon endpoint for bookmark favicons, plus a bundled folder icon for bookmark folders.
-- Uses Chromium extension localization conventions with `_locales/en/messages.json` and a small runtime language helper for future in-app language switching.
+- Uses Chromium extension localization conventions with `_locales/*/messages.json`, `sbm_locales/*/messages.json` for debug-only nonstandard locales, and a small runtime language helper for future in-app language switching.
 - Refreshes visible bookmark favicon image URLs when switching folders so newly cached icons can appear without keeping an in-memory favicon cache.
 - Uses an in-page custom context menu for bookmark/folder actions; the Details pane keeps the normal browser context menu.
 - Provides a top-right application menu with entries to open the default Chromium Bookmark Manager and an in-page Simple Bookmarks Manager Options dialog, plus future Help and About entry points.
@@ -57,7 +57,7 @@ This Source Code Form is subject to the terms of the Mozilla Public License, v. 
 | `manager.css` | No | General tree/list/details presentation. |
 | `manager.js` | No | Bookmark tree model, folder selection, recursive search, details editing, and event-driven refresh. |
 | `options.html` / `options.css` / `options.js` | No | Extension options page for persistent preferences. |
-| `_locales/en/messages.json` / `i18n.js` | No | Chromium-standard localization storage and runtime UI-language helper. |
+| `_locales/*/messages.json` / `sbm_locales/*/messages.json` / `i18n.js` | No | Chromium-standard localization storage, debug locale storage, and runtime UI-language helper. |
 | `README.md` / `LICENSE` | No | Licensing and project documentation only. |
 
 See `SOURCE_AUDIT.md` for more detail.
@@ -103,6 +103,15 @@ Note: v0.2.2+ no longer overrides `chrome://bookmarks`, so Chromium/Brave's buil
 - Chromium BSD license reference: https://chromium.googlesource.com/chromium/src/+/HEAD/LICENSE
 
 ## Changelog
+
+### 0.6.1
+
+- Added Traditional Chinese (`zh_TW`) and Simplified Chinese (`zh_CN`) UI language files.
+- Added a debug/test **N3tsp34k** language pack using a nonstandard internal locale folder so Chromium locale validation is not affected.
+- Updated the Options page **User Interface Language** dropdown to include English, 繁體中文, 简体中文, and N3tsp34k.
+- Added browser-language matching for Chinese script variants such as `zh-Hant` and `zh-Hans`.
+- Changed the default UI font size from `14` to `12.5`, and changed the font-size option step to `0.5`.
+- Updated `manifest.json` to `0.6.1`.
 
 ### 0.6.0
 

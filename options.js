@@ -16,7 +16,7 @@ const FONT_FAMILY_OPTIONS = Object.freeze([
 const DEFAULT_SETTINGS = Object.freeze({
   UserInterfaceLanguage: "auto",
   UserInterfaceFontFamily: "system",
-  UserInterfaceFontSize: 14,
+  UserInterfaceFontSize: 12.5,
   UserInterfaceLineSpacing: 1.4,
   SearchLimitToFolderAndSub: true,
   DeleteShowWarning: true,
