@@ -517,5 +517,11 @@
   },
   "editBookmark": {
     "message": "Edit Bookmark"
+  },
+  "optimisationTempBookmarkTreeMaps": {
+    "message": "Optimisation: temporary bookmark tree maps"
+  },
+  "optimisationTempBookmarkTreeMapsHelp": {
+    "message": "Experimental. Builds short-lived lookup maps during some render/search/tree operations, then discards them to avoid a persistent stale cache."
   }
 }

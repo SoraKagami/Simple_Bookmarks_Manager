@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.7.6
+
+- Added optional experimental `Optimisation_TempBookmarkTreeMaps` setting, enabled by default.
+- Added an Advanced Options page toggle for temporary bookmark tree maps with an experimental warning description.
+- Implemented short-lived bookmark tree lookup maps for selected render/search/tree-walk paths; maps are rebuilt from the currently loaded bookmark tree and discarded after the operation.
+- Kept the optimization optional so it can be disabled for troubleshooting without changing normal bookmark behavior.
+- Updated `manifest.json` to `0.7.6`.
+
 ## 0.7.5
 
 - Replaced native bookmark create/edit URL prompts with an in-page bookmark editor dialog so invalid URLs keep the dialog open for correction.

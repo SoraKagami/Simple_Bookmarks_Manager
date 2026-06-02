@@ -57,6 +57,7 @@ let SortShowWarning = DEFAULT_SETTINGS.SortShowWarning;
 let KeyboardDeleteAllow = DEFAULT_SETTINGS.KeyboardDeleteAllow;
 let DeleteShowWarning = DEFAULT_SETTINGS.DeleteShowWarning;
 let SearchLimitToFolderAndSub = DEFAULT_SETTINGS.SearchLimitToFolderAndSub;
+let Optimisation_TempBookmarkTreeMaps = DEFAULT_SETTINGS.Optimisation_TempBookmarkTreeMaps;
 
 // ---------------------------------------------------------------------------
 // Settings and localization
@@ -88,6 +89,7 @@ function applySettings(settings, { render = false } = {}) {
     else if (key === "KeyboardDeleteAllow") KeyboardDeleteAllow = value;
     else if (key === "DeleteShowWarning") DeleteShowWarning = value;
     else if (key === "SearchLimitToFolderAndSub") SearchLimitToFolderAndSub = value;
+    else if (key === "Optimisation_TempBookmarkTreeMaps") Optimisation_TempBookmarkTreeMaps = value;
   }
 
   applyUserInterfaceSettings();
@@ -163,6 +165,54 @@ function indexTree(root, parent = null, out = [], computedIndex = null) {
   for (const [index, child] of (root.children || []).entries()) {
     indexTree(child, node, out, index);
   }
+  return out;
+}
+
+
+/**
+ * Build short-lived lookup maps from the currently loaded bookmark tree.
+ *
+ * These maps are intentionally temporary: they are rebuilt from the latest
+ * Chrome bookmark data already loaded by loadTree() and are discarded after the
+ * render/operation that asked for them.  They improve readability/performance
+ * in tree-walk-heavy UI paths without introducing a long-lived stale cache.
+ */
+function buildTempBookmarkTreeMaps(root = state.tree) {
+  const map = {
+    nodesById: new Map(),
+    parentById: new Map(),
+    childrenById: new Map(),
+    rootFolders: []
+  };
+
+  const visit = (node, parent = null) => {
+    if (!node) return;
+    map.nodesById.set(node.id, node);
+    map.parentById.set(node.id, parent);
+    const children = Array.isArray(node.children) ? node.children : [];
+    map.childrenById.set(node.id, children);
+    if (parent && parent.id === "0" && isFolder(node)) map.rootFolders.push(node);
+    for (const child of children) visit(child, node);
+  };
+
+  visit(root, null);
+  return map;
+}
+
+function tempBookmarkTreeMaps() {
+  return Optimisation_TempBookmarkTreeMaps && state.tree ? buildTempBookmarkTreeMaps(state.tree) : null;
+}
+
+function flattenBookmarksWithMaps(folder, maps) {
+  if (!folder || !maps) return flattenBookmarks(folder);
+  const out = [];
+  const visitChildren = (parent) => {
+    for (const child of maps.childrenById.get(parent.id) || []) {
+      out.push(child);
+      if (isFolder(child)) visitChildren(child);
+    }
+  };
+  visitChildren(folder);
   return out;
 }
 
@@ -544,7 +594,8 @@ function visibleItems() {
 
   if (needle) {
     const searchRoot = SearchLimitToFolderAndSub ? folder : state.tree;
-    items = searchRoot ? flattenBookmarks(searchRoot) : [];
+    const maps = tempBookmarkTreeMaps();
+    items = searchRoot ? flattenBookmarksWithMaps(searchRoot, maps) : [];
     items = items.filter((n) =>
       [n.title, n.url].some((v) => (v || "").toLocaleLowerCase().includes(needle)));
   } else {
@@ -579,6 +630,8 @@ async function loadTree(options = {}) {
 }
 
 function rootFolders() {
+  const maps = tempBookmarkTreeMaps();
+  if (maps) return maps.rootFolders;
   return (state.tree?.children || []).filter(isFolder);
 }
 
@@ -592,8 +645,9 @@ function childFolders(folder) {
 
 function descendantFolders(folder) {
   const out = [];
+  const maps = tempBookmarkTreeMaps();
   const visit = (node) => {
-    for (const child of childFolders(node)) {
+    for (const child of childFolders(node, maps)) {
       out.push(child);
       visit(child);
     }
@@ -605,13 +659,14 @@ function descendantFolders(folder) {
 /** Flatten the currently expanded left tree into visible rows. */
 function visibleTreeFolders() {
   const out = [];
+  const maps = tempBookmarkTreeMaps();
   const visit = (folder) => {
     out.push(folder);
     if (state.expandedFolders.has(folder.id)) {
-      for (const child of childFolders(folder)) visit(child);
+      for (const child of childFolders(folder, maps)) visit(child);
     }
   };
-  for (const folder of rootFolders()) visit(folder);
+  for (const folder of (maps ? maps.rootFolders : rootFolders())) visit(folder);
   return out;
 }
 
@@ -2898,10 +2953,11 @@ async function handleTreeHorizontalNavigation(direction) {
 
 function visibleTreeFoldersForRoot(rootFolder) {
   const out = [];
+  const maps = tempBookmarkTreeMaps();
   const visit = (folder) => {
     out.push(folder);
     if (state.expandedFolders.has(folder.id)) {
-      for (const child of childFolders(folder)) visit(child);
+      for (const child of childFolders(folder, maps)) visit(child);
     }
   };
   if (rootFolder) visit(rootFolder);
