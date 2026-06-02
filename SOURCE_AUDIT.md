@@ -1,12 +1,12 @@
 # Source Audit
 
-Version: 0.1.2
+Version: 0.5.0
 
 ## Summary
 
 This extension does not include copied Mozilla Firefox source code, copied Chromium source code, or vendored third-party code.
 
-The Firefox ESR 140 repository was used as a design reference for how Firefox's bookmark manager is organized around Places concepts. The extension implementation is original JavaScript/CSS/HTML written for Chrome's Manifest V3 extension APIs.
+The Firefox ESR 140 repository was used as a design reference for how Firefox's bookmark manager is organized around Places concepts. The extension implementation is original JavaScript/CSS/HTML written for Chrome's Manifest V3 extension APIs, including the manager page and options page.
 
 ## Firefox-derived material
 
@@ -20,6 +20,7 @@ The following Firefox concepts influenced the extension's behavior:
 - A details pane edits title, URL, and parent folder.
 - UI refreshes when bookmark data changes.
 - The layout broadly follows a Library-style navigation/content/details split.
+- Persistent preferences are exposed through a standard Chromium options page.
 
 ## Not implemented from Firefox
 
@@ -48,5 +49,7 @@ The project itself is licensed under MPL 2.0 by choice. This keeps the source op
 - Firefox Places architecture docs: https://firefox-source-docs.mozilla.org/browser/places/architecture-overview.html
 - Mozilla MPL 2.0: https://www.mozilla.org/MPL/2.0/
 - Chrome bookmarks API: https://developer.chrome.com/docs/extensions/reference/api/bookmarks
+- Chrome options pages: https://developer.chrome.com/docs/extensions/develop/ui/options-page
+- Chrome storage API: https://developer.chrome.com/docs/extensions/reference/api/storage
 - Chrome override pages: https://developer.chrome.com/docs/extensions/develop/ui/override-chrome-pages
 - Chromium BSD license reference: https://chromium.googlesource.com/chromium/src/+/HEAD/LICENSE

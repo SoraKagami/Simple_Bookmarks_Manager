@@ -1,6 +1,6 @@
 # Simple Bookmarks Manager
 
-Version: 0.4.5
+Version: 0.5.0
 
 A Manifest V3 Chrome/Chromium extension that provides a simple local bookmark manager inspired by Firefox Places Library ideas.
 
@@ -30,8 +30,9 @@ This Source Code Form is subject to the terms of the Mozilla Public License, v. 
 - Advanced Details debug section for bookmark metadata viewing, with a planned editing toggle for supported fields.
 - Live refresh from Chrome bookmark events.
 - In-page custom right-click menu for folders/bookmarks outside the Details pane.
-- Optional natural folder sorting for **Sort by Name** via the temporary `SortByNameNatural` debug toggle.
-- Optional permanent-sort warning via the temporary `SortShowWarning` debug toggle.
+- Optional natural folder sorting for **Sort by Name** via the Options page.
+- Optional permanent-sort warning via the Options page.
+- Persistent options are stored in `chrome.storage.local`.
 
 ## Chrome/Chromium implementation
 
@@ -41,7 +42,7 @@ This Source Code Form is subject to the terms of the Mozilla Public License, v. 
 - Uses Chromium's extension favicon endpoint for bookmark favicons, plus a bundled folder icon for bookmark folders.
 - Refreshes visible bookmark favicon image URLs when switching folders so newly cached icons can appear without keeping an in-memory favicon cache.
 - Uses an in-page custom context menu for bookmark/folder actions; the Details pane keeps the normal browser context menu.
-- Provides a top-right application menu with an entry to open the default Chromium Bookmark Manager, plus future Options, Help, and About entry points.
+- Provides a top-right application menu with entries to open the default Chromium Bookmark Manager and Simple Bookmarks Manager Options, plus future Help and About entry points.
 
 ## Source audit summary
 
@@ -52,6 +53,7 @@ This Source Code Form is subject to the terms of the Mozilla Public License, v. 
 | `manager.html` | No | Library-like three-pane layout. |
 | `manager.css` | No | General tree/list/details presentation. |
 | `manager.js` | No | Bookmark tree model, folder selection, recursive search, details editing, and event-driven refresh. |
+| `options.html` / `options.css` / `options.js` | No | Extension options page for persistent preferences. |
 | `README.md` / `LICENSE` | No | Licensing and project documentation only. |
 
 See `SOURCE_AUDIT.md` for more detail.
@@ -88,12 +90,25 @@ Note: v0.2.2+ no longer overrides `chrome://bookmarks`, so Chromium/Brave's buil
 - MPL 2.0: https://www.mozilla.org/en-US/MPL/2.0/
 - Chrome bookmarks API: https://developer.chrome.com/docs/extensions/reference/api/bookmarks
 - Chrome action API: https://developer.chrome.com/docs/extensions/reference/api/action
+- Chrome options pages: https://developer.chrome.com/docs/extensions/develop/ui/options-page
+- Chrome storage API: https://developer.chrome.com/docs/extensions/reference/api/storage
 - Chrome favicons in extensions: https://developer.chrome.com/docs/extensions/how-to/ui/favicons
 - MDN MouseEvent.button: https://developer.mozilla.org/en-US/docs/Web/API/MouseEvent/button
 - MDN auxclick: https://developer.mozilla.org/en-US/docs/Web/API/Element/auxclick_event
 - Chromium BSD license reference: https://chromium.googlesource.com/chromium/src/+/HEAD/LICENSE
 
 ## Changelog
+
+### 0.5.0
+
+- Added a standard Chromium Options page using `options_ui` with `open_in_tab`.
+- Added `options.html`, `options.css`, and `options.js` for persistent extension settings.
+- Added the `storage` permission and moved configurable settings to `chrome.storage.local`.
+- The existing top-toolbar **Limit Search to / Current Folder & Subfolders** checkbox now persists through the shared settings system.
+- Added Options page controls for search scope, delete warning, permanent sort warning, Delete-key deletion, natural sort order, and advanced details viewing/editing.
+- Enabled the app menu **Options** entry so it opens the new Options page.
+- Removed the temporary Details-pane debug toggles now that the settings live in the Options page.
+- Updated version to `0.5.0`.
 
 ### 0.4.5
 

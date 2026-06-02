@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Simple Bookmarks Manager Options</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="options.css">
+</head>
+<body>
+  <main class="options-page">
+    <header>
+      <h1>Simple Bookmarks Manager Options</h1>
+      <p id="status" class="status" role="status" aria-live="polite"></p>
+    </header>
+
+    <section class="option-section">
+      <h2>Search</h2>
+      <label class="option-row">
+        <input id="SearchLimitToFolderAndSub" type="checkbox">
+        <span>
+          <strong>Limit Search to Current Folder &amp; Subfolders</strong>
+          <small>When enabled, the main search box searches only inside the current visible folder tree.</small>
+        </span>
+      </label>
+    </section>
+
+    <section class="option-section">
+      <h2>Safety</h2>
+      <label class="option-row">
+        <input id="DeleteShowWarning" type="checkbox">
+        <span>
+          <strong>Show delete confirmation warning</strong>
+          <small>Ask before deleting bookmark items or folders.</small>
+        </span>
+      </label>
+      <label class="option-row">
+        <input id="SortShowWarning" type="checkbox">
+        <span>
+          <strong>Show permanent sort confirmation warning</strong>
+          <small>Ask before applying context-menu sorts that permanently reorder a bookmark folder.</small>
+        </span>
+      </label>
+      <label class="option-row">
+        <input id="KeyboardDeleteAllow" type="checkbox">
+        <span>
+          <strong>Allow Delete key to delete selected items</strong>
+          <small>When disabled, the Delete key no longer deletes selected bookmark entries.</small>
+        </span>
+      </label>
+    </section>
+
+    <section class="option-section">
+      <h2>Sorting</h2>
+      <label class="option-row">
+        <input id="SortByNameNatural" type="checkbox">
+        <span>
+          <strong>Use natural folder/bookmark sort order</strong>
+          <small>Permanent Sort by Name places folders first, separators next, then bookmarks.</small>
+        </span>
+      </label>
+    </section>
+
+    <section class="option-section">
+      <h2>Advanced</h2>
+      <label class="option-row">
+        <input id="EnableAdvancedDetailsViewing" type="checkbox">
+        <span>
+          <strong>Enable advanced details viewing</strong>
+          <small>Show read-only advanced bookmark metadata in the Details pane.</small>
+        </span>
+      </label>
+      <label class="option-row">
+        <input id="EnableAdvancedDetailsEditing" type="checkbox">
+        <span>
+          <strong>Enable advanced details editing</strong>
+          <small>Allow supported advanced editing, currently limited to bookmark index changes.</small>
+        </span>
+      </label>
+    </section>
+
+    <div class="actions">
+      <button id="reset" type="button">Reset to Defaults</button>
+    </div>
+  </main>
+
+  <script type="module" src="options.js"></script>
+</body>
+</html>

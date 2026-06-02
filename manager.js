@@ -28,13 +28,62 @@ const $ = (id) => document.getElementById(id);
 const nodes = new Map();
 const SEPARATOR_TITLE = "———";
 const SEPARATOR_URL = "about:blank";
-let EnableAdvancedDetailsViewing = true;
-let EnableAdvancedDetailsEditing = false;
-let SortByNameNatural = true;
-let SortShowWarning = true;
-let KeyboardDeleteAllow = true;
-let DeleteShowWarning = true;
-let SearchLimitToFolderAndSub = false;
+const DEFAULT_SETTINGS = Object.freeze({
+  EnableAdvancedDetailsViewing: true,
+  EnableAdvancedDetailsEditing: false,
+  SortByNameNatural: true,
+  SortShowWarning: true,
+  KeyboardDeleteAllow: true,
+  DeleteShowWarning: true,
+  SearchLimitToFolderAndSub: false
+});
+
+let EnableAdvancedDetailsViewing = DEFAULT_SETTINGS.EnableAdvancedDetailsViewing;
+let EnableAdvancedDetailsEditing = DEFAULT_SETTINGS.EnableAdvancedDetailsEditing;
+let SortByNameNatural = DEFAULT_SETTINGS.SortByNameNatural;
+let SortShowWarning = DEFAULT_SETTINGS.SortShowWarning;
+let KeyboardDeleteAllow = DEFAULT_SETTINGS.KeyboardDeleteAllow;
+let DeleteShowWarning = DEFAULT_SETTINGS.DeleteShowWarning;
+let SearchLimitToFolderAndSub = DEFAULT_SETTINGS.SearchLimitToFolderAndSub;
+
+function normalizeSettingValue(key, value) {
+  return typeof value === "boolean" ? value : DEFAULT_SETTINGS[key];
+}
+
+function applySettings(settings, { render = false } = {}) {
+  const keys = Object.keys(DEFAULT_SETTINGS);
+  for (const key of keys) {
+    if (!(key in settings)) continue;
+    const value = normalizeSettingValue(key, settings[key]);
+    if (key === "EnableAdvancedDetailsViewing") EnableAdvancedDetailsViewing = value;
+    else if (key === "EnableAdvancedDetailsEditing") EnableAdvancedDetailsEditing = value;
+    else if (key === "SortByNameNatural") SortByNameNatural = value;
+    else if (key === "SortShowWarning") SortShowWarning = value;
+    else if (key === "KeyboardDeleteAllow") KeyboardDeleteAllow = value;
+    else if (key === "DeleteShowWarning") DeleteShowWarning = value;
+    else if (key === "SearchLimitToFolderAndSub") SearchLimitToFolderAndSub = value;
+  }
+
+  if (!EnableAdvancedDetailsViewing) EnableAdvancedDetailsEditing = false;
+  const searchLimit = $("search-limit");
+  if (searchLimit) searchLimit.checked = SearchLimitToFolderAndSub;
+
+  if (render && state.tree) {
+    renderList();
+    renderDetails();
+  }
+}
+
+async function loadSettings() {
+  const stored = await api.storage.local.get(Object.keys(DEFAULT_SETTINGS));
+  applySettings(stored);
+}
+
+async function saveSetting(key, value) {
+  const normalized = normalizeSettingValue(key, value);
+  await api.storage.local.set({ [key]: normalized });
+  applySettings({ [key]: normalized }, { render: true });
+}
 
 async function bookmarks(method, ...args) {
   return await api.bookmarks[method](...args);
@@ -1387,11 +1436,15 @@ async function openDefaultBookmarksManager() {
   await api.tabs.create({ url: "chrome://bookmarks/" });
 }
 
+async function openOptionsPage() {
+  await api.runtime.openOptionsPage();
+}
+
 function buildAppMenu() {
   return [
     makeAppMenuItem("Open Default Bookmarks Manager", openDefaultBookmarksManager),
     makeAppMenuSeparator(),
-    makeAppMenuItem("Options", () => {}, { disabled: true }),
+    makeAppMenuItem("Options", openOptionsPage),
     makeAppMenuItem("Help", () => {}, { disabled: true }),
     makeAppMenuItem("About", () => {}, { disabled: true })
   ];
@@ -1852,12 +1905,6 @@ function setAdvancedDetailsFields(snapshot) {
 }
 
 function syncAdvancedDetailsControls(selected = nodes.get(state.selectedId)) {
-  $("advanced-viewing-toggle").checked = EnableAdvancedDetailsViewing;
-  $("advanced-editing-toggle").checked = EnableAdvancedDetailsEditing;
-  $("sort-by-name-natural-toggle").checked = SortByNameNatural;
-  $("sort-show-warning-toggle").checked = SortShowWarning;
-  $("delete-show-warning-toggle").checked = DeleteShowWarning;
-  $("advanced-editing-toggle").disabled = !EnableAdvancedDetailsViewing;
   $("advanced-details").hidden = !EnableAdvancedDetailsViewing;
 
   // Chromium exposes these metadata fields as read-only through the bookmarks
@@ -2638,9 +2685,8 @@ $("search").oninput = (e) => {
 };
 
 $("search-limit").checked = SearchLimitToFolderAndSub;
-$("search-limit").onchange = (e) => {
-  SearchLimitToFolderAndSub = e.target.checked;
-  renderList();
+$("search-limit").onchange = async (e) => {
+  await saveSetting("SearchLimitToFolderAndSub", e.target.checked);
 };
 $("sort").onchange = (e) => {
   state.sort = e.target.value;
@@ -2683,27 +2729,6 @@ for (const id of ["title", "url", "parent", "advanced-index"]) {
   $(id).addEventListener("input", updateDetailsDirtyIndicators);
   $(id).addEventListener("change", updateDetailsDirtyIndicators);
 }
-$("advanced-viewing-toggle").onchange = (e) => {
-  EnableAdvancedDetailsViewing = e.target.checked;
-  if (!EnableAdvancedDetailsViewing) EnableAdvancedDetailsEditing = false;
-  renderDetails();
-};
-$("advanced-editing-toggle").onchange = (e) => {
-  EnableAdvancedDetailsEditing = e.target.checked;
-  renderDetails();
-};
-$("sort-by-name-natural-toggle").onchange = (e) => {
-  SortByNameNatural = e.target.checked;
-  renderDetails();
-};
-$("sort-show-warning-toggle").onchange = (e) => {
-  SortShowWarning = e.target.checked;
-  renderDetails();
-};
-$("delete-show-warning-toggle").onchange = (e) => {
-  DeleteShowWarning = e.target.checked;
-  renderDetails();
-};
 $("new-folder").onclick = createFolder;
 $("new-bookmark").onclick = createBookmark;
 document.addEventListener("dragover", (e) => {
@@ -2735,12 +2760,26 @@ window.addEventListener("keydown", async (e) => {
 
 setSortSelectTooltips();
 
+api.storage.onChanged.addListener((changes, areaName) => {
+  if (areaName !== "local") return;
+  const updated = {};
+  for (const key of Object.keys(DEFAULT_SETTINGS)) {
+    if (Object.prototype.hasOwnProperty.call(changes, key)) updated[key] = changes[key].newValue;
+  }
+  if (Object.keys(updated).length) applySettings(updated, { render: true });
+});
+
 // Keep the view live, mirroring Firefox Places' model/view update pattern.
 for (const eventName of ["onCreated", "onRemoved", "onChanged", "onMoved", "onChildrenReordered"]) {
   api.bookmarks[eventName].addListener(() => { if (!state.suppressBookmarkEvents) loadTree(); });
 }
 
-loadTree().catch((err) => {
+async function init() {
+  await loadSettings();
+  await loadTree();
+}
+
+init().catch((err) => {
   console.error(err);
   alert(`Bookmark manager failed: ${err.message || err}`);
 });
