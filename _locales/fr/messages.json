@@ -1,0 +1,497 @@
+{
+  "appName": {
+    "message": "Simple Bookmarks Manager"
+  },
+  "appDescription": {
+    "message": "A simple local bookmark manager for Chrome/Chromium inspired by Firefox Places Library patterns."
+  },
+  "back": {
+    "message": "Retour"
+  },
+  "forward": {
+    "message": "Avancer"
+  },
+  "newFolder": {
+    "message": "Nouveau dossier"
+  },
+  "newBookmark": {
+    "message": "Nouveau favori"
+  },
+  "searchBookmarks": {
+    "message": "Rechercher des favoris"
+  },
+  "searchLimitTitle": {
+    "message": "When enabled, search only the current folder and its subfolders. When disabled, search all bookmarks."
+  },
+  "limitSearchTo": {
+    "message": "Limiter la recherche à"
+  },
+  "currentFolderAndSubfolders": {
+    "message": "Dossier actuel et sous-dossiers"
+  },
+  "openMenu": {
+    "message": "Open menu"
+  },
+  "openSbmMenu": {
+    "message": "Open Simple Bookmarks Manager menu"
+  },
+  "library": {
+    "message": "Bibliothèque"
+  },
+  "visualSort": {
+    "message": "Tri visuel :"
+  },
+  "sortDefault": {
+    "message": "Par défaut"
+  },
+  "sortName": {
+    "message": "Nom"
+  },
+  "sortUrl": {
+    "message": "URL"
+  },
+  "sortDateAdded": {
+    "message": "Date ajoutée"
+  },
+  "sortDateAddedHeader": {
+    "message": "Date Added"
+  },
+  "sortId": {
+    "message": "ID"
+  },
+  "sortOrder": {
+    "message": "Order"
+  },
+  "bookmarksAria": {
+    "message": "Bookmarks"
+  },
+  "bookmarkListColumns": {
+    "message": "Bookmark list columns"
+  },
+  "chooseSortModeTitle": {
+    "message": "Choose the middle-pane sort mode. Default uses Chromium’s folder order."
+  },
+  "details": {
+    "message": "Détails"
+  },
+  "detailsItems": {
+    "message": "Details Items"
+  },
+  "detailsMultiselect": {
+    "message": "Details Multiselect"
+  },
+  "url": {
+    "message": "URL"
+  },
+  "parentFolder": {
+    "message": "Dossier parent"
+  },
+  "save": {
+    "message": "Enregistrer"
+  },
+  "discardChanges": {
+    "message": "Annuler les modifications"
+  },
+  "delete": {
+    "message": "Supprimer"
+  },
+  "deleteFolder": {
+    "message": "Supprimer le dossier"
+  },
+  "deleteBookmark": {
+    "message": "Supprimer le favori"
+  },
+  "advancedDetails": {
+    "message": "Advanced Details"
+  },
+  "advancedBookmarkDetails": {
+    "message": "Advanced bookmark details"
+  },
+  "guidUuid": {
+    "message": "GUID / UUID"
+  },
+  "dateAdded": {
+    "message": "Date Added"
+  },
+  "dateLastUsed": {
+    "message": "Date Last Used"
+  },
+  "totalSelected": {
+    "message": "Total sélectionné :"
+  },
+  "folders": {
+    "message": "Dossiers :"
+  },
+  "bookmarks": {
+    "message": "Favoris"
+  },
+  "separators": {
+    "message": "Séparateurs :"
+  },
+  "emptyDetails": {
+    "message": "Select one item, or select a folder to show its contents."
+  },
+  "optionsTitle": {
+    "message": "Options de Simple Bookmarks Manager"
+  },
+  "closeOptions": {
+    "message": "Fermer les options"
+  },
+  "optionSaved": {
+    "message": "Enregistré"
+  },
+  "saveFailed": {
+    "message": "Save failed: {error}"
+  },
+  "loadFailed": {
+    "message": "Load failed: {error}"
+  },
+  "defaultsRestored": {
+    "message": "Defaults restored"
+  },
+  "userInterface": {
+    "message": "Interface utilisateur"
+  },
+  "userInterfaceLanguage": {
+    "message": "Langue de l’interface"
+  },
+  "userInterfaceLanguageHelp": {
+    "message": "Automatic follows the browser UI language. Manual choices affect the manager and options pages."
+  },
+  "font": {
+    "message": "Police"
+  },
+  "fontHelp": {
+    "message": "Controls the main font family used by the bookmark manager UI."
+  },
+  "fontSystem": {
+    "message": "Système par défaut"
+  },
+  "fontSans": {
+    "message": "Arial / Helvetica"
+  },
+  "fontSerif": {
+    "message": "Georgia / Times"
+  },
+  "fontMono": {
+    "message": "Consolas / monospace"
+  },
+  "fontSize": {
+    "message": "Taille de police"
+  },
+  "fontSizeHelp": {
+    "message": "Base text size. Headings and column labels scale relative to this value."
+  },
+  "fontSpacing": {
+    "message": "Espacement"
+  },
+  "fontSpacingHelp": {
+    "message": "Line spacing multiplier for denser or more readable rows and labels."
+  },
+  "search": {
+    "message": "Recherche"
+  },
+  "searchLimitOptionHelp": {
+    "message": "When enabled, the main search box searches only inside the current visible folder tree."
+  },
+  "safety": {
+    "message": "Sécurité"
+  },
+  "showDeleteWarning": {
+    "message": "Afficher la confirmation de suppression"
+  },
+  "showDeleteWarningHelp": {
+    "message": "Ask before deleting bookmark items or folders."
+  },
+  "showSortWarning": {
+    "message": "Afficher la confirmation de tri permanent"
+  },
+  "showSortWarningHelp": {
+    "message": "Ask before applying context-menu sorts that permanently reorder a bookmark folder."
+  },
+  "allowKeyboardDelete": {
+    "message": "Autoriser Suppr à supprimer les éléments sélectionnés"
+  },
+  "allowKeyboardDeleteHelp": {
+    "message": "When disabled, the Delete key no longer deletes selected bookmark entries."
+  },
+  "sorting": {
+    "message": "Tri"
+  },
+  "naturalSort": {
+    "message": "Use natural folder/bookmark sort order"
+  },
+  "naturalSortHelp": {
+    "message": "Permanent Sort by Name places folders first, separators next, then bookmarks."
+  },
+  "advanced": {
+    "message": "Avancé"
+  },
+  "enableAdvancedViewing": {
+    "message": "Enable advanced details viewing"
+  },
+  "enableAdvancedViewingHelp": {
+    "message": "Show read-only advanced bookmark metadata in the Details pane."
+  },
+  "enableAdvancedEditing": {
+    "message": "Enable advanced details editing"
+  },
+  "enableAdvancedEditingHelp": {
+    "message": "Allow supported advanced editing, currently limited to bookmark index changes."
+  },
+  "resetDefaults": {
+    "message": "Rétablir les valeurs par défaut"
+  },
+  "folderAlt": {
+    "message": "Dossier"
+  },
+  "bookmarkAlt": {
+    "message": "Favori"
+  },
+  "folderFallback": {
+    "message": "(Dossier)"
+  },
+  "bookmarkFallback": {
+    "message": "(Favori)"
+  },
+  "rootFallback": {
+    "message": "(root)"
+  },
+  "browserRoot": {
+    "message": "Browser root"
+  },
+  "bookmarksPathFallback": {
+    "message": "Favoris"
+  },
+  "sortDate": {
+    "message": "date"
+  },
+  "sortNameLower": {
+    "message": "name"
+  },
+  "sortFolderConfirm": {
+    "message": "Sort \"{folderName}\" by {sortName}?\n\nThis permanently changes the saved bookmark order in Chromium. It is different from the temporary Visual sort dropdown."
+  },
+  "couldNotOpenWindow": {
+    "message": "Could not open {windowType} window: {error}"
+  },
+  "privateWindowType": {
+    "message": "private"
+  },
+  "newWindowType": {
+    "message": "new"
+  },
+  "couldNotOpenTabGroup": {
+    "message": "Could not open tab group: {error}"
+  },
+  "newFolderNamePrompt": {
+    "message": "New folder name"
+  },
+  "folderNamePrompt": {
+    "message": "Folder name"
+  },
+  "bookmarkNamePrompt": {
+    "message": "Bookmark name"
+  },
+  "bookmarkUrlPrompt": {
+    "message": "Bookmark URL"
+  },
+  "deleteSingleConfirm": {
+    "message": "Delete \"{label}\"?"
+  },
+  "deleteMultipleConfirm": {
+    "message": "Delete {count} selected item(s)?"
+  },
+  "thisItem": {
+    "message": "this item"
+  },
+  "newFolderDefaultName": {
+    "message": "Nouveau dossier"
+  },
+  "couldNotMoveBookmark": {
+    "message": "Could not move bookmark item: {error}"
+  },
+  "actionFailed": {
+    "message": "Action failed: {error}"
+  },
+  "openDefaultBookmarksManager": {
+    "message": "Open Default Bookmarks Manager"
+  },
+  "options": {
+    "message": "Options"
+  },
+  "help": {
+    "message": "Help"
+  },
+  "about": {
+    "message": "About"
+  },
+  "renameFolder": {
+    "message": "Rename Folder"
+  },
+  "cut": {
+    "message": "Couper"
+  },
+  "copy": {
+    "message": "Copier"
+  },
+  "paste": {
+    "message": "Coller"
+  },
+  "sortByName": {
+    "message": "Trier par nom"
+  },
+  "sortByDate": {
+    "message": "Trier par date"
+  },
+  "addNewBookmark": {
+    "message": "Ajouter un favori"
+  },
+  "addNewFolder": {
+    "message": "Ajouter un dossier"
+  },
+  "addSeparator": {
+    "message": "Ajouter un séparateur"
+  },
+  "openAllBookmarks": {
+    "message": "Ouvrir tous les favoris"
+  },
+  "openAllInNewTab": {
+    "message": "Tout ouvrir dans de nouveaux onglets"
+  },
+  "openAllInNewWindow": {
+    "message": "Tout ouvrir dans une nouvelle fenêtre"
+  },
+  "openAllInPrivateWindow": {
+    "message": "Tout ouvrir dans une fenêtre privée"
+  },
+  "openAllInNewTabGroup": {
+    "message": "Open All in New Tab Group"
+  },
+  "openAllInSplitView": {
+    "message": "Open All in Split View"
+  },
+  "edit": {
+    "message": "Modifier"
+  },
+  "openInNewTab": {
+    "message": "Ouvrir dans un nouvel onglet"
+  },
+  "openInNewWindow": {
+    "message": "Ouvrir dans une nouvelle fenêtre"
+  },
+  "openInPrivateWindow": {
+    "message": "Ouvrir dans une fenêtre privée"
+  },
+  "openInNewTabGroup": {
+    "message": "Open in New Tab Group"
+  },
+  "openInSplitView": {
+    "message": "Open in Split View"
+  },
+  "expandAll": {
+    "message": "Tout développer"
+  },
+  "collapseAll": {
+    "message": "Tout réduire"
+  },
+  "dragFolderTitle": {
+    "message": "Drag to reorder this folder"
+  },
+  "collapseFolderTitle": {
+    "message": "Collapse folder"
+  },
+  "expandFolderTitle": {
+    "message": "Expand folder"
+  },
+  "doubleClickExpandCollapseTitle": {
+    "message": "Double-click to expand or collapse this folder"
+  },
+  "hideDetailsPaneTooltip": {
+    "message": "Hide the Details pane"
+  },
+  "showDetailsPaneTooltip": {
+    "message": "Show the Details pane"
+  },
+  "clickHideDetails": {
+    "message": "Click to Hide Details"
+  },
+  "clickShowDetails": {
+    "message": "Click to Show Details"
+  },
+  "dragItemTitle": {
+    "message": "Drag to move or reorder this item"
+  },
+  "separator": {
+    "message": "Séparateur"
+  },
+  "unsavedChanges": {
+    "message": "Modifications non enregistrées"
+  },
+  "unsavedChangesMessage": {
+    "message": "The Details pane has unsaved changes. What would you like to do?"
+  },
+  "keepEditing": {
+    "message": "Continuer la modification"
+  },
+  "discard": {
+    "message": "Ignorer"
+  },
+  "couldNotSaveChanges": {
+    "message": "Could not save changes: {error}"
+  },
+  "sortDefaultTooltip": {
+    "message": "Default Chromium folder order. Click to return to Default sorting; this column does not reverse-sort."
+  },
+  "sortNameAscTooltip": {
+    "message": "Sort by name: A to Z"
+  },
+  "sortNameDescTooltip": {
+    "message": "Sort by name: Z to A"
+  },
+  "sortUrlAscTooltip": {
+    "message": "Sort by URL: A to Z"
+  },
+  "sortUrlDescTooltip": {
+    "message": "Sort by URL: Z to A"
+  },
+  "sortDateAscTooltip": {
+    "message": "Sort by date added: oldest first"
+  },
+  "sortDateDescTooltip": {
+    "message": "Sort by date added: newest first"
+  },
+  "sortIdAscTooltip": {
+    "message": "Sort by ID: lowest first"
+  },
+  "sortIdDescTooltip": {
+    "message": "Sort by ID: highest first"
+  },
+  "sortBookmarks": {
+    "message": "Sort bookmarks"
+  },
+  "sortSelectDefaultTitle": {
+    "message": "Default Chromium folder order."
+  },
+  "sortSelectTitleTitle": {
+    "message": "Name sort. Ascending is A to Z; descending is Z to A."
+  },
+  "sortSelectUrlTitle": {
+    "message": "URL sort. Ascending is A to Z; descending is Z to A."
+  },
+  "sortSelectDateAddedTitle": {
+    "message": "Date added sort. Ascending is oldest first; descending is newest first."
+  },
+  "sortSelectIdTitle": {
+    "message": "ID sort. Ascending is lowest first; descending is highest first."
+  },
+  "managerFailed": {
+    "message": "Bookmark manager failed: {error}"
+  },
+  "notAvailable": {
+    "message": "Non disponible"
+  },
+  "searchLimitFull": {
+    "message": "Limiter la recherche au dossier actuel et aux sous-dossiers"
+  }
+}

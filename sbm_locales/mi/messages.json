@@ -1,0 +1,497 @@
+{
+  "appName": {
+    "message": "Simple Bookmarks Manager"
+  },
+  "appDescription": {
+    "message": "A simple local bookmark manager for Chrome/Chromium inspired by Firefox Places Library patterns."
+  },
+  "back": {
+    "message": "Hoki"
+  },
+  "forward": {
+    "message": "Whakamua"
+  },
+  "newFolder": {
+    "message": "Kōpaki hōu"
+  },
+  "newBookmark": {
+    "message": "Tohuwāhi hōu"
+  },
+  "searchBookmarks": {
+    "message": "Rapua ngā tohuwāhi"
+  },
+  "searchLimitTitle": {
+    "message": "When enabled, search only the current folder and its subfolders. When disabled, search all bookmarks."
+  },
+  "limitSearchTo": {
+    "message": "Whakawhāitihia te rapu ki"
+  },
+  "currentFolderAndSubfolders": {
+    "message": "Kōpaki o nāianei me ngā kōpaki-roto"
+  },
+  "openMenu": {
+    "message": "Open menu"
+  },
+  "openSbmMenu": {
+    "message": "Open Simple Bookmarks Manager menu"
+  },
+  "library": {
+    "message": "Pātaka"
+  },
+  "visualSort": {
+    "message": "Raupapa tirohanga:"
+  },
+  "sortDefault": {
+    "message": "Taunoa"
+  },
+  "sortName": {
+    "message": "Ingoa"
+  },
+  "sortUrl": {
+    "message": "URL"
+  },
+  "sortDateAdded": {
+    "message": "Rā tāpiri"
+  },
+  "sortDateAddedHeader": {
+    "message": "Date Added"
+  },
+  "sortId": {
+    "message": "ID"
+  },
+  "sortOrder": {
+    "message": "Order"
+  },
+  "bookmarksAria": {
+    "message": "Bookmarks"
+  },
+  "bookmarkListColumns": {
+    "message": "Bookmark list columns"
+  },
+  "chooseSortModeTitle": {
+    "message": "Choose the middle-pane sort mode. Default uses Chromium’s folder order."
+  },
+  "details": {
+    "message": "Taipitopito"
+  },
+  "detailsItems": {
+    "message": "Details Items"
+  },
+  "detailsMultiselect": {
+    "message": "Details Multiselect"
+  },
+  "url": {
+    "message": "URL"
+  },
+  "parentFolder": {
+    "message": "Kōpaki matua"
+  },
+  "save": {
+    "message": "Tiaki"
+  },
+  "discardChanges": {
+    "message": "Whakarere huringa"
+  },
+  "delete": {
+    "message": "Muku"
+  },
+  "deleteFolder": {
+    "message": "Muku kōpaki"
+  },
+  "deleteBookmark": {
+    "message": "Muku tohuwāhi"
+  },
+  "advancedDetails": {
+    "message": "Advanced Details"
+  },
+  "advancedBookmarkDetails": {
+    "message": "Advanced bookmark details"
+  },
+  "guidUuid": {
+    "message": "GUID / UUID"
+  },
+  "dateAdded": {
+    "message": "Date Added"
+  },
+  "dateLastUsed": {
+    "message": "Date Last Used"
+  },
+  "totalSelected": {
+    "message": "Katoa kua tīpakohia:"
+  },
+  "folders": {
+    "message": "Ngā kōpaki:"
+  },
+  "bookmarks": {
+    "message": "Tohuwāhi"
+  },
+  "separators": {
+    "message": "Ngā whakawehe:"
+  },
+  "emptyDetails": {
+    "message": "Select one item, or select a folder to show its contents."
+  },
+  "optionsTitle": {
+    "message": "Ngā kōwhiringa Simple Bookmarks Manager"
+  },
+  "closeOptions": {
+    "message": "Katia ngā kōwhiringa"
+  },
+  "optionSaved": {
+    "message": "Kua tiakina"
+  },
+  "saveFailed": {
+    "message": "Save failed: {error}"
+  },
+  "loadFailed": {
+    "message": "Load failed: {error}"
+  },
+  "defaultsRestored": {
+    "message": "Defaults restored"
+  },
+  "userInterface": {
+    "message": "Atanga Kaiwhakamahi"
+  },
+  "userInterfaceLanguage": {
+    "message": "Reo Atanga Kaiwhakamahi"
+  },
+  "userInterfaceLanguageHelp": {
+    "message": "Automatic follows the browser UI language. Manual choices affect the manager and options pages."
+  },
+  "font": {
+    "message": "Momotuhi"
+  },
+  "fontHelp": {
+    "message": "Controls the main font family used by the bookmark manager UI."
+  },
+  "fontSystem": {
+    "message": "Taunoa pūnaha"
+  },
+  "fontSans": {
+    "message": "Arial / Helvetica"
+  },
+  "fontSerif": {
+    "message": "Georgia / Times"
+  },
+  "fontMono": {
+    "message": "Consolas / monospace"
+  },
+  "fontSize": {
+    "message": "Rahi momotuhi"
+  },
+  "fontSizeHelp": {
+    "message": "Base text size. Headings and column labels scale relative to this value."
+  },
+  "fontSpacing": {
+    "message": "Mokowā momotuhi"
+  },
+  "fontSpacingHelp": {
+    "message": "Line spacing multiplier for denser or more readable rows and labels."
+  },
+  "search": {
+    "message": "Rapu"
+  },
+  "searchLimitOptionHelp": {
+    "message": "When enabled, the main search box searches only inside the current visible folder tree."
+  },
+  "safety": {
+    "message": "Haumaru"
+  },
+  "showDeleteWarning": {
+    "message": "Whakaatu whakatūpato muku"
+  },
+  "showDeleteWarningHelp": {
+    "message": "Ask before deleting bookmark items or folders."
+  },
+  "showSortWarning": {
+    "message": "Whakaatu whakatūpato raupapa pūmau"
+  },
+  "showSortWarningHelp": {
+    "message": "Ask before applying context-menu sorts that permanently reorder a bookmark folder."
+  },
+  "allowKeyboardDelete": {
+    "message": "Tukua te kī Delete ki te muku i ngā mea kua tīpakohia"
+  },
+  "allowKeyboardDeleteHelp": {
+    "message": "When disabled, the Delete key no longer deletes selected bookmark entries."
+  },
+  "sorting": {
+    "message": "Raupapa"
+  },
+  "naturalSort": {
+    "message": "Use natural folder/bookmark sort order"
+  },
+  "naturalSortHelp": {
+    "message": "Permanent Sort by Name places folders first, separators next, then bookmarks."
+  },
+  "advanced": {
+    "message": "Arā Atu Anō"
+  },
+  "enableAdvancedViewing": {
+    "message": "Enable advanced details viewing"
+  },
+  "enableAdvancedViewingHelp": {
+    "message": "Show read-only advanced bookmark metadata in the Details pane."
+  },
+  "enableAdvancedEditing": {
+    "message": "Enable advanced details editing"
+  },
+  "enableAdvancedEditingHelp": {
+    "message": "Allow supported advanced editing, currently limited to bookmark index changes."
+  },
+  "resetDefaults": {
+    "message": "Whakahokia ngā taunoa"
+  },
+  "folderAlt": {
+    "message": "Kōpaki"
+  },
+  "bookmarkAlt": {
+    "message": "Tohuwāhi"
+  },
+  "folderFallback": {
+    "message": "(Kōpaki)"
+  },
+  "bookmarkFallback": {
+    "message": "(Tohuwāhi)"
+  },
+  "rootFallback": {
+    "message": "(root)"
+  },
+  "browserRoot": {
+    "message": "Browser root"
+  },
+  "bookmarksPathFallback": {
+    "message": "Tohuwāhi"
+  },
+  "sortDate": {
+    "message": "date"
+  },
+  "sortNameLower": {
+    "message": "name"
+  },
+  "sortFolderConfirm": {
+    "message": "Sort \"{folderName}\" by {sortName}?\n\nThis permanently changes the saved bookmark order in Chromium. It is different from the temporary Visual sort dropdown."
+  },
+  "couldNotOpenWindow": {
+    "message": "Could not open {windowType} window: {error}"
+  },
+  "privateWindowType": {
+    "message": "private"
+  },
+  "newWindowType": {
+    "message": "new"
+  },
+  "couldNotOpenTabGroup": {
+    "message": "Could not open tab group: {error}"
+  },
+  "newFolderNamePrompt": {
+    "message": "New folder name"
+  },
+  "folderNamePrompt": {
+    "message": "Folder name"
+  },
+  "bookmarkNamePrompt": {
+    "message": "Bookmark name"
+  },
+  "bookmarkUrlPrompt": {
+    "message": "Bookmark URL"
+  },
+  "deleteSingleConfirm": {
+    "message": "Delete \"{label}\"?"
+  },
+  "deleteMultipleConfirm": {
+    "message": "Delete {count} selected item(s)?"
+  },
+  "thisItem": {
+    "message": "this item"
+  },
+  "newFolderDefaultName": {
+    "message": "Kōpaki hōu"
+  },
+  "couldNotMoveBookmark": {
+    "message": "Could not move bookmark item: {error}"
+  },
+  "actionFailed": {
+    "message": "Action failed: {error}"
+  },
+  "openDefaultBookmarksManager": {
+    "message": "Open Default Bookmarks Manager"
+  },
+  "options": {
+    "message": "Options"
+  },
+  "help": {
+    "message": "Help"
+  },
+  "about": {
+    "message": "About"
+  },
+  "renameFolder": {
+    "message": "Rename Folder"
+  },
+  "cut": {
+    "message": "Tapahi"
+  },
+  "copy": {
+    "message": "Tārua"
+  },
+  "paste": {
+    "message": "Whakapiri"
+  },
+  "sortByName": {
+    "message": "Raupapa ā-ingoa"
+  },
+  "sortByDate": {
+    "message": "Raupapa ā-rā"
+  },
+  "addNewBookmark": {
+    "message": "Tāpiri tohuwāhi hōu"
+  },
+  "addNewFolder": {
+    "message": "Tāpiri kōpaki hōu"
+  },
+  "addSeparator": {
+    "message": "Tāpiri whakawehe"
+  },
+  "openAllBookmarks": {
+    "message": "Huaki ngā tohuwāhi katoa"
+  },
+  "openAllInNewTab": {
+    "message": "Huaki katoa ki ngā ripa hōu"
+  },
+  "openAllInNewWindow": {
+    "message": "Huaki katoa ki te matapihi hōu"
+  },
+  "openAllInPrivateWindow": {
+    "message": "Huaki katoa ki te matapihi tūmataiti"
+  },
+  "openAllInNewTabGroup": {
+    "message": "Open All in New Tab Group"
+  },
+  "openAllInSplitView": {
+    "message": "Open All in Split View"
+  },
+  "edit": {
+    "message": "Whakatika"
+  },
+  "openInNewTab": {
+    "message": "Huaki ki te ripa hōu"
+  },
+  "openInNewWindow": {
+    "message": "Huaki ki te matapihi hōu"
+  },
+  "openInPrivateWindow": {
+    "message": "Huaki ki te matapihi tūmataiti"
+  },
+  "openInNewTabGroup": {
+    "message": "Open in New Tab Group"
+  },
+  "openInSplitView": {
+    "message": "Open in Split View"
+  },
+  "expandAll": {
+    "message": "Whakaroha katoa"
+  },
+  "collapseAll": {
+    "message": "Whakakopa katoa"
+  },
+  "dragFolderTitle": {
+    "message": "Drag to reorder this folder"
+  },
+  "collapseFolderTitle": {
+    "message": "Collapse folder"
+  },
+  "expandFolderTitle": {
+    "message": "Expand folder"
+  },
+  "doubleClickExpandCollapseTitle": {
+    "message": "Double-click to expand or collapse this folder"
+  },
+  "hideDetailsPaneTooltip": {
+    "message": "Hide the Details pane"
+  },
+  "showDetailsPaneTooltip": {
+    "message": "Show the Details pane"
+  },
+  "clickHideDetails": {
+    "message": "Click to Hide Details"
+  },
+  "clickShowDetails": {
+    "message": "Click to Show Details"
+  },
+  "dragItemTitle": {
+    "message": "Drag to move or reorder this item"
+  },
+  "separator": {
+    "message": "Whakawehe"
+  },
+  "unsavedChanges": {
+    "message": "Ngā huringa kāore anō kia tiakina"
+  },
+  "unsavedChangesMessage": {
+    "message": "The Details pane has unsaved changes. What would you like to do?"
+  },
+  "keepEditing": {
+    "message": "Haere tonu ki te whakatika"
+  },
+  "discard": {
+    "message": "Whakarere"
+  },
+  "couldNotSaveChanges": {
+    "message": "Could not save changes: {error}"
+  },
+  "sortDefaultTooltip": {
+    "message": "Default Chromium folder order. Click to return to Default sorting; this column does not reverse-sort."
+  },
+  "sortNameAscTooltip": {
+    "message": "Sort by name: A to Z"
+  },
+  "sortNameDescTooltip": {
+    "message": "Sort by name: Z to A"
+  },
+  "sortUrlAscTooltip": {
+    "message": "Sort by URL: A to Z"
+  },
+  "sortUrlDescTooltip": {
+    "message": "Sort by URL: Z to A"
+  },
+  "sortDateAscTooltip": {
+    "message": "Sort by date added: oldest first"
+  },
+  "sortDateDescTooltip": {
+    "message": "Sort by date added: newest first"
+  },
+  "sortIdAscTooltip": {
+    "message": "Sort by ID: lowest first"
+  },
+  "sortIdDescTooltip": {
+    "message": "Sort by ID: highest first"
+  },
+  "sortBookmarks": {
+    "message": "Sort bookmarks"
+  },
+  "sortSelectDefaultTitle": {
+    "message": "Default Chromium folder order."
+  },
+  "sortSelectTitleTitle": {
+    "message": "Name sort. Ascending is A to Z; descending is Z to A."
+  },
+  "sortSelectUrlTitle": {
+    "message": "URL sort. Ascending is A to Z; descending is Z to A."
+  },
+  "sortSelectDateAddedTitle": {
+    "message": "Date added sort. Ascending is oldest first; descending is newest first."
+  },
+  "sortSelectIdTitle": {
+    "message": "ID sort. Ascending is lowest first; descending is highest first."
+  },
+  "managerFailed": {
+    "message": "Bookmark manager failed: {error}"
+  },
+  "notAvailable": {
+    "message": "Kāore i te wātea"
+  },
+  "searchLimitFull": {
+    "message": "Limit Search to Current Folder & Subfolders"
+  }
+}
