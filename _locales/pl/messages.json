@@ -3,7 +3,7 @@
     "message": "Simple Bookmarks Manager"
   },
   "appDescription": {
-    "message": "A simple local bookmark manager for Chrome/Chromium inspired by Firefox Places Library patterns."
+    "message": "Prosty lokalny menedżer zakładek dla Chrome/Chromium inspirowany wzorcami biblioteki Firefox Places."
   },
   "back": {
     "message": "Wstecz"
@@ -21,7 +21,7 @@
     "message": "Szukaj zakładek"
   },
   "searchLimitTitle": {
-    "message": "When enabled, search only the current folder and its subfolders. When disabled, search all bookmarks."
+    "message": "Po włączeniu przeszukiwany jest tylko bieżący folder i jego podfoldery. Po wyłączeniu przeszukiwane są wszystkie zakładki."
   },
   "limitSearchTo": {
     "message": "Ogranicz wyszukiwanie do"
@@ -30,10 +30,10 @@
     "message": "Bieżący folder i podfoldery"
   },
   "openMenu": {
-    "message": "Open menu"
+    "message": "Otwórz menu"
   },
   "openSbmMenu": {
-    "message": "Open Simple Bookmarks Manager menu"
+    "message": "Otwórz menu Simple Bookmarks Manager"
   },
   "library": {
     "message": "Biblioteka"
@@ -54,31 +54,31 @@
     "message": "Data dodania"
   },
   "sortDateAddedHeader": {
-    "message": "Date Added"
+    "message": "Data dodania"
   },
   "sortId": {
     "message": "ID"
   },
   "sortOrder": {
-    "message": "Order"
+    "message": "Kolejność"
   },
   "bookmarksAria": {
-    "message": "Bookmarks"
+    "message": "Zakładki"
   },
   "bookmarkListColumns": {
-    "message": "Bookmark list columns"
+    "message": "Kolumny listy zakładek"
   },
   "chooseSortModeTitle": {
-    "message": "Choose the middle-pane sort mode. Default uses Chromium’s folder order."
+    "message": "Wybierz tryb sortowania panelu środkowego. Domyślnie używa kolejności folderów Chromium."
   },
   "details": {
     "message": "Szczegóły"
   },
   "detailsItems": {
-    "message": "Details Items"
+    "message": "Szczegóły elementu"
   },
   "detailsMultiselect": {
-    "message": "Details Multiselect"
+    "message": "Szczegóły wielokrotnego wyboru"
   },
   "url": {
     "message": "URL"
@@ -102,19 +102,19 @@
     "message": "Usuń zakładkę"
   },
   "advancedDetails": {
-    "message": "Advanced Details"
+    "message": "Szczegóły zaawansowane"
   },
   "advancedBookmarkDetails": {
-    "message": "Advanced bookmark details"
+    "message": "Zaawansowane szczegóły zakładki"
   },
   "guidUuid": {
     "message": "GUID / UUID"
   },
   "dateAdded": {
-    "message": "Date Added"
+    "message": "Data dodania"
   },
   "dateLastUsed": {
-    "message": "Date Last Used"
+    "message": "Ostatnio użyto"
   },
   "totalSelected": {
     "message": "Razem zaznaczono:"
@@ -129,7 +129,7 @@
     "message": "Separatory:"
   },
   "emptyDetails": {
-    "message": "Select one item, or select a folder to show its contents."
+    "message": "Wybierz jeden element albo folder, aby pokazać jego zawartość."
   },
   "optionsTitle": {
     "message": "Opcje Simple Bookmarks Manager"
@@ -141,13 +141,13 @@
     "message": "Zapisano"
   },
   "saveFailed": {
-    "message": "Save failed: {error}"
+    "message": "Nie udało się zapisać: {error}"
   },
   "loadFailed": {
-    "message": "Load failed: {error}"
+    "message": "Nie udało się wczytać: {error}"
   },
   "defaultsRestored": {
-    "message": "Defaults restored"
+    "message": "Przywrócono domyślne"
   },
   "userInterface": {
     "message": "Interfejs użytkownika"
@@ -156,13 +156,13 @@
     "message": "Język interfejsu"
   },
   "userInterfaceLanguageHelp": {
-    "message": "Automatic follows the browser UI language. Manual choices affect the manager and options pages."
+    "message": "Automatycznie podąża za językiem interfejsu przeglądarki. Wybory ręczne wpływają na menedżera i strony opcji."
   },
   "font": {
     "message": "Czcionka"
   },
   "fontHelp": {
-    "message": "Controls the main font family used by the bookmark manager UI."
+    "message": "Steruje główną rodziną czcionek używaną przez interfejs menedżera zakładek."
   },
   "fontSystem": {
     "message": "Domyślna systemowa"
@@ -180,19 +180,19 @@
     "message": "Rozmiar czcionki"
   },
   "fontSizeHelp": {
-    "message": "Base text size. Headings and column labels scale relative to this value."
+    "message": "Bazowy rozmiar tekstu. Nagłówki i etykiety kolumn skalują się względem tej wartości."
   },
   "fontSpacing": {
     "message": "Odstępy czcionki"
   },
   "fontSpacingHelp": {
-    "message": "Line spacing multiplier for denser or more readable rows and labels."
+    "message": "Mnożnik odstępu między wierszami dla gęstszych lub czytelniejszych wierszy i etykiet."
   },
   "search": {
     "message": "Szukaj"
   },
   "searchLimitOptionHelp": {
-    "message": "When enabled, the main search box searches only inside the current visible folder tree."
+    "message": "Po włączeniu główne pole wyszukiwania przeszukuje tylko bieżące widoczne drzewo folderów."
   },
   "safety": {
     "message": "Bezpieczeństwo"
@@ -201,43 +201,43 @@
     "message": "Pokaż potwierdzenie usuwania"
   },
   "showDeleteWarningHelp": {
-    "message": "Ask before deleting bookmark items or folders."
+    "message": "Pytaj przed usunięciem elementów zakładek lub folderów."
   },
   "showSortWarning": {
     "message": "Pokaż potwierdzenie trwałego sortowania"
   },
   "showSortWarningHelp": {
-    "message": "Ask before applying context-menu sorts that permanently reorder a bookmark folder."
+    "message": "Pytaj przed zastosowaniem sortowania z menu kontekstowego, które trwale zmienia kolejność folderu zakładek."
   },
   "allowKeyboardDelete": {
     "message": "Pozwól Delete usuwać zaznaczone elementy"
   },
   "allowKeyboardDeleteHelp": {
-    "message": "When disabled, the Delete key no longer deletes selected bookmark entries."
+    "message": "Po wyłączeniu klawisz Delete nie usuwa wybranych wpisów zakładek."
   },
   "sorting": {
     "message": "Sortowanie"
   },
   "naturalSort": {
-    "message": "Use natural folder/bookmark sort order"
+    "message": "Użyj naturalnej kolejności folderów/zakładek"
   },
   "naturalSortHelp": {
-    "message": "Permanent Sort by Name places folders first, separators next, then bookmarks."
+    "message": "Trwałe sortowanie według nazwy umieszcza najpierw foldery, potem separatory, a następnie zakładki."
   },
   "advanced": {
     "message": "Zaawansowane"
   },
   "enableAdvancedViewing": {
-    "message": "Enable advanced details viewing"
+    "message": "Włącz widok zaawansowanych szczegółów"
   },
   "enableAdvancedViewingHelp": {
-    "message": "Show read-only advanced bookmark metadata in the Details pane."
+    "message": "Pokaż tylko do odczytu zaawansowane metadane zakładek w panelu Szczegóły."
   },
   "enableAdvancedEditing": {
-    "message": "Enable advanced details editing"
+    "message": "Włącz edycję zaawansowanych szczegółów"
   },
   "enableAdvancedEditingHelp": {
-    "message": "Allow supported advanced editing, currently limited to bookmark index changes."
+    "message": "Zezwala na obsługiwaną edycję zaawansowaną, obecnie ograniczoną do zmian indeksu zakładki."
   },
   "resetDefaults": {
     "message": "Przywróć domyślne"
@@ -258,76 +258,76 @@
     "message": "(root)"
   },
   "browserRoot": {
-    "message": "Browser root"
+    "message": "Katalog główny przeglądarki"
   },
   "bookmarksPathFallback": {
     "message": "Zakładki"
   },
   "sortDate": {
-    "message": "date"
+    "message": "data"
   },
   "sortNameLower": {
-    "message": "name"
+    "message": "nazwa"
   },
   "sortFolderConfirm": {
-    "message": "Sort \"{folderName}\" by {sortName}?\n\nThis permanently changes the saved bookmark order in Chromium. It is different from the temporary Visual sort dropdown."
+    "message": "Posortować „{folderName}” według {sortName}?\n\nTo trwale zmienia zapisaną kolejność zakładek w Chromium. Różni się od tymczasowego menu Sortowanie wizualne."
   },
   "couldNotOpenWindow": {
-    "message": "Could not open {windowType} window: {error}"
+    "message": "Nie można otworzyć okna {windowType}: {error}"
   },
   "privateWindowType": {
-    "message": "private"
+    "message": "prywatnego"
   },
   "newWindowType": {
-    "message": "new"
+    "message": "nowego"
   },
   "couldNotOpenTabGroup": {
-    "message": "Could not open tab group: {error}"
+    "message": "Nie można otworzyć grupy kart: {error}"
   },
   "newFolderNamePrompt": {
-    "message": "New folder name"
+    "message": "Nazwa nowego folderu"
   },
   "folderNamePrompt": {
-    "message": "Folder name"
+    "message": "Nazwa folderu"
   },
   "bookmarkNamePrompt": {
-    "message": "Bookmark name"
+    "message": "Nazwa zakładki"
   },
   "bookmarkUrlPrompt": {
-    "message": "Bookmark URL"
+    "message": "URL zakładki"
   },
   "deleteSingleConfirm": {
-    "message": "Delete \"{label}\"?"
+    "message": "Usunąć „{label}”?"
   },
   "deleteMultipleConfirm": {
-    "message": "Delete {count} selected item(s)?"
+    "message": "Usunąć {count} wybranych elementów?"
   },
   "thisItem": {
-    "message": "this item"
+    "message": "ten element"
   },
   "newFolderDefaultName": {
     "message": "New Folder"
   },
   "couldNotMoveBookmark": {
-    "message": "Could not move bookmark item: {error}"
+    "message": "Nie można przenieść elementu zakładki: {error}"
   },
   "actionFailed": {
-    "message": "Action failed: {error}"
+    "message": "Akcja nie powiodła się: {error}"
   },
   "openDefaultBookmarksManager": {
-    "message": "Open Default Bookmarks Manager"
+    "message": "Otwórz domyślny menedżer zakładek"
   },
   "options": {
-    "message": "Options"
+    "message": "Opcje"
   },
   "help": {
-    "message": "Help"
+    "message": "Pomoc"
   },
   "about": {
-    "message": "About"
+    "message": "O programie"
   },
   "renameFolder": {
-    "message": "Rename Folder"
+    "message": "Zmień nazwę folderu"
   },
   "cut": {
     "message": "Wytnij"
@@ -366,10 +366,10 @@
     "message": "Otwórz wszystko w oknie prywatnym"
   },
   "openAllInNewTabGroup": {
-    "message": "Open All in New Tab Group"
+    "message": "Otwórz wszystko w nowej grupie kart"
   },
   "openAllInSplitView": {
-    "message": "Open All in Split View"
+    "message": "Otwórz wszystko w widoku podzielonym"
   },
   "edit": {
     "message": "Edytuj"
@@ -384,10 +384,10 @@
     "message": "Otwórz w oknie prywatnym"
   },
   "openInNewTabGroup": {
-    "message": "Open in New Tab Group"
+    "message": "Otwórz w nowej grupie kart"
   },
   "openInSplitView": {
-    "message": "Open in Split View"
+    "message": "Otwórz w widoku podzielonym"
   },
   "expandAll": {
     "message": "Rozwiń wszystko"
@@ -396,31 +396,31 @@
     "message": "Zwiń wszystko"
   },
   "dragFolderTitle": {
-    "message": "Drag to reorder this folder"
+    "message": "Przeciągnij, aby zmienić kolejność tego folderu"
   },
   "collapseFolderTitle": {
-    "message": "Collapse folder"
+    "message": "Zwiń folder"
   },
   "expandFolderTitle": {
-    "message": "Expand folder"
+    "message": "Rozwiń folder"
   },
   "doubleClickExpandCollapseTitle": {
-    "message": "Double-click to expand or collapse this folder"
+    "message": "Kliknij dwukrotnie, aby rozwinąć lub zwinąć ten folder"
   },
   "hideDetailsPaneTooltip": {
-    "message": "Hide the Details pane"
+    "message": "Ukryj panel Szczegóły"
   },
   "showDetailsPaneTooltip": {
-    "message": "Show the Details pane"
+    "message": "Pokaż panel Szczegóły"
   },
   "clickHideDetails": {
-    "message": "Click to Hide Details"
+    "message": "Kliknij, aby ukryć szczegóły"
   },
   "clickShowDetails": {
-    "message": "Click to Show Details"
+    "message": "Kliknij, aby pokazać szczegóły"
   },
   "dragItemTitle": {
-    "message": "Drag to move or reorder this item"
+    "message": "Przeciągnij, aby przenieść lub zmienić kolejność tego elementu"
   },
   "separator": {
     "message": "Separator"
@@ -429,7 +429,7 @@
     "message": "Niezapisane zmiany"
   },
   "unsavedChangesMessage": {
-    "message": "The Details pane has unsaved changes. What would you like to do?"
+    "message": "Panel Szczegóły ma niezapisane zmiany. Co chcesz zrobić?"
   },
   "keepEditing": {
     "message": "Kontynuuj edycję"
@@ -438,60 +438,60 @@
     "message": "Odrzuć"
   },
   "couldNotSaveChanges": {
-    "message": "Could not save changes: {error}"
+    "message": "Nie można zapisać zmian: {error}"
   },
   "sortDefaultTooltip": {
-    "message": "Default Chromium folder order. Click to return to Default sorting; this column does not reverse-sort."
+    "message": "Domyślna kolejność folderów Chromium. Kliknij, aby wrócić do sortowania domyślnego; ta kolumna nie sortuje odwrotnie."
   },
   "sortNameAscTooltip": {
-    "message": "Sort by name: A to Z"
+    "message": "Sortuj według nazwy: A do Z"
   },
   "sortNameDescTooltip": {
-    "message": "Sort by name: Z to A"
+    "message": "Sortuj według nazwy: Z do A"
   },
   "sortUrlAscTooltip": {
-    "message": "Sort by URL: A to Z"
+    "message": "Sortuj według URL: A do Z"
   },
   "sortUrlDescTooltip": {
-    "message": "Sort by URL: Z to A"
+    "message": "Sortuj według URL: Z do A"
   },
   "sortDateAscTooltip": {
-    "message": "Sort by date added: oldest first"
+    "message": "Sortuj według daty dodania: najstarsze najpierw"
   },
   "sortDateDescTooltip": {
-    "message": "Sort by date added: newest first"
+    "message": "Sortuj według daty dodania: najnowsze najpierw"
   },
   "sortIdAscTooltip": {
-    "message": "Sort by ID: lowest first"
+    "message": "Sortuj według ID: najniższe najpierw"
   },
   "sortIdDescTooltip": {
-    "message": "Sort by ID: highest first"
+    "message": "Sortuj według ID: najwyższe najpierw"
   },
   "sortBookmarks": {
-    "message": "Sort bookmarks"
+    "message": "Sortuj zakładki"
   },
   "sortSelectDefaultTitle": {
-    "message": "Default Chromium folder order."
+    "message": "Domyślna kolejność folderów Chromium."
   },
   "sortSelectTitleTitle": {
-    "message": "Name sort. Ascending is A to Z; descending is Z to A."
+    "message": "Sortowanie według nazwy. Rosnąco to A do Z; malejąco to Z do A."
   },
   "sortSelectUrlTitle": {
-    "message": "URL sort. Ascending is A to Z; descending is Z to A."
+    "message": "Sortowanie według URL. Rosnąco to A do Z; malejąco to Z do A."
   },
   "sortSelectDateAddedTitle": {
-    "message": "Date added sort. Ascending is oldest first; descending is newest first."
+    "message": "Sortowanie według daty dodania. Rosnąco to najstarsze najpierw; malejąco to najnowsze najpierw."
   },
   "sortSelectIdTitle": {
-    "message": "ID sort. Ascending is lowest first; descending is highest first."
+    "message": "Sortowanie według ID. Rosnąco to najniższe najpierw; malejąco to najwyższe najpierw."
   },
   "managerFailed": {
-    "message": "Bookmark manager failed: {error}"
+    "message": "Menedżer zakładek nie powiódł się: {error}"
   },
   "notAvailable": {
     "message": "Niedostępne"
   },
   "searchLimitFull": {
-    "message": "Limit Search to Current Folder & Subfolders"
+    "message": "Ogranicz wyszukiwanie do bieżącego folderu i podfolderów"
   }
 }

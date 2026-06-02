@@ -3,7 +3,7 @@
     "message": "Simple Bookmarks Manager"
   },
   "appDescription": {
-    "message": "A simple local bookmark manager for Chrome/Chromium inspired by Firefox Places Library patterns."
+    "message": "מנהל סימניות מקומי פשוט עבור Chrome/Chromium בהשראת תבניות ספריית Firefox Places."
   },
   "back": {
     "message": "אחורה"
@@ -21,7 +21,7 @@
     "message": "חיפוש סימניות"
   },
   "searchLimitTitle": {
-    "message": "When enabled, search only the current folder and its subfolders. When disabled, search all bookmarks."
+    "message": "כאשר מופעל, החיפוש מתבצע רק בתיקייה הנוכחית ובתיקיות המשנה שלה. כאשר כבוי, החיפוש מתבצע בכל הסימניות."
   },
   "limitSearchTo": {
     "message": "הגבל חיפוש אל"
@@ -30,10 +30,10 @@
     "message": "התיקייה הנוכחית ותיקיות משנה"
   },
   "openMenu": {
-    "message": "Open menu"
+    "message": "פתח תפריט"
   },
   "openSbmMenu": {
-    "message": "Open Simple Bookmarks Manager menu"
+    "message": "פתח את תפריט Simple Bookmarks Manager"
   },
   "library": {
     "message": "ספרייה"
@@ -54,31 +54,31 @@
     "message": "תאריך הוספה"
   },
   "sortDateAddedHeader": {
-    "message": "Date Added"
+    "message": "תאריך הוספה"
   },
   "sortId": {
     "message": "ID"
   },
   "sortOrder": {
-    "message": "Order"
+    "message": "סדר"
   },
   "bookmarksAria": {
-    "message": "Bookmarks"
+    "message": "סימניות"
   },
   "bookmarkListColumns": {
-    "message": "Bookmark list columns"
+    "message": "עמודות רשימת סימניות"
   },
   "chooseSortModeTitle": {
-    "message": "Choose the middle-pane sort mode. Default uses Chromium’s folder order."
+    "message": "בחר את מצב המיון של החלונית האמצעית. ברירת המחדל משתמשת בסדר התיקיות של Chromium."
   },
   "details": {
     "message": "פרטים"
   },
   "detailsItems": {
-    "message": "Details Items"
+    "message": "פרטי פריט"
   },
   "detailsMultiselect": {
-    "message": "Details Multiselect"
+    "message": "פרטי בחירה מרובה"
   },
   "url": {
     "message": "URL"
@@ -102,19 +102,19 @@
     "message": "מחק סימנייה"
   },
   "advancedDetails": {
-    "message": "Advanced Details"
+    "message": "פרטים מתקדמים"
   },
   "advancedBookmarkDetails": {
-    "message": "Advanced bookmark details"
+    "message": "פרטי סימנייה מתקדמים"
   },
   "guidUuid": {
     "message": "GUID / UUID"
   },
   "dateAdded": {
-    "message": "Date Added"
+    "message": "תאריך הוספה"
   },
   "dateLastUsed": {
-    "message": "Date Last Used"
+    "message": "שימוש אחרון"
   },
   "totalSelected": {
     "message": "סה״כ נבחרו:"
@@ -129,7 +129,7 @@
     "message": "מפרידים:"
   },
   "emptyDetails": {
-    "message": "Select one item, or select a folder to show its contents."
+    "message": "בחר פריט אחד, או בחר תיקייה כדי להציג את התוכן שלה."
   },
   "optionsTitle": {
     "message": "אפשרויות Simple Bookmarks Manager"
@@ -141,13 +141,13 @@
     "message": "נשמר"
   },
   "saveFailed": {
-    "message": "Save failed: {error}"
+    "message": "השמירה נכשלה: {error}"
   },
   "loadFailed": {
-    "message": "Load failed: {error}"
+    "message": "הטעינה נכשלה: {error}"
   },
   "defaultsRestored": {
-    "message": "Defaults restored"
+    "message": "ברירות המחדל שוחזרו"
   },
   "userInterface": {
     "message": "ממשק משתמש"
@@ -156,13 +156,13 @@
     "message": "שפת הממשק"
   },
   "userInterfaceLanguageHelp": {
-    "message": "Automatic follows the browser UI language. Manual choices affect the manager and options pages."
+    "message": "אוטומטי עוקב אחרי שפת ממשק הדפדפן. בחירות ידניות משפיעות על המנהל ועל דפי האפשרויות."
   },
   "font": {
     "message": "גופן"
   },
   "fontHelp": {
-    "message": "Controls the main font family used by the bookmark manager UI."
+    "message": "קובע את משפחת הגופן הראשית המשמשת את ממשק מנהל הסימניות."
   },
   "fontSystem": {
     "message": "ברירת מחדל של המערכת"
@@ -174,25 +174,25 @@
     "message": "Georgia / Times"
   },
   "fontMono": {
-    "message": "Consolas / monospace"
+    "message": "Consolas / חד-רווחי"
   },
   "fontSize": {
     "message": "גודל גופן"
   },
   "fontSizeHelp": {
-    "message": "Base text size. Headings and column labels scale relative to this value."
+    "message": "גודל טקסט בסיסי. כותרות ותוויות עמודות משתנות יחסית לערך זה."
   },
   "fontSpacing": {
     "message": "ריווח גופן"
   },
   "fontSpacingHelp": {
-    "message": "Line spacing multiplier for denser or more readable rows and labels."
+    "message": "מכפיל מרווח שורות לשורות ותוויות צפופות יותר או קריאות יותר."
   },
   "search": {
     "message": "חיפוש"
   },
   "searchLimitOptionHelp": {
-    "message": "When enabled, the main search box searches only inside the current visible folder tree."
+    "message": "כאשר מופעל, תיבת החיפוש הראשית מחפשת רק בתוך עץ התיקייה הנראה הנוכחי."
   },
   "safety": {
     "message": "בטיחות"
@@ -201,43 +201,43 @@
     "message": "הצג אישור מחיקה"
   },
   "showDeleteWarningHelp": {
-    "message": "Ask before deleting bookmark items or folders."
+    "message": "שאל לפני מחיקת פריטי סימניות או תיקיות."
   },
   "showSortWarning": {
     "message": "הצג אישור למיון קבוע"
   },
   "showSortWarningHelp": {
-    "message": "Ask before applying context-menu sorts that permanently reorder a bookmark folder."
+    "message": "שאל לפני החלת מיון מתפריט ההקשר שמשנה לצמיתות את סדר תיקיית הסימניות."
   },
   "allowKeyboardDelete": {
     "message": "אפשר למקש Delete למחוק פריטים נבחרים"
   },
   "allowKeyboardDeleteHelp": {
-    "message": "When disabled, the Delete key no longer deletes selected bookmark entries."
+    "message": "כאשר כבוי, מקש Delete לא מוחק עוד רשומות סימניות שנבחרו."
   },
   "sorting": {
     "message": "מיון"
   },
   "naturalSort": {
-    "message": "Use natural folder/bookmark sort order"
+    "message": "השתמש בסדר טבעי של תיקיות/סימניות"
   },
   "naturalSortHelp": {
-    "message": "Permanent Sort by Name places folders first, separators next, then bookmarks."
+    "message": "מיון קבוע לפי שם מציב קודם תיקיות, אחר כך מפרידים, ואז סימניות."
   },
   "advanced": {
     "message": "מתקדם"
   },
   "enableAdvancedViewing": {
-    "message": "Enable advanced details viewing"
+    "message": "הפעל הצגת פרטים מתקדמים"
   },
   "enableAdvancedViewingHelp": {
-    "message": "Show read-only advanced bookmark metadata in the Details pane."
+    "message": "הצג מטא-נתונים מתקדמים של סימניות לקריאה בלבד בחלונית הפרטים."
   },
   "enableAdvancedEditing": {
-    "message": "Enable advanced details editing"
+    "message": "הפעל עריכת פרטים מתקדמים"
   },
   "enableAdvancedEditingHelp": {
-    "message": "Allow supported advanced editing, currently limited to bookmark index changes."
+    "message": "אפשר עריכה מתקדמת נתמכת, כרגע מוגבלת לשינויי אינדקס סימנייה."
   },
   "resetDefaults": {
     "message": "אפס לברירות מחדל"
@@ -255,79 +255,79 @@
     "message": "(סימנייה)"
   },
   "rootFallback": {
-    "message": "(root)"
+    "message": "(שורש)"
   },
   "browserRoot": {
-    "message": "Browser root"
+    "message": "שורש הדפדפן"
   },
   "bookmarksPathFallback": {
     "message": "סימניות"
   },
   "sortDate": {
-    "message": "date"
+    "message": "תאריך"
   },
   "sortNameLower": {
-    "message": "name"
+    "message": "שם"
   },
   "sortFolderConfirm": {
-    "message": "Sort \"{folderName}\" by {sortName}?\n\nThis permanently changes the saved bookmark order in Chromium. It is different from the temporary Visual sort dropdown."
+    "message": "למיין את „{folderName}” לפי {sortName}?\n\nפעולה זו משנה לצמיתות את סדר הסימניות השמור ב-Chromium. היא שונה מהרשימה הזמנית מיון חזותי."
   },
   "couldNotOpenWindow": {
-    "message": "Could not open {windowType} window: {error}"
+    "message": "לא ניתן לפתוח חלון {windowType}: {error}"
   },
   "privateWindowType": {
-    "message": "private"
+    "message": "פרטי"
   },
   "newWindowType": {
-    "message": "new"
+    "message": "חדש"
   },
   "couldNotOpenTabGroup": {
-    "message": "Could not open tab group: {error}"
+    "message": "לא ניתן לפתוח קבוצת כרטיסיות: {error}"
   },
   "newFolderNamePrompt": {
-    "message": "New folder name"
+    "message": "שם תיקייה חדשה"
   },
   "folderNamePrompt": {
-    "message": "Folder name"
+    "message": "שם תיקייה"
   },
   "bookmarkNamePrompt": {
-    "message": "Bookmark name"
+    "message": "שם סימנייה"
   },
   "bookmarkUrlPrompt": {
-    "message": "Bookmark URL"
+    "message": "כתובת URL של סימנייה"
   },
   "deleteSingleConfirm": {
-    "message": "Delete \"{label}\"?"
+    "message": "למחוק את „{label}”?"
   },
   "deleteMultipleConfirm": {
-    "message": "Delete {count} selected item(s)?"
+    "message": "למחוק {count} פריטים שנבחרו?"
   },
   "thisItem": {
-    "message": "this item"
+    "message": "פריט זה"
   },
   "newFolderDefaultName": {
     "message": "תיקייה חדשה"
   },
   "couldNotMoveBookmark": {
-    "message": "Could not move bookmark item: {error}"
+    "message": "לא ניתן להזיז את פריט הסימנייה: {error}"
   },
   "actionFailed": {
-    "message": "Action failed: {error}"
+    "message": "הפעולה נכשלה: {error}"
   },
   "openDefaultBookmarksManager": {
-    "message": "Open Default Bookmarks Manager"
+    "message": "פתח את מנהל הסימניות המוגדר כברירת מחדל"
   },
   "options": {
-    "message": "Options"
+    "message": "אפשרויות"
   },
   "help": {
-    "message": "Help"
+    "message": "עזרה"
   },
   "about": {
-    "message": "About"
+    "message": "אודות"
   },
   "renameFolder": {
-    "message": "Rename Folder"
+    "message": "שנה שם תיקייה"
   },
   "cut": {
     "message": "גזור"
@@ -366,10 +366,10 @@
     "message": "פתח הכל בחלון פרטי"
   },
   "openAllInNewTabGroup": {
-    "message": "Open All in New Tab Group"
+    "message": "פתח הכול בקבוצת כרטיסיות חדשה"
   },
   "openAllInSplitView": {
-    "message": "Open All in Split View"
+    "message": "פתח הכול בתצוגה מפוצלת"
   },
   "edit": {
     "message": "ערוך"
@@ -384,10 +384,10 @@
     "message": "פתח בחלון פרטי"
   },
   "openInNewTabGroup": {
-    "message": "Open in New Tab Group"
+    "message": "פתח בקבוצת כרטיסיות חדשה"
   },
   "openInSplitView": {
-    "message": "Open in Split View"
+    "message": "פתח בתצוגה מפוצלת"
   },
   "expandAll": {
     "message": "הרחב הכל"
@@ -396,31 +396,31 @@
     "message": "כווץ הכל"
   },
   "dragFolderTitle": {
-    "message": "Drag to reorder this folder"
+    "message": "גרור כדי לסדר מחדש תיקייה זו"
   },
   "collapseFolderTitle": {
-    "message": "Collapse folder"
+    "message": "כווץ תיקייה"
   },
   "expandFolderTitle": {
-    "message": "Expand folder"
+    "message": "הרחב תיקייה"
   },
   "doubleClickExpandCollapseTitle": {
-    "message": "Double-click to expand or collapse this folder"
+    "message": "לחץ פעמיים כדי להרחיב או לכווץ תיקייה זו"
   },
   "hideDetailsPaneTooltip": {
-    "message": "Hide the Details pane"
+    "message": "הסתר את חלונית הפרטים"
   },
   "showDetailsPaneTooltip": {
-    "message": "Show the Details pane"
+    "message": "הצג את חלונית הפרטים"
   },
   "clickHideDetails": {
-    "message": "Click to Hide Details"
+    "message": "לחץ כדי להסתיר פרטים"
   },
   "clickShowDetails": {
-    "message": "Click to Show Details"
+    "message": "לחץ כדי להציג פרטים"
   },
   "dragItemTitle": {
-    "message": "Drag to move or reorder this item"
+    "message": "גרור כדי להזיז או לסדר מחדש פריט זה"
   },
   "separator": {
     "message": "מפריד"
@@ -429,7 +429,7 @@
     "message": "שינויים שלא נשמרו"
   },
   "unsavedChangesMessage": {
-    "message": "The Details pane has unsaved changes. What would you like to do?"
+    "message": "בחלונית הפרטים יש שינויים שלא נשמרו. מה ברצונך לעשות?"
   },
   "keepEditing": {
     "message": "המשך לערוך"
@@ -438,60 +438,60 @@
     "message": "בטל"
   },
   "couldNotSaveChanges": {
-    "message": "Could not save changes: {error}"
+    "message": "לא ניתן לשמור שינויים: {error}"
   },
   "sortDefaultTooltip": {
-    "message": "Default Chromium folder order. Click to return to Default sorting; this column does not reverse-sort."
+    "message": "סדר התיקיות המוגדר כברירת מחדל של Chromium. לחץ כדי לחזור למיון ברירת המחדל; עמודה זו אינה ממיינת הפוך."
   },
   "sortNameAscTooltip": {
-    "message": "Sort by name: A to Z"
+    "message": "מיין לפי שם: A עד Z"
   },
   "sortNameDescTooltip": {
-    "message": "Sort by name: Z to A"
+    "message": "מיין לפי שם: Z עד A"
   },
   "sortUrlAscTooltip": {
-    "message": "Sort by URL: A to Z"
+    "message": "מיין לפי URL: A עד Z"
   },
   "sortUrlDescTooltip": {
-    "message": "Sort by URL: Z to A"
+    "message": "מיין לפי URL: Z עד A"
   },
   "sortDateAscTooltip": {
-    "message": "Sort by date added: oldest first"
+    "message": "מיין לפי תאריך הוספה: הישן ביותר תחילה"
   },
   "sortDateDescTooltip": {
-    "message": "Sort by date added: newest first"
+    "message": "מיין לפי תאריך הוספה: החדש ביותר תחילה"
   },
   "sortIdAscTooltip": {
-    "message": "Sort by ID: lowest first"
+    "message": "מיין לפי ID: הנמוך ביותר תחילה"
   },
   "sortIdDescTooltip": {
-    "message": "Sort by ID: highest first"
+    "message": "מיין לפי ID: הגבוה ביותר תחילה"
   },
   "sortBookmarks": {
-    "message": "Sort bookmarks"
+    "message": "מיין סימניות"
   },
   "sortSelectDefaultTitle": {
-    "message": "Default Chromium folder order."
+    "message": "סדר התיקיות המוגדר כברירת מחדל של Chromium."
   },
   "sortSelectTitleTitle": {
-    "message": "Name sort. Ascending is A to Z; descending is Z to A."
+    "message": "מיון לפי שם. עולה הוא A עד Z; יורד הוא Z עד A."
   },
   "sortSelectUrlTitle": {
-    "message": "URL sort. Ascending is A to Z; descending is Z to A."
+    "message": "מיון לפי URL. עולה הוא A עד Z; יורד הוא Z עד A."
   },
   "sortSelectDateAddedTitle": {
-    "message": "Date added sort. Ascending is oldest first; descending is newest first."
+    "message": "מיון לפי תאריך הוספה. עולה הוא הישן ביותר תחילה; יורד הוא החדש ביותר תחילה."
   },
   "sortSelectIdTitle": {
-    "message": "ID sort. Ascending is lowest first; descending is highest first."
+    "message": "מיון לפי ID. עולה הוא הנמוך ביותר תחילה; יורד הוא הגבוה ביותר תחילה."
   },
   "managerFailed": {
-    "message": "Bookmark manager failed: {error}"
+    "message": "מנהל הסימניות נכשל: {error}"
   },
   "notAvailable": {
     "message": "לא זמין"
   },
   "searchLimitFull": {
-    "message": "Limit Search to Current Folder & Subfolders"
+    "message": "הגבל חיפוש לתיקייה הנוכחית ולתיקיות משנה"
   }
 }

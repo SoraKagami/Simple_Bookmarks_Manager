@@ -3,7 +3,7 @@
     "message": "Simple Bookmarks Manager"
   },
   "appDescription": {
-    "message": "A simple local bookmark manager for Chrome/Chromium inspired by Firefox Places Library patterns."
+    "message": "Pengelola bookmark lokal sederhana untuk Chrome/Chromium yang terinspirasi pola Firefox Places Library."
   },
   "back": {
     "message": "Kembali"
@@ -21,7 +21,7 @@
     "message": "Cari bookmark"
   },
   "searchLimitTitle": {
-    "message": "When enabled, search only the current folder and its subfolders. When disabled, search all bookmarks."
+    "message": "Jika aktif, cari hanya folder saat ini dan subfoldernya. Jika nonaktif, cari semua bookmark."
   },
   "limitSearchTo": {
     "message": "Batasi pencarian ke"
@@ -30,10 +30,10 @@
     "message": "Folder saat ini dan subfolder"
   },
   "openMenu": {
-    "message": "Open menu"
+    "message": "Buka menu"
   },
   "openSbmMenu": {
-    "message": "Open Simple Bookmarks Manager menu"
+    "message": "Buka menu Simple Bookmarks Manager"
   },
   "library": {
     "message": "Pustaka"
@@ -54,31 +54,31 @@
     "message": "Tanggal ditambahkan"
   },
   "sortDateAddedHeader": {
-    "message": "Date Added"
+    "message": "Tanggal ditambahkan"
   },
   "sortId": {
     "message": "ID"
   },
   "sortOrder": {
-    "message": "Order"
+    "message": "Urutan"
   },
   "bookmarksAria": {
-    "message": "Bookmarks"
+    "message": "Bookmark"
   },
   "bookmarkListColumns": {
-    "message": "Bookmark list columns"
+    "message": "Kolom daftar bookmark"
   },
   "chooseSortModeTitle": {
-    "message": "Choose the middle-pane sort mode. Default uses Chromium’s folder order."
+    "message": "Pilih mode pengurutan panel tengah. Default memakai urutan folder Chromium."
   },
   "details": {
     "message": "Detail"
   },
   "detailsItems": {
-    "message": "Details Items"
+    "message": "Detail item"
   },
   "detailsMultiselect": {
-    "message": "Details Multiselect"
+    "message": "Detail multipilih"
   },
   "url": {
     "message": "URL"
@@ -102,19 +102,19 @@
     "message": "Hapus bookmark"
   },
   "advancedDetails": {
-    "message": "Advanced Details"
+    "message": "Detail lanjutan"
   },
   "advancedBookmarkDetails": {
-    "message": "Advanced bookmark details"
+    "message": "Detail bookmark lanjutan"
   },
   "guidUuid": {
     "message": "GUID / UUID"
   },
   "dateAdded": {
-    "message": "Date Added"
+    "message": "Tanggal ditambahkan"
   },
   "dateLastUsed": {
-    "message": "Date Last Used"
+    "message": "Terakhir digunakan"
   },
   "totalSelected": {
     "message": "Total dipilih:"
@@ -129,7 +129,7 @@
     "message": "Pemisah:"
   },
   "emptyDetails": {
-    "message": "Select one item, or select a folder to show its contents."
+    "message": "Pilih satu item, atau pilih folder untuk menampilkan isinya."
   },
   "optionsTitle": {
     "message": "Opsi Simple Bookmarks Manager"
@@ -141,13 +141,13 @@
     "message": "Tersimpan"
   },
   "saveFailed": {
-    "message": "Save failed: {error}"
+    "message": "Gagal menyimpan: {error}"
   },
   "loadFailed": {
-    "message": "Load failed: {error}"
+    "message": "Gagal memuat: {error}"
   },
   "defaultsRestored": {
-    "message": "Defaults restored"
+    "message": "Default dipulihkan"
   },
   "userInterface": {
     "message": "Antarmuka Pengguna"
@@ -156,13 +156,13 @@
     "message": "Bahasa Antarmuka"
   },
   "userInterfaceLanguageHelp": {
-    "message": "Automatic follows the browser UI language. Manual choices affect the manager and options pages."
+    "message": "Otomatis mengikuti bahasa UI browser. Pilihan manual memengaruhi pengelola dan halaman opsi."
   },
   "font": {
     "message": "Font"
   },
   "fontHelp": {
-    "message": "Controls the main font family used by the bookmark manager UI."
+    "message": "Mengatur keluarga font utama yang digunakan UI pengelola bookmark."
   },
   "fontSystem": {
     "message": "Default sistem"
@@ -180,19 +180,19 @@
     "message": "Ukuran font"
   },
   "fontSizeHelp": {
-    "message": "Base text size. Headings and column labels scale relative to this value."
+    "message": "Ukuran teks dasar. Judul dan label kolom berskala relatif terhadap nilai ini."
   },
   "fontSpacing": {
     "message": "Jarak font"
   },
   "fontSpacingHelp": {
-    "message": "Line spacing multiplier for denser or more readable rows and labels."
+    "message": "Pengali spasi baris untuk baris dan label yang lebih padat atau mudah dibaca."
   },
   "search": {
     "message": "Pencarian"
   },
   "searchLimitOptionHelp": {
-    "message": "When enabled, the main search box searches only inside the current visible folder tree."
+    "message": "Jika aktif, kotak pencarian utama hanya mencari di dalam pohon folder yang sedang terlihat."
   },
   "safety": {
     "message": "Keamanan"
@@ -201,43 +201,43 @@
     "message": "Tampilkan konfirmasi hapus"
   },
   "showDeleteWarningHelp": {
-    "message": "Ask before deleting bookmark items or folders."
+    "message": "Tanya sebelum menghapus item bookmark atau folder."
   },
   "showSortWarning": {
     "message": "Tampilkan konfirmasi pengurutan permanen"
   },
   "showSortWarningHelp": {
-    "message": "Ask before applying context-menu sorts that permanently reorder a bookmark folder."
+    "message": "Tanya sebelum menerapkan pengurutan menu konteks yang mengubah permanen urutan folder bookmark."
   },
   "allowKeyboardDelete": {
     "message": "Izinkan tombol Delete menghapus item terpilih"
   },
   "allowKeyboardDeleteHelp": {
-    "message": "When disabled, the Delete key no longer deletes selected bookmark entries."
+    "message": "Jika nonaktif, tombol Delete tidak lagi menghapus entri bookmark terpilih."
   },
   "sorting": {
     "message": "Pengurutan"
   },
   "naturalSort": {
-    "message": "Use natural folder/bookmark sort order"
+    "message": "Gunakan urutan alami folder/bookmark"
   },
   "naturalSortHelp": {
-    "message": "Permanent Sort by Name places folders first, separators next, then bookmarks."
+    "message": "Sortir permanen berdasarkan nama menempatkan folder terlebih dahulu, lalu pemisah, lalu bookmark."
   },
   "advanced": {
     "message": "Lanjutan"
   },
   "enableAdvancedViewing": {
-    "message": "Enable advanced details viewing"
+    "message": "Aktifkan tampilan detail lanjutan"
   },
   "enableAdvancedViewingHelp": {
-    "message": "Show read-only advanced bookmark metadata in the Details pane."
+    "message": "Tampilkan metadata bookmark lanjutan baca-saja di panel Detail."
   },
   "enableAdvancedEditing": {
-    "message": "Enable advanced details editing"
+    "message": "Aktifkan pengeditan detail lanjutan"
   },
   "enableAdvancedEditingHelp": {
-    "message": "Allow supported advanced editing, currently limited to bookmark index changes."
+    "message": "Izinkan pengeditan lanjutan yang didukung, saat ini terbatas pada perubahan indeks bookmark."
   },
   "resetDefaults": {
     "message": "Pulihkan default"
@@ -258,76 +258,76 @@
     "message": "(root)"
   },
   "browserRoot": {
-    "message": "Browser root"
+    "message": "Root browser"
   },
   "bookmarksPathFallback": {
     "message": "Bookmark"
   },
   "sortDate": {
-    "message": "date"
+    "message": "tanggal"
   },
   "sortNameLower": {
-    "message": "name"
+    "message": "nama"
   },
   "sortFolderConfirm": {
-    "message": "Sort \"{folderName}\" by {sortName}?\n\nThis permanently changes the saved bookmark order in Chromium. It is different from the temporary Visual sort dropdown."
+    "message": "Sortir “{folderName}” berdasarkan {sortName}?\n\nIni mengubah permanen urutan bookmark yang tersimpan di Chromium. Ini berbeda dari dropdown Sortir visual sementara."
   },
   "couldNotOpenWindow": {
-    "message": "Could not open {windowType} window: {error}"
+    "message": "Tidak dapat membuka jendela {windowType}: {error}"
   },
   "privateWindowType": {
-    "message": "private"
+    "message": "privat"
   },
   "newWindowType": {
-    "message": "new"
+    "message": "baru"
   },
   "couldNotOpenTabGroup": {
-    "message": "Could not open tab group: {error}"
+    "message": "Tidak dapat membuka grup tab: {error}"
   },
   "newFolderNamePrompt": {
-    "message": "New folder name"
+    "message": "Nama folder baru"
   },
   "folderNamePrompt": {
-    "message": "Folder name"
+    "message": "Nama folder"
   },
   "bookmarkNamePrompt": {
-    "message": "Bookmark name"
+    "message": "Nama bookmark"
   },
   "bookmarkUrlPrompt": {
-    "message": "Bookmark URL"
+    "message": "URL bookmark"
   },
   "deleteSingleConfirm": {
-    "message": "Delete \"{label}\"?"
+    "message": "Hapus “{label}”?"
   },
   "deleteMultipleConfirm": {
-    "message": "Delete {count} selected item(s)?"
+    "message": "Hapus {count} item terpilih?"
   },
   "thisItem": {
-    "message": "this item"
+    "message": "item ini"
   },
   "newFolderDefaultName": {
     "message": "Folder Baru"
   },
   "couldNotMoveBookmark": {
-    "message": "Could not move bookmark item: {error}"
+    "message": "Tidak dapat memindahkan item bookmark: {error}"
   },
   "actionFailed": {
-    "message": "Action failed: {error}"
+    "message": "Aksi gagal: {error}"
   },
   "openDefaultBookmarksManager": {
-    "message": "Open Default Bookmarks Manager"
+    "message": "Buka Pengelola Bookmark Default"
   },
   "options": {
-    "message": "Options"
+    "message": "Opsi"
   },
   "help": {
-    "message": "Help"
+    "message": "Bantuan"
   },
   "about": {
-    "message": "About"
+    "message": "Tentang"
   },
   "renameFolder": {
-    "message": "Rename Folder"
+    "message": "Ganti nama folder"
   },
   "cut": {
     "message": "Potong"
@@ -366,10 +366,10 @@
     "message": "Buka semua di jendela pribadi"
   },
   "openAllInNewTabGroup": {
-    "message": "Open All in New Tab Group"
+    "message": "Buka semua di grup tab baru"
   },
   "openAllInSplitView": {
-    "message": "Open All in Split View"
+    "message": "Buka semua di tampilan terpisah"
   },
   "edit": {
     "message": "Edit"
@@ -384,10 +384,10 @@
     "message": "Buka di jendela pribadi"
   },
   "openInNewTabGroup": {
-    "message": "Open in New Tab Group"
+    "message": "Buka di grup tab baru"
   },
   "openInSplitView": {
-    "message": "Open in Split View"
+    "message": "Buka di tampilan terpisah"
   },
   "expandAll": {
     "message": "Luaskan semua"
@@ -396,31 +396,31 @@
     "message": "Ciutkan semua"
   },
   "dragFolderTitle": {
-    "message": "Drag to reorder this folder"
+    "message": "Seret untuk mengurutkan ulang folder ini"
   },
   "collapseFolderTitle": {
-    "message": "Collapse folder"
+    "message": "Ciutkan folder"
   },
   "expandFolderTitle": {
-    "message": "Expand folder"
+    "message": "Bentangkan folder"
   },
   "doubleClickExpandCollapseTitle": {
-    "message": "Double-click to expand or collapse this folder"
+    "message": "Klik dua kali untuk membentangkan atau menciutkan folder ini"
   },
   "hideDetailsPaneTooltip": {
-    "message": "Hide the Details pane"
+    "message": "Sembunyikan panel Detail"
   },
   "showDetailsPaneTooltip": {
-    "message": "Show the Details pane"
+    "message": "Tampilkan panel Detail"
   },
   "clickHideDetails": {
-    "message": "Click to Hide Details"
+    "message": "Klik untuk menyembunyikan detail"
   },
   "clickShowDetails": {
-    "message": "Click to Show Details"
+    "message": "Klik untuk menampilkan detail"
   },
   "dragItemTitle": {
-    "message": "Drag to move or reorder this item"
+    "message": "Seret untuk memindahkan atau mengurutkan ulang item ini"
   },
   "separator": {
     "message": "Pemisah"
@@ -429,7 +429,7 @@
     "message": "Perubahan belum disimpan"
   },
   "unsavedChangesMessage": {
-    "message": "The Details pane has unsaved changes. What would you like to do?"
+    "message": "Panel Detail memiliki perubahan yang belum disimpan. Apa yang ingin Anda lakukan?"
   },
   "keepEditing": {
     "message": "Lanjut edit"
@@ -438,60 +438,60 @@
     "message": "Buang"
   },
   "couldNotSaveChanges": {
-    "message": "Could not save changes: {error}"
+    "message": "Tidak dapat menyimpan perubahan: {error}"
   },
   "sortDefaultTooltip": {
-    "message": "Default Chromium folder order. Click to return to Default sorting; this column does not reverse-sort."
+    "message": "Urutan folder Chromium default. Klik untuk kembali ke pengurutan default; kolom ini tidak mengurutkan balik."
   },
   "sortNameAscTooltip": {
-    "message": "Sort by name: A to Z"
+    "message": "Sortir berdasarkan nama: A ke Z"
   },
   "sortNameDescTooltip": {
-    "message": "Sort by name: Z to A"
+    "message": "Sortir berdasarkan nama: Z ke A"
   },
   "sortUrlAscTooltip": {
-    "message": "Sort by URL: A to Z"
+    "message": "Sortir berdasarkan URL: A ke Z"
   },
   "sortUrlDescTooltip": {
-    "message": "Sort by URL: Z to A"
+    "message": "Sortir berdasarkan URL: Z ke A"
   },
   "sortDateAscTooltip": {
-    "message": "Sort by date added: oldest first"
+    "message": "Sortir berdasarkan tanggal ditambahkan: terlama dulu"
   },
   "sortDateDescTooltip": {
-    "message": "Sort by date added: newest first"
+    "message": "Sortir berdasarkan tanggal ditambahkan: terbaru dulu"
   },
   "sortIdAscTooltip": {
-    "message": "Sort by ID: lowest first"
+    "message": "Sortir berdasarkan ID: terendah dulu"
   },
   "sortIdDescTooltip": {
-    "message": "Sort by ID: highest first"
+    "message": "Sortir berdasarkan ID: tertinggi dulu"
   },
   "sortBookmarks": {
-    "message": "Sort bookmarks"
+    "message": "Sortir bookmark"
   },
   "sortSelectDefaultTitle": {
-    "message": "Default Chromium folder order."
+    "message": "Urutan folder Chromium default."
   },
   "sortSelectTitleTitle": {
-    "message": "Name sort. Ascending is A to Z; descending is Z to A."
+    "message": "Pengurutan nama. Menaik adalah A ke Z; menurun adalah Z ke A."
   },
   "sortSelectUrlTitle": {
-    "message": "URL sort. Ascending is A to Z; descending is Z to A."
+    "message": "Pengurutan URL. Menaik adalah A ke Z; menurun adalah Z ke A."
   },
   "sortSelectDateAddedTitle": {
-    "message": "Date added sort. Ascending is oldest first; descending is newest first."
+    "message": "Pengurutan tanggal ditambahkan. Menaik adalah terlama dulu; menurun adalah terbaru dulu."
   },
   "sortSelectIdTitle": {
-    "message": "ID sort. Ascending is lowest first; descending is highest first."
+    "message": "Pengurutan ID. Menaik adalah terendah dulu; menurun adalah tertinggi dulu."
   },
   "managerFailed": {
-    "message": "Bookmark manager failed: {error}"
+    "message": "Pengelola bookmark gagal: {error}"
   },
   "notAvailable": {
     "message": "Tidak tersedia"
   },
   "searchLimitFull": {
-    "message": "Limit Search to Current Folder & Subfolders"
+    "message": "Batasi pencarian ke folder saat ini dan subfolder"
   }
 }

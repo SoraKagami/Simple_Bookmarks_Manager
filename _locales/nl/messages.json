@@ -3,7 +3,7 @@
     "message": "Simple Bookmarks Manager"
   },
   "appDescription": {
-    "message": "A simple local bookmark manager for Chrome/Chromium inspired by Firefox Places Library patterns."
+    "message": "Een eenvoudige lokale bladwijzerbeheerder voor Chrome/Chromium, geïnspireerd op de patronen van Firefox Places-bibliotheek."
   },
   "back": {
     "message": "Terug"
@@ -21,7 +21,7 @@
     "message": "Bladwijzers zoeken"
   },
   "searchLimitTitle": {
-    "message": "When enabled, search only the current folder and its subfolders. When disabled, search all bookmarks."
+    "message": "Indien ingeschakeld, wordt alleen de huidige map en de submappen doorzocht. Indien uitgeschakeld, worden alle bladwijzers doorzocht."
   },
   "limitSearchTo": {
     "message": "Zoeken beperken tot"
@@ -30,10 +30,10 @@
     "message": "Huidige map en submappen"
   },
   "openMenu": {
-    "message": "Open menu"
+    "message": "Menu openen"
   },
   "openSbmMenu": {
-    "message": "Open Simple Bookmarks Manager menu"
+    "message": "Simple Bookmarks Manager-menu openen"
   },
   "library": {
     "message": "Bibliotheek"
@@ -54,31 +54,31 @@
     "message": "Toegevoegd op"
   },
   "sortDateAddedHeader": {
-    "message": "Date Added"
+    "message": "Toegevoegd op"
   },
   "sortId": {
     "message": "ID"
   },
   "sortOrder": {
-    "message": "Order"
+    "message": "Volgorde"
   },
   "bookmarksAria": {
-    "message": "Bookmarks"
+    "message": "Bladwijzers"
   },
   "bookmarkListColumns": {
-    "message": "Bookmark list columns"
+    "message": "Kolommen van bladwijzerlijst"
   },
   "chooseSortModeTitle": {
-    "message": "Choose the middle-pane sort mode. Default uses Chromium’s folder order."
+    "message": "Kies de sorteermodus voor het middelste paneel. Standaard gebruikt de Chromium-mapvolgorde."
   },
   "details": {
     "message": "Details"
   },
   "detailsItems": {
-    "message": "Details Items"
+    "message": "Itemdetails"
   },
   "detailsMultiselect": {
-    "message": "Details Multiselect"
+    "message": "Details van meervoudige selectie"
   },
   "url": {
     "message": "URL"
@@ -102,19 +102,19 @@
     "message": "Bladwijzer verwijderen"
   },
   "advancedDetails": {
-    "message": "Advanced Details"
+    "message": "Geavanceerde details"
   },
   "advancedBookmarkDetails": {
-    "message": "Advanced bookmark details"
+    "message": "Geavanceerde bladwijzerdetails"
   },
   "guidUuid": {
     "message": "GUID / UUID"
   },
   "dateAdded": {
-    "message": "Date Added"
+    "message": "Toegevoegd op"
   },
   "dateLastUsed": {
-    "message": "Date Last Used"
+    "message": "Laatst gebruikt"
   },
   "totalSelected": {
     "message": "Totaal geselecteerd:"
@@ -129,7 +129,7 @@
     "message": "Scheidingstekens:"
   },
   "emptyDetails": {
-    "message": "Select one item, or select a folder to show its contents."
+    "message": "Selecteer één item of selecteer een map om de inhoud te tonen."
   },
   "optionsTitle": {
     "message": "Opties voor Simple Bookmarks Manager"
@@ -141,13 +141,13 @@
     "message": "Opgeslagen"
   },
   "saveFailed": {
-    "message": "Save failed: {error}"
+    "message": "Opslaan mislukt: {error}"
   },
   "loadFailed": {
-    "message": "Load failed: {error}"
+    "message": "Laden mislukt: {error}"
   },
   "defaultsRestored": {
-    "message": "Defaults restored"
+    "message": "Standaardwaarden hersteld"
   },
   "userInterface": {
     "message": "Gebruikersinterface"
@@ -156,13 +156,13 @@
     "message": "Interfacetaal"
   },
   "userInterfaceLanguageHelp": {
-    "message": "Automatic follows the browser UI language. Manual choices affect the manager and options pages."
+    "message": "Automatisch volgt de taal van de browserinterface. Handmatige keuzes gelden voor de beheerder en optiespagina’s."
   },
   "font": {
     "message": "Lettertype"
   },
   "fontHelp": {
-    "message": "Controls the main font family used by the bookmark manager UI."
+    "message": "Bepaalt de hoofdlettertypefamilie die wordt gebruikt door de bladwijzerbeheerinterface."
   },
   "fontSystem": {
     "message": "Systeemstandaard"
@@ -180,19 +180,19 @@
     "message": "Lettergrootte"
   },
   "fontSizeHelp": {
-    "message": "Base text size. Headings and column labels scale relative to this value."
+    "message": "Basistekstgrootte. Koppen en kolomlabels schalen relatief aan deze waarde."
   },
   "fontSpacing": {
     "message": "Regelafstand"
   },
   "fontSpacingHelp": {
-    "message": "Line spacing multiplier for denser or more readable rows and labels."
+    "message": "Regelafstandsmultiplier voor compactere of beter leesbare rijen en labels."
   },
   "search": {
     "message": "Zoeken"
   },
   "searchLimitOptionHelp": {
-    "message": "When enabled, the main search box searches only inside the current visible folder tree."
+    "message": "Indien ingeschakeld zoekt het hoofdzoekvak alleen binnen de huidige zichtbare mapstructuur."
   },
   "safety": {
     "message": "Veiligheid"
@@ -201,43 +201,43 @@
     "message": "Verwijderbevestiging tonen"
   },
   "showDeleteWarningHelp": {
-    "message": "Ask before deleting bookmark items or folders."
+    "message": "Vragen voordat bladwijzeritems of mappen worden verwijderd."
   },
   "showSortWarning": {
     "message": "Bevestiging voor permanente sortering tonen"
   },
   "showSortWarningHelp": {
-    "message": "Ask before applying context-menu sorts that permanently reorder a bookmark folder."
+    "message": "Vragen voordat contextmenusorteringen worden toegepast die een bladwijzermap permanent opnieuw ordenen."
   },
   "allowKeyboardDelete": {
     "message": "Delete-toets mag geselecteerde items verwijderen"
   },
   "allowKeyboardDeleteHelp": {
-    "message": "When disabled, the Delete key no longer deletes selected bookmark entries."
+    "message": "Indien uitgeschakeld verwijdert de Delete-toets geselecteerde bladwijzeritems niet meer."
   },
   "sorting": {
     "message": "Sorteren"
   },
   "naturalSort": {
-    "message": "Use natural folder/bookmark sort order"
+    "message": "Natuurlijke map-/bladwijzersortering gebruiken"
   },
   "naturalSortHelp": {
-    "message": "Permanent Sort by Name places folders first, separators next, then bookmarks."
+    "message": "Permanent sorteren op naam plaatst mappen eerst, daarna scheidingen en vervolgens bladwijzers."
   },
   "advanced": {
     "message": "Geavanceerd"
   },
   "enableAdvancedViewing": {
-    "message": "Enable advanced details viewing"
+    "message": "Geavanceerde detailweergave inschakelen"
   },
   "enableAdvancedViewingHelp": {
-    "message": "Show read-only advanced bookmark metadata in the Details pane."
+    "message": "Toon alleen-lezen geavanceerde bladwijzermetadata in het detailpaneel."
   },
   "enableAdvancedEditing": {
-    "message": "Enable advanced details editing"
+    "message": "Geavanceerde detailbewerking inschakelen"
   },
   "enableAdvancedEditingHelp": {
-    "message": "Allow supported advanced editing, currently limited to bookmark index changes."
+    "message": "Ondersteunde geavanceerde bewerking toestaan, momenteel beperkt tot wijzigingen van bladwijzerindex."
   },
   "resetDefaults": {
     "message": "Standaardwaarden herstellen"
@@ -255,79 +255,79 @@
     "message": "(bookmark)"
   },
   "rootFallback": {
-    "message": "(root)"
+    "message": "(hoofdmap)"
   },
   "browserRoot": {
-    "message": "Browser root"
+    "message": "Browserhoofdmap"
   },
   "bookmarksPathFallback": {
     "message": "Bladwijzers"
   },
   "sortDate": {
-    "message": "date"
+    "message": "datum"
   },
   "sortNameLower": {
-    "message": "name"
+    "message": "naam"
   },
   "sortFolderConfirm": {
-    "message": "Sort \"{folderName}\" by {sortName}?\n\nThis permanently changes the saved bookmark order in Chromium. It is different from the temporary Visual sort dropdown."
+    "message": "“{folderName}” sorteren op {sortName}?\n\nDit wijzigt de opgeslagen bladwijzervolgorde in Chromium permanent. Dit verschilt van de tijdelijke keuzelijst Visuele sortering."
   },
   "couldNotOpenWindow": {
-    "message": "Could not open {windowType} window: {error}"
+    "message": "Kan {windowType}-venster niet openen: {error}"
   },
   "privateWindowType": {
-    "message": "private"
+    "message": "privé"
   },
   "newWindowType": {
-    "message": "new"
+    "message": "nieuw"
   },
   "couldNotOpenTabGroup": {
-    "message": "Could not open tab group: {error}"
+    "message": "Kan tabgroep niet openen: {error}"
   },
   "newFolderNamePrompt": {
-    "message": "New folder name"
+    "message": "Nieuwe mapnaam"
   },
   "folderNamePrompt": {
-    "message": "Folder name"
+    "message": "Mapnaam"
   },
   "bookmarkNamePrompt": {
-    "message": "Bookmark name"
+    "message": "Bladwijzernaam"
   },
   "bookmarkUrlPrompt": {
-    "message": "Bookmark URL"
+    "message": "Bladwijzer-URL"
   },
   "deleteSingleConfirm": {
-    "message": "Delete \"{label}\"?"
+    "message": "“{label}” verwijderen?"
   },
   "deleteMultipleConfirm": {
-    "message": "Delete {count} selected item(s)?"
+    "message": "{count} geselecteerde item(s) verwijderen?"
   },
   "thisItem": {
-    "message": "this item"
+    "message": "dit item"
   },
   "newFolderDefaultName": {
     "message": "New Folder"
   },
   "couldNotMoveBookmark": {
-    "message": "Could not move bookmark item: {error}"
+    "message": "Kan bladwijzeritem niet verplaatsen: {error}"
   },
   "actionFailed": {
-    "message": "Action failed: {error}"
+    "message": "Actie mislukt: {error}"
   },
   "openDefaultBookmarksManager": {
-    "message": "Open Default Bookmarks Manager"
+    "message": "Standaard bladwijzerbeheerder openen"
   },
   "options": {
-    "message": "Options"
+    "message": "Opties"
   },
   "help": {
     "message": "Help"
   },
   "about": {
-    "message": "About"
+    "message": "Over"
   },
   "renameFolder": {
-    "message": "Rename Folder"
+    "message": "Map hernoemen"
   },
   "cut": {
     "message": "Knippen"
@@ -366,10 +366,10 @@
     "message": "Alles openen in privévenster"
   },
   "openAllInNewTabGroup": {
-    "message": "Open All in New Tab Group"
+    "message": "Alles openen in nieuwe tabgroep"
   },
   "openAllInSplitView": {
-    "message": "Open All in Split View"
+    "message": "Alles openen in gesplitste weergave"
   },
   "edit": {
     "message": "Bewerken"
@@ -384,10 +384,10 @@
     "message": "Openen in privévenster"
   },
   "openInNewTabGroup": {
-    "message": "Open in New Tab Group"
+    "message": "Openen in nieuwe tabgroep"
   },
   "openInSplitView": {
-    "message": "Open in Split View"
+    "message": "Openen in gesplitste weergave"
   },
   "expandAll": {
     "message": "Alles uitvouwen"
@@ -396,31 +396,31 @@
     "message": "Alles samenvouwen"
   },
   "dragFolderTitle": {
-    "message": "Drag to reorder this folder"
+    "message": "Sleep om deze map opnieuw te ordenen"
   },
   "collapseFolderTitle": {
-    "message": "Collapse folder"
+    "message": "Map samenvouwen"
   },
   "expandFolderTitle": {
-    "message": "Expand folder"
+    "message": "Map uitvouwen"
   },
   "doubleClickExpandCollapseTitle": {
-    "message": "Double-click to expand or collapse this folder"
+    "message": "Dubbelklik om deze map uit of samen te vouwen"
   },
   "hideDetailsPaneTooltip": {
-    "message": "Hide the Details pane"
+    "message": "Detailpaneel verbergen"
   },
   "showDetailsPaneTooltip": {
-    "message": "Show the Details pane"
+    "message": "Detailpaneel tonen"
   },
   "clickHideDetails": {
-    "message": "Click to Hide Details"
+    "message": "Klik om details te verbergen"
   },
   "clickShowDetails": {
-    "message": "Click to Show Details"
+    "message": "Klik om details te tonen"
   },
   "dragItemTitle": {
-    "message": "Drag to move or reorder this item"
+    "message": "Sleep om dit item te verplaatsen of opnieuw te ordenen"
   },
   "separator": {
     "message": "Scheidingsteken"
@@ -429,7 +429,7 @@
     "message": "Niet-opgeslagen wijzigingen"
   },
   "unsavedChangesMessage": {
-    "message": "The Details pane has unsaved changes. What would you like to do?"
+    "message": "Het detailpaneel bevat niet-opgeslagen wijzigingen. Wat wilt u doen?"
   },
   "keepEditing": {
     "message": "Verder bewerken"
@@ -438,60 +438,60 @@
     "message": "Verwerpen"
   },
   "couldNotSaveChanges": {
-    "message": "Could not save changes: {error}"
+    "message": "Kan wijzigingen niet opslaan: {error}"
   },
   "sortDefaultTooltip": {
-    "message": "Default Chromium folder order. Click to return to Default sorting; this column does not reverse-sort."
+    "message": "Standaard Chromium-mapvolgorde. Klik om terug te keren naar standaard sortering; deze kolom sorteert niet omgekeerd."
   },
   "sortNameAscTooltip": {
-    "message": "Sort by name: A to Z"
+    "message": "Sorteren op naam: A tot Z"
   },
   "sortNameDescTooltip": {
-    "message": "Sort by name: Z to A"
+    "message": "Sorteren op naam: Z tot A"
   },
   "sortUrlAscTooltip": {
-    "message": "Sort by URL: A to Z"
+    "message": "Sorteren op URL: A tot Z"
   },
   "sortUrlDescTooltip": {
-    "message": "Sort by URL: Z to A"
+    "message": "Sorteren op URL: Z tot A"
   },
   "sortDateAscTooltip": {
-    "message": "Sort by date added: oldest first"
+    "message": "Sorteren op datum toegevoegd: oudste eerst"
   },
   "sortDateDescTooltip": {
-    "message": "Sort by date added: newest first"
+    "message": "Sorteren op datum toegevoegd: nieuwste eerst"
   },
   "sortIdAscTooltip": {
-    "message": "Sort by ID: lowest first"
+    "message": "Sorteren op ID: laagste eerst"
   },
   "sortIdDescTooltip": {
-    "message": "Sort by ID: highest first"
+    "message": "Sorteren op ID: hoogste eerst"
   },
   "sortBookmarks": {
-    "message": "Sort bookmarks"
+    "message": "Bladwijzers sorteren"
   },
   "sortSelectDefaultTitle": {
-    "message": "Default Chromium folder order."
+    "message": "Standaard Chromium-mapvolgorde."
   },
   "sortSelectTitleTitle": {
-    "message": "Name sort. Ascending is A to Z; descending is Z to A."
+    "message": "Naamsortering. Oplopend is A tot Z; aflopend is Z tot A."
   },
   "sortSelectUrlTitle": {
-    "message": "URL sort. Ascending is A to Z; descending is Z to A."
+    "message": "URL-sortering. Oplopend is A tot Z; aflopend is Z tot A."
   },
   "sortSelectDateAddedTitle": {
-    "message": "Date added sort. Ascending is oldest first; descending is newest first."
+    "message": "Sortering op datum toegevoegd. Oplopend is oudste eerst; aflopend is nieuwste eerst."
   },
   "sortSelectIdTitle": {
-    "message": "ID sort. Ascending is lowest first; descending is highest first."
+    "message": "ID-sortering. Oplopend is laagste eerst; aflopend is hoogste eerst."
   },
   "managerFailed": {
-    "message": "Bookmark manager failed: {error}"
+    "message": "Bladwijzerbeheerder mislukt: {error}"
   },
   "notAvailable": {
     "message": "Niet beschikbaar"
   },
   "searchLimitFull": {
-    "message": "Limit Search to Current Folder & Subfolders"
+    "message": "Zoeken beperken tot huidige map en submappen"
   }
 }

@@ -1,6 +1,6 @@
 # Simple Bookmarks Manager
 
-Version: 0.6.2
+Version: 0.6.3
 
 A Manifest V3 Chrome/Chromium extension that provides a simple local bookmark manager inspired by Firefox Places Library ideas.
 
@@ -103,6 +103,21 @@ Note: v0.2.2+ no longer overrides `chrome://bookmarks`, so Chromium/Brave's buil
 - Chromium BSD license reference: https://chromium.googlesource.com/chromium/src/+/HEAD/LICENSE
 
 ## Changelog
+
+### 0.6.3
+
+- Finished translating remaining English fallback strings in the v0.6.2 language packs for Japanese, Korean, Spanish, French, German, Portuguese (Brazil), Italian, Dutch, Polish, Turkish, Vietnamese, Indonesian, and Hebrew.
+- Updated translated strings for Options page descriptions, Details toggle labels, context-menu entries, prompts, confirmation dialogs, alerts, and sort tooltips.
+- Kept the Te Reo Māori language pack intentionally mixed with NZ/GB English where a safe/common Māori UI translation is not available.
+- Updated `manifest.json` to `0.6.3`.
+
+### 0.6.2
+
+- Added UI language packs for Japanese, Korean, Spanish, French, German, Portuguese (Brazil), Italian, Dutch, Polish, Turkish, Vietnamese, Indonesian, Hebrew, and Te Reo Māori.
+- Added Hebrew right-to-left handling when Hebrew is selected.
+- Added browser-language matching improvements for Hebrew legacy `iw`, Portuguese variants, and Chinese regional variants.
+- Kept Te Reo Māori intentionally mixed with NZ/GB English where a safe/common Māori UI translation does not exist or was not safe to infer.
+- Updated `manifest.json` to `0.6.2`.
 
 ### 0.6.1
 

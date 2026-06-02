@@ -3,7 +3,7 @@
     "message": "Simple Bookmarks Manager"
   },
   "appDescription": {
-    "message": "A simple local bookmark manager for Chrome/Chromium inspired by Firefox Places Library patterns."
+    "message": "Firefox Places ライブラリの考え方を参考にした、Chrome/Chromium 用のシンプルなローカルブックマークマネージャーです。"
   },
   "back": {
     "message": "戻る"
@@ -21,7 +21,7 @@
     "message": "ブックマークを検索"
   },
   "searchLimitTitle": {
-    "message": "When enabled, search only the current folder and its subfolders. When disabled, search all bookmarks."
+    "message": "有効にすると、現在のフォルダーとそのサブフォルダーだけを検索します。無効にすると、すべてのブックマークを検索します。"
   },
   "limitSearchTo": {
     "message": "検索範囲を制限"
@@ -30,10 +30,10 @@
     "message": "現在のフォルダーとサブフォルダー"
   },
   "openMenu": {
-    "message": "Open menu"
+    "message": "メニューを開く"
   },
   "openSbmMenu": {
-    "message": "Open Simple Bookmarks Manager menu"
+    "message": "Simple Bookmarks Manager メニューを開く"
   },
   "library": {
     "message": "ライブラリ"
@@ -54,31 +54,31 @@
     "message": "追加日"
   },
   "sortDateAddedHeader": {
-    "message": "Date Added"
+    "message": "追加日"
   },
   "sortId": {
     "message": "ID"
   },
   "sortOrder": {
-    "message": "Order"
+    "message": "順序"
   },
   "bookmarksAria": {
-    "message": "Bookmarks"
+    "message": "ブックマーク"
   },
   "bookmarkListColumns": {
-    "message": "Bookmark list columns"
+    "message": "ブックマークリストの列"
   },
   "chooseSortModeTitle": {
-    "message": "Choose the middle-pane sort mode. Default uses Chromium’s folder order."
+    "message": "中央ペインの並べ替えモードを選択します。既定では Chromium のフォルダー順を使用します。"
   },
   "details": {
     "message": "詳細"
   },
   "detailsItems": {
-    "message": "Details Items"
+    "message": "項目の詳細"
   },
   "detailsMultiselect": {
-    "message": "Details Multiselect"
+    "message": "複数選択の詳細"
   },
   "url": {
     "message": "URL"
@@ -102,19 +102,19 @@
     "message": "ブックマークを削除"
   },
   "advancedDetails": {
-    "message": "Advanced Details"
+    "message": "詳細情報"
   },
   "advancedBookmarkDetails": {
-    "message": "Advanced bookmark details"
+    "message": "ブックマークの詳細情報"
   },
   "guidUuid": {
     "message": "GUID / UUID"
   },
   "dateAdded": {
-    "message": "Date Added"
+    "message": "追加日"
   },
   "dateLastUsed": {
-    "message": "Date Last Used"
+    "message": "最終使用日"
   },
   "totalSelected": {
     "message": "選択合計:"
@@ -129,7 +129,7 @@
     "message": "区切り:"
   },
   "emptyDetails": {
-    "message": "Select one item, or select a folder to show its contents."
+    "message": "項目を 1 つ選択するか、フォルダーを選択して内容を表示してください。"
   },
   "optionsTitle": {
     "message": "Simple Bookmarks Manager オプション"
@@ -141,13 +141,13 @@
     "message": "保存しました"
   },
   "saveFailed": {
-    "message": "Save failed: {error}"
+    "message": "保存に失敗しました: {error}"
   },
   "loadFailed": {
-    "message": "Load failed: {error}"
+    "message": "読み込みに失敗しました: {error}"
   },
   "defaultsRestored": {
-    "message": "Defaults restored"
+    "message": "既定値を復元しました"
   },
   "userInterface": {
     "message": "ユーザーインターフェイス"
@@ -156,13 +156,13 @@
     "message": "表示言語"
   },
   "userInterfaceLanguageHelp": {
-    "message": "Automatic follows the browser UI language. Manual choices affect the manager and options pages."
+    "message": "自動ではブラウザー UI の言語に従います。手動選択はマネージャーとオプションページに適用されます。"
   },
   "font": {
     "message": "フォント"
   },
   "fontHelp": {
-    "message": "Controls the main font family used by the bookmark manager UI."
+    "message": "ブックマークマネージャー UI で使用する主なフォントファミリーを設定します。"
   },
   "fontSystem": {
     "message": "システム既定"
@@ -174,25 +174,25 @@
     "message": "Georgia / Times"
   },
   "fontMono": {
-    "message": "Consolas / monospace"
+    "message": "Consolas / 等幅"
   },
   "fontSize": {
     "message": "フォントサイズ"
   },
   "fontSizeHelp": {
-    "message": "Base text size. Headings and column labels scale relative to this value."
+    "message": "基本の文字サイズです。見出しや列ラベルはこの値に対して相対的に拡大縮小されます。"
   },
   "fontSpacing": {
     "message": "行間"
   },
   "fontSpacingHelp": {
-    "message": "Line spacing multiplier for denser or more readable rows and labels."
+    "message": "行やラベルを詰めたり読みやすくしたりするための行間倍率です。"
   },
   "search": {
     "message": "検索"
   },
   "searchLimitOptionHelp": {
-    "message": "When enabled, the main search box searches only inside the current visible folder tree."
+    "message": "有効にすると、メイン検索ボックスは現在表示中のフォルダーツリー内だけを検索します。"
   },
   "safety": {
     "message": "安全"
@@ -201,43 +201,43 @@
     "message": "削除確認を表示"
   },
   "showDeleteWarningHelp": {
-    "message": "Ask before deleting bookmark items or folders."
+    "message": "ブックマーク項目やフォルダーを削除する前に確認します。"
   },
   "showSortWarning": {
     "message": "恒久的な並べ替えの確認を表示"
   },
   "showSortWarningHelp": {
-    "message": "Ask before applying context-menu sorts that permanently reorder a bookmark folder."
+    "message": "ブックマークフォルダーの順序を恒久的に変更するコンテキストメニューの並べ替え前に確認します。"
   },
   "allowKeyboardDelete": {
     "message": "Delete キーで選択項目を削除する"
   },
   "allowKeyboardDeleteHelp": {
-    "message": "When disabled, the Delete key no longer deletes selected bookmark entries."
+    "message": "無効にすると、Delete キーで選択したブックマーク項目を削除しなくなります。"
   },
   "sorting": {
     "message": "並べ替え"
   },
   "naturalSort": {
-    "message": "Use natural folder/bookmark sort order"
+    "message": "自然なフォルダー/ブックマーク順を使用"
   },
   "naturalSortHelp": {
-    "message": "Permanent Sort by Name places folders first, separators next, then bookmarks."
+    "message": "恒久的な名前順ソートでは、フォルダー、区切り、ブックマークの順に並べます。"
   },
   "advanced": {
     "message": "詳細設定"
   },
   "enableAdvancedViewing": {
-    "message": "Enable advanced details viewing"
+    "message": "詳細情報の表示を有効にする"
   },
   "enableAdvancedViewingHelp": {
-    "message": "Show read-only advanced bookmark metadata in the Details pane."
+    "message": "読み取り専用の詳細なブックマークメタデータを詳細ペインに表示します。"
   },
   "enableAdvancedEditing": {
-    "message": "Enable advanced details editing"
+    "message": "詳細情報の編集を有効にする"
   },
   "enableAdvancedEditingHelp": {
-    "message": "Allow supported advanced editing, currently limited to bookmark index changes."
+    "message": "対応する詳細編集を許可します。現在はブックマークのインデックス変更に限定されます。"
   },
   "resetDefaults": {
     "message": "既定値に戻す"
@@ -255,79 +255,79 @@
     "message": "(ブックマーク)"
   },
   "rootFallback": {
-    "message": "(root)"
+    "message": "(ルート)"
   },
   "browserRoot": {
-    "message": "Browser root"
+    "message": "ブラウザールート"
   },
   "bookmarksPathFallback": {
     "message": "ブックマーク"
   },
   "sortDate": {
-    "message": "date"
+    "message": "日付"
   },
   "sortNameLower": {
-    "message": "name"
+    "message": "名前"
   },
   "sortFolderConfirm": {
-    "message": "Sort \"{folderName}\" by {sortName}?\n\nThis permanently changes the saved bookmark order in Chromium. It is different from the temporary Visual sort dropdown."
+    "message": "「{folderName}」を {sortName} 順に並べ替えますか？\n\nこれは Chromium に保存されているブックマーク順序を恒久的に変更します。一時的な「表示順」ドロップダウンとは異なります。"
   },
   "couldNotOpenWindow": {
-    "message": "Could not open {windowType} window: {error}"
+    "message": "{windowType} ウィンドウを開けませんでした: {error}"
   },
   "privateWindowType": {
-    "message": "private"
+    "message": "プライベート"
   },
   "newWindowType": {
-    "message": "new"
+    "message": "新規"
   },
   "couldNotOpenTabGroup": {
-    "message": "Could not open tab group: {error}"
+    "message": "タブグループを開けませんでした: {error}"
   },
   "newFolderNamePrompt": {
-    "message": "New folder name"
+    "message": "新しいフォルダー名"
   },
   "folderNamePrompt": {
-    "message": "Folder name"
+    "message": "フォルダー名"
   },
   "bookmarkNamePrompt": {
-    "message": "Bookmark name"
+    "message": "ブックマーク名"
   },
   "bookmarkUrlPrompt": {
-    "message": "Bookmark URL"
+    "message": "ブックマーク URL"
   },
   "deleteSingleConfirm": {
-    "message": "Delete \"{label}\"?"
+    "message": "「{label}」を削除しますか？"
   },
   "deleteMultipleConfirm": {
-    "message": "Delete {count} selected item(s)?"
+    "message": "選択した {count} 件を削除しますか？"
   },
   "thisItem": {
-    "message": "this item"
+    "message": "この項目"
   },
   "newFolderDefaultName": {
     "message": "新しいフォルダー"
   },
   "couldNotMoveBookmark": {
-    "message": "Could not move bookmark item: {error}"
+    "message": "ブックマーク項目を移動できませんでした: {error}"
   },
   "actionFailed": {
-    "message": "Action failed: {error}"
+    "message": "操作に失敗しました: {error}"
   },
   "openDefaultBookmarksManager": {
-    "message": "Open Default Bookmarks Manager"
+    "message": "既定のブックマークマネージャーを開く"
   },
   "options": {
-    "message": "Options"
+    "message": "オプション"
   },
   "help": {
-    "message": "Help"
+    "message": "ヘルプ"
   },
   "about": {
-    "message": "About"
+    "message": "情報"
   },
   "renameFolder": {
-    "message": "Rename Folder"
+    "message": "フォルダー名を変更"
   },
   "cut": {
     "message": "切り取り"
@@ -366,10 +366,10 @@
     "message": "すべてプライベートウィンドウで開く"
   },
   "openAllInNewTabGroup": {
-    "message": "Open All in New Tab Group"
+    "message": "すべて新しいタブグループで開く"
   },
   "openAllInSplitView": {
-    "message": "Open All in Split View"
+    "message": "すべて分割ビューで開く"
   },
   "edit": {
     "message": "編集"
@@ -384,10 +384,10 @@
     "message": "プライベートウィンドウで開く"
   },
   "openInNewTabGroup": {
-    "message": "Open in New Tab Group"
+    "message": "新しいタブグループで開く"
   },
   "openInSplitView": {
-    "message": "Open in Split View"
+    "message": "分割ビューで開く"
   },
   "expandAll": {
     "message": "すべて展開"
@@ -396,31 +396,31 @@
     "message": "すべて折りたたむ"
   },
   "dragFolderTitle": {
-    "message": "Drag to reorder this folder"
+    "message": "ドラッグしてこのフォルダーを並べ替えます"
   },
   "collapseFolderTitle": {
-    "message": "Collapse folder"
+    "message": "フォルダーを折りたたむ"
   },
   "expandFolderTitle": {
-    "message": "Expand folder"
+    "message": "フォルダーを展開"
   },
   "doubleClickExpandCollapseTitle": {
-    "message": "Double-click to expand or collapse this folder"
+    "message": "ダブルクリックでこのフォルダーを展開または折りたたみます"
   },
   "hideDetailsPaneTooltip": {
-    "message": "Hide the Details pane"
+    "message": "詳細ペインを隠す"
   },
   "showDetailsPaneTooltip": {
-    "message": "Show the Details pane"
+    "message": "詳細ペインを表示"
   },
   "clickHideDetails": {
-    "message": "Click to Hide Details"
+    "message": "クリックして詳細を隠す"
   },
   "clickShowDetails": {
-    "message": "Click to Show Details"
+    "message": "クリックして詳細を表示"
   },
   "dragItemTitle": {
-    "message": "Drag to move or reorder this item"
+    "message": "ドラッグしてこの項目を移動または並べ替えます"
   },
   "separator": {
     "message": "区切り"
@@ -429,7 +429,7 @@
     "message": "未保存の変更"
   },
   "unsavedChangesMessage": {
-    "message": "The Details pane has unsaved changes. What would you like to do?"
+    "message": "詳細ペインに未保存の変更があります。どうしますか？"
   },
   "keepEditing": {
     "message": "編集を続ける"
@@ -438,60 +438,60 @@
     "message": "破棄"
   },
   "couldNotSaveChanges": {
-    "message": "Could not save changes: {error}"
+    "message": "変更を保存できませんでした: {error}"
   },
   "sortDefaultTooltip": {
-    "message": "Default Chromium folder order. Click to return to Default sorting; this column does not reverse-sort."
+    "message": "既定の Chromium フォルダー順です。クリックすると既定の並べ替えに戻ります。この列は逆順ソートしません。"
   },
   "sortNameAscTooltip": {
-    "message": "Sort by name: A to Z"
+    "message": "名前順: A から Z"
   },
   "sortNameDescTooltip": {
-    "message": "Sort by name: Z to A"
+    "message": "名前順: Z から A"
   },
   "sortUrlAscTooltip": {
-    "message": "Sort by URL: A to Z"
+    "message": "URL 順: A から Z"
   },
   "sortUrlDescTooltip": {
-    "message": "Sort by URL: Z to A"
+    "message": "URL 順: Z から A"
   },
   "sortDateAscTooltip": {
-    "message": "Sort by date added: oldest first"
+    "message": "追加日順: 古い順"
   },
   "sortDateDescTooltip": {
-    "message": "Sort by date added: newest first"
+    "message": "追加日順: 新しい順"
   },
   "sortIdAscTooltip": {
-    "message": "Sort by ID: lowest first"
+    "message": "ID 順: 小さい順"
   },
   "sortIdDescTooltip": {
-    "message": "Sort by ID: highest first"
+    "message": "ID 順: 大きい順"
   },
   "sortBookmarks": {
-    "message": "Sort bookmarks"
+    "message": "ブックマークを並べ替え"
   },
   "sortSelectDefaultTitle": {
-    "message": "Default Chromium folder order."
+    "message": "既定の Chromium フォルダー順です。"
   },
   "sortSelectTitleTitle": {
-    "message": "Name sort. Ascending is A to Z; descending is Z to A."
+    "message": "名前順です。昇順は A から Z、降順は Z から A です。"
   },
   "sortSelectUrlTitle": {
-    "message": "URL sort. Ascending is A to Z; descending is Z to A."
+    "message": "URL 順です。昇順は A から Z、降順は Z から A です。"
   },
   "sortSelectDateAddedTitle": {
-    "message": "Date added sort. Ascending is oldest first; descending is newest first."
+    "message": "追加日順です。昇順は古い順、降順は新しい順です。"
   },
   "sortSelectIdTitle": {
-    "message": "ID sort. Ascending is lowest first; descending is highest first."
+    "message": "ID 順です。昇順は小さい順、降順は大きい順です。"
   },
   "managerFailed": {
-    "message": "Bookmark manager failed: {error}"
+    "message": "ブックマークマネージャーが失敗しました: {error}"
   },
   "notAvailable": {
     "message": "利用不可"
   },
   "searchLimitFull": {
-    "message": "Limit Search to Current Folder & Subfolders"
+    "message": "検索を現在のフォルダーとサブフォルダーに制限"
   }
 }

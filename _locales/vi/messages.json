@@ -3,7 +3,7 @@
     "message": "Simple Bookmarks Manager"
   },
   "appDescription": {
-    "message": "A simple local bookmark manager for Chrome/Chromium inspired by Firefox Places Library patterns."
+    "message": "Trình quản lý dấu trang cục bộ đơn giản cho Chrome/Chromium, lấy cảm hứng từ mẫu thư viện Firefox Places."
   },
   "back": {
     "message": "Quay lại"
@@ -21,7 +21,7 @@
     "message": "Tìm dấu trang"
   },
   "searchLimitTitle": {
-    "message": "When enabled, search only the current folder and its subfolders. When disabled, search all bookmarks."
+    "message": "Khi bật, chỉ tìm trong thư mục hiện tại và thư mục con. Khi tắt, tìm trong tất cả dấu trang."
   },
   "limitSearchTo": {
     "message": "Giới hạn tìm kiếm trong"
@@ -30,10 +30,10 @@
     "message": "Thư mục hiện tại và thư mục con"
   },
   "openMenu": {
-    "message": "Open menu"
+    "message": "Mở menu"
   },
   "openSbmMenu": {
-    "message": "Open Simple Bookmarks Manager menu"
+    "message": "Mở menu Simple Bookmarks Manager"
   },
   "library": {
     "message": "Thư viện"
@@ -54,31 +54,31 @@
     "message": "Ngày thêm"
   },
   "sortDateAddedHeader": {
-    "message": "Date Added"
+    "message": "Ngày thêm"
   },
   "sortId": {
     "message": "ID"
   },
   "sortOrder": {
-    "message": "Order"
+    "message": "Thứ tự"
   },
   "bookmarksAria": {
-    "message": "Bookmarks"
+    "message": "Dấu trang"
   },
   "bookmarkListColumns": {
-    "message": "Bookmark list columns"
+    "message": "Các cột danh sách dấu trang"
   },
   "chooseSortModeTitle": {
-    "message": "Choose the middle-pane sort mode. Default uses Chromium’s folder order."
+    "message": "Chọn chế độ sắp xếp của khung giữa. Mặc định dùng thứ tự thư mục của Chromium."
   },
   "details": {
     "message": "Chi tiết"
   },
   "detailsItems": {
-    "message": "Details Items"
+    "message": "Chi tiết mục"
   },
   "detailsMultiselect": {
-    "message": "Details Multiselect"
+    "message": "Chi tiết chọn nhiều"
   },
   "url": {
     "message": "URL"
@@ -102,19 +102,19 @@
     "message": "Xóa dấu trang"
   },
   "advancedDetails": {
-    "message": "Advanced Details"
+    "message": "Chi tiết nâng cao"
   },
   "advancedBookmarkDetails": {
-    "message": "Advanced bookmark details"
+    "message": "Chi tiết dấu trang nâng cao"
   },
   "guidUuid": {
     "message": "GUID / UUID"
   },
   "dateAdded": {
-    "message": "Date Added"
+    "message": "Ngày thêm"
   },
   "dateLastUsed": {
-    "message": "Date Last Used"
+    "message": "Lần dùng cuối"
   },
   "totalSelected": {
     "message": "Tổng đã chọn:"
@@ -129,7 +129,7 @@
     "message": "Dấu phân cách:"
   },
   "emptyDetails": {
-    "message": "Select one item, or select a folder to show its contents."
+    "message": "Chọn một mục hoặc chọn thư mục để hiện nội dung."
   },
   "optionsTitle": {
     "message": "Tùy chọn Simple Bookmarks Manager"
@@ -141,13 +141,13 @@
     "message": "Đã lưu"
   },
   "saveFailed": {
-    "message": "Save failed: {error}"
+    "message": "Lưu thất bại: {error}"
   },
   "loadFailed": {
-    "message": "Load failed: {error}"
+    "message": "Tải thất bại: {error}"
   },
   "defaultsRestored": {
-    "message": "Defaults restored"
+    "message": "Đã khôi phục mặc định"
   },
   "userInterface": {
     "message": "Giao diện người dùng"
@@ -156,13 +156,13 @@
     "message": "Ngôn ngữ giao diện"
   },
   "userInterfaceLanguageHelp": {
-    "message": "Automatic follows the browser UI language. Manual choices affect the manager and options pages."
+    "message": "Tự động dùng theo ngôn ngữ giao diện trình duyệt. Lựa chọn thủ công áp dụng cho trang quản lý và tùy chọn."
   },
   "font": {
     "message": "Phông chữ"
   },
   "fontHelp": {
-    "message": "Controls the main font family used by the bookmark manager UI."
+    "message": "Điều khiển họ phông chữ chính dùng trong giao diện quản lý dấu trang."
   },
   "fontSystem": {
     "message": "Mặc định hệ thống"
@@ -174,25 +174,25 @@
     "message": "Georgia / Times"
   },
   "fontMono": {
-    "message": "Consolas / monospace"
+    "message": "Consolas / đơn cách"
   },
   "fontSize": {
     "message": "Cỡ chữ"
   },
   "fontSizeHelp": {
-    "message": "Base text size. Headings and column labels scale relative to this value."
+    "message": "Cỡ chữ cơ bản. Tiêu đề và nhãn cột thay đổi theo giá trị này."
   },
   "fontSpacing": {
     "message": "Giãn dòng"
   },
   "fontSpacingHelp": {
-    "message": "Line spacing multiplier for denser or more readable rows and labels."
+    "message": "Hệ số giãn dòng cho hàng và nhãn gọn hơn hoặc dễ đọc hơn."
   },
   "search": {
     "message": "Tìm kiếm"
   },
   "searchLimitOptionHelp": {
-    "message": "When enabled, the main search box searches only inside the current visible folder tree."
+    "message": "Khi bật, ô tìm kiếm chính chỉ tìm trong cây thư mục đang hiển thị."
   },
   "safety": {
     "message": "An toàn"
@@ -201,43 +201,43 @@
     "message": "Hiện xác nhận xóa"
   },
   "showDeleteWarningHelp": {
-    "message": "Ask before deleting bookmark items or folders."
+    "message": "Hỏi trước khi xóa mục dấu trang hoặc thư mục."
   },
   "showSortWarning": {
     "message": "Hiện xác nhận sắp xếp vĩnh viễn"
   },
   "showSortWarningHelp": {
-    "message": "Ask before applying context-menu sorts that permanently reorder a bookmark folder."
+    "message": "Hỏi trước khi áp dụng sắp xếp từ menu ngữ cảnh làm thay đổi vĩnh viễn thứ tự thư mục dấu trang."
   },
   "allowKeyboardDelete": {
     "message": "Cho phép phím Delete xóa mục đã chọn"
   },
   "allowKeyboardDeleteHelp": {
-    "message": "When disabled, the Delete key no longer deletes selected bookmark entries."
+    "message": "Khi tắt, phím Delete không còn xóa các mục dấu trang đã chọn."
   },
   "sorting": {
     "message": "Sắp xếp"
   },
   "naturalSort": {
-    "message": "Use natural folder/bookmark sort order"
+    "message": "Dùng thứ tự tự nhiên cho thư mục/dấu trang"
   },
   "naturalSortHelp": {
-    "message": "Permanent Sort by Name places folders first, separators next, then bookmarks."
+    "message": "Sắp xếp vĩnh viễn theo tên đặt thư mục trước, rồi dấu phân cách, rồi dấu trang."
   },
   "advanced": {
     "message": "Nâng cao"
   },
   "enableAdvancedViewing": {
-    "message": "Enable advanced details viewing"
+    "message": "Bật xem chi tiết nâng cao"
   },
   "enableAdvancedViewingHelp": {
-    "message": "Show read-only advanced bookmark metadata in the Details pane."
+    "message": "Hiển thị siêu dữ liệu dấu trang nâng cao chỉ đọc trong khung Chi tiết."
   },
   "enableAdvancedEditing": {
-    "message": "Enable advanced details editing"
+    "message": "Bật sửa chi tiết nâng cao"
   },
   "enableAdvancedEditingHelp": {
-    "message": "Allow supported advanced editing, currently limited to bookmark index changes."
+    "message": "Cho phép sửa nâng cao được hỗ trợ, hiện chỉ giới hạn ở thay đổi chỉ mục dấu trang."
   },
   "resetDefaults": {
     "message": "Khôi phục mặc định"
@@ -255,79 +255,79 @@
     "message": "(Dấu trang)"
   },
   "rootFallback": {
-    "message": "(root)"
+    "message": "(gốc)"
   },
   "browserRoot": {
-    "message": "Browser root"
+    "message": "Gốc trình duyệt"
   },
   "bookmarksPathFallback": {
     "message": "Dấu trang"
   },
   "sortDate": {
-    "message": "date"
+    "message": "ngày"
   },
   "sortNameLower": {
-    "message": "name"
+    "message": "tên"
   },
   "sortFolderConfirm": {
-    "message": "Sort \"{folderName}\" by {sortName}?\n\nThis permanently changes the saved bookmark order in Chromium. It is different from the temporary Visual sort dropdown."
+    "message": "Sắp xếp “{folderName}” theo {sortName}?\n\nThao tác này thay đổi vĩnh viễn thứ tự dấu trang đã lưu trong Chromium. Nó khác với danh sách Sắp xếp trực quan tạm thời."
   },
   "couldNotOpenWindow": {
-    "message": "Could not open {windowType} window: {error}"
+    "message": "Không thể mở cửa sổ {windowType}: {error}"
   },
   "privateWindowType": {
-    "message": "private"
+    "message": "riêng tư"
   },
   "newWindowType": {
-    "message": "new"
+    "message": "mới"
   },
   "couldNotOpenTabGroup": {
-    "message": "Could not open tab group: {error}"
+    "message": "Không thể mở nhóm thẻ: {error}"
   },
   "newFolderNamePrompt": {
-    "message": "New folder name"
+    "message": "Tên thư mục mới"
   },
   "folderNamePrompt": {
-    "message": "Folder name"
+    "message": "Tên thư mục"
   },
   "bookmarkNamePrompt": {
-    "message": "Bookmark name"
+    "message": "Tên dấu trang"
   },
   "bookmarkUrlPrompt": {
-    "message": "Bookmark URL"
+    "message": "URL dấu trang"
   },
   "deleteSingleConfirm": {
-    "message": "Delete \"{label}\"?"
+    "message": "Xóa “{label}”?"
   },
   "deleteMultipleConfirm": {
-    "message": "Delete {count} selected item(s)?"
+    "message": "Xóa {count} mục đã chọn?"
   },
   "thisItem": {
-    "message": "this item"
+    "message": "mục này"
   },
   "newFolderDefaultName": {
     "message": "Thư mục mới"
   },
   "couldNotMoveBookmark": {
-    "message": "Could not move bookmark item: {error}"
+    "message": "Không thể di chuyển mục dấu trang: {error}"
   },
   "actionFailed": {
-    "message": "Action failed: {error}"
+    "message": "Thao tác thất bại: {error}"
   },
   "openDefaultBookmarksManager": {
-    "message": "Open Default Bookmarks Manager"
+    "message": "Mở trình quản lý dấu trang mặc định"
   },
   "options": {
-    "message": "Options"
+    "message": "Tùy chọn"
   },
   "help": {
-    "message": "Help"
+    "message": "Trợ giúp"
   },
   "about": {
-    "message": "About"
+    "message": "Giới thiệu"
   },
   "renameFolder": {
-    "message": "Rename Folder"
+    "message": "Đổi tên thư mục"
   },
   "cut": {
     "message": "Cắt"
@@ -366,10 +366,10 @@
     "message": "Mở tất cả trong cửa sổ riêng tư"
   },
   "openAllInNewTabGroup": {
-    "message": "Open All in New Tab Group"
+    "message": "Mở tất cả trong nhóm thẻ mới"
   },
   "openAllInSplitView": {
-    "message": "Open All in Split View"
+    "message": "Mở tất cả trong chế độ chia đôi"
   },
   "edit": {
     "message": "Sửa"
@@ -384,10 +384,10 @@
     "message": "Mở trong cửa sổ riêng tư"
   },
   "openInNewTabGroup": {
-    "message": "Open in New Tab Group"
+    "message": "Mở trong nhóm thẻ mới"
   },
   "openInSplitView": {
-    "message": "Open in Split View"
+    "message": "Mở trong chế độ chia đôi"
   },
   "expandAll": {
     "message": "Mở rộng tất cả"
@@ -396,31 +396,31 @@
     "message": "Thu gọn tất cả"
   },
   "dragFolderTitle": {
-    "message": "Drag to reorder this folder"
+    "message": "Kéo để sắp xếp lại thư mục này"
   },
   "collapseFolderTitle": {
-    "message": "Collapse folder"
+    "message": "Thu gọn thư mục"
   },
   "expandFolderTitle": {
-    "message": "Expand folder"
+    "message": "Mở rộng thư mục"
   },
   "doubleClickExpandCollapseTitle": {
-    "message": "Double-click to expand or collapse this folder"
+    "message": "Nhấp đúp để mở rộng hoặc thu gọn thư mục này"
   },
   "hideDetailsPaneTooltip": {
-    "message": "Hide the Details pane"
+    "message": "Ẩn khung Chi tiết"
   },
   "showDetailsPaneTooltip": {
-    "message": "Show the Details pane"
+    "message": "Hiện khung Chi tiết"
   },
   "clickHideDetails": {
-    "message": "Click to Hide Details"
+    "message": "Nhấp để ẩn chi tiết"
   },
   "clickShowDetails": {
-    "message": "Click to Show Details"
+    "message": "Nhấp để hiện chi tiết"
   },
   "dragItemTitle": {
-    "message": "Drag to move or reorder this item"
+    "message": "Kéo để di chuyển hoặc sắp xếp lại mục này"
   },
   "separator": {
     "message": "Dấu phân cách"
@@ -429,7 +429,7 @@
     "message": "Thay đổi chưa lưu"
   },
   "unsavedChangesMessage": {
-    "message": "The Details pane has unsaved changes. What would you like to do?"
+    "message": "Khung Chi tiết có thay đổi chưa lưu. Bạn muốn làm gì?"
   },
   "keepEditing": {
     "message": "Tiếp tục sửa"
@@ -438,60 +438,60 @@
     "message": "Bỏ"
   },
   "couldNotSaveChanges": {
-    "message": "Could not save changes: {error}"
+    "message": "Không thể lưu thay đổi: {error}"
   },
   "sortDefaultTooltip": {
-    "message": "Default Chromium folder order. Click to return to Default sorting; this column does not reverse-sort."
+    "message": "Thứ tự thư mục Chromium mặc định. Nhấp để quay lại sắp xếp mặc định; cột này không sắp xếp ngược."
   },
   "sortNameAscTooltip": {
-    "message": "Sort by name: A to Z"
+    "message": "Sắp xếp theo tên: A đến Z"
   },
   "sortNameDescTooltip": {
-    "message": "Sort by name: Z to A"
+    "message": "Sắp xếp theo tên: Z đến A"
   },
   "sortUrlAscTooltip": {
-    "message": "Sort by URL: A to Z"
+    "message": "Sắp xếp theo URL: A đến Z"
   },
   "sortUrlDescTooltip": {
-    "message": "Sort by URL: Z to A"
+    "message": "Sắp xếp theo URL: Z đến A"
   },
   "sortDateAscTooltip": {
-    "message": "Sort by date added: oldest first"
+    "message": "Sắp xếp theo ngày thêm: cũ nhất trước"
   },
   "sortDateDescTooltip": {
-    "message": "Sort by date added: newest first"
+    "message": "Sắp xếp theo ngày thêm: mới nhất trước"
   },
   "sortIdAscTooltip": {
-    "message": "Sort by ID: lowest first"
+    "message": "Sắp xếp theo ID: thấp nhất trước"
   },
   "sortIdDescTooltip": {
-    "message": "Sort by ID: highest first"
+    "message": "Sắp xếp theo ID: cao nhất trước"
   },
   "sortBookmarks": {
-    "message": "Sort bookmarks"
+    "message": "Sắp xếp dấu trang"
   },
   "sortSelectDefaultTitle": {
-    "message": "Default Chromium folder order."
+    "message": "Thứ tự thư mục Chromium mặc định."
   },
   "sortSelectTitleTitle": {
-    "message": "Name sort. Ascending is A to Z; descending is Z to A."
+    "message": "Sắp xếp theo tên. Tăng dần là A đến Z; giảm dần là Z đến A."
   },
   "sortSelectUrlTitle": {
-    "message": "URL sort. Ascending is A to Z; descending is Z to A."
+    "message": "Sắp xếp theo URL. Tăng dần là A đến Z; giảm dần là Z đến A."
   },
   "sortSelectDateAddedTitle": {
-    "message": "Date added sort. Ascending is oldest first; descending is newest first."
+    "message": "Sắp xếp theo ngày thêm. Tăng dần là cũ nhất trước; giảm dần là mới nhất trước."
   },
   "sortSelectIdTitle": {
-    "message": "ID sort. Ascending is lowest first; descending is highest first."
+    "message": "Sắp xếp theo ID. Tăng dần là thấp nhất trước; giảm dần là cao nhất trước."
   },
   "managerFailed": {
-    "message": "Bookmark manager failed: {error}"
+    "message": "Trình quản lý dấu trang thất bại: {error}"
   },
   "notAvailable": {
     "message": "Không khả dụng"
   },
   "searchLimitFull": {
-    "message": "Limit Search to Current Folder & Subfolders"
+    "message": "Giới hạn tìm kiếm trong thư mục hiện tại và thư mục con"
   }
 }

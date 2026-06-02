@@ -3,7 +3,7 @@
     "message": "Simple Bookmarks Manager"
   },
   "appDescription": {
-    "message": "A simple local bookmark manager for Chrome/Chromium inspired by Firefox Places Library patterns."
+    "message": "Un administrador local sencillo de marcadores para Chrome/Chromium inspirado en los patrones de la biblioteca Places de Firefox."
   },
   "back": {
     "message": "Atrás"
@@ -21,7 +21,7 @@
     "message": "Buscar marcadores"
   },
   "searchLimitTitle": {
-    "message": "When enabled, search only the current folder and its subfolders. When disabled, search all bookmarks."
+    "message": "Cuando está activado, busca solo en la carpeta actual y sus subcarpetas. Cuando está desactivado, busca en todos los marcadores."
   },
   "limitSearchTo": {
     "message": "Limitar búsqueda a"
@@ -30,10 +30,10 @@
     "message": "Carpeta actual y subcarpetas"
   },
   "openMenu": {
-    "message": "Open menu"
+    "message": "Abrir menú"
   },
   "openSbmMenu": {
-    "message": "Open Simple Bookmarks Manager menu"
+    "message": "Abrir el menú de Simple Bookmarks Manager"
   },
   "library": {
     "message": "Biblioteca"
@@ -54,31 +54,31 @@
     "message": "Fecha añadida"
   },
   "sortDateAddedHeader": {
-    "message": "Date Added"
+    "message": "Fecha de adición"
   },
   "sortId": {
     "message": "ID"
   },
   "sortOrder": {
-    "message": "Order"
+    "message": "Orden"
   },
   "bookmarksAria": {
-    "message": "Bookmarks"
+    "message": "Marcadores"
   },
   "bookmarkListColumns": {
-    "message": "Bookmark list columns"
+    "message": "Columnas de la lista de marcadores"
   },
   "chooseSortModeTitle": {
-    "message": "Choose the middle-pane sort mode. Default uses Chromium’s folder order."
+    "message": "Elige el modo de ordenación del panel central. Predeterminado usa el orden de carpetas de Chromium."
   },
   "details": {
     "message": "Detalles"
   },
   "detailsItems": {
-    "message": "Details Items"
+    "message": "Detalles del elemento"
   },
   "detailsMultiselect": {
-    "message": "Details Multiselect"
+    "message": "Detalles de selección múltiple"
   },
   "url": {
     "message": "URL"
@@ -102,19 +102,19 @@
     "message": "Eliminar marcador"
   },
   "advancedDetails": {
-    "message": "Advanced Details"
+    "message": "Detalles avanzados"
   },
   "advancedBookmarkDetails": {
-    "message": "Advanced bookmark details"
+    "message": "Detalles avanzados del marcador"
   },
   "guidUuid": {
     "message": "GUID / UUID"
   },
   "dateAdded": {
-    "message": "Date Added"
+    "message": "Fecha de adición"
   },
   "dateLastUsed": {
-    "message": "Date Last Used"
+    "message": "Último uso"
   },
   "totalSelected": {
     "message": "Total seleccionado:"
@@ -129,7 +129,7 @@
     "message": "Separadores:"
   },
   "emptyDetails": {
-    "message": "Select one item, or select a folder to show its contents."
+    "message": "Selecciona un elemento o una carpeta para mostrar su contenido."
   },
   "optionsTitle": {
     "message": "Opciones de Simple Bookmarks Manager"
@@ -141,13 +141,13 @@
     "message": "Guardado"
   },
   "saveFailed": {
-    "message": "Save failed: {error}"
+    "message": "Error al guardar: {error}"
   },
   "loadFailed": {
-    "message": "Load failed: {error}"
+    "message": "Error al cargar: {error}"
   },
   "defaultsRestored": {
-    "message": "Defaults restored"
+    "message": "Valores predeterminados restaurados"
   },
   "userInterface": {
     "message": "Interfaz de usuario"
@@ -156,13 +156,13 @@
     "message": "Idioma de la interfaz"
   },
   "userInterfaceLanguageHelp": {
-    "message": "Automatic follows the browser UI language. Manual choices affect the manager and options pages."
+    "message": "Automático sigue el idioma de la interfaz del navegador. Las opciones manuales afectan al administrador y a las páginas de opciones."
   },
   "font": {
     "message": "Fuente"
   },
   "fontHelp": {
-    "message": "Controls the main font family used by the bookmark manager UI."
+    "message": "Controla la familia de fuente principal usada por la interfaz del administrador de marcadores."
   },
   "fontSystem": {
     "message": "Predeterminado del sistema"
@@ -174,25 +174,25 @@
     "message": "Georgia / Times"
   },
   "fontMono": {
-    "message": "Consolas / monospace"
+    "message": "Consolas / monoespaciada"
   },
   "fontSize": {
     "message": "Tamaño de fuente"
   },
   "fontSizeHelp": {
-    "message": "Base text size. Headings and column labels scale relative to this value."
+    "message": "Tamaño base del texto. Los encabezados y etiquetas de columnas escalan respecto a este valor."
   },
   "fontSpacing": {
     "message": "Espaciado"
   },
   "fontSpacingHelp": {
-    "message": "Line spacing multiplier for denser or more readable rows and labels."
+    "message": "Multiplicador de interlineado para filas y etiquetas más compactas o legibles."
   },
   "search": {
     "message": "Buscar"
   },
   "searchLimitOptionHelp": {
-    "message": "When enabled, the main search box searches only inside the current visible folder tree."
+    "message": "Cuando está activado, el cuadro de búsqueda principal busca solo dentro del árbol de la carpeta visible actual."
   },
   "safety": {
     "message": "Seguridad"
@@ -201,43 +201,43 @@
     "message": "Mostrar confirmación al eliminar"
   },
   "showDeleteWarningHelp": {
-    "message": "Ask before deleting bookmark items or folders."
+    "message": "Preguntar antes de eliminar elementos de marcador o carpetas."
   },
   "showSortWarning": {
     "message": "Mostrar confirmación de ordenación permanente"
   },
   "showSortWarningHelp": {
-    "message": "Ask before applying context-menu sorts that permanently reorder a bookmark folder."
+    "message": "Preguntar antes de aplicar ordenaciones del menú contextual que reordenan permanentemente una carpeta de marcadores."
   },
   "allowKeyboardDelete": {
     "message": "Permitir que Supr elimine elementos seleccionados"
   },
   "allowKeyboardDeleteHelp": {
-    "message": "When disabled, the Delete key no longer deletes selected bookmark entries."
+    "message": "Cuando está desactivado, la tecla Supr ya no elimina las entradas de marcador seleccionadas."
   },
   "sorting": {
     "message": "Ordenación"
   },
   "naturalSort": {
-    "message": "Use natural folder/bookmark sort order"
+    "message": "Usar orden natural de carpetas/marcadores"
   },
   "naturalSortHelp": {
-    "message": "Permanent Sort by Name places folders first, separators next, then bookmarks."
+    "message": "Ordenar por nombre permanentemente coloca primero carpetas, luego separadores y después marcadores."
   },
   "advanced": {
     "message": "Avanzado"
   },
   "enableAdvancedViewing": {
-    "message": "Enable advanced details viewing"
+    "message": "Activar vista de detalles avanzados"
   },
   "enableAdvancedViewingHelp": {
-    "message": "Show read-only advanced bookmark metadata in the Details pane."
+    "message": "Muestra metadatos avanzados de marcadores de solo lectura en el panel Detalles."
   },
   "enableAdvancedEditing": {
-    "message": "Enable advanced details editing"
+    "message": "Activar edición de detalles avanzados"
   },
   "enableAdvancedEditingHelp": {
-    "message": "Allow supported advanced editing, currently limited to bookmark index changes."
+    "message": "Permite la edición avanzada compatible, actualmente limitada a cambios del índice del marcador."
   },
   "resetDefaults": {
     "message": "Restablecer predeterminados"
@@ -255,79 +255,79 @@
     "message": "(Marcador)"
   },
   "rootFallback": {
-    "message": "(root)"
+    "message": "(raíz)"
   },
   "browserRoot": {
-    "message": "Browser root"
+    "message": "Raíz del navegador"
   },
   "bookmarksPathFallback": {
     "message": "Marcadores"
   },
   "sortDate": {
-    "message": "date"
+    "message": "fecha"
   },
   "sortNameLower": {
-    "message": "name"
+    "message": "nombre"
   },
   "sortFolderConfirm": {
-    "message": "Sort \"{folderName}\" by {sortName}?\n\nThis permanently changes the saved bookmark order in Chromium. It is different from the temporary Visual sort dropdown."
+    "message": "¿Ordenar “{folderName}” por {sortName}?\n\nEsto cambia permanentemente el orden de marcadores guardado en Chromium. Es diferente del desplegable temporal Orden visual."
   },
   "couldNotOpenWindow": {
-    "message": "Could not open {windowType} window: {error}"
+    "message": "No se pudo abrir la ventana {windowType}: {error}"
   },
   "privateWindowType": {
-    "message": "private"
+    "message": "privada"
   },
   "newWindowType": {
-    "message": "new"
+    "message": "nueva"
   },
   "couldNotOpenTabGroup": {
-    "message": "Could not open tab group: {error}"
+    "message": "No se pudo abrir el grupo de pestañas: {error}"
   },
   "newFolderNamePrompt": {
-    "message": "New folder name"
+    "message": "Nombre de la nueva carpeta"
   },
   "folderNamePrompt": {
-    "message": "Folder name"
+    "message": "Nombre de carpeta"
   },
   "bookmarkNamePrompt": {
-    "message": "Bookmark name"
+    "message": "Nombre del marcador"
   },
   "bookmarkUrlPrompt": {
-    "message": "Bookmark URL"
+    "message": "URL del marcador"
   },
   "deleteSingleConfirm": {
-    "message": "Delete \"{label}\"?"
+    "message": "¿Eliminar “{label}”?"
   },
   "deleteMultipleConfirm": {
-    "message": "Delete {count} selected item(s)?"
+    "message": "¿Eliminar {count} elemento(s) seleccionado(s)?"
   },
   "thisItem": {
-    "message": "this item"
+    "message": "este elemento"
   },
   "newFolderDefaultName": {
     "message": "Nueva carpeta"
   },
   "couldNotMoveBookmark": {
-    "message": "Could not move bookmark item: {error}"
+    "message": "No se pudo mover el elemento de marcador: {error}"
   },
   "actionFailed": {
-    "message": "Action failed: {error}"
+    "message": "Acción fallida: {error}"
   },
   "openDefaultBookmarksManager": {
-    "message": "Open Default Bookmarks Manager"
+    "message": "Abrir administrador de marcadores predeterminado"
   },
   "options": {
-    "message": "Options"
+    "message": "Opciones"
   },
   "help": {
-    "message": "Help"
+    "message": "Ayuda"
   },
   "about": {
-    "message": "About"
+    "message": "Acerca de"
   },
   "renameFolder": {
-    "message": "Rename Folder"
+    "message": "Renombrar carpeta"
   },
   "cut": {
     "message": "Cortar"
@@ -366,10 +366,10 @@
     "message": "Abrir todo en ventana privada"
   },
   "openAllInNewTabGroup": {
-    "message": "Open All in New Tab Group"
+    "message": "Abrir todo en un nuevo grupo de pestañas"
   },
   "openAllInSplitView": {
-    "message": "Open All in Split View"
+    "message": "Abrir todo en vista dividida"
   },
   "edit": {
     "message": "Editar"
@@ -384,10 +384,10 @@
     "message": "Abrir en ventana privada"
   },
   "openInNewTabGroup": {
-    "message": "Open in New Tab Group"
+    "message": "Abrir en un nuevo grupo de pestañas"
   },
   "openInSplitView": {
-    "message": "Open in Split View"
+    "message": "Abrir en vista dividida"
   },
   "expandAll": {
     "message": "Expandir todo"
@@ -396,31 +396,31 @@
     "message": "Contraer todo"
   },
   "dragFolderTitle": {
-    "message": "Drag to reorder this folder"
+    "message": "Arrastra para reordenar esta carpeta"
   },
   "collapseFolderTitle": {
-    "message": "Collapse folder"
+    "message": "Contraer carpeta"
   },
   "expandFolderTitle": {
-    "message": "Expand folder"
+    "message": "Expandir carpeta"
   },
   "doubleClickExpandCollapseTitle": {
-    "message": "Double-click to expand or collapse this folder"
+    "message": "Doble clic para expandir o contraer esta carpeta"
   },
   "hideDetailsPaneTooltip": {
-    "message": "Hide the Details pane"
+    "message": "Ocultar el panel Detalles"
   },
   "showDetailsPaneTooltip": {
-    "message": "Show the Details pane"
+    "message": "Mostrar el panel Detalles"
   },
   "clickHideDetails": {
-    "message": "Click to Hide Details"
+    "message": "Clic para ocultar detalles"
   },
   "clickShowDetails": {
-    "message": "Click to Show Details"
+    "message": "Clic para mostrar detalles"
   },
   "dragItemTitle": {
-    "message": "Drag to move or reorder this item"
+    "message": "Arrastra para mover o reordenar este elemento"
   },
   "separator": {
     "message": "Separador"
@@ -429,7 +429,7 @@
     "message": "Cambios sin guardar"
   },
   "unsavedChangesMessage": {
-    "message": "The Details pane has unsaved changes. What would you like to do?"
+    "message": "El panel Detalles tiene cambios sin guardar. ¿Qué deseas hacer?"
   },
   "keepEditing": {
     "message": "Seguir editando"
@@ -438,60 +438,60 @@
     "message": "Descartar"
   },
   "couldNotSaveChanges": {
-    "message": "Could not save changes: {error}"
+    "message": "No se pudieron guardar los cambios: {error}"
   },
   "sortDefaultTooltip": {
-    "message": "Default Chromium folder order. Click to return to Default sorting; this column does not reverse-sort."
+    "message": "Orden predeterminado de carpetas de Chromium. Haz clic para volver al orden predeterminado; esta columna no ordena en reversa."
   },
   "sortNameAscTooltip": {
-    "message": "Sort by name: A to Z"
+    "message": "Ordenar por nombre: A a Z"
   },
   "sortNameDescTooltip": {
-    "message": "Sort by name: Z to A"
+    "message": "Ordenar por nombre: Z a A"
   },
   "sortUrlAscTooltip": {
-    "message": "Sort by URL: A to Z"
+    "message": "Ordenar por URL: A a Z"
   },
   "sortUrlDescTooltip": {
-    "message": "Sort by URL: Z to A"
+    "message": "Ordenar por URL: Z a A"
   },
   "sortDateAscTooltip": {
-    "message": "Sort by date added: oldest first"
+    "message": "Ordenar por fecha de adición: más antiguos primero"
   },
   "sortDateDescTooltip": {
-    "message": "Sort by date added: newest first"
+    "message": "Ordenar por fecha de adición: más recientes primero"
   },
   "sortIdAscTooltip": {
-    "message": "Sort by ID: lowest first"
+    "message": "Ordenar por ID: más bajo primero"
   },
   "sortIdDescTooltip": {
-    "message": "Sort by ID: highest first"
+    "message": "Ordenar por ID: más alto primero"
   },
   "sortBookmarks": {
-    "message": "Sort bookmarks"
+    "message": "Ordenar marcadores"
   },
   "sortSelectDefaultTitle": {
-    "message": "Default Chromium folder order."
+    "message": "Orden predeterminado de carpetas de Chromium."
   },
   "sortSelectTitleTitle": {
-    "message": "Name sort. Ascending is A to Z; descending is Z to A."
+    "message": "Ordenación por nombre. Ascendente es A a Z; descendente es Z a A."
   },
   "sortSelectUrlTitle": {
-    "message": "URL sort. Ascending is A to Z; descending is Z to A."
+    "message": "Ordenación por URL. Ascendente es A a Z; descendente es Z a A."
   },
   "sortSelectDateAddedTitle": {
-    "message": "Date added sort. Ascending is oldest first; descending is newest first."
+    "message": "Ordenación por fecha de adición. Ascendente es más antiguo primero; descendente es más reciente primero."
   },
   "sortSelectIdTitle": {
-    "message": "ID sort. Ascending is lowest first; descending is highest first."
+    "message": "Ordenación por ID. Ascendente es más bajo primero; descendente es más alto primero."
   },
   "managerFailed": {
-    "message": "Bookmark manager failed: {error}"
+    "message": "El administrador de marcadores falló: {error}"
   },
   "notAvailable": {
     "message": "No disponible"
   },
   "searchLimitFull": {
-    "message": "Limitar búsqueda a carpeta actual y subcarpetas"
+    "message": "Limitar búsqueda a la carpeta actual y subcarpetas"
   }
 }
