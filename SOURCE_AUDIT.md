@@ -1,6 +1,6 @@
 # Source Audit
 
-Version: 0.6.3
+Version: 0.7.0
 
 ## Summary
 
@@ -35,6 +35,19 @@ The following Firefox Places features were not ported because Chrome's bookmark 
 - JSONLZ4 bookmark backup/restore.
 - Firefox-specific XUL/browser frontend code.
 - Firefox `PlacesUIUtils`, `PlacesTreeView`, `PlacesViewBase`, or similar modules.
+
+## v0.7.0 maintenance audit
+
+A low-risk code readability and documentation pass was performed for `manager.js`, `options.js`, and `i18n.js`. No behavior-changing optimizations were intentionally applied in this pass.
+
+Notes from the review:
+
+- User-controlled bookmark titles, URLs, and translated labels are assigned through DOM APIs such as `textContent`, attributes, or form values rather than HTML injection.
+- Bookmark mutations continue to route through Chrome's `chrome.bookmarks` API and reload the bookmark tree after changes to reduce stale local state.
+- Multi-selection, drag/drop, clipboard, context-menu, settings, and localization code now has clearer section comments to make future v0.7.x hardening passes safer.
+- Settings schemas are intentionally duplicated between `manager.js` and `options.js`; future refactoring could centralize them in a shared module, but that would be a behavior-sensitive change and was deferred.
+- Repeated tree traversal and full-pane rendering are still candidates for later performance work, especially around visible row lookup, drag/drop validation, and selection highlight updates.
+- Future input-validation work should focus on URL validation, bookmark move index bounds, clipboard payload validation, and drag/drop target validation.
 
 ## License conclusion
 

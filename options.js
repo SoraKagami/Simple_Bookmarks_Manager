@@ -1,3 +1,10 @@
+/**
+ * Options page controller.
+ *
+ * This file is shared by Chromium's normal options tab and the embedded
+ * in-manager options iframe.  Settings are persisted in chrome.storage.local
+ * and changes are observed by manager.js at runtime.
+ */
 import { applyI18n, populateLanguageSelect, setI18nLanguage, t, normalizeLanguageSetting } from "./i18n.js";
 
 const api = chrome;
@@ -6,6 +13,8 @@ if (new URLSearchParams(location.search).has("embedded")) {
   document.body.classList.add("embedded");
 }
 
+// Keep these options synchronized with manager.js so live preview and manager
+// rendering use the same CSS font stacks.
 const FONT_FAMILY_OPTIONS = Object.freeze([
   { value: "system", css: "system-ui, sans-serif" },
   { value: "sans", css: "Arial, Helvetica, sans-serif" },
@@ -13,6 +22,7 @@ const FONT_FAMILY_OPTIONS = Object.freeze([
   { value: "mono", css: "Consolas, 'Cascadia Mono', 'Courier New', monospace" }
 ]);
 
+// Keep this settings schema synchronized with manager.js.
 const DEFAULT_SETTINGS = Object.freeze({
   UserInterfaceLanguage: "auto",
   UserInterfaceFontFamily: "system",
@@ -30,6 +40,7 @@ const DEFAULT_SETTINGS = Object.freeze({
 const $ = (id) => document.getElementById(id);
 let statusTimer = null;
 
+/** Show a short-lived status message after saving/resetting options. */
 function showStatus(message) {
   $("status").textContent = message;
   clearTimeout(statusTimer);
@@ -46,6 +57,7 @@ function fontFamilyCss(value) {
   return (FONT_FAMILY_OPTIONS.find((option) => option.value === value) || FONT_FAMILY_OPTIONS[0]).css;
 }
 
+/** Validate and normalize values before writing them to extension storage. */
 function normalizeSettingValue(key, value) {
   if (key === "UserInterfaceLanguage") return normalizeLanguageSetting(value);
   if (key === "UserInterfaceFontFamily") {
@@ -56,6 +68,7 @@ function normalizeSettingValue(key, value) {
   return typeof value === "boolean" ? value : DEFAULT_SETTINGS[key];
 }
 
+/** Apply UI font settings to the options page itself. */
 function applyUserInterfaceSettings(settings) {
   const family = normalizeSettingValue("UserInterfaceFontFamily", settings.UserInterfaceFontFamily);
   const size = normalizeSettingValue("UserInterfaceFontSize", settings.UserInterfaceFontSize);
@@ -86,6 +99,7 @@ function readAllControlValues() {
   return values;
 }
 
+/** Reflect persisted settings into form controls and dependent disabled states. */
 function setControlState(settings) {
   populateLanguageSelect($("UserInterfaceLanguage"), settings.UserInterfaceLanguage);
   for (const key of Object.keys(DEFAULT_SETTINGS)) {
@@ -102,6 +116,7 @@ function setControlState(settings) {
   applyUserInterfaceSettings(settings);
 }
 
+/** Load settings, language strings, and initial control state. */
 async function loadOptions() {
   const stored = await api.storage.local.get(Object.keys(DEFAULT_SETTINGS));
   const settings = { ...DEFAULT_SETTINGS, ...stored };
@@ -111,6 +126,7 @@ async function loadOptions() {
   setControlState(settings);
 }
 
+/** Save one changed option and refresh controls that depend on it. */
 async function saveOption(key, value) {
   const update = { [key]: normalizeSettingValue(key, value) };
 

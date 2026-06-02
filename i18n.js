@@ -1,5 +1,15 @@
+/**
+ * Shared localization helper for Simple Bookmarks Manager.
+ *
+ * Chromium's _locales files are used where possible, with additional internal
+ * locale packs for debug/custom languages that are not valid Chrome locale
+ * identifiers.  Runtime language switching is handled here rather than relying
+ * solely on chrome.i18n.getMessage(), which follows the browser locale only.
+ */
 const api = chrome;
 
+// Language labels are intentionally written in each language so the dropdown is
+// usable even before the current UI language changes.
 export const LANGUAGE_OPTIONS = Object.freeze([
   { value: "auto", label: "Automatic / Browser Default" },
   { value: "en", label: "English" },
@@ -34,6 +44,7 @@ function languageOption(value) {
   return LANGUAGE_OPTIONS.find((option) => option.value === value) || null;
 }
 
+/** Normalize browser locale variants to supported SBM language IDs. */
 function normalizeBrowserLanguage(value) {
   const language = normalizeLocaleTag(value);
   if (language === "zh_Hant" || language.startsWith("zh_Hant_") || language === "zh_HK" || language === "zh_MO") return "zh_TW";
@@ -51,6 +62,7 @@ export function normalizeLanguageSetting(value) {
   return supportedLanguageValues().includes(value) ? value : "auto";
 }
 
+/** Resolve auto/manual language choice to a packaged language ID. */
 export function resolveEffectiveLanguage(requested = "auto") {
   const normalized = normalizeLanguageSetting(requested);
   if (normalized !== "auto") return normalized;
@@ -66,6 +78,7 @@ export function resolveEffectiveLanguage(requested = "auto") {
   return "en";
 }
 
+/** Load and flatten a messages.json file into key -> string form. */
 async function fetchMessages(language) {
   const option = languageOption(language);
   const messagePath = option?.path || `_locales/${language}/messages.json`;
@@ -79,6 +92,7 @@ async function fetchMessages(language) {
   return flat;
 }
 
+/** Load the effective language and update document language/direction. */
 export async function setI18nLanguage(requested = "auto") {
   const language = resolveEffectiveLanguage(requested);
   if (!Object.keys(fallbackMessages).length) fallbackMessages = await fetchMessages("en");
@@ -93,6 +107,7 @@ export function getCurrentLanguage() {
   return currentLanguage;
 }
 
+/** Translate a key and replace simple {name} / $name$ placeholders. */
 export function t(key, replacements = {}) {
   let message = messages[key] || fallbackMessages[key] || key;
   for (const [name, value] of Object.entries(replacements)) {
@@ -102,6 +117,7 @@ export function t(key, replacements = {}) {
   return message;
 }
 
+/** Apply data-i18n attributes to a document or subtree. */
 export function applyI18n(root = document) {
   for (const element of root.querySelectorAll("[data-i18n]")) {
     element.textContent = t(element.dataset.i18n);
@@ -117,6 +133,7 @@ export function applyI18n(root = document) {
   }
 }
 
+/** Populate the UI language dropdown. */
 export function populateLanguageSelect(select, selectedValue = "auto") {
   select.replaceChildren(...LANGUAGE_OPTIONS.map((language) => {
     const option = document.createElement("option");

@@ -1,7 +1,22 @@
+/**
+ * Simple Bookmarks Manager main page controller.
+ *
+ * This file owns the bookmark tree state, pane rendering, details editing,
+ * custom context menus, keyboard navigation, drag/drop, and bookmark mutation
+ * calls.  The code intentionally keeps DOM text assignment on textContent and
+ * uses a small i18n helper for all user-facing strings.
+ */
 import { applyI18n, setI18nLanguage, t, normalizeLanguageSetting } from "./i18n.js";
 
 const api = chrome;
 
+// Chrome extension APIs are exposed through this alias so calls are easier to
+// scan and can be wrapped by small helpers where useful.
+
+// Central UI state.  This is the single source of truth for the active folder,
+// active pane, history stacks, drag/drop state, clipboard state, and current
+// multi-selection.  Bookmark data itself is always reloaded from Chrome after
+// mutations so the UI does not depend on stale local copies.
 const state = {
   tree: null,
   folderId: null,
@@ -37,6 +52,9 @@ const FONT_FAMILY_OPTIONS = Object.freeze([
   { value: "mono", css: "Consolas, 'Cascadia Mono', 'Courier New', monospace" }
 ]);
 
+// Defaults are duplicated in options.js by design so both entry points can load
+// safely even if opened independently.  Keep the two objects synchronized when
+// adding new settings.
 const DEFAULT_SETTINGS = Object.freeze({
   UserInterfaceLanguage: "auto",
   UserInterfaceFontFamily: "system",
@@ -63,6 +81,11 @@ let KeyboardDeleteAllow = DEFAULT_SETTINGS.KeyboardDeleteAllow;
 let DeleteShowWarning = DEFAULT_SETTINGS.DeleteShowWarning;
 let SearchLimitToFolderAndSub = DEFAULT_SETTINGS.SearchLimitToFolderAndSub;
 
+// ---------------------------------------------------------------------------
+// Settings and localization
+// ---------------------------------------------------------------------------
+
+/** Clamp numeric option values loaded from storage or form controls. */
 function clampNumber(value, min, max, fallback) {
   const numberValue = Number(value);
   if (!Number.isFinite(numberValue)) return fallback;
@@ -89,6 +112,10 @@ function applyUserInterfaceSettings() {
   document.documentElement.style.setProperty("--sbm-ui-line-height", String(UserInterfaceLineSpacing));
 }
 
+/**
+ * Apply one or more validated settings to runtime globals and optionally
+ * refresh affected UI areas.
+ */
 function applySettings(settings, { render = false } = {}) {
   const keys = Object.keys(DEFAULT_SETTINGS);
   for (const key of keys) {
@@ -138,6 +165,7 @@ function localizeStaticUi() {
   if (state.tree) renderColumnHeaders();
 }
 
+/** Load persisted settings before initial bookmark rendering. */
 async function loadSettings() {
   const stored = await api.storage.local.get(Object.keys(DEFAULT_SETTINGS));
   const settings = { ...DEFAULT_SETTINGS, ...stored };
@@ -146,6 +174,7 @@ async function loadSettings() {
   localizeStaticUi();
 }
 
+/** Persist a single setting and update any already-rendered UI that depends on it. */
 async function saveSetting(key, value) {
   const normalized = normalizeSettingValue(key, value);
   await api.storage.local.set({ [key]: normalized });
@@ -157,10 +186,19 @@ async function saveSetting(key, value) {
   }
 }
 
+// ---------------------------------------------------------------------------
+// Bookmark tree indexing and model helpers
+// ---------------------------------------------------------------------------
+
+/** Promise-friendly wrapper around chrome.bookmarks methods. */
 async function bookmarks(method, ...args) {
   return await api.bookmarks[method](...args);
 }
 
+/**
+ * Convert the Chrome bookmark tree into lightweight indexed nodes with parent
+ * pointers.  The nodes map is rebuilt whenever loadTree() refreshes data.
+ */
 function indexTree(root, parent = null, out = [], computedIndex = null) {
   const node = { ...root, parentNode: parent };
   if (Number.isInteger(computedIndex)) node.index = computedIndex;
@@ -172,10 +210,12 @@ function indexTree(root, parent = null, out = [], computedIndex = null) {
   return out;
 }
 
+/** True when a bookmark node is a folder rather than a URL bookmark. */
 function isFolder(node) {
   return !!node && !node.url;
 }
 
+/** Detect the extension's Chromium-compatible separator convention. */
 function isSeparator(node) {
   return !!node && !isFolder(node) && (node.title || "") === SEPARATOR_TITLE && (node.url || "") === SEPARATOR_URL;
 }
@@ -192,6 +232,7 @@ function refreshFaviconToken() {
   state.faviconRefreshToken = String(Date.now());
 }
 
+/** Build a chrome-extension favicon endpoint URL without fetching remote assets. */
 function bookmarkFaviconUrl(url, size = 16) {
   if (!url) return "";
   const favicon = new URL(api.runtime.getURL("/_favicon/"));
@@ -260,6 +301,7 @@ function canReorderList() {
   return !state.search && state.sort === "index";
 }
 
+/** Return all non-folder bookmarks under a folder, recursively, for search/open-all. */
 function flattenBookmarks(folder) {
   const out = [];
   for (const child of folder.children || []) {
@@ -289,6 +331,10 @@ function defaultSortDirection(key) {
   return key === "dateAdded" || key === "id" ? "desc" : "asc";
 }
 
+/**
+ * Calculate the middle pane rows from current folder/search/sort state.  Search
+ * can be global or limited to the active folder subtree.
+ */
 function visibleItems() {
   const folder = nodes.get(state.folderId);
   if (!folder) return [];
@@ -311,6 +357,7 @@ function visibleItems() {
   return items;
 }
 
+/** Reload Chrome bookmark data and rebuild the local node index. */
 async function loadTree(options = {}) {
   const { renderNow = true, fallbackFolder = true } = options;
   nodes.clear();
@@ -354,6 +401,7 @@ function descendantFolders(folder) {
   return out;
 }
 
+/** Flatten the currently expanded left tree into visible rows. */
 function visibleTreeFolders() {
   const out = [];
   const visit = (folder) => {
@@ -391,6 +439,7 @@ function toggleFolder(folderId) {
   renderRoots();
 }
 
+/** Toggle a tree folder while keeping active selection safe if a selected child collapses. */
 async function toggleTreeFolderFromClick(folder) {
   const children = childFolders(folder);
   if (!children.length) return;
@@ -432,6 +481,7 @@ function isDescendantOf(node, possibleAncestor) {
   return false;
 }
 
+/** Expand a folder and every descendant folder in the visible Library tree. */
 async function expandAllTreeFolders(folder) {
   if (!isFolder(folder)) return;
   state.expandedFolders.add(folder.id);
@@ -440,6 +490,10 @@ async function expandAllTreeFolders(folder) {
   focusActivePane();
 }
 
+/**
+ * Collapse a subtree.  If the active folder is inside that subtree, selection is
+ * first moved to the collapsing folder so ensureExpandedPath() does not reopen it.
+ */
 async function collapseAllTreeFolders(folder) {
   if (!isFolder(folder)) return;
 
@@ -469,6 +523,11 @@ async function collapseAllTreeFolders(folder) {
 }
 
 
+// ---------------------------------------------------------------------------
+// Selection and multi-selection
+// ---------------------------------------------------------------------------
+
+/** Return selectable row nodes for a pane in their visible order. */
 function paneItems(pane) {
   return pane === "tree" ? visibleTreeFolders() : pane === "list" ? visibleItems() : [];
 }
@@ -481,6 +540,7 @@ function isMultiSelectActive(pane = state.activePane) {
   return state.multiSelect.pane === pane && state.multiSelect.ids.size > 1;
 }
 
+/** Clear any active multi-selection without changing the normal single selection. */
 function clearMultiSelect() {
   state.multiSelect = { pane: null, ids: new Set(), anchorId: null, focusId: null };
 }
@@ -503,11 +563,13 @@ function hasAncestorInSet(node, idSet) {
   return false;
 }
 
+/** Remove descendants when their ancestor is already selected. */
 function topLevelIds(ids) {
   const idSet = new Set(ids);
   return ids.filter((id) => !hasAncestorInSet(nodes.get(id), idSet));
 }
 
+/** Enforce Library-tree multi-select safety rules: no roots and no parent+child set. */
 function normalizeTreeMultiCandidate(ids, focusId) {
   const clean = orderedIdsForPane(ids, "tree").filter((id) => {
     const node = nodes.get(id);
@@ -528,6 +590,7 @@ function normalizeTreeMultiCandidate(ids, focusId) {
   return [topLevelIds(clean)[0]].filter(Boolean);
 }
 
+/** Set the active pane and single selected row. */
 function setPaneSelection(pane, id, options = {}) {
   if (pane === "tree") {
     state.treeSelectedId = id || null;
@@ -539,6 +602,7 @@ function setPaneSelection(pane, id, options = {}) {
   state.activePane = pane;
 }
 
+/** Set an isolated multi-selection for one pane only. */
 function setMultiSelection(pane, ids, anchorId, focusId) {
   const ordered = pane === "tree" ? normalizeTreeMultiCandidate(ids, focusId) : orderedIdsForPane(ids, pane);
   if (ordered.length <= 1) {
@@ -564,6 +628,7 @@ function rangeIds(pane, fromId, toId) {
   return items.slice(start, end + 1).map((item) => item.id);
 }
 
+/** Implement Windows-style Ctrl/Shift click selection for a pane. */
 async function handlePaneClick(e, pane, item) {
   if (!item) return;
   const isMultiGesture = e.ctrlKey || e.shiftKey;
@@ -607,6 +672,7 @@ function cancelMultiSelectToFocus() {
   return true;
 }
 
+/** Calculate the Details Multiselect summary counts. */
 function multiSelectionStats() {
   const ids = selectionIdsForPane(state.activePane);
   const stats = { total: 0, folders: 0, bookmarks: 0, separators: 0 };
@@ -640,6 +706,11 @@ function folderUrls(folder) {
   return urls;
 }
 
+// ---------------------------------------------------------------------------
+// Clipboard, mutations, and open-all helpers
+// ---------------------------------------------------------------------------
+
+/** Create a serializable bookmark/folder snapshot for copy/paste. */
 function cloneBookmarkNode(node) {
   const copy = { title: node.title || "" };
   if (node.url) copy.url = node.url;
@@ -647,6 +718,7 @@ function cloneBookmarkNode(node) {
   return copy;
 }
 
+/** Recreate a bookmark/folder snapshot recursively at a destination. */
 async function createFromSnapshot(snapshot, parentId, index = null) {
   const createDetails = { parentId, title: snapshot.title || "" };
   if (snapshot.url) createDetails.url = snapshot.url;
@@ -733,6 +805,7 @@ function pasteTargetForContext(context) {
   return { parent: nodes.get(state.folderId), index: null };
 }
 
+/** Paste the current clipboard into the folder/index described by a context menu target. */
 async function pasteClipboard(context = state.contextMenu) {
   if (!canPasteForContext(context)) return;
   const target = pasteTargetForContext(context);
@@ -789,6 +862,7 @@ function compareNaturalNameSort(a, b) {
   return compareNodes(a, b, "title");
 }
 
+/** Permanently sort Chrome bookmark children inside one folder. */
 async function sortFolderChildren(folder, key) {
   if (!canContainChildren(folder)) return;
   const children = [...(folder.children || [])];
@@ -857,6 +931,7 @@ function isSplitViewSupported() {
   return false;
 }
 
+/** Resolve all bookmark URLs affected by a context-menu open-all action. */
 function contextUrls(context) {
   const item = nodes.get(context?.id);
   if (!item) return [];
@@ -911,6 +986,7 @@ function chooseTreeSelectionAfterDelete(snapshot) {
   return siblings[snapshot.index]?.id || siblings[snapshot.index - 1]?.id || null;
 }
 
+/** Delete a single node and choose the safest follow-up selection within the same pane. */
 async function deleteNode(item, sourcePane = state.activePane) {
   if (!item || !isMutable(item)) return;
   const label = item.title || item.url || t("thisItem");
@@ -954,6 +1030,7 @@ async function deleteNode(item, sourcePane = state.activePane) {
   setDetailsCleanBaseline(nodes.get(state.selectedId));
   render();
 }
+/** Delete all nodes in the active multi-selection or context target. */
 async function deleteSelection(context = null) {
   const pane = context?.pane || state.activePane;
   const ids = topLevelIds(context?.kind === "multi" ? selectedContextIds(context) : selectionIdsForPane(pane))
@@ -987,6 +1064,7 @@ function insertionTargetAfterNode(item) {
   return { parentId: parent.id, index: Number.isInteger(item.index) ? item.index + 1 : null };
 }
 
+/** Calculate parent/index for creating or pasting relative to the current menu target. */
 function insertionTargetForContext(context = null) {
   const contextItem = nodes.get(context?.id);
 
@@ -1095,6 +1173,7 @@ function copyNode(item) {
   render();
 }
 
+/** Store selected nodes as a cut clipboard payload. */
 function cutSelection(context = state.contextMenu) {
   const ids = topLevelIds(selectedContextIds(context)).filter((id) => isMutable(nodes.get(id)));
   if (!ids.length) return;
@@ -1103,6 +1182,7 @@ function cutSelection(context = state.contextMenu) {
   render();
 }
 
+/** Store selected nodes as a copy clipboard payload. */
 function copySelection(context = state.contextMenu) {
   const ids = topLevelIds(selectedContextIds(context)).filter((id) => {
     const item = nodes.get(id);
@@ -1114,6 +1194,11 @@ function copySelection(context = state.contextMenu) {
   render();
 }
 
+// ---------------------------------------------------------------------------
+// Drag and drop
+// ---------------------------------------------------------------------------
+
+/** Resolve above/into/below drop intent from pointer position and target type. */
 function dropIntent(event, element, target) {
   const rect = element.getBoundingClientRect();
   const y = event.clientY - rect.top;
@@ -1137,6 +1222,7 @@ function clearDropIndicators() {
   });
 }
 
+/** Validate a single-item drag/drop before mutation. */
 function validDrop(dragged, target, intent, context) {
   if (!dragged || !target || dragged.id === target.id) return false;
   if (!isMutable(dragged)) return false;
@@ -1168,6 +1254,7 @@ function normalizeMoveIndex(dragged, parentId, requestedIndex, _options = {}) {
   return Math.max(0, Math.min(requestedIndex, maxIndex));
 }
 
+/** Move one bookmark node above, into, or below a target node. */
 async function moveWithIntent(draggedId, targetId, intent) {
   const dragged = nodes.get(draggedId);
   const target = nodes.get(targetId);
@@ -1214,6 +1301,7 @@ function draggableIdsForPane(ids, pane) {
   });
 }
 
+/** Validate a middle-pane multi-selection drag/drop target. */
 function canMoveSelectedListItemsToTarget(target, intent, context, ids = null) {
   const sourceIds = ids || (isMultiSelectActive("list") ? [...state.multiSelect.ids] : []);
   const selectedIds = draggableIdsForPane(sourceIds, "list");
@@ -1259,6 +1347,7 @@ function canMoveSelectedTreeFoldersToTarget(target, intent, context, ids = null)
   return isReorderable(target) && !!target.parentId && target.parentId !== "0";
 }
 
+/** Move all selected middle-pane rows while preserving relative order. */
 async function moveSelectedListItems(targetId, intent, context = "list", ids = null) {
   const target = nodes.get(targetId);
   const selectedIds = draggableIdsForPane(ids || (isMultiSelectActive("list") ? [...state.multiSelect.ids] : []), "list");
@@ -1322,6 +1411,7 @@ async function moveSelectedListItems(targetId, intent, context = "list", ids = n
   await loadTree();
 }
 
+/** Move all selected Library folders while preserving relative order. */
 async function moveSelectedTreeFolders(targetId, intent, context = "tree", ids = null) {
   const target = nodes.get(targetId);
   const selectedIds = draggableIdsForPane(ids || (isMultiSelectActive("tree") ? [...state.multiSelect.ids] : []), "tree");
@@ -1386,6 +1476,7 @@ async function moveCurrentDragToTarget(targetId, intent, context) {
   if (drag?.source === "tree") return await moveSelectedTreeFolders(targetId, intent, context, drag.ids || []);
 }
 
+/** Attach drag-over/drop handlers to a rendered row. */
 function attachDropTarget(row, target, context) {
   row.ondragover = (e) => {
     const multiDrag = !!state.drag?.multi;
@@ -1436,6 +1527,10 @@ function attachDropTarget(row, target, context) {
 
 
 
+
+// ---------------------------------------------------------------------------
+// Context menus and app menu
+// ---------------------------------------------------------------------------
 
 function hideContextMenu() {
   document.querySelector(".context-menu")?.remove();
@@ -1647,6 +1742,7 @@ function buildBookmarkMenu(context) {
   ];
 }
 
+/** Build the reduced context menu used for active multi-selections. */
 function buildMultiMenu(context) {
   const urls = multiContextUrls(context);
   const pasteDisabled = !canPasteForContext(context);
@@ -1699,6 +1795,7 @@ function contextFromEvent(e) {
 }
 
 
+/** Show the correct custom context menu for the clicked pane/row. */
 function showContextMenu(e) {
   if (isInDetailsPane(e.target)) return;
   e.preventDefault();
@@ -1738,6 +1835,11 @@ function showContextMenu(e) {
   menu.querySelector("button:not(:disabled)")?.focus({ preventScroll: true });
 }
 
+// ---------------------------------------------------------------------------
+// Rendering
+// ---------------------------------------------------------------------------
+
+/** Render one visible Library tree row. */
 function renderFolderTreeNode(folder, depth = 0) {
   const children = childFolders(folder);
   const isExpanded = state.expandedFolders.has(folder.id);
@@ -1822,6 +1924,7 @@ function renderFolderTreeNode(folder, depth = 0) {
   return container;
 }
 
+/** Render root folders in the left Library pane. */
 function renderRoots() {
   ensureExpandedPath(state.folderId);
   $("roots").setAttribute("role", "tree");
@@ -1883,6 +1986,7 @@ function restoreMiddleScrollPosition(position) {
   requestAnimationFrame(() => setMiddleScrollPosition(position));
 }
 
+/** Render the middle bookmark/folder/separator list for the active folder. */
 function renderList() {
   const scrollPosition = state.resetMiddleScrollOnNextRender ? { top: 0, left: 0 } : getMiddleScrollPosition();
   state.resetMiddleScrollOnNextRender = false;
@@ -1954,6 +2058,7 @@ function renderList() {
   restoreMiddleScrollPosition(scrollPosition);
 }
 
+/** Refresh active/inactive selection styling without rebuilding the full panes. */
 function updateSelectionHighlights() {
   document.querySelectorAll(".tree-row").forEach((row) => {
     const selected = isMultiSelectActive("tree") ? state.multiSelect.ids.has(row.dataset.id) : row.dataset.id === (state.treeSelectedId || state.folderId);
@@ -2053,6 +2158,7 @@ function renderParents(selectedValue = null) {
   }
 }
 
+/** Render the Details pane or the Details Multiselect summary. */
 function renderDetails() {
   $("layout").classList.toggle("details-hidden", !state.detailsVisible);
   $("details-pane").hidden = !state.detailsVisible;
@@ -2207,6 +2313,7 @@ function discardDetailsChanges() {
   updateDetailsDirtyIndicators();
 }
 
+/** Show the modal prompt used when navigation would discard Details changes. */
 function showUnsavedChangesPrompt() {
   return new Promise((resolve) => {
     hideContextMenu();
@@ -2300,6 +2407,7 @@ function sortTooltip(key, direction = state.sortDirection) {
   return t("sortBookmarks");
 }
 
+/** Render sortable column headers for the middle pane. */
 function renderColumnHeaders() {
   for (const button of document.querySelectorAll(".columns [data-sort-key]")) {
     const key = button.dataset.sortKey;
@@ -2324,6 +2432,7 @@ function toggleDetailsPane() {
   renderDetails();
 }
 
+/** Render all major panes. */
 function render() {
   renderRoots();
   renderCrumbs();
@@ -2333,6 +2442,11 @@ function render() {
   renderNavButtons();
 }
 
+// ---------------------------------------------------------------------------
+// Navigation, keyboard handling, and initialization
+// ---------------------------------------------------------------------------
+
+/** Update active folder state without asynchronous unsaved-change checks. */
 function performNavigate(folderId, pushHistory = true, activePane = "tree") {
   if (pushHistory && state.folderId) {
     state.back.unshift(state.folderId);
@@ -2347,6 +2461,7 @@ function performNavigate(folderId, pushHistory = true, activePane = "tree") {
   render();
 }
 
+/** Navigate to a folder after protecting unsaved Details edits. */
 async function navigate(folderId, pushHistory = true, activePane = "tree") {
   if (folderId === state.folderId) {
     state.activePane = activePane;
@@ -2373,6 +2488,7 @@ async function select(id, activePane = "list") {
   performSelect(id, activePane);
 }
 
+/** Open bookmarks in a new tab or navigate into folders. */
 function openOrNavigate(item) {
   if (isFolder(item)) {
     const targetPane = state.activePane === "list" ? "list" : "tree";
@@ -2382,6 +2498,7 @@ function openOrNavigate(item) {
   }
 }
 
+/** Persist Details pane edits for the selected bookmark/folder. */
 async function saveDetailsForSelected() {
   const selected = nodes.get(state.selectedId);
   if (!selected || !isMutable(selected)) return;
@@ -2502,6 +2619,7 @@ function scrollActiveSelectionIntoView() {
   element?.scrollIntoView?.({ block: "nearest", inline: "nearest" });
 }
 
+/** Handle Library tree left/right arrow behavior. */
 async function handleTreeHorizontalNavigation(direction) {
   if (state.activePane !== "tree") return false;
   const folder = nodes.get(paneSelectionId("tree"));
@@ -2563,6 +2681,7 @@ function rootFolderFor(folder) {
   return current || null;
 }
 
+/** Handle Library Home/End behavior inside the current root tree. */
 async function moveTreeSelectionToBoundary(position) {
   if (state.activePane !== "tree") return false;
 
@@ -2622,6 +2741,7 @@ async function moveListSelectionToBoundary(position) {
   return true;
 }
 
+/** Backspace behavior: move up one folder level when valid. */
 async function navigateUpFolderNode() {
   let folder = null;
   let targetPane = state.activePane;
@@ -2697,6 +2817,7 @@ async function openKeyboardSelection() {
   return false;
 }
 
+/** Dispatch keyboard navigation for panes, search focus, and details-safe contexts. */
 async function handleKeyboardNavigation(e) {
   if (e.defaultPrevented) return false;
 
@@ -2734,6 +2855,7 @@ async function handleKeyboardNavigation(e) {
   return handled;
 }
 
+/** Delete key behavior for single or multi-selected rows. */
 async function handleKeyboardDelete(e) {
   if (!KeyboardDeleteAllow) return;
   if (e.defaultPrevented || isEditingTextField(e.target)) return;
@@ -2890,6 +3012,7 @@ for (const eventName of ["onCreated", "onRemoved", "onChanged", "onMoved", "onCh
   api.bookmarks[eventName].addListener(() => { if (!state.suppressBookmarkEvents) loadTree(); });
 }
 
+/** Main startup routine. */
 async function init() {
   await loadSettings();
   await loadTree();
