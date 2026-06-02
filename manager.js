@@ -239,6 +239,16 @@ function ensureExpandedPath(folderId) {
   }
 }
 
+function resetFolderViewState() {
+  refreshFaviconToken();
+  state.resetMiddleScrollOnNextRender = true;
+  state.search = "";
+  state.sort = "index";
+  state.sortDirection = defaultSortDirection(state.sort);
+  $("search").value = "";
+  $("sort").value = state.sort;
+}
+
 function toggleFolder(folderId) {
   if (state.expandedFolders.has(folderId)) {
     state.expandedFolders.delete(folderId);
@@ -246,6 +256,40 @@ function toggleFolder(folderId) {
     state.expandedFolders.add(folderId);
   }
   renderRoots();
+}
+
+async function toggleTreeFolderFromClick(folder) {
+  const children = childFolders(folder);
+  if (!children.length) return;
+
+  const isExpanded = state.expandedFolders.has(folder.id);
+  if (!isExpanded) {
+    state.expandedFolders.add(folder.id);
+    renderRoots();
+    return;
+  }
+
+  const currentFolder = nodes.get(state.folderId);
+  const selectedFolder = nodes.get(state.treeSelectedId);
+  const collapseAffectsCurrent = currentFolder && currentFolder.id !== folder.id && isDescendantOf(currentFolder, folder);
+  const collapseAffectsTreeSelection = selectedFolder && selectedFolder.id !== folder.id && isDescendantOf(selectedFolder, folder);
+
+  if (collapseAffectsCurrent || collapseAffectsTreeSelection) {
+    if (!(await confirmUnsavedDetailsBeforeNavigation())) return;
+    if (collapseAffectsCurrent && state.folderId) {
+      state.back.unshift(state.folderId);
+      state.forward = [];
+    }
+    clearMultiSelect();
+    state.folderId = folder.id;
+    state.treeSelectedId = folder.id;
+    state.selectedId = folder.id;
+    state.activePane = "tree";
+    resetFolderViewState();
+  }
+
+  state.expandedFolders.delete(folder.id);
+  render();
 }
 
 function isDescendantOf(node, possibleAncestor) {
@@ -1519,16 +1563,16 @@ function renderFolderTreeNode(folder, depth = 0) {
   twisty.disabled = children.length === 0;
   twisty.textContent = children.length ? (isExpanded ? "▾" : "▸") : "";
   twisty.title = isExpanded ? "Collapse folder" : "Expand folder";
-  twisty.onclick = (e) => {
+  twisty.onclick = async (e) => {
     e.stopPropagation();
-    toggleFolder(folder.id);
+    await toggleTreeFolderFromClick(folder);
   };
 
-  const toggleFolderOnDoubleClick = (e) => {
+  const toggleFolderOnDoubleClick = async (e) => {
     if (!children.length) return;
     e.preventDefault();
     e.stopPropagation();
-    toggleFolder(folder.id);
+    await toggleTreeFolderFromClick(folder);
   };
 
   const label = document.createElement("button");
@@ -2080,7 +2124,6 @@ function render() {
 }
 
 function performNavigate(folderId, pushHistory = true, activePane = "tree") {
-  refreshFaviconToken();
   if (pushHistory && state.folderId) {
     state.back.unshift(state.folderId);
     state.forward = [];
@@ -2090,12 +2133,7 @@ function performNavigate(folderId, pushHistory = true, activePane = "tree") {
   state.treeSelectedId = folderId;
   state.selectedId = folderId;
   state.activePane = activePane;
-  state.resetMiddleScrollOnNextRender = true;
-  state.search = "";
-  state.sort = "index";
-  state.sortDirection = defaultSortDirection(state.sort);
-  $("search").value = "";
-  $("sort").value = state.sort;
+  resetFolderViewState();
   render();
 }
 
