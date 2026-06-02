@@ -189,22 +189,77 @@ function sanitizeBookmarkUrl(value) {
   return stripControlChars(value).trim();
 }
 
-function urlValidationMessage(rawValue) {
+/**
+ * Validate a bookmark URL using local parsing only.  This never performs a
+ * network request; it only catches values that Chromium is likely to reject or
+ * that can cause bookmark nodes to lose their URL shape after mutation.
+ */
+function bookmarkUrlProblem(rawValue) {
   const raw = String(rawValue ?? "");
   const sanitized = sanitizeBookmarkUrl(raw);
   if (!sanitized) return t("urlWarningEmpty");
   if (sanitized !== raw.trim()) return t("urlWarningControlCharacters");
+  if (/\s/u.test(sanitized)) return t("urlWarningWhitespace");
 
-  // This is intentionally local-only validation. SBM never checks whether a
-  // website exists or performs any network request when validating URLs.
+  let parsed;
   try {
-    new URL(sanitized);
+    parsed = new URL(sanitized);
   } catch {
-    return t("urlWarningInvalidButAllowed");
+    return t("urlWarningInvalidBlocked");
   }
 
-  if (/\s/u.test(sanitized)) return t("urlWarningWhitespace");
+  const protocol = parsed.protocol.toLowerCase();
+  if ((protocol === "http:" || protocol === "https:" || protocol === "ftp:") && !parsed.hostname) {
+    return t("urlWarningInvalidBlocked");
+  }
+
+  // Chromium accepts about:blank as a bookmark URL; malformed about: variants
+  // are blocked because they can behave inconsistently in bookmark mutations.
+  if (protocol === "about:" && sanitized.toLowerCase() !== SEPARATOR_URL) {
+    return t("urlWarningInvalidBlocked");
+  }
+
   return "";
+}
+
+function bookmarkUrlBlockingProblem(rawValue) {
+  const sanitized = sanitizeBookmarkUrl(rawValue);
+  if (!sanitized) return t("urlWarningEmpty");
+
+  let parsed;
+  try {
+    parsed = new URL(sanitized);
+  } catch {
+    return t("urlWarningInvalidBlocked");
+  }
+
+  const protocol = parsed.protocol.toLowerCase();
+  if ((protocol === "http:" || protocol === "https:" || protocol === "ftp:") && !parsed.hostname) {
+    return t("urlWarningInvalidBlocked");
+  }
+  if (protocol === "about:" && sanitized.toLowerCase() !== SEPARATOR_URL) {
+    return t("urlWarningInvalidBlocked");
+  }
+
+  return "";
+}
+
+function isValidBookmarkUrl(rawValue) {
+  return !bookmarkUrlBlockingProblem(rawValue);
+}
+
+function showUrlValidationError(rawValue) {
+  const warning = $("url-warning");
+  const message = bookmarkUrlBlockingProblem(rawValue) || bookmarkUrlProblem(rawValue);
+  if (warning && message) {
+    warning.textContent = message;
+    warning.hidden = false;
+  }
+  return message;
+}
+
+function urlValidationMessage(rawValue) {
+  return bookmarkUrlProblem(rawValue);
 }
 
 function updateUrlWarning() {
@@ -982,8 +1037,16 @@ async function editBookmark(bookmark) {
   const url = prompt(t("bookmarkUrlPrompt"), bookmark.url || "https://");
   if (url === null) return;
   const cleanUrl = sanitizeBookmarkUrl(url);
-  if (!cleanUrl) return;
-  await bookmarks("update", bookmark.id, { title: sanitizeBookmarkTitle(title, cleanUrl), url: cleanUrl });
+  if (!isValidBookmarkUrl(cleanUrl)) {
+    console.warn("Simple Bookmarks Manager: bookmark URL was not saved because local validation failed.", cleanUrl);
+    return;
+  }
+  try {
+    await bookmarks("update", bookmark.id, { title: sanitizeBookmarkTitle(title, cleanUrl), url: cleanUrl });
+  } catch (err) {
+    console.error(err);
+    alert(t("couldNotSaveChanges", { error: err.message || err }));
+  }
   await loadTree();
   performSelect(bookmark.id, "list");
 }
@@ -1145,13 +1208,21 @@ async function createBookmarkIn(parentId, index = null) {
   const url = prompt(t("bookmarkUrlPrompt"), "https://");
   if (url === null) return;
   const cleanUrl = sanitizeBookmarkUrl(url);
-  if (!cleanUrl) return;
+  if (!isValidBookmarkUrl(cleanUrl)) {
+    console.warn("Simple Bookmarks Manager: bookmark was not created because local URL validation failed.", cleanUrl);
+    return;
+  }
   const title = prompt(t("bookmarkNamePrompt"), cleanUrl);
   if (title === null) return;
   const details = { ...target, title: sanitizeBookmarkTitle(title, cleanUrl), url: cleanUrl };
-  const node = await bookmarks("create", details);
-  await loadTree();
-  performSelect(node.id);
+  try {
+    const node = await bookmarks("create", details);
+    await loadTree();
+    performSelect(node.id);
+  } catch (err) {
+    console.error(err);
+    alert(t("couldNotSaveChanges", { error: err.message || err }));
+  }
 }
 
 async function createSeparatorIn(parentId, index = null) {
@@ -2557,8 +2628,8 @@ async function saveDetailsForSelected() {
   const hasRequestedIndex = EnableAdvancedDetailsEditing && Number.isInteger(requestedIndex) && requestedIndex >= 0;
 
   const changes = isFolder(selected) ? { title } : { title, url };
-  if (!isFolder(selected) && !url) {
-    updateUrlWarning();
+  if (!isFolder(selected) && !isValidBookmarkUrl(url)) {
+    showUrlValidationError(url);
     return;
   }
 

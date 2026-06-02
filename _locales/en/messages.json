@@ -501,9 +501,12 @@
     "message": "URL contained hidden control characters; they will be removed before saving."
   },
   "urlWarningInvalidButAllowed": {
-    "message": "This does not look like a standard URL. It will be saved if Chrome accepts it."
+    "message": "This URL is not valid enough to save as a bookmark. Fix the URL before saving."
   },
   "urlWarningWhitespace": {
     "message": "URL contains whitespace. It will be saved if Chrome accepts it, but it may not open as expected."
+  },
+  "urlWarningInvalidBlocked": {
+    "message": "This URL is not valid enough to save as a bookmark. Fix the URL before saving."
   }
 }

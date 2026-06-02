@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.7.4
+
+- Fixed invalid bookmark URL creation such as `https://` so Chrome bookmark API errors no longer surface as uncaught promise exceptions.
+- Changed bookmark create/save behavior so locally invalid URLs are blocked before mutation instead of being sent to Chrome's bookmark API.
+- Prevented malformed `about:` URLs from being treated as bookmark/folder shape changes during save operations.
+- Kept URL validation local-only; SBM does not access websites or perform network URL checks.
+- Updated `manifest.json` to `0.7.4`.
+
 ## 0.7.3
 
 - Performed an input validation and sanitisation pass for bookmark/folder creation, editing, paste, move, and drag/drop paths.
