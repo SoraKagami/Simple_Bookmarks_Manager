@@ -4,7 +4,12 @@ if (new URLSearchParams(location.search).has("embedded")) {
   document.body.classList.add("embedded");
 }
 
+const FONT_FAMILY_OPTIONS = Object.freeze(["system", "sans", "serif", "mono"]);
+
 const DEFAULT_SETTINGS = Object.freeze({
+  UserInterfaceFontFamily: "system",
+  UserInterfaceFontSize: 14,
+  UserInterfaceLineSpacing: 1.4,
   SearchLimitToFolderAndSub: true,
   DeleteShowWarning: true,
   SortShowWarning: true,
@@ -23,13 +28,31 @@ function showStatus(message) {
   statusTimer = setTimeout(() => { $("status").textContent = ""; }, 1600);
 }
 
+function clampNumber(value, min, max, fallback) {
+  const numberValue = Number(value);
+  if (!Number.isFinite(numberValue)) return fallback;
+  return Math.min(max, Math.max(min, numberValue));
+}
+
 function normalizeSettingValue(key, value) {
+  if (key === "UserInterfaceFontFamily") return FONT_FAMILY_OPTIONS.includes(value) ? value : DEFAULT_SETTINGS[key];
+  if (key === "UserInterfaceFontSize") return clampNumber(value, 11, 20, DEFAULT_SETTINGS[key]);
+  if (key === "UserInterfaceLineSpacing") return clampNumber(value, 1.0, 1.8, DEFAULT_SETTINGS[key]);
   return typeof value === "boolean" ? value : DEFAULT_SETTINGS[key];
+}
+
+function readControlValue(key) {
+  const control = $(key);
+  if (control.type === "checkbox") return control.checked;
+  return control.value;
 }
 
 function setControlState(settings) {
   for (const key of Object.keys(DEFAULT_SETTINGS)) {
-    $(key).checked = normalizeSettingValue(key, settings[key]);
+    const control = $(key);
+    const value = normalizeSettingValue(key, settings[key]);
+    if (control.type === "checkbox") control.checked = value;
+    else control.value = String(value);
   }
 
   if (!$("EnableAdvancedDetailsViewing").checked) {
@@ -56,8 +79,8 @@ async function saveOption(key, value) {
 }
 
 for (const key of Object.keys(DEFAULT_SETTINGS)) {
-  $(key).addEventListener("change", (event) => {
-    saveOption(key, event.target.checked).catch((err) => {
+  $(key).addEventListener("change", () => {
+    saveOption(key, readControlValue(key)).catch((err) => {
       console.error(err);
       showStatus(`Save failed: ${err.message || err}`);
     });

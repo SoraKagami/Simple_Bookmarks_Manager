@@ -28,7 +28,17 @@ const $ = (id) => document.getElementById(id);
 const nodes = new Map();
 const SEPARATOR_TITLE = "———";
 const SEPARATOR_URL = "about:blank";
+const FONT_FAMILY_OPTIONS = Object.freeze([
+  { value: "system", css: "system-ui, sans-serif" },
+  { value: "sans", css: "Arial, Helvetica, sans-serif" },
+  { value: "serif", css: "Georgia, 'Times New Roman', serif" },
+  { value: "mono", css: "Consolas, 'Cascadia Mono', 'Courier New', monospace" }
+]);
+
 const DEFAULT_SETTINGS = Object.freeze({
+  UserInterfaceFontFamily: "system",
+  UserInterfaceFontSize: 14,
+  UserInterfaceLineSpacing: 1.4,
   EnableAdvancedDetailsViewing: false,
   EnableAdvancedDetailsEditing: false,
   SortByNameNatural: true,
@@ -38,6 +48,9 @@ const DEFAULT_SETTINGS = Object.freeze({
   SearchLimitToFolderAndSub: true
 });
 
+let UserInterfaceFontFamily = DEFAULT_SETTINGS.UserInterfaceFontFamily;
+let UserInterfaceFontSize = DEFAULT_SETTINGS.UserInterfaceFontSize;
+let UserInterfaceLineSpacing = DEFAULT_SETTINGS.UserInterfaceLineSpacing;
 let EnableAdvancedDetailsViewing = DEFAULT_SETTINGS.EnableAdvancedDetailsViewing;
 let EnableAdvancedDetailsEditing = DEFAULT_SETTINGS.EnableAdvancedDetailsEditing;
 let SortByNameNatural = DEFAULT_SETTINGS.SortByNameNatural;
@@ -46,8 +59,29 @@ let KeyboardDeleteAllow = DEFAULT_SETTINGS.KeyboardDeleteAllow;
 let DeleteShowWarning = DEFAULT_SETTINGS.DeleteShowWarning;
 let SearchLimitToFolderAndSub = DEFAULT_SETTINGS.SearchLimitToFolderAndSub;
 
+function clampNumber(value, min, max, fallback) {
+  const numberValue = Number(value);
+  if (!Number.isFinite(numberValue)) return fallback;
+  return Math.min(max, Math.max(min, numberValue));
+}
+
+function fontFamilyCss(value) {
+  return (FONT_FAMILY_OPTIONS.find((option) => option.value === value) || FONT_FAMILY_OPTIONS[0]).css;
+}
+
 function normalizeSettingValue(key, value) {
+  if (key === "UserInterfaceFontFamily") {
+    return FONT_FAMILY_OPTIONS.some((option) => option.value === value) ? value : DEFAULT_SETTINGS[key];
+  }
+  if (key === "UserInterfaceFontSize") return clampNumber(value, 11, 20, DEFAULT_SETTINGS[key]);
+  if (key === "UserInterfaceLineSpacing") return clampNumber(value, 1.0, 1.8, DEFAULT_SETTINGS[key]);
   return typeof value === "boolean" ? value : DEFAULT_SETTINGS[key];
+}
+
+function applyUserInterfaceSettings() {
+  document.documentElement.style.setProperty("--sbm-ui-font-family", fontFamilyCss(UserInterfaceFontFamily));
+  document.documentElement.style.setProperty("--sbm-ui-font-size", `${UserInterfaceFontSize}px`);
+  document.documentElement.style.setProperty("--sbm-ui-line-height", String(UserInterfaceLineSpacing));
 }
 
 function applySettings(settings, { render = false } = {}) {
@@ -55,7 +89,10 @@ function applySettings(settings, { render = false } = {}) {
   for (const key of keys) {
     if (!(key in settings)) continue;
     const value = normalizeSettingValue(key, settings[key]);
-    if (key === "EnableAdvancedDetailsViewing") EnableAdvancedDetailsViewing = value;
+    if (key === "UserInterfaceFontFamily") UserInterfaceFontFamily = value;
+    else if (key === "UserInterfaceFontSize") UserInterfaceFontSize = value;
+    else if (key === "UserInterfaceLineSpacing") UserInterfaceLineSpacing = value;
+    else if (key === "EnableAdvancedDetailsViewing") EnableAdvancedDetailsViewing = value;
     else if (key === "EnableAdvancedDetailsEditing") EnableAdvancedDetailsEditing = value;
     else if (key === "SortByNameNatural") SortByNameNatural = value;
     else if (key === "SortShowWarning") SortShowWarning = value;
@@ -63,6 +100,8 @@ function applySettings(settings, { render = false } = {}) {
     else if (key === "DeleteShowWarning") DeleteShowWarning = value;
     else if (key === "SearchLimitToFolderAndSub") SearchLimitToFolderAndSub = value;
   }
+
+  applyUserInterfaceSettings();
 
   if (!EnableAdvancedDetailsViewing) EnableAdvancedDetailsEditing = false;
   const searchLimit = $("search-limit");

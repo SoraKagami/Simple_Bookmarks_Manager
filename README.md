@@ -1,6 +1,6 @@
 # Simple Bookmarks Manager
 
-Version: 0.5.2
+Version: 0.5.3
 
 A Manifest V3 Chrome/Chromium extension that provides a simple local bookmark manager inspired by Firefox Places Library ideas.
 
@@ -33,6 +33,7 @@ This Source Code Form is subject to the terms of the Mozilla Public License, v. 
 - Optional natural folder sorting for **Sort by Name** via the Options page.
 - Optional permanent-sort warning via the Options page.
 - Persistent options are stored in `chrome.storage.local`.
+- User-interface font family, base font size, and line spacing can be adjusted from the Options page.
 
 ## Chrome/Chromium implementation
 
@@ -98,6 +99,13 @@ Note: v0.2.2+ no longer overrides `chrome://bookmarks`, so Chromium/Brave's buil
 - Chromium BSD license reference: https://chromium.googlesource.com/chromium/src/+/HEAD/LICENSE
 
 ## Changelog
+
+### 0.5.3
+
+- Added a **User Interface** group to the Options page above the Search group.
+- Added persistent controls for the bookmark manager font family, base font size, and line spacing.
+- Updated manager styling so section headers and smaller UI labels scale relative to the configured base font size instead of using unrelated fixed text sizes.
+- Updated version to `0.5.3`.
 
 ### 0.5.2
 

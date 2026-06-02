@@ -8,11 +8,14 @@ header { display: flex; align-items: baseline; justify-content: space-between; g
 .option-section { margin: 16px 0; padding: 16px; border: 1px solid color-mix(in srgb, CanvasText 25%, transparent); border-radius: 10px; background: color-mix(in srgb, Canvas 94%, CanvasText); }
 .option-row { display: grid; grid-template-columns: 24px 1fr; gap: 10px; align-items: start; padding: 8px 0; cursor: pointer; }
 .option-row + .option-row { border-top: 1px solid color-mix(in srgb, CanvasText 12%, transparent); }
-.option-row input { width: 16px; height: 16px; margin: 3px 0 0; }
+.option-row input[type="checkbox"] { width: 16px; height: 16px; margin: 3px 0 0; }
 .option-row strong { display: block; }
 .option-row small { display: block; margin-top: 2px; opacity: .75; }
+.option-row-control { grid-template-columns: minmax(220px, 1fr) minmax(150px, 220px); align-items: center; }
+.option-row-control input, .option-row-control select { box-sizing: border-box; width: 100%; font: inherit; padding: 6px; }
 .actions { margin-top: 20px; }
-button { font: inherit; padding: 7px 12px; }
+button, select, input { font: inherit; }
+button { padding: 7px 12px; }
 
 body.embedded .options-page {
   max-width: none;

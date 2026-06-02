@@ -14,6 +14,36 @@
     </header>
 
     <section class="option-section">
+      <h2>User Interface</h2>
+      <label class="option-row option-row-control">
+        <span>
+          <strong>Font</strong>
+          <small>Controls the main font family used by the bookmark manager UI.</small>
+        </span>
+        <select id="UserInterfaceFontFamily">
+          <option value="system">System default</option>
+          <option value="sans">Arial / Helvetica</option>
+          <option value="serif">Georgia / Times</option>
+          <option value="mono">Consolas / monospace</option>
+        </select>
+      </label>
+      <label class="option-row option-row-control">
+        <span>
+          <strong>Font size</strong>
+          <small>Base text size. Headings and column labels scale relative to this value.</small>
+        </span>
+        <input id="UserInterfaceFontSize" type="number" min="11" max="20" step="1">
+      </label>
+      <label class="option-row option-row-control">
+        <span>
+          <strong>Font spacing</strong>
+          <small>Line spacing multiplier for denser or more readable rows and labels.</small>
+        </span>
+        <input id="UserInterfaceLineSpacing" type="number" min="1" max="1.8" step="0.05">
+      </label>
+    </section>
+
+    <section class="option-section">
       <h2>Search</h2>
       <label class="option-row">
         <input id="SearchLimitToFolderAndSub" type="checkbox">
