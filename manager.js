@@ -988,16 +988,62 @@ async function moveWithIntent(draggedId, targetId, intent) {
   await loadTree();
 }
 
-function listDropIntent(event, element) {
-  const rect = element.getBoundingClientRect();
-  return (event.clientY - rect.top) < rect.height / 2 ? "before" : "after";
+function listDropIntent(event, element, target) {
+  // Multi-drag in the middle pane needs three folder zones: above, into, below.
+  // Non-folder targets keep the simpler before/after behavior.
+  return dropIntent(event, element, target);
 }
 
-async function moveSelectedListItems(targetId, intent) {
-  if (!isMultiSelectActive("list") || !canReorderList()) return;
-  const items = visibleItems();
+function canMoveSelectedListItemsToTarget(target, intent, context) {
+  if (!isMultiSelectActive("list") || !target) return false;
+  const selectedIds = orderedIdsForPane([...state.multiSelect.ids], "list").filter((id) => isReorderable(nodes.get(id)));
+  if (!selectedIds.length) return false;
+  const selectedSet = new Set(selectedIds);
+
+  if (intent === "into") {
+    if (!canContainChildren(target) || selectedSet.has(target.id)) return false;
+    for (const id of selectedIds) {
+      const item = nodes.get(id);
+      if (!item || !isMutable(item)) return false;
+      if (isFolder(item) && isDescendantOf(target, item)) return false;
+    }
+    return true;
+  }
+
+  // Above/below reordering is supported only inside the current middle-pane folder.
+  return context === "list" && canReorderList() && !!target.parentId && target.parentId === state.folderId;
+}
+
+async function moveSelectedListItems(targetId, intent, context = "list") {
+  if (!isMultiSelectActive("list")) return;
+  const target = nodes.get(targetId);
+  if (!canMoveSelectedListItemsToTarget(target, intent, context)) return;
   const selectedIds = orderedIdsForPane([...state.multiSelect.ids], "list").filter((id) => isReorderable(nodes.get(id)));
   if (!selectedIds.length) return;
+
+  if (intent === "into") {
+    let lastId = null;
+    state.suppressBookmarkEvents = true;
+    try {
+      for (const id of selectedIds) {
+        const item = nodes.get(id);
+        if (!item || !isMutable(item)) continue;
+        if (isFolder(item) && isDescendantOf(target, item)) continue;
+        await bookmarks("move", item.id, { parentId: target.id });
+        lastId = item.id;
+      }
+    } finally {
+      state.suppressBookmarkEvents = false;
+    }
+    clearMultiSelect();
+    state.selectedId = lastId;
+    state.activePane = "list";
+    state.expandedFolders.add(target.id);
+    await loadTree();
+    return;
+  }
+
+  const items = visibleItems();
   const targetIndex = items.findIndex((item) => item.id === targetId);
   if (targetIndex < 0) return;
 
@@ -1029,10 +1075,12 @@ async function moveSelectedListItems(targetId, intent) {
 
 function attachDropTarget(row, target, context) {
   row.ondragover = (e) => {
-    const multiListDrag = state.drag?.multi && state.drag?.source === "list" && context === "list";
-    const intent = multiListDrag ? listDropIntent(e, row) : dropIntent(e, row, target);
+    const multiListDrag = state.drag?.multi && state.drag?.source === "list";
+    const intent = multiListDrag
+      ? (context === "tree" ? "into" : listDropIntent(e, row, target))
+      : dropIntent(e, row, target);
     if (multiListDrag) {
-      if (!canReorderList() || !target?.parentId || target.parentId !== state.folderId) return;
+      if (!canMoveSelectedListItemsToTarget(target, intent, context)) return;
     } else {
       const dragged = nodes.get(state.drag?.id || e.dataTransfer.getData("text/plain"));
       if (!validDrop(dragged, target, intent, context)) return;
@@ -1047,10 +1095,12 @@ function attachDropTarget(row, target, context) {
   row.ondragleave = () => row.classList.remove("drop-before", "drop-after", "drop-into");
 
   row.ondrop = async (e) => {
-    const multiListDrag = state.drag?.multi && state.drag?.source === "list" && context === "list";
-    const intent = multiListDrag ? listDropIntent(e, row) : dropIntent(e, row, target);
+    const multiListDrag = state.drag?.multi && state.drag?.source === "list";
+    const intent = multiListDrag
+      ? (context === "tree" ? "into" : listDropIntent(e, row, target))
+      : dropIntent(e, row, target);
     if (multiListDrag) {
-      if (!canReorderList() || !target?.parentId || target.parentId !== state.folderId) return;
+      if (!canMoveSelectedListItemsToTarget(target, intent, context)) return;
     } else {
       const draggedId = state.drag?.id || e.dataTransfer.getData("text/plain");
       const dragged = nodes.get(draggedId);
@@ -1062,7 +1112,7 @@ function attachDropTarget(row, target, context) {
     try {
       if (multiListDrag) {
         state.drag = null;
-        await moveSelectedListItems(target.id, intent);
+        await moveSelectedListItems(target.id, intent, context);
       } else {
         const draggedId = state.drag?.id || e.dataTransfer.getData("text/plain");
         state.drag = null;
