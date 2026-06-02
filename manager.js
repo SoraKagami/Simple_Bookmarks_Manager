@@ -35,7 +35,7 @@ const DEFAULT_SETTINGS = Object.freeze({
   SortShowWarning: true,
   KeyboardDeleteAllow: true,
   DeleteShowWarning: true,
-  SearchLimitToFolderAndSub: false
+  SearchLimitToFolderAndSub: true
 });
 
 let EnableAdvancedDetailsViewing = DEFAULT_SETTINGS.EnableAdvancedDetailsViewing;
@@ -724,8 +724,9 @@ async function sortFolderChildren(folder, key) {
 
   if (SortShowWarning) {
     const sortName = key === "dateAdded" ? "date" : "name";
+    const folderName = folder.title || "(root)";
     const ok = confirm(
-      `Sort this folder by ${sortName}?\n\n` +
+      `Sort "${folderName}" by ${sortName}?\n\n` +
       "This permanently changes the saved bookmark order in Chromium. " +
       "It is different from the temporary Visual sort dropdown."
     );

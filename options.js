@@ -5,7 +5,7 @@ if (new URLSearchParams(location.search).has("embedded")) {
 }
 
 const DEFAULT_SETTINGS = Object.freeze({
-  SearchLimitToFolderAndSub: false,
+  SearchLimitToFolderAndSub: true,
   DeleteShowWarning: true,
   SortShowWarning: true,
   KeyboardDeleteAllow: true,
