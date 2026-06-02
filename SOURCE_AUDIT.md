@@ -1,6 +1,6 @@
 # Source Audit
 
-Version: 0.7.1
+Version: 0.7.2
 
 ## Summary
 
@@ -35,35 +35,6 @@ The following Firefox Places features were not ported because Chrome's bookmark 
 - JSONLZ4 bookmark backup/restore.
 - Firefox-specific XUL/browser frontend code.
 - Firefox `PlacesUIUtils`, `PlacesTreeView`, `PlacesViewBase`, or similar modules.
-
-## v0.7.1 maintenance audit
-
-A dedicated code-maintenance pass was performed for dead code, duplicated helper logic, confusing naming, and fragile logic. Locale packs outside `_locales/en` were intentionally excluded from this code-analysis pass.
-
-Changes applied:
-
-- Removed unused helper functions left over from earlier tree/context-menu iterations.
-- Centralized the shared settings schema, font-family definitions, and setting validation in `settings.js`, replacing the duplicated copies in `manager.js` and `options.js`.
-- Simplified `normalizeMoveIndex()` by removing an unused parameter and stale call-site option that no longer affected behavior.
-
-Follow-up candidates intentionally left for later v0.7.x updates:
-
-- More defensive validation around bookmark URLs, move targets, clipboard payloads, and drag/drop payloads.
-- Cache/index refactoring to reduce repeated tree traversal.
-- DOM rendering optimization around selection highlight updates and drag/drop indicator refreshes.
-
-## v0.7.0 maintenance audit
-
-A low-risk code readability and documentation pass was performed for `manager.js`, `options.js`, and `i18n.js`. No behavior-changing optimizations were intentionally applied in this pass.
-
-Notes from the review:
-
-- User-controlled bookmark titles, URLs, and translated labels are assigned through DOM APIs such as `textContent`, attributes, or form values rather than HTML injection.
-- Bookmark mutations continue to route through Chrome's `chrome.bookmarks` API and reload the bookmark tree after changes to reduce stale local state.
-- Multi-selection, drag/drop, clipboard, context-menu, settings, and localization code now has clearer section comments to make future v0.7.x hardening passes safer.
-- Shared settings schemas are now centralized in `settings.js` as of v0.7.1.
-- Repeated tree traversal and full-pane rendering are still candidates for later performance work, especially around visible row lookup, drag/drop validation, and selection highlight updates.
-- Future input-validation work should focus on URL validation, bookmark move index bounds, clipboard payload validation, and drag/drop target validation.
 
 ## License conclusion
 
