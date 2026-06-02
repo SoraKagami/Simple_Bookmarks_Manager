@@ -493,5 +493,17 @@
   },
   "searchLimitFull": {
     "message": "Limit Search to Current Folder & Subfolders"
+  },
+  "urlWarningEmpty": {
+    "message": "URL is empty. Chrome may reject this bookmark until a URL is provided."
+  },
+  "urlWarningControlCharacters": {
+    "message": "URL contained hidden control characters; they will be removed before saving."
+  },
+  "urlWarningInvalidButAllowed": {
+    "message": "This does not look like a standard URL. It will be saved if Chrome accepts it."
+  },
+  "urlWarningWhitespace": {
+    "message": "URL contains whitespace. It will be saved if Chrome accepts it, but it may not open as expected."
   }
 }

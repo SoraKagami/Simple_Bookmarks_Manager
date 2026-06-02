@@ -1,5 +1,15 @@
 # Changelog
 
+## 0.7.3
+
+- Performed an input validation and sanitisation pass for bookmark/folder creation, editing, paste, move, and drag/drop paths.
+- Added local-only URL warning text in the Details pane; URLs are not checked over the network and nonstandard URLs are still allowed if Chrome accepts them.
+- Sanitised hidden control characters from bookmark/folder names and URLs before create/update/copy-paste operations.
+- Added defensive parent-folder and move-index validation before bookmark create/move operations.
+- Added clipboard snapshot and paste-target validation to reduce stale or malformed payloads reaching Chrome bookmark mutation APIs.
+- Added drag/drop move-target validation for safer multi-selection movement.
+- Updated `manifest.json` to `0.7.3`.
+
 ## 0.7.2
 
 - Moved version history out of `README.md` into this dedicated `CHANGELOG.md` file.

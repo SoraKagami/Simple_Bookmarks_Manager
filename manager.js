@@ -176,6 +176,83 @@ function isSeparator(node) {
   return !!node && !isFolder(node) && (node.title || "") === SEPARATOR_TITLE && (node.url || "") === SEPARATOR_URL;
 }
 
+function stripControlChars(value) {
+  return String(value ?? "").replace(/[\u0000-\u001F\u007F-\u009F]/gu, " ");
+}
+
+function sanitizeBookmarkTitle(value, fallback = "") {
+  const cleaned = stripControlChars(value).trim();
+  return cleaned || fallback;
+}
+
+function sanitizeBookmarkUrl(value) {
+  return stripControlChars(value).trim();
+}
+
+function urlValidationMessage(rawValue) {
+  const raw = String(rawValue ?? "");
+  const sanitized = sanitizeBookmarkUrl(raw);
+  if (!sanitized) return t("urlWarningEmpty");
+  if (sanitized !== raw.trim()) return t("urlWarningControlCharacters");
+
+  // This is intentionally local-only validation. SBM never checks whether a
+  // website exists or performs any network request when validating URLs.
+  try {
+    new URL(sanitized);
+  } catch {
+    return t("urlWarningInvalidButAllowed");
+  }
+
+  if (/\s/u.test(sanitized)) return t("urlWarningWhitespace");
+  return "";
+}
+
+function updateUrlWarning() {
+  const warning = $("url-warning");
+  const input = $("url");
+  if (!warning || !input) return;
+  if (input.hidden || input.disabled) {
+    warning.textContent = "";
+    warning.hidden = true;
+    return;
+  }
+  const message = urlValidationMessage(input.value);
+  warning.textContent = message;
+  warning.hidden = !message;
+}
+
+function validNodeId(id) {
+  return typeof id === "string" && nodes.has(id);
+}
+
+function validMutableNodeId(id) {
+  return validNodeId(id) && isMutable(nodes.get(id));
+}
+
+function validFolderId(id) {
+  return validNodeId(id) && canContainChildren(nodes.get(id));
+}
+
+function safeMoveDetails(parentId, index = null) {
+  if (!validFolderId(parentId)) return null;
+  const details = { parentId };
+  const safeIndex = normalizeMoveIndex(parentId, index);
+  if (Number.isInteger(safeIndex)) details.index = safeIndex;
+  return details;
+}
+
+function sanitizeSnapshot(snapshot) {
+  if (!snapshot || typeof snapshot !== "object") return null;
+  const clean = { title: sanitizeBookmarkTitle(snapshot.title) };
+  if ("url" in snapshot) clean.url = sanitizeBookmarkUrl(snapshot.url);
+  if (Array.isArray(snapshot.children)) {
+    clean.children = snapshot.children.map(sanitizeSnapshot).filter(Boolean);
+    delete clean.url;
+  }
+  if (!clean.children && !clean.url) clean.url = SEPARATOR_URL;
+  return clean;
+}
+
 function extensionIconPath(name) {
   return api.runtime.getURL(`icons/${name}`);
 }
@@ -667,11 +744,14 @@ function cloneBookmarkNode(node) {
 
 /** Recreate a bookmark/folder snapshot recursively at a destination. */
 async function createFromSnapshot(snapshot, parentId, index = null) {
-  const createDetails = { parentId, title: snapshot.title || "" };
-  if (snapshot.url) createDetails.url = snapshot.url;
-  if (Number.isInteger(index)) createDetails.index = index;
+  const clean = sanitizeSnapshot(snapshot);
+  const target = safeMoveDetails(parentId, index);
+  if (!clean || !target) return null;
+
+  const createDetails = { ...target, title: clean.title || "" };
+  if (clean.url) createDetails.url = clean.url;
   const created = await bookmarks("create", createDetails);
-  for (const child of snapshot.children || []) {
+  for (const child of clean.children || []) {
     await createFromSnapshot(child, created.id);
   }
   return created;
@@ -722,8 +802,8 @@ function canPasteInto(parentFolder, clipboard = state.clipboard) {
 
 function canPasteForContext(context) {
   const target = pasteTargetForContext(context);
-  if (!target || !canPasteInto(target.parent)) return false;
-  if (state.clipboard?.mode === "cut" && state.clipboard.id === context?.id) return false;
+  if (!target || !target.parent || !canPasteInto(target.parent)) return false;
+  if (state.clipboard?.mode === "cut" && clipboardItems().some((entry) => entry.id === context?.id)) return false;
   return true;
 }
 
@@ -732,13 +812,13 @@ function pasteTargetForContext(context) {
   const item = nodes.get(context.id);
   if (context.kind === "multi") {
     if (!item) return { parent: nodes.get(state.folderId), index: null };
-    if (isFolder(item)) return { parent: item, index: null };
+    if (canContainChildren(item)) return { parent: item, index: null };
     const parent = nodes.get(item.parentId);
     const index = Number.isInteger(item.index) ? item.index + 1 : null;
     return { parent, index };
   }
   if (context.kind === "folder") {
-    return { parent: item, index: null };
+    return canContainChildren(item) ? { parent: item, index: null } : null;
   }
   if (context.kind === "bookmark") {
     const parent = nodes.get(item?.parentId);
@@ -764,8 +844,9 @@ async function pasteClipboard(context = state.contextMenu) {
         const node = nodes.get(entry.id);
         if (!node || !isMutable(node)) continue;
         if (isFolder(node) && isDescendantOf(target.parent, node)) continue;
-        const moveDetails = { parentId: target.parent.id };
-        if (Number.isInteger(index)) moveDetails.index = index++;
+        const moveDetails = safeMoveDetails(target.parent.id, index);
+        if (!moveDetails) continue;
+        if (Number.isInteger(index)) index = (moveDetails.index ?? index) + 1;
         await bookmarks("move", node.id, moveDetails);
         lastId = node.id;
       }
@@ -774,6 +855,7 @@ async function pasteClipboard(context = state.contextMenu) {
       let index = Number.isInteger(target.index) ? target.index : null;
       for (const entry of entries) {
         const created = await createFromSnapshot(entry.snapshot, target.parent.id, index);
+        if (!created) continue;
         if (Number.isInteger(index)) index += 1;
         lastId = created.id;
       }
@@ -886,8 +968,9 @@ function contextUrls(context) {
 async function renameFolder(folder) {
   if (!isMutable(folder)) return;
   const title = prompt(t("newFolderNamePrompt"), folder.title || "");
-  if (!title) return;
-  await bookmarks("update", folder.id, { title: title.trim() });
+  if (title === null) return;
+  const cleanTitle = sanitizeBookmarkTitle(title, folder.title || t("newFolderDefaultName"));
+  await bookmarks("update", folder.id, { title: cleanTitle });
   await loadTree();
   performSelect(folder.id);
 }
@@ -897,8 +980,10 @@ async function editBookmark(bookmark) {
   const title = prompt(t("bookmarkNamePrompt"), bookmark.title || bookmark.url || "");
   if (title === null) return;
   const url = prompt(t("bookmarkUrlPrompt"), bookmark.url || "https://");
-  if (url === null || !url.trim()) return;
-  await bookmarks("update", bookmark.id, { title: title.trim() || url.trim(), url: url.trim() });
+  if (url === null) return;
+  const cleanUrl = sanitizeBookmarkUrl(url);
+  if (!cleanUrl) return;
+  await bookmarks("update", bookmark.id, { title: sanitizeBookmarkTitle(title, cleanUrl), url: cleanUrl });
   await loadTree();
   performSelect(bookmark.id, "list");
 }
@@ -1044,29 +1129,35 @@ function insertionTargetForContext(context = null) {
 }
 
 async function createFolderIn(parentId, index = null) {
+  const target = safeMoveDetails(parentId, index);
+  if (!target) return;
   const title = prompt(t("folderNamePrompt"), t("newFolderDefaultName"));
-  if (!title) return;
-  const details = { parentId, title };
-  if (Number.isInteger(index)) details.index = index;
+  if (title === null) return;
+  const details = { ...target, title: sanitizeBookmarkTitle(title, t("newFolderDefaultName")) };
   const node = await bookmarks("create", details);
   await loadTree();
   performSelect(node.id);
 }
 
 async function createBookmarkIn(parentId, index = null) {
+  const target = safeMoveDetails(parentId, index);
+  if (!target) return;
   const url = prompt(t("bookmarkUrlPrompt"), "https://");
-  if (!url) return;
-  const title = prompt(t("bookmarkNamePrompt"), url) || url;
-  const details = { parentId, title, url };
-  if (Number.isInteger(index)) details.index = index;
+  if (url === null) return;
+  const cleanUrl = sanitizeBookmarkUrl(url);
+  if (!cleanUrl) return;
+  const title = prompt(t("bookmarkNamePrompt"), cleanUrl);
+  if (title === null) return;
+  const details = { ...target, title: sanitizeBookmarkTitle(title, cleanUrl), url: cleanUrl };
   const node = await bookmarks("create", details);
   await loadTree();
   performSelect(node.id);
 }
 
 async function createSeparatorIn(parentId, index = null) {
-  const details = { parentId, title: SEPARATOR_TITLE, url: SEPARATOR_URL };
-  if (Number.isInteger(index)) details.index = index;
+  const target = safeMoveDetails(parentId, index);
+  if (!target) return;
+  const details = { ...target, title: SEPARATOR_TITLE, url: SEPARATOR_URL };
   const node = await bookmarks("create", details);
   await loadTree();
   performSelect(node.id);
@@ -1205,7 +1296,9 @@ async function moveWithIntent(draggedId, targetId, intent) {
 
   if (intent === "into") {
     const previousFolderId = state.folderId && nodes.has(state.folderId) ? state.folderId : null;
-    await bookmarks("move", dragged.id, { parentId: target.id });
+    const moveDetails = safeMoveDetails(target.id);
+    if (!moveDetails) return;
+    await bookmarks("move", dragged.id, moveDetails);
 
     // Keep the user in their current folder after a successful move-into.
     // If there is no current folder, move the view to the drop target. If that
@@ -1221,10 +1314,9 @@ async function moveWithIntent(draggedId, targetId, intent) {
   const requestedIndex = (Number.isInteger(target.index) ? target.index : 0) + (intent === "after" ? 1 : 0);
   const index = normalizeMoveIndex(target.parentId, requestedIndex);
 
-  await bookmarks("move", dragged.id, {
-    parentId: target.parentId,
-    ...(Number.isInteger(index) ? { index } : {})
-  });
+  const moveDetails = safeMoveDetails(target.parentId, index);
+  if (!moveDetails) return;
+  await bookmarks("move", dragged.id, moveDetails);
   state.selectedId = dragged.id;
   if (isFolder(dragged)) ensureExpandedPath(dragged.id);
   await loadTree();
@@ -1304,7 +1396,9 @@ async function moveSelectedListItems(targetId, intent, context = "list", ids = n
         const item = nodes.get(id);
         if (!item || !isMutable(item)) continue;
         if (isFolder(item) && isDescendantOf(target, item)) continue;
-        await bookmarks("move", item.id, { parentId: target.id });
+        const moveDetails = safeMoveDetails(target.id);
+        if (!moveDetails) continue;
+        await bookmarks("move", item.id, moveDetails);
         lastId = item.id;
       }
     } finally {
@@ -1339,7 +1433,8 @@ async function moveSelectedListItems(targetId, intent, context = "list", ids = n
   state.suppressBookmarkEvents = true;
   try {
     for (let i = 0; i < finalOrder.length; i += 1) {
-      await bookmarks("move", finalOrder[i].id, { parentId: targetParentId, index: i });
+      const moveDetails = safeMoveDetails(targetParentId, i);
+      if (moveDetails) await bookmarks("move", finalOrder[i].id, moveDetails);
     }
   } finally {
     state.suppressBookmarkEvents = false;
@@ -1367,7 +1462,9 @@ async function moveSelectedTreeFolders(targetId, intent, context = "tree", ids =
       for (const id of selectedIds) {
         const item = nodes.get(id);
         if (!canDragTreeFolder(item) || isDescendantOf(target, item)) continue;
-        await bookmarks("move", item.id, { parentId: target.id });
+        const moveDetails = safeMoveDetails(target.id);
+        if (!moveDetails) continue;
+        await bookmarks("move", item.id, moveDetails);
         lastId = item.id;
       }
     } else {
@@ -1382,7 +1479,9 @@ async function moveSelectedTreeFolders(targetId, intent, context = "tree", ids =
       for (let i = 0; i < selectedIds.length; i += 1) {
         const item = nodes.get(selectedIds[i]);
         if (!canDragTreeFolder(item)) continue;
-        await bookmarks("move", item.id, { parentId: target.parentId, index: insertIndex + i });
+        const moveDetails = safeMoveDetails(target.parentId, insertIndex + i);
+        if (!moveDetails) continue;
+        await bookmarks("move", item.id, moveDetails);
         lastId = item.id;
       }
     }
@@ -2155,8 +2254,10 @@ function renderDetails() {
     $("url").value = state.detailsOriginal.url;
     $("parent").value = state.detailsOriginal.parentId;
     setAdvancedDetailsFields(state.detailsOriginal.advanced);
+    updateUrlWarning();
   }
 
+  updateUrlWarning();
   updateDetailsDirtyIndicators();
 }
 
@@ -2189,6 +2290,7 @@ function setDetailsCleanBaseline(selected = nodes.get(state.selectedId)) {
   state.detailsOriginal = selectedDetailsSnapshot(selected);
   $("title").value = state.detailsOriginal.title;
   $("url").value = state.detailsOriginal.url;
+  updateUrlWarning();
   renderParents(state.detailsOriginal.parentId);
   $("parent").value = state.detailsOriginal.parentId;
   setAdvancedDetailsFields(state.detailsOriginal.advanced);
@@ -2249,6 +2351,7 @@ function discardDetailsChanges() {
   if (!selected || !state.detailsOriginal || state.detailsOriginal.id !== selected.id) return;
   $("title").value = state.detailsOriginal.title;
   $("url").value = state.detailsOriginal.url;
+  updateUrlWarning();
   renderParents(state.detailsOriginal.parentId);
   $("parent").value = state.detailsOriginal.parentId;
   setAdvancedDetailsFields(state.detailsOriginal.advanced);
@@ -2447,13 +2550,17 @@ async function saveDetailsForSelected() {
   if (!selected || !isMutable(selected)) return;
 
   const selectedId = selected.id;
-  const title = $("title").value.trim();
-  const url = $("url").value.trim();
+  const title = sanitizeBookmarkTitle($("title").value, selected.title || selected.url || "");
+  const url = sanitizeBookmarkUrl($("url").value);
   const parentId = $("parent").value;
   const requestedIndex = EnableAdvancedDetailsEditing ? Number.parseInt(advancedIndexValue(), 10) : NaN;
   const hasRequestedIndex = EnableAdvancedDetailsEditing && Number.isInteger(requestedIndex) && requestedIndex >= 0;
 
   const changes = isFolder(selected) ? { title } : { title, url };
+  if (!isFolder(selected) && !url) {
+    updateUrlWarning();
+    return;
+  }
 
   // Prevent intermediate bookmark events from re-rendering the Details pane
   // between the update and optional move.  The clean baseline is rebuilt once
@@ -2461,16 +2568,19 @@ async function saveDetailsForSelected() {
   state.suppressBookmarkEvents = true;
   try {
     await bookmarks("update", selectedId, changes);
-    const moveDetails = {};
-    const destinationParentId = parentId || selected.parentId;
-    if (parentId && parentId !== selected.parentId) moveDetails.parentId = parentId;
+    let moveDetails = {};
+    const destinationParentId = validFolderId(parentId) ? parentId : selected.parentId;
+    if (destinationParentId && destinationParentId !== selected.parentId) moveDetails.parentId = destinationParentId;
     if (hasRequestedIndex) {
       const normalizedIndex = normalizeMoveIndex(destinationParentId, requestedIndex);
       if (Number.isInteger(normalizedIndex) && String(normalizedIndex) !== String(selected.index ?? "")) {
         moveDetails.index = normalizedIndex;
       }
     }
-    if (Object.keys(moveDetails).length) await bookmarks("move", selectedId, moveDetails);
+    if (Object.keys(moveDetails).length) {
+      moveDetails = { ...(safeMoveDetails(destinationParentId, moveDetails.index) || {}), ...moveDetails };
+      if (moveDetails.parentId || Number.isInteger(moveDetails.index)) await bookmarks("move", selectedId, moveDetails);
+    }
   } finally {
     state.suppressBookmarkEvents = false;
   }
@@ -2897,6 +3007,8 @@ for (const id of ["title", "url", "parent", "advanced-index"]) {
   $(id).addEventListener("input", updateDetailsDirtyIndicators);
   $(id).addEventListener("change", updateDetailsDirtyIndicators);
 }
+$("url").addEventListener("input", updateUrlWarning);
+$("url").addEventListener("change", updateUrlWarning);
 $("new-folder").onclick = createFolder;
 $("new-bookmark").onclick = createBookmark;
 document.addEventListener("dragover", (e) => {

@@ -56,7 +56,8 @@
       <h2 data-i18n="details">Details</h2>
       <form id="details-form">
         <label id="title-label"><span class="field-caption" data-i18n="sortName">Name</span><input id="title" autocomplete="off"></label>
-        <label id="url-label"><span class="field-caption" data-i18n="url">URL</span><input id="url" autocomplete="off"></label>
+        <label id="url-label"><span class="field-caption" data-i18n="url">URL</span><input id="url" autocomplete="off" aria-describedby="url-warning"></label>
+        <p id="url-warning" class="field-warning" role="status" aria-live="polite" hidden></p>
         <label id="parent-label"><span class="field-caption" data-i18n="parentFolder">Parent folder</span><select id="parent"></select></label>
         <div class="row details-actions">
           <button id="save" type="submit" data-i18n="save">Save</button>

@@ -304,3 +304,12 @@ h2 { font-size: .929rem; margin: 0 0 10px; opacity: .75; text-transform: upperca
   background: Canvas;
   color: CanvasText;
 }
+
+.field-warning {
+  margin: -4px 0 6px;
+  font-size: calc(var(--sbm-ui-font-size) * .86);
+  line-height: 1.2;
+  color: #7a4a00;
+}
+
+.field-warning[hidden] { display: none; }
