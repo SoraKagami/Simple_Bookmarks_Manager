@@ -994,10 +994,18 @@ function listDropIntent(event, element, target) {
   return dropIntent(event, element, target);
 }
 
-function canMoveSelectedListItemsToTarget(target, intent, context) {
-  if (!isMultiSelectActive("list") || !target) return false;
-  const selectedIds = orderedIdsForPane([...state.multiSelect.ids], "list").filter((id) => isReorderable(nodes.get(id)));
-  if (!selectedIds.length) return false;
+function draggableIdsForPane(ids, pane) {
+  const ordered = topLevelIds(orderedIdsForPane(ids || [], pane));
+  return ordered.filter((id) => {
+    const item = nodes.get(id);
+    return pane === "tree" ? canDragTreeFolder(item) : canDragListItem(item);
+  });
+}
+
+function canMoveSelectedListItemsToTarget(target, intent, context, ids = null) {
+  const sourceIds = ids || (isMultiSelectActive("list") ? [...state.multiSelect.ids] : []);
+  const selectedIds = draggableIdsForPane(sourceIds, "list");
+  if (!selectedIds.length || !target) return false;
   const selectedSet = new Set(selectedIds);
 
   if (intent === "into") {
@@ -1014,12 +1022,27 @@ function canMoveSelectedListItemsToTarget(target, intent, context) {
   return context === "list" && canReorderList() && !!target.parentId && target.parentId === state.folderId;
 }
 
-async function moveSelectedListItems(targetId, intent, context = "list") {
-  if (!isMultiSelectActive("list")) return;
+function canMoveSelectedTreeFoldersToTarget(target, intent, context, ids = null) {
+  const sourceIds = ids || (isMultiSelectActive("tree") ? [...state.multiSelect.ids] : []);
+  const selectedIds = draggableIdsForPane(sourceIds, "tree");
+  if (context !== "tree" || !selectedIds.length || !target) return false;
+  const selectedSet = new Set(selectedIds);
+  if (selectedSet.has(target.id)) return false;
+
+  for (const id of selectedIds) {
+    const item = nodes.get(id);
+    if (!canDragTreeFolder(item)) return false;
+    if (isDescendantOf(target, item)) return false;
+  }
+
+  if (intent === "into") return canContainChildren(target);
+  return isReorderable(target) && !!target.parentId && target.parentId !== "0";
+}
+
+async function moveSelectedListItems(targetId, intent, context = "list", ids = null) {
   const target = nodes.get(targetId);
-  if (!canMoveSelectedListItemsToTarget(target, intent, context)) return;
-  const selectedIds = orderedIdsForPane([...state.multiSelect.ids], "list").filter((id) => isReorderable(nodes.get(id)));
-  if (!selectedIds.length) return;
+  const selectedIds = draggableIdsForPane(ids || (isMultiSelectActive("list") ? [...state.multiSelect.ids] : []), "list");
+  if (!selectedIds.length || !canMoveSelectedListItemsToTarget(target, intent, context, selectedIds)) return;
 
   if (intent === "into") {
     let lastId = null;
@@ -1073,14 +1096,77 @@ async function moveSelectedListItems(targetId, intent, context = "list") {
   await loadTree();
 }
 
+async function moveSelectedTreeFolders(targetId, intent, context = "tree", ids = null) {
+  const target = nodes.get(targetId);
+  const selectedIds = draggableIdsForPane(ids || (isMultiSelectActive("tree") ? [...state.multiSelect.ids] : []), "tree");
+  if (!selectedIds.length || !canMoveSelectedTreeFoldersToTarget(target, intent, context, selectedIds)) return;
+
+  let lastId = null;
+  state.suppressBookmarkEvents = true;
+  try {
+    if (intent === "into") {
+      for (const id of selectedIds) {
+        const item = nodes.get(id);
+        if (!canDragTreeFolder(item) || isDescendantOf(target, item)) continue;
+        await bookmarks("move", item.id, { parentId: target.id });
+        lastId = item.id;
+      }
+    } else {
+      const targetParent = nodes.get(target.parentId);
+      const selectedSet = new Set(selectedIds);
+      const remainingChildren = (targetParent?.children || []).filter((child) => !selectedSet.has(child.id));
+      const targetIndex = remainingChildren.findIndex((child) => child.id === target.id);
+      if (targetIndex < 0) return;
+      let insertIndex = targetIndex + (intent === "after" ? 1 : 0);
+      insertIndex = Math.max(0, Math.min(insertIndex, remainingChildren.length));
+
+      for (let i = 0; i < selectedIds.length; i += 1) {
+        const item = nodes.get(selectedIds[i]);
+        if (!canDragTreeFolder(item)) continue;
+        await bookmarks("move", item.id, { parentId: target.parentId, index: insertIndex + i });
+        lastId = item.id;
+      }
+    }
+  } finally {
+    state.suppressBookmarkEvents = false;
+  }
+
+  clearMultiSelect();
+  state.activePane = "tree";
+  state.treeSelectedId = lastId;
+  state.selectedId = lastId;
+  if (intent === "into") state.expandedFolders.add(target.id);
+  if (lastId && isFolder(nodes.get(lastId))) ensureExpandedPath(lastId);
+  await loadTree();
+}
+
+function currentDragIntent(event, row, target, context) {
+  const source = state.drag?.source;
+  if (state.drag?.multi && source === "list" && context === "tree") return "into";
+  if (state.drag?.multi && source === "list" && context === "list") return listDropIntent(event, row, target);
+  return dropIntent(event, row, target);
+}
+
+function canMoveCurrentDragToTarget(target, intent, context) {
+  if (!(state.drag?.multi)) return false;
+  if (state.drag.source === "list") return canMoveSelectedListItemsToTarget(target, intent, context, state.drag.ids || []);
+  if (state.drag.source === "tree") return canMoveSelectedTreeFoldersToTarget(target, intent, context, state.drag.ids || []);
+  return false;
+}
+
+async function moveCurrentDragToTarget(targetId, intent, context) {
+  const drag = state.drag;
+  state.drag = null;
+  if (drag?.source === "list") return await moveSelectedListItems(targetId, intent, context, drag.ids || []);
+  if (drag?.source === "tree") return await moveSelectedTreeFolders(targetId, intent, context, drag.ids || []);
+}
+
 function attachDropTarget(row, target, context) {
   row.ondragover = (e) => {
-    const multiListDrag = state.drag?.multi && state.drag?.source === "list";
-    const intent = multiListDrag
-      ? (context === "tree" ? "into" : listDropIntent(e, row, target))
-      : dropIntent(e, row, target);
-    if (multiListDrag) {
-      if (!canMoveSelectedListItemsToTarget(target, intent, context)) return;
+    const multiDrag = !!state.drag?.multi;
+    const intent = multiDrag ? currentDragIntent(e, row, target, context) : dropIntent(e, row, target);
+    if (multiDrag) {
+      if (!canMoveCurrentDragToTarget(target, intent, context)) return;
     } else {
       const dragged = nodes.get(state.drag?.id || e.dataTransfer.getData("text/plain"));
       if (!validDrop(dragged, target, intent, context)) return;
@@ -1095,12 +1181,10 @@ function attachDropTarget(row, target, context) {
   row.ondragleave = () => row.classList.remove("drop-before", "drop-after", "drop-into");
 
   row.ondrop = async (e) => {
-    const multiListDrag = state.drag?.multi && state.drag?.source === "list";
-    const intent = multiListDrag
-      ? (context === "tree" ? "into" : listDropIntent(e, row, target))
-      : dropIntent(e, row, target);
-    if (multiListDrag) {
-      if (!canMoveSelectedListItemsToTarget(target, intent, context)) return;
+    const multiDrag = !!state.drag?.multi;
+    const intent = multiDrag ? currentDragIntent(e, row, target, context) : dropIntent(e, row, target);
+    if (multiDrag) {
+      if (!canMoveCurrentDragToTarget(target, intent, context)) return;
     } else {
       const draggedId = state.drag?.id || e.dataTransfer.getData("text/plain");
       const dragged = nodes.get(draggedId);
@@ -1110,9 +1194,8 @@ function attachDropTarget(row, target, context) {
     e.preventDefault();
     clearDropIndicators();
     try {
-      if (multiListDrag) {
-        state.drag = null;
-        await moveSelectedListItems(target.id, intent, context);
+      if (multiDrag) {
+        await moveCurrentDragToTarget(target.id, intent, context);
       } else {
         const draggedId = state.drag?.id || e.dataTransfer.getData("text/plain");
         state.drag = null;
@@ -1125,6 +1208,7 @@ function attachDropTarget(row, target, context) {
     }
   };
 }
+
 
 
 
@@ -1415,7 +1499,8 @@ function renderFolderTreeNode(folder, depth = 0) {
     row.draggable = true;
     row.title = "Drag to reorder this folder";
     row.ondragstart = (e) => {
-      state.drag = { id: folder.id, source: "tree" };
+      const multi = isMultiSelectActive("tree") && state.multiSelect.ids.has(folder.id);
+      state.drag = multi ? { ids: [...state.multiSelect.ids], source: "tree", multi: true } : { id: folder.id, source: "tree" };
       e.dataTransfer.effectAllowed = "move";
       e.dataTransfer.setData("text/plain", folder.id);
       row.classList.add("dragging");
