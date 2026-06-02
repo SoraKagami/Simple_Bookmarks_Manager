@@ -6,7 +6,8 @@
  * calls.  The code intentionally keeps DOM text assignment on textContent and
  * uses a small i18n helper for all user-facing strings.
  */
-import { applyI18n, setI18nLanguage, t, normalizeLanguageSetting } from "./i18n.js";
+import { applyI18n, setI18nLanguage, t } from "./i18n.js";
+import { DEFAULT_SETTINGS, fontFamilyCss, normalizeSettingValue } from "./settings.js";
 
 const api = chrome;
 
@@ -45,30 +46,6 @@ const $ = (id) => document.getElementById(id);
 const nodes = new Map();
 const SEPARATOR_TITLE = "———";
 const SEPARATOR_URL = "about:blank";
-const FONT_FAMILY_OPTIONS = Object.freeze([
-  { value: "system", css: "system-ui, sans-serif" },
-  { value: "sans", css: "Arial, Helvetica, sans-serif" },
-  { value: "serif", css: "Georgia, 'Times New Roman', serif" },
-  { value: "mono", css: "Consolas, 'Cascadia Mono', 'Courier New', monospace" }
-]);
-
-// Defaults are duplicated in options.js by design so both entry points can load
-// safely even if opened independently.  Keep the two objects synchronized when
-// adding new settings.
-const DEFAULT_SETTINGS = Object.freeze({
-  UserInterfaceLanguage: "auto",
-  UserInterfaceFontFamily: "system",
-  UserInterfaceFontSize: 12.5,
-  UserInterfaceLineSpacing: 1.4,
-  EnableAdvancedDetailsViewing: false,
-  EnableAdvancedDetailsEditing: false,
-  SortByNameNatural: true,
-  SortShowWarning: true,
-  KeyboardDeleteAllow: true,
-  DeleteShowWarning: true,
-  SearchLimitToFolderAndSub: true
-});
-
 let UserInterfaceLanguage = DEFAULT_SETTINGS.UserInterfaceLanguage;
 let UserInterfaceFontFamily = DEFAULT_SETTINGS.UserInterfaceFontFamily;
 let UserInterfaceFontSize = DEFAULT_SETTINGS.UserInterfaceFontSize;
@@ -84,27 +61,6 @@ let SearchLimitToFolderAndSub = DEFAULT_SETTINGS.SearchLimitToFolderAndSub;
 // ---------------------------------------------------------------------------
 // Settings and localization
 // ---------------------------------------------------------------------------
-
-/** Clamp numeric option values loaded from storage or form controls. */
-function clampNumber(value, min, max, fallback) {
-  const numberValue = Number(value);
-  if (!Number.isFinite(numberValue)) return fallback;
-  return Math.min(max, Math.max(min, numberValue));
-}
-
-function fontFamilyCss(value) {
-  return (FONT_FAMILY_OPTIONS.find((option) => option.value === value) || FONT_FAMILY_OPTIONS[0]).css;
-}
-
-function normalizeSettingValue(key, value) {
-  if (key === "UserInterfaceLanguage") return normalizeLanguageSetting(value);
-  if (key === "UserInterfaceFontFamily") {
-    return FONT_FAMILY_OPTIONS.some((option) => option.value === value) ? value : DEFAULT_SETTINGS[key];
-  }
-  if (key === "UserInterfaceFontSize") return clampNumber(value, 11, 20, DEFAULT_SETTINGS[key]);
-  if (key === "UserInterfaceLineSpacing") return clampNumber(value, 1.0, 1.8, DEFAULT_SETTINGS[key]);
-  return typeof value === "boolean" ? value : DEFAULT_SETTINGS[key];
-}
 
 function applyUserInterfaceSettings() {
   document.documentElement.style.setProperty("--sbm-ui-font-family", fontFamilyCss(UserInterfaceFontFamily));
@@ -430,15 +386,6 @@ function resetFolderViewState() {
   $("sort").value = state.sort;
 }
 
-function toggleFolder(folderId) {
-  if (state.expandedFolders.has(folderId)) {
-    state.expandedFolders.delete(folderId);
-  } else {
-    state.expandedFolders.add(folderId);
-  }
-  renderRoots();
-}
-
 /** Toggle a tree folder while keeping active selection safe if a selected child collapses. */
 async function toggleTreeFolderFromClick(folder) {
   const children = childFolders(folder);
@@ -749,10 +696,6 @@ function selectionUrls(ids) {
 
 function multiContextUrls(context) {
   return selectionUrls(selectedContextIds(context));
-}
-
-function contextHasMultiSelection(context) {
-  return context?.kind === "multi" && (context.ids || []).length > 1;
 }
 
 function clipboardItems(clipboard = state.clipboard) {
@@ -1243,7 +1186,7 @@ function childCount(parentId) {
   return (nodes.get(parentId)?.children || []).length;
 }
 
-function normalizeMoveIndex(dragged, parentId, requestedIndex, _options = {}) {
+function normalizeMoveIndex(parentId, requestedIndex) {
   if (!Number.isInteger(requestedIndex)) return null;
 
   // chrome.bookmarks.move() already handles same-parent index adjustment when
@@ -1276,7 +1219,7 @@ async function moveWithIntent(draggedId, targetId, intent) {
   }
 
   const requestedIndex = (Number.isInteger(target.index) ? target.index : 0) + (intent === "after" ? 1 : 0);
-  const index = normalizeMoveIndex(dragged, target.parentId, requestedIndex);
+  const index = normalizeMoveIndex(target.parentId, requestedIndex);
 
   await bookmarks("move", dragged.id, {
     parentId: target.parentId,
@@ -2522,7 +2465,7 @@ async function saveDetailsForSelected() {
     const destinationParentId = parentId || selected.parentId;
     if (parentId && parentId !== selected.parentId) moveDetails.parentId = parentId;
     if (hasRequestedIndex) {
-      const normalizedIndex = normalizeMoveIndex(selected, destinationParentId, requestedIndex, { adjustForSameParent: false });
+      const normalizedIndex = normalizeMoveIndex(destinationParentId, requestedIndex);
       if (Number.isInteger(normalizedIndex) && String(normalizedIndex) !== String(selected.index ?? "")) {
         moveDetails.index = normalizedIndex;
       }

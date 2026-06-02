@@ -5,37 +5,14 @@
  * in-manager options iframe.  Settings are persisted in chrome.storage.local
  * and changes are observed by manager.js at runtime.
  */
-import { applyI18n, populateLanguageSelect, setI18nLanguage, t, normalizeLanguageSetting } from "./i18n.js";
+import { applyI18n, populateLanguageSelect, setI18nLanguage, t } from "./i18n.js";
+import { DEFAULT_SETTINGS, fontFamilyCss, normalizeSettingValue } from "./settings.js";
 
 const api = chrome;
 
 if (new URLSearchParams(location.search).has("embedded")) {
   document.body.classList.add("embedded");
 }
-
-// Keep these options synchronized with manager.js so live preview and manager
-// rendering use the same CSS font stacks.
-const FONT_FAMILY_OPTIONS = Object.freeze([
-  { value: "system", css: "system-ui, sans-serif" },
-  { value: "sans", css: "Arial, Helvetica, sans-serif" },
-  { value: "serif", css: "Georgia, 'Times New Roman', serif" },
-  { value: "mono", css: "Consolas, 'Cascadia Mono', 'Courier New', monospace" }
-]);
-
-// Keep this settings schema synchronized with manager.js.
-const DEFAULT_SETTINGS = Object.freeze({
-  UserInterfaceLanguage: "auto",
-  UserInterfaceFontFamily: "system",
-  UserInterfaceFontSize: 12.5,
-  UserInterfaceLineSpacing: 1.4,
-  SearchLimitToFolderAndSub: true,
-  DeleteShowWarning: true,
-  SortShowWarning: true,
-  KeyboardDeleteAllow: true,
-  SortByNameNatural: true,
-  EnableAdvancedDetailsViewing: false,
-  EnableAdvancedDetailsEditing: false
-});
 
 const $ = (id) => document.getElementById(id);
 let statusTimer = null;
@@ -45,27 +22,6 @@ function showStatus(message) {
   $("status").textContent = message;
   clearTimeout(statusTimer);
   statusTimer = setTimeout(() => { $("status").textContent = ""; }, 1600);
-}
-
-function clampNumber(value, min, max, fallback) {
-  const numberValue = Number(value);
-  if (!Number.isFinite(numberValue)) return fallback;
-  return Math.min(max, Math.max(min, numberValue));
-}
-
-function fontFamilyCss(value) {
-  return (FONT_FAMILY_OPTIONS.find((option) => option.value === value) || FONT_FAMILY_OPTIONS[0]).css;
-}
-
-/** Validate and normalize values before writing them to extension storage. */
-function normalizeSettingValue(key, value) {
-  if (key === "UserInterfaceLanguage") return normalizeLanguageSetting(value);
-  if (key === "UserInterfaceFontFamily") {
-    return FONT_FAMILY_OPTIONS.some((option) => option.value === value) ? value : DEFAULT_SETTINGS[key];
-  }
-  if (key === "UserInterfaceFontSize") return clampNumber(value, 11, 20, DEFAULT_SETTINGS[key]);
-  if (key === "UserInterfaceLineSpacing") return clampNumber(value, 1.0, 1.8, DEFAULT_SETTINGS[key]);
-  return typeof value === "boolean" ? value : DEFAULT_SETTINGS[key];
 }
 
 /** Apply UI font settings to the options page itself. */

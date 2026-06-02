@@ -1,6 +1,6 @@
 # Simple Bookmarks Manager
 
-Version: 0.7.0
+Version: 0.7.1
 
 A Manifest V3 Chrome/Chromium extension that provides a simple local bookmark manager inspired by Firefox Places Library ideas.
 
@@ -103,6 +103,15 @@ Note: v0.2.2+ no longer overrides `chrome://bookmarks`, so Chromium/Brave's buil
 - Chromium BSD license reference: https://chromium.googlesource.com/chromium/src/+/HEAD/LICENSE
 
 ## Changelog
+
+### 0.7.1
+
+- Performed a dedicated maintenance code check for dead code, duplicated helper logic, confusing naming, and fragile logic.
+- Removed unused helper functions that were left behind by earlier selection/context-menu refactors.
+- Centralized shared settings defaults, font options, and setting normalization into `settings.js` so the manager and Options page cannot silently drift apart.
+- Simplified bookmark move-index normalization by removing an unused argument and stale call-site option.
+- Updated `SOURCE_AUDIT.md` with v0.7.1 findings and follow-up notes.
+- Updated `manifest.json` to `0.7.1`.
 
 ### 0.7.0
 
