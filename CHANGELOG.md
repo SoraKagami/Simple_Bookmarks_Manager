@@ -1,5 +1,16 @@
 # Changelog
 
+## 0.7.7
+
+- Performed a focused DOM rendering/performance pass.
+- Added shared row-selection and fragment-replacement helpers to reduce duplicated DOM update logic.
+- Updated Library tree and middle-list rendering to use `DocumentFragment` replacement paths.
+- Reduced repeated clipboard cut-state scans during row rendering by computing a per-render cut-ID set.
+- Reduced drag/drop DOM class churn by tracking the active drop indicator instead of scanning all rows on every dragover event.
+- Added asynchronous image decoding hints for row icons/favicons.
+- Kept behavior unchanged while improving rendering readability and reducing unnecessary UI work.
+- Updated `manifest.json` to `0.7.7`.
+
 ## 0.7.6
 
 - Added optional experimental `Optimisation_TempBookmarkTreeMaps` setting, enabled by default.

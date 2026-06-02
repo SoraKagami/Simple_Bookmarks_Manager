@@ -33,6 +33,7 @@ const state = {
   detailsVisible: true,
   detailsOriginal: null,
   drag: null,
+  dropIndicator: null,
   clipboard: null,
   contextMenu: null,
   multiSelect: { pane: null, ids: new Set(), anchorId: null, focusId: null },
@@ -501,7 +502,27 @@ function makeIcon(src, alt = "") {
   img.width = 16;
   img.height = 16;
   img.loading = "lazy";
+  img.decoding = "async";
   return img;
+}
+
+/** Return a Set of IDs currently shown with the cut/ghosted style. */
+function clipboardCutIdSet() {
+  if (state.clipboard?.mode !== "cut") return new Set();
+  return new Set(clipboardItems().map((entry) => entry.id).filter(Boolean));
+}
+
+/** Apply active/inactive selection classes without rebuilding row DOM. */
+function applySelectionState(row, selected, active) {
+  row.classList.toggle("selected", selected && row.classList.contains("item"));
+  row.classList.toggle("selected-active", selected && active);
+  row.classList.toggle("selected-inactive", selected && !active);
+}
+
+function replaceChildrenWithFragment(element, children) {
+  const fragment = document.createDocumentFragment();
+  for (const child of children) fragment.append(child);
+  element.replaceChildren(fragment);
 }
 
 function makeTitleCell(item) {
@@ -1485,10 +1506,26 @@ function dropClass(intent) {
   return intent === "into" ? "drop-into" : intent === "before" ? "drop-before" : "drop-after";
 }
 
+function clearDropRow(row) {
+  row?.classList?.remove("drop-before", "drop-after", "drop-into");
+}
+
 function clearDropIndicators() {
+  clearDropRow(state.dropIndicator?.row);
+  state.dropIndicator = null;
   document.querySelectorAll(".drop-before,.drop-after,.drop-into,.dragging").forEach((el) => {
     el.classList.remove("drop-before", "drop-after", "drop-into", "dragging");
   });
+}
+
+/** Update the visible drop target with minimal DOM class churn during dragover. */
+function setDropIndicator(row, intent) {
+  const className = dropClass(intent);
+  if (state.dropIndicator?.row === row && state.dropIndicator?.className === className) return;
+  clearDropRow(state.dropIndicator?.row);
+  row.classList.remove("drop-before", "drop-after", "drop-into");
+  row.classList.add(className);
+  state.dropIndicator = { row, className };
 }
 
 /** Validate a single-item drag/drop before mutation. */
@@ -1767,11 +1804,13 @@ function attachDropTarget(row, target, context) {
 
     e.preventDefault();
     e.dataTransfer.dropEffect = "move";
-    clearDropIndicators();
-    row.classList.add(dropClass(intent));
+    setDropIndicator(row, intent);
   };
 
-  row.ondragleave = () => row.classList.remove("drop-before", "drop-after", "drop-into");
+  row.ondragleave = () => {
+    if (state.dropIndicator?.row === row) state.dropIndicator = null;
+    clearDropRow(row);
+  };
 
   row.ondrop = async (e) => {
     const multiDrag = !!state.drag?.multi;
@@ -2117,7 +2156,7 @@ function showContextMenu(e) {
 // ---------------------------------------------------------------------------
 
 /** Render one visible Library tree row. */
-function renderFolderTreeNode(folder, depth = 0) {
+function renderFolderTreeNode(folder, depth = 0, cutIds = clipboardCutIdSet()) {
   const children = childFolders(folder);
   const isExpanded = state.expandedFolders.has(folder.id);
   const container = document.createElement("div");
@@ -2130,8 +2169,8 @@ function renderFolderTreeNode(folder, depth = 0) {
   row.setAttribute("role", "treeitem");
   const treeSelected = isMultiSelectActive("tree") ? state.multiSelect.ids.has(folder.id) : folder.id === (state.treeSelectedId || state.folderId);
   row.setAttribute("aria-selected", String(treeSelected));
-  if (treeSelected) row.classList.add(state.activePane === "tree" ? "selected-active" : "selected-inactive");
-  if (state.clipboard?.mode === "cut" && clipboardItems().some((entry) => entry.id === folder.id)) row.classList.add("clipboard-cut");
+  applySelectionState(row, treeSelected, state.activePane === "tree");
+  if (cutIds.has(folder.id)) row.classList.add("clipboard-cut");
   if (children.length) row.setAttribute("aria-expanded", String(isExpanded));
 
   if (canDragTreeFolder(folder)) {
@@ -2194,7 +2233,7 @@ function renderFolderTreeNode(folder, depth = 0) {
     const group = document.createElement("div");
     group.className = "tree-children";
     group.setAttribute("role", "group");
-    group.append(...children.map((child) => renderFolderTreeNode(child, depth + 1)));
+    replaceChildrenWithFragment(group, children.map((child) => renderFolderTreeNode(child, depth + 1, cutIds)));
     container.append(group);
   }
 
@@ -2204,9 +2243,11 @@ function renderFolderTreeNode(folder, depth = 0) {
 /** Render root folders in the left Library pane. */
 function renderRoots() {
   ensureExpandedPath(state.folderId);
-  $("roots").setAttribute("role", "tree");
-  $("roots").tabIndex = 0;
-  $("roots").replaceChildren(...rootFolders().map((folder) => renderFolderTreeNode(folder)));
+  const roots = $("roots");
+  const cutIds = clipboardCutIdSet();
+  roots.setAttribute("role", "tree");
+  roots.tabIndex = 0;
+  replaceChildrenWithFragment(roots, rootFolders().map((folder) => renderFolderTreeNode(folder, 0, cutIds)));
 }
 
 function detailsToggleTooltip() {
@@ -2268,16 +2309,15 @@ function renderList() {
   const scrollPosition = state.resetMiddleScrollOnNextRender ? { top: 0, left: 0 } : getMiddleScrollPosition();
   state.resetMiddleScrollOnNextRender = false;
 
+  const cutIds = clipboardCutIdSet();
   const rows = visibleItems().map((item) => {
     const row = document.createElement("div");
     row.className = "item";
     row.dataset.id = item.id;
     row.tabIndex = 0;
-    if (state.clipboard?.mode === "cut" && clipboardItems().some((entry) => entry.id === item.id)) row.classList.add("clipboard-cut");
+    if (cutIds.has(item.id)) row.classList.add("clipboard-cut");
     const listSelected = isMultiSelectActive("list") ? state.multiSelect.ids.has(item.id) : item.id === state.selectedId;
-    if (listSelected) {
-      row.classList.add("selected", state.activePane === "list" ? "selected-active" : "selected-inactive");
-    }
+    applySelectionState(row, listSelected, state.activePane === "list");
 
     if (canDragListItem(item)) {
       row.draggable = true;
@@ -2330,25 +2370,23 @@ function renderList() {
     row.ondblclick = () => openOrNavigate(item);
     return row;
   });
-  $("list").classList.toggle("reorder-disabled", !canReorderList());
-  $("list").replaceChildren(...rows);
+  const list = $("list");
+  list.classList.toggle("reorder-disabled", !canReorderList());
+  replaceChildrenWithFragment(list, rows);
   restoreMiddleScrollPosition(scrollPosition);
 }
 
 /** Refresh active/inactive selection styling without rebuilding the full panes. */
 function updateSelectionHighlights() {
-  document.querySelectorAll(".tree-row").forEach((row) => {
+  $("roots").querySelectorAll(".tree-row").forEach((row) => {
     const selected = isMultiSelectActive("tree") ? state.multiSelect.ids.has(row.dataset.id) : row.dataset.id === (state.treeSelectedId || state.folderId);
     row.setAttribute("aria-selected", String(selected));
-    row.classList.toggle("selected-active", selected && state.activePane === "tree");
-    row.classList.toggle("selected-inactive", selected && state.activePane !== "tree");
+    applySelectionState(row, selected, state.activePane === "tree");
   });
 
-  document.querySelectorAll(".item").forEach((row) => {
+  $("list").querySelectorAll(".item").forEach((row) => {
     const selected = isMultiSelectActive("list") ? state.multiSelect.ids.has(row.dataset.id) : row.dataset.id === state.selectedId;
-    row.classList.toggle("selected", selected);
-    row.classList.toggle("selected-active", selected && state.activePane === "list");
-    row.classList.toggle("selected-inactive", selected && state.activePane !== "list");
+    applySelectionState(row, selected, state.activePane === "list");
   });
 }
 
