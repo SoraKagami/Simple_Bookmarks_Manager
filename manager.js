@@ -221,6 +221,18 @@ function childFolders(folder) {
   return (folder.children || []).filter(isFolder);
 }
 
+function descendantFolders(folder) {
+  const out = [];
+  const visit = (node) => {
+    for (const child of childFolders(node)) {
+      out.push(child);
+      visit(child);
+    }
+  };
+  if (folder) visit(folder);
+  return out;
+}
+
 function visibleTreeFolders() {
   const out = [];
   const visit = (folder) => {
@@ -297,6 +309,42 @@ function isDescendantOf(node, possibleAncestor) {
     if (n.id === possibleAncestor?.id) return true;
   }
   return false;
+}
+
+async function expandAllTreeFolders(folder) {
+  if (!isFolder(folder)) return;
+  state.expandedFolders.add(folder.id);
+  for (const child of descendantFolders(folder)) state.expandedFolders.add(child.id);
+  renderRoots();
+  focusActivePane();
+}
+
+async function collapseAllTreeFolders(folder) {
+  if (!isFolder(folder)) return;
+
+  const currentFolder = nodes.get(state.folderId);
+  const selectedFolder = nodes.get(state.treeSelectedId);
+  const collapseAffectsCurrent = currentFolder && currentFolder.id !== folder.id && isDescendantOf(currentFolder, folder);
+  const collapseAffectsTreeSelection = selectedFolder && selectedFolder.id !== folder.id && isDescendantOf(selectedFolder, folder);
+
+  if (collapseAffectsCurrent || collapseAffectsTreeSelection) {
+    if (!(await confirmUnsavedDetailsBeforeNavigation())) return;
+    if (collapseAffectsCurrent && state.folderId) {
+      state.back.unshift(state.folderId);
+      state.forward = [];
+    }
+    clearMultiSelect();
+    state.folderId = folder.id;
+    state.treeSelectedId = folder.id;
+    state.selectedId = folder.id;
+    state.activePane = "tree";
+    resetFolderViewState();
+  }
+
+  state.expandedFolders.delete(folder.id);
+  for (const child of descendantFolders(folder)) state.expandedFolders.delete(child.id);
+  render();
+  focusActivePane();
 }
 
 
@@ -1413,7 +1461,10 @@ function buildFolderMenu(context) {
     makeMenuItem("Open All in New Window", () => openUrlsInWindow(urls, false), { disabled: urls.length === 0 }),
     makeMenuItem("Open All in Private Window", () => openUrlsInWindow(urls, true), { disabled: urls.length === 0 }),
     makeMenuItem("Open All in New Tab Group", () => openUrlsInTabGroup(urls), { disabled: urls.length === 0, hidden: !isTabGroupSupported() }),
-    makeMenuItem("Open All in Split View", () => {}, { hidden: !isSplitViewSupported() })
+    makeMenuItem("Open All in Split View", () => {}, { hidden: !isSplitViewSupported() }),
+    makeSeparator(),
+    makeMenuItem("Expand All", () => expandAllTreeFolders(folder), { disabled: !childFolders(folder).length }),
+    makeMenuItem("Collapse All", () => collapseAllTreeFolders(folder), { disabled: !childFolders(folder).length })
   ];
 }
 
