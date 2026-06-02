@@ -1,8 +1,8 @@
 {
   "manifest_version": 3,
-  "name": "Simple Bookmarks Manager",
-  "version": "0.5.4",
-  "description": "A simple local bookmark manager for Chrome/Chromium inspired by Firefox Places Library patterns.",
+  "name": "__MSG_appName__",
+  "version": "0.6.0",
+  "description": "__MSG_appDescription__",
   "minimum_chrome_version": "114",
   "permissions": [
     "bookmarks",
@@ -10,7 +10,7 @@
     "storage"
   ],
   "action": {
-    "default_title": "Simple Bookmarks Manager",
+    "default_title": "__MSG_appName__",
     "default_icon": {
       "16": "icons/icon-16.png",
       "32": "icons/icon-32.png",
@@ -30,5 +30,6 @@
   "options_ui": {
     "page": "options.html",
     "open_in_tab": true
-  }
+  },
+  "default_locale": "en"
 }

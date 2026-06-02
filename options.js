@@ -1,3 +1,5 @@
+import { applyI18n, populateLanguageSelect, setI18nLanguage, t, normalizeLanguageSetting } from "./i18n.js";
+
 const api = chrome;
 
 if (new URLSearchParams(location.search).has("embedded")) {
@@ -12,6 +14,7 @@ const FONT_FAMILY_OPTIONS = Object.freeze([
 ]);
 
 const DEFAULT_SETTINGS = Object.freeze({
+  UserInterfaceLanguage: "auto",
   UserInterfaceFontFamily: "system",
   UserInterfaceFontSize: 14,
   UserInterfaceLineSpacing: 1.4,
@@ -44,6 +47,7 @@ function fontFamilyCss(value) {
 }
 
 function normalizeSettingValue(key, value) {
+  if (key === "UserInterfaceLanguage") return normalizeLanguageSetting(value);
   if (key === "UserInterfaceFontFamily") {
     return FONT_FAMILY_OPTIONS.some((option) => option.value === value) ? value : DEFAULT_SETTINGS[key];
   }
@@ -83,6 +87,7 @@ function readAllControlValues() {
 }
 
 function setControlState(settings) {
+  populateLanguageSelect($("UserInterfaceLanguage"), settings.UserInterfaceLanguage);
   for (const key of Object.keys(DEFAULT_SETTINGS)) {
     const control = $(key);
     const value = normalizeSettingValue(key, settings[key]);
@@ -99,7 +104,11 @@ function setControlState(settings) {
 
 async function loadOptions() {
   const stored = await api.storage.local.get(Object.keys(DEFAULT_SETTINGS));
-  setControlState({ ...DEFAULT_SETTINGS, ...stored });
+  const settings = { ...DEFAULT_SETTINGS, ...stored };
+  await setI18nLanguage(settings.UserInterfaceLanguage);
+  applyI18n(document);
+  applyFontOptionStyles();
+  setControlState(settings);
 }
 
 async function saveOption(key, value) {
@@ -110,8 +119,14 @@ async function saveOption(key, value) {
   }
 
   await api.storage.local.set(update);
-  setControlState({ ...DEFAULT_SETTINGS, ...(await api.storage.local.get(Object.keys(DEFAULT_SETTINGS))) });
-  showStatus("Saved");
+  const settings = { ...DEFAULT_SETTINGS, ...(await api.storage.local.get(Object.keys(DEFAULT_SETTINGS))) };
+  if (key === "UserInterfaceLanguage") {
+    await setI18nLanguage(settings.UserInterfaceLanguage);
+    applyI18n(document);
+    applyFontOptionStyles();
+  }
+  setControlState(settings);
+  showStatus(t("optionSaved"));
 }
 
 applyFontOptionStyles();
@@ -125,7 +140,7 @@ for (const key of Object.keys(DEFAULT_SETTINGS)) {
   $(key).addEventListener("change", () => {
     saveOption(key, readControlValue(key)).catch((err) => {
       console.error(err);
-      showStatus(`Save failed: ${err.message || err}`);
+      showStatus(t("saveFailed", { error: err.message || err }));
     });
   });
 }
@@ -133,7 +148,11 @@ for (const key of Object.keys(DEFAULT_SETTINGS)) {
 $("reset").addEventListener("click", async () => {
   await api.storage.local.set({ ...DEFAULT_SETTINGS });
   setControlState(DEFAULT_SETTINGS);
-  showStatus("Defaults restored");
+  await setI18nLanguage(DEFAULT_SETTINGS.UserInterfaceLanguage);
+  applyI18n(document);
+  populateLanguageSelect($("UserInterfaceLanguage"), DEFAULT_SETTINGS.UserInterfaceLanguage);
+  applyFontOptionStyles();
+  showStatus(t("defaultsRestored"));
 });
 
 api.storage.onChanged.addListener((changes, areaName) => {
@@ -147,5 +166,5 @@ api.storage.onChanged.addListener((changes, areaName) => {
 
 loadOptions().catch((err) => {
   console.error(err);
-  showStatus(`Load failed: ${err.message || err}`);
+  showStatus(t("loadFailed", { error: err.message || err }));
 });

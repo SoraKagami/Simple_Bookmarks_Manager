@@ -2,92 +2,92 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <title>Simple Bookmarks Manager</title>
+  <title data-i18n="appName">Simple Bookmarks Manager</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="manager.css">
 </head>
 <body>
   <header class="toolbar">
-    <button id="back" title="Back" disabled>←</button>
-    <button id="forward" title="Forward" disabled>→</button>
-    <button id="new-folder">New Folder</button>
-    <button id="new-bookmark">New Bookmark</button>
-    <input id="search" type="search" placeholder="Search bookmarks">
-    <label class="search-limit-toggle" title="When enabled, search only the current folder and its subfolders. When disabled, search all bookmarks.">
+    <button id="back" data-i18n-title="back" title="Back" disabled>←</button>
+    <button id="forward" data-i18n-title="forward" title="Forward" disabled>→</button>
+    <button id="new-folder" data-i18n="newFolder">New Folder</button>
+    <button id="new-bookmark" data-i18n="newBookmark">New Bookmark</button>
+    <input id="search" type="search" data-i18n-placeholder="searchBookmarks" placeholder="Search bookmarks">
+    <label class="search-limit-toggle" data-i18n-title="searchLimitTitle" title="When enabled, search only the current folder and its subfolders. When disabled, search all bookmarks.">
       <input id="search-limit" type="checkbox">
-      <span><span>Limit Search to</span><span>Current Folder &amp; Subfolders</span></span>
+      <span><span data-i18n="limitSearchTo">Limit Search to</span><span data-i18n="currentFolderAndSubfolders">Current Folder &amp; Subfolders</span></span>
     </label>
-    <strong class="app-title">Simple Bookmarks Manager</strong>
-    <button id="app-menu-button" class="app-menu-button" type="button" title="Open menu" aria-haspopup="menu" aria-expanded="false" aria-label="Open Simple Bookmarks Manager menu">☰</button>
+    <strong class="app-title" data-i18n="appName">Simple Bookmarks Manager</strong>
+    <button id="app-menu-button" class="app-menu-button" type="button" data-i18n-title="openMenu" title="Open menu" aria-haspopup="menu" aria-expanded="false" data-i18n-aria-label="openSbmMenu" aria-label="Open Simple Bookmarks Manager menu">☰</button>
   </header>
 
   <main id="layout" class="layout">
     <nav class="left">
-      <h2>Library</h2>
+      <h2 data-i18n="library">Library</h2>
       <div id="roots" class="tree"></div>
     </nav>
 
     <section class="content">
       <div id="crumbs" class="crumbs">
-        <label class="visual-sort-label" for="sort">Visual sort:</label>
-        <select id="sort" title="Choose the middle-pane sort mode. Default uses Chromium’s folder order.">
-          <option value="index">Default</option>
-          <option value="title">Name</option>
-          <option value="url">URL</option>
-          <option value="dateAdded">Date added</option>
-          <option value="id">ID</option>
+        <label class="visual-sort-label" for="sort" data-i18n="visualSort">Visual sort:</label>
+        <select id="sort" data-i18n-title="chooseSortModeTitle" title="Choose the middle-pane sort mode. Default uses Chromium’s folder order.">
+          <option value="index" data-i18n="sortDefault">Default</option>
+          <option value="title" data-i18n="sortName">Name</option>
+          <option value="url" data-i18n="sortUrl">URL</option>
+          <option value="dateAdded" data-i18n="sortDateAdded">Date added</option>
+          <option value="id" data-i18n="sortId">ID</option>
         </select>
       </div>
       <div id="table-scroll" class="table-scroll">
         <div class="table-content">
-          <div class="columns" aria-label="Bookmark list columns">
-            <button type="button" data-sort-key="title">Name</button>
-            <button type="button" data-sort-key="url">URL</button>
-            <button type="button" data-sort-key="dateAdded">Date Added</button>
-            <button type="button" data-sort-key="id">ID</button>
-            <button type="button" data-sort-key="index">Order</button>
+          <div class="columns" data-i18n-aria-label="bookmarkListColumns" aria-label="Bookmark list columns">
+            <button type="button" data-sort-key="title" data-i18n="sortName">Name</button>
+            <button type="button" data-sort-key="url" data-i18n="sortUrl">URL</button>
+            <button type="button" data-sort-key="dateAdded" data-i18n="sortDateAddedHeader">Date Added</button>
+            <button type="button" data-sort-key="id" data-i18n="sortId">ID</button>
+            <button type="button" data-sort-key="index" data-i18n="sortOrder">Order</button>
           </div>
-          <div id="list" class="list" tabindex="0" aria-label="Bookmarks"></div>
+          <div id="list" class="list" tabindex="0" data-i18n-aria-label="bookmarksAria" aria-label="Bookmarks"></div>
         </div>
       </div>
     </section>
 
     <aside id="details-pane" class="details">
-      <h2>Details</h2>
+      <h2 data-i18n="details">Details</h2>
       <form id="details-form">
-        <label id="title-label"><span class="field-caption">Name</span><input id="title" autocomplete="off"></label>
-        <label id="url-label"><span class="field-caption">URL</span><input id="url" autocomplete="off"></label>
-        <label id="parent-label"><span class="field-caption">Parent folder</span><select id="parent"></select></label>
+        <label id="title-label"><span class="field-caption" data-i18n="sortName">Name</span><input id="title" autocomplete="off"></label>
+        <label id="url-label"><span class="field-caption" data-i18n="url">URL</span><input id="url" autocomplete="off"></label>
+        <label id="parent-label"><span class="field-caption" data-i18n="parentFolder">Parent folder</span><select id="parent"></select></label>
         <div class="row details-actions">
-          <button id="save" type="submit">Save</button>
-          <button id="discard" type="button">Discard Changes</button>
-          <button id="delete" type="button">Delete</button>
+          <button id="save" type="submit" data-i18n="save">Save</button>
+          <button id="discard" type="button" data-i18n="discardChanges">Discard Changes</button>
+          <button id="delete" type="button" data-i18n="delete">Delete</button>
         </div>
-        <section id="advanced-details" class="advanced-details" aria-label="Advanced bookmark details">
-          <h3>Advanced Details</h3>
-          <label id="advanced-id-label"><span class="field-caption">ID</span><input id="advanced-id" autocomplete="off" readonly></label>
-          <label id="advanced-guid-label"><span class="field-caption">GUID / UUID</span><input id="advanced-guid" autocomplete="off" readonly></label>
-          <label id="advanced-date-added-label"><span class="field-caption">Date Added</span><input id="advanced-date-added" autocomplete="off" readonly></label>
-          <label id="advanced-date-last-used-label"><span class="field-caption">Date Last Used</span><input id="advanced-date-last-used" autocomplete="off" readonly></label>
-          <label id="advanced-index-label"><span class="field-caption">Sort order</span><input id="advanced-index" type="number" min="0" step="1" autocomplete="off" readonly></label>
+        <section id="advanced-details" class="advanced-details" data-i18n-aria-label="advancedBookmarkDetails" aria-label="Advanced bookmark details">
+          <h3 data-i18n="advancedDetails">Advanced Details</h3>
+          <label id="advanced-id-label"><span class="field-caption" data-i18n="sortId">ID</span><input id="advanced-id" autocomplete="off" readonly></label>
+          <label id="advanced-guid-label"><span class="field-caption" data-i18n="guidUuid">GUID / UUID</span><input id="advanced-guid" autocomplete="off" readonly></label>
+          <label id="advanced-date-added-label"><span class="field-caption" data-i18n="dateAdded">Date Added</span><input id="advanced-date-added" autocomplete="off" readonly></label>
+          <label id="advanced-date-last-used-label"><span class="field-caption" data-i18n="dateLastUsed">Date Last Used</span><input id="advanced-date-last-used" autocomplete="off" readonly></label>
+          <label id="advanced-index-label"><span class="field-caption" data-i18n="sortOrder">Sort order</span><input id="advanced-index" type="number" min="0" step="1" autocomplete="off" readonly></label>
         </section>
       </form>
       <section id="details-multiselect" class="details-multiselect" hidden>
-        <h3>Details Multiselect</h3>
-        <p><strong>Total selected:</strong> <span id="multi-total">0</span></p>
-        <p><strong>Folders:</strong> <span id="multi-folders">0</span></p>
-        <p><strong>Bookmarks:</strong> <span id="multi-bookmarks">0</span></p>
-        <p><strong>Separators:</strong> <span id="multi-separators">0</span></p>
+        <h3 data-i18n="detailsMultiselect">Details Multiselect</h3>
+        <p><strong data-i18n="totalSelected">Total selected:</strong> <span id="multi-total">0</span></p>
+        <p><strong data-i18n="folders">Folders:</strong> <span id="multi-folders">0</span></p>
+        <p><strong data-i18n="bookmarks">Bookmarks:</strong> <span id="multi-bookmarks">0</span></p>
+        <p><strong data-i18n="separators">Separators:</strong> <span id="multi-separators">0</span></p>
       </section>
-      <p id="empty-details">Select one item, or select a folder to show its contents.</p>
+      <p id="empty-details" data-i18n="emptyDetails">Select one item, or select a folder to show its contents.</p>
     </aside>
   </main>
 
   <div id="options-modal" class="options-modal" hidden role="dialog" aria-modal="true" aria-labelledby="options-modal-title">
     <section class="options-dialog">
       <header class="options-dialog-header">
-        <h2 id="options-modal-title">Simple Bookmarks Manager Options</h2>
-        <button id="options-close" class="options-close" type="button" aria-label="Close options">×</button>
+        <h2 id="options-modal-title" data-i18n="optionsTitle">Simple Bookmarks Manager Options</h2>
+        <button id="options-close" class="options-close" type="button" data-i18n-aria-label="closeOptions" aria-label="Close options">×</button>
       </header>
       <div id="options-frame-host" class="options-frame-host"></div>
     </section>

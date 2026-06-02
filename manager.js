@@ -1,3 +1,5 @@
+import { applyI18n, setI18nLanguage, t, normalizeLanguageSetting } from "./i18n.js";
+
 const api = chrome;
 
 const state = {
@@ -36,6 +38,7 @@ const FONT_FAMILY_OPTIONS = Object.freeze([
 ]);
 
 const DEFAULT_SETTINGS = Object.freeze({
+  UserInterfaceLanguage: "auto",
   UserInterfaceFontFamily: "system",
   UserInterfaceFontSize: 14,
   UserInterfaceLineSpacing: 1.4,
@@ -48,6 +51,7 @@ const DEFAULT_SETTINGS = Object.freeze({
   SearchLimitToFolderAndSub: true
 });
 
+let UserInterfaceLanguage = DEFAULT_SETTINGS.UserInterfaceLanguage;
 let UserInterfaceFontFamily = DEFAULT_SETTINGS.UserInterfaceFontFamily;
 let UserInterfaceFontSize = DEFAULT_SETTINGS.UserInterfaceFontSize;
 let UserInterfaceLineSpacing = DEFAULT_SETTINGS.UserInterfaceLineSpacing;
@@ -70,6 +74,7 @@ function fontFamilyCss(value) {
 }
 
 function normalizeSettingValue(key, value) {
+  if (key === "UserInterfaceLanguage") return normalizeLanguageSetting(value);
   if (key === "UserInterfaceFontFamily") {
     return FONT_FAMILY_OPTIONS.some((option) => option.value === value) ? value : DEFAULT_SETTINGS[key];
   }
@@ -89,7 +94,8 @@ function applySettings(settings, { render = false } = {}) {
   for (const key of keys) {
     if (!(key in settings)) continue;
     const value = normalizeSettingValue(key, settings[key]);
-    if (key === "UserInterfaceFontFamily") UserInterfaceFontFamily = value;
+    if (key === "UserInterfaceLanguage") UserInterfaceLanguage = value;
+    else if (key === "UserInterfaceFontFamily") UserInterfaceFontFamily = value;
     else if (key === "UserInterfaceFontSize") UserInterfaceFontSize = value;
     else if (key === "UserInterfaceLineSpacing") UserInterfaceLineSpacing = value;
     else if (key === "EnableAdvancedDetailsViewing") EnableAdvancedDetailsViewing = value;
@@ -113,15 +119,42 @@ function applySettings(settings, { render = false } = {}) {
   }
 }
 
+function localizedColumnLabel(key) {
+  if (key === "title") return t("sortName");
+  if (key === "url") return t("sortUrl");
+  if (key === "dateAdded") return t("sortDateAddedHeader");
+  if (key === "id") return t("sortId");
+  if (key === "index") return t("sortOrder");
+  return key;
+}
+
+function localizeStaticUi() {
+  applyI18n(document);
+  document.title = t("appName");
+  for (const button of document.querySelectorAll(".columns [data-sort-key]")) {
+    button.dataset.label = localizedColumnLabel(button.dataset.sortKey);
+  }
+  setSortSelectTooltips();
+  if (state.tree) renderColumnHeaders();
+}
+
 async function loadSettings() {
   const stored = await api.storage.local.get(Object.keys(DEFAULT_SETTINGS));
-  applySettings(stored);
+  const settings = { ...DEFAULT_SETTINGS, ...stored };
+  applySettings(settings);
+  await setI18nLanguage(UserInterfaceLanguage);
+  localizeStaticUi();
 }
 
 async function saveSetting(key, value) {
   const normalized = normalizeSettingValue(key, value);
   await api.storage.local.set({ [key]: normalized });
   applySettings({ [key]: normalized }, { render: true });
+  if (key === "UserInterfaceLanguage") {
+    await setI18nLanguage(UserInterfaceLanguage);
+    localizeStaticUi();
+    render();
+  }
 }
 
 async function bookmarks(method, ...args) {
@@ -184,12 +217,12 @@ function makeTitleCell(item) {
   cell.className = "title-cell";
 
   const icon = isFolder(item)
-    ? makeIcon(extensionIconPath("folder-16.png"), "Folder")
-    : makeIcon(bookmarkFaviconUrl(item.url, 16), "Bookmark");
+    ? makeIcon(extensionIconPath("folder-16.png"), t("folderAlt"))
+    : makeIcon(bookmarkFaviconUrl(item.url, 16), t("bookmarkAlt"));
 
   const text = document.createElement("span");
   text.className = "title-text";
-  text.textContent = item.title || item.url || (isFolder(item) ? "(folder)" : "(bookmark)");
+  text.textContent = item.title || item.url || (isFolder(item) ? t("folderFallback") : t("bookmarkFallback"));
 
   cell.append(icon, text);
   return cell;
@@ -762,12 +795,10 @@ async function sortFolderChildren(folder, key) {
   if (children.length < 2) return;
 
   if (SortShowWarning) {
-    const sortName = key === "dateAdded" ? "date" : "name";
-    const folderName = folder.title || "(root)";
+    const sortName = key === "dateAdded" ? t("sortDate") : t("sortNameLower");
+    const folderName = folder.title || t("rootFallback");
     const ok = confirm(
-      `Sort "${folderName}" by ${sortName}?\n\n` +
-      "This permanently changes the saved bookmark order in Chromium. " +
-      "It is different from the temporary Visual sort dropdown."
+      t("sortFolderConfirm", { folderName, sortName })
     );
     if (!ok) return;
   }
@@ -798,7 +829,7 @@ async function openUrlsInWindow(urls, incognito = false) {
   try {
     await api.windows.create({ url: urls, incognito });
   } catch (err) {
-    alert(`Could not open ${incognito ? "private" : "new"} window: ${err.message || err}`);
+    alert(t("couldNotOpenWindow", { windowType: incognito ? t("privateWindowType") : t("newWindowType"), error: err.message || err }));
   }
 }
 
@@ -812,7 +843,7 @@ async function openUrlsInTabGroup(urls) {
     const tabIds = createdTabs.map((tab) => tab.id).filter(Number.isInteger);
     if (tabIds.length) await api.tabs.group({ tabIds });
   } catch (err) {
-    alert(`Could not open tab group: ${err.message || err}`);
+    alert(t("couldNotOpenTabGroup", { error: err.message || err }));
   }
 }
 
@@ -836,7 +867,7 @@ function contextUrls(context) {
 
 async function renameFolder(folder) {
   if (!isMutable(folder)) return;
-  const title = prompt("New folder name", folder.title || "");
+  const title = prompt(t("newFolderNamePrompt"), folder.title || "");
   if (!title) return;
   await bookmarks("update", folder.id, { title: title.trim() });
   await loadTree();
@@ -845,9 +876,9 @@ async function renameFolder(folder) {
 
 async function editBookmark(bookmark) {
   if (!bookmark || isFolder(bookmark) || !isMutable(bookmark)) return;
-  const title = prompt("Bookmark name", bookmark.title || bookmark.url || "");
+  const title = prompt(t("bookmarkNamePrompt"), bookmark.title || bookmark.url || "");
   if (title === null) return;
-  const url = prompt("Bookmark URL", bookmark.url || "https://");
+  const url = prompt(t("bookmarkUrlPrompt"), bookmark.url || "https://");
   if (url === null || !url.trim()) return;
   await bookmarks("update", bookmark.id, { title: title.trim() || url.trim(), url: url.trim() });
   await loadTree();
@@ -882,8 +913,8 @@ function chooseTreeSelectionAfterDelete(snapshot) {
 
 async function deleteNode(item, sourcePane = state.activePane) {
   if (!item || !isMutable(item)) return;
-  const label = item.title || item.url || "this item";
-  if (DeleteShowWarning && !confirm(`Delete "${label}"?`)) return;
+  const label = item.title || item.url || t("thisItem");
+  if (DeleteShowWarning && !confirm(t("deleteSingleConfirm", { label }))) return;
 
   const deletingCurrentFolder = isFolder(item) && item.id === state.folderId;
   const selectionSnapshot = sourcePane === "tree"
@@ -929,7 +960,7 @@ async function deleteSelection(context = null) {
     .filter((id) => isMutable(nodes.get(id)));
   const ordered = orderedIdsForPane(ids, pane);
   if (!ordered.length) return;
-  if (DeleteShowWarning && !confirm(`Delete ${ordered.length} selected item(s)?`)) return;
+  if (DeleteShowWarning && !confirm(t("deleteMultipleConfirm", { count: ordered.length }))) return;
 
   state.suppressBookmarkEvents = true;
   try {
@@ -992,7 +1023,7 @@ function insertionTargetForContext(context = null) {
 }
 
 async function createFolderIn(parentId, index = null) {
-  const title = prompt("Folder name", "New Folder");
+  const title = prompt(t("folderNamePrompt"), t("newFolderDefaultName"));
   if (!title) return;
   const details = { parentId, title };
   if (Number.isInteger(index)) details.index = index;
@@ -1002,9 +1033,9 @@ async function createFolderIn(parentId, index = null) {
 }
 
 async function createBookmarkIn(parentId, index = null) {
-  const url = prompt("Bookmark URL", "https://");
+  const url = prompt(t("bookmarkUrlPrompt"), "https://");
   if (!url) return;
-  const title = prompt("Bookmark name", url) || url;
+  const title = prompt(t("bookmarkNamePrompt"), url) || url;
   const details = { parentId, title, url };
   if (Number.isInteger(index)) details.index = index;
   const node = await bookmarks("create", details);
@@ -1397,7 +1428,7 @@ function attachDropTarget(row, target, context) {
       }
     } catch (err) {
       console.error(err);
-      alert(`Could not move bookmark item: ${err.message || err}`);
+      alert(t("couldNotMoveBookmark", { error: err.message || err }));
       await loadTree();
     }
   };
@@ -1426,7 +1457,7 @@ function makeMenuItem(label, action, { disabled = false, hidden = false } = {}) 
       await action(context);
     } catch (err) {
       console.error(err);
-      alert(`Action failed: ${err.message || err}`);
+      alert(t("actionFailed", { error: err.message || err }));
       await loadTree();
     }
   };
@@ -1459,7 +1490,7 @@ function makeAppMenuItem(label, action, { disabled = false } = {}) {
       await action();
     } catch (err) {
       console.error(err);
-      alert(`Action failed: ${err.message || err}`);
+      alert(t("actionFailed", { error: err.message || err }));
     }
   };
   return button;
@@ -1488,7 +1519,7 @@ function showOptionsDialog() {
   if (!host.querySelector('iframe')) {
     const frame = document.createElement('iframe');
     frame.className = 'options-frame';
-    frame.title = 'Simple Bookmarks Manager Options';
+    frame.title = t("optionsTitle");
     frame.src = api.runtime.getURL('options.html?embedded=1');
     host.append(frame);
   }
@@ -1510,11 +1541,11 @@ function openOptionsPage() {
 
 function buildAppMenu() {
   return [
-    makeAppMenuItem("Open Default Bookmarks Manager", openDefaultBookmarksManager),
+    makeAppMenuItem(t("openDefaultBookmarksManager"), openDefaultBookmarksManager),
     makeAppMenuSeparator(),
-    makeAppMenuItem("Options", openOptionsPage),
-    makeAppMenuItem("Help", () => {}, { disabled: true }),
-    makeAppMenuItem("About", () => {}, { disabled: true })
+    makeAppMenuItem(t("options"), openOptionsPage),
+    makeAppMenuItem(t("help"), () => {}, { disabled: true }),
+    makeAppMenuItem(t("about"), () => {}, { disabled: true })
   ];
 }
 
@@ -1564,28 +1595,28 @@ function buildFolderMenu(context) {
   const copyAllowed = !!folder && folder.id !== "0" && !isRootFolder(folder);
 
   return [
-    makeMenuItem("Rename Folder", () => renameFolder(folder), { disabled: !mutable }),
-    makeMenuItem("Delete Folder", (context) => deleteNode(folder, context?.pane || "tree"), { disabled: !mutable }),
+    makeMenuItem(t("renameFolder"), () => renameFolder(folder), { disabled: !mutable }),
+    makeMenuItem(t("deleteFolder"), (context) => deleteNode(folder, context?.pane || "tree"), { disabled: !mutable }),
     makeSeparator(),
-    makeMenuItem("Cut", () => cutNode(folder), { disabled: !mutable }),
-    makeMenuItem("Copy", () => copyNode(folder), { disabled: !copyAllowed }),
-    makeMenuItem("Paste", () => pasteClipboard(context), { disabled: pasteDisabled }),
+    makeMenuItem(t("cut"), () => cutNode(folder), { disabled: !mutable }),
+    makeMenuItem(t("copy"), () => copyNode(folder), { disabled: !copyAllowed }),
+    makeMenuItem(t("paste"), () => pasteClipboard(context), { disabled: pasteDisabled }),
     makeSeparator(),
-    makeMenuItem("Sort by Name", () => sortFolderChildren(folder, "title"), { disabled: !canContainChildren(folder) || (folder.children || []).length < 2 }),
-    makeMenuItem("Sort by Date", () => sortFolderChildren(folder, "dateAdded"), { disabled: !canContainChildren(folder) || (folder.children || []).length < 2 }),
+    makeMenuItem(t("sortByName"), () => sortFolderChildren(folder, "title"), { disabled: !canContainChildren(folder) || (folder.children || []).length < 2 }),
+    makeMenuItem(t("sortByDate"), () => sortFolderChildren(folder, "dateAdded"), { disabled: !canContainChildren(folder) || (folder.children || []).length < 2 }),
     makeSeparator(),
-    makeMenuItem("Add New Bookmark", () => createBookmarkAtTarget(context), { disabled: !canCreateAtContext(context) }),
-    makeMenuItem("Add New Folder", () => createFolderAtTarget(context), { disabled: !canCreateAtContext(context) }),
-    makeMenuItem("Add Separator", () => createSeparatorAtTarget(context), { disabled: !canCreateAtContext(context) }),
+    makeMenuItem(t("addNewBookmark"), () => createBookmarkAtTarget(context), { disabled: !canCreateAtContext(context) }),
+    makeMenuItem(t("addNewFolder"), () => createFolderAtTarget(context), { disabled: !canCreateAtContext(context) }),
+    makeMenuItem(t("addSeparator"), () => createSeparatorAtTarget(context), { disabled: !canCreateAtContext(context) }),
     makeSeparator(),
-    makeMenuItem("Open All Bookmarks", () => openUrlsInCurrentWindow(urls), { disabled: urls.length === 0 }),
-    makeMenuItem("Open All in New Window", () => openUrlsInWindow(urls, false), { disabled: urls.length === 0 }),
-    makeMenuItem("Open All in Private Window", () => openUrlsInWindow(urls, true), { disabled: urls.length === 0 }),
-    makeMenuItem("Open All in New Tab Group", () => openUrlsInTabGroup(urls), { disabled: urls.length === 0, hidden: !isTabGroupSupported() }),
-    makeMenuItem("Open All in Split View", () => {}, { hidden: !isSplitViewSupported() }),
+    makeMenuItem(t("openAllBookmarks"), () => openUrlsInCurrentWindow(urls), { disabled: urls.length === 0 }),
+    makeMenuItem(t("openAllInNewWindow"), () => openUrlsInWindow(urls, false), { disabled: urls.length === 0 }),
+    makeMenuItem(t("openAllInPrivateWindow"), () => openUrlsInWindow(urls, true), { disabled: urls.length === 0 }),
+    makeMenuItem(t("openAllInNewTabGroup"), () => openUrlsInTabGroup(urls), { disabled: urls.length === 0, hidden: !isTabGroupSupported() }),
+    makeMenuItem(t("openAllInSplitView"), () => {}, { hidden: !isSplitViewSupported() }),
     makeSeparator(),
-    makeMenuItem("Expand All", () => expandAllTreeFolders(folder), { disabled: !childFolders(folder).length }),
-    makeMenuItem("Collapse All", () => collapseAllTreeFolders(folder), { disabled: !childFolders(folder).length })
+    makeMenuItem(t("expandAll"), () => expandAllTreeFolders(folder), { disabled: !childFolders(folder).length }),
+    makeMenuItem(t("collapseAll"), () => collapseAllTreeFolders(folder), { disabled: !childFolders(folder).length })
   ];
 }
 
@@ -1597,22 +1628,22 @@ function buildBookmarkMenu(context) {
   const canAddToParent = canCreateAtContext(context);
 
   return [
-    makeMenuItem("Edit", () => editBookmark(bookmark), { disabled: !isMutable(bookmark) }),
-    makeMenuItem("Delete", (context) => deleteNode(bookmark, context?.pane || "list"), { disabled: !isMutable(bookmark) }),
+    makeMenuItem(t("edit"), () => editBookmark(bookmark), { disabled: !isMutable(bookmark) }),
+    makeMenuItem(t("delete"), (context) => deleteNode(bookmark, context?.pane || "list"), { disabled: !isMutable(bookmark) }),
     makeSeparator(),
-    makeMenuItem("Cut", () => cutNode(bookmark), { disabled: !isMutable(bookmark) }),
-    makeMenuItem("Copy", () => copyNode(bookmark), { disabled: !bookmark }),
-    makeMenuItem("Paste", () => pasteClipboard(context), { disabled: pasteDisabled }),
+    makeMenuItem(t("cut"), () => cutNode(bookmark), { disabled: !isMutable(bookmark) }),
+    makeMenuItem(t("copy"), () => copyNode(bookmark), { disabled: !bookmark }),
+    makeMenuItem(t("paste"), () => pasteClipboard(context), { disabled: pasteDisabled }),
     makeSeparator(),
-    makeMenuItem("Add New Bookmark", () => createBookmarkAtTarget(context), { disabled: !canAddToParent }),
-    makeMenuItem("Add New Folder", () => createFolderAtTarget(context), { disabled: !canAddToParent }),
-    makeMenuItem("Add Separator", () => createSeparatorAtTarget(context), { disabled: !canAddToParent }),
+    makeMenuItem(t("addNewBookmark"), () => createBookmarkAtTarget(context), { disabled: !canAddToParent }),
+    makeMenuItem(t("addNewFolder"), () => createFolderAtTarget(context), { disabled: !canAddToParent }),
+    makeMenuItem(t("addSeparator"), () => createSeparatorAtTarget(context), { disabled: !canAddToParent }),
     makeSeparator(),
-    makeMenuItem("Open in New Tab", () => openUrlsInCurrentWindow(urls), { disabled: urls.length === 0 }),
-    makeMenuItem("Open in New Window", () => openUrlsInWindow(urls, false), { disabled: urls.length === 0 }),
-    makeMenuItem("Open in Private Window", () => openUrlsInWindow(urls, true), { disabled: urls.length === 0 }),
-    makeMenuItem("Open in New Tab Group", () => openUrlsInTabGroup(urls), { disabled: urls.length === 0, hidden: !isTabGroupSupported() }),
-    makeMenuItem("Open in Split View", () => {}, { hidden: !isSplitViewSupported() })
+    makeMenuItem(t("openInNewTab"), () => openUrlsInCurrentWindow(urls), { disabled: urls.length === 0 }),
+    makeMenuItem(t("openInNewWindow"), () => openUrlsInWindow(urls, false), { disabled: urls.length === 0 }),
+    makeMenuItem(t("openInPrivateWindow"), () => openUrlsInWindow(urls, true), { disabled: urls.length === 0 }),
+    makeMenuItem(t("openInNewTabGroup"), () => openUrlsInTabGroup(urls), { disabled: urls.length === 0, hidden: !isTabGroupSupported() }),
+    makeMenuItem(t("openInSplitView"), () => {}, { hidden: !isSplitViewSupported() })
   ];
 }
 
@@ -1620,16 +1651,16 @@ function buildMultiMenu(context) {
   const urls = multiContextUrls(context);
   const pasteDisabled = !canPasteForContext(context);
   return [
-    makeMenuItem("Delete", () => deleteSelection(context), { disabled: selectedContextIds(context).every((id) => !isMutable(nodes.get(id))) }),
+    makeMenuItem(t("delete"), () => deleteSelection(context), { disabled: selectedContextIds(context).every((id) => !isMutable(nodes.get(id))) }),
     makeSeparator(),
-    makeMenuItem("Cut", () => cutSelection(context), { disabled: selectedContextIds(context).every((id) => !isMutable(nodes.get(id))) }),
-    makeMenuItem("Copy", () => copySelection(context), { disabled: selectedContextIds(context).length === 0 }),
-    makeMenuItem("Paste", () => pasteClipboard(context), { disabled: pasteDisabled }),
+    makeMenuItem(t("cut"), () => cutSelection(context), { disabled: selectedContextIds(context).every((id) => !isMutable(nodes.get(id))) }),
+    makeMenuItem(t("copy"), () => copySelection(context), { disabled: selectedContextIds(context).length === 0 }),
+    makeMenuItem(t("paste"), () => pasteClipboard(context), { disabled: pasteDisabled }),
     makeSeparator(),
-    makeMenuItem("Open All in New Tab", () => openUrlsInCurrentWindow(urls), { disabled: urls.length === 0 }),
-    makeMenuItem("Open All in New Window", () => openUrlsInWindow(urls, false), { disabled: urls.length === 0 }),
-    makeMenuItem("Open All in Private Window", () => openUrlsInWindow(urls, true), { disabled: urls.length === 0 }),
-    makeMenuItem("Open All in New Tab Group", () => openUrlsInTabGroup(urls), { disabled: urls.length === 0, hidden: !isTabGroupSupported() })
+    makeMenuItem(t("openAllInNewTab"), () => openUrlsInCurrentWindow(urls), { disabled: urls.length === 0 }),
+    makeMenuItem(t("openAllInNewWindow"), () => openUrlsInWindow(urls, false), { disabled: urls.length === 0 }),
+    makeMenuItem(t("openAllInPrivateWindow"), () => openUrlsInWindow(urls, true), { disabled: urls.length === 0 }),
+    makeMenuItem(t("openAllInNewTabGroup"), () => openUrlsInTabGroup(urls), { disabled: urls.length === 0, hidden: !isTabGroupSupported() })
   ];
 }
 
@@ -1638,14 +1669,14 @@ function buildEmptyMenu(context) {
   const parent = nodes.get(parentId);
   const canPaste = canPasteForContext(context);
   const items = [
-    makeMenuItem("Add New Bookmark", () => createBookmarkAtTarget(context), { disabled: !canCreateAtContext(context) }),
-    makeMenuItem("Add New Folder", () => createFolderAtTarget(context), { disabled: !canCreateAtContext(context) }),
-    makeMenuItem("Add Separator", () => createSeparatorAtTarget(context), { disabled: !canCreateAtContext(context) })
+    makeMenuItem(t("addNewBookmark"), () => createBookmarkAtTarget(context), { disabled: !canCreateAtContext(context) }),
+    makeMenuItem(t("addNewFolder"), () => createFolderAtTarget(context), { disabled: !canCreateAtContext(context) }),
+    makeMenuItem(t("addSeparator"), () => createSeparatorAtTarget(context), { disabled: !canCreateAtContext(context) })
   ];
 
   if (canPaste) {
     items.push(makeSeparator());
-    items.push(makeMenuItem("Paste", () => pasteClipboard(context)));
+    items.push(makeMenuItem(t("paste"), () => pasteClipboard(context)));
   }
 
   return items;
@@ -1726,7 +1757,7 @@ function renderFolderTreeNode(folder, depth = 0) {
 
   if (canDragTreeFolder(folder)) {
     row.draggable = true;
-    row.title = "Drag to reorder this folder";
+    row.title = t("dragFolderTitle");
     row.ondragstart = (e) => {
       const multi = isMultiSelectActive("tree") && state.multiSelect.ids.has(folder.id);
       state.drag = multi ? { ids: [...state.multiSelect.ids], source: "tree", multi: true } : { id: folder.id, source: "tree" };
@@ -1747,7 +1778,7 @@ function renderFolderTreeNode(folder, depth = 0) {
   twisty.type = "button";
   twisty.disabled = children.length === 0;
   twisty.textContent = children.length ? (isExpanded ? "▾" : "▸") : "";
-  twisty.title = isExpanded ? "Collapse folder" : "Expand folder";
+  twisty.title = isExpanded ? t("collapseFolderTitle") : t("expandFolderTitle");
   twisty.onclick = async (e) => {
     e.stopPropagation();
     await toggleTreeFolderFromClick(folder);
@@ -1764,7 +1795,7 @@ function renderFolderTreeNode(folder, depth = 0) {
   label.className = "tree-label";
   label.type = "button";
   label.setAttribute("aria-current", String(folder.id === state.folderId));
-  label.title = children.length ? "Double-click to expand or collapse this folder" : "";
+  label.title = children.length ? t("doubleClickExpandCollapseTitle") : "";
   label.onclick = (e) => handlePaneClick(e, "tree", folder);
   label.ondblclick = toggleFolderOnDoubleClick;
   row.ondblclick = toggleFolderOnDoubleClick;
@@ -1773,8 +1804,8 @@ function renderFolderTreeNode(folder, depth = 0) {
   labelContent.className = "tree-label-content";
   const labelText = document.createElement("span");
   labelText.className = "tree-label-text";
-  labelText.textContent = folder.title || "(root)";
-  labelContent.append(makeIcon(extensionIconPath("folder-16.png"), "Folder"), labelText);
+  labelText.textContent = folder.title || t("rootFallback");
+  labelContent.append(makeIcon(extensionIconPath("folder-16.png"), t("folderAlt")), labelText);
   label.append(labelContent);
 
   row.append(twisty, label);
@@ -1799,21 +1830,21 @@ function renderRoots() {
 }
 
 function detailsToggleTooltip() {
-  return state.detailsVisible ? "Hide the Details pane" : "Show the Details pane";
+  return state.detailsVisible ? t("hideDetailsPaneTooltip") : t("showDetailsPaneTooltip");
 }
 
 function renderCrumbs() {
   const path = [];
-  for (let n = nodes.get(state.folderId); n && n.id !== "0"; n = n.parentNode) path.unshift(n.title || "(root)");
+  for (let n = nodes.get(state.folderId); n && n.id !== "0"; n = n.parentNode) path.unshift(n.title || t("rootFallback"));
 
   const pathText = document.createElement("span");
   pathText.className = "path-text";
-  pathText.textContent = path.join(" / ") || "Bookmarks";
+  pathText.textContent = path.join(" / ") || t("bookmarksPathFallback");
 
   const sortLabel = document.createElement("label");
   sortLabel.className = "visual-sort-label";
   sortLabel.htmlFor = "sort";
-  sortLabel.textContent = "Visual sort:";
+  sortLabel.textContent = t("visualSort");
 
   const sortSelect = $("sort");
   sortSelect.value = state.sort;
@@ -1822,7 +1853,7 @@ function renderCrumbs() {
   detailsToggle.id = "toggle-details";
   detailsToggle.className = "details-toggle";
   detailsToggle.type = "button";
-  detailsToggle.textContent = state.detailsVisible ? "Click to Hide Details" : "Click to Show Details";
+  detailsToggle.textContent = state.detailsVisible ? t("clickHideDetails") : t("clickShowDetails");
   detailsToggle.title = detailsToggleTooltip();
   detailsToggle.setAttribute("aria-pressed", String(state.detailsVisible));
   detailsToggle.onclick = toggleDetailsPane;
@@ -1869,7 +1900,7 @@ function renderList() {
 
     if (canDragListItem(item)) {
       row.draggable = true;
-      row.title = "Drag to move or reorder this item";
+      row.title = t("dragItemTitle");
       row.ondragstart = (e) => {
         const multi = isMultiSelectActive("list") && state.multiSelect.ids.has(item.id);
         state.drag = multi ? { ids: [...state.multiSelect.ids], source: "list", multi: true } : { id: item.id, source: "list" };
@@ -1888,7 +1919,7 @@ function renderList() {
 
     if (isSeparator(item)) {
       row.classList.add("separator-item");
-      row.title = "Separator";
+      row.title = t("separator");
       const line = document.createElement("hr");
       line.className = "separator-line";
       line.setAttribute("aria-hidden", "true");
@@ -1941,13 +1972,13 @@ function updateSelectionHighlights() {
 
 
 function availableFieldValue(value) {
-  return value === undefined || value === null || value === "" ? "Not available" : String(value);
+  return value === undefined || value === null || value === "" ? t("notAvailable") : String(value);
 }
 
 function formatBookmarkDate(value) {
-  if (!value) return "Not available";
+  if (!value) return t("notAvailable");
   const date = new Date(value);
-  if (Number.isNaN(date.getTime())) return "Not available";
+  if (Number.isNaN(date.getTime())) return t("notAvailable");
   return date.toLocaleString();
 }
 
@@ -2012,7 +2043,7 @@ function renderParents(selectedValue = null) {
     const placeholder = document.createElement("option");
     placeholder.value = desiredValue;
     const parentNode = nodes.get(desiredValue);
-    placeholder.textContent = parentNode ? folderPath(parentNode) : "Browser root";
+    placeholder.textContent = parentNode ? folderPath(parentNode) : t("browserRoot");
     placeholder.disabled = true;
     parentSelect.prepend(placeholder);
   }
@@ -2062,7 +2093,7 @@ function renderDetails() {
   $("url-label").hidden = isFolder(selected);
   $("url").hidden = isFolder(selected);
   $("url").disabled = isFolder(selected);
-  $("delete").textContent = isFolder(selected) ? "Delete Folder" : "Delete Bookmark";
+  $("delete").textContent = isFolder(selected) ? t("deleteFolder") : t("deleteBookmark");
   $("delete").disabled = !isMutable(selected);
   $("save").disabled = !isMutable(selected);
   $("discard").disabled = !isMutable(selected);
@@ -2082,7 +2113,7 @@ function renderDetails() {
 
 function folderPath(folder) {
   const path = [];
-  for (let n = folder; n && n.id !== "0"; n = n.parentNode) path.unshift(n.title || "(root)");
+  for (let n = folder; n && n.id !== "0"; n = n.parentNode) path.unshift(n.title || t("rootFallback"));
   return path.join(" / ");
 }
 
@@ -2192,10 +2223,10 @@ function showUnsavedChangesPrompt() {
 
     const heading = document.createElement("h3");
     heading.id = "unsaved-title";
-    heading.textContent = "Unsaved changes";
+    heading.textContent = t("unsavedChanges");
 
     const message = document.createElement("p");
-    message.textContent = "The Details pane has unsaved changes. What would you like to do?";
+    message.textContent = t("unsavedChangesMessage");
 
     const actions = document.createElement("div");
     actions.className = "unsaved-modal-actions";
@@ -2207,17 +2238,17 @@ function showUnsavedChangesPrompt() {
 
     const keep = document.createElement("button");
     keep.type = "button";
-    keep.textContent = "Keep Editing";
+    keep.textContent = t("keepEditing");
     keep.onclick = () => finish("keep");
 
     const save = document.createElement("button");
     save.type = "button";
-    save.textContent = "Save";
+    save.textContent = t("save");
     save.onclick = () => finish("save");
 
     const discard = document.createElement("button");
     discard.type = "button";
-    discard.textContent = "Discard";
+    discard.textContent = t("discard");
     discard.onclick = () => finish("discard");
 
     actions.append(keep, save, discard);
@@ -2247,7 +2278,7 @@ async function confirmUnsavedDetailsBeforeNavigation() {
         return true;
       } catch (err) {
         console.error(err);
-        alert(`Could not save changes: ${err.message || err}`);
+        alert(t("couldNotSaveChanges", { error: err.message || err }));
         return false;
       }
     }
@@ -2259,14 +2290,14 @@ async function confirmUnsavedDetailsBeforeNavigation() {
 
 function sortTooltip(key, direction = state.sortDirection) {
   if (key === "index") {
-    return "Default Chromium folder order. Click to return to Default sorting; this column does not reverse-sort.";
+    return t("sortDefaultTooltip");
   }
   const ascending = direction === "asc";
-  if (key === "title") return ascending ? "Sort by name: A to Z" : "Sort by name: Z to A";
-  if (key === "url") return ascending ? "Sort by URL: A to Z" : "Sort by URL: Z to A";
-  if (key === "dateAdded") return ascending ? "Sort by date added: oldest first" : "Sort by date added: newest first";
-  if (key === "id") return ascending ? "Sort by ID: lowest first" : "Sort by ID: highest first";
-  return "Sort bookmarks";
+  if (key === "title") return ascending ? t("sortNameAscTooltip") : t("sortNameDescTooltip");
+  if (key === "url") return ascending ? t("sortUrlAscTooltip") : t("sortUrlDescTooltip");
+  if (key === "dateAdded") return ascending ? t("sortDateAscTooltip") : t("sortDateDescTooltip");
+  if (key === "id") return ascending ? t("sortIdAscTooltip") : t("sortIdDescTooltip");
+  return t("sortBookmarks");
 }
 
 function renderColumnHeaders() {
@@ -2402,7 +2433,7 @@ async function saveSelected(e) {
     await saveDetailsForSelected();
   } catch (err) {
     console.error(err);
-    alert(`Could not save changes: ${err.message || err}`);
+    alert(t("couldNotSaveChanges", { error: err.message || err }));
   }
 }
 
@@ -2734,14 +2765,14 @@ async function handleKeyboardDelete(e) {
 function setSortSelectTooltips() {
   const labels = {
     index: sortTooltip("index"),
-    title: "Name sort. Ascending is A to Z; descending is Z to A.",
-    url: "URL sort. Ascending is A to Z; descending is Z to A.",
-    dateAdded: "Date added sort. Ascending is oldest first; descending is newest first.",
-    id: "ID sort. Ascending is lowest first; descending is highest first."
+    title: t("sortSelectTitleTitle"),
+    url: t("sortSelectUrlTitle"),
+    dateAdded: t("sortSelectDateAddedTitle"),
+    id: t("sortSelectIdTitle")
   };
 
   for (const option of $("sort").options) {
-    option.title = labels[option.value] || "Sort bookmarks";
+    option.title = labels[option.value] || t("sortBookmarks");
   }
 }
 
@@ -2838,13 +2869,20 @@ window.addEventListener("keydown", async (e) => {
 
 setSortSelectTooltips();
 
-api.storage.onChanged.addListener((changes, areaName) => {
+api.storage.onChanged.addListener(async (changes, areaName) => {
   if (areaName !== "local") return;
   const updated = {};
   for (const key of Object.keys(DEFAULT_SETTINGS)) {
     if (Object.prototype.hasOwnProperty.call(changes, key)) updated[key] = changes[key].newValue;
   }
-  if (Object.keys(updated).length) applySettings(updated, { render: true });
+  if (!Object.keys(updated).length) return;
+  const languageChanged = Object.prototype.hasOwnProperty.call(updated, "UserInterfaceLanguage");
+  applySettings(updated, { render: false });
+  if (languageChanged) {
+    await setI18nLanguage(UserInterfaceLanguage);
+    localizeStaticUi();
+  }
+  render();
 });
 
 // Keep the view live, mirroring Firefox Places' model/view update pattern.
@@ -2859,5 +2897,5 @@ async function init() {
 
 init().catch((err) => {
   console.error(err);
-  alert(`Bookmark manager failed: ${err.message || err}`);
+  alert(t("managerFailed", { error: err.message || err }));
 });

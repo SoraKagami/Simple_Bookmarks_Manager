@@ -1,6 +1,6 @@
 # Simple Bookmarks Manager
 
-Version: 0.5.4
+Version: 0.6.0
 
 A Manifest V3 Chrome/Chromium extension that provides a simple local bookmark manager inspired by Firefox Places Library ideas.
 
@@ -33,6 +33,7 @@ This Source Code Form is subject to the terms of the Mozilla Public License, v. 
 - Optional natural folder sorting for **Sort by Name** via the Options page.
 - Optional permanent-sort warning via the Options page.
 - Persistent options are stored in `chrome.storage.local`.
+- User-interface language can be set to Automatic / Browser Default or a supported manual language from the Options page.
 - User-interface font family, base font size, and line spacing can be adjusted from the Options page.
 
 ## Chrome/Chromium implementation
@@ -41,6 +42,7 @@ This Source Code Form is subject to the terms of the Mozilla Public License, v. 
 - Uses `chrome.bookmarks` to read, create, update, move, move-into folders, reorder, and remove bookmark nodes.
 - Opens pages with `chrome.tabs.create()` without requesting the sensitive `tabs` permission.
 - Uses Chromium's extension favicon endpoint for bookmark favicons, plus a bundled folder icon for bookmark folders.
+- Uses Chromium extension localization conventions with `_locales/en/messages.json` and a small runtime language helper for future in-app language switching.
 - Refreshes visible bookmark favicon image URLs when switching folders so newly cached icons can appear without keeping an in-memory favicon cache.
 - Uses an in-page custom context menu for bookmark/folder actions; the Details pane keeps the normal browser context menu.
 - Provides a top-right application menu with entries to open the default Chromium Bookmark Manager and an in-page Simple Bookmarks Manager Options dialog, plus future Help and About entry points.
@@ -55,6 +57,7 @@ This Source Code Form is subject to the terms of the Mozilla Public License, v. 
 | `manager.css` | No | General tree/list/details presentation. |
 | `manager.js` | No | Bookmark tree model, folder selection, recursive search, details editing, and event-driven refresh. |
 | `options.html` / `options.css` / `options.js` | No | Extension options page for persistent preferences. |
+| `_locales/en/messages.json` / `i18n.js` | No | Chromium-standard localization storage and runtime UI-language helper. |
 | `README.md` / `LICENSE` | No | Licensing and project documentation only. |
 
 See `SOURCE_AUDIT.md` for more detail.
@@ -93,12 +96,22 @@ Note: v0.2.2+ no longer overrides `chrome://bookmarks`, so Chromium/Brave's buil
 - Chrome action API: https://developer.chrome.com/docs/extensions/reference/api/action
 - Chrome options pages: https://developer.chrome.com/docs/extensions/develop/ui/options-page
 - Chrome storage API: https://developer.chrome.com/docs/extensions/reference/api/storage
+- Chrome i18n API: https://developer.chrome.com/docs/extensions/reference/api/i18n
 - Chrome favicons in extensions: https://developer.chrome.com/docs/extensions/how-to/ui/favicons
 - MDN MouseEvent.button: https://developer.mozilla.org/en-US/docs/Web/API/MouseEvent/button
 - MDN auxclick: https://developer.mozilla.org/en-US/docs/Web/API/Element/auxclick_event
 - Chromium BSD license reference: https://chromium.googlesource.com/chromium/src/+/HEAD/LICENSE
 
 ## Changelog
+
+### 0.6.0
+
+- Added Chromium-style localization infrastructure using `default_locale`, `_locales/en/messages.json`, and a shared `i18n.js` helper.
+- Added persistent **User Interface Language** setting to the Options page, defaulting to **Automatic / Browser Default**.
+- Converted the manager and Options page UI to localization keys so later v0.6.x releases can add translated language files without redesigning the UI.
+- Localized app/menu labels, toolbar text, Details pane labels, Options page labels, context-menu labels, confirmation dialogs, prompts, alerts, and sort tooltips through the shared helper.
+- Kept English as the only packaged language for v0.6.0 to validate the localization plumbing before adding translated language packs.
+- Updated `manifest.json` to `0.6.0`.
 
 ### 0.5.4
 
