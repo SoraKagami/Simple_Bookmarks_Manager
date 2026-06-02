@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.7.11
+
+- Hid the **Show warnings/errors log** Advanced option unless **Debug options** is enabled.
+- Kept `Show_ErrorsWarnings` persisted but gated the visible diagnostics log behind `DebugOptions` for a cleaner normal Options page.
+- Updated `manifest.json` to `0.7.11`.
+
 ## 0.7.10
 
 - Added `Show_ErrorsWarnings`, disabled by default.

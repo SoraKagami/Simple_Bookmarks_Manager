@@ -85,6 +85,13 @@ function setWarningsErrorsLogVisible(visible) {
 function setDebugOptionsVisible(visible) {
   const button = $("debug-failed-bookmark-operation");
   if (button) button.hidden = !visible;
+
+  const warningsToggleRow = $("show-errors-warnings-option-row");
+  if (warningsToggleRow) warningsToggleRow.hidden = !visible;
+
+  // Keep the diagnostics log hidden unless the explicit Debug options gate is enabled.
+  // The Show_ErrorsWarnings setting is still preserved so it can resume if Debug options is re-enabled.
+  if (!visible) setWarningsErrorsLogVisible(false);
 }
 
 function readControlValue(key) {
@@ -116,8 +123,8 @@ function setControlState(settings) {
   }
   $("EnableAdvancedDetailsEditing").disabled = !$("EnableAdvancedDetailsViewing").checked;
   applyUserInterfaceSettings(settings);
-  setWarningsErrorsLogVisible(Boolean(settings.Show_ErrorsWarnings));
   setDebugOptionsVisible(Boolean(settings.DebugOptions));
+  setWarningsErrorsLogVisible(Boolean(settings.DebugOptions && settings.Show_ErrorsWarnings));
 }
 
 /** Load settings, language strings, and initial control state. */
