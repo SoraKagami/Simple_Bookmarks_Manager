@@ -25,7 +25,8 @@ export const DEFAULT_SETTINGS = Object.freeze({
   KeyboardDeleteAllow: true,
   DeleteShowWarning: true,
   SearchLimitToFolderAndSub: true,
-  Optimisation_TempBookmarkTreeMaps: true
+  Optimisation_TempBookmarkTreeMaps: true,
+  Optimisation_DOMrendering: true
 });
 
 /** Clamp numeric option values loaded from storage or form controls. */

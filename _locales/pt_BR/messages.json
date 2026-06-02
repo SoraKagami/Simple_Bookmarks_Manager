@@ -493,5 +493,11 @@
   },
   "searchLimitFull": {
     "message": "Limitar pesquisa à pasta atual e subpastas"
+  },
+  "optimisationDOMrendering": {
+    "message": "Optimisation: DOM rendering pass"
+  },
+  "optimisationDOMrenderingHelp": {
+    "message": "Experimental. Enables reduced DOM churn for selected rendering, drag/drop indicators, and row icon handling. Disable only when comparing performance or troubleshooting UI behavior."
   }
 }

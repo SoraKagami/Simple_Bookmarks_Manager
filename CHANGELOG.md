@@ -1,3 +1,10 @@
+## 0.7.8
+
+- Added optional experimental `Optimisation_DOMrendering` setting, enabled by default.
+- Added an Advanced Options page toggle for the DOM rendering optimization with a short experimental warning/description.
+- Made the v0.7.7 DOM rendering improvements switchable for benchmarking/troubleshooting, including fragment replacement, per-render cut-ID sets, drag/drop indicator churn reduction, and async icon decoding hints.
+- Updated `manifest.json` to `0.7.8`.
+
 # Changelog
 
 ## 0.7.7

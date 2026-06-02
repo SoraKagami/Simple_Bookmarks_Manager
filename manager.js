@@ -59,6 +59,7 @@ let KeyboardDeleteAllow = DEFAULT_SETTINGS.KeyboardDeleteAllow;
 let DeleteShowWarning = DEFAULT_SETTINGS.DeleteShowWarning;
 let SearchLimitToFolderAndSub = DEFAULT_SETTINGS.SearchLimitToFolderAndSub;
 let Optimisation_TempBookmarkTreeMaps = DEFAULT_SETTINGS.Optimisation_TempBookmarkTreeMaps;
+let Optimisation_DOMrendering = DEFAULT_SETTINGS.Optimisation_DOMrendering;
 
 // ---------------------------------------------------------------------------
 // Settings and localization
@@ -91,6 +92,7 @@ function applySettings(settings, { render = false } = {}) {
     else if (key === "DeleteShowWarning") DeleteShowWarning = value;
     else if (key === "SearchLimitToFolderAndSub") SearchLimitToFolderAndSub = value;
     else if (key === "Optimisation_TempBookmarkTreeMaps") Optimisation_TempBookmarkTreeMaps = value;
+    else if (key === "Optimisation_DOMrendering") Optimisation_DOMrendering = value;
   }
 
   applyUserInterfaceSettings();
@@ -502,7 +504,7 @@ function makeIcon(src, alt = "") {
   img.width = 16;
   img.height = 16;
   img.loading = "lazy";
-  img.decoding = "async";
+  if (Optimisation_DOMrendering) img.decoding = "async";
   return img;
 }
 
@@ -1520,6 +1522,12 @@ function clearDropIndicators() {
 
 /** Update the visible drop target with minimal DOM class churn during dragover. */
 function setDropIndicator(row, intent) {
+  if (!Optimisation_DOMrendering) {
+    clearDropIndicators();
+    row.classList.add(dropClass(intent));
+    return;
+  }
+
   const className = dropClass(intent);
   if (state.dropIndicator?.row === row && state.dropIndicator?.className === className) return;
   clearDropRow(state.dropIndicator?.row);
@@ -2156,7 +2164,7 @@ function showContextMenu(e) {
 // ---------------------------------------------------------------------------
 
 /** Render one visible Library tree row. */
-function renderFolderTreeNode(folder, depth = 0, cutIds = clipboardCutIdSet()) {
+function renderFolderTreeNode(folder, depth = 0, cutIds = Optimisation_DOMrendering ? clipboardCutIdSet() : null) {
   const children = childFolders(folder);
   const isExpanded = state.expandedFolders.has(folder.id);
   const container = document.createElement("div");
@@ -2170,7 +2178,10 @@ function renderFolderTreeNode(folder, depth = 0, cutIds = clipboardCutIdSet()) {
   const treeSelected = isMultiSelectActive("tree") ? state.multiSelect.ids.has(folder.id) : folder.id === (state.treeSelectedId || state.folderId);
   row.setAttribute("aria-selected", String(treeSelected));
   applySelectionState(row, treeSelected, state.activePane === "tree");
-  if (cutIds.has(folder.id)) row.classList.add("clipboard-cut");
+  const isCut = Optimisation_DOMrendering
+    ? cutIds?.has(folder.id)
+    : state.clipboard?.mode === "cut" && clipboardItems().some((entry) => entry.id === folder.id);
+  if (isCut) row.classList.add("clipboard-cut");
   if (children.length) row.setAttribute("aria-expanded", String(isExpanded));
 
   if (canDragTreeFolder(folder)) {
@@ -2233,7 +2244,9 @@ function renderFolderTreeNode(folder, depth = 0, cutIds = clipboardCutIdSet()) {
     const group = document.createElement("div");
     group.className = "tree-children";
     group.setAttribute("role", "group");
-    replaceChildrenWithFragment(group, children.map((child) => renderFolderTreeNode(child, depth + 1, cutIds)));
+    const childRows = children.map((child) => renderFolderTreeNode(child, depth + 1, cutIds));
+    if (Optimisation_DOMrendering) replaceChildrenWithFragment(group, childRows);
+    else group.append(...childRows);
     container.append(group);
   }
 
@@ -2244,10 +2257,12 @@ function renderFolderTreeNode(folder, depth = 0, cutIds = clipboardCutIdSet()) {
 function renderRoots() {
   ensureExpandedPath(state.folderId);
   const roots = $("roots");
-  const cutIds = clipboardCutIdSet();
+  const cutIds = Optimisation_DOMrendering ? clipboardCutIdSet() : null;
   roots.setAttribute("role", "tree");
   roots.tabIndex = 0;
-  replaceChildrenWithFragment(roots, rootFolders().map((folder) => renderFolderTreeNode(folder, 0, cutIds)));
+  const rows = rootFolders().map((folder) => renderFolderTreeNode(folder, 0, cutIds));
+  if (Optimisation_DOMrendering) replaceChildrenWithFragment(roots, rows);
+  else roots.replaceChildren(...rows);
 }
 
 function detailsToggleTooltip() {
@@ -2309,13 +2324,16 @@ function renderList() {
   const scrollPosition = state.resetMiddleScrollOnNextRender ? { top: 0, left: 0 } : getMiddleScrollPosition();
   state.resetMiddleScrollOnNextRender = false;
 
-  const cutIds = clipboardCutIdSet();
+  const cutIds = Optimisation_DOMrendering ? clipboardCutIdSet() : null;
   const rows = visibleItems().map((item) => {
     const row = document.createElement("div");
     row.className = "item";
     row.dataset.id = item.id;
     row.tabIndex = 0;
-    if (cutIds.has(item.id)) row.classList.add("clipboard-cut");
+    const isCut = Optimisation_DOMrendering
+      ? cutIds?.has(item.id)
+      : state.clipboard?.mode === "cut" && clipboardItems().some((entry) => entry.id === item.id);
+    if (isCut) row.classList.add("clipboard-cut");
     const listSelected = isMultiSelectActive("list") ? state.multiSelect.ids.has(item.id) : item.id === state.selectedId;
     applySelectionState(row, listSelected, state.activePane === "list");
 
@@ -2372,7 +2390,8 @@ function renderList() {
   });
   const list = $("list");
   list.classList.toggle("reorder-disabled", !canReorderList());
-  replaceChildrenWithFragment(list, rows);
+  if (Optimisation_DOMrendering) replaceChildrenWithFragment(list, rows);
+  else list.replaceChildren(...rows);
   restoreMiddleScrollPosition(scrollPosition);
 }
 

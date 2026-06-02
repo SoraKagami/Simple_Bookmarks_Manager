@@ -493,5 +493,11 @@
   },
   "searchLimitFull": {
     "message": "현재 폴더와 하위 폴더로 검색 제한"
+  },
+  "optimisationDOMrendering": {
+    "message": "Optimisation: DOM rendering pass"
+  },
+  "optimisationDOMrenderingHelp": {
+    "message": "Experimental. Enables reduced DOM churn for selected rendering, drag/drop indicators, and row icon handling. Disable only when comparing performance or troubleshooting UI behavior."
   }
 }

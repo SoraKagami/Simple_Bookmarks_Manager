@@ -523,5 +523,11 @@
   },
   "optimisationTempBookmarkTreeMapsHelp": {
     "message": "Experimental. Builds short-lived lookup maps during some render/search/tree operations, then discards them to avoid a persistent stale cache."
+  },
+  "optimisationDOMrendering": {
+    "message": "Optimisation: DOM rendering pass"
+  },
+  "optimisationDOMrenderingHelp": {
+    "message": "Experimental. Enables reduced DOM churn for selected rendering, drag/drop indicators, and row icon handling. Disable only when comparing performance or troubleshooting UI behavior."
   }
 }

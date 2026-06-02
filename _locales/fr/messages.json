@@ -493,5 +493,11 @@
   },
   "searchLimitFull": {
     "message": "Limiter la recherche au dossier actuel et aux sous-dossiers"
+  },
+  "optimisationDOMrendering": {
+    "message": "Optimisation: DOM rendering pass"
+  },
+  "optimisationDOMrenderingHelp": {
+    "message": "Experimental. Enables reduced DOM churn for selected rendering, drag/drop indicators, and row icon handling. Disable only when comparing performance or troubleshooting UI behavior."
   }
 }
