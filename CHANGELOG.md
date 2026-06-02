@@ -1,11 +1,19 @@
+# Changelog
+
+## 0.7.9
+
+- Reviewed asynchronous bookmark mutation paths for race-condition risks from external bookmark changes.
+- Added defensive fresh-node checks and safe bookmark mutation helpers for create, update, move, paste, drag/drop, delete, and sort paths.
+- Added comments documenting short race windows where Chrome bookmark data can change between local validation and async mutation.
+- Improved handling of operations that fail because a bookmark/folder was deleted, moved, or otherwise changed outside SBM before the operation completed.
+- Updated `manifest.json` to `0.7.9`.
+
 ## 0.7.8
 
 - Added optional experimental `Optimisation_DOMrendering` setting, enabled by default.
 - Added an Advanced Options page toggle for the DOM rendering optimization with a short experimental warning/description.
 - Made the v0.7.7 DOM rendering improvements switchable for benchmarking/troubleshooting, including fragment replacement, per-render cut-ID sets, drag/drop indicator churn reduction, and async icon decoding hints.
 - Updated `manifest.json` to `0.7.8`.
-
-# Changelog
 
 ## 0.7.7
 
