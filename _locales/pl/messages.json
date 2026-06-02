@@ -1,75 +1,159 @@
 {
-  "appName": {
-    "message": "Simple Bookmarks Manager"
+  "about": {
+    "message": "O programie"
+  },
+  "actionFailed": {
+    "message": "Akcja nie powiodła się: {error}"
+  },
+  "addNewBookmark": {
+    "message": "Dodaj nową zakładkę"
+  },
+  "addNewFolder": {
+    "message": "Dodaj nowy folder"
+  },
+  "addSeparator": {
+    "message": "Dodaj separator"
+  },
+  "advanced": {
+    "message": "Zaawansowane"
+  },
+  "advancedBookmarkDetails": {
+    "message": "Zaawansowane szczegóły zakładki"
+  },
+  "advancedDetails": {
+    "message": "Szczegóły zaawansowane"
+  },
+  "allowKeyboardDelete": {
+    "message": "Pozwól Delete usuwać zaznaczone elementy"
+  },
+  "allowKeyboardDeleteHelp": {
+    "message": "Po wyłączeniu klawisz Delete nie usuwa wybranych wpisów zakładek."
   },
   "appDescription": {
     "message": "Prosty lokalny menedżer zakładek dla Chrome/Chromium inspirowany wzorcami biblioteki Firefox Places."
   },
+  "appName": {
+    "message": "Simple Bookmarks Manager"
+  },
   "back": {
     "message": "Wstecz"
   },
-  "forward": {
-    "message": "Dalej"
+  "bookmarkAlt": {
+    "message": "Zakładka"
   },
-  "newFolder": {
-    "message": "Nowy folder"
-  },
-  "newBookmark": {
-    "message": "Nowa zakładka"
-  },
-  "searchBookmarks": {
-    "message": "Szukaj zakładek"
-  },
-  "searchLimitTitle": {
-    "message": "Po włączeniu przeszukiwany jest tylko bieżący folder i jego podfoldery. Po wyłączeniu przeszukiwane są wszystkie zakładki."
-  },
-  "limitSearchTo": {
-    "message": "Ogranicz wyszukiwanie do"
-  },
-  "currentFolderAndSubfolders": {
-    "message": "Bieżący folder i podfoldery"
-  },
-  "openMenu": {
-    "message": "Otwórz menu"
-  },
-  "openSbmMenu": {
-    "message": "Otwórz menu Simple Bookmarks Manager"
-  },
-  "library": {
-    "message": "Biblioteka"
-  },
-  "visualSort": {
-    "message": "Sortowanie wizualne:"
-  },
-  "sortDefault": {
-    "message": "Domyślne"
-  },
-  "sortName": {
-    "message": "Nazwa"
-  },
-  "sortUrl": {
-    "message": "URL"
-  },
-  "sortDateAdded": {
-    "message": "Data dodania"
-  },
-  "sortDateAddedHeader": {
-    "message": "Data dodania"
-  },
-  "sortId": {
-    "message": "ID"
-  },
-  "sortOrder": {
-    "message": "Kolejność"
-  },
-  "bookmarksAria": {
-    "message": "Zakładki"
+  "bookmarkFallback": {
+    "message": "(bookmark)"
   },
   "bookmarkListColumns": {
     "message": "Kolumny listy zakładek"
   },
+  "bookmarkMutationFailed": {
+    "message": "Bookmark operation failed ({action}): {error}"
+  },
+  "bookmarkNamePrompt": {
+    "message": "Nazwa zakładki"
+  },
+  "bookmarkUrlPrompt": {
+    "message": "URL zakładki"
+  },
+  "bookmarks": {
+    "message": "Zakładki"
+  },
+  "bookmarksAria": {
+    "message": "Zakładki"
+  },
+  "bookmarksPathFallback": {
+    "message": "Zakładki"
+  },
+  "browserRoot": {
+    "message": "Katalog główny przeglądarki"
+  },
+  "cancel": {
+    "message": "Cancel"
+  },
   "chooseSortModeTitle": {
     "message": "Wybierz tryb sortowania panelu środkowego. Domyślnie używa kolejności folderów Chromium."
+  },
+  "clearLog": {
+    "message": "Clear Log"
+  },
+  "clickHideDetails": {
+    "message": "Kliknij, aby ukryć szczegóły"
+  },
+  "clickShowDetails": {
+    "message": "Kliknij, aby pokazać szczegóły"
+  },
+  "closeOptions": {
+    "message": "Zamknij opcje"
+  },
+  "collapseAll": {
+    "message": "Zwiń wszystko"
+  },
+  "collapseFolderTitle": {
+    "message": "Zwiń folder"
+  },
+  "copy": {
+    "message": "Kopiuj"
+  },
+  "couldNotMoveBookmark": {
+    "message": "Nie można przenieść elementu zakładki: {error}"
+  },
+  "couldNotOpenTabGroup": {
+    "message": "Nie można otworzyć grupy kart: {error}"
+  },
+  "couldNotOpenWindow": {
+    "message": "Nie można otworzyć okna {windowType}: {error}"
+  },
+  "couldNotSaveChanges": {
+    "message": "Nie można zapisać zmian: {error}"
+  },
+  "create": {
+    "message": "Create"
+  },
+  "currentFolderAndSubfolders": {
+    "message": "Bieżący folder i podfoldery"
+  },
+  "cut": {
+    "message": "Wytnij"
+  },
+  "dateAdded": {
+    "message": "Data dodania"
+  },
+  "dateLastUsed": {
+    "message": "Ostatnio użyto"
+  },
+  "debugFailedBookmarkOperation": {
+    "message": "Debug: cause failed bookmark operation"
+  },
+  "debugFailedBookmarkOperationAction": {
+    "message": "debug failed bookmark operation"
+  },
+  "debugFailureUnexpectedSuccess": {
+    "message": "Debug failure unexpectedly succeeded"
+  },
+  "debugOptions": {
+    "message": "Debug options"
+  },
+  "debugOptionsHelp": {
+    "message": "Advanced. Shows debug-only test controls. Leave disabled during normal use."
+  },
+  "defaultsRestored": {
+    "message": "Przywrócono domyślne"
+  },
+  "delete": {
+    "message": "Usuń"
+  },
+  "deleteBookmark": {
+    "message": "Usuń zakładkę"
+  },
+  "deleteFolder": {
+    "message": "Usuń folder"
+  },
+  "deleteMultipleConfirm": {
+    "message": "Usunąć {count} wybranych elementów?"
+  },
+  "deleteSingleConfirm": {
+    "message": "Usunąć „{label}”?"
   },
   "details": {
     "message": "Szczegóły"
@@ -80,83 +164,59 @@
   "detailsMultiselect": {
     "message": "Szczegóły wielokrotnego wyboru"
   },
-  "url": {
-    "message": "URL"
-  },
-  "parentFolder": {
-    "message": "Folder nadrzędny"
-  },
-  "save": {
-    "message": "Zapisz"
+  "discard": {
+    "message": "Odrzuć"
   },
   "discardChanges": {
     "message": "Odrzuć zmiany"
   },
-  "delete": {
-    "message": "Usuń"
+  "doubleClickExpandCollapseTitle": {
+    "message": "Kliknij dwukrotnie, aby rozwinąć lub zwinąć ten folder"
   },
-  "deleteFolder": {
-    "message": "Usuń folder"
+  "dragFolderTitle": {
+    "message": "Przeciągnij, aby zmienić kolejność tego folderu"
   },
-  "deleteBookmark": {
-    "message": "Usuń zakładkę"
+  "dragItemTitle": {
+    "message": "Przeciągnij, aby przenieść lub zmienić kolejność tego elementu"
   },
-  "advancedDetails": {
-    "message": "Szczegóły zaawansowane"
+  "edit": {
+    "message": "Edytuj"
   },
-  "advancedBookmarkDetails": {
-    "message": "Zaawansowane szczegóły zakładki"
-  },
-  "guidUuid": {
-    "message": "GUID / UUID"
-  },
-  "dateAdded": {
-    "message": "Data dodania"
-  },
-  "dateLastUsed": {
-    "message": "Ostatnio użyto"
-  },
-  "totalSelected": {
-    "message": "Razem zaznaczono:"
-  },
-  "folders": {
-    "message": "Foldery:"
-  },
-  "bookmarks": {
-    "message": "Zakładki"
-  },
-  "separators": {
-    "message": "Separatory:"
+  "editBookmark": {
+    "message": "Edit Bookmark"
   },
   "emptyDetails": {
     "message": "Wybierz jeden element albo folder, aby pokazać jego zawartość."
   },
-  "optionsTitle": {
-    "message": "Opcje Simple Bookmarks Manager"
+  "enableAdvancedEditing": {
+    "message": "Włącz edycję zaawansowanych szczegółów"
   },
-  "closeOptions": {
-    "message": "Zamknij opcje"
+  "enableAdvancedEditingHelp": {
+    "message": "Zezwala na obsługiwaną edycję zaawansowaną, obecnie ograniczoną do zmian indeksu zakładki."
   },
-  "optionSaved": {
-    "message": "Zapisano"
+  "enableAdvancedViewing": {
+    "message": "Włącz widok zaawansowanych szczegółów"
   },
-  "saveFailed": {
-    "message": "Nie udało się zapisać: {error}"
+  "enableAdvancedViewingHelp": {
+    "message": "Pokaż tylko do odczytu zaawansowane metadane zakładek w panelu Szczegóły."
   },
-  "loadFailed": {
-    "message": "Nie udało się wczytać: {error}"
+  "expandAll": {
+    "message": "Rozwiń wszystko"
   },
-  "defaultsRestored": {
-    "message": "Przywrócono domyślne"
+  "expandFolderTitle": {
+    "message": "Rozwiń folder"
   },
-  "userInterface": {
-    "message": "Interfejs użytkownika"
+  "folderAlt": {
+    "message": "Folder"
   },
-  "userInterfaceLanguage": {
-    "message": "Język interfejsu"
+  "folderFallback": {
+    "message": "(folder)"
   },
-  "userInterfaceLanguageHelp": {
-    "message": "Automatycznie podąża za językiem interfejsu przeglądarki. Wybory ręczne wpływają na menedżera i strony opcji."
+  "folderNamePrompt": {
+    "message": "Nazwa folderu"
+  },
+  "folders": {
+    "message": "Foldery:"
   },
   "font": {
     "message": "Czcionka"
@@ -164,17 +224,14 @@
   "fontHelp": {
     "message": "Steruje główną rodziną czcionek używaną przez interfejs menedżera zakładek."
   },
-  "fontSystem": {
-    "message": "Domyślna systemowa"
+  "fontMono": {
+    "message": "Consolas / monospace"
   },
   "fontSans": {
     "message": "Arial / Helvetica"
   },
   "fontSerif": {
     "message": "Georgia / Times"
-  },
-  "fontMono": {
-    "message": "Consolas / monospace"
   },
   "fontSize": {
     "message": "Rozmiar czcionki"
@@ -188,35 +245,35 @@
   "fontSpacingHelp": {
     "message": "Mnożnik odstępu między wierszami dla gęstszych lub czytelniejszych wierszy i etykiet."
   },
-  "search": {
-    "message": "Szukaj"
+  "fontSystem": {
+    "message": "Domyślna systemowa"
   },
-  "searchLimitOptionHelp": {
-    "message": "Po włączeniu główne pole wyszukiwania przeszukuje tylko bieżące widoczne drzewo folderów."
+  "forward": {
+    "message": "Dalej"
   },
-  "safety": {
-    "message": "Bezpieczeństwo"
+  "guidUuid": {
+    "message": "GUID / UUID"
   },
-  "showDeleteWarning": {
-    "message": "Pokaż potwierdzenie usuwania"
+  "help": {
+    "message": "Pomoc"
   },
-  "showDeleteWarningHelp": {
-    "message": "Pytaj przed usunięciem elementów zakładek lub folderów."
+  "hideDetailsPaneTooltip": {
+    "message": "Ukryj panel Szczegóły"
   },
-  "showSortWarning": {
-    "message": "Pokaż potwierdzenie trwałego sortowania"
+  "keepEditing": {
+    "message": "Kontynuuj edycję"
   },
-  "showSortWarningHelp": {
-    "message": "Pytaj przed zastosowaniem sortowania z menu kontekstowego, które trwale zmienia kolejność folderu zakładek."
+  "library": {
+    "message": "Biblioteka"
   },
-  "allowKeyboardDelete": {
-    "message": "Pozwól Delete usuwać zaznaczone elementy"
+  "limitSearchTo": {
+    "message": "Ogranicz wyszukiwanie do"
   },
-  "allowKeyboardDeleteHelp": {
-    "message": "Po wyłączeniu klawisz Delete nie usuwa wybranych wpisów zakładek."
+  "loadFailed": {
+    "message": "Nie udało się wczytać: {error}"
   },
-  "sorting": {
-    "message": "Sortowanie"
+  "managerFailed": {
+    "message": "Menedżer zakładek nie powiódł się: {error}"
   },
   "naturalSort": {
     "message": "Użyj naturalnej kolejności folderów/zakładek"
@@ -224,134 +281,23 @@
   "naturalSortHelp": {
     "message": "Trwałe sortowanie według nazwy umieszcza najpierw foldery, potem separatory, a następnie zakładki."
   },
-  "advanced": {
-    "message": "Zaawansowane"
+  "newBookmark": {
+    "message": "Nowa zakładka"
   },
-  "enableAdvancedViewing": {
-    "message": "Włącz widok zaawansowanych szczegółów"
-  },
-  "enableAdvancedViewingHelp": {
-    "message": "Pokaż tylko do odczytu zaawansowane metadane zakładek w panelu Szczegóły."
-  },
-  "enableAdvancedEditing": {
-    "message": "Włącz edycję zaawansowanych szczegółów"
-  },
-  "enableAdvancedEditingHelp": {
-    "message": "Zezwala na obsługiwaną edycję zaawansowaną, obecnie ograniczoną do zmian indeksu zakładki."
-  },
-  "resetDefaults": {
-    "message": "Przywróć domyślne"
-  },
-  "folderAlt": {
-    "message": "Folder"
-  },
-  "bookmarkAlt": {
-    "message": "Zakładka"
-  },
-  "folderFallback": {
-    "message": "(folder)"
-  },
-  "bookmarkFallback": {
-    "message": "(bookmark)"
-  },
-  "rootFallback": {
-    "message": "(root)"
-  },
-  "browserRoot": {
-    "message": "Katalog główny przeglądarki"
-  },
-  "bookmarksPathFallback": {
-    "message": "Zakładki"
-  },
-  "sortDate": {
-    "message": "data"
-  },
-  "sortNameLower": {
-    "message": "nazwa"
-  },
-  "sortFolderConfirm": {
-    "message": "Posortować „{folderName}” według {sortName}?\n\nTo trwale zmienia zapisaną kolejność zakładek w Chromium. Różni się od tymczasowego menu Sortowanie wizualne."
-  },
-  "couldNotOpenWindow": {
-    "message": "Nie można otworzyć okna {windowType}: {error}"
-  },
-  "privateWindowType": {
-    "message": "prywatnego"
-  },
-  "newWindowType": {
-    "message": "nowego"
-  },
-  "couldNotOpenTabGroup": {
-    "message": "Nie można otworzyć grupy kart: {error}"
-  },
-  "newFolderNamePrompt": {
-    "message": "Nazwa nowego folderu"
-  },
-  "folderNamePrompt": {
-    "message": "Nazwa folderu"
-  },
-  "bookmarkNamePrompt": {
-    "message": "Nazwa zakładki"
-  },
-  "bookmarkUrlPrompt": {
-    "message": "URL zakładki"
-  },
-  "deleteSingleConfirm": {
-    "message": "Usunąć „{label}”?"
-  },
-  "deleteMultipleConfirm": {
-    "message": "Usunąć {count} wybranych elementów?"
-  },
-  "thisItem": {
-    "message": "ten element"
+  "newFolder": {
+    "message": "Nowy folder"
   },
   "newFolderDefaultName": {
     "message": "New Folder"
   },
-  "couldNotMoveBookmark": {
-    "message": "Nie można przenieść elementu zakładki: {error}"
+  "newFolderNamePrompt": {
+    "message": "Nazwa nowego folderu"
   },
-  "actionFailed": {
-    "message": "Akcja nie powiodła się: {error}"
+  "newWindowType": {
+    "message": "nowego"
   },
-  "openDefaultBookmarksManager": {
-    "message": "Otwórz domyślny menedżer zakładek"
-  },
-  "options": {
-    "message": "Opcje"
-  },
-  "help": {
-    "message": "Pomoc"
-  },
-  "about": {
-    "message": "O programie"
-  },
-  "renameFolder": {
-    "message": "Zmień nazwę folderu"
-  },
-  "cut": {
-    "message": "Wytnij"
-  },
-  "copy": {
-    "message": "Kopiuj"
-  },
-  "paste": {
-    "message": "Wklej"
-  },
-  "sortByName": {
-    "message": "Sortuj według nazwy"
-  },
-  "sortByDate": {
-    "message": "Sortuj według daty"
-  },
-  "addNewBookmark": {
-    "message": "Dodaj nową zakładkę"
-  },
-  "addNewFolder": {
-    "message": "Dodaj nowy folder"
-  },
-  "addSeparator": {
-    "message": "Dodaj separator"
+  "notAvailable": {
+    "message": "Niedostępne"
   },
   "openAllBookmarks": {
     "message": "Otwórz wszystkie zakładki"
@@ -359,23 +305,26 @@
   "openAllInNewTab": {
     "message": "Otwórz wszystko w nowych kartach"
   },
+  "openAllInNewTabGroup": {
+    "message": "Otwórz wszystko w nowej grupie kart"
+  },
   "openAllInNewWindow": {
     "message": "Otwórz wszystko w nowym oknie"
   },
   "openAllInPrivateWindow": {
     "message": "Otwórz wszystko w oknie prywatnym"
   },
-  "openAllInNewTabGroup": {
-    "message": "Otwórz wszystko w nowej grupie kart"
-  },
   "openAllInSplitView": {
     "message": "Otwórz wszystko w widoku podzielonym"
   },
-  "edit": {
-    "message": "Edytuj"
+  "openDefaultBookmarksManager": {
+    "message": "Otwórz domyślny menedżer zakładek"
   },
   "openInNewTab": {
     "message": "Otwórz w nowej karcie"
+  },
+  "openInNewTabGroup": {
+    "message": "Otwórz w nowej grupie kart"
   },
   "openInNewWindow": {
     "message": "Otwórz w nowym oknie"
@@ -383,77 +332,122 @@
   "openInPrivateWindow": {
     "message": "Otwórz w oknie prywatnym"
   },
-  "openInNewTabGroup": {
-    "message": "Otwórz w nowej grupie kart"
-  },
   "openInSplitView": {
     "message": "Otwórz w widoku podzielonym"
   },
-  "expandAll": {
-    "message": "Rozwiń wszystko"
+  "openMenu": {
+    "message": "Otwórz menu"
   },
-  "collapseAll": {
-    "message": "Zwiń wszystko"
+  "openSbmMenu": {
+    "message": "Otwórz menu Simple Bookmarks Manager"
   },
-  "dragFolderTitle": {
-    "message": "Przeciągnij, aby zmienić kolejność tego folderu"
+  "optimisationDOMrendering": {
+    "message": "Optimisation: DOM rendering pass"
   },
-  "collapseFolderTitle": {
-    "message": "Zwiń folder"
+  "optimisationDOMrenderingHelp": {
+    "message": "Experimental. Enables reduced DOM churn for selected rendering, drag/drop indicators, and row icon handling. Disable only when comparing performance or troubleshooting UI behavior."
   },
-  "expandFolderTitle": {
-    "message": "Rozwiń folder"
+  "optimisationTempBookmarkTreeMaps": {
+    "message": "Optimisation: temporary bookmark tree maps"
   },
-  "doubleClickExpandCollapseTitle": {
-    "message": "Kliknij dwukrotnie, aby rozwinąć lub zwinąć ten folder"
+  "optimisationTempBookmarkTreeMapsHelp": {
+    "message": "Experimental. Builds short-lived lookup maps during some render/search/tree operations, then discards them to avoid a persistent stale cache."
   },
-  "hideDetailsPaneTooltip": {
-    "message": "Ukryj panel Szczegóły"
+  "optionSaved": {
+    "message": "Zapisano"
   },
-  "showDetailsPaneTooltip": {
-    "message": "Pokaż panel Szczegóły"
+  "options": {
+    "message": "Opcje"
   },
-  "clickHideDetails": {
-    "message": "Kliknij, aby ukryć szczegóły"
+  "optionsTitle": {
+    "message": "Opcje Simple Bookmarks Manager"
   },
-  "clickShowDetails": {
-    "message": "Kliknij, aby pokazać szczegóły"
+  "parentFolder": {
+    "message": "Folder nadrzędny"
   },
-  "dragItemTitle": {
-    "message": "Przeciągnij, aby przenieść lub zmienić kolejność tego elementu"
+  "paste": {
+    "message": "Wklej"
+  },
+  "privateWindowType": {
+    "message": "prywatnego"
+  },
+  "renameFolder": {
+    "message": "Zmień nazwę folderu"
+  },
+  "resetDefaults": {
+    "message": "Przywróć domyślne"
+  },
+  "rootFallback": {
+    "message": "(root)"
+  },
+  "safety": {
+    "message": "Bezpieczeństwo"
+  },
+  "save": {
+    "message": "Zapisz"
+  },
+  "saveFailed": {
+    "message": "Nie udało się zapisać: {error}"
+  },
+  "search": {
+    "message": "Szukaj"
+  },
+  "searchBookmarks": {
+    "message": "Szukaj zakładek"
+  },
+  "searchLimitFull": {
+    "message": "Ogranicz wyszukiwanie do bieżącego folderu i podfolderów"
+  },
+  "searchLimitOptionHelp": {
+    "message": "Po włączeniu główne pole wyszukiwania przeszukuje tylko bieżące widoczne drzewo folderów."
+  },
+  "searchLimitTitle": {
+    "message": "Po włączeniu przeszukiwany jest tylko bieżący folder i jego podfoldery. Po wyłączeniu przeszukiwane są wszystkie zakładki."
   },
   "separator": {
     "message": "Separator"
   },
-  "unsavedChanges": {
-    "message": "Niezapisane zmiany"
+  "separators": {
+    "message": "Separatory:"
   },
-  "unsavedChangesMessage": {
-    "message": "Panel Szczegóły ma niezapisane zmiany. Co chcesz zrobić?"
+  "showDeleteWarning": {
+    "message": "Pokaż potwierdzenie usuwania"
   },
-  "keepEditing": {
-    "message": "Kontynuuj edycję"
+  "showDeleteWarningHelp": {
+    "message": "Pytaj przed usunięciem elementów zakładek lub folderów."
   },
-  "discard": {
-    "message": "Odrzuć"
+  "showDetailsPaneTooltip": {
+    "message": "Pokaż panel Szczegóły"
   },
-  "couldNotSaveChanges": {
-    "message": "Nie można zapisać zmian: {error}"
+  "showErrorsWarnings": {
+    "message": "Show warnings/errors log"
   },
-  "sortDefaultTooltip": {
-    "message": "Domyślna kolejność folderów Chromium. Kliknij, aby wrócić do sortowania domyślnego; ta kolumna nie sortuje odwrotnie."
+  "showErrorsWarningsHelp": {
+    "message": "Advanced. Shows a transient in-memory log for this SBM session. Log entries are not saved to extension settings."
   },
-  "sortNameAscTooltip": {
-    "message": "Sortuj według nazwy: A do Z"
+  "showSortWarning": {
+    "message": "Pokaż potwierdzenie trwałego sortowania"
   },
-  "sortNameDescTooltip": {
-    "message": "Sortuj według nazwy: Z do A"
+  "showSortWarningHelp": {
+    "message": "Pytaj przed zastosowaniem sortowania z menu kontekstowego, które trwale zmienia kolejność folderu zakładek."
   },
-  "sortUrlAscTooltip": {
-    "message": "Sortuj według URL: A do Z"
+  "sortBookmarks": {
+    "message": "Sortuj zakładki"
   },
-  "sortUrlDescTooltip": {
-    "message": "Sortuj według URL: Z do A"
+  "sortByDate": {
+    "message": "Sortuj według daty"
+  },
+  "sortByName": {
+    "message": "Sortuj według nazwy"
+  },
+  "sortDate": {
+    "message": "data"
+  },
+  "sortDateAdded": {
+    "message": "Data dodania"
+  },
+  "sortDateAddedHeader": {
+    "message": "Data dodania"
   },
   "sortDateAscTooltip": {
     "message": "Sortuj według daty dodania: najstarsze najpierw"
@@ -461,17 +455,47 @@
   "sortDateDescTooltip": {
     "message": "Sortuj według daty dodania: najnowsze najpierw"
   },
+  "sortDefault": {
+    "message": "Domyślne"
+  },
+  "sortDefaultTooltip": {
+    "message": "Domyślna kolejność folderów Chromium. Kliknij, aby wrócić do sortowania domyślnego; ta kolumna nie sortuje odwrotnie."
+  },
+  "sortFolderConfirm": {
+    "message": "Posortować „{folderName}” według {sortName}?\n\nTo trwale zmienia zapisaną kolejność zakładek w Chromium. Różni się od tymczasowego menu Sortowanie wizualne."
+  },
+  "sortId": {
+    "message": "ID"
+  },
   "sortIdAscTooltip": {
     "message": "Sortuj według ID: najniższe najpierw"
   },
   "sortIdDescTooltip": {
     "message": "Sortuj według ID: najwyższe najpierw"
   },
-  "sortBookmarks": {
-    "message": "Sortuj zakładki"
+  "sortName": {
+    "message": "Nazwa"
+  },
+  "sortNameAscTooltip": {
+    "message": "Sortuj według nazwy: A do Z"
+  },
+  "sortNameDescTooltip": {
+    "message": "Sortuj według nazwy: Z do A"
+  },
+  "sortNameLower": {
+    "message": "nazwa"
+  },
+  "sortOrder": {
+    "message": "Kolejność"
+  },
+  "sortSelectDateAddedTitle": {
+    "message": "Sortowanie według daty dodania. Rosnąco to najstarsze najpierw; malejąco to najnowsze najpierw."
   },
   "sortSelectDefaultTitle": {
     "message": "Domyślna kolejność folderów Chromium."
+  },
+  "sortSelectIdTitle": {
+    "message": "Sortowanie według ID. Rosnąco to najniższe najpierw; malejąco to najwyższe najpierw."
   },
   "sortSelectTitleTitle": {
     "message": "Sortowanie według nazwy. Rosnąco to A do Z; malejąco to Z do A."
@@ -479,25 +503,67 @@
   "sortSelectUrlTitle": {
     "message": "Sortowanie według URL. Rosnąco to A do Z; malejąco to Z do A."
   },
-  "sortSelectDateAddedTitle": {
-    "message": "Sortowanie według daty dodania. Rosnąco to najstarsze najpierw; malejąco to najnowsze najpierw."
+  "sortUrl": {
+    "message": "URL"
   },
-  "sortSelectIdTitle": {
-    "message": "Sortowanie według ID. Rosnąco to najniższe najpierw; malejąco to najwyższe najpierw."
+  "sortUrlAscTooltip": {
+    "message": "Sortuj według URL: A do Z"
   },
-  "managerFailed": {
-    "message": "Menedżer zakładek nie powiódł się: {error}"
+  "sortUrlDescTooltip": {
+    "message": "Sortuj według URL: Z do A"
   },
-  "notAvailable": {
-    "message": "Niedostępne"
+  "sorting": {
+    "message": "Sortowanie"
   },
-  "searchLimitFull": {
-    "message": "Ogranicz wyszukiwanie do bieżącego folderu i podfolderów"
+  "thisItem": {
+    "message": "ten element"
   },
-  "optimisationDOMrendering": {
-    "message": "Optimisation: DOM rendering pass"
+  "totalSelected": {
+    "message": "Razem zaznaczono:"
   },
-  "optimisationDOMrenderingHelp": {
-    "message": "Experimental. Enables reduced DOM churn for selected rendering, drag/drop indicators, and row icon handling. Disable only when comparing performance or troubleshooting UI behavior."
+  "unsavedChanges": {
+    "message": "Niezapisane zmiany"
+  },
+  "unsavedChangesMessage": {
+    "message": "Panel Szczegóły ma niezapisane zmiany. Co chcesz zrobić?"
+  },
+  "url": {
+    "message": "URL"
+  },
+  "urlWarningControlCharacters": {
+    "message": "URL contained hidden control characters; they will be removed before saving."
+  },
+  "urlWarningEmpty": {
+    "message": "URL is empty. Chrome may reject this bookmark until a URL is provided."
+  },
+  "urlWarningInvalidBlocked": {
+    "message": "This URL is not valid enough to save as a bookmark. Fix the URL before saving."
+  },
+  "urlWarningInvalidButAllowed": {
+    "message": "This URL is not valid enough to save as a bookmark. Fix the URL before saving."
+  },
+  "urlWarningWhitespace": {
+    "message": "URL contains whitespace. It will be saved if Chrome accepts it, but it may not open as expected."
+  },
+  "userInterface": {
+    "message": "Interfejs użytkownika"
+  },
+  "userInterfaceLanguage": {
+    "message": "Język interfejsu"
+  },
+  "userInterfaceLanguageHelp": {
+    "message": "Automatycznie podąża za językiem interfejsu przeglądarki. Wybory ręczne wpływają na menedżera i strony opcji."
+  },
+  "visualSort": {
+    "message": "Sortowanie wizualne:"
+  },
+  "warningsErrorsLog": {
+    "message": "Warnings / Errors Log"
+  },
+  "warningsErrorsLogEmpty": {
+    "message": "No warnings or errors recorded for this session."
+  },
+  "warningsErrorsLogHelp": {
+    "message": "Transient warnings/errors for this current SBM session. This is not saved to settings."
   }
 }

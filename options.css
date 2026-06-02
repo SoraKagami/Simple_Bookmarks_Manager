@@ -34,3 +34,17 @@ body.embedded .option-section {
 body.embedded header h1 {
   display: none;
 }
+.warnings-errors-log-section { margin-top: 20px; }
+.log-help { margin: 0 0 10px; opacity: .8; }
+.warnings-errors-log {
+  box-sizing: border-box;
+  width: 100%;
+  min-height: 180px;
+  resize: vertical;
+  padding: 8px;
+  font-family: Consolas, 'Cascadia Mono', 'Courier New', monospace;
+  font-size: .857rem;
+  line-height: 1.35;
+  white-space: pre;
+}
+.actions { display: flex; gap: 8px; flex-wrap: wrap; align-items: center; }

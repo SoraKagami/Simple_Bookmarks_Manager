@@ -7,6 +7,9 @@
  */
 import { applyI18n, populateLanguageSelect, setI18nLanguage, t } from "./i18n.js";
 import { DEFAULT_SETTINGS, fontFamilyCss, normalizeSettingValue } from "./settings.js";
+import { clearSessionLogRecords, getSessionLogRecords, installConsoleCapture, subscribeSessionLog } from "./session_log.js";
+
+installConsoleCapture("SBM Options");
 
 const api = chrome;
 
@@ -16,6 +19,7 @@ if (new URLSearchParams(location.search).has("embedded")) {
 
 const $ = (id) => document.getElementById(id);
 let statusTimer = null;
+let logRefreshTimer = null;
 
 /** Show a short-lived status message after saving/resetting options. */
 function showStatus(message) {
@@ -39,6 +43,48 @@ function applyFontOptionStyles() {
   for (const optionElement of control.options) {
     optionElement.style.fontFamily = fontFamilyCss(optionElement.value);
   }
+}
+
+function formatSessionLogRecord(record) {
+  if (!record) return "";
+  return `[${record.time}] ${record.source} ${record.level.toUpperCase()}: ${record.message}`;
+}
+
+function parentManagerLogRecords() {
+  try {
+    if (window.parent && window.parent !== window && typeof window.parent.SBM_getSessionLogRecords === "function") {
+      return window.parent.SBM_getSessionLogRecords();
+    }
+  } catch {
+    // A standalone options tab has no manager parent; ignore that case.
+  }
+  return [];
+}
+
+function refreshWarningsErrorsLog() {
+  const section = $("warnings-errors-log-section");
+  const output = $("warnings-errors-log");
+  if (!section || !output || section.hidden) return;
+  const records = [...parentManagerLogRecords(), ...getSessionLogRecords()]
+    .sort((a, b) => String(a.time).localeCompare(String(b.time)));
+  output.value = records.length ? records.map(formatSessionLogRecord).join("\n") : t("warningsErrorsLogEmpty");
+}
+
+function setWarningsErrorsLogVisible(visible) {
+  const section = $("warnings-errors-log-section");
+  if (!section) return;
+  section.hidden = !visible;
+  clearInterval(logRefreshTimer);
+  logRefreshTimer = null;
+  if (visible) {
+    refreshWarningsErrorsLog();
+    logRefreshTimer = setInterval(refreshWarningsErrorsLog, 1000);
+  }
+}
+
+function setDebugOptionsVisible(visible) {
+  const button = $("debug-failed-bookmark-operation");
+  if (button) button.hidden = !visible;
 }
 
 function readControlValue(key) {
@@ -70,6 +116,8 @@ function setControlState(settings) {
   }
   $("EnableAdvancedDetailsEditing").disabled = !$("EnableAdvancedDetailsViewing").checked;
   applyUserInterfaceSettings(settings);
+  setWarningsErrorsLogVisible(Boolean(settings.Show_ErrorsWarnings));
+  setDebugOptionsVisible(Boolean(settings.DebugOptions));
 }
 
 /** Load settings, language strings, and initial control state. */
@@ -126,6 +174,32 @@ $("reset").addEventListener("click", async () => {
   applyFontOptionStyles();
   showStatus(t("defaultsRestored"));
 });
+
+$("clear-warnings-errors-log").addEventListener("click", () => {
+  clearSessionLogRecords();
+  try {
+    if (window.parent && window.parent !== window && typeof window.parent.SBM_clearSessionLogRecords === "function") {
+      window.parent.SBM_clearSessionLogRecords();
+    }
+  } catch {
+    // Standalone options tabs do not have a manager parent.
+  }
+  refreshWarningsErrorsLog();
+});
+
+$("debug-failed-bookmark-operation").addEventListener("click", async () => {
+  try {
+    await api.bookmarks.create({ parentId: "__sbm_debug_invalid_parent__", title: "SBM debug failure", url: "https://example.invalid/" });
+    showStatus(t("debugFailureUnexpectedSuccess"));
+  } catch (err) {
+    const errorText = err?.message || String(err);
+    console.error("[SBM] Debug bookmark failure test triggered as expected.", err);
+    alert(t("bookmarkMutationFailed", { action: t("debugFailedBookmarkOperationAction"), error: errorText }));
+    refreshWarningsErrorsLog();
+  }
+});
+
+subscribeSessionLog(refreshWarningsErrorsLog);
 
 api.storage.onChanged.addListener((changes, areaName) => {
   if (areaName !== "local") return;

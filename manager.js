@@ -8,6 +8,11 @@
  */
 import { applyI18n, setI18nLanguage, t } from "./i18n.js";
 import { DEFAULT_SETTINGS, fontFamilyCss, normalizeSettingValue } from "./settings.js";
+import { clearSessionLogRecords, getSessionLogRecords, installConsoleCapture } from "./session_log.js";
+
+installConsoleCapture("SBM Manager");
+globalThis.SBM_getSessionLogRecords = getSessionLogRecords;
+globalThis.SBM_clearSessionLogRecords = clearSessionLogRecords;
 
 const api = chrome;
 
@@ -60,6 +65,8 @@ let DeleteShowWarning = DEFAULT_SETTINGS.DeleteShowWarning;
 let SearchLimitToFolderAndSub = DEFAULT_SETTINGS.SearchLimitToFolderAndSub;
 let Optimisation_TempBookmarkTreeMaps = DEFAULT_SETTINGS.Optimisation_TempBookmarkTreeMaps;
 let Optimisation_DOMrendering = DEFAULT_SETTINGS.Optimisation_DOMrendering;
+let Show_ErrorsWarnings = DEFAULT_SETTINGS.Show_ErrorsWarnings;
+let DebugOptions = DEFAULT_SETTINGS.DebugOptions;
 
 // ---------------------------------------------------------------------------
 // Settings and localization
@@ -93,6 +100,8 @@ function applySettings(settings, { render = false } = {}) {
     else if (key === "SearchLimitToFolderAndSub") SearchLimitToFolderAndSub = value;
     else if (key === "Optimisation_TempBookmarkTreeMaps") Optimisation_TempBookmarkTreeMaps = value;
     else if (key === "Optimisation_DOMrendering") Optimisation_DOMrendering = value;
+    else if (key === "Show_ErrorsWarnings") Show_ErrorsWarnings = value;
+    else if (key === "DebugOptions") DebugOptions = value;
   }
 
   applyUserInterfaceSettings();
@@ -176,6 +185,18 @@ async function getFreshBookmarkNode(id) {
   }
 }
 
+function isUserCriticalBookmarkMutation(method) {
+  return method === "create" || method === "update" || method === "remove" || method === "removeTree";
+}
+
+function notifyBookmarkMutationFailure(action, method, err) {
+  const errorText = err?.message || String(err || t("notAvailable"));
+  console.error(`[SBM] ${action} failed.`, { method, error: err });
+  if (isUserCriticalBookmarkMutation(method)) {
+    alert(t("bookmarkMutationFailed", { action, error: errorText }));
+  }
+}
+
 /**
  * Run a bookmark mutation that may legitimately fail if external bookmark data
  * changed after SBM rendered the row/menu.  Returning null lets callers stop
@@ -185,7 +206,7 @@ async function tryBookmarkMutation(action, method, ...args) {
   try {
     return await bookmarks(method, ...args);
   } catch (err) {
-    console.warn(`[SBM] ${action} failed; bookmark data may have changed externally.`, { method, args, error: err });
+    notifyBookmarkMutationFailure(action, method, err);
     return null;
   }
 }

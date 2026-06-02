@@ -1,75 +1,159 @@
 {
-  "appName": {
-    "message": "Simple Bookmarks Manager"
+  "about": {
+    "message": "Informazioni"
+  },
+  "actionFailed": {
+    "message": "Azione non riuscita: {error}"
+  },
+  "addNewBookmark": {
+    "message": "Aggiungi nuovo segnalibro"
+  },
+  "addNewFolder": {
+    "message": "Aggiungi nuova cartella"
+  },
+  "addSeparator": {
+    "message": "Aggiungi separatore"
+  },
+  "advanced": {
+    "message": "Avanzate"
+  },
+  "advancedBookmarkDetails": {
+    "message": "Dettagli avanzati segnalibro"
+  },
+  "advancedDetails": {
+    "message": "Dettagli avanzati"
+  },
+  "allowKeyboardDelete": {
+    "message": "Consenti al tasto Canc di eliminare selezionati"
+  },
+  "allowKeyboardDeleteHelp": {
+    "message": "Quando disattivo, il tasto Canc non elimina più le voci dei segnalibri selezionate."
   },
   "appDescription": {
     "message": "Un semplice gestore locale di segnalibri per Chrome/Chromium ispirato ai modelli della libreria Places di Firefox."
   },
+  "appName": {
+    "message": "Simple Bookmarks Manager"
+  },
   "back": {
     "message": "Indietro"
   },
-  "forward": {
-    "message": "Avanti"
+  "bookmarkAlt": {
+    "message": "Segnalibro"
   },
-  "newFolder": {
-    "message": "Nuova cartella"
-  },
-  "newBookmark": {
-    "message": "Nuovo segnalibro"
-  },
-  "searchBookmarks": {
-    "message": "Cerca segnalibri"
-  },
-  "searchLimitTitle": {
-    "message": "Quando attivo, cerca solo nella cartella corrente e nelle sue sottocartelle. Quando disattivo, cerca in tutti i segnalibri."
-  },
-  "limitSearchTo": {
-    "message": "Limita ricerca a"
-  },
-  "currentFolderAndSubfolders": {
-    "message": "Cartella corrente e sottocartelle"
-  },
-  "openMenu": {
-    "message": "Apri menu"
-  },
-  "openSbmMenu": {
-    "message": "Apri il menu di Simple Bookmarks Manager"
-  },
-  "library": {
-    "message": "Libreria"
-  },
-  "visualSort": {
-    "message": "Ordinamento visuale:"
-  },
-  "sortDefault": {
-    "message": "Predefinito"
-  },
-  "sortName": {
-    "message": "Nome"
-  },
-  "sortUrl": {
-    "message": "URL"
-  },
-  "sortDateAdded": {
-    "message": "Data aggiunta"
-  },
-  "sortDateAddedHeader": {
-    "message": "Data aggiunta"
-  },
-  "sortId": {
-    "message": "ID"
-  },
-  "sortOrder": {
-    "message": "Ordine"
-  },
-  "bookmarksAria": {
-    "message": "Segnalibri"
+  "bookmarkFallback": {
+    "message": "(Segnalibro)"
   },
   "bookmarkListColumns": {
     "message": "Colonne dell’elenco segnalibri"
   },
+  "bookmarkMutationFailed": {
+    "message": "Bookmark operation failed ({action}): {error}"
+  },
+  "bookmarkNamePrompt": {
+    "message": "Nome segnalibro"
+  },
+  "bookmarkUrlPrompt": {
+    "message": "URL segnalibro"
+  },
+  "bookmarks": {
+    "message": "Segnalibri"
+  },
+  "bookmarksAria": {
+    "message": "Segnalibri"
+  },
+  "bookmarksPathFallback": {
+    "message": "Segnalibri"
+  },
+  "browserRoot": {
+    "message": "Radice del browser"
+  },
+  "cancel": {
+    "message": "Cancel"
+  },
   "chooseSortModeTitle": {
     "message": "Scegli la modalità di ordinamento del riquadro centrale. Predefinito usa l’ordine delle cartelle di Chromium."
+  },
+  "clearLog": {
+    "message": "Clear Log"
+  },
+  "clickHideDetails": {
+    "message": "Fai clic per nascondere i dettagli"
+  },
+  "clickShowDetails": {
+    "message": "Fai clic per mostrare i dettagli"
+  },
+  "closeOptions": {
+    "message": "Chiudi opzioni"
+  },
+  "collapseAll": {
+    "message": "Comprimi tutto"
+  },
+  "collapseFolderTitle": {
+    "message": "Comprimi cartella"
+  },
+  "copy": {
+    "message": "Copia"
+  },
+  "couldNotMoveBookmark": {
+    "message": "Impossibile spostare l’elemento segnalibro: {error}"
+  },
+  "couldNotOpenTabGroup": {
+    "message": "Impossibile aprire il gruppo di schede: {error}"
+  },
+  "couldNotOpenWindow": {
+    "message": "Impossibile aprire la finestra {windowType}: {error}"
+  },
+  "couldNotSaveChanges": {
+    "message": "Impossibile salvare le modifiche: {error}"
+  },
+  "create": {
+    "message": "Create"
+  },
+  "currentFolderAndSubfolders": {
+    "message": "Cartella corrente e sottocartelle"
+  },
+  "cut": {
+    "message": "Taglia"
+  },
+  "dateAdded": {
+    "message": "Data aggiunta"
+  },
+  "dateLastUsed": {
+    "message": "Ultimo utilizzo"
+  },
+  "debugFailedBookmarkOperation": {
+    "message": "Debug: cause failed bookmark operation"
+  },
+  "debugFailedBookmarkOperationAction": {
+    "message": "debug failed bookmark operation"
+  },
+  "debugFailureUnexpectedSuccess": {
+    "message": "Debug failure unexpectedly succeeded"
+  },
+  "debugOptions": {
+    "message": "Debug options"
+  },
+  "debugOptionsHelp": {
+    "message": "Advanced. Shows debug-only test controls. Leave disabled during normal use."
+  },
+  "defaultsRestored": {
+    "message": "Valori predefiniti ripristinati"
+  },
+  "delete": {
+    "message": "Elimina"
+  },
+  "deleteBookmark": {
+    "message": "Elimina segnalibro"
+  },
+  "deleteFolder": {
+    "message": "Elimina cartella"
+  },
+  "deleteMultipleConfirm": {
+    "message": "Eliminare {count} elemento/i selezionato/i?"
+  },
+  "deleteSingleConfirm": {
+    "message": "Eliminare “{label}”?"
   },
   "details": {
     "message": "Dettagli"
@@ -80,83 +164,59 @@
   "detailsMultiselect": {
     "message": "Dettagli selezione multipla"
   },
-  "url": {
-    "message": "URL"
-  },
-  "parentFolder": {
-    "message": "Cartella superiore"
-  },
-  "save": {
-    "message": "Salva"
+  "discard": {
+    "message": "Scarta"
   },
   "discardChanges": {
     "message": "Scarta modifiche"
   },
-  "delete": {
-    "message": "Elimina"
+  "doubleClickExpandCollapseTitle": {
+    "message": "Doppio clic per espandere o comprimere questa cartella"
   },
-  "deleteFolder": {
-    "message": "Elimina cartella"
+  "dragFolderTitle": {
+    "message": "Trascina per riordinare questa cartella"
   },
-  "deleteBookmark": {
-    "message": "Elimina segnalibro"
+  "dragItemTitle": {
+    "message": "Trascina per spostare o riordinare questo elemento"
   },
-  "advancedDetails": {
-    "message": "Dettagli avanzati"
+  "edit": {
+    "message": "Modifica"
   },
-  "advancedBookmarkDetails": {
-    "message": "Dettagli avanzati segnalibro"
-  },
-  "guidUuid": {
-    "message": "GUID / UUID"
-  },
-  "dateAdded": {
-    "message": "Data aggiunta"
-  },
-  "dateLastUsed": {
-    "message": "Ultimo utilizzo"
-  },
-  "totalSelected": {
-    "message": "Totale selezionati:"
-  },
-  "folders": {
-    "message": "Cartelle:"
-  },
-  "bookmarks": {
-    "message": "Segnalibri"
-  },
-  "separators": {
-    "message": "Separatori:"
+  "editBookmark": {
+    "message": "Edit Bookmark"
   },
   "emptyDetails": {
     "message": "Seleziona un elemento o una cartella per mostrarne il contenuto."
   },
-  "optionsTitle": {
-    "message": "Opzioni di Simple Bookmarks Manager"
+  "enableAdvancedEditing": {
+    "message": "Abilita modifica dettagli avanzati"
   },
-  "closeOptions": {
-    "message": "Chiudi opzioni"
+  "enableAdvancedEditingHelp": {
+    "message": "Consente la modifica avanzata supportata, attualmente limitata alle modifiche dell’indice del segnalibro."
   },
-  "optionSaved": {
-    "message": "Salvato"
+  "enableAdvancedViewing": {
+    "message": "Abilita visualizzazione dettagli avanzati"
   },
-  "saveFailed": {
-    "message": "Salvataggio non riuscito: {error}"
+  "enableAdvancedViewingHelp": {
+    "message": "Mostra metadati avanzati dei segnalibri in sola lettura nel riquadro Dettagli."
   },
-  "loadFailed": {
-    "message": "Caricamento non riuscito: {error}"
+  "expandAll": {
+    "message": "Espandi tutto"
   },
-  "defaultsRestored": {
-    "message": "Valori predefiniti ripristinati"
+  "expandFolderTitle": {
+    "message": "Espandi cartella"
   },
-  "userInterface": {
-    "message": "Interfaccia utente"
+  "folderAlt": {
+    "message": "Cartella"
   },
-  "userInterfaceLanguage": {
-    "message": "Lingua interfaccia"
+  "folderFallback": {
+    "message": "(Cartella)"
   },
-  "userInterfaceLanguageHelp": {
-    "message": "Automatico segue la lingua dell’interfaccia del browser. Le scelte manuali influiscono sul gestore e sulle pagine delle opzioni."
+  "folderNamePrompt": {
+    "message": "Nome cartella"
+  },
+  "folders": {
+    "message": "Cartelle:"
   },
   "font": {
     "message": "Carattere"
@@ -164,17 +224,14 @@
   "fontHelp": {
     "message": "Controlla la famiglia di caratteri principale usata dall’interfaccia del gestore segnalibri."
   },
-  "fontSystem": {
-    "message": "Predefinito di sistema"
+  "fontMono": {
+    "message": "Consolas / monospazio"
   },
   "fontSans": {
     "message": "Arial / Helvetica"
   },
   "fontSerif": {
     "message": "Georgia / Times"
-  },
-  "fontMono": {
-    "message": "Consolas / monospazio"
   },
   "fontSize": {
     "message": "Dimensione carattere"
@@ -188,35 +245,35 @@
   "fontSpacingHelp": {
     "message": "Moltiplicatore dell’interlinea per righe ed etichette più compatte o leggibili."
   },
-  "search": {
-    "message": "Ricerca"
+  "fontSystem": {
+    "message": "Predefinito di sistema"
   },
-  "searchLimitOptionHelp": {
-    "message": "Quando attivo, la casella di ricerca principale cerca solo nell’albero della cartella attualmente visibile."
+  "forward": {
+    "message": "Avanti"
   },
-  "safety": {
-    "message": "Sicurezza"
+  "guidUuid": {
+    "message": "GUID / UUID"
   },
-  "showDeleteWarning": {
-    "message": "Mostra conferma eliminazione"
+  "help": {
+    "message": "Aiuto"
   },
-  "showDeleteWarningHelp": {
-    "message": "Chiedi prima di eliminare elementi dei segnalibri o cartelle."
+  "hideDetailsPaneTooltip": {
+    "message": "Nascondi il riquadro Dettagli"
   },
-  "showSortWarning": {
-    "message": "Mostra conferma ordinamento permanente"
+  "keepEditing": {
+    "message": "Continua a modificare"
   },
-  "showSortWarningHelp": {
-    "message": "Chiedi prima di applicare ordinamenti dal menu contestuale che riordinano permanentemente una cartella di segnalibri."
+  "library": {
+    "message": "Libreria"
   },
-  "allowKeyboardDelete": {
-    "message": "Consenti al tasto Canc di eliminare selezionati"
+  "limitSearchTo": {
+    "message": "Limita ricerca a"
   },
-  "allowKeyboardDeleteHelp": {
-    "message": "Quando disattivo, il tasto Canc non elimina più le voci dei segnalibri selezionate."
+  "loadFailed": {
+    "message": "Caricamento non riuscito: {error}"
   },
-  "sorting": {
-    "message": "Ordinamento"
+  "managerFailed": {
+    "message": "Gestore segnalibri non riuscito: {error}"
   },
   "naturalSort": {
     "message": "Usa ordinamento naturale cartelle/segnalibri"
@@ -224,134 +281,23 @@
   "naturalSortHelp": {
     "message": "L’ordinamento permanente per nome mette prima le cartelle, poi i separatori e infine i segnalibri."
   },
-  "advanced": {
-    "message": "Avanzate"
+  "newBookmark": {
+    "message": "Nuovo segnalibro"
   },
-  "enableAdvancedViewing": {
-    "message": "Abilita visualizzazione dettagli avanzati"
-  },
-  "enableAdvancedViewingHelp": {
-    "message": "Mostra metadati avanzati dei segnalibri in sola lettura nel riquadro Dettagli."
-  },
-  "enableAdvancedEditing": {
-    "message": "Abilita modifica dettagli avanzati"
-  },
-  "enableAdvancedEditingHelp": {
-    "message": "Consente la modifica avanzata supportata, attualmente limitata alle modifiche dell’indice del segnalibro."
-  },
-  "resetDefaults": {
-    "message": "Ripristina predefiniti"
-  },
-  "folderAlt": {
-    "message": "Cartella"
-  },
-  "bookmarkAlt": {
-    "message": "Segnalibro"
-  },
-  "folderFallback": {
-    "message": "(Cartella)"
-  },
-  "bookmarkFallback": {
-    "message": "(Segnalibro)"
-  },
-  "rootFallback": {
-    "message": "(radice)"
-  },
-  "browserRoot": {
-    "message": "Radice del browser"
-  },
-  "bookmarksPathFallback": {
-    "message": "Segnalibri"
-  },
-  "sortDate": {
-    "message": "data"
-  },
-  "sortNameLower": {
-    "message": "nome"
-  },
-  "sortFolderConfirm": {
-    "message": "Ordinare “{folderName}” per {sortName}?\n\nQuesto modifica permanentemente l’ordine dei segnalibri salvato in Chromium. È diverso dal menu temporaneo Ordinamento visivo."
-  },
-  "couldNotOpenWindow": {
-    "message": "Impossibile aprire la finestra {windowType}: {error}"
-  },
-  "privateWindowType": {
-    "message": "privata"
-  },
-  "newWindowType": {
-    "message": "nuova"
-  },
-  "couldNotOpenTabGroup": {
-    "message": "Impossibile aprire il gruppo di schede: {error}"
-  },
-  "newFolderNamePrompt": {
-    "message": "Nome nuova cartella"
-  },
-  "folderNamePrompt": {
-    "message": "Nome cartella"
-  },
-  "bookmarkNamePrompt": {
-    "message": "Nome segnalibro"
-  },
-  "bookmarkUrlPrompt": {
-    "message": "URL segnalibro"
-  },
-  "deleteSingleConfirm": {
-    "message": "Eliminare “{label}”?"
-  },
-  "deleteMultipleConfirm": {
-    "message": "Eliminare {count} elemento/i selezionato/i?"
-  },
-  "thisItem": {
-    "message": "questo elemento"
+  "newFolder": {
+    "message": "Nuova cartella"
   },
   "newFolderDefaultName": {
     "message": "Nuova cartella"
   },
-  "couldNotMoveBookmark": {
-    "message": "Impossibile spostare l’elemento segnalibro: {error}"
+  "newFolderNamePrompt": {
+    "message": "Nome nuova cartella"
   },
-  "actionFailed": {
-    "message": "Azione non riuscita: {error}"
+  "newWindowType": {
+    "message": "nuova"
   },
-  "openDefaultBookmarksManager": {
-    "message": "Apri gestore segnalibri predefinito"
-  },
-  "options": {
-    "message": "Opzioni"
-  },
-  "help": {
-    "message": "Aiuto"
-  },
-  "about": {
-    "message": "Informazioni"
-  },
-  "renameFolder": {
-    "message": "Rinomina cartella"
-  },
-  "cut": {
-    "message": "Taglia"
-  },
-  "copy": {
-    "message": "Copia"
-  },
-  "paste": {
-    "message": "Incolla"
-  },
-  "sortByName": {
-    "message": "Ordina per nome"
-  },
-  "sortByDate": {
-    "message": "Ordina per data"
-  },
-  "addNewBookmark": {
-    "message": "Aggiungi nuovo segnalibro"
-  },
-  "addNewFolder": {
-    "message": "Aggiungi nuova cartella"
-  },
-  "addSeparator": {
-    "message": "Aggiungi separatore"
+  "notAvailable": {
+    "message": "Non disponibile"
   },
   "openAllBookmarks": {
     "message": "Apri tutti i segnalibri"
@@ -359,23 +305,26 @@
   "openAllInNewTab": {
     "message": "Apri tutto in nuove schede"
   },
+  "openAllInNewTabGroup": {
+    "message": "Apri tutto in un nuovo gruppo di schede"
+  },
   "openAllInNewWindow": {
     "message": "Apri tutto in nuova finestra"
   },
   "openAllInPrivateWindow": {
     "message": "Apri tutto in finestra privata"
   },
-  "openAllInNewTabGroup": {
-    "message": "Apri tutto in un nuovo gruppo di schede"
-  },
   "openAllInSplitView": {
     "message": "Apri tutto in vista divisa"
   },
-  "edit": {
-    "message": "Modifica"
+  "openDefaultBookmarksManager": {
+    "message": "Apri gestore segnalibri predefinito"
   },
   "openInNewTab": {
     "message": "Apri in nuova scheda"
+  },
+  "openInNewTabGroup": {
+    "message": "Apri in un nuovo gruppo di schede"
   },
   "openInNewWindow": {
     "message": "Apri in nuova finestra"
@@ -383,77 +332,122 @@
   "openInPrivateWindow": {
     "message": "Apri in finestra privata"
   },
-  "openInNewTabGroup": {
-    "message": "Apri in un nuovo gruppo di schede"
-  },
   "openInSplitView": {
     "message": "Apri in vista divisa"
   },
-  "expandAll": {
-    "message": "Espandi tutto"
+  "openMenu": {
+    "message": "Apri menu"
   },
-  "collapseAll": {
-    "message": "Comprimi tutto"
+  "openSbmMenu": {
+    "message": "Apri il menu di Simple Bookmarks Manager"
   },
-  "dragFolderTitle": {
-    "message": "Trascina per riordinare questa cartella"
+  "optimisationDOMrendering": {
+    "message": "Optimisation: DOM rendering pass"
   },
-  "collapseFolderTitle": {
-    "message": "Comprimi cartella"
+  "optimisationDOMrenderingHelp": {
+    "message": "Experimental. Enables reduced DOM churn for selected rendering, drag/drop indicators, and row icon handling. Disable only when comparing performance or troubleshooting UI behavior."
   },
-  "expandFolderTitle": {
-    "message": "Espandi cartella"
+  "optimisationTempBookmarkTreeMaps": {
+    "message": "Optimisation: temporary bookmark tree maps"
   },
-  "doubleClickExpandCollapseTitle": {
-    "message": "Doppio clic per espandere o comprimere questa cartella"
+  "optimisationTempBookmarkTreeMapsHelp": {
+    "message": "Experimental. Builds short-lived lookup maps during some render/search/tree operations, then discards them to avoid a persistent stale cache."
   },
-  "hideDetailsPaneTooltip": {
-    "message": "Nascondi il riquadro Dettagli"
+  "optionSaved": {
+    "message": "Salvato"
   },
-  "showDetailsPaneTooltip": {
-    "message": "Mostra il riquadro Dettagli"
+  "options": {
+    "message": "Opzioni"
   },
-  "clickHideDetails": {
-    "message": "Fai clic per nascondere i dettagli"
+  "optionsTitle": {
+    "message": "Opzioni di Simple Bookmarks Manager"
   },
-  "clickShowDetails": {
-    "message": "Fai clic per mostrare i dettagli"
+  "parentFolder": {
+    "message": "Cartella superiore"
   },
-  "dragItemTitle": {
-    "message": "Trascina per spostare o riordinare questo elemento"
+  "paste": {
+    "message": "Incolla"
+  },
+  "privateWindowType": {
+    "message": "privata"
+  },
+  "renameFolder": {
+    "message": "Rinomina cartella"
+  },
+  "resetDefaults": {
+    "message": "Ripristina predefiniti"
+  },
+  "rootFallback": {
+    "message": "(radice)"
+  },
+  "safety": {
+    "message": "Sicurezza"
+  },
+  "save": {
+    "message": "Salva"
+  },
+  "saveFailed": {
+    "message": "Salvataggio non riuscito: {error}"
+  },
+  "search": {
+    "message": "Ricerca"
+  },
+  "searchBookmarks": {
+    "message": "Cerca segnalibri"
+  },
+  "searchLimitFull": {
+    "message": "Limita ricerca alla cartella corrente e sottocartelle"
+  },
+  "searchLimitOptionHelp": {
+    "message": "Quando attivo, la casella di ricerca principale cerca solo nell’albero della cartella attualmente visibile."
+  },
+  "searchLimitTitle": {
+    "message": "Quando attivo, cerca solo nella cartella corrente e nelle sue sottocartelle. Quando disattivo, cerca in tutti i segnalibri."
   },
   "separator": {
     "message": "Separatore"
   },
-  "unsavedChanges": {
-    "message": "Modifiche non salvate"
+  "separators": {
+    "message": "Separatori:"
   },
-  "unsavedChangesMessage": {
-    "message": "Il riquadro Dettagli contiene modifiche non salvate. Cosa vuoi fare?"
+  "showDeleteWarning": {
+    "message": "Mostra conferma eliminazione"
   },
-  "keepEditing": {
-    "message": "Continua a modificare"
+  "showDeleteWarningHelp": {
+    "message": "Chiedi prima di eliminare elementi dei segnalibri o cartelle."
   },
-  "discard": {
-    "message": "Scarta"
+  "showDetailsPaneTooltip": {
+    "message": "Mostra il riquadro Dettagli"
   },
-  "couldNotSaveChanges": {
-    "message": "Impossibile salvare le modifiche: {error}"
+  "showErrorsWarnings": {
+    "message": "Show warnings/errors log"
   },
-  "sortDefaultTooltip": {
-    "message": "Ordine predefinito delle cartelle di Chromium. Fai clic per tornare all’ordinamento predefinito; questa colonna non ordina al contrario."
+  "showErrorsWarningsHelp": {
+    "message": "Advanced. Shows a transient in-memory log for this SBM session. Log entries are not saved to extension settings."
   },
-  "sortNameAscTooltip": {
-    "message": "Ordina per nome: A-Z"
+  "showSortWarning": {
+    "message": "Mostra conferma ordinamento permanente"
   },
-  "sortNameDescTooltip": {
-    "message": "Ordina per nome: Z-A"
+  "showSortWarningHelp": {
+    "message": "Chiedi prima di applicare ordinamenti dal menu contestuale che riordinano permanentemente una cartella di segnalibri."
   },
-  "sortUrlAscTooltip": {
-    "message": "Ordina per URL: A-Z"
+  "sortBookmarks": {
+    "message": "Ordina segnalibri"
   },
-  "sortUrlDescTooltip": {
-    "message": "Ordina per URL: Z-A"
+  "sortByDate": {
+    "message": "Ordina per data"
+  },
+  "sortByName": {
+    "message": "Ordina per nome"
+  },
+  "sortDate": {
+    "message": "data"
+  },
+  "sortDateAdded": {
+    "message": "Data aggiunta"
+  },
+  "sortDateAddedHeader": {
+    "message": "Data aggiunta"
   },
   "sortDateAscTooltip": {
     "message": "Ordina per data aggiunta: prima i più vecchi"
@@ -461,17 +455,47 @@
   "sortDateDescTooltip": {
     "message": "Ordina per data aggiunta: prima i più recenti"
   },
+  "sortDefault": {
+    "message": "Predefinito"
+  },
+  "sortDefaultTooltip": {
+    "message": "Ordine predefinito delle cartelle di Chromium. Fai clic per tornare all’ordinamento predefinito; questa colonna non ordina al contrario."
+  },
+  "sortFolderConfirm": {
+    "message": "Ordinare “{folderName}” per {sortName}?\n\nQuesto modifica permanentemente l’ordine dei segnalibri salvato in Chromium. È diverso dal menu temporaneo Ordinamento visivo."
+  },
+  "sortId": {
+    "message": "ID"
+  },
   "sortIdAscTooltip": {
     "message": "Ordina per ID: prima il più basso"
   },
   "sortIdDescTooltip": {
     "message": "Ordina per ID: prima il più alto"
   },
-  "sortBookmarks": {
-    "message": "Ordina segnalibri"
+  "sortName": {
+    "message": "Nome"
+  },
+  "sortNameAscTooltip": {
+    "message": "Ordina per nome: A-Z"
+  },
+  "sortNameDescTooltip": {
+    "message": "Ordina per nome: Z-A"
+  },
+  "sortNameLower": {
+    "message": "nome"
+  },
+  "sortOrder": {
+    "message": "Ordine"
+  },
+  "sortSelectDateAddedTitle": {
+    "message": "Ordinamento per data aggiunta. Crescente è prima i più vecchi; decrescente è prima i più recenti."
   },
   "sortSelectDefaultTitle": {
     "message": "Ordine predefinito delle cartelle di Chromium."
+  },
+  "sortSelectIdTitle": {
+    "message": "Ordinamento per ID. Crescente è prima il più basso; decrescente è prima il più alto."
   },
   "sortSelectTitleTitle": {
     "message": "Ordinamento per nome. Crescente è A-Z; decrescente è Z-A."
@@ -479,25 +503,67 @@
   "sortSelectUrlTitle": {
     "message": "Ordinamento per URL. Crescente è A-Z; decrescente è Z-A."
   },
-  "sortSelectDateAddedTitle": {
-    "message": "Ordinamento per data aggiunta. Crescente è prima i più vecchi; decrescente è prima i più recenti."
+  "sortUrl": {
+    "message": "URL"
   },
-  "sortSelectIdTitle": {
-    "message": "Ordinamento per ID. Crescente è prima il più basso; decrescente è prima il più alto."
+  "sortUrlAscTooltip": {
+    "message": "Ordina per URL: A-Z"
   },
-  "managerFailed": {
-    "message": "Gestore segnalibri non riuscito: {error}"
+  "sortUrlDescTooltip": {
+    "message": "Ordina per URL: Z-A"
   },
-  "notAvailable": {
-    "message": "Non disponibile"
+  "sorting": {
+    "message": "Ordinamento"
   },
-  "searchLimitFull": {
-    "message": "Limita ricerca alla cartella corrente e sottocartelle"
+  "thisItem": {
+    "message": "questo elemento"
   },
-  "optimisationDOMrendering": {
-    "message": "Optimisation: DOM rendering pass"
+  "totalSelected": {
+    "message": "Totale selezionati:"
   },
-  "optimisationDOMrenderingHelp": {
-    "message": "Experimental. Enables reduced DOM churn for selected rendering, drag/drop indicators, and row icon handling. Disable only when comparing performance or troubleshooting UI behavior."
+  "unsavedChanges": {
+    "message": "Modifiche non salvate"
+  },
+  "unsavedChangesMessage": {
+    "message": "Il riquadro Dettagli contiene modifiche non salvate. Cosa vuoi fare?"
+  },
+  "url": {
+    "message": "URL"
+  },
+  "urlWarningControlCharacters": {
+    "message": "URL contained hidden control characters; they will be removed before saving."
+  },
+  "urlWarningEmpty": {
+    "message": "URL is empty. Chrome may reject this bookmark until a URL is provided."
+  },
+  "urlWarningInvalidBlocked": {
+    "message": "This URL is not valid enough to save as a bookmark. Fix the URL before saving."
+  },
+  "urlWarningInvalidButAllowed": {
+    "message": "This URL is not valid enough to save as a bookmark. Fix the URL before saving."
+  },
+  "urlWarningWhitespace": {
+    "message": "URL contains whitespace. It will be saved if Chrome accepts it, but it may not open as expected."
+  },
+  "userInterface": {
+    "message": "Interfaccia utente"
+  },
+  "userInterfaceLanguage": {
+    "message": "Lingua interfaccia"
+  },
+  "userInterfaceLanguageHelp": {
+    "message": "Automatico segue la lingua dell’interfaccia del browser. Le scelte manuali influiscono sul gestore e sulle pagine delle opzioni."
+  },
+  "visualSort": {
+    "message": "Ordinamento visuale:"
+  },
+  "warningsErrorsLog": {
+    "message": "Warnings / Errors Log"
+  },
+  "warningsErrorsLogEmpty": {
+    "message": "No warnings or errors recorded for this session."
+  },
+  "warningsErrorsLogHelp": {
+    "message": "Transient warnings/errors for this current SBM session. This is not saved to settings."
   }
 }

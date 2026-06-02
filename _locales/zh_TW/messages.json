@@ -1,75 +1,159 @@
 {
-  "appName": {
-    "message": "Simple Bookmarks Manager"
+  "about": {
+    "message": "關於"
+  },
+  "actionFailed": {
+    "message": "動作失敗：{error}"
+  },
+  "addNewBookmark": {
+    "message": "新增書籤"
+  },
+  "addNewFolder": {
+    "message": "新增資料夾"
+  },
+  "addSeparator": {
+    "message": "新增分隔線"
+  },
+  "advanced": {
+    "message": "進階"
+  },
+  "advancedBookmarkDetails": {
+    "message": "進階書籤詳細資料"
+  },
+  "advancedDetails": {
+    "message": "進階詳細資料"
+  },
+  "allowKeyboardDelete": {
+    "message": "允許 Delete 鍵刪除選取項目"
+  },
+  "allowKeyboardDeleteHelp": {
+    "message": "停用時，Delete 鍵不再刪除選取的書籤項目。"
   },
   "appDescription": {
     "message": "受 Firefox Places Library 模式啟發，適用於 Chrome/Chromium 的簡易本機書籤管理員。"
   },
+  "appName": {
+    "message": "Simple Bookmarks Manager"
+  },
   "back": {
     "message": "返回"
   },
-  "forward": {
-    "message": "前進"
-  },
-  "newFolder": {
-    "message": "新增資料夾"
-  },
-  "newBookmark": {
-    "message": "新增書籤"
-  },
-  "searchBookmarks": {
-    "message": "搜尋書籤"
-  },
-  "searchLimitTitle": {
-    "message": "啟用時，只搜尋目前資料夾與其子資料夾。停用時，搜尋所有書籤。"
-  },
-  "limitSearchTo": {
-    "message": "限制搜尋至"
-  },
-  "currentFolderAndSubfolders": {
-    "message": "目前資料夾與子資料夾"
-  },
-  "openMenu": {
-    "message": "開啟選單"
-  },
-  "openSbmMenu": {
-    "message": "開啟 Simple Bookmarks Manager 選單"
-  },
-  "library": {
-    "message": "收藏庫"
-  },
-  "visualSort": {
-    "message": "視覺排序："
-  },
-  "sortDefault": {
-    "message": "預設"
-  },
-  "sortName": {
-    "message": "名稱"
-  },
-  "sortUrl": {
-    "message": "網址"
-  },
-  "sortDateAdded": {
-    "message": "加入日期"
-  },
-  "sortDateAddedHeader": {
-    "message": "加入日期"
-  },
-  "sortId": {
-    "message": "ID"
-  },
-  "sortOrder": {
-    "message": "順序"
-  },
-  "bookmarksAria": {
+  "bookmarkAlt": {
     "message": "書籤"
+  },
+  "bookmarkFallback": {
+    "message": "（書籤）"
   },
   "bookmarkListColumns": {
     "message": "書籤清單欄位"
   },
+  "bookmarkMutationFailed": {
+    "message": "Bookmark operation failed ({action}): {error}"
+  },
+  "bookmarkNamePrompt": {
+    "message": "書籤名稱"
+  },
+  "bookmarkUrlPrompt": {
+    "message": "書籤網址"
+  },
+  "bookmarks": {
+    "message": "書籤："
+  },
+  "bookmarksAria": {
+    "message": "書籤"
+  },
+  "bookmarksPathFallback": {
+    "message": "書籤"
+  },
+  "browserRoot": {
+    "message": "瀏覽器根目錄"
+  },
+  "cancel": {
+    "message": "Cancel"
+  },
   "chooseSortModeTitle": {
     "message": "選擇中間窗格排序模式。預設使用 Chromium 的資料夾順序。"
+  },
+  "clearLog": {
+    "message": "Clear Log"
+  },
+  "clickHideDetails": {
+    "message": "點擊以隱藏詳細資料"
+  },
+  "clickShowDetails": {
+    "message": "點擊以顯示詳細資料"
+  },
+  "closeOptions": {
+    "message": "關閉選項"
+  },
+  "collapseAll": {
+    "message": "全部收合"
+  },
+  "collapseFolderTitle": {
+    "message": "收合資料夾"
+  },
+  "copy": {
+    "message": "複製"
+  },
+  "couldNotMoveBookmark": {
+    "message": "無法移動書籤項目：{error}"
+  },
+  "couldNotOpenTabGroup": {
+    "message": "無法開啟分頁群組：{error}"
+  },
+  "couldNotOpenWindow": {
+    "message": "無法開啟{windowType}視窗：{error}"
+  },
+  "couldNotSaveChanges": {
+    "message": "無法儲存變更：{error}"
+  },
+  "create": {
+    "message": "Create"
+  },
+  "currentFolderAndSubfolders": {
+    "message": "目前資料夾與子資料夾"
+  },
+  "cut": {
+    "message": "剪下"
+  },
+  "dateAdded": {
+    "message": "加入日期"
+  },
+  "dateLastUsed": {
+    "message": "上次使用日期"
+  },
+  "debugFailedBookmarkOperation": {
+    "message": "Debug: cause failed bookmark operation"
+  },
+  "debugFailedBookmarkOperationAction": {
+    "message": "debug failed bookmark operation"
+  },
+  "debugFailureUnexpectedSuccess": {
+    "message": "Debug failure unexpectedly succeeded"
+  },
+  "debugOptions": {
+    "message": "Debug options"
+  },
+  "debugOptionsHelp": {
+    "message": "Advanced. Shows debug-only test controls. Leave disabled during normal use."
+  },
+  "defaultsRestored": {
+    "message": "已還原預設值"
+  },
+  "delete": {
+    "message": "刪除"
+  },
+  "deleteBookmark": {
+    "message": "刪除書籤"
+  },
+  "deleteFolder": {
+    "message": "刪除資料夾"
+  },
+  "deleteMultipleConfirm": {
+    "message": "要刪除 {count} 個選取項目嗎？"
+  },
+  "deleteSingleConfirm": {
+    "message": "要刪除「{label}」嗎？"
   },
   "details": {
     "message": "詳細資料"
@@ -80,83 +164,59 @@
   "detailsMultiselect": {
     "message": "多選詳細資料"
   },
-  "url": {
-    "message": "網址"
-  },
-  "parentFolder": {
-    "message": "上層資料夾"
-  },
-  "save": {
-    "message": "儲存"
+  "discard": {
+    "message": "放棄"
   },
   "discardChanges": {
     "message": "放棄變更"
   },
-  "delete": {
-    "message": "刪除"
+  "doubleClickExpandCollapseTitle": {
+    "message": "按兩下以展開或收合此資料夾"
   },
-  "deleteFolder": {
-    "message": "刪除資料夾"
+  "dragFolderTitle": {
+    "message": "拖曳以重新排序此資料夾"
   },
-  "deleteBookmark": {
-    "message": "刪除書籤"
+  "dragItemTitle": {
+    "message": "拖曳以移動或重新排序此項目"
   },
-  "advancedDetails": {
-    "message": "進階詳細資料"
+  "edit": {
+    "message": "編輯"
   },
-  "advancedBookmarkDetails": {
-    "message": "進階書籤詳細資料"
-  },
-  "guidUuid": {
-    "message": "GUID / UUID"
-  },
-  "dateAdded": {
-    "message": "加入日期"
-  },
-  "dateLastUsed": {
-    "message": "上次使用日期"
-  },
-  "totalSelected": {
-    "message": "已選取總數："
-  },
-  "folders": {
-    "message": "資料夾："
-  },
-  "bookmarks": {
-    "message": "書籤："
-  },
-  "separators": {
-    "message": "分隔線："
+  "editBookmark": {
+    "message": "Edit Bookmark"
   },
   "emptyDetails": {
     "message": "選取一個項目，或選取資料夾以顯示其內容。"
   },
-  "optionsTitle": {
-    "message": "Simple Bookmarks Manager 選項"
+  "enableAdvancedEditing": {
+    "message": "啟用進階詳細資料編輯"
   },
-  "closeOptions": {
-    "message": "關閉選項"
+  "enableAdvancedEditingHelp": {
+    "message": "允許支援的進階編輯，目前僅限書籤索引變更。"
   },
-  "optionSaved": {
-    "message": "已儲存"
+  "enableAdvancedViewing": {
+    "message": "啟用進階詳細資料檢視"
   },
-  "saveFailed": {
-    "message": "儲存失敗：{error}"
+  "enableAdvancedViewingHelp": {
+    "message": "在詳細資料窗格顯示唯讀進階書籤中繼資料。"
   },
-  "loadFailed": {
-    "message": "載入失敗：{error}"
+  "expandAll": {
+    "message": "全部展開"
   },
-  "defaultsRestored": {
-    "message": "已還原預設值"
+  "expandFolderTitle": {
+    "message": "展開資料夾"
   },
-  "userInterface": {
-    "message": "使用者介面"
+  "folderAlt": {
+    "message": "資料夾"
   },
-  "userInterfaceLanguage": {
-    "message": "使用者介面語言"
+  "folderFallback": {
+    "message": "（資料夾）"
   },
-  "userInterfaceLanguageHelp": {
-    "message": "自動會跟隨瀏覽器 UI 語言。手動選擇會影響管理員與選項頁面。"
+  "folderNamePrompt": {
+    "message": "資料夾名稱"
+  },
+  "folders": {
+    "message": "資料夾："
   },
   "font": {
     "message": "字型"
@@ -164,17 +224,14 @@
   "fontHelp": {
     "message": "控制書籤管理員 UI 使用的主要字型。"
   },
-  "fontSystem": {
-    "message": "系統預設"
+  "fontMono": {
+    "message": "Consolas / 等寬字型"
   },
   "fontSans": {
     "message": "Arial / Helvetica"
   },
   "fontSerif": {
     "message": "Georgia / Times"
-  },
-  "fontMono": {
-    "message": "Consolas / 等寬字型"
   },
   "fontSize": {
     "message": "字型大小"
@@ -188,35 +245,35 @@
   "fontSpacingHelp": {
     "message": "較緊密或較易讀列與標籤的行距倍率。"
   },
-  "search": {
-    "message": "搜尋"
+  "fontSystem": {
+    "message": "系統預設"
   },
-  "searchLimitOptionHelp": {
-    "message": "啟用時，主搜尋框只搜尋目前可見資料夾樹內的內容。"
+  "forward": {
+    "message": "前進"
   },
-  "safety": {
-    "message": "安全"
+  "guidUuid": {
+    "message": "GUID / UUID"
   },
-  "showDeleteWarning": {
-    "message": "顯示刪除確認警告"
+  "help": {
+    "message": "說明"
   },
-  "showDeleteWarningHelp": {
-    "message": "刪除書籤項目或資料夾前先詢問。"
+  "hideDetailsPaneTooltip": {
+    "message": "隱藏詳細資料窗格"
   },
-  "showSortWarning": {
-    "message": "顯示永久排序確認警告"
+  "keepEditing": {
+    "message": "繼續編輯"
   },
-  "showSortWarningHelp": {
-    "message": "套用會永久重新排序書籤資料夾的右鍵選單排序前先詢問。"
+  "library": {
+    "message": "收藏庫"
   },
-  "allowKeyboardDelete": {
-    "message": "允許 Delete 鍵刪除選取項目"
+  "limitSearchTo": {
+    "message": "限制搜尋至"
   },
-  "allowKeyboardDeleteHelp": {
-    "message": "停用時，Delete 鍵不再刪除選取的書籤項目。"
+  "loadFailed": {
+    "message": "載入失敗：{error}"
   },
-  "sorting": {
-    "message": "排序"
+  "managerFailed": {
+    "message": "書籤管理員失敗：{error}"
   },
   "naturalSort": {
     "message": "使用自然資料夾/書籤排序"
@@ -224,134 +281,23 @@
   "naturalSortHelp": {
     "message": "永久依名稱排序會先放資料夾，接著分隔線，最後書籤。"
   },
-  "advanced": {
-    "message": "進階"
+  "newBookmark": {
+    "message": "新增書籤"
   },
-  "enableAdvancedViewing": {
-    "message": "啟用進階詳細資料檢視"
-  },
-  "enableAdvancedViewingHelp": {
-    "message": "在詳細資料窗格顯示唯讀進階書籤中繼資料。"
-  },
-  "enableAdvancedEditing": {
-    "message": "啟用進階詳細資料編輯"
-  },
-  "enableAdvancedEditingHelp": {
-    "message": "允許支援的進階編輯，目前僅限書籤索引變更。"
-  },
-  "resetDefaults": {
-    "message": "重設為預設值"
-  },
-  "folderAlt": {
-    "message": "資料夾"
-  },
-  "bookmarkAlt": {
-    "message": "書籤"
-  },
-  "folderFallback": {
-    "message": "（資料夾）"
-  },
-  "bookmarkFallback": {
-    "message": "（書籤）"
-  },
-  "rootFallback": {
-    "message": "（根目錄）"
-  },
-  "browserRoot": {
-    "message": "瀏覽器根目錄"
-  },
-  "bookmarksPathFallback": {
-    "message": "書籤"
-  },
-  "sortDate": {
-    "message": "日期"
-  },
-  "sortNameLower": {
-    "message": "名稱"
-  },
-  "sortFolderConfirm": {
-    "message": "要將「{folderName}」依{sortName}排序嗎？\n\n這會永久變更 Chromium 中儲存的書籤順序。這與暫時性的視覺排序下拉選單不同。"
-  },
-  "couldNotOpenWindow": {
-    "message": "無法開啟{windowType}視窗：{error}"
-  },
-  "privateWindowType": {
-    "message": "私人"
-  },
-  "newWindowType": {
-    "message": "新"
-  },
-  "couldNotOpenTabGroup": {
-    "message": "無法開啟分頁群組：{error}"
-  },
-  "newFolderNamePrompt": {
-    "message": "新資料夾名稱"
-  },
-  "folderNamePrompt": {
-    "message": "資料夾名稱"
-  },
-  "bookmarkNamePrompt": {
-    "message": "書籤名稱"
-  },
-  "bookmarkUrlPrompt": {
-    "message": "書籤網址"
-  },
-  "deleteSingleConfirm": {
-    "message": "要刪除「{label}」嗎？"
-  },
-  "deleteMultipleConfirm": {
-    "message": "要刪除 {count} 個選取項目嗎？"
-  },
-  "thisItem": {
-    "message": "此項目"
+  "newFolder": {
+    "message": "新增資料夾"
   },
   "newFolderDefaultName": {
     "message": "新資料夾"
   },
-  "couldNotMoveBookmark": {
-    "message": "無法移動書籤項目：{error}"
+  "newFolderNamePrompt": {
+    "message": "新資料夾名稱"
   },
-  "actionFailed": {
-    "message": "動作失敗：{error}"
+  "newWindowType": {
+    "message": "新"
   },
-  "openDefaultBookmarksManager": {
-    "message": "開啟預設書籤管理員"
-  },
-  "options": {
-    "message": "選項"
-  },
-  "help": {
-    "message": "說明"
-  },
-  "about": {
-    "message": "關於"
-  },
-  "renameFolder": {
-    "message": "重新命名資料夾"
-  },
-  "cut": {
-    "message": "剪下"
-  },
-  "copy": {
-    "message": "複製"
-  },
-  "paste": {
-    "message": "貼上"
-  },
-  "sortByName": {
-    "message": "依名稱排序"
-  },
-  "sortByDate": {
-    "message": "依日期排序"
-  },
-  "addNewBookmark": {
-    "message": "新增書籤"
-  },
-  "addNewFolder": {
-    "message": "新增資料夾"
-  },
-  "addSeparator": {
-    "message": "新增分隔線"
+  "notAvailable": {
+    "message": "無法使用"
   },
   "openAllBookmarks": {
     "message": "開啟所有書籤"
@@ -359,23 +305,26 @@
   "openAllInNewTab": {
     "message": "在新分頁中全部開啟"
   },
+  "openAllInNewTabGroup": {
+    "message": "在新分頁群組中全部開啟"
+  },
   "openAllInNewWindow": {
     "message": "在新視窗中全部開啟"
   },
   "openAllInPrivateWindow": {
     "message": "在私人視窗中全部開啟"
   },
-  "openAllInNewTabGroup": {
-    "message": "在新分頁群組中全部開啟"
-  },
   "openAllInSplitView": {
     "message": "在分割檢視中全部開啟"
   },
-  "edit": {
-    "message": "編輯"
+  "openDefaultBookmarksManager": {
+    "message": "開啟預設書籤管理員"
   },
   "openInNewTab": {
     "message": "在新分頁中開啟"
+  },
+  "openInNewTabGroup": {
+    "message": "在新分頁群組中開啟"
   },
   "openInNewWindow": {
     "message": "在新視窗中開啟"
@@ -383,77 +332,122 @@
   "openInPrivateWindow": {
     "message": "在私人視窗中開啟"
   },
-  "openInNewTabGroup": {
-    "message": "在新分頁群組中開啟"
-  },
   "openInSplitView": {
     "message": "在分割檢視中開啟"
   },
-  "expandAll": {
-    "message": "全部展開"
+  "openMenu": {
+    "message": "開啟選單"
   },
-  "collapseAll": {
-    "message": "全部收合"
+  "openSbmMenu": {
+    "message": "開啟 Simple Bookmarks Manager 選單"
   },
-  "dragFolderTitle": {
-    "message": "拖曳以重新排序此資料夾"
+  "optimisationDOMrendering": {
+    "message": "Optimisation: DOM rendering pass"
   },
-  "collapseFolderTitle": {
-    "message": "收合資料夾"
+  "optimisationDOMrenderingHelp": {
+    "message": "Experimental. Enables reduced DOM churn for selected rendering, drag/drop indicators, and row icon handling. Disable only when comparing performance or troubleshooting UI behavior."
   },
-  "expandFolderTitle": {
-    "message": "展開資料夾"
+  "optimisationTempBookmarkTreeMaps": {
+    "message": "Optimisation: temporary bookmark tree maps"
   },
-  "doubleClickExpandCollapseTitle": {
-    "message": "按兩下以展開或收合此資料夾"
+  "optimisationTempBookmarkTreeMapsHelp": {
+    "message": "Experimental. Builds short-lived lookup maps during some render/search/tree operations, then discards them to avoid a persistent stale cache."
   },
-  "hideDetailsPaneTooltip": {
-    "message": "隱藏詳細資料窗格"
+  "optionSaved": {
+    "message": "已儲存"
   },
-  "showDetailsPaneTooltip": {
-    "message": "顯示詳細資料窗格"
+  "options": {
+    "message": "選項"
   },
-  "clickHideDetails": {
-    "message": "點擊以隱藏詳細資料"
+  "optionsTitle": {
+    "message": "Simple Bookmarks Manager 選項"
   },
-  "clickShowDetails": {
-    "message": "點擊以顯示詳細資料"
+  "parentFolder": {
+    "message": "上層資料夾"
   },
-  "dragItemTitle": {
-    "message": "拖曳以移動或重新排序此項目"
+  "paste": {
+    "message": "貼上"
+  },
+  "privateWindowType": {
+    "message": "私人"
+  },
+  "renameFolder": {
+    "message": "重新命名資料夾"
+  },
+  "resetDefaults": {
+    "message": "重設為預設值"
+  },
+  "rootFallback": {
+    "message": "（根目錄）"
+  },
+  "safety": {
+    "message": "安全"
+  },
+  "save": {
+    "message": "儲存"
+  },
+  "saveFailed": {
+    "message": "儲存失敗：{error}"
+  },
+  "search": {
+    "message": "搜尋"
+  },
+  "searchBookmarks": {
+    "message": "搜尋書籤"
+  },
+  "searchLimitFull": {
+    "message": "限制搜尋至目前資料夾與子資料夾"
+  },
+  "searchLimitOptionHelp": {
+    "message": "啟用時，主搜尋框只搜尋目前可見資料夾樹內的內容。"
+  },
+  "searchLimitTitle": {
+    "message": "啟用時，只搜尋目前資料夾與其子資料夾。停用時，搜尋所有書籤。"
   },
   "separator": {
     "message": "分隔線"
   },
-  "unsavedChanges": {
-    "message": "未儲存的變更"
+  "separators": {
+    "message": "分隔線："
   },
-  "unsavedChangesMessage": {
-    "message": "詳細資料窗格有未儲存的變更。您想怎麼做？"
+  "showDeleteWarning": {
+    "message": "顯示刪除確認警告"
   },
-  "keepEditing": {
-    "message": "繼續編輯"
+  "showDeleteWarningHelp": {
+    "message": "刪除書籤項目或資料夾前先詢問。"
   },
-  "discard": {
-    "message": "放棄"
+  "showDetailsPaneTooltip": {
+    "message": "顯示詳細資料窗格"
   },
-  "couldNotSaveChanges": {
-    "message": "無法儲存變更：{error}"
+  "showErrorsWarnings": {
+    "message": "Show warnings/errors log"
   },
-  "sortDefaultTooltip": {
-    "message": "預設 Chromium 資料夾順序。點擊可回到預設排序；此欄不會反向排序。"
+  "showErrorsWarningsHelp": {
+    "message": "Advanced. Shows a transient in-memory log for this SBM session. Log entries are not saved to extension settings."
   },
-  "sortNameAscTooltip": {
-    "message": "依名稱排序：A 到 Z"
+  "showSortWarning": {
+    "message": "顯示永久排序確認警告"
   },
-  "sortNameDescTooltip": {
-    "message": "依名稱排序：Z 到 A"
+  "showSortWarningHelp": {
+    "message": "套用會永久重新排序書籤資料夾的右鍵選單排序前先詢問。"
   },
-  "sortUrlAscTooltip": {
-    "message": "依網址排序：A 到 Z"
+  "sortBookmarks": {
+    "message": "排序書籤"
   },
-  "sortUrlDescTooltip": {
-    "message": "依網址排序：Z 到 A"
+  "sortByDate": {
+    "message": "依日期排序"
+  },
+  "sortByName": {
+    "message": "依名稱排序"
+  },
+  "sortDate": {
+    "message": "日期"
+  },
+  "sortDateAdded": {
+    "message": "加入日期"
+  },
+  "sortDateAddedHeader": {
+    "message": "加入日期"
   },
   "sortDateAscTooltip": {
     "message": "依加入日期排序：最舊優先"
@@ -461,17 +455,47 @@
   "sortDateDescTooltip": {
     "message": "依加入日期排序：最新優先"
   },
+  "sortDefault": {
+    "message": "預設"
+  },
+  "sortDefaultTooltip": {
+    "message": "預設 Chromium 資料夾順序。點擊可回到預設排序；此欄不會反向排序。"
+  },
+  "sortFolderConfirm": {
+    "message": "要將「{folderName}」依{sortName}排序嗎？\n\n這會永久變更 Chromium 中儲存的書籤順序。這與暫時性的視覺排序下拉選單不同。"
+  },
+  "sortId": {
+    "message": "ID"
+  },
   "sortIdAscTooltip": {
     "message": "依 ID 排序：最低優先"
   },
   "sortIdDescTooltip": {
     "message": "依 ID 排序：最高優先"
   },
-  "sortBookmarks": {
-    "message": "排序書籤"
+  "sortName": {
+    "message": "名稱"
+  },
+  "sortNameAscTooltip": {
+    "message": "依名稱排序：A 到 Z"
+  },
+  "sortNameDescTooltip": {
+    "message": "依名稱排序：Z 到 A"
+  },
+  "sortNameLower": {
+    "message": "名稱"
+  },
+  "sortOrder": {
+    "message": "順序"
+  },
+  "sortSelectDateAddedTitle": {
+    "message": "加入日期排序。遞增為最舊優先；遞減為最新優先。"
   },
   "sortSelectDefaultTitle": {
     "message": "預設 Chromium 資料夾順序。"
+  },
+  "sortSelectIdTitle": {
+    "message": "ID 排序。遞增為最低優先；遞減為最高優先。"
   },
   "sortSelectTitleTitle": {
     "message": "名稱排序。遞增為 A 到 Z；遞減為 Z 到 A。"
@@ -479,25 +503,67 @@
   "sortSelectUrlTitle": {
     "message": "網址排序。遞增為 A 到 Z；遞減為 Z 到 A。"
   },
-  "sortSelectDateAddedTitle": {
-    "message": "加入日期排序。遞增為最舊優先；遞減為最新優先。"
+  "sortUrl": {
+    "message": "網址"
   },
-  "sortSelectIdTitle": {
-    "message": "ID 排序。遞增為最低優先；遞減為最高優先。"
+  "sortUrlAscTooltip": {
+    "message": "依網址排序：A 到 Z"
   },
-  "managerFailed": {
-    "message": "書籤管理員失敗：{error}"
+  "sortUrlDescTooltip": {
+    "message": "依網址排序：Z 到 A"
   },
-  "notAvailable": {
-    "message": "無法使用"
+  "sorting": {
+    "message": "排序"
   },
-  "searchLimitFull": {
-    "message": "限制搜尋至目前資料夾與子資料夾"
+  "thisItem": {
+    "message": "此項目"
   },
-  "optimisationDOMrendering": {
-    "message": "Optimisation: DOM rendering pass"
+  "totalSelected": {
+    "message": "已選取總數："
   },
-  "optimisationDOMrenderingHelp": {
-    "message": "Experimental. Enables reduced DOM churn for selected rendering, drag/drop indicators, and row icon handling. Disable only when comparing performance or troubleshooting UI behavior."
+  "unsavedChanges": {
+    "message": "未儲存的變更"
+  },
+  "unsavedChangesMessage": {
+    "message": "詳細資料窗格有未儲存的變更。您想怎麼做？"
+  },
+  "url": {
+    "message": "網址"
+  },
+  "urlWarningControlCharacters": {
+    "message": "URL contained hidden control characters; they will be removed before saving."
+  },
+  "urlWarningEmpty": {
+    "message": "URL is empty. Chrome may reject this bookmark until a URL is provided."
+  },
+  "urlWarningInvalidBlocked": {
+    "message": "This URL is not valid enough to save as a bookmark. Fix the URL before saving."
+  },
+  "urlWarningInvalidButAllowed": {
+    "message": "This URL is not valid enough to save as a bookmark. Fix the URL before saving."
+  },
+  "urlWarningWhitespace": {
+    "message": "URL contains whitespace. It will be saved if Chrome accepts it, but it may not open as expected."
+  },
+  "userInterface": {
+    "message": "使用者介面"
+  },
+  "userInterfaceLanguage": {
+    "message": "使用者介面語言"
+  },
+  "userInterfaceLanguageHelp": {
+    "message": "自動會跟隨瀏覽器 UI 語言。手動選擇會影響管理員與選項頁面。"
+  },
+  "visualSort": {
+    "message": "視覺排序："
+  },
+  "warningsErrorsLog": {
+    "message": "Warnings / Errors Log"
+  },
+  "warningsErrorsLogEmpty": {
+    "message": "No warnings or errors recorded for this session."
+  },
+  "warningsErrorsLogHelp": {
+    "message": "Transient warnings/errors for this current SBM session. This is not saved to settings."
   }
 }

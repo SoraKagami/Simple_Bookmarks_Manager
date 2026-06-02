@@ -1,75 +1,159 @@
 {
-  "appName": {
-    "message": "Simple Bookmarks Manager"
+  "about": {
+    "message": "À propos"
+  },
+  "actionFailed": {
+    "message": "Échec de l’action : {error}"
+  },
+  "addNewBookmark": {
+    "message": "Ajouter un favori"
+  },
+  "addNewFolder": {
+    "message": "Ajouter un dossier"
+  },
+  "addSeparator": {
+    "message": "Ajouter un séparateur"
+  },
+  "advanced": {
+    "message": "Avancé"
+  },
+  "advancedBookmarkDetails": {
+    "message": "Détails avancés du favori"
+  },
+  "advancedDetails": {
+    "message": "Détails avancés"
+  },
+  "allowKeyboardDelete": {
+    "message": "Autoriser Suppr à supprimer les éléments sélectionnés"
+  },
+  "allowKeyboardDeleteHelp": {
+    "message": "Quand cette option est désactivée, la touche Suppr ne supprime plus les entrées de favoris sélectionnées."
   },
   "appDescription": {
     "message": "Un gestionnaire local simple de favoris pour Chrome/Chromium, inspiré des modèles de la bibliothèque Places de Firefox."
   },
+  "appName": {
+    "message": "Simple Bookmarks Manager"
+  },
   "back": {
     "message": "Retour"
   },
-  "forward": {
-    "message": "Avancer"
+  "bookmarkAlt": {
+    "message": "Favori"
   },
-  "newFolder": {
-    "message": "Nouveau dossier"
-  },
-  "newBookmark": {
-    "message": "Nouveau favori"
-  },
-  "searchBookmarks": {
-    "message": "Rechercher des favoris"
-  },
-  "searchLimitTitle": {
-    "message": "Quand cette option est activée, la recherche se limite au dossier actuel et à ses sous-dossiers. Quand elle est désactivée, tous les favoris sont recherchés."
-  },
-  "limitSearchTo": {
-    "message": "Limiter la recherche à"
-  },
-  "currentFolderAndSubfolders": {
-    "message": "Dossier actuel et sous-dossiers"
-  },
-  "openMenu": {
-    "message": "Ouvrir le menu"
-  },
-  "openSbmMenu": {
-    "message": "Ouvrir le menu Simple Bookmarks Manager"
-  },
-  "library": {
-    "message": "Bibliothèque"
-  },
-  "visualSort": {
-    "message": "Tri visuel :"
-  },
-  "sortDefault": {
-    "message": "Par défaut"
-  },
-  "sortName": {
-    "message": "Nom"
-  },
-  "sortUrl": {
-    "message": "URL"
-  },
-  "sortDateAdded": {
-    "message": "Date ajoutée"
-  },
-  "sortDateAddedHeader": {
-    "message": "Date d’ajout"
-  },
-  "sortId": {
-    "message": "ID"
-  },
-  "sortOrder": {
-    "message": "Ordre"
-  },
-  "bookmarksAria": {
-    "message": "Favoris"
+  "bookmarkFallback": {
+    "message": "(Favori)"
   },
   "bookmarkListColumns": {
     "message": "Colonnes de la liste de favoris"
   },
+  "bookmarkMutationFailed": {
+    "message": "Bookmark operation failed ({action}): {error}"
+  },
+  "bookmarkNamePrompt": {
+    "message": "Nom du favori"
+  },
+  "bookmarkUrlPrompt": {
+    "message": "URL du favori"
+  },
+  "bookmarks": {
+    "message": "Favoris"
+  },
+  "bookmarksAria": {
+    "message": "Favoris"
+  },
+  "bookmarksPathFallback": {
+    "message": "Favoris"
+  },
+  "browserRoot": {
+    "message": "Racine du navigateur"
+  },
+  "cancel": {
+    "message": "Cancel"
+  },
   "chooseSortModeTitle": {
     "message": "Choisissez le mode de tri du volet central. Par défaut utilise l’ordre des dossiers de Chromium."
+  },
+  "clearLog": {
+    "message": "Clear Log"
+  },
+  "clickHideDetails": {
+    "message": "Cliquer pour masquer les détails"
+  },
+  "clickShowDetails": {
+    "message": "Cliquer pour afficher les détails"
+  },
+  "closeOptions": {
+    "message": "Fermer les options"
+  },
+  "collapseAll": {
+    "message": "Tout réduire"
+  },
+  "collapseFolderTitle": {
+    "message": "Réduire le dossier"
+  },
+  "copy": {
+    "message": "Copier"
+  },
+  "couldNotMoveBookmark": {
+    "message": "Impossible de déplacer l’élément de favori : {error}"
+  },
+  "couldNotOpenTabGroup": {
+    "message": "Impossible d’ouvrir le groupe d’onglets : {error}"
+  },
+  "couldNotOpenWindow": {
+    "message": "Impossible d’ouvrir la fenêtre {windowType} : {error}"
+  },
+  "couldNotSaveChanges": {
+    "message": "Impossible d’enregistrer les modifications : {error}"
+  },
+  "create": {
+    "message": "Create"
+  },
+  "currentFolderAndSubfolders": {
+    "message": "Dossier actuel et sous-dossiers"
+  },
+  "cut": {
+    "message": "Couper"
+  },
+  "dateAdded": {
+    "message": "Date d’ajout"
+  },
+  "dateLastUsed": {
+    "message": "Dernière utilisation"
+  },
+  "debugFailedBookmarkOperation": {
+    "message": "Debug: cause failed bookmark operation"
+  },
+  "debugFailedBookmarkOperationAction": {
+    "message": "debug failed bookmark operation"
+  },
+  "debugFailureUnexpectedSuccess": {
+    "message": "Debug failure unexpectedly succeeded"
+  },
+  "debugOptions": {
+    "message": "Debug options"
+  },
+  "debugOptionsHelp": {
+    "message": "Advanced. Shows debug-only test controls. Leave disabled during normal use."
+  },
+  "defaultsRestored": {
+    "message": "Valeurs par défaut restaurées"
+  },
+  "delete": {
+    "message": "Supprimer"
+  },
+  "deleteBookmark": {
+    "message": "Supprimer le favori"
+  },
+  "deleteFolder": {
+    "message": "Supprimer le dossier"
+  },
+  "deleteMultipleConfirm": {
+    "message": "Supprimer {count} élément(s) sélectionné(s) ?"
+  },
+  "deleteSingleConfirm": {
+    "message": "Supprimer « {label} » ?"
   },
   "details": {
     "message": "Détails"
@@ -80,83 +164,59 @@
   "detailsMultiselect": {
     "message": "Détails de sélection multiple"
   },
-  "url": {
-    "message": "URL"
-  },
-  "parentFolder": {
-    "message": "Dossier parent"
-  },
-  "save": {
-    "message": "Enregistrer"
+  "discard": {
+    "message": "Ignorer"
   },
   "discardChanges": {
     "message": "Annuler les modifications"
   },
-  "delete": {
-    "message": "Supprimer"
+  "doubleClickExpandCollapseTitle": {
+    "message": "Double-cliquez pour développer ou réduire ce dossier"
   },
-  "deleteFolder": {
-    "message": "Supprimer le dossier"
+  "dragFolderTitle": {
+    "message": "Glisser pour réorganiser ce dossier"
   },
-  "deleteBookmark": {
-    "message": "Supprimer le favori"
+  "dragItemTitle": {
+    "message": "Glisser pour déplacer ou réorganiser cet élément"
   },
-  "advancedDetails": {
-    "message": "Détails avancés"
+  "edit": {
+    "message": "Modifier"
   },
-  "advancedBookmarkDetails": {
-    "message": "Détails avancés du favori"
-  },
-  "guidUuid": {
-    "message": "GUID / UUID"
-  },
-  "dateAdded": {
-    "message": "Date d’ajout"
-  },
-  "dateLastUsed": {
-    "message": "Dernière utilisation"
-  },
-  "totalSelected": {
-    "message": "Total sélectionné :"
-  },
-  "folders": {
-    "message": "Dossiers :"
-  },
-  "bookmarks": {
-    "message": "Favoris"
-  },
-  "separators": {
-    "message": "Séparateurs :"
+  "editBookmark": {
+    "message": "Edit Bookmark"
   },
   "emptyDetails": {
     "message": "Sélectionnez un élément ou un dossier pour afficher son contenu."
   },
-  "optionsTitle": {
-    "message": "Options de Simple Bookmarks Manager"
+  "enableAdvancedEditing": {
+    "message": "Activer la modification des détails avancés"
   },
-  "closeOptions": {
-    "message": "Fermer les options"
+  "enableAdvancedEditingHelp": {
+    "message": "Autoriser la modification avancée prise en charge, actuellement limitée aux changements d’index de favori."
   },
-  "optionSaved": {
-    "message": "Enregistré"
+  "enableAdvancedViewing": {
+    "message": "Activer l’affichage des détails avancés"
   },
-  "saveFailed": {
-    "message": "Échec de l’enregistrement : {error}"
+  "enableAdvancedViewingHelp": {
+    "message": "Afficher les métadonnées avancées en lecture seule dans le volet Détails."
   },
-  "loadFailed": {
-    "message": "Échec du chargement : {error}"
+  "expandAll": {
+    "message": "Tout développer"
   },
-  "defaultsRestored": {
-    "message": "Valeurs par défaut restaurées"
+  "expandFolderTitle": {
+    "message": "Développer le dossier"
   },
-  "userInterface": {
-    "message": "Interface utilisateur"
+  "folderAlt": {
+    "message": "Dossier"
   },
-  "userInterfaceLanguage": {
-    "message": "Langue de l’interface"
+  "folderFallback": {
+    "message": "(Dossier)"
   },
-  "userInterfaceLanguageHelp": {
-    "message": "Automatique suit la langue de l’interface du navigateur. Les choix manuels affectent le gestionnaire et les pages d’options."
+  "folderNamePrompt": {
+    "message": "Nom du dossier"
+  },
+  "folders": {
+    "message": "Dossiers :"
   },
   "font": {
     "message": "Police"
@@ -164,17 +224,14 @@
   "fontHelp": {
     "message": "Contrôle la famille de police principale utilisée par l’interface du gestionnaire de favoris."
   },
-  "fontSystem": {
-    "message": "Système par défaut"
+  "fontMono": {
+    "message": "Consolas / chasse fixe"
   },
   "fontSans": {
     "message": "Arial / Helvetica"
   },
   "fontSerif": {
     "message": "Georgia / Times"
-  },
-  "fontMono": {
-    "message": "Consolas / chasse fixe"
   },
   "fontSize": {
     "message": "Taille de police"
@@ -188,35 +245,35 @@
   "fontSpacingHelp": {
     "message": "Multiplicateur d’interligne pour des lignes et libellés plus compacts ou plus lisibles."
   },
-  "search": {
-    "message": "Recherche"
+  "fontSystem": {
+    "message": "Système par défaut"
   },
-  "searchLimitOptionHelp": {
-    "message": "Quand cette option est activée, le champ de recherche principal cherche seulement dans l’arborescence du dossier visible actuel."
+  "forward": {
+    "message": "Avancer"
   },
-  "safety": {
-    "message": "Sécurité"
+  "guidUuid": {
+    "message": "GUID / UUID"
   },
-  "showDeleteWarning": {
-    "message": "Afficher la confirmation de suppression"
+  "help": {
+    "message": "Aide"
   },
-  "showDeleteWarningHelp": {
-    "message": "Demander avant de supprimer des éléments de favoris ou des dossiers."
+  "hideDetailsPaneTooltip": {
+    "message": "Masquer le volet Détails"
   },
-  "showSortWarning": {
-    "message": "Afficher la confirmation de tri permanent"
+  "keepEditing": {
+    "message": "Continuer la modification"
   },
-  "showSortWarningHelp": {
-    "message": "Demander avant d’appliquer des tris du menu contextuel qui réordonnent définitivement un dossier de favoris."
+  "library": {
+    "message": "Bibliothèque"
   },
-  "allowKeyboardDelete": {
-    "message": "Autoriser Suppr à supprimer les éléments sélectionnés"
+  "limitSearchTo": {
+    "message": "Limiter la recherche à"
   },
-  "allowKeyboardDeleteHelp": {
-    "message": "Quand cette option est désactivée, la touche Suppr ne supprime plus les entrées de favoris sélectionnées."
+  "loadFailed": {
+    "message": "Échec du chargement : {error}"
   },
-  "sorting": {
-    "message": "Tri"
+  "managerFailed": {
+    "message": "Échec du gestionnaire de favoris : {error}"
   },
   "naturalSort": {
     "message": "Utiliser le tri naturel dossiers/favoris"
@@ -224,134 +281,23 @@
   "naturalSortHelp": {
     "message": "Le tri permanent par nom place les dossiers d’abord, puis les séparateurs, puis les favoris."
   },
-  "advanced": {
-    "message": "Avancé"
+  "newBookmark": {
+    "message": "Nouveau favori"
   },
-  "enableAdvancedViewing": {
-    "message": "Activer l’affichage des détails avancés"
-  },
-  "enableAdvancedViewingHelp": {
-    "message": "Afficher les métadonnées avancées en lecture seule dans le volet Détails."
-  },
-  "enableAdvancedEditing": {
-    "message": "Activer la modification des détails avancés"
-  },
-  "enableAdvancedEditingHelp": {
-    "message": "Autoriser la modification avancée prise en charge, actuellement limitée aux changements d’index de favori."
-  },
-  "resetDefaults": {
-    "message": "Rétablir les valeurs par défaut"
-  },
-  "folderAlt": {
-    "message": "Dossier"
-  },
-  "bookmarkAlt": {
-    "message": "Favori"
-  },
-  "folderFallback": {
-    "message": "(Dossier)"
-  },
-  "bookmarkFallback": {
-    "message": "(Favori)"
-  },
-  "rootFallback": {
-    "message": "(racine)"
-  },
-  "browserRoot": {
-    "message": "Racine du navigateur"
-  },
-  "bookmarksPathFallback": {
-    "message": "Favoris"
-  },
-  "sortDate": {
-    "message": "date"
-  },
-  "sortNameLower": {
-    "message": "nom"
-  },
-  "sortFolderConfirm": {
-    "message": "Trier « {folderName} » par {sortName} ?\n\nCela modifie définitivement l’ordre des favoris enregistré dans Chromium. C’est différent de la liste déroulante temporaire Tri visuel."
-  },
-  "couldNotOpenWindow": {
-    "message": "Impossible d’ouvrir la fenêtre {windowType} : {error}"
-  },
-  "privateWindowType": {
-    "message": "privée"
-  },
-  "newWindowType": {
-    "message": "nouvelle"
-  },
-  "couldNotOpenTabGroup": {
-    "message": "Impossible d’ouvrir le groupe d’onglets : {error}"
-  },
-  "newFolderNamePrompt": {
-    "message": "Nom du nouveau dossier"
-  },
-  "folderNamePrompt": {
-    "message": "Nom du dossier"
-  },
-  "bookmarkNamePrompt": {
-    "message": "Nom du favori"
-  },
-  "bookmarkUrlPrompt": {
-    "message": "URL du favori"
-  },
-  "deleteSingleConfirm": {
-    "message": "Supprimer « {label} » ?"
-  },
-  "deleteMultipleConfirm": {
-    "message": "Supprimer {count} élément(s) sélectionné(s) ?"
-  },
-  "thisItem": {
-    "message": "cet élément"
+  "newFolder": {
+    "message": "Nouveau dossier"
   },
   "newFolderDefaultName": {
     "message": "Nouveau dossier"
   },
-  "couldNotMoveBookmark": {
-    "message": "Impossible de déplacer l’élément de favori : {error}"
+  "newFolderNamePrompt": {
+    "message": "Nom du nouveau dossier"
   },
-  "actionFailed": {
-    "message": "Échec de l’action : {error}"
+  "newWindowType": {
+    "message": "nouvelle"
   },
-  "openDefaultBookmarksManager": {
-    "message": "Ouvrir le gestionnaire de favoris par défaut"
-  },
-  "options": {
-    "message": "Options"
-  },
-  "help": {
-    "message": "Aide"
-  },
-  "about": {
-    "message": "À propos"
-  },
-  "renameFolder": {
-    "message": "Renommer le dossier"
-  },
-  "cut": {
-    "message": "Couper"
-  },
-  "copy": {
-    "message": "Copier"
-  },
-  "paste": {
-    "message": "Coller"
-  },
-  "sortByName": {
-    "message": "Trier par nom"
-  },
-  "sortByDate": {
-    "message": "Trier par date"
-  },
-  "addNewBookmark": {
-    "message": "Ajouter un favori"
-  },
-  "addNewFolder": {
-    "message": "Ajouter un dossier"
-  },
-  "addSeparator": {
-    "message": "Ajouter un séparateur"
+  "notAvailable": {
+    "message": "Non disponible"
   },
   "openAllBookmarks": {
     "message": "Ouvrir tous les favoris"
@@ -359,23 +305,26 @@
   "openAllInNewTab": {
     "message": "Tout ouvrir dans de nouveaux onglets"
   },
+  "openAllInNewTabGroup": {
+    "message": "Tout ouvrir dans un nouveau groupe d’onglets"
+  },
   "openAllInNewWindow": {
     "message": "Tout ouvrir dans une nouvelle fenêtre"
   },
   "openAllInPrivateWindow": {
     "message": "Tout ouvrir dans une fenêtre privée"
   },
-  "openAllInNewTabGroup": {
-    "message": "Tout ouvrir dans un nouveau groupe d’onglets"
-  },
   "openAllInSplitView": {
     "message": "Tout ouvrir en vue fractionnée"
   },
-  "edit": {
-    "message": "Modifier"
+  "openDefaultBookmarksManager": {
+    "message": "Ouvrir le gestionnaire de favoris par défaut"
   },
   "openInNewTab": {
     "message": "Ouvrir dans un nouvel onglet"
+  },
+  "openInNewTabGroup": {
+    "message": "Ouvrir dans un nouveau groupe d’onglets"
   },
   "openInNewWindow": {
     "message": "Ouvrir dans une nouvelle fenêtre"
@@ -383,77 +332,122 @@
   "openInPrivateWindow": {
     "message": "Ouvrir dans une fenêtre privée"
   },
-  "openInNewTabGroup": {
-    "message": "Ouvrir dans un nouveau groupe d’onglets"
-  },
   "openInSplitView": {
     "message": "Ouvrir en vue fractionnée"
   },
-  "expandAll": {
-    "message": "Tout développer"
+  "openMenu": {
+    "message": "Ouvrir le menu"
   },
-  "collapseAll": {
-    "message": "Tout réduire"
+  "openSbmMenu": {
+    "message": "Ouvrir le menu Simple Bookmarks Manager"
   },
-  "dragFolderTitle": {
-    "message": "Glisser pour réorganiser ce dossier"
+  "optimisationDOMrendering": {
+    "message": "Optimisation: DOM rendering pass"
   },
-  "collapseFolderTitle": {
-    "message": "Réduire le dossier"
+  "optimisationDOMrenderingHelp": {
+    "message": "Experimental. Enables reduced DOM churn for selected rendering, drag/drop indicators, and row icon handling. Disable only when comparing performance or troubleshooting UI behavior."
   },
-  "expandFolderTitle": {
-    "message": "Développer le dossier"
+  "optimisationTempBookmarkTreeMaps": {
+    "message": "Optimisation: temporary bookmark tree maps"
   },
-  "doubleClickExpandCollapseTitle": {
-    "message": "Double-cliquez pour développer ou réduire ce dossier"
+  "optimisationTempBookmarkTreeMapsHelp": {
+    "message": "Experimental. Builds short-lived lookup maps during some render/search/tree operations, then discards them to avoid a persistent stale cache."
   },
-  "hideDetailsPaneTooltip": {
-    "message": "Masquer le volet Détails"
+  "optionSaved": {
+    "message": "Enregistré"
   },
-  "showDetailsPaneTooltip": {
-    "message": "Afficher le volet Détails"
+  "options": {
+    "message": "Options"
   },
-  "clickHideDetails": {
-    "message": "Cliquer pour masquer les détails"
+  "optionsTitle": {
+    "message": "Options de Simple Bookmarks Manager"
   },
-  "clickShowDetails": {
-    "message": "Cliquer pour afficher les détails"
+  "parentFolder": {
+    "message": "Dossier parent"
   },
-  "dragItemTitle": {
-    "message": "Glisser pour déplacer ou réorganiser cet élément"
+  "paste": {
+    "message": "Coller"
+  },
+  "privateWindowType": {
+    "message": "privée"
+  },
+  "renameFolder": {
+    "message": "Renommer le dossier"
+  },
+  "resetDefaults": {
+    "message": "Rétablir les valeurs par défaut"
+  },
+  "rootFallback": {
+    "message": "(racine)"
+  },
+  "safety": {
+    "message": "Sécurité"
+  },
+  "save": {
+    "message": "Enregistrer"
+  },
+  "saveFailed": {
+    "message": "Échec de l’enregistrement : {error}"
+  },
+  "search": {
+    "message": "Recherche"
+  },
+  "searchBookmarks": {
+    "message": "Rechercher des favoris"
+  },
+  "searchLimitFull": {
+    "message": "Limiter la recherche au dossier actuel et aux sous-dossiers"
+  },
+  "searchLimitOptionHelp": {
+    "message": "Quand cette option est activée, le champ de recherche principal cherche seulement dans l’arborescence du dossier visible actuel."
+  },
+  "searchLimitTitle": {
+    "message": "Quand cette option est activée, la recherche se limite au dossier actuel et à ses sous-dossiers. Quand elle est désactivée, tous les favoris sont recherchés."
   },
   "separator": {
     "message": "Séparateur"
   },
-  "unsavedChanges": {
-    "message": "Modifications non enregistrées"
+  "separators": {
+    "message": "Séparateurs :"
   },
-  "unsavedChangesMessage": {
-    "message": "Le volet Détails contient des modifications non enregistrées. Que voulez-vous faire ?"
+  "showDeleteWarning": {
+    "message": "Afficher la confirmation de suppression"
   },
-  "keepEditing": {
-    "message": "Continuer la modification"
+  "showDeleteWarningHelp": {
+    "message": "Demander avant de supprimer des éléments de favoris ou des dossiers."
   },
-  "discard": {
-    "message": "Ignorer"
+  "showDetailsPaneTooltip": {
+    "message": "Afficher le volet Détails"
   },
-  "couldNotSaveChanges": {
-    "message": "Impossible d’enregistrer les modifications : {error}"
+  "showErrorsWarnings": {
+    "message": "Show warnings/errors log"
   },
-  "sortDefaultTooltip": {
-    "message": "Ordre de dossiers Chromium par défaut. Cliquez pour revenir au tri par défaut ; cette colonne ne trie pas en sens inverse."
+  "showErrorsWarningsHelp": {
+    "message": "Advanced. Shows a transient in-memory log for this SBM session. Log entries are not saved to extension settings."
   },
-  "sortNameAscTooltip": {
-    "message": "Trier par nom : A à Z"
+  "showSortWarning": {
+    "message": "Afficher la confirmation de tri permanent"
   },
-  "sortNameDescTooltip": {
-    "message": "Trier par nom : Z à A"
+  "showSortWarningHelp": {
+    "message": "Demander avant d’appliquer des tris du menu contextuel qui réordonnent définitivement un dossier de favoris."
   },
-  "sortUrlAscTooltip": {
-    "message": "Trier par URL : A à Z"
+  "sortBookmarks": {
+    "message": "Trier les favoris"
   },
-  "sortUrlDescTooltip": {
-    "message": "Trier par URL : Z à A"
+  "sortByDate": {
+    "message": "Trier par date"
+  },
+  "sortByName": {
+    "message": "Trier par nom"
+  },
+  "sortDate": {
+    "message": "date"
+  },
+  "sortDateAdded": {
+    "message": "Date ajoutée"
+  },
+  "sortDateAddedHeader": {
+    "message": "Date d’ajout"
   },
   "sortDateAscTooltip": {
     "message": "Trier par date d’ajout : plus anciens d’abord"
@@ -461,17 +455,47 @@
   "sortDateDescTooltip": {
     "message": "Trier par date d’ajout : plus récents d’abord"
   },
+  "sortDefault": {
+    "message": "Par défaut"
+  },
+  "sortDefaultTooltip": {
+    "message": "Ordre de dossiers Chromium par défaut. Cliquez pour revenir au tri par défaut ; cette colonne ne trie pas en sens inverse."
+  },
+  "sortFolderConfirm": {
+    "message": "Trier « {folderName} » par {sortName} ?\n\nCela modifie définitivement l’ordre des favoris enregistré dans Chromium. C’est différent de la liste déroulante temporaire Tri visuel."
+  },
+  "sortId": {
+    "message": "ID"
+  },
   "sortIdAscTooltip": {
     "message": "Trier par ID : plus faible d’abord"
   },
   "sortIdDescTooltip": {
     "message": "Trier par ID : plus élevé d’abord"
   },
-  "sortBookmarks": {
-    "message": "Trier les favoris"
+  "sortName": {
+    "message": "Nom"
+  },
+  "sortNameAscTooltip": {
+    "message": "Trier par nom : A à Z"
+  },
+  "sortNameDescTooltip": {
+    "message": "Trier par nom : Z à A"
+  },
+  "sortNameLower": {
+    "message": "nom"
+  },
+  "sortOrder": {
+    "message": "Ordre"
+  },
+  "sortSelectDateAddedTitle": {
+    "message": "Tri par date d’ajout. Croissant : plus anciens d’abord ; décroissant : plus récents d’abord."
   },
   "sortSelectDefaultTitle": {
     "message": "Ordre de dossiers Chromium par défaut."
+  },
+  "sortSelectIdTitle": {
+    "message": "Tri par ID. Croissant : plus faible d’abord ; décroissant : plus élevé d’abord."
   },
   "sortSelectTitleTitle": {
     "message": "Tri par nom. Croissant : A à Z ; décroissant : Z à A."
@@ -479,25 +503,67 @@
   "sortSelectUrlTitle": {
     "message": "Tri par URL. Croissant : A à Z ; décroissant : Z à A."
   },
-  "sortSelectDateAddedTitle": {
-    "message": "Tri par date d’ajout. Croissant : plus anciens d’abord ; décroissant : plus récents d’abord."
+  "sortUrl": {
+    "message": "URL"
   },
-  "sortSelectIdTitle": {
-    "message": "Tri par ID. Croissant : plus faible d’abord ; décroissant : plus élevé d’abord."
+  "sortUrlAscTooltip": {
+    "message": "Trier par URL : A à Z"
   },
-  "managerFailed": {
-    "message": "Échec du gestionnaire de favoris : {error}"
+  "sortUrlDescTooltip": {
+    "message": "Trier par URL : Z à A"
   },
-  "notAvailable": {
-    "message": "Non disponible"
+  "sorting": {
+    "message": "Tri"
   },
-  "searchLimitFull": {
-    "message": "Limiter la recherche au dossier actuel et aux sous-dossiers"
+  "thisItem": {
+    "message": "cet élément"
   },
-  "optimisationDOMrendering": {
-    "message": "Optimisation: DOM rendering pass"
+  "totalSelected": {
+    "message": "Total sélectionné :"
   },
-  "optimisationDOMrenderingHelp": {
-    "message": "Experimental. Enables reduced DOM churn for selected rendering, drag/drop indicators, and row icon handling. Disable only when comparing performance or troubleshooting UI behavior."
+  "unsavedChanges": {
+    "message": "Modifications non enregistrées"
+  },
+  "unsavedChangesMessage": {
+    "message": "Le volet Détails contient des modifications non enregistrées. Que voulez-vous faire ?"
+  },
+  "url": {
+    "message": "URL"
+  },
+  "urlWarningControlCharacters": {
+    "message": "URL contained hidden control characters; they will be removed before saving."
+  },
+  "urlWarningEmpty": {
+    "message": "URL is empty. Chrome may reject this bookmark until a URL is provided."
+  },
+  "urlWarningInvalidBlocked": {
+    "message": "This URL is not valid enough to save as a bookmark. Fix the URL before saving."
+  },
+  "urlWarningInvalidButAllowed": {
+    "message": "This URL is not valid enough to save as a bookmark. Fix the URL before saving."
+  },
+  "urlWarningWhitespace": {
+    "message": "URL contains whitespace. It will be saved if Chrome accepts it, but it may not open as expected."
+  },
+  "userInterface": {
+    "message": "Interface utilisateur"
+  },
+  "userInterfaceLanguage": {
+    "message": "Langue de l’interface"
+  },
+  "userInterfaceLanguageHelp": {
+    "message": "Automatique suit la langue de l’interface du navigateur. Les choix manuels affectent le gestionnaire et les pages d’options."
+  },
+  "visualSort": {
+    "message": "Tri visuel :"
+  },
+  "warningsErrorsLog": {
+    "message": "Warnings / Errors Log"
+  },
+  "warningsErrorsLogEmpty": {
+    "message": "No warnings or errors recorded for this session."
+  },
+  "warningsErrorsLogHelp": {
+    "message": "Transient warnings/errors for this current SBM session. This is not saved to settings."
   }
 }

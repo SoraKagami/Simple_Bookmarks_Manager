@@ -1,75 +1,159 @@
 {
-  "appName": {
-    "message": "Simple Bookmarks Manager"
+  "about": {
+    "message": "Sobre"
+  },
+  "actionFailed": {
+    "message": "Ação falhou: {error}"
+  },
+  "addNewBookmark": {
+    "message": "Adicionar novo favorito"
+  },
+  "addNewFolder": {
+    "message": "Adicionar nova pasta"
+  },
+  "addSeparator": {
+    "message": "Adicionar separador"
+  },
+  "advanced": {
+    "message": "Avançado"
+  },
+  "advancedBookmarkDetails": {
+    "message": "Detalhes avançados do favorito"
+  },
+  "advancedDetails": {
+    "message": "Detalhes avançados"
+  },
+  "allowKeyboardDelete": {
+    "message": "Permitir que Delete exclua itens selecionados"
+  },
+  "allowKeyboardDeleteHelp": {
+    "message": "Quando desativado, a tecla Delete não exclui mais as entradas de favoritos selecionadas."
   },
   "appDescription": {
     "message": "Um gerenciador local simples de favoritos para Chrome/Chromium inspirado nos padrões da biblioteca Places do Firefox."
   },
+  "appName": {
+    "message": "Simple Bookmarks Manager"
+  },
   "back": {
     "message": "Voltar"
   },
-  "forward": {
-    "message": "Avançar"
+  "bookmarkAlt": {
+    "message": "Favorito"
   },
-  "newFolder": {
-    "message": "Nova pasta"
-  },
-  "newBookmark": {
-    "message": "Novo favorito"
-  },
-  "searchBookmarks": {
-    "message": "Pesquisar favoritos"
-  },
-  "searchLimitTitle": {
-    "message": "Quando ativado, pesquisa somente a pasta atual e suas subpastas. Quando desativado, pesquisa todos os favoritos."
-  },
-  "limitSearchTo": {
-    "message": "Limitar pesquisa a"
-  },
-  "currentFolderAndSubfolders": {
-    "message": "Pasta atual e subpastas"
-  },
-  "openMenu": {
-    "message": "Abrir menu"
-  },
-  "openSbmMenu": {
-    "message": "Abrir menu do Simple Bookmarks Manager"
-  },
-  "library": {
-    "message": "Biblioteca"
-  },
-  "visualSort": {
-    "message": "Ordenação visual:"
-  },
-  "sortDefault": {
-    "message": "Padrão"
-  },
-  "sortName": {
-    "message": "Nome"
-  },
-  "sortUrl": {
-    "message": "URL"
-  },
-  "sortDateAdded": {
-    "message": "Data adicionada"
-  },
-  "sortDateAddedHeader": {
-    "message": "Data de adição"
-  },
-  "sortId": {
-    "message": "ID"
-  },
-  "sortOrder": {
-    "message": "Ordem"
-  },
-  "bookmarksAria": {
-    "message": "Favoritos"
+  "bookmarkFallback": {
+    "message": "(Favorito)"
   },
   "bookmarkListColumns": {
     "message": "Colunas da lista de favoritos"
   },
+  "bookmarkMutationFailed": {
+    "message": "Bookmark operation failed ({action}): {error}"
+  },
+  "bookmarkNamePrompt": {
+    "message": "Nome do favorito"
+  },
+  "bookmarkUrlPrompt": {
+    "message": "URL do favorito"
+  },
+  "bookmarks": {
+    "message": "Favoritos"
+  },
+  "bookmarksAria": {
+    "message": "Favoritos"
+  },
+  "bookmarksPathFallback": {
+    "message": "Favoritos"
+  },
+  "browserRoot": {
+    "message": "Raiz do navegador"
+  },
+  "cancel": {
+    "message": "Cancel"
+  },
   "chooseSortModeTitle": {
     "message": "Escolha o modo de ordenação do painel central. Padrão usa a ordem de pastas do Chromium."
+  },
+  "clearLog": {
+    "message": "Clear Log"
+  },
+  "clickHideDetails": {
+    "message": "Clique para ocultar detalhes"
+  },
+  "clickShowDetails": {
+    "message": "Clique para mostrar detalhes"
+  },
+  "closeOptions": {
+    "message": "Fechar opções"
+  },
+  "collapseAll": {
+    "message": "Recolher tudo"
+  },
+  "collapseFolderTitle": {
+    "message": "Recolher pasta"
+  },
+  "copy": {
+    "message": "Copiar"
+  },
+  "couldNotMoveBookmark": {
+    "message": "Não foi possível mover o item de favorito: {error}"
+  },
+  "couldNotOpenTabGroup": {
+    "message": "Não foi possível abrir o grupo de abas: {error}"
+  },
+  "couldNotOpenWindow": {
+    "message": "Não foi possível abrir a janela {windowType}: {error}"
+  },
+  "couldNotSaveChanges": {
+    "message": "Não foi possível salvar as alterações: {error}"
+  },
+  "create": {
+    "message": "Create"
+  },
+  "currentFolderAndSubfolders": {
+    "message": "Pasta atual e subpastas"
+  },
+  "cut": {
+    "message": "Recortar"
+  },
+  "dateAdded": {
+    "message": "Data de adição"
+  },
+  "dateLastUsed": {
+    "message": "Último uso"
+  },
+  "debugFailedBookmarkOperation": {
+    "message": "Debug: cause failed bookmark operation"
+  },
+  "debugFailedBookmarkOperationAction": {
+    "message": "debug failed bookmark operation"
+  },
+  "debugFailureUnexpectedSuccess": {
+    "message": "Debug failure unexpectedly succeeded"
+  },
+  "debugOptions": {
+    "message": "Debug options"
+  },
+  "debugOptionsHelp": {
+    "message": "Advanced. Shows debug-only test controls. Leave disabled during normal use."
+  },
+  "defaultsRestored": {
+    "message": "Padrões restaurados"
+  },
+  "delete": {
+    "message": "Excluir"
+  },
+  "deleteBookmark": {
+    "message": "Excluir favorito"
+  },
+  "deleteFolder": {
+    "message": "Excluir pasta"
+  },
+  "deleteMultipleConfirm": {
+    "message": "Excluir {count} item(ns) selecionado(s)?"
+  },
+  "deleteSingleConfirm": {
+    "message": "Excluir “{label}”?"
   },
   "details": {
     "message": "Detalhes"
@@ -80,83 +164,59 @@
   "detailsMultiselect": {
     "message": "Detalhes da seleção múltipla"
   },
-  "url": {
-    "message": "URL"
-  },
-  "parentFolder": {
-    "message": "Pasta pai"
-  },
-  "save": {
-    "message": "Salvar"
+  "discard": {
+    "message": "Descartar"
   },
   "discardChanges": {
     "message": "Descartar alterações"
   },
-  "delete": {
-    "message": "Excluir"
+  "doubleClickExpandCollapseTitle": {
+    "message": "Clique duas vezes para expandir ou recolher esta pasta"
   },
-  "deleteFolder": {
-    "message": "Excluir pasta"
+  "dragFolderTitle": {
+    "message": "Arraste para reordenar esta pasta"
   },
-  "deleteBookmark": {
-    "message": "Excluir favorito"
+  "dragItemTitle": {
+    "message": "Arraste para mover ou reordenar este item"
   },
-  "advancedDetails": {
-    "message": "Detalhes avançados"
+  "edit": {
+    "message": "Editar"
   },
-  "advancedBookmarkDetails": {
-    "message": "Detalhes avançados do favorito"
-  },
-  "guidUuid": {
-    "message": "GUID / UUID"
-  },
-  "dateAdded": {
-    "message": "Data de adição"
-  },
-  "dateLastUsed": {
-    "message": "Último uso"
-  },
-  "totalSelected": {
-    "message": "Total selecionado:"
-  },
-  "folders": {
-    "message": "Pastas:"
-  },
-  "bookmarks": {
-    "message": "Favoritos"
-  },
-  "separators": {
-    "message": "Separadores:"
+  "editBookmark": {
+    "message": "Edit Bookmark"
   },
   "emptyDetails": {
     "message": "Selecione um item ou selecione uma pasta para mostrar seu conteúdo."
   },
-  "optionsTitle": {
-    "message": "Opções do Simple Bookmarks Manager"
+  "enableAdvancedEditing": {
+    "message": "Ativar edição de detalhes avançados"
   },
-  "closeOptions": {
-    "message": "Fechar opções"
+  "enableAdvancedEditingHelp": {
+    "message": "Permite edição avançada compatível, atualmente limitada a alterações no índice do favorito."
   },
-  "optionSaved": {
-    "message": "Salvo"
+  "enableAdvancedViewing": {
+    "message": "Ativar visualização de detalhes avançados"
   },
-  "saveFailed": {
-    "message": "Falha ao salvar: {error}"
+  "enableAdvancedViewingHelp": {
+    "message": "Mostra metadados avançados de favoritos somente leitura no painel Detalhes."
   },
-  "loadFailed": {
-    "message": "Falha ao carregar: {error}"
+  "expandAll": {
+    "message": "Expandir tudo"
   },
-  "defaultsRestored": {
-    "message": "Padrões restaurados"
+  "expandFolderTitle": {
+    "message": "Expandir pasta"
   },
-  "userInterface": {
-    "message": "Interface do usuário"
+  "folderAlt": {
+    "message": "Pasta"
   },
-  "userInterfaceLanguage": {
-    "message": "Idioma da interface"
+  "folderFallback": {
+    "message": "(Pasta)"
   },
-  "userInterfaceLanguageHelp": {
-    "message": "Automático segue o idioma da interface do navegador. Escolhas manuais afetam o gerenciador e as páginas de opções."
+  "folderNamePrompt": {
+    "message": "Nome da pasta"
+  },
+  "folders": {
+    "message": "Pastas:"
   },
   "font": {
     "message": "Fonte"
@@ -164,17 +224,14 @@
   "fontHelp": {
     "message": "Controla a família de fonte principal usada pela interface do gerenciador de favoritos."
   },
-  "fontSystem": {
-    "message": "Padrão do sistema"
+  "fontMono": {
+    "message": "Consolas / monoespaçada"
   },
   "fontSans": {
     "message": "Arial / Helvetica"
   },
   "fontSerif": {
     "message": "Georgia / Times"
-  },
-  "fontMono": {
-    "message": "Consolas / monoespaçada"
   },
   "fontSize": {
     "message": "Tamanho da fonte"
@@ -188,35 +245,35 @@
   "fontSpacingHelp": {
     "message": "Multiplicador de espaçamento entre linhas para linhas e rótulos mais compactos ou legíveis."
   },
-  "search": {
-    "message": "Pesquisa"
+  "fontSystem": {
+    "message": "Padrão do sistema"
   },
-  "searchLimitOptionHelp": {
-    "message": "Quando ativado, a caixa de pesquisa principal pesquisa apenas dentro da árvore da pasta visível atual."
+  "forward": {
+    "message": "Avançar"
   },
-  "safety": {
-    "message": "Segurança"
+  "guidUuid": {
+    "message": "GUID / UUID"
   },
-  "showDeleteWarning": {
-    "message": "Mostrar confirmação de exclusão"
+  "help": {
+    "message": "Ajuda"
   },
-  "showDeleteWarningHelp": {
-    "message": "Perguntar antes de excluir itens de favoritos ou pastas."
+  "hideDetailsPaneTooltip": {
+    "message": "Ocultar o painel Detalhes"
   },
-  "showSortWarning": {
-    "message": "Mostrar confirmação de ordenação permanente"
+  "keepEditing": {
+    "message": "Continuar editando"
   },
-  "showSortWarningHelp": {
-    "message": "Perguntar antes de aplicar ordenações do menu de contexto que reordenam permanentemente uma pasta de favoritos."
+  "library": {
+    "message": "Biblioteca"
   },
-  "allowKeyboardDelete": {
-    "message": "Permitir que Delete exclua itens selecionados"
+  "limitSearchTo": {
+    "message": "Limitar pesquisa a"
   },
-  "allowKeyboardDeleteHelp": {
-    "message": "Quando desativado, a tecla Delete não exclui mais as entradas de favoritos selecionadas."
+  "loadFailed": {
+    "message": "Falha ao carregar: {error}"
   },
-  "sorting": {
-    "message": "Ordenação"
+  "managerFailed": {
+    "message": "Falha no gerenciador de favoritos: {error}"
   },
   "naturalSort": {
     "message": "Usar ordem natural de pastas/favoritos"
@@ -224,134 +281,23 @@
   "naturalSortHelp": {
     "message": "Ordenar por nome permanentemente coloca pastas primeiro, separadores depois e favoritos por último."
   },
-  "advanced": {
-    "message": "Avançado"
+  "newBookmark": {
+    "message": "Novo favorito"
   },
-  "enableAdvancedViewing": {
-    "message": "Ativar visualização de detalhes avançados"
-  },
-  "enableAdvancedViewingHelp": {
-    "message": "Mostra metadados avançados de favoritos somente leitura no painel Detalhes."
-  },
-  "enableAdvancedEditing": {
-    "message": "Ativar edição de detalhes avançados"
-  },
-  "enableAdvancedEditingHelp": {
-    "message": "Permite edição avançada compatível, atualmente limitada a alterações no índice do favorito."
-  },
-  "resetDefaults": {
-    "message": "Restaurar padrões"
-  },
-  "folderAlt": {
-    "message": "Pasta"
-  },
-  "bookmarkAlt": {
-    "message": "Favorito"
-  },
-  "folderFallback": {
-    "message": "(Pasta)"
-  },
-  "bookmarkFallback": {
-    "message": "(Favorito)"
-  },
-  "rootFallback": {
-    "message": "(raiz)"
-  },
-  "browserRoot": {
-    "message": "Raiz do navegador"
-  },
-  "bookmarksPathFallback": {
-    "message": "Favoritos"
-  },
-  "sortDate": {
-    "message": "data"
-  },
-  "sortNameLower": {
-    "message": "nome"
-  },
-  "sortFolderConfirm": {
-    "message": "Ordenar “{folderName}” por {sortName}?\n\nIsso altera permanentemente a ordem de favoritos salva no Chromium. É diferente do menu temporário Ordenação visual."
-  },
-  "couldNotOpenWindow": {
-    "message": "Não foi possível abrir a janela {windowType}: {error}"
-  },
-  "privateWindowType": {
-    "message": "privada"
-  },
-  "newWindowType": {
-    "message": "nova"
-  },
-  "couldNotOpenTabGroup": {
-    "message": "Não foi possível abrir o grupo de abas: {error}"
-  },
-  "newFolderNamePrompt": {
-    "message": "Nome da nova pasta"
-  },
-  "folderNamePrompt": {
-    "message": "Nome da pasta"
-  },
-  "bookmarkNamePrompt": {
-    "message": "Nome do favorito"
-  },
-  "bookmarkUrlPrompt": {
-    "message": "URL do favorito"
-  },
-  "deleteSingleConfirm": {
-    "message": "Excluir “{label}”?"
-  },
-  "deleteMultipleConfirm": {
-    "message": "Excluir {count} item(ns) selecionado(s)?"
-  },
-  "thisItem": {
-    "message": "este item"
+  "newFolder": {
+    "message": "Nova pasta"
   },
   "newFolderDefaultName": {
     "message": "Nova pasta"
   },
-  "couldNotMoveBookmark": {
-    "message": "Não foi possível mover o item de favorito: {error}"
+  "newFolderNamePrompt": {
+    "message": "Nome da nova pasta"
   },
-  "actionFailed": {
-    "message": "Ação falhou: {error}"
+  "newWindowType": {
+    "message": "nova"
   },
-  "openDefaultBookmarksManager": {
-    "message": "Abrir gerenciador de favoritos padrão"
-  },
-  "options": {
-    "message": "Opções"
-  },
-  "help": {
-    "message": "Ajuda"
-  },
-  "about": {
-    "message": "Sobre"
-  },
-  "renameFolder": {
-    "message": "Renomear pasta"
-  },
-  "cut": {
-    "message": "Recortar"
-  },
-  "copy": {
-    "message": "Copiar"
-  },
-  "paste": {
-    "message": "Colar"
-  },
-  "sortByName": {
-    "message": "Ordenar por nome"
-  },
-  "sortByDate": {
-    "message": "Ordenar por data"
-  },
-  "addNewBookmark": {
-    "message": "Adicionar novo favorito"
-  },
-  "addNewFolder": {
-    "message": "Adicionar nova pasta"
-  },
-  "addSeparator": {
-    "message": "Adicionar separador"
+  "notAvailable": {
+    "message": "Não disponível"
   },
   "openAllBookmarks": {
     "message": "Abrir todos os favoritos"
@@ -359,23 +305,26 @@
   "openAllInNewTab": {
     "message": "Abrir tudo em novas abas"
   },
+  "openAllInNewTabGroup": {
+    "message": "Abrir tudo em novo grupo de abas"
+  },
   "openAllInNewWindow": {
     "message": "Abrir tudo em nova janela"
   },
   "openAllInPrivateWindow": {
     "message": "Abrir tudo em janela privada"
   },
-  "openAllInNewTabGroup": {
-    "message": "Abrir tudo em novo grupo de abas"
-  },
   "openAllInSplitView": {
     "message": "Abrir tudo em exibição dividida"
   },
-  "edit": {
-    "message": "Editar"
+  "openDefaultBookmarksManager": {
+    "message": "Abrir gerenciador de favoritos padrão"
   },
   "openInNewTab": {
     "message": "Abrir em nova aba"
+  },
+  "openInNewTabGroup": {
+    "message": "Abrir em novo grupo de abas"
   },
   "openInNewWindow": {
     "message": "Abrir em nova janela"
@@ -383,77 +332,122 @@
   "openInPrivateWindow": {
     "message": "Abrir em janela privada"
   },
-  "openInNewTabGroup": {
-    "message": "Abrir em novo grupo de abas"
-  },
   "openInSplitView": {
     "message": "Abrir em exibição dividida"
   },
-  "expandAll": {
-    "message": "Expandir tudo"
+  "openMenu": {
+    "message": "Abrir menu"
   },
-  "collapseAll": {
-    "message": "Recolher tudo"
+  "openSbmMenu": {
+    "message": "Abrir menu do Simple Bookmarks Manager"
   },
-  "dragFolderTitle": {
-    "message": "Arraste para reordenar esta pasta"
+  "optimisationDOMrendering": {
+    "message": "Optimisation: DOM rendering pass"
   },
-  "collapseFolderTitle": {
-    "message": "Recolher pasta"
+  "optimisationDOMrenderingHelp": {
+    "message": "Experimental. Enables reduced DOM churn for selected rendering, drag/drop indicators, and row icon handling. Disable only when comparing performance or troubleshooting UI behavior."
   },
-  "expandFolderTitle": {
-    "message": "Expandir pasta"
+  "optimisationTempBookmarkTreeMaps": {
+    "message": "Optimisation: temporary bookmark tree maps"
   },
-  "doubleClickExpandCollapseTitle": {
-    "message": "Clique duas vezes para expandir ou recolher esta pasta"
+  "optimisationTempBookmarkTreeMapsHelp": {
+    "message": "Experimental. Builds short-lived lookup maps during some render/search/tree operations, then discards them to avoid a persistent stale cache."
   },
-  "hideDetailsPaneTooltip": {
-    "message": "Ocultar o painel Detalhes"
+  "optionSaved": {
+    "message": "Salvo"
   },
-  "showDetailsPaneTooltip": {
-    "message": "Mostrar o painel Detalhes"
+  "options": {
+    "message": "Opções"
   },
-  "clickHideDetails": {
-    "message": "Clique para ocultar detalhes"
+  "optionsTitle": {
+    "message": "Opções do Simple Bookmarks Manager"
   },
-  "clickShowDetails": {
-    "message": "Clique para mostrar detalhes"
+  "parentFolder": {
+    "message": "Pasta pai"
   },
-  "dragItemTitle": {
-    "message": "Arraste para mover ou reordenar este item"
+  "paste": {
+    "message": "Colar"
+  },
+  "privateWindowType": {
+    "message": "privada"
+  },
+  "renameFolder": {
+    "message": "Renomear pasta"
+  },
+  "resetDefaults": {
+    "message": "Restaurar padrões"
+  },
+  "rootFallback": {
+    "message": "(raiz)"
+  },
+  "safety": {
+    "message": "Segurança"
+  },
+  "save": {
+    "message": "Salvar"
+  },
+  "saveFailed": {
+    "message": "Falha ao salvar: {error}"
+  },
+  "search": {
+    "message": "Pesquisa"
+  },
+  "searchBookmarks": {
+    "message": "Pesquisar favoritos"
+  },
+  "searchLimitFull": {
+    "message": "Limitar pesquisa à pasta atual e subpastas"
+  },
+  "searchLimitOptionHelp": {
+    "message": "Quando ativado, a caixa de pesquisa principal pesquisa apenas dentro da árvore da pasta visível atual."
+  },
+  "searchLimitTitle": {
+    "message": "Quando ativado, pesquisa somente a pasta atual e suas subpastas. Quando desativado, pesquisa todos os favoritos."
   },
   "separator": {
     "message": "Separador"
   },
-  "unsavedChanges": {
-    "message": "Alterações não salvas"
+  "separators": {
+    "message": "Separadores:"
   },
-  "unsavedChangesMessage": {
-    "message": "O painel Detalhes tem alterações não salvas. O que você deseja fazer?"
+  "showDeleteWarning": {
+    "message": "Mostrar confirmação de exclusão"
   },
-  "keepEditing": {
-    "message": "Continuar editando"
+  "showDeleteWarningHelp": {
+    "message": "Perguntar antes de excluir itens de favoritos ou pastas."
   },
-  "discard": {
-    "message": "Descartar"
+  "showDetailsPaneTooltip": {
+    "message": "Mostrar o painel Detalhes"
   },
-  "couldNotSaveChanges": {
-    "message": "Não foi possível salvar as alterações: {error}"
+  "showErrorsWarnings": {
+    "message": "Show warnings/errors log"
   },
-  "sortDefaultTooltip": {
-    "message": "Ordem padrão de pastas do Chromium. Clique para voltar à ordenação padrão; esta coluna não ordena em reverso."
+  "showErrorsWarningsHelp": {
+    "message": "Advanced. Shows a transient in-memory log for this SBM session. Log entries are not saved to extension settings."
   },
-  "sortNameAscTooltip": {
-    "message": "Ordenar por nome: A a Z"
+  "showSortWarning": {
+    "message": "Mostrar confirmação de ordenação permanente"
   },
-  "sortNameDescTooltip": {
-    "message": "Ordenar por nome: Z a A"
+  "showSortWarningHelp": {
+    "message": "Perguntar antes de aplicar ordenações do menu de contexto que reordenam permanentemente uma pasta de favoritos."
   },
-  "sortUrlAscTooltip": {
-    "message": "Ordenar por URL: A a Z"
+  "sortBookmarks": {
+    "message": "Ordenar favoritos"
   },
-  "sortUrlDescTooltip": {
-    "message": "Ordenar por URL: Z a A"
+  "sortByDate": {
+    "message": "Ordenar por data"
+  },
+  "sortByName": {
+    "message": "Ordenar por nome"
+  },
+  "sortDate": {
+    "message": "data"
+  },
+  "sortDateAdded": {
+    "message": "Data adicionada"
+  },
+  "sortDateAddedHeader": {
+    "message": "Data de adição"
   },
   "sortDateAscTooltip": {
     "message": "Ordenar por data de adição: mais antigos primeiro"
@@ -461,17 +455,47 @@
   "sortDateDescTooltip": {
     "message": "Ordenar por data de adição: mais recentes primeiro"
   },
+  "sortDefault": {
+    "message": "Padrão"
+  },
+  "sortDefaultTooltip": {
+    "message": "Ordem padrão de pastas do Chromium. Clique para voltar à ordenação padrão; esta coluna não ordena em reverso."
+  },
+  "sortFolderConfirm": {
+    "message": "Ordenar “{folderName}” por {sortName}?\n\nIsso altera permanentemente a ordem de favoritos salva no Chromium. É diferente do menu temporário Ordenação visual."
+  },
+  "sortId": {
+    "message": "ID"
+  },
   "sortIdAscTooltip": {
     "message": "Ordenar por ID: menor primeiro"
   },
   "sortIdDescTooltip": {
     "message": "Ordenar por ID: maior primeiro"
   },
-  "sortBookmarks": {
-    "message": "Ordenar favoritos"
+  "sortName": {
+    "message": "Nome"
+  },
+  "sortNameAscTooltip": {
+    "message": "Ordenar por nome: A a Z"
+  },
+  "sortNameDescTooltip": {
+    "message": "Ordenar por nome: Z a A"
+  },
+  "sortNameLower": {
+    "message": "nome"
+  },
+  "sortOrder": {
+    "message": "Ordem"
+  },
+  "sortSelectDateAddedTitle": {
+    "message": "Ordenação por data de adição. Crescente é mais antigo primeiro; decrescente é mais recente primeiro."
   },
   "sortSelectDefaultTitle": {
     "message": "Ordem padrão de pastas do Chromium."
+  },
+  "sortSelectIdTitle": {
+    "message": "Ordenação por ID. Crescente é menor primeiro; decrescente é maior primeiro."
   },
   "sortSelectTitleTitle": {
     "message": "Ordenação por nome. Crescente é A a Z; decrescente é Z a A."
@@ -479,25 +503,67 @@
   "sortSelectUrlTitle": {
     "message": "Ordenação por URL. Crescente é A a Z; decrescente é Z a A."
   },
-  "sortSelectDateAddedTitle": {
-    "message": "Ordenação por data de adição. Crescente é mais antigo primeiro; decrescente é mais recente primeiro."
+  "sortUrl": {
+    "message": "URL"
   },
-  "sortSelectIdTitle": {
-    "message": "Ordenação por ID. Crescente é menor primeiro; decrescente é maior primeiro."
+  "sortUrlAscTooltip": {
+    "message": "Ordenar por URL: A a Z"
   },
-  "managerFailed": {
-    "message": "Falha no gerenciador de favoritos: {error}"
+  "sortUrlDescTooltip": {
+    "message": "Ordenar por URL: Z a A"
   },
-  "notAvailable": {
-    "message": "Não disponível"
+  "sorting": {
+    "message": "Ordenação"
   },
-  "searchLimitFull": {
-    "message": "Limitar pesquisa à pasta atual e subpastas"
+  "thisItem": {
+    "message": "este item"
   },
-  "optimisationDOMrendering": {
-    "message": "Optimisation: DOM rendering pass"
+  "totalSelected": {
+    "message": "Total selecionado:"
   },
-  "optimisationDOMrenderingHelp": {
-    "message": "Experimental. Enables reduced DOM churn for selected rendering, drag/drop indicators, and row icon handling. Disable only when comparing performance or troubleshooting UI behavior."
+  "unsavedChanges": {
+    "message": "Alterações não salvas"
+  },
+  "unsavedChangesMessage": {
+    "message": "O painel Detalhes tem alterações não salvas. O que você deseja fazer?"
+  },
+  "url": {
+    "message": "URL"
+  },
+  "urlWarningControlCharacters": {
+    "message": "URL contained hidden control characters; they will be removed before saving."
+  },
+  "urlWarningEmpty": {
+    "message": "URL is empty. Chrome may reject this bookmark until a URL is provided."
+  },
+  "urlWarningInvalidBlocked": {
+    "message": "This URL is not valid enough to save as a bookmark. Fix the URL before saving."
+  },
+  "urlWarningInvalidButAllowed": {
+    "message": "This URL is not valid enough to save as a bookmark. Fix the URL before saving."
+  },
+  "urlWarningWhitespace": {
+    "message": "URL contains whitespace. It will be saved if Chrome accepts it, but it may not open as expected."
+  },
+  "userInterface": {
+    "message": "Interface do usuário"
+  },
+  "userInterfaceLanguage": {
+    "message": "Idioma da interface"
+  },
+  "userInterfaceLanguageHelp": {
+    "message": "Automático segue o idioma da interface do navegador. Escolhas manuais afetam o gerenciador e as páginas de opções."
+  },
+  "visualSort": {
+    "message": "Ordenação visual:"
+  },
+  "warningsErrorsLog": {
+    "message": "Warnings / Errors Log"
+  },
+  "warningsErrorsLogEmpty": {
+    "message": "No warnings or errors recorded for this session."
+  },
+  "warningsErrorsLogHelp": {
+    "message": "Transient warnings/errors for this current SBM session. This is not saved to settings."
   }
 }

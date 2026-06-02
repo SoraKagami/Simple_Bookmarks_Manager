@@ -128,11 +128,35 @@
           <small data-i18n="optimisationTempBookmarkTreeMapsHelp">Experimental. Builds short-lived lookup maps during some render/search/tree operations, then discards them to avoid a persistent stale cache.</small>
         </span>
       </label>
+      <label class="option-row">
+        <input id="Show_ErrorsWarnings" type="checkbox">
+        <span>
+          <strong data-i18n="showErrorsWarnings">Show warnings/errors log</strong>
+          <small data-i18n="showErrorsWarningsHelp">Advanced. Shows a transient in-memory log for this SBM session. Log entries are not saved to extension settings.</small>
+        </span>
+      </label>
+      <label class="option-row">
+        <input id="DebugOptions" type="checkbox">
+        <span>
+          <strong data-i18n="debugOptions">Debug options</strong>
+          <small data-i18n="debugOptionsHelp">Advanced. Shows debug-only test controls. Leave disabled during normal use.</small>
+        </span>
+      </label>
     </section>
 
     <div class="actions">
       <button id="reset" type="button" data-i18n="resetDefaults">Reset to Defaults</button>
+      <button id="debug-failed-bookmark-operation" type="button" data-i18n="debugFailedBookmarkOperation" hidden>Debug: cause failed bookmark operation</button>
     </div>
+
+    <section id="warnings-errors-log-section" class="option-section warnings-errors-log-section" hidden>
+      <h2 data-i18n="warningsErrorsLog">Warnings / Errors Log</h2>
+      <p class="log-help" data-i18n="warningsErrorsLogHelp">Transient warnings/errors for this current SBM session. This is not saved to settings.</p>
+      <textarea id="warnings-errors-log" class="warnings-errors-log" readonly spellcheck="false"></textarea>
+      <div class="actions">
+        <button id="clear-warnings-errors-log" type="button" data-i18n="clearLog">Clear Log</button>
+      </div>
+    </section>
   </main>
 
   <script type="module" src="options.js"></script>

@@ -1,75 +1,159 @@
 {
-  "appName": {
-    "message": "Simple Bookmarks Manager"
+  "about": {
+    "message": "정보"
+  },
+  "actionFailed": {
+    "message": "작업 실패: {error}"
+  },
+  "addNewBookmark": {
+    "message": "새 북마크 추가"
+  },
+  "addNewFolder": {
+    "message": "새 폴더 추가"
+  },
+  "addSeparator": {
+    "message": "구분선 추가"
+  },
+  "advanced": {
+    "message": "고급"
+  },
+  "advancedBookmarkDetails": {
+    "message": "고급 북마크 세부 정보"
+  },
+  "advancedDetails": {
+    "message": "고급 세부 정보"
+  },
+  "allowKeyboardDelete": {
+    "message": "Delete 키로 선택 항목 삭제 허용"
+  },
+  "allowKeyboardDeleteHelp": {
+    "message": "끄면 Delete 키가 선택된 북마크 항목을 삭제하지 않습니다."
   },
   "appDescription": {
     "message": "Firefox Places 라이브러리 방식을 참고한 Chrome/Chromium용 간단한 로컬 북마크 관리자입니다."
   },
+  "appName": {
+    "message": "Simple Bookmarks Manager"
+  },
   "back": {
     "message": "뒤로"
   },
-  "forward": {
-    "message": "앞으로"
-  },
-  "newFolder": {
-    "message": "새 폴더"
-  },
-  "newBookmark": {
-    "message": "새 북마크"
-  },
-  "searchBookmarks": {
-    "message": "북마크 검색"
-  },
-  "searchLimitTitle": {
-    "message": "켜면 현재 폴더와 하위 폴더만 검색합니다. 끄면 모든 북마크를 검색합니다."
-  },
-  "limitSearchTo": {
-    "message": "검색 범위 제한"
-  },
-  "currentFolderAndSubfolders": {
-    "message": "현재 폴더 및 하위 폴더"
-  },
-  "openMenu": {
-    "message": "메뉴 열기"
-  },
-  "openSbmMenu": {
-    "message": "Simple Bookmarks Manager 메뉴 열기"
-  },
-  "library": {
-    "message": "라이브러리"
-  },
-  "visualSort": {
-    "message": "보기 정렬:"
-  },
-  "sortDefault": {
-    "message": "기본값"
-  },
-  "sortName": {
-    "message": "이름"
-  },
-  "sortUrl": {
-    "message": "URL"
-  },
-  "sortDateAdded": {
-    "message": "추가한 날짜"
-  },
-  "sortDateAddedHeader": {
-    "message": "추가한 날짜"
-  },
-  "sortId": {
-    "message": "ID"
-  },
-  "sortOrder": {
-    "message": "순서"
-  },
-  "bookmarksAria": {
+  "bookmarkAlt": {
     "message": "북마크"
+  },
+  "bookmarkFallback": {
+    "message": "(북마크)"
   },
   "bookmarkListColumns": {
     "message": "북마크 목록 열"
   },
+  "bookmarkMutationFailed": {
+    "message": "Bookmark operation failed ({action}): {error}"
+  },
+  "bookmarkNamePrompt": {
+    "message": "북마크 이름"
+  },
+  "bookmarkUrlPrompt": {
+    "message": "북마크 URL"
+  },
+  "bookmarks": {
+    "message": "북마크"
+  },
+  "bookmarksAria": {
+    "message": "북마크"
+  },
+  "bookmarksPathFallback": {
+    "message": "북마크"
+  },
+  "browserRoot": {
+    "message": "브라우저 루트"
+  },
+  "cancel": {
+    "message": "Cancel"
+  },
   "chooseSortModeTitle": {
     "message": "가운데 창의 정렬 모드를 선택합니다. 기본값은 Chromium 폴더 순서를 사용합니다."
+  },
+  "clearLog": {
+    "message": "Clear Log"
+  },
+  "clickHideDetails": {
+    "message": "클릭하여 세부 정보 숨기기"
+  },
+  "clickShowDetails": {
+    "message": "클릭하여 세부 정보 표시"
+  },
+  "closeOptions": {
+    "message": "옵션 닫기"
+  },
+  "collapseAll": {
+    "message": "모두 접기"
+  },
+  "collapseFolderTitle": {
+    "message": "폴더 접기"
+  },
+  "copy": {
+    "message": "복사"
+  },
+  "couldNotMoveBookmark": {
+    "message": "북마크 항목을 이동할 수 없습니다: {error}"
+  },
+  "couldNotOpenTabGroup": {
+    "message": "탭 그룹을 열 수 없습니다: {error}"
+  },
+  "couldNotOpenWindow": {
+    "message": "{windowType} 창을 열 수 없습니다: {error}"
+  },
+  "couldNotSaveChanges": {
+    "message": "변경 사항을 저장할 수 없습니다: {error}"
+  },
+  "create": {
+    "message": "Create"
+  },
+  "currentFolderAndSubfolders": {
+    "message": "현재 폴더 및 하위 폴더"
+  },
+  "cut": {
+    "message": "잘라내기"
+  },
+  "dateAdded": {
+    "message": "추가한 날짜"
+  },
+  "dateLastUsed": {
+    "message": "마지막 사용 날짜"
+  },
+  "debugFailedBookmarkOperation": {
+    "message": "Debug: cause failed bookmark operation"
+  },
+  "debugFailedBookmarkOperationAction": {
+    "message": "debug failed bookmark operation"
+  },
+  "debugFailureUnexpectedSuccess": {
+    "message": "Debug failure unexpectedly succeeded"
+  },
+  "debugOptions": {
+    "message": "Debug options"
+  },
+  "debugOptionsHelp": {
+    "message": "Advanced. Shows debug-only test controls. Leave disabled during normal use."
+  },
+  "defaultsRestored": {
+    "message": "기본값이 복원되었습니다"
+  },
+  "delete": {
+    "message": "삭제"
+  },
+  "deleteBookmark": {
+    "message": "북마크 삭제"
+  },
+  "deleteFolder": {
+    "message": "폴더 삭제"
+  },
+  "deleteMultipleConfirm": {
+    "message": "선택한 항목 {count}개를 삭제할까요?"
+  },
+  "deleteSingleConfirm": {
+    "message": "“{label}”을(를) 삭제할까요?"
   },
   "details": {
     "message": "세부 정보"
@@ -80,83 +164,59 @@
   "detailsMultiselect": {
     "message": "다중 선택 세부 정보"
   },
-  "url": {
-    "message": "URL"
-  },
-  "parentFolder": {
-    "message": "상위 폴더"
-  },
-  "save": {
-    "message": "저장"
+  "discard": {
+    "message": "버리기"
   },
   "discardChanges": {
     "message": "변경 취소"
   },
-  "delete": {
-    "message": "삭제"
+  "doubleClickExpandCollapseTitle": {
+    "message": "이 폴더를 펼치거나 접으려면 두 번 클릭하세요"
   },
-  "deleteFolder": {
-    "message": "폴더 삭제"
+  "dragFolderTitle": {
+    "message": "이 폴더를 다시 정렬하려면 드래그하세요"
   },
-  "deleteBookmark": {
-    "message": "북마크 삭제"
+  "dragItemTitle": {
+    "message": "이 항목을 이동하거나 다시 정렬하려면 드래그하세요"
   },
-  "advancedDetails": {
-    "message": "고급 세부 정보"
+  "edit": {
+    "message": "편집"
   },
-  "advancedBookmarkDetails": {
-    "message": "고급 북마크 세부 정보"
-  },
-  "guidUuid": {
-    "message": "GUID / UUID"
-  },
-  "dateAdded": {
-    "message": "추가한 날짜"
-  },
-  "dateLastUsed": {
-    "message": "마지막 사용 날짜"
-  },
-  "totalSelected": {
-    "message": "선택 합계:"
-  },
-  "folders": {
-    "message": "폴더:"
-  },
-  "bookmarks": {
-    "message": "북마크"
-  },
-  "separators": {
-    "message": "구분선:"
+  "editBookmark": {
+    "message": "Edit Bookmark"
   },
   "emptyDetails": {
     "message": "항목 하나를 선택하거나 폴더를 선택하여 내용을 표시하세요."
   },
-  "optionsTitle": {
-    "message": "Simple Bookmarks Manager 옵션"
+  "enableAdvancedEditing": {
+    "message": "고급 세부 정보 편집 사용"
   },
-  "closeOptions": {
-    "message": "옵션 닫기"
+  "enableAdvancedEditingHelp": {
+    "message": "지원되는 고급 편집을 허용합니다. 현재는 북마크 인덱스 변경으로 제한됩니다."
   },
-  "optionSaved": {
-    "message": "저장됨"
+  "enableAdvancedViewing": {
+    "message": "고급 세부 정보 보기 사용"
   },
-  "saveFailed": {
-    "message": "저장 실패: {error}"
+  "enableAdvancedViewingHelp": {
+    "message": "읽기 전용 고급 북마크 메타데이터를 세부 정보 창에 표시합니다."
   },
-  "loadFailed": {
-    "message": "불러오기 실패: {error}"
+  "expandAll": {
+    "message": "모두 펼치기"
   },
-  "defaultsRestored": {
-    "message": "기본값이 복원되었습니다"
+  "expandFolderTitle": {
+    "message": "폴더 펼치기"
   },
-  "userInterface": {
-    "message": "사용자 인터페이스"
+  "folderAlt": {
+    "message": "폴더"
   },
-  "userInterfaceLanguage": {
-    "message": "인터페이스 언어"
+  "folderFallback": {
+    "message": "(폴더)"
   },
-  "userInterfaceLanguageHelp": {
-    "message": "자동은 브라우저 UI 언어를 따릅니다. 수동 선택은 관리자와 옵션 페이지에 적용됩니다."
+  "folderNamePrompt": {
+    "message": "폴더 이름"
+  },
+  "folders": {
+    "message": "폴더:"
   },
   "font": {
     "message": "글꼴"
@@ -164,17 +224,14 @@
   "fontHelp": {
     "message": "북마크 관리자 UI에서 사용하는 기본 글꼴 모음을 설정합니다."
   },
-  "fontSystem": {
-    "message": "시스템 기본값"
+  "fontMono": {
+    "message": "Consolas / 고정폭"
   },
   "fontSans": {
     "message": "Arial / Helvetica"
   },
   "fontSerif": {
     "message": "Georgia / Times"
-  },
-  "fontMono": {
-    "message": "Consolas / 고정폭"
   },
   "fontSize": {
     "message": "글꼴 크기"
@@ -188,35 +245,35 @@
   "fontSpacingHelp": {
     "message": "더 촘촘하거나 읽기 쉬운 행과 레이블을 위한 줄 간격 배율입니다."
   },
-  "search": {
-    "message": "검색"
+  "fontSystem": {
+    "message": "시스템 기본값"
   },
-  "searchLimitOptionHelp": {
-    "message": "켜면 기본 검색 상자가 현재 보이는 폴더 트리 안에서만 검색합니다."
+  "forward": {
+    "message": "앞으로"
   },
-  "safety": {
-    "message": "안전"
+  "guidUuid": {
+    "message": "GUID / UUID"
   },
-  "showDeleteWarning": {
-    "message": "삭제 확인 표시"
+  "help": {
+    "message": "도움말"
   },
-  "showDeleteWarningHelp": {
-    "message": "북마크 항목이나 폴더를 삭제하기 전에 확인합니다."
+  "hideDetailsPaneTooltip": {
+    "message": "세부 정보 창 숨기기"
   },
-  "showSortWarning": {
-    "message": "영구 정렬 확인 표시"
+  "keepEditing": {
+    "message": "계속 편집"
   },
-  "showSortWarningHelp": {
-    "message": "북마크 폴더 순서를 영구적으로 바꾸는 컨텍스트 메뉴 정렬을 적용하기 전에 확인합니다."
+  "library": {
+    "message": "라이브러리"
   },
-  "allowKeyboardDelete": {
-    "message": "Delete 키로 선택 항목 삭제 허용"
+  "limitSearchTo": {
+    "message": "검색 범위 제한"
   },
-  "allowKeyboardDeleteHelp": {
-    "message": "끄면 Delete 키가 선택된 북마크 항목을 삭제하지 않습니다."
+  "loadFailed": {
+    "message": "불러오기 실패: {error}"
   },
-  "sorting": {
-    "message": "정렬"
+  "managerFailed": {
+    "message": "북마크 관리자가 실패했습니다: {error}"
   },
   "naturalSort": {
     "message": "자연스러운 폴더/북마크 정렬 사용"
@@ -224,134 +281,23 @@
   "naturalSortHelp": {
     "message": "영구 이름 정렬은 폴더, 구분선, 북마크 순으로 배치합니다."
   },
-  "advanced": {
-    "message": "고급"
+  "newBookmark": {
+    "message": "새 북마크"
   },
-  "enableAdvancedViewing": {
-    "message": "고급 세부 정보 보기 사용"
-  },
-  "enableAdvancedViewingHelp": {
-    "message": "읽기 전용 고급 북마크 메타데이터를 세부 정보 창에 표시합니다."
-  },
-  "enableAdvancedEditing": {
-    "message": "고급 세부 정보 편집 사용"
-  },
-  "enableAdvancedEditingHelp": {
-    "message": "지원되는 고급 편집을 허용합니다. 현재는 북마크 인덱스 변경으로 제한됩니다."
-  },
-  "resetDefaults": {
-    "message": "기본값으로 재설정"
-  },
-  "folderAlt": {
-    "message": "폴더"
-  },
-  "bookmarkAlt": {
-    "message": "북마크"
-  },
-  "folderFallback": {
-    "message": "(폴더)"
-  },
-  "bookmarkFallback": {
-    "message": "(북마크)"
-  },
-  "rootFallback": {
-    "message": "(루트)"
-  },
-  "browserRoot": {
-    "message": "브라우저 루트"
-  },
-  "bookmarksPathFallback": {
-    "message": "북마크"
-  },
-  "sortDate": {
-    "message": "날짜"
-  },
-  "sortNameLower": {
-    "message": "이름"
-  },
-  "sortFolderConfirm": {
-    "message": "“{folderName}”을(를) {sortName}순으로 정렬할까요?\n\n이 작업은 Chromium에 저장된 북마크 순서를 영구적으로 변경합니다. 임시 시각 정렬 드롭다운과는 다릅니다."
-  },
-  "couldNotOpenWindow": {
-    "message": "{windowType} 창을 열 수 없습니다: {error}"
-  },
-  "privateWindowType": {
-    "message": "비공개"
-  },
-  "newWindowType": {
-    "message": "새"
-  },
-  "couldNotOpenTabGroup": {
-    "message": "탭 그룹을 열 수 없습니다: {error}"
-  },
-  "newFolderNamePrompt": {
-    "message": "새 폴더 이름"
-  },
-  "folderNamePrompt": {
-    "message": "폴더 이름"
-  },
-  "bookmarkNamePrompt": {
-    "message": "북마크 이름"
-  },
-  "bookmarkUrlPrompt": {
-    "message": "북마크 URL"
-  },
-  "deleteSingleConfirm": {
-    "message": "“{label}”을(를) 삭제할까요?"
-  },
-  "deleteMultipleConfirm": {
-    "message": "선택한 항목 {count}개를 삭제할까요?"
-  },
-  "thisItem": {
-    "message": "이 항목"
+  "newFolder": {
+    "message": "새 폴더"
   },
   "newFolderDefaultName": {
     "message": "새 폴더"
   },
-  "couldNotMoveBookmark": {
-    "message": "북마크 항목을 이동할 수 없습니다: {error}"
+  "newFolderNamePrompt": {
+    "message": "새 폴더 이름"
   },
-  "actionFailed": {
-    "message": "작업 실패: {error}"
+  "newWindowType": {
+    "message": "새"
   },
-  "openDefaultBookmarksManager": {
-    "message": "기본 북마크 관리자 열기"
-  },
-  "options": {
-    "message": "옵션"
-  },
-  "help": {
-    "message": "도움말"
-  },
-  "about": {
-    "message": "정보"
-  },
-  "renameFolder": {
-    "message": "폴더 이름 바꾸기"
-  },
-  "cut": {
-    "message": "잘라내기"
-  },
-  "copy": {
-    "message": "복사"
-  },
-  "paste": {
-    "message": "붙여넣기"
-  },
-  "sortByName": {
-    "message": "이름순 정렬"
-  },
-  "sortByDate": {
-    "message": "날짜순 정렬"
-  },
-  "addNewBookmark": {
-    "message": "새 북마크 추가"
-  },
-  "addNewFolder": {
-    "message": "새 폴더 추가"
-  },
-  "addSeparator": {
-    "message": "구분선 추가"
+  "notAvailable": {
+    "message": "사용할 수 없음"
   },
   "openAllBookmarks": {
     "message": "모든 북마크 열기"
@@ -359,23 +305,26 @@
   "openAllInNewTab": {
     "message": "모두 새 탭에서 열기"
   },
+  "openAllInNewTabGroup": {
+    "message": "모두 새 탭 그룹에서 열기"
+  },
   "openAllInNewWindow": {
     "message": "모두 새 창에서 열기"
   },
   "openAllInPrivateWindow": {
     "message": "모두 비공개 창에서 열기"
   },
-  "openAllInNewTabGroup": {
-    "message": "모두 새 탭 그룹에서 열기"
-  },
   "openAllInSplitView": {
     "message": "모두 분할 보기로 열기"
   },
-  "edit": {
-    "message": "편집"
+  "openDefaultBookmarksManager": {
+    "message": "기본 북마크 관리자 열기"
   },
   "openInNewTab": {
     "message": "새 탭에서 열기"
+  },
+  "openInNewTabGroup": {
+    "message": "새 탭 그룹에서 열기"
   },
   "openInNewWindow": {
     "message": "새 창에서 열기"
@@ -383,77 +332,122 @@
   "openInPrivateWindow": {
     "message": "비공개 창에서 열기"
   },
-  "openInNewTabGroup": {
-    "message": "새 탭 그룹에서 열기"
-  },
   "openInSplitView": {
     "message": "분할 보기로 열기"
   },
-  "expandAll": {
-    "message": "모두 펼치기"
+  "openMenu": {
+    "message": "메뉴 열기"
   },
-  "collapseAll": {
-    "message": "모두 접기"
+  "openSbmMenu": {
+    "message": "Simple Bookmarks Manager 메뉴 열기"
   },
-  "dragFolderTitle": {
-    "message": "이 폴더를 다시 정렬하려면 드래그하세요"
+  "optimisationDOMrendering": {
+    "message": "Optimisation: DOM rendering pass"
   },
-  "collapseFolderTitle": {
-    "message": "폴더 접기"
+  "optimisationDOMrenderingHelp": {
+    "message": "Experimental. Enables reduced DOM churn for selected rendering, drag/drop indicators, and row icon handling. Disable only when comparing performance or troubleshooting UI behavior."
   },
-  "expandFolderTitle": {
-    "message": "폴더 펼치기"
+  "optimisationTempBookmarkTreeMaps": {
+    "message": "Optimisation: temporary bookmark tree maps"
   },
-  "doubleClickExpandCollapseTitle": {
-    "message": "이 폴더를 펼치거나 접으려면 두 번 클릭하세요"
+  "optimisationTempBookmarkTreeMapsHelp": {
+    "message": "Experimental. Builds short-lived lookup maps during some render/search/tree operations, then discards them to avoid a persistent stale cache."
   },
-  "hideDetailsPaneTooltip": {
-    "message": "세부 정보 창 숨기기"
+  "optionSaved": {
+    "message": "저장됨"
   },
-  "showDetailsPaneTooltip": {
-    "message": "세부 정보 창 표시"
+  "options": {
+    "message": "옵션"
   },
-  "clickHideDetails": {
-    "message": "클릭하여 세부 정보 숨기기"
+  "optionsTitle": {
+    "message": "Simple Bookmarks Manager 옵션"
   },
-  "clickShowDetails": {
-    "message": "클릭하여 세부 정보 표시"
+  "parentFolder": {
+    "message": "상위 폴더"
   },
-  "dragItemTitle": {
-    "message": "이 항목을 이동하거나 다시 정렬하려면 드래그하세요"
+  "paste": {
+    "message": "붙여넣기"
+  },
+  "privateWindowType": {
+    "message": "비공개"
+  },
+  "renameFolder": {
+    "message": "폴더 이름 바꾸기"
+  },
+  "resetDefaults": {
+    "message": "기본값으로 재설정"
+  },
+  "rootFallback": {
+    "message": "(루트)"
+  },
+  "safety": {
+    "message": "안전"
+  },
+  "save": {
+    "message": "저장"
+  },
+  "saveFailed": {
+    "message": "저장 실패: {error}"
+  },
+  "search": {
+    "message": "검색"
+  },
+  "searchBookmarks": {
+    "message": "북마크 검색"
+  },
+  "searchLimitFull": {
+    "message": "현재 폴더와 하위 폴더로 검색 제한"
+  },
+  "searchLimitOptionHelp": {
+    "message": "켜면 기본 검색 상자가 현재 보이는 폴더 트리 안에서만 검색합니다."
+  },
+  "searchLimitTitle": {
+    "message": "켜면 현재 폴더와 하위 폴더만 검색합니다. 끄면 모든 북마크를 검색합니다."
   },
   "separator": {
     "message": "구분선"
   },
-  "unsavedChanges": {
-    "message": "저장되지 않은 변경사항"
+  "separators": {
+    "message": "구분선:"
   },
-  "unsavedChangesMessage": {
-    "message": "세부 정보 창에 저장되지 않은 변경 사항이 있습니다. 어떻게 할까요?"
+  "showDeleteWarning": {
+    "message": "삭제 확인 표시"
   },
-  "keepEditing": {
-    "message": "계속 편집"
+  "showDeleteWarningHelp": {
+    "message": "북마크 항목이나 폴더를 삭제하기 전에 확인합니다."
   },
-  "discard": {
-    "message": "버리기"
+  "showDetailsPaneTooltip": {
+    "message": "세부 정보 창 표시"
   },
-  "couldNotSaveChanges": {
-    "message": "변경 사항을 저장할 수 없습니다: {error}"
+  "showErrorsWarnings": {
+    "message": "Show warnings/errors log"
   },
-  "sortDefaultTooltip": {
-    "message": "기본 Chromium 폴더 순서입니다. 기본 정렬로 돌아가려면 클릭하세요. 이 열은 역순 정렬하지 않습니다."
+  "showErrorsWarningsHelp": {
+    "message": "Advanced. Shows a transient in-memory log for this SBM session. Log entries are not saved to extension settings."
   },
-  "sortNameAscTooltip": {
-    "message": "이름순 정렬: A에서 Z"
+  "showSortWarning": {
+    "message": "영구 정렬 확인 표시"
   },
-  "sortNameDescTooltip": {
-    "message": "이름순 정렬: Z에서 A"
+  "showSortWarningHelp": {
+    "message": "북마크 폴더 순서를 영구적으로 바꾸는 컨텍스트 메뉴 정렬을 적용하기 전에 확인합니다."
   },
-  "sortUrlAscTooltip": {
-    "message": "URL순 정렬: A에서 Z"
+  "sortBookmarks": {
+    "message": "북마크 정렬"
   },
-  "sortUrlDescTooltip": {
-    "message": "URL순 정렬: Z에서 A"
+  "sortByDate": {
+    "message": "날짜순 정렬"
+  },
+  "sortByName": {
+    "message": "이름순 정렬"
+  },
+  "sortDate": {
+    "message": "날짜"
+  },
+  "sortDateAdded": {
+    "message": "추가한 날짜"
+  },
+  "sortDateAddedHeader": {
+    "message": "추가한 날짜"
   },
   "sortDateAscTooltip": {
     "message": "추가 날짜순 정렬: 오래된 항목 먼저"
@@ -461,17 +455,47 @@
   "sortDateDescTooltip": {
     "message": "추가 날짜순 정렬: 최신 항목 먼저"
   },
+  "sortDefault": {
+    "message": "기본값"
+  },
+  "sortDefaultTooltip": {
+    "message": "기본 Chromium 폴더 순서입니다. 기본 정렬로 돌아가려면 클릭하세요. 이 열은 역순 정렬하지 않습니다."
+  },
+  "sortFolderConfirm": {
+    "message": "“{folderName}”을(를) {sortName}순으로 정렬할까요?\n\n이 작업은 Chromium에 저장된 북마크 순서를 영구적으로 변경합니다. 임시 시각 정렬 드롭다운과는 다릅니다."
+  },
+  "sortId": {
+    "message": "ID"
+  },
   "sortIdAscTooltip": {
     "message": "ID순 정렬: 낮은 값 먼저"
   },
   "sortIdDescTooltip": {
     "message": "ID순 정렬: 높은 값 먼저"
   },
-  "sortBookmarks": {
-    "message": "북마크 정렬"
+  "sortName": {
+    "message": "이름"
+  },
+  "sortNameAscTooltip": {
+    "message": "이름순 정렬: A에서 Z"
+  },
+  "sortNameDescTooltip": {
+    "message": "이름순 정렬: Z에서 A"
+  },
+  "sortNameLower": {
+    "message": "이름"
+  },
+  "sortOrder": {
+    "message": "순서"
+  },
+  "sortSelectDateAddedTitle": {
+    "message": "추가 날짜 정렬입니다. 오름차순은 오래된 항목 먼저, 내림차순은 최신 항목 먼저입니다."
   },
   "sortSelectDefaultTitle": {
     "message": "기본 Chromium 폴더 순서입니다."
+  },
+  "sortSelectIdTitle": {
+    "message": "ID 정렬입니다. 오름차순은 낮은 값 먼저, 내림차순은 높은 값 먼저입니다."
   },
   "sortSelectTitleTitle": {
     "message": "이름 정렬입니다. 오름차순은 A에서 Z, 내림차순은 Z에서 A입니다."
@@ -479,25 +503,67 @@
   "sortSelectUrlTitle": {
     "message": "URL 정렬입니다. 오름차순은 A에서 Z, 내림차순은 Z에서 A입니다."
   },
-  "sortSelectDateAddedTitle": {
-    "message": "추가 날짜 정렬입니다. 오름차순은 오래된 항목 먼저, 내림차순은 최신 항목 먼저입니다."
+  "sortUrl": {
+    "message": "URL"
   },
-  "sortSelectIdTitle": {
-    "message": "ID 정렬입니다. 오름차순은 낮은 값 먼저, 내림차순은 높은 값 먼저입니다."
+  "sortUrlAscTooltip": {
+    "message": "URL순 정렬: A에서 Z"
   },
-  "managerFailed": {
-    "message": "북마크 관리자가 실패했습니다: {error}"
+  "sortUrlDescTooltip": {
+    "message": "URL순 정렬: Z에서 A"
   },
-  "notAvailable": {
-    "message": "사용할 수 없음"
+  "sorting": {
+    "message": "정렬"
   },
-  "searchLimitFull": {
-    "message": "현재 폴더와 하위 폴더로 검색 제한"
+  "thisItem": {
+    "message": "이 항목"
   },
-  "optimisationDOMrendering": {
-    "message": "Optimisation: DOM rendering pass"
+  "totalSelected": {
+    "message": "선택 합계:"
   },
-  "optimisationDOMrenderingHelp": {
-    "message": "Experimental. Enables reduced DOM churn for selected rendering, drag/drop indicators, and row icon handling. Disable only when comparing performance or troubleshooting UI behavior."
+  "unsavedChanges": {
+    "message": "저장되지 않은 변경사항"
+  },
+  "unsavedChangesMessage": {
+    "message": "세부 정보 창에 저장되지 않은 변경 사항이 있습니다. 어떻게 할까요?"
+  },
+  "url": {
+    "message": "URL"
+  },
+  "urlWarningControlCharacters": {
+    "message": "URL contained hidden control characters; they will be removed before saving."
+  },
+  "urlWarningEmpty": {
+    "message": "URL is empty. Chrome may reject this bookmark until a URL is provided."
+  },
+  "urlWarningInvalidBlocked": {
+    "message": "This URL is not valid enough to save as a bookmark. Fix the URL before saving."
+  },
+  "urlWarningInvalidButAllowed": {
+    "message": "This URL is not valid enough to save as a bookmark. Fix the URL before saving."
+  },
+  "urlWarningWhitespace": {
+    "message": "URL contains whitespace. It will be saved if Chrome accepts it, but it may not open as expected."
+  },
+  "userInterface": {
+    "message": "사용자 인터페이스"
+  },
+  "userInterfaceLanguage": {
+    "message": "인터페이스 언어"
+  },
+  "userInterfaceLanguageHelp": {
+    "message": "자동은 브라우저 UI 언어를 따릅니다. 수동 선택은 관리자와 옵션 페이지에 적용됩니다."
+  },
+  "visualSort": {
+    "message": "보기 정렬:"
+  },
+  "warningsErrorsLog": {
+    "message": "Warnings / Errors Log"
+  },
+  "warningsErrorsLogEmpty": {
+    "message": "No warnings or errors recorded for this session."
+  },
+  "warningsErrorsLogHelp": {
+    "message": "Transient warnings/errors for this current SBM session. This is not saved to settings."
   }
 }

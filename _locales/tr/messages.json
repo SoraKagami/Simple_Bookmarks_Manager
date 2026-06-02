@@ -1,75 +1,159 @@
 {
-  "appName": {
-    "message": "Simple Bookmarks Manager"
+  "about": {
+    "message": "Hakkında"
+  },
+  "actionFailed": {
+    "message": "İşlem başarısız: {error}"
+  },
+  "addNewBookmark": {
+    "message": "Yeni yer imi ekle"
+  },
+  "addNewFolder": {
+    "message": "Yeni klasör ekle"
+  },
+  "addSeparator": {
+    "message": "Ayırıcı ekle"
+  },
+  "advanced": {
+    "message": "Gelişmiş"
+  },
+  "advancedBookmarkDetails": {
+    "message": "Gelişmiş yer imi ayrıntıları"
+  },
+  "advancedDetails": {
+    "message": "Gelişmiş ayrıntılar"
+  },
+  "allowKeyboardDelete": {
+    "message": "Delete tuşu seçili öğeleri silebilsin"
+  },
+  "allowKeyboardDeleteHelp": {
+    "message": "Devre dışıysa Delete tuşu seçili yer imi girdilerini artık silmez."
   },
   "appDescription": {
     "message": "Firefox Places Kitaplığı desenlerinden esinlenen, Chrome/Chromium için basit bir yerel yer imi yöneticisi."
   },
+  "appName": {
+    "message": "Simple Bookmarks Manager"
+  },
   "back": {
     "message": "Geri"
   },
-  "forward": {
-    "message": "İleri"
+  "bookmarkAlt": {
+    "message": "Yer imi"
   },
-  "newFolder": {
-    "message": "Yeni Klasör"
-  },
-  "newBookmark": {
-    "message": "Yeni Yer İmi"
-  },
-  "searchBookmarks": {
-    "message": "Yer imlerinde ara"
-  },
-  "searchLimitTitle": {
-    "message": "Etkinse yalnızca geçerli klasör ve alt klasörleri aranır. Devre dışıysa tüm yer imleri aranır."
-  },
-  "limitSearchTo": {
-    "message": "Aramayı şunlarla sınırla"
-  },
-  "currentFolderAndSubfolders": {
-    "message": "Geçerli klasör ve alt klasörler"
-  },
-  "openMenu": {
-    "message": "Menüyü aç"
-  },
-  "openSbmMenu": {
-    "message": "Simple Bookmarks Manager menüsünü aç"
-  },
-  "library": {
-    "message": "Kitaplık"
-  },
-  "visualSort": {
-    "message": "Görsel sıralama:"
-  },
-  "sortDefault": {
-    "message": "Varsayılan"
-  },
-  "sortName": {
-    "message": "Ad"
-  },
-  "sortUrl": {
-    "message": "URL"
-  },
-  "sortDateAdded": {
-    "message": "Eklenme tarihi"
-  },
-  "sortDateAddedHeader": {
-    "message": "Eklenme tarihi"
-  },
-  "sortId": {
-    "message": "ID"
-  },
-  "sortOrder": {
-    "message": "Sıra"
-  },
-  "bookmarksAria": {
-    "message": "Yer imleri"
+  "bookmarkFallback": {
+    "message": "(Yer imi)"
   },
   "bookmarkListColumns": {
     "message": "Yer imi listesi sütunları"
   },
+  "bookmarkMutationFailed": {
+    "message": "Bookmark operation failed ({action}): {error}"
+  },
+  "bookmarkNamePrompt": {
+    "message": "Yer imi adı"
+  },
+  "bookmarkUrlPrompt": {
+    "message": "Yer imi URL’si"
+  },
+  "bookmarks": {
+    "message": "Yer imleri"
+  },
+  "bookmarksAria": {
+    "message": "Yer imleri"
+  },
+  "bookmarksPathFallback": {
+    "message": "Yer imleri"
+  },
+  "browserRoot": {
+    "message": "Tarayıcı kökü"
+  },
+  "cancel": {
+    "message": "Cancel"
+  },
   "chooseSortModeTitle": {
     "message": "Orta bölme sıralama modunu seçin. Varsayılan, Chromium klasör sırasını kullanır."
+  },
+  "clearLog": {
+    "message": "Clear Log"
+  },
+  "clickHideDetails": {
+    "message": "Ayrıntıları gizlemek için tıklayın"
+  },
+  "clickShowDetails": {
+    "message": "Ayrıntıları göstermek için tıklayın"
+  },
+  "closeOptions": {
+    "message": "Seçenekleri kapat"
+  },
+  "collapseAll": {
+    "message": "Tümünü daralt"
+  },
+  "collapseFolderTitle": {
+    "message": "Klasörü daralt"
+  },
+  "copy": {
+    "message": "Kopyala"
+  },
+  "couldNotMoveBookmark": {
+    "message": "Yer imi öğesi taşınamadı: {error}"
+  },
+  "couldNotOpenTabGroup": {
+    "message": "Sekme grubu açılamadı: {error}"
+  },
+  "couldNotOpenWindow": {
+    "message": "{windowType} penceresi açılamadı: {error}"
+  },
+  "couldNotSaveChanges": {
+    "message": "Değişiklikler kaydedilemedi: {error}"
+  },
+  "create": {
+    "message": "Create"
+  },
+  "currentFolderAndSubfolders": {
+    "message": "Geçerli klasör ve alt klasörler"
+  },
+  "cut": {
+    "message": "Kes"
+  },
+  "dateAdded": {
+    "message": "Eklenme tarihi"
+  },
+  "dateLastUsed": {
+    "message": "Son kullanım"
+  },
+  "debugFailedBookmarkOperation": {
+    "message": "Debug: cause failed bookmark operation"
+  },
+  "debugFailedBookmarkOperationAction": {
+    "message": "debug failed bookmark operation"
+  },
+  "debugFailureUnexpectedSuccess": {
+    "message": "Debug failure unexpectedly succeeded"
+  },
+  "debugOptions": {
+    "message": "Debug options"
+  },
+  "debugOptionsHelp": {
+    "message": "Advanced. Shows debug-only test controls. Leave disabled during normal use."
+  },
+  "defaultsRestored": {
+    "message": "Varsayılanlar geri yüklendi"
+  },
+  "delete": {
+    "message": "Sil"
+  },
+  "deleteBookmark": {
+    "message": "Yer imini sil"
+  },
+  "deleteFolder": {
+    "message": "Klasörü sil"
+  },
+  "deleteMultipleConfirm": {
+    "message": "Seçili {count} öğe silinsin mi?"
+  },
+  "deleteSingleConfirm": {
+    "message": "“{label}” silinsin mi?"
   },
   "details": {
     "message": "Ayrıntılar"
@@ -80,83 +164,59 @@
   "detailsMultiselect": {
     "message": "Çoklu seçim ayrıntıları"
   },
-  "url": {
-    "message": "URL"
-  },
-  "parentFolder": {
-    "message": "Üst klasör"
-  },
-  "save": {
-    "message": "Kaydet"
+  "discard": {
+    "message": "At"
   },
   "discardChanges": {
     "message": "Değişiklikleri at"
   },
-  "delete": {
-    "message": "Sil"
+  "doubleClickExpandCollapseTitle": {
+    "message": "Bu klasörü genişletmek veya daraltmak için çift tıklayın"
   },
-  "deleteFolder": {
-    "message": "Klasörü sil"
+  "dragFolderTitle": {
+    "message": "Bu klasörü yeniden sıralamak için sürükleyin"
   },
-  "deleteBookmark": {
-    "message": "Yer imini sil"
+  "dragItemTitle": {
+    "message": "Bu öğeyi taşımak veya yeniden sıralamak için sürükleyin"
   },
-  "advancedDetails": {
-    "message": "Gelişmiş ayrıntılar"
+  "edit": {
+    "message": "Düzenle"
   },
-  "advancedBookmarkDetails": {
-    "message": "Gelişmiş yer imi ayrıntıları"
-  },
-  "guidUuid": {
-    "message": "GUID / UUID"
-  },
-  "dateAdded": {
-    "message": "Eklenme tarihi"
-  },
-  "dateLastUsed": {
-    "message": "Son kullanım"
-  },
-  "totalSelected": {
-    "message": "Toplam seçili:"
-  },
-  "folders": {
-    "message": "Klasörler:"
-  },
-  "bookmarks": {
-    "message": "Yer imleri"
-  },
-  "separators": {
-    "message": "Ayırıcılar:"
+  "editBookmark": {
+    "message": "Edit Bookmark"
   },
   "emptyDetails": {
     "message": "Bir öğe seçin veya içeriğini göstermek için bir klasör seçin."
   },
-  "optionsTitle": {
-    "message": "Simple Bookmarks Manager Seçenekleri"
+  "enableAdvancedEditing": {
+    "message": "Gelişmiş ayrıntı düzenlemeyi etkinleştir"
   },
-  "closeOptions": {
-    "message": "Seçenekleri kapat"
+  "enableAdvancedEditingHelp": {
+    "message": "Desteklenen gelişmiş düzenlemeye izin verir; şu anda yer imi dizini değişiklikleriyle sınırlıdır."
   },
-  "optionSaved": {
-    "message": "Kaydedildi"
+  "enableAdvancedViewing": {
+    "message": "Gelişmiş ayrıntı görüntülemeyi etkinleştir"
   },
-  "saveFailed": {
-    "message": "Kaydetme başarısız: {error}"
+  "enableAdvancedViewingHelp": {
+    "message": "Salt okunur gelişmiş yer imi meta verilerini Ayrıntılar bölmesinde göster."
   },
-  "loadFailed": {
-    "message": "Yükleme başarısız: {error}"
+  "expandAll": {
+    "message": "Tümünü genişlet"
   },
-  "defaultsRestored": {
-    "message": "Varsayılanlar geri yüklendi"
+  "expandFolderTitle": {
+    "message": "Klasörü genişlet"
   },
-  "userInterface": {
-    "message": "Kullanıcı Arayüzü"
+  "folderAlt": {
+    "message": "Klasör"
   },
-  "userInterfaceLanguage": {
-    "message": "Arayüz Dili"
+  "folderFallback": {
+    "message": "(Klasör)"
   },
-  "userInterfaceLanguageHelp": {
-    "message": "Otomatik, tarayıcı arayüz dilini izler. El ile seçimler yönetici ve seçenek sayfalarını etkiler."
+  "folderNamePrompt": {
+    "message": "Klasör adı"
+  },
+  "folders": {
+    "message": "Klasörler:"
   },
   "font": {
     "message": "Yazı tipi"
@@ -164,17 +224,14 @@
   "fontHelp": {
     "message": "Yer imi yöneticisi arayüzünde kullanılan ana yazı tipi ailesini denetler."
   },
-  "fontSystem": {
-    "message": "Sistem varsayılanı"
+  "fontMono": {
+    "message": "Consolas / monospace"
   },
   "fontSans": {
     "message": "Arial / Helvetica"
   },
   "fontSerif": {
     "message": "Georgia / Times"
-  },
-  "fontMono": {
-    "message": "Consolas / monospace"
   },
   "fontSize": {
     "message": "Yazı tipi boyutu"
@@ -188,35 +245,35 @@
   "fontSpacingHelp": {
     "message": "Daha sıkı veya daha okunabilir satırlar ve etiketler için satır aralığı çarpanı."
   },
-  "search": {
-    "message": "Arama"
+  "fontSystem": {
+    "message": "Sistem varsayılanı"
   },
-  "searchLimitOptionHelp": {
-    "message": "Etkinse ana arama kutusu yalnızca geçerli görünür klasör ağacında arar."
+  "forward": {
+    "message": "İleri"
   },
-  "safety": {
-    "message": "Güvenlik"
+  "guidUuid": {
+    "message": "GUID / UUID"
   },
-  "showDeleteWarning": {
-    "message": "Silme onayını göster"
+  "help": {
+    "message": "Yardım"
   },
-  "showDeleteWarningHelp": {
-    "message": "Yer imi öğelerini veya klasörleri silmeden önce sor."
+  "hideDetailsPaneTooltip": {
+    "message": "Ayrıntılar bölmesini gizle"
   },
-  "showSortWarning": {
-    "message": "Kalıcı sıralama onayını göster"
+  "keepEditing": {
+    "message": "Düzenlemeye devam et"
   },
-  "showSortWarningHelp": {
-    "message": "Bir yer imi klasörünü kalıcı olarak yeniden sıralayan bağlam menüsü sıralamalarını uygulamadan önce sor."
+  "library": {
+    "message": "Kitaplık"
   },
-  "allowKeyboardDelete": {
-    "message": "Delete tuşu seçili öğeleri silebilsin"
+  "limitSearchTo": {
+    "message": "Aramayı şunlarla sınırla"
   },
-  "allowKeyboardDeleteHelp": {
-    "message": "Devre dışıysa Delete tuşu seçili yer imi girdilerini artık silmez."
+  "loadFailed": {
+    "message": "Yükleme başarısız: {error}"
   },
-  "sorting": {
-    "message": "Sıralama"
+  "managerFailed": {
+    "message": "Yer imi yöneticisi başarısız oldu: {error}"
   },
   "naturalSort": {
     "message": "Doğal klasör/yer imi sıralamasını kullan"
@@ -224,134 +281,23 @@
   "naturalSortHelp": {
     "message": "Kalıcı Ada Göre Sırala önce klasörleri, sonra ayırıcıları, ardından yer imlerini yerleştirir."
   },
-  "advanced": {
-    "message": "Gelişmiş"
+  "newBookmark": {
+    "message": "Yeni Yer İmi"
   },
-  "enableAdvancedViewing": {
-    "message": "Gelişmiş ayrıntı görüntülemeyi etkinleştir"
-  },
-  "enableAdvancedViewingHelp": {
-    "message": "Salt okunur gelişmiş yer imi meta verilerini Ayrıntılar bölmesinde göster."
-  },
-  "enableAdvancedEditing": {
-    "message": "Gelişmiş ayrıntı düzenlemeyi etkinleştir"
-  },
-  "enableAdvancedEditingHelp": {
-    "message": "Desteklenen gelişmiş düzenlemeye izin verir; şu anda yer imi dizini değişiklikleriyle sınırlıdır."
-  },
-  "resetDefaults": {
-    "message": "Varsayılanlara sıfırla"
-  },
-  "folderAlt": {
-    "message": "Klasör"
-  },
-  "bookmarkAlt": {
-    "message": "Yer imi"
-  },
-  "folderFallback": {
-    "message": "(Klasör)"
-  },
-  "bookmarkFallback": {
-    "message": "(Yer imi)"
-  },
-  "rootFallback": {
-    "message": "(kök)"
-  },
-  "browserRoot": {
-    "message": "Tarayıcı kökü"
-  },
-  "bookmarksPathFallback": {
-    "message": "Yer imleri"
-  },
-  "sortDate": {
-    "message": "tarih"
-  },
-  "sortNameLower": {
-    "message": "ad"
-  },
-  "sortFolderConfirm": {
-    "message": "“{folderName}” {sortName} ölçütüne göre sıralansın mı?\n\nBu, Chromium’da kayıtlı yer imi sırasını kalıcı olarak değiştirir. Geçici Görsel sıralama açılır listesinden farklıdır."
-  },
-  "couldNotOpenWindow": {
-    "message": "{windowType} penceresi açılamadı: {error}"
-  },
-  "privateWindowType": {
-    "message": "gizli"
-  },
-  "newWindowType": {
-    "message": "yeni"
-  },
-  "couldNotOpenTabGroup": {
-    "message": "Sekme grubu açılamadı: {error}"
-  },
-  "newFolderNamePrompt": {
-    "message": "Yeni klasör adı"
-  },
-  "folderNamePrompt": {
-    "message": "Klasör adı"
-  },
-  "bookmarkNamePrompt": {
-    "message": "Yer imi adı"
-  },
-  "bookmarkUrlPrompt": {
-    "message": "Yer imi URL’si"
-  },
-  "deleteSingleConfirm": {
-    "message": "“{label}” silinsin mi?"
-  },
-  "deleteMultipleConfirm": {
-    "message": "Seçili {count} öğe silinsin mi?"
-  },
-  "thisItem": {
-    "message": "bu öğe"
+  "newFolder": {
+    "message": "Yeni Klasör"
   },
   "newFolderDefaultName": {
     "message": "Yeni Klasör"
   },
-  "couldNotMoveBookmark": {
-    "message": "Yer imi öğesi taşınamadı: {error}"
+  "newFolderNamePrompt": {
+    "message": "Yeni klasör adı"
   },
-  "actionFailed": {
-    "message": "İşlem başarısız: {error}"
+  "newWindowType": {
+    "message": "yeni"
   },
-  "openDefaultBookmarksManager": {
-    "message": "Varsayılan Yer İmleri Yöneticisini Aç"
-  },
-  "options": {
-    "message": "Seçenekler"
-  },
-  "help": {
-    "message": "Yardım"
-  },
-  "about": {
-    "message": "Hakkında"
-  },
-  "renameFolder": {
-    "message": "Klasörü yeniden adlandır"
-  },
-  "cut": {
-    "message": "Kes"
-  },
-  "copy": {
-    "message": "Kopyala"
-  },
-  "paste": {
-    "message": "Yapıştır"
-  },
-  "sortByName": {
-    "message": "Ada göre sırala"
-  },
-  "sortByDate": {
-    "message": "Tarihe göre sırala"
-  },
-  "addNewBookmark": {
-    "message": "Yeni yer imi ekle"
-  },
-  "addNewFolder": {
-    "message": "Yeni klasör ekle"
-  },
-  "addSeparator": {
-    "message": "Ayırıcı ekle"
+  "notAvailable": {
+    "message": "Kullanılamaz"
   },
   "openAllBookmarks": {
     "message": "Tüm yer imlerini aç"
@@ -359,23 +305,26 @@
   "openAllInNewTab": {
     "message": "Tümünü yeni sekmelerde aç"
   },
+  "openAllInNewTabGroup": {
+    "message": "Tümünü yeni sekme grubunda aç"
+  },
   "openAllInNewWindow": {
     "message": "Tümünü yeni pencerede aç"
   },
   "openAllInPrivateWindow": {
     "message": "Tümünü gizli pencerede aç"
   },
-  "openAllInNewTabGroup": {
-    "message": "Tümünü yeni sekme grubunda aç"
-  },
   "openAllInSplitView": {
     "message": "Tümünü bölünmüş görünümde aç"
   },
-  "edit": {
-    "message": "Düzenle"
+  "openDefaultBookmarksManager": {
+    "message": "Varsayılan Yer İmleri Yöneticisini Aç"
   },
   "openInNewTab": {
     "message": "Yeni sekmede aç"
+  },
+  "openInNewTabGroup": {
+    "message": "Yeni sekme grubunda aç"
   },
   "openInNewWindow": {
     "message": "Yeni pencerede aç"
@@ -383,77 +332,122 @@
   "openInPrivateWindow": {
     "message": "Gizli pencerede aç"
   },
-  "openInNewTabGroup": {
-    "message": "Yeni sekme grubunda aç"
-  },
   "openInSplitView": {
     "message": "Bölünmüş görünümde aç"
   },
-  "expandAll": {
-    "message": "Tümünü genişlet"
+  "openMenu": {
+    "message": "Menüyü aç"
   },
-  "collapseAll": {
-    "message": "Tümünü daralt"
+  "openSbmMenu": {
+    "message": "Simple Bookmarks Manager menüsünü aç"
   },
-  "dragFolderTitle": {
-    "message": "Bu klasörü yeniden sıralamak için sürükleyin"
+  "optimisationDOMrendering": {
+    "message": "Optimisation: DOM rendering pass"
   },
-  "collapseFolderTitle": {
-    "message": "Klasörü daralt"
+  "optimisationDOMrenderingHelp": {
+    "message": "Experimental. Enables reduced DOM churn for selected rendering, drag/drop indicators, and row icon handling. Disable only when comparing performance or troubleshooting UI behavior."
   },
-  "expandFolderTitle": {
-    "message": "Klasörü genişlet"
+  "optimisationTempBookmarkTreeMaps": {
+    "message": "Optimisation: temporary bookmark tree maps"
   },
-  "doubleClickExpandCollapseTitle": {
-    "message": "Bu klasörü genişletmek veya daraltmak için çift tıklayın"
+  "optimisationTempBookmarkTreeMapsHelp": {
+    "message": "Experimental. Builds short-lived lookup maps during some render/search/tree operations, then discards them to avoid a persistent stale cache."
   },
-  "hideDetailsPaneTooltip": {
-    "message": "Ayrıntılar bölmesini gizle"
+  "optionSaved": {
+    "message": "Kaydedildi"
   },
-  "showDetailsPaneTooltip": {
-    "message": "Ayrıntılar bölmesini göster"
+  "options": {
+    "message": "Seçenekler"
   },
-  "clickHideDetails": {
-    "message": "Ayrıntıları gizlemek için tıklayın"
+  "optionsTitle": {
+    "message": "Simple Bookmarks Manager Seçenekleri"
   },
-  "clickShowDetails": {
-    "message": "Ayrıntıları göstermek için tıklayın"
+  "parentFolder": {
+    "message": "Üst klasör"
   },
-  "dragItemTitle": {
-    "message": "Bu öğeyi taşımak veya yeniden sıralamak için sürükleyin"
+  "paste": {
+    "message": "Yapıştır"
+  },
+  "privateWindowType": {
+    "message": "gizli"
+  },
+  "renameFolder": {
+    "message": "Klasörü yeniden adlandır"
+  },
+  "resetDefaults": {
+    "message": "Varsayılanlara sıfırla"
+  },
+  "rootFallback": {
+    "message": "(kök)"
+  },
+  "safety": {
+    "message": "Güvenlik"
+  },
+  "save": {
+    "message": "Kaydet"
+  },
+  "saveFailed": {
+    "message": "Kaydetme başarısız: {error}"
+  },
+  "search": {
+    "message": "Arama"
+  },
+  "searchBookmarks": {
+    "message": "Yer imlerinde ara"
+  },
+  "searchLimitFull": {
+    "message": "Aramayı geçerli klasör ve alt klasörlerle sınırla"
+  },
+  "searchLimitOptionHelp": {
+    "message": "Etkinse ana arama kutusu yalnızca geçerli görünür klasör ağacında arar."
+  },
+  "searchLimitTitle": {
+    "message": "Etkinse yalnızca geçerli klasör ve alt klasörleri aranır. Devre dışıysa tüm yer imleri aranır."
   },
   "separator": {
     "message": "Ayırıcı"
   },
-  "unsavedChanges": {
-    "message": "Kaydedilmemiş değişiklikler"
+  "separators": {
+    "message": "Ayırıcılar:"
   },
-  "unsavedChangesMessage": {
-    "message": "Ayrıntılar bölmesinde kaydedilmemiş değişiklikler var. Ne yapmak istersiniz?"
+  "showDeleteWarning": {
+    "message": "Silme onayını göster"
   },
-  "keepEditing": {
-    "message": "Düzenlemeye devam et"
+  "showDeleteWarningHelp": {
+    "message": "Yer imi öğelerini veya klasörleri silmeden önce sor."
   },
-  "discard": {
-    "message": "At"
+  "showDetailsPaneTooltip": {
+    "message": "Ayrıntılar bölmesini göster"
   },
-  "couldNotSaveChanges": {
-    "message": "Değişiklikler kaydedilemedi: {error}"
+  "showErrorsWarnings": {
+    "message": "Show warnings/errors log"
   },
-  "sortDefaultTooltip": {
-    "message": "Varsayılan Chromium klasör sırası. Varsayılan sıralamaya dönmek için tıklayın; bu sütun ters sıralama yapmaz."
+  "showErrorsWarningsHelp": {
+    "message": "Advanced. Shows a transient in-memory log for this SBM session. Log entries are not saved to extension settings."
   },
-  "sortNameAscTooltip": {
-    "message": "Ada göre sırala: A’dan Z’ye"
+  "showSortWarning": {
+    "message": "Kalıcı sıralama onayını göster"
   },
-  "sortNameDescTooltip": {
-    "message": "Ada göre sırala: Z’den A’ya"
+  "showSortWarningHelp": {
+    "message": "Bir yer imi klasörünü kalıcı olarak yeniden sıralayan bağlam menüsü sıralamalarını uygulamadan önce sor."
   },
-  "sortUrlAscTooltip": {
-    "message": "URL’ye göre sırala: A’dan Z’ye"
+  "sortBookmarks": {
+    "message": "Yer imlerini sırala"
   },
-  "sortUrlDescTooltip": {
-    "message": "URL’ye göre sırala: Z’den A’ya"
+  "sortByDate": {
+    "message": "Tarihe göre sırala"
+  },
+  "sortByName": {
+    "message": "Ada göre sırala"
+  },
+  "sortDate": {
+    "message": "tarih"
+  },
+  "sortDateAdded": {
+    "message": "Eklenme tarihi"
+  },
+  "sortDateAddedHeader": {
+    "message": "Eklenme tarihi"
   },
   "sortDateAscTooltip": {
     "message": "Eklenme tarihine göre sırala: en eski önce"
@@ -461,17 +455,47 @@
   "sortDateDescTooltip": {
     "message": "Eklenme tarihine göre sırala: en yeni önce"
   },
+  "sortDefault": {
+    "message": "Varsayılan"
+  },
+  "sortDefaultTooltip": {
+    "message": "Varsayılan Chromium klasör sırası. Varsayılan sıralamaya dönmek için tıklayın; bu sütun ters sıralama yapmaz."
+  },
+  "sortFolderConfirm": {
+    "message": "“{folderName}” {sortName} ölçütüne göre sıralansın mı?\n\nBu, Chromium’da kayıtlı yer imi sırasını kalıcı olarak değiştirir. Geçici Görsel sıralama açılır listesinden farklıdır."
+  },
+  "sortId": {
+    "message": "ID"
+  },
   "sortIdAscTooltip": {
     "message": "ID’ye göre sırala: en düşük önce"
   },
   "sortIdDescTooltip": {
     "message": "ID’ye göre sırala: en yüksek önce"
   },
-  "sortBookmarks": {
-    "message": "Yer imlerini sırala"
+  "sortName": {
+    "message": "Ad"
+  },
+  "sortNameAscTooltip": {
+    "message": "Ada göre sırala: A’dan Z’ye"
+  },
+  "sortNameDescTooltip": {
+    "message": "Ada göre sırala: Z’den A’ya"
+  },
+  "sortNameLower": {
+    "message": "ad"
+  },
+  "sortOrder": {
+    "message": "Sıra"
+  },
+  "sortSelectDateAddedTitle": {
+    "message": "Eklenme tarihi sıralaması. Artan en eski önce; azalan en yeni önce."
   },
   "sortSelectDefaultTitle": {
     "message": "Varsayılan Chromium klasör sırası."
+  },
+  "sortSelectIdTitle": {
+    "message": "ID sıralaması. Artan en düşük önce; azalan en yüksek önce."
   },
   "sortSelectTitleTitle": {
     "message": "Ad sıralaması. Artan A’dan Z’ye; azalan Z’den A’ya."
@@ -479,25 +503,67 @@
   "sortSelectUrlTitle": {
     "message": "URL sıralaması. Artan A’dan Z’ye; azalan Z’den A’ya."
   },
-  "sortSelectDateAddedTitle": {
-    "message": "Eklenme tarihi sıralaması. Artan en eski önce; azalan en yeni önce."
+  "sortUrl": {
+    "message": "URL"
   },
-  "sortSelectIdTitle": {
-    "message": "ID sıralaması. Artan en düşük önce; azalan en yüksek önce."
+  "sortUrlAscTooltip": {
+    "message": "URL’ye göre sırala: A’dan Z’ye"
   },
-  "managerFailed": {
-    "message": "Yer imi yöneticisi başarısız oldu: {error}"
+  "sortUrlDescTooltip": {
+    "message": "URL’ye göre sırala: Z’den A’ya"
   },
-  "notAvailable": {
-    "message": "Kullanılamaz"
+  "sorting": {
+    "message": "Sıralama"
   },
-  "searchLimitFull": {
-    "message": "Aramayı geçerli klasör ve alt klasörlerle sınırla"
+  "thisItem": {
+    "message": "bu öğe"
   },
-  "optimisationDOMrendering": {
-    "message": "Optimisation: DOM rendering pass"
+  "totalSelected": {
+    "message": "Toplam seçili:"
   },
-  "optimisationDOMrenderingHelp": {
-    "message": "Experimental. Enables reduced DOM churn for selected rendering, drag/drop indicators, and row icon handling. Disable only when comparing performance or troubleshooting UI behavior."
+  "unsavedChanges": {
+    "message": "Kaydedilmemiş değişiklikler"
+  },
+  "unsavedChangesMessage": {
+    "message": "Ayrıntılar bölmesinde kaydedilmemiş değişiklikler var. Ne yapmak istersiniz?"
+  },
+  "url": {
+    "message": "URL"
+  },
+  "urlWarningControlCharacters": {
+    "message": "URL contained hidden control characters; they will be removed before saving."
+  },
+  "urlWarningEmpty": {
+    "message": "URL is empty. Chrome may reject this bookmark until a URL is provided."
+  },
+  "urlWarningInvalidBlocked": {
+    "message": "This URL is not valid enough to save as a bookmark. Fix the URL before saving."
+  },
+  "urlWarningInvalidButAllowed": {
+    "message": "This URL is not valid enough to save as a bookmark. Fix the URL before saving."
+  },
+  "urlWarningWhitespace": {
+    "message": "URL contains whitespace. It will be saved if Chrome accepts it, but it may not open as expected."
+  },
+  "userInterface": {
+    "message": "Kullanıcı Arayüzü"
+  },
+  "userInterfaceLanguage": {
+    "message": "Arayüz Dili"
+  },
+  "userInterfaceLanguageHelp": {
+    "message": "Otomatik, tarayıcı arayüz dilini izler. El ile seçimler yönetici ve seçenek sayfalarını etkiler."
+  },
+  "visualSort": {
+    "message": "Görsel sıralama:"
+  },
+  "warningsErrorsLog": {
+    "message": "Warnings / Errors Log"
+  },
+  "warningsErrorsLogEmpty": {
+    "message": "No warnings or errors recorded for this session."
+  },
+  "warningsErrorsLogHelp": {
+    "message": "Transient warnings/errors for this current SBM session. This is not saved to settings."
   }
 }

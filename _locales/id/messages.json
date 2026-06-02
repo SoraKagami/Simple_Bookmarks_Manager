@@ -1,75 +1,159 @@
 {
-  "appName": {
-    "message": "Simple Bookmarks Manager"
+  "about": {
+    "message": "Tentang"
+  },
+  "actionFailed": {
+    "message": "Aksi gagal: {error}"
+  },
+  "addNewBookmark": {
+    "message": "Tambah bookmark baru"
+  },
+  "addNewFolder": {
+    "message": "Tambah folder baru"
+  },
+  "addSeparator": {
+    "message": "Tambah pemisah"
+  },
+  "advanced": {
+    "message": "Lanjutan"
+  },
+  "advancedBookmarkDetails": {
+    "message": "Detail bookmark lanjutan"
+  },
+  "advancedDetails": {
+    "message": "Detail lanjutan"
+  },
+  "allowKeyboardDelete": {
+    "message": "Izinkan tombol Delete menghapus item terpilih"
+  },
+  "allowKeyboardDeleteHelp": {
+    "message": "Jika nonaktif, tombol Delete tidak lagi menghapus entri bookmark terpilih."
   },
   "appDescription": {
     "message": "Pengelola bookmark lokal sederhana untuk Chrome/Chromium yang terinspirasi pola Firefox Places Library."
   },
+  "appName": {
+    "message": "Simple Bookmarks Manager"
+  },
   "back": {
     "message": "Kembali"
   },
-  "forward": {
-    "message": "Maju"
-  },
-  "newFolder": {
-    "message": "Folder Baru"
-  },
-  "newBookmark": {
-    "message": "Bookmark Baru"
-  },
-  "searchBookmarks": {
-    "message": "Cari bookmark"
-  },
-  "searchLimitTitle": {
-    "message": "Jika aktif, cari hanya folder saat ini dan subfoldernya. Jika nonaktif, cari semua bookmark."
-  },
-  "limitSearchTo": {
-    "message": "Batasi pencarian ke"
-  },
-  "currentFolderAndSubfolders": {
-    "message": "Folder saat ini dan subfolder"
-  },
-  "openMenu": {
-    "message": "Buka menu"
-  },
-  "openSbmMenu": {
-    "message": "Buka menu Simple Bookmarks Manager"
-  },
-  "library": {
-    "message": "Pustaka"
-  },
-  "visualSort": {
-    "message": "Urutan visual:"
-  },
-  "sortDefault": {
-    "message": "Default"
-  },
-  "sortName": {
-    "message": "Nama"
-  },
-  "sortUrl": {
-    "message": "URL"
-  },
-  "sortDateAdded": {
-    "message": "Tanggal ditambahkan"
-  },
-  "sortDateAddedHeader": {
-    "message": "Tanggal ditambahkan"
-  },
-  "sortId": {
-    "message": "ID"
-  },
-  "sortOrder": {
-    "message": "Urutan"
-  },
-  "bookmarksAria": {
+  "bookmarkAlt": {
     "message": "Bookmark"
+  },
+  "bookmarkFallback": {
+    "message": "(Bookmark)"
   },
   "bookmarkListColumns": {
     "message": "Kolom daftar bookmark"
   },
+  "bookmarkMutationFailed": {
+    "message": "Bookmark operation failed ({action}): {error}"
+  },
+  "bookmarkNamePrompt": {
+    "message": "Nama bookmark"
+  },
+  "bookmarkUrlPrompt": {
+    "message": "URL bookmark"
+  },
+  "bookmarks": {
+    "message": "Bookmark"
+  },
+  "bookmarksAria": {
+    "message": "Bookmark"
+  },
+  "bookmarksPathFallback": {
+    "message": "Bookmark"
+  },
+  "browserRoot": {
+    "message": "Root browser"
+  },
+  "cancel": {
+    "message": "Cancel"
+  },
   "chooseSortModeTitle": {
     "message": "Pilih mode pengurutan panel tengah. Default memakai urutan folder Chromium."
+  },
+  "clearLog": {
+    "message": "Clear Log"
+  },
+  "clickHideDetails": {
+    "message": "Klik untuk menyembunyikan detail"
+  },
+  "clickShowDetails": {
+    "message": "Klik untuk menampilkan detail"
+  },
+  "closeOptions": {
+    "message": "Tutup opsi"
+  },
+  "collapseAll": {
+    "message": "Ciutkan semua"
+  },
+  "collapseFolderTitle": {
+    "message": "Ciutkan folder"
+  },
+  "copy": {
+    "message": "Salin"
+  },
+  "couldNotMoveBookmark": {
+    "message": "Tidak dapat memindahkan item bookmark: {error}"
+  },
+  "couldNotOpenTabGroup": {
+    "message": "Tidak dapat membuka grup tab: {error}"
+  },
+  "couldNotOpenWindow": {
+    "message": "Tidak dapat membuka jendela {windowType}: {error}"
+  },
+  "couldNotSaveChanges": {
+    "message": "Tidak dapat menyimpan perubahan: {error}"
+  },
+  "create": {
+    "message": "Create"
+  },
+  "currentFolderAndSubfolders": {
+    "message": "Folder saat ini dan subfolder"
+  },
+  "cut": {
+    "message": "Potong"
+  },
+  "dateAdded": {
+    "message": "Tanggal ditambahkan"
+  },
+  "dateLastUsed": {
+    "message": "Terakhir digunakan"
+  },
+  "debugFailedBookmarkOperation": {
+    "message": "Debug: cause failed bookmark operation"
+  },
+  "debugFailedBookmarkOperationAction": {
+    "message": "debug failed bookmark operation"
+  },
+  "debugFailureUnexpectedSuccess": {
+    "message": "Debug failure unexpectedly succeeded"
+  },
+  "debugOptions": {
+    "message": "Debug options"
+  },
+  "debugOptionsHelp": {
+    "message": "Advanced. Shows debug-only test controls. Leave disabled during normal use."
+  },
+  "defaultsRestored": {
+    "message": "Default dipulihkan"
+  },
+  "delete": {
+    "message": "Hapus"
+  },
+  "deleteBookmark": {
+    "message": "Hapus bookmark"
+  },
+  "deleteFolder": {
+    "message": "Hapus folder"
+  },
+  "deleteMultipleConfirm": {
+    "message": "Hapus {count} item terpilih?"
+  },
+  "deleteSingleConfirm": {
+    "message": "Hapus “{label}”?"
   },
   "details": {
     "message": "Detail"
@@ -80,83 +164,59 @@
   "detailsMultiselect": {
     "message": "Detail multipilih"
   },
-  "url": {
-    "message": "URL"
-  },
-  "parentFolder": {
-    "message": "Folder induk"
-  },
-  "save": {
-    "message": "Simpan"
+  "discard": {
+    "message": "Buang"
   },
   "discardChanges": {
     "message": "Buang perubahan"
   },
-  "delete": {
-    "message": "Hapus"
+  "doubleClickExpandCollapseTitle": {
+    "message": "Klik dua kali untuk membentangkan atau menciutkan folder ini"
   },
-  "deleteFolder": {
-    "message": "Hapus folder"
+  "dragFolderTitle": {
+    "message": "Seret untuk mengurutkan ulang folder ini"
   },
-  "deleteBookmark": {
-    "message": "Hapus bookmark"
+  "dragItemTitle": {
+    "message": "Seret untuk memindahkan atau mengurutkan ulang item ini"
   },
-  "advancedDetails": {
-    "message": "Detail lanjutan"
+  "edit": {
+    "message": "Edit"
   },
-  "advancedBookmarkDetails": {
-    "message": "Detail bookmark lanjutan"
-  },
-  "guidUuid": {
-    "message": "GUID / UUID"
-  },
-  "dateAdded": {
-    "message": "Tanggal ditambahkan"
-  },
-  "dateLastUsed": {
-    "message": "Terakhir digunakan"
-  },
-  "totalSelected": {
-    "message": "Total dipilih:"
-  },
-  "folders": {
-    "message": "Folder:"
-  },
-  "bookmarks": {
-    "message": "Bookmark"
-  },
-  "separators": {
-    "message": "Pemisah:"
+  "editBookmark": {
+    "message": "Edit Bookmark"
   },
   "emptyDetails": {
     "message": "Pilih satu item, atau pilih folder untuk menampilkan isinya."
   },
-  "optionsTitle": {
-    "message": "Opsi Simple Bookmarks Manager"
+  "enableAdvancedEditing": {
+    "message": "Aktifkan pengeditan detail lanjutan"
   },
-  "closeOptions": {
-    "message": "Tutup opsi"
+  "enableAdvancedEditingHelp": {
+    "message": "Izinkan pengeditan lanjutan yang didukung, saat ini terbatas pada perubahan indeks bookmark."
   },
-  "optionSaved": {
-    "message": "Tersimpan"
+  "enableAdvancedViewing": {
+    "message": "Aktifkan tampilan detail lanjutan"
   },
-  "saveFailed": {
-    "message": "Gagal menyimpan: {error}"
+  "enableAdvancedViewingHelp": {
+    "message": "Tampilkan metadata bookmark lanjutan baca-saja di panel Detail."
   },
-  "loadFailed": {
-    "message": "Gagal memuat: {error}"
+  "expandAll": {
+    "message": "Luaskan semua"
   },
-  "defaultsRestored": {
-    "message": "Default dipulihkan"
+  "expandFolderTitle": {
+    "message": "Bentangkan folder"
   },
-  "userInterface": {
-    "message": "Antarmuka Pengguna"
+  "folderAlt": {
+    "message": "Folder"
   },
-  "userInterfaceLanguage": {
-    "message": "Bahasa Antarmuka"
+  "folderFallback": {
+    "message": "(Folder)"
   },
-  "userInterfaceLanguageHelp": {
-    "message": "Otomatis mengikuti bahasa UI browser. Pilihan manual memengaruhi pengelola dan halaman opsi."
+  "folderNamePrompt": {
+    "message": "Nama folder"
+  },
+  "folders": {
+    "message": "Folder:"
   },
   "font": {
     "message": "Font"
@@ -164,17 +224,14 @@
   "fontHelp": {
     "message": "Mengatur keluarga font utama yang digunakan UI pengelola bookmark."
   },
-  "fontSystem": {
-    "message": "Default sistem"
+  "fontMono": {
+    "message": "Consolas / monospace"
   },
   "fontSans": {
     "message": "Arial / Helvetica"
   },
   "fontSerif": {
     "message": "Georgia / Times"
-  },
-  "fontMono": {
-    "message": "Consolas / monospace"
   },
   "fontSize": {
     "message": "Ukuran font"
@@ -188,35 +245,35 @@
   "fontSpacingHelp": {
     "message": "Pengali spasi baris untuk baris dan label yang lebih padat atau mudah dibaca."
   },
-  "search": {
-    "message": "Pencarian"
+  "fontSystem": {
+    "message": "Default sistem"
   },
-  "searchLimitOptionHelp": {
-    "message": "Jika aktif, kotak pencarian utama hanya mencari di dalam pohon folder yang sedang terlihat."
+  "forward": {
+    "message": "Maju"
   },
-  "safety": {
-    "message": "Keamanan"
+  "guidUuid": {
+    "message": "GUID / UUID"
   },
-  "showDeleteWarning": {
-    "message": "Tampilkan konfirmasi hapus"
+  "help": {
+    "message": "Bantuan"
   },
-  "showDeleteWarningHelp": {
-    "message": "Tanya sebelum menghapus item bookmark atau folder."
+  "hideDetailsPaneTooltip": {
+    "message": "Sembunyikan panel Detail"
   },
-  "showSortWarning": {
-    "message": "Tampilkan konfirmasi pengurutan permanen"
+  "keepEditing": {
+    "message": "Lanjut edit"
   },
-  "showSortWarningHelp": {
-    "message": "Tanya sebelum menerapkan pengurutan menu konteks yang mengubah permanen urutan folder bookmark."
+  "library": {
+    "message": "Pustaka"
   },
-  "allowKeyboardDelete": {
-    "message": "Izinkan tombol Delete menghapus item terpilih"
+  "limitSearchTo": {
+    "message": "Batasi pencarian ke"
   },
-  "allowKeyboardDeleteHelp": {
-    "message": "Jika nonaktif, tombol Delete tidak lagi menghapus entri bookmark terpilih."
+  "loadFailed": {
+    "message": "Gagal memuat: {error}"
   },
-  "sorting": {
-    "message": "Pengurutan"
+  "managerFailed": {
+    "message": "Pengelola bookmark gagal: {error}"
   },
   "naturalSort": {
     "message": "Gunakan urutan alami folder/bookmark"
@@ -224,134 +281,23 @@
   "naturalSortHelp": {
     "message": "Sortir permanen berdasarkan nama menempatkan folder terlebih dahulu, lalu pemisah, lalu bookmark."
   },
-  "advanced": {
-    "message": "Lanjutan"
+  "newBookmark": {
+    "message": "Bookmark Baru"
   },
-  "enableAdvancedViewing": {
-    "message": "Aktifkan tampilan detail lanjutan"
-  },
-  "enableAdvancedViewingHelp": {
-    "message": "Tampilkan metadata bookmark lanjutan baca-saja di panel Detail."
-  },
-  "enableAdvancedEditing": {
-    "message": "Aktifkan pengeditan detail lanjutan"
-  },
-  "enableAdvancedEditingHelp": {
-    "message": "Izinkan pengeditan lanjutan yang didukung, saat ini terbatas pada perubahan indeks bookmark."
-  },
-  "resetDefaults": {
-    "message": "Pulihkan default"
-  },
-  "folderAlt": {
-    "message": "Folder"
-  },
-  "bookmarkAlt": {
-    "message": "Bookmark"
-  },
-  "folderFallback": {
-    "message": "(Folder)"
-  },
-  "bookmarkFallback": {
-    "message": "(Bookmark)"
-  },
-  "rootFallback": {
-    "message": "(root)"
-  },
-  "browserRoot": {
-    "message": "Root browser"
-  },
-  "bookmarksPathFallback": {
-    "message": "Bookmark"
-  },
-  "sortDate": {
-    "message": "tanggal"
-  },
-  "sortNameLower": {
-    "message": "nama"
-  },
-  "sortFolderConfirm": {
-    "message": "Sortir “{folderName}” berdasarkan {sortName}?\n\nIni mengubah permanen urutan bookmark yang tersimpan di Chromium. Ini berbeda dari dropdown Sortir visual sementara."
-  },
-  "couldNotOpenWindow": {
-    "message": "Tidak dapat membuka jendela {windowType}: {error}"
-  },
-  "privateWindowType": {
-    "message": "privat"
-  },
-  "newWindowType": {
-    "message": "baru"
-  },
-  "couldNotOpenTabGroup": {
-    "message": "Tidak dapat membuka grup tab: {error}"
-  },
-  "newFolderNamePrompt": {
-    "message": "Nama folder baru"
-  },
-  "folderNamePrompt": {
-    "message": "Nama folder"
-  },
-  "bookmarkNamePrompt": {
-    "message": "Nama bookmark"
-  },
-  "bookmarkUrlPrompt": {
-    "message": "URL bookmark"
-  },
-  "deleteSingleConfirm": {
-    "message": "Hapus “{label}”?"
-  },
-  "deleteMultipleConfirm": {
-    "message": "Hapus {count} item terpilih?"
-  },
-  "thisItem": {
-    "message": "item ini"
+  "newFolder": {
+    "message": "Folder Baru"
   },
   "newFolderDefaultName": {
     "message": "Folder Baru"
   },
-  "couldNotMoveBookmark": {
-    "message": "Tidak dapat memindahkan item bookmark: {error}"
+  "newFolderNamePrompt": {
+    "message": "Nama folder baru"
   },
-  "actionFailed": {
-    "message": "Aksi gagal: {error}"
+  "newWindowType": {
+    "message": "baru"
   },
-  "openDefaultBookmarksManager": {
-    "message": "Buka Pengelola Bookmark Default"
-  },
-  "options": {
-    "message": "Opsi"
-  },
-  "help": {
-    "message": "Bantuan"
-  },
-  "about": {
-    "message": "Tentang"
-  },
-  "renameFolder": {
-    "message": "Ganti nama folder"
-  },
-  "cut": {
-    "message": "Potong"
-  },
-  "copy": {
-    "message": "Salin"
-  },
-  "paste": {
-    "message": "Tempel"
-  },
-  "sortByName": {
-    "message": "Urutkan menurut nama"
-  },
-  "sortByDate": {
-    "message": "Urutkan menurut tanggal"
-  },
-  "addNewBookmark": {
-    "message": "Tambah bookmark baru"
-  },
-  "addNewFolder": {
-    "message": "Tambah folder baru"
-  },
-  "addSeparator": {
-    "message": "Tambah pemisah"
+  "notAvailable": {
+    "message": "Tidak tersedia"
   },
   "openAllBookmarks": {
     "message": "Buka semua bookmark"
@@ -359,23 +305,26 @@
   "openAllInNewTab": {
     "message": "Buka semua di tab baru"
   },
+  "openAllInNewTabGroup": {
+    "message": "Buka semua di grup tab baru"
+  },
   "openAllInNewWindow": {
     "message": "Buka semua di jendela baru"
   },
   "openAllInPrivateWindow": {
     "message": "Buka semua di jendela pribadi"
   },
-  "openAllInNewTabGroup": {
-    "message": "Buka semua di grup tab baru"
-  },
   "openAllInSplitView": {
     "message": "Buka semua di tampilan terpisah"
   },
-  "edit": {
-    "message": "Edit"
+  "openDefaultBookmarksManager": {
+    "message": "Buka Pengelola Bookmark Default"
   },
   "openInNewTab": {
     "message": "Buka di tab baru"
+  },
+  "openInNewTabGroup": {
+    "message": "Buka di grup tab baru"
   },
   "openInNewWindow": {
     "message": "Buka di jendela baru"
@@ -383,77 +332,122 @@
   "openInPrivateWindow": {
     "message": "Buka di jendela pribadi"
   },
-  "openInNewTabGroup": {
-    "message": "Buka di grup tab baru"
-  },
   "openInSplitView": {
     "message": "Buka di tampilan terpisah"
   },
-  "expandAll": {
-    "message": "Luaskan semua"
+  "openMenu": {
+    "message": "Buka menu"
   },
-  "collapseAll": {
-    "message": "Ciutkan semua"
+  "openSbmMenu": {
+    "message": "Buka menu Simple Bookmarks Manager"
   },
-  "dragFolderTitle": {
-    "message": "Seret untuk mengurutkan ulang folder ini"
+  "optimisationDOMrendering": {
+    "message": "Optimisation: DOM rendering pass"
   },
-  "collapseFolderTitle": {
-    "message": "Ciutkan folder"
+  "optimisationDOMrenderingHelp": {
+    "message": "Experimental. Enables reduced DOM churn for selected rendering, drag/drop indicators, and row icon handling. Disable only when comparing performance or troubleshooting UI behavior."
   },
-  "expandFolderTitle": {
-    "message": "Bentangkan folder"
+  "optimisationTempBookmarkTreeMaps": {
+    "message": "Optimisation: temporary bookmark tree maps"
   },
-  "doubleClickExpandCollapseTitle": {
-    "message": "Klik dua kali untuk membentangkan atau menciutkan folder ini"
+  "optimisationTempBookmarkTreeMapsHelp": {
+    "message": "Experimental. Builds short-lived lookup maps during some render/search/tree operations, then discards them to avoid a persistent stale cache."
   },
-  "hideDetailsPaneTooltip": {
-    "message": "Sembunyikan panel Detail"
+  "optionSaved": {
+    "message": "Tersimpan"
   },
-  "showDetailsPaneTooltip": {
-    "message": "Tampilkan panel Detail"
+  "options": {
+    "message": "Opsi"
   },
-  "clickHideDetails": {
-    "message": "Klik untuk menyembunyikan detail"
+  "optionsTitle": {
+    "message": "Opsi Simple Bookmarks Manager"
   },
-  "clickShowDetails": {
-    "message": "Klik untuk menampilkan detail"
+  "parentFolder": {
+    "message": "Folder induk"
   },
-  "dragItemTitle": {
-    "message": "Seret untuk memindahkan atau mengurutkan ulang item ini"
+  "paste": {
+    "message": "Tempel"
+  },
+  "privateWindowType": {
+    "message": "privat"
+  },
+  "renameFolder": {
+    "message": "Ganti nama folder"
+  },
+  "resetDefaults": {
+    "message": "Pulihkan default"
+  },
+  "rootFallback": {
+    "message": "(root)"
+  },
+  "safety": {
+    "message": "Keamanan"
+  },
+  "save": {
+    "message": "Simpan"
+  },
+  "saveFailed": {
+    "message": "Gagal menyimpan: {error}"
+  },
+  "search": {
+    "message": "Pencarian"
+  },
+  "searchBookmarks": {
+    "message": "Cari bookmark"
+  },
+  "searchLimitFull": {
+    "message": "Batasi pencarian ke folder saat ini dan subfolder"
+  },
+  "searchLimitOptionHelp": {
+    "message": "Jika aktif, kotak pencarian utama hanya mencari di dalam pohon folder yang sedang terlihat."
+  },
+  "searchLimitTitle": {
+    "message": "Jika aktif, cari hanya folder saat ini dan subfoldernya. Jika nonaktif, cari semua bookmark."
   },
   "separator": {
     "message": "Pemisah"
   },
-  "unsavedChanges": {
-    "message": "Perubahan belum disimpan"
+  "separators": {
+    "message": "Pemisah:"
   },
-  "unsavedChangesMessage": {
-    "message": "Panel Detail memiliki perubahan yang belum disimpan. Apa yang ingin Anda lakukan?"
+  "showDeleteWarning": {
+    "message": "Tampilkan konfirmasi hapus"
   },
-  "keepEditing": {
-    "message": "Lanjut edit"
+  "showDeleteWarningHelp": {
+    "message": "Tanya sebelum menghapus item bookmark atau folder."
   },
-  "discard": {
-    "message": "Buang"
+  "showDetailsPaneTooltip": {
+    "message": "Tampilkan panel Detail"
   },
-  "couldNotSaveChanges": {
-    "message": "Tidak dapat menyimpan perubahan: {error}"
+  "showErrorsWarnings": {
+    "message": "Show warnings/errors log"
   },
-  "sortDefaultTooltip": {
-    "message": "Urutan folder Chromium default. Klik untuk kembali ke pengurutan default; kolom ini tidak mengurutkan balik."
+  "showErrorsWarningsHelp": {
+    "message": "Advanced. Shows a transient in-memory log for this SBM session. Log entries are not saved to extension settings."
   },
-  "sortNameAscTooltip": {
-    "message": "Sortir berdasarkan nama: A ke Z"
+  "showSortWarning": {
+    "message": "Tampilkan konfirmasi pengurutan permanen"
   },
-  "sortNameDescTooltip": {
-    "message": "Sortir berdasarkan nama: Z ke A"
+  "showSortWarningHelp": {
+    "message": "Tanya sebelum menerapkan pengurutan menu konteks yang mengubah permanen urutan folder bookmark."
   },
-  "sortUrlAscTooltip": {
-    "message": "Sortir berdasarkan URL: A ke Z"
+  "sortBookmarks": {
+    "message": "Sortir bookmark"
   },
-  "sortUrlDescTooltip": {
-    "message": "Sortir berdasarkan URL: Z ke A"
+  "sortByDate": {
+    "message": "Urutkan menurut tanggal"
+  },
+  "sortByName": {
+    "message": "Urutkan menurut nama"
+  },
+  "sortDate": {
+    "message": "tanggal"
+  },
+  "sortDateAdded": {
+    "message": "Tanggal ditambahkan"
+  },
+  "sortDateAddedHeader": {
+    "message": "Tanggal ditambahkan"
   },
   "sortDateAscTooltip": {
     "message": "Sortir berdasarkan tanggal ditambahkan: terlama dulu"
@@ -461,17 +455,47 @@
   "sortDateDescTooltip": {
     "message": "Sortir berdasarkan tanggal ditambahkan: terbaru dulu"
   },
+  "sortDefault": {
+    "message": "Default"
+  },
+  "sortDefaultTooltip": {
+    "message": "Urutan folder Chromium default. Klik untuk kembali ke pengurutan default; kolom ini tidak mengurutkan balik."
+  },
+  "sortFolderConfirm": {
+    "message": "Sortir “{folderName}” berdasarkan {sortName}?\n\nIni mengubah permanen urutan bookmark yang tersimpan di Chromium. Ini berbeda dari dropdown Sortir visual sementara."
+  },
+  "sortId": {
+    "message": "ID"
+  },
   "sortIdAscTooltip": {
     "message": "Sortir berdasarkan ID: terendah dulu"
   },
   "sortIdDescTooltip": {
     "message": "Sortir berdasarkan ID: tertinggi dulu"
   },
-  "sortBookmarks": {
-    "message": "Sortir bookmark"
+  "sortName": {
+    "message": "Nama"
+  },
+  "sortNameAscTooltip": {
+    "message": "Sortir berdasarkan nama: A ke Z"
+  },
+  "sortNameDescTooltip": {
+    "message": "Sortir berdasarkan nama: Z ke A"
+  },
+  "sortNameLower": {
+    "message": "nama"
+  },
+  "sortOrder": {
+    "message": "Urutan"
+  },
+  "sortSelectDateAddedTitle": {
+    "message": "Pengurutan tanggal ditambahkan. Menaik adalah terlama dulu; menurun adalah terbaru dulu."
   },
   "sortSelectDefaultTitle": {
     "message": "Urutan folder Chromium default."
+  },
+  "sortSelectIdTitle": {
+    "message": "Pengurutan ID. Menaik adalah terendah dulu; menurun adalah tertinggi dulu."
   },
   "sortSelectTitleTitle": {
     "message": "Pengurutan nama. Menaik adalah A ke Z; menurun adalah Z ke A."
@@ -479,25 +503,67 @@
   "sortSelectUrlTitle": {
     "message": "Pengurutan URL. Menaik adalah A ke Z; menurun adalah Z ke A."
   },
-  "sortSelectDateAddedTitle": {
-    "message": "Pengurutan tanggal ditambahkan. Menaik adalah terlama dulu; menurun adalah terbaru dulu."
+  "sortUrl": {
+    "message": "URL"
   },
-  "sortSelectIdTitle": {
-    "message": "Pengurutan ID. Menaik adalah terendah dulu; menurun adalah tertinggi dulu."
+  "sortUrlAscTooltip": {
+    "message": "Sortir berdasarkan URL: A ke Z"
   },
-  "managerFailed": {
-    "message": "Pengelola bookmark gagal: {error}"
+  "sortUrlDescTooltip": {
+    "message": "Sortir berdasarkan URL: Z ke A"
   },
-  "notAvailable": {
-    "message": "Tidak tersedia"
+  "sorting": {
+    "message": "Pengurutan"
   },
-  "searchLimitFull": {
-    "message": "Batasi pencarian ke folder saat ini dan subfolder"
+  "thisItem": {
+    "message": "item ini"
   },
-  "optimisationDOMrendering": {
-    "message": "Optimisation: DOM rendering pass"
+  "totalSelected": {
+    "message": "Total dipilih:"
   },
-  "optimisationDOMrenderingHelp": {
-    "message": "Experimental. Enables reduced DOM churn for selected rendering, drag/drop indicators, and row icon handling. Disable only when comparing performance or troubleshooting UI behavior."
+  "unsavedChanges": {
+    "message": "Perubahan belum disimpan"
+  },
+  "unsavedChangesMessage": {
+    "message": "Panel Detail memiliki perubahan yang belum disimpan. Apa yang ingin Anda lakukan?"
+  },
+  "url": {
+    "message": "URL"
+  },
+  "urlWarningControlCharacters": {
+    "message": "URL contained hidden control characters; they will be removed before saving."
+  },
+  "urlWarningEmpty": {
+    "message": "URL is empty. Chrome may reject this bookmark until a URL is provided."
+  },
+  "urlWarningInvalidBlocked": {
+    "message": "This URL is not valid enough to save as a bookmark. Fix the URL before saving."
+  },
+  "urlWarningInvalidButAllowed": {
+    "message": "This URL is not valid enough to save as a bookmark. Fix the URL before saving."
+  },
+  "urlWarningWhitespace": {
+    "message": "URL contains whitespace. It will be saved if Chrome accepts it, but it may not open as expected."
+  },
+  "userInterface": {
+    "message": "Antarmuka Pengguna"
+  },
+  "userInterfaceLanguage": {
+    "message": "Bahasa Antarmuka"
+  },
+  "userInterfaceLanguageHelp": {
+    "message": "Otomatis mengikuti bahasa UI browser. Pilihan manual memengaruhi pengelola dan halaman opsi."
+  },
+  "visualSort": {
+    "message": "Urutan visual:"
+  },
+  "warningsErrorsLog": {
+    "message": "Warnings / Errors Log"
+  },
+  "warningsErrorsLogEmpty": {
+    "message": "No warnings or errors recorded for this session."
+  },
+  "warningsErrorsLogHelp": {
+    "message": "Transient warnings/errors for this current SBM session. This is not saved to settings."
   }
 }

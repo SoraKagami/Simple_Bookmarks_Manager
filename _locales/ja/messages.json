@@ -1,75 +1,159 @@
 {
-  "appName": {
-    "message": "Simple Bookmarks Manager"
+  "about": {
+    "message": "情報"
+  },
+  "actionFailed": {
+    "message": "操作に失敗しました: {error}"
+  },
+  "addNewBookmark": {
+    "message": "新しいブックマークを追加"
+  },
+  "addNewFolder": {
+    "message": "新しいフォルダーを追加"
+  },
+  "addSeparator": {
+    "message": "区切りを追加"
+  },
+  "advanced": {
+    "message": "詳細設定"
+  },
+  "advancedBookmarkDetails": {
+    "message": "ブックマークの詳細情報"
+  },
+  "advancedDetails": {
+    "message": "詳細情報"
+  },
+  "allowKeyboardDelete": {
+    "message": "Delete キーで選択項目を削除する"
+  },
+  "allowKeyboardDeleteHelp": {
+    "message": "無効にすると、Delete キーで選択したブックマーク項目を削除しなくなります。"
   },
   "appDescription": {
     "message": "Firefox Places ライブラリの考え方を参考にした、Chrome/Chromium 用のシンプルなローカルブックマークマネージャーです。"
   },
+  "appName": {
+    "message": "Simple Bookmarks Manager"
+  },
   "back": {
     "message": "戻る"
   },
-  "forward": {
-    "message": "進む"
-  },
-  "newFolder": {
-    "message": "新しいフォルダー"
-  },
-  "newBookmark": {
-    "message": "新しいブックマーク"
-  },
-  "searchBookmarks": {
-    "message": "ブックマークを検索"
-  },
-  "searchLimitTitle": {
-    "message": "有効にすると、現在のフォルダーとそのサブフォルダーだけを検索します。無効にすると、すべてのブックマークを検索します。"
-  },
-  "limitSearchTo": {
-    "message": "検索範囲を制限"
-  },
-  "currentFolderAndSubfolders": {
-    "message": "現在のフォルダーとサブフォルダー"
-  },
-  "openMenu": {
-    "message": "メニューを開く"
-  },
-  "openSbmMenu": {
-    "message": "Simple Bookmarks Manager メニューを開く"
-  },
-  "library": {
-    "message": "ライブラリ"
-  },
-  "visualSort": {
-    "message": "表示順:"
-  },
-  "sortDefault": {
-    "message": "既定"
-  },
-  "sortName": {
-    "message": "名前"
-  },
-  "sortUrl": {
-    "message": "URL"
-  },
-  "sortDateAdded": {
-    "message": "追加日"
-  },
-  "sortDateAddedHeader": {
-    "message": "追加日"
-  },
-  "sortId": {
-    "message": "ID"
-  },
-  "sortOrder": {
-    "message": "順序"
-  },
-  "bookmarksAria": {
+  "bookmarkAlt": {
     "message": "ブックマーク"
+  },
+  "bookmarkFallback": {
+    "message": "(ブックマーク)"
   },
   "bookmarkListColumns": {
     "message": "ブックマークリストの列"
   },
+  "bookmarkMutationFailed": {
+    "message": "Bookmark operation failed ({action}): {error}"
+  },
+  "bookmarkNamePrompt": {
+    "message": "ブックマーク名"
+  },
+  "bookmarkUrlPrompt": {
+    "message": "ブックマーク URL"
+  },
+  "bookmarks": {
+    "message": "ブックマーク"
+  },
+  "bookmarksAria": {
+    "message": "ブックマーク"
+  },
+  "bookmarksPathFallback": {
+    "message": "ブックマーク"
+  },
+  "browserRoot": {
+    "message": "ブラウザールート"
+  },
+  "cancel": {
+    "message": "Cancel"
+  },
   "chooseSortModeTitle": {
     "message": "中央ペインの並べ替えモードを選択します。既定では Chromium のフォルダー順を使用します。"
+  },
+  "clearLog": {
+    "message": "Clear Log"
+  },
+  "clickHideDetails": {
+    "message": "クリックして詳細を隠す"
+  },
+  "clickShowDetails": {
+    "message": "クリックして詳細を表示"
+  },
+  "closeOptions": {
+    "message": "オプションを閉じる"
+  },
+  "collapseAll": {
+    "message": "すべて折りたたむ"
+  },
+  "collapseFolderTitle": {
+    "message": "フォルダーを折りたたむ"
+  },
+  "copy": {
+    "message": "コピー"
+  },
+  "couldNotMoveBookmark": {
+    "message": "ブックマーク項目を移動できませんでした: {error}"
+  },
+  "couldNotOpenTabGroup": {
+    "message": "タブグループを開けませんでした: {error}"
+  },
+  "couldNotOpenWindow": {
+    "message": "{windowType} ウィンドウを開けませんでした: {error}"
+  },
+  "couldNotSaveChanges": {
+    "message": "変更を保存できませんでした: {error}"
+  },
+  "create": {
+    "message": "Create"
+  },
+  "currentFolderAndSubfolders": {
+    "message": "現在のフォルダーとサブフォルダー"
+  },
+  "cut": {
+    "message": "切り取り"
+  },
+  "dateAdded": {
+    "message": "追加日"
+  },
+  "dateLastUsed": {
+    "message": "最終使用日"
+  },
+  "debugFailedBookmarkOperation": {
+    "message": "Debug: cause failed bookmark operation"
+  },
+  "debugFailedBookmarkOperationAction": {
+    "message": "debug failed bookmark operation"
+  },
+  "debugFailureUnexpectedSuccess": {
+    "message": "Debug failure unexpectedly succeeded"
+  },
+  "debugOptions": {
+    "message": "Debug options"
+  },
+  "debugOptionsHelp": {
+    "message": "Advanced. Shows debug-only test controls. Leave disabled during normal use."
+  },
+  "defaultsRestored": {
+    "message": "既定値を復元しました"
+  },
+  "delete": {
+    "message": "削除"
+  },
+  "deleteBookmark": {
+    "message": "ブックマークを削除"
+  },
+  "deleteFolder": {
+    "message": "フォルダーを削除"
+  },
+  "deleteMultipleConfirm": {
+    "message": "選択した {count} 件を削除しますか？"
+  },
+  "deleteSingleConfirm": {
+    "message": "「{label}」を削除しますか？"
   },
   "details": {
     "message": "詳細"
@@ -80,83 +164,59 @@
   "detailsMultiselect": {
     "message": "複数選択の詳細"
   },
-  "url": {
-    "message": "URL"
-  },
-  "parentFolder": {
-    "message": "親フォルダー"
-  },
-  "save": {
-    "message": "保存"
+  "discard": {
+    "message": "破棄"
   },
   "discardChanges": {
     "message": "変更を破棄"
   },
-  "delete": {
-    "message": "削除"
+  "doubleClickExpandCollapseTitle": {
+    "message": "ダブルクリックでこのフォルダーを展開または折りたたみます"
   },
-  "deleteFolder": {
-    "message": "フォルダーを削除"
+  "dragFolderTitle": {
+    "message": "ドラッグしてこのフォルダーを並べ替えます"
   },
-  "deleteBookmark": {
-    "message": "ブックマークを削除"
+  "dragItemTitle": {
+    "message": "ドラッグしてこの項目を移動または並べ替えます"
   },
-  "advancedDetails": {
-    "message": "詳細情報"
+  "edit": {
+    "message": "編集"
   },
-  "advancedBookmarkDetails": {
-    "message": "ブックマークの詳細情報"
-  },
-  "guidUuid": {
-    "message": "GUID / UUID"
-  },
-  "dateAdded": {
-    "message": "追加日"
-  },
-  "dateLastUsed": {
-    "message": "最終使用日"
-  },
-  "totalSelected": {
-    "message": "選択合計:"
-  },
-  "folders": {
-    "message": "フォルダー:"
-  },
-  "bookmarks": {
-    "message": "ブックマーク"
-  },
-  "separators": {
-    "message": "区切り:"
+  "editBookmark": {
+    "message": "Edit Bookmark"
   },
   "emptyDetails": {
     "message": "項目を 1 つ選択するか、フォルダーを選択して内容を表示してください。"
   },
-  "optionsTitle": {
-    "message": "Simple Bookmarks Manager オプション"
+  "enableAdvancedEditing": {
+    "message": "詳細情報の編集を有効にする"
   },
-  "closeOptions": {
-    "message": "オプションを閉じる"
+  "enableAdvancedEditingHelp": {
+    "message": "対応する詳細編集を許可します。現在はブックマークのインデックス変更に限定されます。"
   },
-  "optionSaved": {
-    "message": "保存しました"
+  "enableAdvancedViewing": {
+    "message": "詳細情報の表示を有効にする"
   },
-  "saveFailed": {
-    "message": "保存に失敗しました: {error}"
+  "enableAdvancedViewingHelp": {
+    "message": "読み取り専用の詳細なブックマークメタデータを詳細ペインに表示します。"
   },
-  "loadFailed": {
-    "message": "読み込みに失敗しました: {error}"
+  "expandAll": {
+    "message": "すべて展開"
   },
-  "defaultsRestored": {
-    "message": "既定値を復元しました"
+  "expandFolderTitle": {
+    "message": "フォルダーを展開"
   },
-  "userInterface": {
-    "message": "ユーザーインターフェイス"
+  "folderAlt": {
+    "message": "フォルダー"
   },
-  "userInterfaceLanguage": {
-    "message": "表示言語"
+  "folderFallback": {
+    "message": "(フォルダー)"
   },
-  "userInterfaceLanguageHelp": {
-    "message": "自動ではブラウザー UI の言語に従います。手動選択はマネージャーとオプションページに適用されます。"
+  "folderNamePrompt": {
+    "message": "フォルダー名"
+  },
+  "folders": {
+    "message": "フォルダー:"
   },
   "font": {
     "message": "フォント"
@@ -164,17 +224,14 @@
   "fontHelp": {
     "message": "ブックマークマネージャー UI で使用する主なフォントファミリーを設定します。"
   },
-  "fontSystem": {
-    "message": "システム既定"
+  "fontMono": {
+    "message": "Consolas / 等幅"
   },
   "fontSans": {
     "message": "Arial / Helvetica"
   },
   "fontSerif": {
     "message": "Georgia / Times"
-  },
-  "fontMono": {
-    "message": "Consolas / 等幅"
   },
   "fontSize": {
     "message": "フォントサイズ"
@@ -188,35 +245,35 @@
   "fontSpacingHelp": {
     "message": "行やラベルを詰めたり読みやすくしたりするための行間倍率です。"
   },
-  "search": {
-    "message": "検索"
+  "fontSystem": {
+    "message": "システム既定"
   },
-  "searchLimitOptionHelp": {
-    "message": "有効にすると、メイン検索ボックスは現在表示中のフォルダーツリー内だけを検索します。"
+  "forward": {
+    "message": "進む"
   },
-  "safety": {
-    "message": "安全"
+  "guidUuid": {
+    "message": "GUID / UUID"
   },
-  "showDeleteWarning": {
-    "message": "削除確認を表示"
+  "help": {
+    "message": "ヘルプ"
   },
-  "showDeleteWarningHelp": {
-    "message": "ブックマーク項目やフォルダーを削除する前に確認します。"
+  "hideDetailsPaneTooltip": {
+    "message": "詳細ペインを隠す"
   },
-  "showSortWarning": {
-    "message": "恒久的な並べ替えの確認を表示"
+  "keepEditing": {
+    "message": "編集を続ける"
   },
-  "showSortWarningHelp": {
-    "message": "ブックマークフォルダーの順序を恒久的に変更するコンテキストメニューの並べ替え前に確認します。"
+  "library": {
+    "message": "ライブラリ"
   },
-  "allowKeyboardDelete": {
-    "message": "Delete キーで選択項目を削除する"
+  "limitSearchTo": {
+    "message": "検索範囲を制限"
   },
-  "allowKeyboardDeleteHelp": {
-    "message": "無効にすると、Delete キーで選択したブックマーク項目を削除しなくなります。"
+  "loadFailed": {
+    "message": "読み込みに失敗しました: {error}"
   },
-  "sorting": {
-    "message": "並べ替え"
+  "managerFailed": {
+    "message": "ブックマークマネージャーが失敗しました: {error}"
   },
   "naturalSort": {
     "message": "自然なフォルダー/ブックマーク順を使用"
@@ -224,134 +281,23 @@
   "naturalSortHelp": {
     "message": "恒久的な名前順ソートでは、フォルダー、区切り、ブックマークの順に並べます。"
   },
-  "advanced": {
-    "message": "詳細設定"
+  "newBookmark": {
+    "message": "新しいブックマーク"
   },
-  "enableAdvancedViewing": {
-    "message": "詳細情報の表示を有効にする"
-  },
-  "enableAdvancedViewingHelp": {
-    "message": "読み取り専用の詳細なブックマークメタデータを詳細ペインに表示します。"
-  },
-  "enableAdvancedEditing": {
-    "message": "詳細情報の編集を有効にする"
-  },
-  "enableAdvancedEditingHelp": {
-    "message": "対応する詳細編集を許可します。現在はブックマークのインデックス変更に限定されます。"
-  },
-  "resetDefaults": {
-    "message": "既定値に戻す"
-  },
-  "folderAlt": {
-    "message": "フォルダー"
-  },
-  "bookmarkAlt": {
-    "message": "ブックマーク"
-  },
-  "folderFallback": {
-    "message": "(フォルダー)"
-  },
-  "bookmarkFallback": {
-    "message": "(ブックマーク)"
-  },
-  "rootFallback": {
-    "message": "(ルート)"
-  },
-  "browserRoot": {
-    "message": "ブラウザールート"
-  },
-  "bookmarksPathFallback": {
-    "message": "ブックマーク"
-  },
-  "sortDate": {
-    "message": "日付"
-  },
-  "sortNameLower": {
-    "message": "名前"
-  },
-  "sortFolderConfirm": {
-    "message": "「{folderName}」を {sortName} 順に並べ替えますか？\n\nこれは Chromium に保存されているブックマーク順序を恒久的に変更します。一時的な「表示順」ドロップダウンとは異なります。"
-  },
-  "couldNotOpenWindow": {
-    "message": "{windowType} ウィンドウを開けませんでした: {error}"
-  },
-  "privateWindowType": {
-    "message": "プライベート"
-  },
-  "newWindowType": {
-    "message": "新規"
-  },
-  "couldNotOpenTabGroup": {
-    "message": "タブグループを開けませんでした: {error}"
-  },
-  "newFolderNamePrompt": {
-    "message": "新しいフォルダー名"
-  },
-  "folderNamePrompt": {
-    "message": "フォルダー名"
-  },
-  "bookmarkNamePrompt": {
-    "message": "ブックマーク名"
-  },
-  "bookmarkUrlPrompt": {
-    "message": "ブックマーク URL"
-  },
-  "deleteSingleConfirm": {
-    "message": "「{label}」を削除しますか？"
-  },
-  "deleteMultipleConfirm": {
-    "message": "選択した {count} 件を削除しますか？"
-  },
-  "thisItem": {
-    "message": "この項目"
+  "newFolder": {
+    "message": "新しいフォルダー"
   },
   "newFolderDefaultName": {
     "message": "新しいフォルダー"
   },
-  "couldNotMoveBookmark": {
-    "message": "ブックマーク項目を移動できませんでした: {error}"
+  "newFolderNamePrompt": {
+    "message": "新しいフォルダー名"
   },
-  "actionFailed": {
-    "message": "操作に失敗しました: {error}"
+  "newWindowType": {
+    "message": "新規"
   },
-  "openDefaultBookmarksManager": {
-    "message": "既定のブックマークマネージャーを開く"
-  },
-  "options": {
-    "message": "オプション"
-  },
-  "help": {
-    "message": "ヘルプ"
-  },
-  "about": {
-    "message": "情報"
-  },
-  "renameFolder": {
-    "message": "フォルダー名を変更"
-  },
-  "cut": {
-    "message": "切り取り"
-  },
-  "copy": {
-    "message": "コピー"
-  },
-  "paste": {
-    "message": "貼り付け"
-  },
-  "sortByName": {
-    "message": "名前順に並べ替え"
-  },
-  "sortByDate": {
-    "message": "日付順に並べ替え"
-  },
-  "addNewBookmark": {
-    "message": "新しいブックマークを追加"
-  },
-  "addNewFolder": {
-    "message": "新しいフォルダーを追加"
-  },
-  "addSeparator": {
-    "message": "区切りを追加"
+  "notAvailable": {
+    "message": "利用不可"
   },
   "openAllBookmarks": {
     "message": "すべてのブックマークを開く"
@@ -359,23 +305,26 @@
   "openAllInNewTab": {
     "message": "すべて新しいタブで開く"
   },
+  "openAllInNewTabGroup": {
+    "message": "すべて新しいタブグループで開く"
+  },
   "openAllInNewWindow": {
     "message": "すべて新しいウィンドウで開く"
   },
   "openAllInPrivateWindow": {
     "message": "すべてプライベートウィンドウで開く"
   },
-  "openAllInNewTabGroup": {
-    "message": "すべて新しいタブグループで開く"
-  },
   "openAllInSplitView": {
     "message": "すべて分割ビューで開く"
   },
-  "edit": {
-    "message": "編集"
+  "openDefaultBookmarksManager": {
+    "message": "既定のブックマークマネージャーを開く"
   },
   "openInNewTab": {
     "message": "新しいタブで開く"
+  },
+  "openInNewTabGroup": {
+    "message": "新しいタブグループで開く"
   },
   "openInNewWindow": {
     "message": "新しいウィンドウで開く"
@@ -383,77 +332,122 @@
   "openInPrivateWindow": {
     "message": "プライベートウィンドウで開く"
   },
-  "openInNewTabGroup": {
-    "message": "新しいタブグループで開く"
-  },
   "openInSplitView": {
     "message": "分割ビューで開く"
   },
-  "expandAll": {
-    "message": "すべて展開"
+  "openMenu": {
+    "message": "メニューを開く"
   },
-  "collapseAll": {
-    "message": "すべて折りたたむ"
+  "openSbmMenu": {
+    "message": "Simple Bookmarks Manager メニューを開く"
   },
-  "dragFolderTitle": {
-    "message": "ドラッグしてこのフォルダーを並べ替えます"
+  "optimisationDOMrendering": {
+    "message": "Optimisation: DOM rendering pass"
   },
-  "collapseFolderTitle": {
-    "message": "フォルダーを折りたたむ"
+  "optimisationDOMrenderingHelp": {
+    "message": "Experimental. Enables reduced DOM churn for selected rendering, drag/drop indicators, and row icon handling. Disable only when comparing performance or troubleshooting UI behavior."
   },
-  "expandFolderTitle": {
-    "message": "フォルダーを展開"
+  "optimisationTempBookmarkTreeMaps": {
+    "message": "Optimisation: temporary bookmark tree maps"
   },
-  "doubleClickExpandCollapseTitle": {
-    "message": "ダブルクリックでこのフォルダーを展開または折りたたみます"
+  "optimisationTempBookmarkTreeMapsHelp": {
+    "message": "Experimental. Builds short-lived lookup maps during some render/search/tree operations, then discards them to avoid a persistent stale cache."
   },
-  "hideDetailsPaneTooltip": {
-    "message": "詳細ペインを隠す"
+  "optionSaved": {
+    "message": "保存しました"
   },
-  "showDetailsPaneTooltip": {
-    "message": "詳細ペインを表示"
+  "options": {
+    "message": "オプション"
   },
-  "clickHideDetails": {
-    "message": "クリックして詳細を隠す"
+  "optionsTitle": {
+    "message": "Simple Bookmarks Manager オプション"
   },
-  "clickShowDetails": {
-    "message": "クリックして詳細を表示"
+  "parentFolder": {
+    "message": "親フォルダー"
   },
-  "dragItemTitle": {
-    "message": "ドラッグしてこの項目を移動または並べ替えます"
+  "paste": {
+    "message": "貼り付け"
+  },
+  "privateWindowType": {
+    "message": "プライベート"
+  },
+  "renameFolder": {
+    "message": "フォルダー名を変更"
+  },
+  "resetDefaults": {
+    "message": "既定値に戻す"
+  },
+  "rootFallback": {
+    "message": "(ルート)"
+  },
+  "safety": {
+    "message": "安全"
+  },
+  "save": {
+    "message": "保存"
+  },
+  "saveFailed": {
+    "message": "保存に失敗しました: {error}"
+  },
+  "search": {
+    "message": "検索"
+  },
+  "searchBookmarks": {
+    "message": "ブックマークを検索"
+  },
+  "searchLimitFull": {
+    "message": "検索を現在のフォルダーとサブフォルダーに制限"
+  },
+  "searchLimitOptionHelp": {
+    "message": "有効にすると、メイン検索ボックスは現在表示中のフォルダーツリー内だけを検索します。"
+  },
+  "searchLimitTitle": {
+    "message": "有効にすると、現在のフォルダーとそのサブフォルダーだけを検索します。無効にすると、すべてのブックマークを検索します。"
   },
   "separator": {
     "message": "区切り"
   },
-  "unsavedChanges": {
-    "message": "未保存の変更"
+  "separators": {
+    "message": "区切り:"
   },
-  "unsavedChangesMessage": {
-    "message": "詳細ペインに未保存の変更があります。どうしますか？"
+  "showDeleteWarning": {
+    "message": "削除確認を表示"
   },
-  "keepEditing": {
-    "message": "編集を続ける"
+  "showDeleteWarningHelp": {
+    "message": "ブックマーク項目やフォルダーを削除する前に確認します。"
   },
-  "discard": {
-    "message": "破棄"
+  "showDetailsPaneTooltip": {
+    "message": "詳細ペインを表示"
   },
-  "couldNotSaveChanges": {
-    "message": "変更を保存できませんでした: {error}"
+  "showErrorsWarnings": {
+    "message": "Show warnings/errors log"
   },
-  "sortDefaultTooltip": {
-    "message": "既定の Chromium フォルダー順です。クリックすると既定の並べ替えに戻ります。この列は逆順ソートしません。"
+  "showErrorsWarningsHelp": {
+    "message": "Advanced. Shows a transient in-memory log for this SBM session. Log entries are not saved to extension settings."
   },
-  "sortNameAscTooltip": {
-    "message": "名前順: A から Z"
+  "showSortWarning": {
+    "message": "恒久的な並べ替えの確認を表示"
   },
-  "sortNameDescTooltip": {
-    "message": "名前順: Z から A"
+  "showSortWarningHelp": {
+    "message": "ブックマークフォルダーの順序を恒久的に変更するコンテキストメニューの並べ替え前に確認します。"
   },
-  "sortUrlAscTooltip": {
-    "message": "URL 順: A から Z"
+  "sortBookmarks": {
+    "message": "ブックマークを並べ替え"
   },
-  "sortUrlDescTooltip": {
-    "message": "URL 順: Z から A"
+  "sortByDate": {
+    "message": "日付順に並べ替え"
+  },
+  "sortByName": {
+    "message": "名前順に並べ替え"
+  },
+  "sortDate": {
+    "message": "日付"
+  },
+  "sortDateAdded": {
+    "message": "追加日"
+  },
+  "sortDateAddedHeader": {
+    "message": "追加日"
   },
   "sortDateAscTooltip": {
     "message": "追加日順: 古い順"
@@ -461,17 +455,47 @@
   "sortDateDescTooltip": {
     "message": "追加日順: 新しい順"
   },
+  "sortDefault": {
+    "message": "既定"
+  },
+  "sortDefaultTooltip": {
+    "message": "既定の Chromium フォルダー順です。クリックすると既定の並べ替えに戻ります。この列は逆順ソートしません。"
+  },
+  "sortFolderConfirm": {
+    "message": "「{folderName}」を {sortName} 順に並べ替えますか？\n\nこれは Chromium に保存されているブックマーク順序を恒久的に変更します。一時的な「表示順」ドロップダウンとは異なります。"
+  },
+  "sortId": {
+    "message": "ID"
+  },
   "sortIdAscTooltip": {
     "message": "ID 順: 小さい順"
   },
   "sortIdDescTooltip": {
     "message": "ID 順: 大きい順"
   },
-  "sortBookmarks": {
-    "message": "ブックマークを並べ替え"
+  "sortName": {
+    "message": "名前"
+  },
+  "sortNameAscTooltip": {
+    "message": "名前順: A から Z"
+  },
+  "sortNameDescTooltip": {
+    "message": "名前順: Z から A"
+  },
+  "sortNameLower": {
+    "message": "名前"
+  },
+  "sortOrder": {
+    "message": "順序"
+  },
+  "sortSelectDateAddedTitle": {
+    "message": "追加日順です。昇順は古い順、降順は新しい順です。"
   },
   "sortSelectDefaultTitle": {
     "message": "既定の Chromium フォルダー順です。"
+  },
+  "sortSelectIdTitle": {
+    "message": "ID 順です。昇順は小さい順、降順は大きい順です。"
   },
   "sortSelectTitleTitle": {
     "message": "名前順です。昇順は A から Z、降順は Z から A です。"
@@ -479,25 +503,67 @@
   "sortSelectUrlTitle": {
     "message": "URL 順です。昇順は A から Z、降順は Z から A です。"
   },
-  "sortSelectDateAddedTitle": {
-    "message": "追加日順です。昇順は古い順、降順は新しい順です。"
+  "sortUrl": {
+    "message": "URL"
   },
-  "sortSelectIdTitle": {
-    "message": "ID 順です。昇順は小さい順、降順は大きい順です。"
+  "sortUrlAscTooltip": {
+    "message": "URL 順: A から Z"
   },
-  "managerFailed": {
-    "message": "ブックマークマネージャーが失敗しました: {error}"
+  "sortUrlDescTooltip": {
+    "message": "URL 順: Z から A"
   },
-  "notAvailable": {
-    "message": "利用不可"
+  "sorting": {
+    "message": "並べ替え"
   },
-  "searchLimitFull": {
-    "message": "検索を現在のフォルダーとサブフォルダーに制限"
+  "thisItem": {
+    "message": "この項目"
   },
-  "optimisationDOMrendering": {
-    "message": "Optimisation: DOM rendering pass"
+  "totalSelected": {
+    "message": "選択合計:"
   },
-  "optimisationDOMrenderingHelp": {
-    "message": "Experimental. Enables reduced DOM churn for selected rendering, drag/drop indicators, and row icon handling. Disable only when comparing performance or troubleshooting UI behavior."
+  "unsavedChanges": {
+    "message": "未保存の変更"
+  },
+  "unsavedChangesMessage": {
+    "message": "詳細ペインに未保存の変更があります。どうしますか？"
+  },
+  "url": {
+    "message": "URL"
+  },
+  "urlWarningControlCharacters": {
+    "message": "URL contained hidden control characters; they will be removed before saving."
+  },
+  "urlWarningEmpty": {
+    "message": "URL is empty. Chrome may reject this bookmark until a URL is provided."
+  },
+  "urlWarningInvalidBlocked": {
+    "message": "This URL is not valid enough to save as a bookmark. Fix the URL before saving."
+  },
+  "urlWarningInvalidButAllowed": {
+    "message": "This URL is not valid enough to save as a bookmark. Fix the URL before saving."
+  },
+  "urlWarningWhitespace": {
+    "message": "URL contains whitespace. It will be saved if Chrome accepts it, but it may not open as expected."
+  },
+  "userInterface": {
+    "message": "ユーザーインターフェイス"
+  },
+  "userInterfaceLanguage": {
+    "message": "表示言語"
+  },
+  "userInterfaceLanguageHelp": {
+    "message": "自動ではブラウザー UI の言語に従います。手動選択はマネージャーとオプションページに適用されます。"
+  },
+  "visualSort": {
+    "message": "表示順:"
+  },
+  "warningsErrorsLog": {
+    "message": "Warnings / Errors Log"
+  },
+  "warningsErrorsLogEmpty": {
+    "message": "No warnings or errors recorded for this session."
+  },
+  "warningsErrorsLogHelp": {
+    "message": "Transient warnings/errors for this current SBM session. This is not saved to settings."
   }
 }

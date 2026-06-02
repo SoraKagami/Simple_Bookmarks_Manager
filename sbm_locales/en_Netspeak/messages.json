@@ -1,75 +1,159 @@
 {
-  "appName": {
-    "message": "S1mpl3 B00km4rkz M4n4g3r"
+  "about": {
+    "message": "4b0u7"
+  },
+  "actionFailed": {
+    "message": "4c710n f41l3d: {error}"
+  },
+  "addNewBookmark": {
+    "message": "4dd N3w B00km4rk"
+  },
+  "addNewFolder": {
+    "message": "4dd N3w F0ld3r"
+  },
+  "addSeparator": {
+    "message": "4dd Z3p4r470r"
+  },
+  "advanced": {
+    "message": "4dv4nc3d"
+  },
+  "advancedBookmarkDetails": {
+    "message": "4dv4nc3d b00km4rk d3741lz"
+  },
+  "advancedDetails": {
+    "message": "4dv4nc3d D3741lz"
+  },
+  "allowKeyboardDelete": {
+    "message": "4ll0w D3l373 k3y 70 d3l373 z3l3c73d 173mz"
+  },
+  "allowKeyboardDeleteHelp": {
+    "message": "Wh3n d1z4bl3d, 7h3 D3l373 k3y n0 l0ng3r d3l373z z3l3c73d b00km4rk 3n7r13z."
   },
   "appDescription": {
     "message": "A tiny local b00km4rk wr4ngl3r for Chrome/Chromium, Firefox Places vibes included. lol"
   },
+  "appName": {
+    "message": "S1mpl3 B00km4rkz M4n4g3r"
+  },
   "back": {
     "message": "B4ck plz"
   },
-  "forward": {
-    "message": "F0rw4rd >>"
+  "bookmarkAlt": {
+    "message": "B00km4rk"
   },
-  "newFolder": {
-    "message": "N3w F0ld3r ✨"
-  },
-  "newBookmark": {
-    "message": "N3w B00km4rk ★"
-  },
-  "searchBookmarks": {
-    "message": "S34rch teh b00km4rkz"
-  },
-  "searchLimitTitle": {
-    "message": "Wh3n 3n4bl3d, z34rch 0nly 7h3 curr3n7 f0ld3r 4nd 17z zubf0ld3rz. Wh3n d1z4bl3d, z34rch 4ll b00km4rkz."
-  },
-  "limitSearchTo": {
-    "message": "L1m17 s34rch 2"
-  },
-  "currentFolderAndSubfolders": {
-    "message": "Th1s F0ld3r + Subz"
-  },
-  "openMenu": {
-    "message": "0p3n m3nu"
-  },
-  "openSbmMenu": {
-    "message": "0p3n Z1mpl3 B00km4rkz M4n4g3r m3nu"
-  },
-  "library": {
-    "message": "L1br4ry lulz"
-  },
-  "visualSort": {
-    "message": "V1su4l s0r7:"
-  },
-  "sortDefault": {
-    "message": "D3f4ul7"
-  },
-  "sortName": {
-    "message": "N4m3"
-  },
-  "sortUrl": {
-    "message": "URLz"
-  },
-  "sortDateAdded": {
-    "message": "D473 4dd3d"
-  },
-  "sortDateAddedHeader": {
-    "message": "D473 4dd3d"
-  },
-  "sortId": {
-    "message": "ID"
-  },
-  "sortOrder": {
-    "message": "0rd3r"
-  },
-  "bookmarksAria": {
-    "message": "B00km4rkz"
+  "bookmarkFallback": {
+    "message": "(b00km4rk)"
   },
   "bookmarkListColumns": {
     "message": "B00km4rk l1z7 c0lumnz"
   },
+  "bookmarkMutationFailed": {
+    "message": "Bookmark operation failed ({action}): {error}"
+  },
+  "bookmarkNamePrompt": {
+    "message": "B00km4rk n4m3"
+  },
+  "bookmarkUrlPrompt": {
+    "message": "B00km4rk URL"
+  },
+  "bookmarks": {
+    "message": "B00km4rkz:"
+  },
+  "bookmarksAria": {
+    "message": "B00km4rkz"
+  },
+  "bookmarksPathFallback": {
+    "message": "B00km4rkz"
+  },
+  "browserRoot": {
+    "message": "Br0wz3r r007"
+  },
+  "cancel": {
+    "message": "Cancel"
+  },
   "chooseSortModeTitle": {
     "message": "Ch00z3 7h3 m1ddl3-p4n3 z0r7 m0d3. D3f4ul7 uz3z Chr0m1um’z f0ld3r 0rd3r."
+  },
+  "clearLog": {
+    "message": "Clear Log"
+  },
+  "clickHideDetails": {
+    "message": "Cl1ck 70 H1d3 D3741lz"
+  },
+  "clickShowDetails": {
+    "message": "Cl1ck 70 Zh0w D3741lz"
+  },
+  "closeOptions": {
+    "message": "Cl0z3 0p710nz"
+  },
+  "collapseAll": {
+    "message": "C0ll4ps3 4ll"
+  },
+  "collapseFolderTitle": {
+    "message": "C0ll4pz3 f0ld3r"
+  },
+  "copy": {
+    "message": "C0py"
+  },
+  "couldNotMoveBookmark": {
+    "message": "C0uld n07 m0v3 b00km4rk 173m: {error}"
+  },
+  "couldNotOpenTabGroup": {
+    "message": "C0uld n07 0p3n 74b gr0up: {error}"
+  },
+  "couldNotOpenWindow": {
+    "message": "C0uld n07 0p3n {windowType} w1nd0w: {error}"
+  },
+  "couldNotSaveChanges": {
+    "message": "C0uld n07 z4v3 ch4ng3z: {error}"
+  },
+  "create": {
+    "message": "Create"
+  },
+  "currentFolderAndSubfolders": {
+    "message": "Th1s F0ld3r + Subz"
+  },
+  "cut": {
+    "message": "Cu7"
+  },
+  "dateAdded": {
+    "message": "D473 4dd3d"
+  },
+  "dateLastUsed": {
+    "message": "D473 L4z7 Uz3d"
+  },
+  "debugFailedBookmarkOperation": {
+    "message": "Debug: cause failed bookmark operation"
+  },
+  "debugFailedBookmarkOperationAction": {
+    "message": "debug failed bookmark operation"
+  },
+  "debugFailureUnexpectedSuccess": {
+    "message": "Debug failure unexpectedly succeeded"
+  },
+  "debugOptions": {
+    "message": "Debug options"
+  },
+  "debugOptionsHelp": {
+    "message": "Advanced. Shows debug-only test controls. Leave disabled during normal use."
+  },
+  "defaultsRestored": {
+    "message": "D3f4ul7z r3z70r3d"
+  },
+  "delete": {
+    "message": "D3l373"
+  },
+  "deleteBookmark": {
+    "message": "D3l373 B00km4rk"
+  },
+  "deleteFolder": {
+    "message": "D3l373 F0ld3r"
+  },
+  "deleteMultipleConfirm": {
+    "message": "D3l373 {count} z3l3c73d 173m(z)?"
+  },
+  "deleteSingleConfirm": {
+    "message": "D3l373 \"{label}\"?"
   },
   "details": {
     "message": "D3741lz"
@@ -80,83 +164,59 @@
   "detailsMultiselect": {
     "message": "MUL71-S3L3C7 D3741LZ"
   },
-  "url": {
-    "message": "URL"
-  },
-  "parentFolder": {
-    "message": "P4r3n7 f0ld3r"
-  },
-  "save": {
-    "message": "S4v3"
+  "discard": {
+    "message": "Y33t"
   },
   "discardChanges": {
     "message": "Y33t Ch4ng3z"
   },
-  "delete": {
-    "message": "D3l373"
+  "doubleClickExpandCollapseTitle": {
+    "message": "D0ubl3-cl1ck 70 3xp4nd 0r c0ll4pz3 7h1z f0ld3r"
   },
-  "deleteFolder": {
-    "message": "D3l373 F0ld3r"
+  "dragFolderTitle": {
+    "message": "Dr4g 70 r30rd3r 7h1z f0ld3r"
   },
-  "deleteBookmark": {
-    "message": "D3l373 B00km4rk"
+  "dragItemTitle": {
+    "message": "Dr4g 70 m0v3 0r r30rd3r 7h1z 173m"
   },
-  "advancedDetails": {
-    "message": "4dv4nc3d D3741lz"
+  "edit": {
+    "message": "3d17"
   },
-  "advancedBookmarkDetails": {
-    "message": "4dv4nc3d b00km4rk d3741lz"
-  },
-  "guidUuid": {
-    "message": "GU1D / UU1D"
-  },
-  "dateAdded": {
-    "message": "D473 4dd3d"
-  },
-  "dateLastUsed": {
-    "message": "D473 L4z7 Uz3d"
-  },
-  "totalSelected": {
-    "message": "7074l z3l3c73d:"
-  },
-  "folders": {
-    "message": "F0ld3rz:"
-  },
-  "bookmarks": {
-    "message": "B00km4rkz:"
-  },
-  "separators": {
-    "message": "Z3p4r470rz:"
+  "editBookmark": {
+    "message": "Edit Bookmark"
   },
   "emptyDetails": {
     "message": "Z3l3c7 0n3 173m, 0r z3l3c7 4 f0ld3r 70 zh0w 17z c0n73n7z."
   },
-  "optionsTitle": {
-    "message": "Z1mpl3 B00km4rkz M4n4g3r 0p710nz"
+  "enableAdvancedEditing": {
+    "message": "3n4bl3 4dv4nc3d d3741lz 3d171ng"
   },
-  "closeOptions": {
-    "message": "Cl0z3 0p710nz"
+  "enableAdvancedEditingHelp": {
+    "message": "4ll0w zupp0r73d 4dv4nc3d 3d171ng, curr3n7ly l1m173d 70 b00km4rk 1nd3x ch4ng3z."
   },
-  "optionSaved": {
-    "message": "Z4v3d"
+  "enableAdvancedViewing": {
+    "message": "3n4bl3 4dv4nc3d d3741lz v13w1ng"
   },
-  "saveFailed": {
-    "message": "Z4v3 f41l3d: {error}"
+  "enableAdvancedViewingHelp": {
+    "message": "Zh0w r34d-0nly 4dv4nc3d b00km4rk m374d474 1n 7h3 D3741lz p4n3."
   },
-  "loadFailed": {
-    "message": "L04d f41l3d: {error}"
+  "expandAll": {
+    "message": "3xp4nd 4ll"
   },
-  "defaultsRestored": {
-    "message": "D3f4ul7z r3z70r3d"
+  "expandFolderTitle": {
+    "message": "3xp4nd f0ld3r"
   },
-  "userInterface": {
-    "message": "UI Zone"
+  "folderAlt": {
+    "message": "F0ld3r"
   },
-  "userInterfaceLanguage": {
-    "message": "UI L4ngu4g3"
+  "folderFallback": {
+    "message": "(f0ld3r)"
   },
-  "userInterfaceLanguageHelp": {
-    "message": "4u70m471c f0ll0wz 7h3 br0wz3r U1 l4ngu4g3. M4nu4l ch01c3z 4ff3c7 7h3 m4n4g3r 4nd 0p710nz p4g3z."
+  "folderNamePrompt": {
+    "message": "F0ld3r n4m3"
+  },
+  "folders": {
+    "message": "F0ld3rz:"
   },
   "font": {
     "message": "F0n7"
@@ -164,17 +224,14 @@
   "fontHelp": {
     "message": "C0n7r0lz 7h3 m41n f0n7 f4m1ly uz3d by 7h3 b00km4rk m4n4g3r U1."
   },
-  "fontSystem": {
-    "message": "Zyz73m d3f4ul7"
+  "fontMono": {
+    "message": "C0nz0l4z / m0n0zp4c3"
   },
   "fontSans": {
     "message": "4r14l / H3lv371c4"
   },
   "fontSerif": {
     "message": "G30rg14 / 71m3z"
-  },
-  "fontMono": {
-    "message": "C0nz0l4z / m0n0zp4c3"
   },
   "fontSize": {
     "message": "F0n7 s1z3"
@@ -188,35 +245,35 @@
   "fontSpacingHelp": {
     "message": "L1n3 zp4c1ng mul71pl13r f0r d3nz3r 0r m0r3 r34d4bl3 r0wz 4nd l4b3lz."
   },
-  "search": {
-    "message": "S34rch"
+  "fontSystem": {
+    "message": "Zyz73m d3f4ul7"
   },
-  "searchLimitOptionHelp": {
-    "message": "Wh3n 3n4bl3d, 7h3 m41n z34rch b0x z34rch3z 0nly 1nz1d3 7h3 curr3n7 v1z1bl3 f0ld3r 7r33."
+  "forward": {
+    "message": "F0rw4rd >>"
   },
-  "safety": {
-    "message": "S4f37y"
+  "guidUuid": {
+    "message": "GU1D / UU1D"
   },
-  "showDeleteWarning": {
-    "message": "Zh0w d3l373 c0nf1rm4710n w4rn1ng"
+  "help": {
+    "message": "H4lp"
   },
-  "showDeleteWarningHelp": {
-    "message": "4zk b3f0r3 d3l371ng b00km4rk 173mz 0r f0ld3rz."
+  "hideDetailsPaneTooltip": {
+    "message": "H1d3 7h3 D3741lz p4n3"
   },
-  "showSortWarning": {
-    "message": "Zh0w p3rm4n3n7 z0r7 c0nf1rm4710n w4rn1ng"
+  "keepEditing": {
+    "message": "K33p 3d171ng"
   },
-  "showSortWarningHelp": {
-    "message": "4zk b3f0r3 4pply1ng c0n73x7-m3nu z0r7z 7h47 p3rm4n3n7ly r30rd3r 4 b00km4rk f0ld3r."
+  "library": {
+    "message": "L1br4ry lulz"
   },
-  "allowKeyboardDelete": {
-    "message": "4ll0w D3l373 k3y 70 d3l373 z3l3c73d 173mz"
+  "limitSearchTo": {
+    "message": "L1m17 s34rch 2"
   },
-  "allowKeyboardDeleteHelp": {
-    "message": "Wh3n d1z4bl3d, 7h3 D3l373 k3y n0 l0ng3r d3l373z z3l3c73d b00km4rk 3n7r13z."
+  "loadFailed": {
+    "message": "L04d f41l3d: {error}"
   },
-  "sorting": {
-    "message": "S0r71ng"
+  "managerFailed": {
+    "message": "B00km4rk m4n4g3r f41l3d: {error}"
   },
   "naturalSort": {
     "message": "Uz3 n47ur4l f0ld3r/b00km4rk z0r7 0rd3r"
@@ -224,134 +281,23 @@
   "naturalSortHelp": {
     "message": "P3rm4n3n7 Z0r7 by N4m3 pl4c3z f0ld3rz f1rz7, z3p4r470rz n3x7, 7h3n b00km4rkz."
   },
-  "advanced": {
-    "message": "4dv4nc3d"
+  "newBookmark": {
+    "message": "N3w B00km4rk ★"
   },
-  "enableAdvancedViewing": {
-    "message": "3n4bl3 4dv4nc3d d3741lz v13w1ng"
-  },
-  "enableAdvancedViewingHelp": {
-    "message": "Zh0w r34d-0nly 4dv4nc3d b00km4rk m374d474 1n 7h3 D3741lz p4n3."
-  },
-  "enableAdvancedEditing": {
-    "message": "3n4bl3 4dv4nc3d d3741lz 3d171ng"
-  },
-  "enableAdvancedEditingHelp": {
-    "message": "4ll0w zupp0r73d 4dv4nc3d 3d171ng, curr3n7ly l1m173d 70 b00km4rk 1nd3x ch4ng3z."
-  },
-  "resetDefaults": {
-    "message": "R3s37 2 D3f4ul7z"
-  },
-  "folderAlt": {
-    "message": "F0ld3r"
-  },
-  "bookmarkAlt": {
-    "message": "B00km4rk"
-  },
-  "folderFallback": {
-    "message": "(f0ld3r)"
-  },
-  "bookmarkFallback": {
-    "message": "(b00km4rk)"
-  },
-  "rootFallback": {
-    "message": "(r007)"
-  },
-  "browserRoot": {
-    "message": "Br0wz3r r007"
-  },
-  "bookmarksPathFallback": {
-    "message": "B00km4rkz"
-  },
-  "sortDate": {
-    "message": "d473"
-  },
-  "sortNameLower": {
-    "message": "n4m3"
-  },
-  "sortFolderConfirm": {
-    "message": "Z0r7 \"{folderName}\" by {sortName}?\n\n7h1z p3rm4n3n7ly ch4ng3z 7h3 z4v3d b00km4rk 0rd3r 1n Chr0m1um. 17 1z d1ff3r3n7 fr0m 7h3 73mp0r4ry V1zu4l z0r7 dr0pd0wn."
-  },
-  "couldNotOpenWindow": {
-    "message": "C0uld n07 0p3n {windowType} w1nd0w: {error}"
-  },
-  "privateWindowType": {
-    "message": "pr1v473"
-  },
-  "newWindowType": {
-    "message": "n3w"
-  },
-  "couldNotOpenTabGroup": {
-    "message": "C0uld n07 0p3n 74b gr0up: {error}"
-  },
-  "newFolderNamePrompt": {
-    "message": "N3w f0ld3r n4m3"
-  },
-  "folderNamePrompt": {
-    "message": "F0ld3r n4m3"
-  },
-  "bookmarkNamePrompt": {
-    "message": "B00km4rk n4m3"
-  },
-  "bookmarkUrlPrompt": {
-    "message": "B00km4rk URL"
-  },
-  "deleteSingleConfirm": {
-    "message": "D3l373 \"{label}\"?"
-  },
-  "deleteMultipleConfirm": {
-    "message": "D3l373 {count} z3l3c73d 173m(z)?"
-  },
-  "thisItem": {
-    "message": "7h1z 173m"
+  "newFolder": {
+    "message": "N3w F0ld3r ✨"
   },
   "newFolderDefaultName": {
     "message": "N3w F0ld3r"
   },
-  "couldNotMoveBookmark": {
-    "message": "C0uld n07 m0v3 b00km4rk 173m: {error}"
+  "newFolderNamePrompt": {
+    "message": "N3w f0ld3r n4m3"
   },
-  "actionFailed": {
-    "message": "4c710n f41l3d: {error}"
+  "newWindowType": {
+    "message": "n3w"
   },
-  "openDefaultBookmarksManager": {
-    "message": "0p3n D3f4ul7 B00km4rkz M4n4g3r"
-  },
-  "options": {
-    "message": "0p710nz"
-  },
-  "help": {
-    "message": "H4lp"
-  },
-  "about": {
-    "message": "4b0u7"
-  },
-  "renameFolder": {
-    "message": "R3n4m3 F0ld3r"
-  },
-  "cut": {
-    "message": "Cu7"
-  },
-  "copy": {
-    "message": "C0py"
-  },
-  "paste": {
-    "message": "P4s73"
-  },
-  "sortByName": {
-    "message": "Z0r7 by N4m3"
-  },
-  "sortByDate": {
-    "message": "Z0r7 by D473"
-  },
-  "addNewBookmark": {
-    "message": "4dd N3w B00km4rk"
-  },
-  "addNewFolder": {
-    "message": "4dd N3w F0ld3r"
-  },
-  "addSeparator": {
-    "message": "4dd Z3p4r470r"
+  "notAvailable": {
+    "message": "N/A, sry"
   },
   "openAllBookmarks": {
     "message": "0p3n 4ll B00km4rkz"
@@ -359,23 +305,26 @@
   "openAllInNewTab": {
     "message": "0p3n 4ll 1n N3w 74b"
   },
+  "openAllInNewTabGroup": {
+    "message": "0p3n 4ll 1n N3w 74b Gr0up"
+  },
   "openAllInNewWindow": {
     "message": "0p3n 4ll 1n N3w W1nd0w"
   },
   "openAllInPrivateWindow": {
     "message": "0p3n 4ll 1n Pr1v473 W1nd0w"
   },
-  "openAllInNewTabGroup": {
-    "message": "0p3n 4ll 1n N3w 74b Gr0up"
-  },
   "openAllInSplitView": {
     "message": "0p3n 4ll 1n Zpl17 V13w"
   },
-  "edit": {
-    "message": "3d17"
+  "openDefaultBookmarksManager": {
+    "message": "0p3n D3f4ul7 B00km4rkz M4n4g3r"
   },
   "openInNewTab": {
     "message": "0p3n 1n N3w 74b"
+  },
+  "openInNewTabGroup": {
+    "message": "0p3n 1n N3w 74b Gr0up"
   },
   "openInNewWindow": {
     "message": "0p3n 1n N3w W1nd0w"
@@ -383,77 +332,122 @@
   "openInPrivateWindow": {
     "message": "0p3n 1n Pr1v473 W1nd0w"
   },
-  "openInNewTabGroup": {
-    "message": "0p3n 1n N3w 74b Gr0up"
-  },
   "openInSplitView": {
     "message": "0p3n 1n Zpl17 V13w"
   },
-  "expandAll": {
-    "message": "3xp4nd 4ll"
+  "openMenu": {
+    "message": "0p3n m3nu"
   },
-  "collapseAll": {
-    "message": "C0ll4ps3 4ll"
+  "openSbmMenu": {
+    "message": "0p3n Z1mpl3 B00km4rkz M4n4g3r m3nu"
   },
-  "dragFolderTitle": {
-    "message": "Dr4g 70 r30rd3r 7h1z f0ld3r"
+  "optimisationDOMrendering": {
+    "message": "Optimisation: DOM rendering pass"
   },
-  "collapseFolderTitle": {
-    "message": "C0ll4pz3 f0ld3r"
+  "optimisationDOMrenderingHelp": {
+    "message": "Experimental. Enables reduced DOM churn for selected rendering, drag/drop indicators, and row icon handling. Disable only when comparing performance or troubleshooting UI behavior."
   },
-  "expandFolderTitle": {
-    "message": "3xp4nd f0ld3r"
+  "optimisationTempBookmarkTreeMaps": {
+    "message": "Optimisation: temporary bookmark tree maps"
   },
-  "doubleClickExpandCollapseTitle": {
-    "message": "D0ubl3-cl1ck 70 3xp4nd 0r c0ll4pz3 7h1z f0ld3r"
+  "optimisationTempBookmarkTreeMapsHelp": {
+    "message": "Experimental. Builds short-lived lookup maps during some render/search/tree operations, then discards them to avoid a persistent stale cache."
   },
-  "hideDetailsPaneTooltip": {
-    "message": "H1d3 7h3 D3741lz p4n3"
+  "optionSaved": {
+    "message": "Z4v3d"
   },
-  "showDetailsPaneTooltip": {
-    "message": "Zh0w 7h3 D3741lz p4n3"
+  "options": {
+    "message": "0p710nz"
   },
-  "clickHideDetails": {
-    "message": "Cl1ck 70 H1d3 D3741lz"
+  "optionsTitle": {
+    "message": "Z1mpl3 B00km4rkz M4n4g3r 0p710nz"
   },
-  "clickShowDetails": {
-    "message": "Cl1ck 70 Zh0w D3741lz"
+  "parentFolder": {
+    "message": "P4r3n7 f0ld3r"
   },
-  "dragItemTitle": {
-    "message": "Dr4g 70 m0v3 0r r30rd3r 7h1z 173m"
+  "paste": {
+    "message": "P4s73"
+  },
+  "privateWindowType": {
+    "message": "pr1v473"
+  },
+  "renameFolder": {
+    "message": "R3n4m3 F0ld3r"
+  },
+  "resetDefaults": {
+    "message": "R3s37 2 D3f4ul7z"
+  },
+  "rootFallback": {
+    "message": "(r007)"
+  },
+  "safety": {
+    "message": "S4f37y"
+  },
+  "save": {
+    "message": "S4v3"
+  },
+  "saveFailed": {
+    "message": "Z4v3 f41l3d: {error}"
+  },
+  "search": {
+    "message": "S34rch"
+  },
+  "searchBookmarks": {
+    "message": "S34rch teh b00km4rkz"
+  },
+  "searchLimitFull": {
+    "message": "L1m17 Z34rch 70 Curr3n7 F0ld3r & Zubf0ld3rz"
+  },
+  "searchLimitOptionHelp": {
+    "message": "Wh3n 3n4bl3d, 7h3 m41n z34rch b0x z34rch3z 0nly 1nz1d3 7h3 curr3n7 v1z1bl3 f0ld3r 7r33."
+  },
+  "searchLimitTitle": {
+    "message": "Wh3n 3n4bl3d, z34rch 0nly 7h3 curr3n7 f0ld3r 4nd 17z zubf0ld3rz. Wh3n d1z4bl3d, z34rch 4ll b00km4rkz."
   },
   "separator": {
     "message": "-- s3p4r470r --"
   },
-  "unsavedChanges": {
-    "message": "Uns4v3d ch4ng3z!"
+  "separators": {
+    "message": "Z3p4r470rz:"
   },
-  "unsavedChangesMessage": {
-    "message": "7h3 D3741lz p4n3 h4z unz4v3d ch4ng3z. Wh47 w0uld y0u l1k3 70 d0?"
+  "showDeleteWarning": {
+    "message": "Zh0w d3l373 c0nf1rm4710n w4rn1ng"
   },
-  "keepEditing": {
-    "message": "K33p 3d171ng"
+  "showDeleteWarningHelp": {
+    "message": "4zk b3f0r3 d3l371ng b00km4rk 173mz 0r f0ld3rz."
   },
-  "discard": {
-    "message": "Y33t"
+  "showDetailsPaneTooltip": {
+    "message": "Zh0w 7h3 D3741lz p4n3"
   },
-  "couldNotSaveChanges": {
-    "message": "C0uld n07 z4v3 ch4ng3z: {error}"
+  "showErrorsWarnings": {
+    "message": "Show warnings/errors log"
   },
-  "sortDefaultTooltip": {
-    "message": "D3f4ul7 Chr0m1um f0ld3r 0rd3r. Cl1ck 70 r37urn 70 D3f4ul7 z0r71ng; 7h1z c0lumn d03z n07 r3v3rz3-z0r7."
+  "showErrorsWarningsHelp": {
+    "message": "Advanced. Shows a transient in-memory log for this SBM session. Log entries are not saved to extension settings."
   },
-  "sortNameAscTooltip": {
-    "message": "Z0r7 by n4m3: 4 70 Z"
+  "showSortWarning": {
+    "message": "Zh0w p3rm4n3n7 z0r7 c0nf1rm4710n w4rn1ng"
   },
-  "sortNameDescTooltip": {
-    "message": "Z0r7 by n4m3: Z 70 4"
+  "showSortWarningHelp": {
+    "message": "4zk b3f0r3 4pply1ng c0n73x7-m3nu z0r7z 7h47 p3rm4n3n7ly r30rd3r 4 b00km4rk f0ld3r."
   },
-  "sortUrlAscTooltip": {
-    "message": "Z0r7 by URL: 4 70 Z"
+  "sortBookmarks": {
+    "message": "Z0r7 b00km4rkz"
   },
-  "sortUrlDescTooltip": {
-    "message": "Z0r7 by URL: Z 70 4"
+  "sortByDate": {
+    "message": "Z0r7 by D473"
+  },
+  "sortByName": {
+    "message": "Z0r7 by N4m3"
+  },
+  "sortDate": {
+    "message": "d473"
+  },
+  "sortDateAdded": {
+    "message": "D473 4dd3d"
+  },
+  "sortDateAddedHeader": {
+    "message": "D473 4dd3d"
   },
   "sortDateAscTooltip": {
     "message": "Z0r7 by d473 4dd3d: 0ld3z7 f1rz7"
@@ -461,17 +455,47 @@
   "sortDateDescTooltip": {
     "message": "Z0r7 by d473 4dd3d: n3w3z7 f1rz7"
   },
+  "sortDefault": {
+    "message": "D3f4ul7"
+  },
+  "sortDefaultTooltip": {
+    "message": "D3f4ul7 Chr0m1um f0ld3r 0rd3r. Cl1ck 70 r37urn 70 D3f4ul7 z0r71ng; 7h1z c0lumn d03z n07 r3v3rz3-z0r7."
+  },
+  "sortFolderConfirm": {
+    "message": "Z0r7 \"{folderName}\" by {sortName}?\n\n7h1z p3rm4n3n7ly ch4ng3z 7h3 z4v3d b00km4rk 0rd3r 1n Chr0m1um. 17 1z d1ff3r3n7 fr0m 7h3 73mp0r4ry V1zu4l z0r7 dr0pd0wn."
+  },
+  "sortId": {
+    "message": "ID"
+  },
   "sortIdAscTooltip": {
     "message": "Z0r7 by 1D: l0w3z7 f1rz7"
   },
   "sortIdDescTooltip": {
     "message": "Z0r7 by 1D: h1gh3z7 f1rz7"
   },
-  "sortBookmarks": {
-    "message": "Z0r7 b00km4rkz"
+  "sortName": {
+    "message": "N4m3"
+  },
+  "sortNameAscTooltip": {
+    "message": "Z0r7 by n4m3: 4 70 Z"
+  },
+  "sortNameDescTooltip": {
+    "message": "Z0r7 by n4m3: Z 70 4"
+  },
+  "sortNameLower": {
+    "message": "n4m3"
+  },
+  "sortOrder": {
+    "message": "0rd3r"
+  },
+  "sortSelectDateAddedTitle": {
+    "message": "D473 4dd3d z0r7. 4zc3nd1ng 1z 0ld3z7 f1rz7; d3zc3nd1ng 1z n3w3z7 f1rz7."
   },
   "sortSelectDefaultTitle": {
     "message": "D3f4ul7 Chr0m1um f0ld3r 0rd3r."
+  },
+  "sortSelectIdTitle": {
+    "message": "1D z0r7. 4zc3nd1ng 1z l0w3z7 f1rz7; d3zc3nd1ng 1z h1gh3z7 f1rz7."
   },
   "sortSelectTitleTitle": {
     "message": "N4m3 z0r7. 4zc3nd1ng 1z 4 70 Z; d3zc3nd1ng 1z Z 70 4."
@@ -479,19 +503,67 @@
   "sortSelectUrlTitle": {
     "message": "URL z0r7. 4zc3nd1ng 1z 4 70 Z; d3zc3nd1ng 1z Z 70 4."
   },
-  "sortSelectDateAddedTitle": {
-    "message": "D473 4dd3d z0r7. 4zc3nd1ng 1z 0ld3z7 f1rz7; d3zc3nd1ng 1z n3w3z7 f1rz7."
+  "sortUrl": {
+    "message": "URLz"
   },
-  "sortSelectIdTitle": {
-    "message": "1D z0r7. 4zc3nd1ng 1z l0w3z7 f1rz7; d3zc3nd1ng 1z h1gh3z7 f1rz7."
+  "sortUrlAscTooltip": {
+    "message": "Z0r7 by URL: 4 70 Z"
   },
-  "managerFailed": {
-    "message": "B00km4rk m4n4g3r f41l3d: {error}"
+  "sortUrlDescTooltip": {
+    "message": "Z0r7 by URL: Z 70 4"
   },
-  "notAvailable": {
-    "message": "N/A, sry"
+  "sorting": {
+    "message": "S0r71ng"
   },
-  "searchLimitFull": {
-    "message": "L1m17 Z34rch 70 Curr3n7 F0ld3r & Zubf0ld3rz"
+  "thisItem": {
+    "message": "7h1z 173m"
+  },
+  "totalSelected": {
+    "message": "7074l z3l3c73d:"
+  },
+  "unsavedChanges": {
+    "message": "Uns4v3d ch4ng3z!"
+  },
+  "unsavedChangesMessage": {
+    "message": "7h3 D3741lz p4n3 h4z unz4v3d ch4ng3z. Wh47 w0uld y0u l1k3 70 d0?"
+  },
+  "url": {
+    "message": "URL"
+  },
+  "urlWarningControlCharacters": {
+    "message": "URL contained hidden control characters; they will be removed before saving."
+  },
+  "urlWarningEmpty": {
+    "message": "URL is empty. Chrome may reject this bookmark until a URL is provided."
+  },
+  "urlWarningInvalidBlocked": {
+    "message": "This URL is not valid enough to save as a bookmark. Fix the URL before saving."
+  },
+  "urlWarningInvalidButAllowed": {
+    "message": "This URL is not valid enough to save as a bookmark. Fix the URL before saving."
+  },
+  "urlWarningWhitespace": {
+    "message": "URL contains whitespace. It will be saved if Chrome accepts it, but it may not open as expected."
+  },
+  "userInterface": {
+    "message": "UI Zone"
+  },
+  "userInterfaceLanguage": {
+    "message": "UI L4ngu4g3"
+  },
+  "userInterfaceLanguageHelp": {
+    "message": "4u70m471c f0ll0wz 7h3 br0wz3r U1 l4ngu4g3. M4nu4l ch01c3z 4ff3c7 7h3 m4n4g3r 4nd 0p710nz p4g3z."
+  },
+  "visualSort": {
+    "message": "V1su4l s0r7:"
+  },
+  "warningsErrorsLog": {
+    "message": "Warnings / Errors Log"
+  },
+  "warningsErrorsLogEmpty": {
+    "message": "No warnings or errors recorded for this session."
+  },
+  "warningsErrorsLogHelp": {
+    "message": "Transient warnings/errors for this current SBM session. This is not saved to settings."
   }
 }

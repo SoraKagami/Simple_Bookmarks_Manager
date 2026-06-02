@@ -1,5 +1,14 @@
 # Changelog
 
+## 0.7.10
+
+- Added `Show_ErrorsWarnings`, disabled by default.
+- Added an Advanced Options toggle that shows a transient warnings/errors log at the bottom of the Options page.
+- Captures SBM `console.warn` and `console.error` output in memory for the current manager/options session without storing log entries in extension settings.
+- Added `DebugOptions`, disabled by default, with a debug button that intentionally triggers a failed bookmark operation for testing failure handling.
+- Bookmark create/update/delete failures now show a user-facing alert with the failed action and error reason while also logging to the transient console log.
+- Updated `manifest.json` to `0.7.10`.
+
 ## 0.7.9
 
 - Reviewed asynchronous bookmark mutation paths for race-condition risks from external bookmark changes.

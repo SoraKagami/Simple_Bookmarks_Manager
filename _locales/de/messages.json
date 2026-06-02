@@ -1,75 +1,159 @@
 {
-  "appName": {
-    "message": "Simple Bookmarks Manager"
+  "about": {
+    "message": "Über"
+  },
+  "actionFailed": {
+    "message": "Aktion fehlgeschlagen: {error}"
+  },
+  "addNewBookmark": {
+    "message": "Neues Lesezeichen hinzufügen"
+  },
+  "addNewFolder": {
+    "message": "Neuen Ordner hinzufügen"
+  },
+  "addSeparator": {
+    "message": "Trennlinie hinzufügen"
+  },
+  "advanced": {
+    "message": "Erweitert"
+  },
+  "advancedBookmarkDetails": {
+    "message": "Erweiterte Lesezeichendetails"
+  },
+  "advancedDetails": {
+    "message": "Erweiterte Details"
+  },
+  "allowKeyboardDelete": {
+    "message": "Entf-Taste zum Löschen erlauben"
+  },
+  "allowKeyboardDeleteHelp": {
+    "message": "Wenn deaktiviert, löscht die Entf-Taste ausgewählte Lesezeicheneinträge nicht mehr."
   },
   "appDescription": {
     "message": "Ein einfacher lokaler Lesezeichen-Manager für Chrome/Chromium, inspiriert von den Mustern der Firefox-Places-Bibliothek."
   },
+  "appName": {
+    "message": "Simple Bookmarks Manager"
+  },
   "back": {
     "message": "Zurück"
   },
-  "forward": {
-    "message": "Vorwärts"
-  },
-  "newFolder": {
-    "message": "Neuer Ordner"
-  },
-  "newBookmark": {
-    "message": "Neues Lesezeichen"
-  },
-  "searchBookmarks": {
-    "message": "Lesezeichen suchen"
-  },
-  "searchLimitTitle": {
-    "message": "Wenn aktiviert, wird nur der aktuelle Ordner mit seinen Unterordnern durchsucht. Wenn deaktiviert, werden alle Lesezeichen durchsucht."
-  },
-  "limitSearchTo": {
-    "message": "Suche begrenzen auf"
-  },
-  "currentFolderAndSubfolders": {
-    "message": "Aktueller Ordner und Unterordner"
-  },
-  "openMenu": {
-    "message": "Menü öffnen"
-  },
-  "openSbmMenu": {
-    "message": "Simple-Bookmarks-Manager-Menü öffnen"
-  },
-  "library": {
-    "message": "Bibliothek"
-  },
-  "visualSort": {
-    "message": "Visuelle Sortierung:"
-  },
-  "sortDefault": {
-    "message": "Standard"
-  },
-  "sortName": {
-    "message": "Name"
-  },
-  "sortUrl": {
-    "message": "URL"
-  },
-  "sortDateAdded": {
-    "message": "Hinzugefügt am"
-  },
-  "sortDateAddedHeader": {
-    "message": "Hinzugefügt am"
-  },
-  "sortId": {
-    "message": "ID"
-  },
-  "sortOrder": {
-    "message": "Reihenfolge"
-  },
-  "bookmarksAria": {
+  "bookmarkAlt": {
     "message": "Lesezeichen"
+  },
+  "bookmarkFallback": {
+    "message": "(Lesezeichen)"
   },
   "bookmarkListColumns": {
     "message": "Spalten der Lesezeichenliste"
   },
+  "bookmarkMutationFailed": {
+    "message": "Bookmark operation failed ({action}): {error}"
+  },
+  "bookmarkNamePrompt": {
+    "message": "Lesezeichenname"
+  },
+  "bookmarkUrlPrompt": {
+    "message": "Lesezeichen-URL"
+  },
+  "bookmarks": {
+    "message": "Lesezeichen"
+  },
+  "bookmarksAria": {
+    "message": "Lesezeichen"
+  },
+  "bookmarksPathFallback": {
+    "message": "Lesezeichen"
+  },
+  "browserRoot": {
+    "message": "Browser-Stamm"
+  },
+  "cancel": {
+    "message": "Cancel"
+  },
   "chooseSortModeTitle": {
     "message": "Sortiermodus für den mittleren Bereich auswählen. Standard verwendet die Ordnerreihenfolge von Chromium."
+  },
+  "clearLog": {
+    "message": "Clear Log"
+  },
+  "clickHideDetails": {
+    "message": "Klicken, um Details auszublenden"
+  },
+  "clickShowDetails": {
+    "message": "Klicken, um Details anzuzeigen"
+  },
+  "closeOptions": {
+    "message": "Optionen schließen"
+  },
+  "collapseAll": {
+    "message": "Alle reduzieren"
+  },
+  "collapseFolderTitle": {
+    "message": "Ordner einklappen"
+  },
+  "copy": {
+    "message": "Kopieren"
+  },
+  "couldNotMoveBookmark": {
+    "message": "Lesezeichenelement konnte nicht verschoben werden: {error}"
+  },
+  "couldNotOpenTabGroup": {
+    "message": "Tabgruppe konnte nicht geöffnet werden: {error}"
+  },
+  "couldNotOpenWindow": {
+    "message": "Fenster „{windowType}“ konnte nicht geöffnet werden: {error}"
+  },
+  "couldNotSaveChanges": {
+    "message": "Änderungen konnten nicht gespeichert werden: {error}"
+  },
+  "create": {
+    "message": "Create"
+  },
+  "currentFolderAndSubfolders": {
+    "message": "Aktueller Ordner und Unterordner"
+  },
+  "cut": {
+    "message": "Ausschneiden"
+  },
+  "dateAdded": {
+    "message": "Hinzugefügt am"
+  },
+  "dateLastUsed": {
+    "message": "Zuletzt verwendet"
+  },
+  "debugFailedBookmarkOperation": {
+    "message": "Debug: cause failed bookmark operation"
+  },
+  "debugFailedBookmarkOperationAction": {
+    "message": "debug failed bookmark operation"
+  },
+  "debugFailureUnexpectedSuccess": {
+    "message": "Debug failure unexpectedly succeeded"
+  },
+  "debugOptions": {
+    "message": "Debug options"
+  },
+  "debugOptionsHelp": {
+    "message": "Advanced. Shows debug-only test controls. Leave disabled during normal use."
+  },
+  "defaultsRestored": {
+    "message": "Standardwerte wiederhergestellt"
+  },
+  "delete": {
+    "message": "Löschen"
+  },
+  "deleteBookmark": {
+    "message": "Lesezeichen löschen"
+  },
+  "deleteFolder": {
+    "message": "Ordner löschen"
+  },
+  "deleteMultipleConfirm": {
+    "message": "{count} ausgewählte Element(e) löschen?"
+  },
+  "deleteSingleConfirm": {
+    "message": "„{label}“ löschen?"
   },
   "details": {
     "message": "Details"
@@ -80,83 +164,59 @@
   "detailsMultiselect": {
     "message": "Mehrfachauswahl-Details"
   },
-  "url": {
-    "message": "URL"
-  },
-  "parentFolder": {
-    "message": "Übergeordneter Ordner"
-  },
-  "save": {
-    "message": "Speichern"
+  "discard": {
+    "message": "Verwerfen"
   },
   "discardChanges": {
     "message": "Änderungen verwerfen"
   },
-  "delete": {
-    "message": "Löschen"
+  "doubleClickExpandCollapseTitle": {
+    "message": "Doppelklicken, um diesen Ordner aus- oder einzuklappen"
   },
-  "deleteFolder": {
-    "message": "Ordner löschen"
+  "dragFolderTitle": {
+    "message": "Ziehen, um diesen Ordner neu anzuordnen"
   },
-  "deleteBookmark": {
-    "message": "Lesezeichen löschen"
+  "dragItemTitle": {
+    "message": "Ziehen, um dieses Element zu verschieben oder neu anzuordnen"
   },
-  "advancedDetails": {
-    "message": "Erweiterte Details"
+  "edit": {
+    "message": "Bearbeiten"
   },
-  "advancedBookmarkDetails": {
-    "message": "Erweiterte Lesezeichendetails"
-  },
-  "guidUuid": {
-    "message": "GUID / UUID"
-  },
-  "dateAdded": {
-    "message": "Hinzugefügt am"
-  },
-  "dateLastUsed": {
-    "message": "Zuletzt verwendet"
-  },
-  "totalSelected": {
-    "message": "Ausgewählt gesamt:"
-  },
-  "folders": {
-    "message": "Ordner:"
-  },
-  "bookmarks": {
-    "message": "Lesezeichen"
-  },
-  "separators": {
-    "message": "Trennlinien:"
+  "editBookmark": {
+    "message": "Edit Bookmark"
   },
   "emptyDetails": {
     "message": "Wählen Sie ein Element aus oder wählen Sie einen Ordner, um dessen Inhalt anzuzeigen."
   },
-  "optionsTitle": {
-    "message": "Optionen für Simple Bookmarks Manager"
+  "enableAdvancedEditing": {
+    "message": "Erweiterte Detailbearbeitung aktivieren"
   },
-  "closeOptions": {
-    "message": "Optionen schließen"
+  "enableAdvancedEditingHelp": {
+    "message": "Unterstützte erweiterte Bearbeitung zulassen, derzeit auf Änderungen des Lesezeichenindex beschränkt."
   },
-  "optionSaved": {
-    "message": "Gespeichert"
+  "enableAdvancedViewing": {
+    "message": "Erweiterte Detailansicht aktivieren"
   },
-  "saveFailed": {
-    "message": "Speichern fehlgeschlagen: {error}"
+  "enableAdvancedViewingHelp": {
+    "message": "Schreibgeschützte erweiterte Lesezeichen-Metadaten im Details-Bereich anzeigen."
   },
-  "loadFailed": {
-    "message": "Laden fehlgeschlagen: {error}"
+  "expandAll": {
+    "message": "Alle erweitern"
   },
-  "defaultsRestored": {
-    "message": "Standardwerte wiederhergestellt"
+  "expandFolderTitle": {
+    "message": "Ordner ausklappen"
   },
-  "userInterface": {
-    "message": "Benutzeroberfläche"
+  "folderAlt": {
+    "message": "Ordner"
   },
-  "userInterfaceLanguage": {
-    "message": "Sprache der Benutzeroberfläche"
+  "folderFallback": {
+    "message": "(Ordner)"
   },
-  "userInterfaceLanguageHelp": {
-    "message": "Automatisch folgt der Sprache der Browseroberfläche. Manuelle Auswahl wirkt sich auf Manager- und Optionsseiten aus."
+  "folderNamePrompt": {
+    "message": "Ordnername"
+  },
+  "folders": {
+    "message": "Ordner:"
   },
   "font": {
     "message": "Schriftart"
@@ -164,17 +224,14 @@
   "fontHelp": {
     "message": "Steuert die Hauptschriftfamilie der Lesezeichen-Manager-Oberfläche."
   },
-  "fontSystem": {
-    "message": "Systemstandard"
+  "fontMono": {
+    "message": "Consolas / Monospace"
   },
   "fontSans": {
     "message": "Arial / Helvetica"
   },
   "fontSerif": {
     "message": "Georgia / Times"
-  },
-  "fontMono": {
-    "message": "Consolas / Monospace"
   },
   "fontSize": {
     "message": "Schriftgröße"
@@ -188,35 +245,35 @@
   "fontSpacingHelp": {
     "message": "Zeilenabstands-Multiplikator für kompaktere oder besser lesbare Zeilen und Beschriftungen."
   },
-  "search": {
-    "message": "Suche"
+  "fontSystem": {
+    "message": "Systemstandard"
   },
-  "searchLimitOptionHelp": {
-    "message": "Wenn aktiviert, durchsucht das Hauptsuchfeld nur den aktuell sichtbaren Ordnerbaum."
+  "forward": {
+    "message": "Vorwärts"
   },
-  "safety": {
-    "message": "Sicherheit"
+  "guidUuid": {
+    "message": "GUID / UUID"
   },
-  "showDeleteWarning": {
-    "message": "Löschbestätigung anzeigen"
+  "help": {
+    "message": "Hilfe"
   },
-  "showDeleteWarningHelp": {
-    "message": "Vor dem Löschen von Lesezeichenelementen oder Ordnern nachfragen."
+  "hideDetailsPaneTooltip": {
+    "message": "Details-Bereich ausblenden"
   },
-  "showSortWarning": {
-    "message": "Bestätigung für dauerhafte Sortierung anzeigen"
+  "keepEditing": {
+    "message": "Weiter bearbeiten"
   },
-  "showSortWarningHelp": {
-    "message": "Vor Kontextmenü-Sortierungen nachfragen, die die Reihenfolge eines Lesezeichenordners dauerhaft ändern."
+  "library": {
+    "message": "Bibliothek"
   },
-  "allowKeyboardDelete": {
-    "message": "Entf-Taste zum Löschen erlauben"
+  "limitSearchTo": {
+    "message": "Suche begrenzen auf"
   },
-  "allowKeyboardDeleteHelp": {
-    "message": "Wenn deaktiviert, löscht die Entf-Taste ausgewählte Lesezeicheneinträge nicht mehr."
+  "loadFailed": {
+    "message": "Laden fehlgeschlagen: {error}"
   },
-  "sorting": {
-    "message": "Sortierung"
+  "managerFailed": {
+    "message": "Lesezeichen-Manager fehlgeschlagen: {error}"
   },
   "naturalSort": {
     "message": "Natürliche Ordner-/Lesezeichen-Sortierung verwenden"
@@ -224,134 +281,23 @@
   "naturalSortHelp": {
     "message": "Dauerhaftes Sortieren nach Name platziert zuerst Ordner, dann Trennlinien und danach Lesezeichen."
   },
-  "advanced": {
-    "message": "Erweitert"
+  "newBookmark": {
+    "message": "Neues Lesezeichen"
   },
-  "enableAdvancedViewing": {
-    "message": "Erweiterte Detailansicht aktivieren"
-  },
-  "enableAdvancedViewingHelp": {
-    "message": "Schreibgeschützte erweiterte Lesezeichen-Metadaten im Details-Bereich anzeigen."
-  },
-  "enableAdvancedEditing": {
-    "message": "Erweiterte Detailbearbeitung aktivieren"
-  },
-  "enableAdvancedEditingHelp": {
-    "message": "Unterstützte erweiterte Bearbeitung zulassen, derzeit auf Änderungen des Lesezeichenindex beschränkt."
-  },
-  "resetDefaults": {
-    "message": "Standardwerte wiederherstellen"
-  },
-  "folderAlt": {
-    "message": "Ordner"
-  },
-  "bookmarkAlt": {
-    "message": "Lesezeichen"
-  },
-  "folderFallback": {
-    "message": "(Ordner)"
-  },
-  "bookmarkFallback": {
-    "message": "(Lesezeichen)"
-  },
-  "rootFallback": {
-    "message": "(Stamm)"
-  },
-  "browserRoot": {
-    "message": "Browser-Stamm"
-  },
-  "bookmarksPathFallback": {
-    "message": "Lesezeichen"
-  },
-  "sortDate": {
-    "message": "Datum"
-  },
-  "sortNameLower": {
-    "message": "Name"
-  },
-  "sortFolderConfirm": {
-    "message": "„{folderName}“ nach {sortName} sortieren?\n\nDies ändert die gespeicherte Lesezeichenreihenfolge in Chromium dauerhaft. Es unterscheidet sich von der temporären Dropdown-Auswahl „Visuelle Sortierung“."
-  },
-  "couldNotOpenWindow": {
-    "message": "Fenster „{windowType}“ konnte nicht geöffnet werden: {error}"
-  },
-  "privateWindowType": {
-    "message": "privat"
-  },
-  "newWindowType": {
-    "message": "neu"
-  },
-  "couldNotOpenTabGroup": {
-    "message": "Tabgruppe konnte nicht geöffnet werden: {error}"
-  },
-  "newFolderNamePrompt": {
-    "message": "Name des neuen Ordners"
-  },
-  "folderNamePrompt": {
-    "message": "Ordnername"
-  },
-  "bookmarkNamePrompt": {
-    "message": "Lesezeichenname"
-  },
-  "bookmarkUrlPrompt": {
-    "message": "Lesezeichen-URL"
-  },
-  "deleteSingleConfirm": {
-    "message": "„{label}“ löschen?"
-  },
-  "deleteMultipleConfirm": {
-    "message": "{count} ausgewählte Element(e) löschen?"
-  },
-  "thisItem": {
-    "message": "dieses Element"
+  "newFolder": {
+    "message": "Neuer Ordner"
   },
   "newFolderDefaultName": {
     "message": "Neuer Ordner"
   },
-  "couldNotMoveBookmark": {
-    "message": "Lesezeichenelement konnte nicht verschoben werden: {error}"
+  "newFolderNamePrompt": {
+    "message": "Name des neuen Ordners"
   },
-  "actionFailed": {
-    "message": "Aktion fehlgeschlagen: {error}"
+  "newWindowType": {
+    "message": "neu"
   },
-  "openDefaultBookmarksManager": {
-    "message": "Standard-Lesezeichen-Manager öffnen"
-  },
-  "options": {
-    "message": "Optionen"
-  },
-  "help": {
-    "message": "Hilfe"
-  },
-  "about": {
-    "message": "Über"
-  },
-  "renameFolder": {
-    "message": "Ordner umbenennen"
-  },
-  "cut": {
-    "message": "Ausschneiden"
-  },
-  "copy": {
-    "message": "Kopieren"
-  },
-  "paste": {
-    "message": "Einfügen"
-  },
-  "sortByName": {
-    "message": "Nach Name sortieren"
-  },
-  "sortByDate": {
-    "message": "Nach Datum sortieren"
-  },
-  "addNewBookmark": {
-    "message": "Neues Lesezeichen hinzufügen"
-  },
-  "addNewFolder": {
-    "message": "Neuen Ordner hinzufügen"
-  },
-  "addSeparator": {
-    "message": "Trennlinie hinzufügen"
+  "notAvailable": {
+    "message": "Nicht verfügbar"
   },
   "openAllBookmarks": {
     "message": "Alle Lesezeichen öffnen"
@@ -359,23 +305,26 @@
   "openAllInNewTab": {
     "message": "Alle in neuen Tabs öffnen"
   },
+  "openAllInNewTabGroup": {
+    "message": "Alle in neuer Tabgruppe öffnen"
+  },
   "openAllInNewWindow": {
     "message": "Alle in neuem Fenster öffnen"
   },
   "openAllInPrivateWindow": {
     "message": "Alle in privatem Fenster öffnen"
   },
-  "openAllInNewTabGroup": {
-    "message": "Alle in neuer Tabgruppe öffnen"
-  },
   "openAllInSplitView": {
     "message": "Alle in geteilter Ansicht öffnen"
   },
-  "edit": {
-    "message": "Bearbeiten"
+  "openDefaultBookmarksManager": {
+    "message": "Standard-Lesezeichen-Manager öffnen"
   },
   "openInNewTab": {
     "message": "In neuem Tab öffnen"
+  },
+  "openInNewTabGroup": {
+    "message": "In neuer Tabgruppe öffnen"
   },
   "openInNewWindow": {
     "message": "In neuem Fenster öffnen"
@@ -383,77 +332,122 @@
   "openInPrivateWindow": {
     "message": "In privatem Fenster öffnen"
   },
-  "openInNewTabGroup": {
-    "message": "In neuer Tabgruppe öffnen"
-  },
   "openInSplitView": {
     "message": "In geteilter Ansicht öffnen"
   },
-  "expandAll": {
-    "message": "Alle erweitern"
+  "openMenu": {
+    "message": "Menü öffnen"
   },
-  "collapseAll": {
-    "message": "Alle reduzieren"
+  "openSbmMenu": {
+    "message": "Simple-Bookmarks-Manager-Menü öffnen"
   },
-  "dragFolderTitle": {
-    "message": "Ziehen, um diesen Ordner neu anzuordnen"
+  "optimisationDOMrendering": {
+    "message": "Optimisation: DOM rendering pass"
   },
-  "collapseFolderTitle": {
-    "message": "Ordner einklappen"
+  "optimisationDOMrenderingHelp": {
+    "message": "Experimental. Enables reduced DOM churn for selected rendering, drag/drop indicators, and row icon handling. Disable only when comparing performance or troubleshooting UI behavior."
   },
-  "expandFolderTitle": {
-    "message": "Ordner ausklappen"
+  "optimisationTempBookmarkTreeMaps": {
+    "message": "Optimisation: temporary bookmark tree maps"
   },
-  "doubleClickExpandCollapseTitle": {
-    "message": "Doppelklicken, um diesen Ordner aus- oder einzuklappen"
+  "optimisationTempBookmarkTreeMapsHelp": {
+    "message": "Experimental. Builds short-lived lookup maps during some render/search/tree operations, then discards them to avoid a persistent stale cache."
   },
-  "hideDetailsPaneTooltip": {
-    "message": "Details-Bereich ausblenden"
+  "optionSaved": {
+    "message": "Gespeichert"
   },
-  "showDetailsPaneTooltip": {
-    "message": "Details-Bereich anzeigen"
+  "options": {
+    "message": "Optionen"
   },
-  "clickHideDetails": {
-    "message": "Klicken, um Details auszublenden"
+  "optionsTitle": {
+    "message": "Optionen für Simple Bookmarks Manager"
   },
-  "clickShowDetails": {
-    "message": "Klicken, um Details anzuzeigen"
+  "parentFolder": {
+    "message": "Übergeordneter Ordner"
   },
-  "dragItemTitle": {
-    "message": "Ziehen, um dieses Element zu verschieben oder neu anzuordnen"
+  "paste": {
+    "message": "Einfügen"
+  },
+  "privateWindowType": {
+    "message": "privat"
+  },
+  "renameFolder": {
+    "message": "Ordner umbenennen"
+  },
+  "resetDefaults": {
+    "message": "Standardwerte wiederherstellen"
+  },
+  "rootFallback": {
+    "message": "(Stamm)"
+  },
+  "safety": {
+    "message": "Sicherheit"
+  },
+  "save": {
+    "message": "Speichern"
+  },
+  "saveFailed": {
+    "message": "Speichern fehlgeschlagen: {error}"
+  },
+  "search": {
+    "message": "Suche"
+  },
+  "searchBookmarks": {
+    "message": "Lesezeichen suchen"
+  },
+  "searchLimitFull": {
+    "message": "Suche auf aktuellen Ordner und Unterordner begrenzen"
+  },
+  "searchLimitOptionHelp": {
+    "message": "Wenn aktiviert, durchsucht das Hauptsuchfeld nur den aktuell sichtbaren Ordnerbaum."
+  },
+  "searchLimitTitle": {
+    "message": "Wenn aktiviert, wird nur der aktuelle Ordner mit seinen Unterordnern durchsucht. Wenn deaktiviert, werden alle Lesezeichen durchsucht."
   },
   "separator": {
     "message": "Trennlinie"
   },
-  "unsavedChanges": {
-    "message": "Nicht gespeicherte Änderungen"
+  "separators": {
+    "message": "Trennlinien:"
   },
-  "unsavedChangesMessage": {
-    "message": "Der Details-Bereich enthält ungespeicherte Änderungen. Was möchten Sie tun?"
+  "showDeleteWarning": {
+    "message": "Löschbestätigung anzeigen"
   },
-  "keepEditing": {
-    "message": "Weiter bearbeiten"
+  "showDeleteWarningHelp": {
+    "message": "Vor dem Löschen von Lesezeichenelementen oder Ordnern nachfragen."
   },
-  "discard": {
-    "message": "Verwerfen"
+  "showDetailsPaneTooltip": {
+    "message": "Details-Bereich anzeigen"
   },
-  "couldNotSaveChanges": {
-    "message": "Änderungen konnten nicht gespeichert werden: {error}"
+  "showErrorsWarnings": {
+    "message": "Show warnings/errors log"
   },
-  "sortDefaultTooltip": {
-    "message": "Standardmäßige Chromium-Ordnerreihenfolge. Klicken, um zur Standardsortierung zurückzukehren; diese Spalte wird nicht rückwärts sortiert."
+  "showErrorsWarningsHelp": {
+    "message": "Advanced. Shows a transient in-memory log for this SBM session. Log entries are not saved to extension settings."
   },
-  "sortNameAscTooltip": {
-    "message": "Nach Name sortieren: A bis Z"
+  "showSortWarning": {
+    "message": "Bestätigung für dauerhafte Sortierung anzeigen"
   },
-  "sortNameDescTooltip": {
-    "message": "Nach Name sortieren: Z bis A"
+  "showSortWarningHelp": {
+    "message": "Vor Kontextmenü-Sortierungen nachfragen, die die Reihenfolge eines Lesezeichenordners dauerhaft ändern."
   },
-  "sortUrlAscTooltip": {
-    "message": "Nach URL sortieren: A bis Z"
+  "sortBookmarks": {
+    "message": "Lesezeichen sortieren"
   },
-  "sortUrlDescTooltip": {
-    "message": "Nach URL sortieren: Z bis A"
+  "sortByDate": {
+    "message": "Nach Datum sortieren"
+  },
+  "sortByName": {
+    "message": "Nach Name sortieren"
+  },
+  "sortDate": {
+    "message": "Datum"
+  },
+  "sortDateAdded": {
+    "message": "Hinzugefügt am"
+  },
+  "sortDateAddedHeader": {
+    "message": "Hinzugefügt am"
   },
   "sortDateAscTooltip": {
     "message": "Nach Hinzufügedatum sortieren: älteste zuerst"
@@ -461,17 +455,47 @@
   "sortDateDescTooltip": {
     "message": "Nach Hinzufügedatum sortieren: neueste zuerst"
   },
+  "sortDefault": {
+    "message": "Standard"
+  },
+  "sortDefaultTooltip": {
+    "message": "Standardmäßige Chromium-Ordnerreihenfolge. Klicken, um zur Standardsortierung zurückzukehren; diese Spalte wird nicht rückwärts sortiert."
+  },
+  "sortFolderConfirm": {
+    "message": "„{folderName}“ nach {sortName} sortieren?\n\nDies ändert die gespeicherte Lesezeichenreihenfolge in Chromium dauerhaft. Es unterscheidet sich von der temporären Dropdown-Auswahl „Visuelle Sortierung“."
+  },
+  "sortId": {
+    "message": "ID"
+  },
   "sortIdAscTooltip": {
     "message": "Nach ID sortieren: niedrigste zuerst"
   },
   "sortIdDescTooltip": {
     "message": "Nach ID sortieren: höchste zuerst"
   },
-  "sortBookmarks": {
-    "message": "Lesezeichen sortieren"
+  "sortName": {
+    "message": "Name"
+  },
+  "sortNameAscTooltip": {
+    "message": "Nach Name sortieren: A bis Z"
+  },
+  "sortNameDescTooltip": {
+    "message": "Nach Name sortieren: Z bis A"
+  },
+  "sortNameLower": {
+    "message": "Name"
+  },
+  "sortOrder": {
+    "message": "Reihenfolge"
+  },
+  "sortSelectDateAddedTitle": {
+    "message": "Sortierung nach Hinzufügedatum. Aufsteigend ist älteste zuerst; absteigend ist neueste zuerst."
   },
   "sortSelectDefaultTitle": {
     "message": "Standardmäßige Chromium-Ordnerreihenfolge."
+  },
+  "sortSelectIdTitle": {
+    "message": "ID-Sortierung. Aufsteigend ist niedrigste zuerst; absteigend ist höchste zuerst."
   },
   "sortSelectTitleTitle": {
     "message": "Namenssortierung. Aufsteigend ist A bis Z; absteigend ist Z bis A."
@@ -479,25 +503,67 @@
   "sortSelectUrlTitle": {
     "message": "URL-Sortierung. Aufsteigend ist A bis Z; absteigend ist Z bis A."
   },
-  "sortSelectDateAddedTitle": {
-    "message": "Sortierung nach Hinzufügedatum. Aufsteigend ist älteste zuerst; absteigend ist neueste zuerst."
+  "sortUrl": {
+    "message": "URL"
   },
-  "sortSelectIdTitle": {
-    "message": "ID-Sortierung. Aufsteigend ist niedrigste zuerst; absteigend ist höchste zuerst."
+  "sortUrlAscTooltip": {
+    "message": "Nach URL sortieren: A bis Z"
   },
-  "managerFailed": {
-    "message": "Lesezeichen-Manager fehlgeschlagen: {error}"
+  "sortUrlDescTooltip": {
+    "message": "Nach URL sortieren: Z bis A"
   },
-  "notAvailable": {
-    "message": "Nicht verfügbar"
+  "sorting": {
+    "message": "Sortierung"
   },
-  "searchLimitFull": {
-    "message": "Suche auf aktuellen Ordner und Unterordner begrenzen"
+  "thisItem": {
+    "message": "dieses Element"
   },
-  "optimisationDOMrendering": {
-    "message": "Optimisation: DOM rendering pass"
+  "totalSelected": {
+    "message": "Ausgewählt gesamt:"
   },
-  "optimisationDOMrenderingHelp": {
-    "message": "Experimental. Enables reduced DOM churn for selected rendering, drag/drop indicators, and row icon handling. Disable only when comparing performance or troubleshooting UI behavior."
+  "unsavedChanges": {
+    "message": "Nicht gespeicherte Änderungen"
+  },
+  "unsavedChangesMessage": {
+    "message": "Der Details-Bereich enthält ungespeicherte Änderungen. Was möchten Sie tun?"
+  },
+  "url": {
+    "message": "URL"
+  },
+  "urlWarningControlCharacters": {
+    "message": "URL contained hidden control characters; they will be removed before saving."
+  },
+  "urlWarningEmpty": {
+    "message": "URL is empty. Chrome may reject this bookmark until a URL is provided."
+  },
+  "urlWarningInvalidBlocked": {
+    "message": "This URL is not valid enough to save as a bookmark. Fix the URL before saving."
+  },
+  "urlWarningInvalidButAllowed": {
+    "message": "This URL is not valid enough to save as a bookmark. Fix the URL before saving."
+  },
+  "urlWarningWhitespace": {
+    "message": "URL contains whitespace. It will be saved if Chrome accepts it, but it may not open as expected."
+  },
+  "userInterface": {
+    "message": "Benutzeroberfläche"
+  },
+  "userInterfaceLanguage": {
+    "message": "Sprache der Benutzeroberfläche"
+  },
+  "userInterfaceLanguageHelp": {
+    "message": "Automatisch folgt der Sprache der Browseroberfläche. Manuelle Auswahl wirkt sich auf Manager- und Optionsseiten aus."
+  },
+  "visualSort": {
+    "message": "Visuelle Sortierung:"
+  },
+  "warningsErrorsLog": {
+    "message": "Warnings / Errors Log"
+  },
+  "warningsErrorsLogEmpty": {
+    "message": "No warnings or errors recorded for this session."
+  },
+  "warningsErrorsLogHelp": {
+    "message": "Transient warnings/errors for this current SBM session. This is not saved to settings."
   }
 }

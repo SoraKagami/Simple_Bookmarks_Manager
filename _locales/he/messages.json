@@ -1,75 +1,159 @@
 {
-  "appName": {
-    "message": "Simple Bookmarks Manager"
+  "about": {
+    "message": "אודות"
+  },
+  "actionFailed": {
+    "message": "הפעולה נכשלה: {error}"
+  },
+  "addNewBookmark": {
+    "message": "הוסף סימנייה חדשה"
+  },
+  "addNewFolder": {
+    "message": "הוסף תיקייה חדשה"
+  },
+  "addSeparator": {
+    "message": "הוסף מפריד"
+  },
+  "advanced": {
+    "message": "מתקדם"
+  },
+  "advancedBookmarkDetails": {
+    "message": "פרטי סימנייה מתקדמים"
+  },
+  "advancedDetails": {
+    "message": "פרטים מתקדמים"
+  },
+  "allowKeyboardDelete": {
+    "message": "אפשר למקש Delete למחוק פריטים נבחרים"
+  },
+  "allowKeyboardDeleteHelp": {
+    "message": "כאשר כבוי, מקש Delete לא מוחק עוד רשומות סימניות שנבחרו."
   },
   "appDescription": {
     "message": "מנהל סימניות מקומי פשוט עבור Chrome/Chromium בהשראת תבניות ספריית Firefox Places."
   },
+  "appName": {
+    "message": "Simple Bookmarks Manager"
+  },
   "back": {
     "message": "אחורה"
   },
-  "forward": {
-    "message": "קדימה"
+  "bookmarkAlt": {
+    "message": "סימנייה"
   },
-  "newFolder": {
-    "message": "תיקייה חדשה"
-  },
-  "newBookmark": {
-    "message": "סימנייה חדשה"
-  },
-  "searchBookmarks": {
-    "message": "חיפוש סימניות"
-  },
-  "searchLimitTitle": {
-    "message": "כאשר מופעל, החיפוש מתבצע רק בתיקייה הנוכחית ובתיקיות המשנה שלה. כאשר כבוי, החיפוש מתבצע בכל הסימניות."
-  },
-  "limitSearchTo": {
-    "message": "הגבל חיפוש אל"
-  },
-  "currentFolderAndSubfolders": {
-    "message": "התיקייה הנוכחית ותיקיות משנה"
-  },
-  "openMenu": {
-    "message": "פתח תפריט"
-  },
-  "openSbmMenu": {
-    "message": "פתח את תפריט Simple Bookmarks Manager"
-  },
-  "library": {
-    "message": "ספרייה"
-  },
-  "visualSort": {
-    "message": "מיון חזותי:"
-  },
-  "sortDefault": {
-    "message": "ברירת מחדל"
-  },
-  "sortName": {
-    "message": "שם"
-  },
-  "sortUrl": {
-    "message": "URL"
-  },
-  "sortDateAdded": {
-    "message": "תאריך הוספה"
-  },
-  "sortDateAddedHeader": {
-    "message": "תאריך הוספה"
-  },
-  "sortId": {
-    "message": "ID"
-  },
-  "sortOrder": {
-    "message": "סדר"
-  },
-  "bookmarksAria": {
-    "message": "סימניות"
+  "bookmarkFallback": {
+    "message": "(סימנייה)"
   },
   "bookmarkListColumns": {
     "message": "עמודות רשימת סימניות"
   },
+  "bookmarkMutationFailed": {
+    "message": "Bookmark operation failed ({action}): {error}"
+  },
+  "bookmarkNamePrompt": {
+    "message": "שם סימנייה"
+  },
+  "bookmarkUrlPrompt": {
+    "message": "כתובת URL של סימנייה"
+  },
+  "bookmarks": {
+    "message": "סימניות"
+  },
+  "bookmarksAria": {
+    "message": "סימניות"
+  },
+  "bookmarksPathFallback": {
+    "message": "סימניות"
+  },
+  "browserRoot": {
+    "message": "שורש הדפדפן"
+  },
+  "cancel": {
+    "message": "Cancel"
+  },
   "chooseSortModeTitle": {
     "message": "בחר את מצב המיון של החלונית האמצעית. ברירת המחדל משתמשת בסדר התיקיות של Chromium."
+  },
+  "clearLog": {
+    "message": "Clear Log"
+  },
+  "clickHideDetails": {
+    "message": "לחץ כדי להסתיר פרטים"
+  },
+  "clickShowDetails": {
+    "message": "לחץ כדי להציג פרטים"
+  },
+  "closeOptions": {
+    "message": "סגור אפשרויות"
+  },
+  "collapseAll": {
+    "message": "כווץ הכל"
+  },
+  "collapseFolderTitle": {
+    "message": "כווץ תיקייה"
+  },
+  "copy": {
+    "message": "העתק"
+  },
+  "couldNotMoveBookmark": {
+    "message": "לא ניתן להזיז את פריט הסימנייה: {error}"
+  },
+  "couldNotOpenTabGroup": {
+    "message": "לא ניתן לפתוח קבוצת כרטיסיות: {error}"
+  },
+  "couldNotOpenWindow": {
+    "message": "לא ניתן לפתוח חלון {windowType}: {error}"
+  },
+  "couldNotSaveChanges": {
+    "message": "לא ניתן לשמור שינויים: {error}"
+  },
+  "create": {
+    "message": "Create"
+  },
+  "currentFolderAndSubfolders": {
+    "message": "התיקייה הנוכחית ותיקיות משנה"
+  },
+  "cut": {
+    "message": "גזור"
+  },
+  "dateAdded": {
+    "message": "תאריך הוספה"
+  },
+  "dateLastUsed": {
+    "message": "שימוש אחרון"
+  },
+  "debugFailedBookmarkOperation": {
+    "message": "Debug: cause failed bookmark operation"
+  },
+  "debugFailedBookmarkOperationAction": {
+    "message": "debug failed bookmark operation"
+  },
+  "debugFailureUnexpectedSuccess": {
+    "message": "Debug failure unexpectedly succeeded"
+  },
+  "debugOptions": {
+    "message": "Debug options"
+  },
+  "debugOptionsHelp": {
+    "message": "Advanced. Shows debug-only test controls. Leave disabled during normal use."
+  },
+  "defaultsRestored": {
+    "message": "ברירות המחדל שוחזרו"
+  },
+  "delete": {
+    "message": "מחק"
+  },
+  "deleteBookmark": {
+    "message": "מחק סימנייה"
+  },
+  "deleteFolder": {
+    "message": "מחק תיקייה"
+  },
+  "deleteMultipleConfirm": {
+    "message": "למחוק {count} פריטים שנבחרו?"
+  },
+  "deleteSingleConfirm": {
+    "message": "למחוק את „{label}”?"
   },
   "details": {
     "message": "פרטים"
@@ -80,83 +164,59 @@
   "detailsMultiselect": {
     "message": "פרטי בחירה מרובה"
   },
-  "url": {
-    "message": "URL"
-  },
-  "parentFolder": {
-    "message": "תיקיית אב"
-  },
-  "save": {
-    "message": "שמור"
+  "discard": {
+    "message": "בטל"
   },
   "discardChanges": {
     "message": "בטל שינויים"
   },
-  "delete": {
-    "message": "מחק"
+  "doubleClickExpandCollapseTitle": {
+    "message": "לחץ פעמיים כדי להרחיב או לכווץ תיקייה זו"
   },
-  "deleteFolder": {
-    "message": "מחק תיקייה"
+  "dragFolderTitle": {
+    "message": "גרור כדי לסדר מחדש תיקייה זו"
   },
-  "deleteBookmark": {
-    "message": "מחק סימנייה"
+  "dragItemTitle": {
+    "message": "גרור כדי להזיז או לסדר מחדש פריט זה"
   },
-  "advancedDetails": {
-    "message": "פרטים מתקדמים"
+  "edit": {
+    "message": "ערוך"
   },
-  "advancedBookmarkDetails": {
-    "message": "פרטי סימנייה מתקדמים"
-  },
-  "guidUuid": {
-    "message": "GUID / UUID"
-  },
-  "dateAdded": {
-    "message": "תאריך הוספה"
-  },
-  "dateLastUsed": {
-    "message": "שימוש אחרון"
-  },
-  "totalSelected": {
-    "message": "סה״כ נבחרו:"
-  },
-  "folders": {
-    "message": "תיקיות:"
-  },
-  "bookmarks": {
-    "message": "סימניות"
-  },
-  "separators": {
-    "message": "מפרידים:"
+  "editBookmark": {
+    "message": "Edit Bookmark"
   },
   "emptyDetails": {
     "message": "בחר פריט אחד, או בחר תיקייה כדי להציג את התוכן שלה."
   },
-  "optionsTitle": {
-    "message": "אפשרויות Simple Bookmarks Manager"
+  "enableAdvancedEditing": {
+    "message": "הפעל עריכת פרטים מתקדמים"
   },
-  "closeOptions": {
-    "message": "סגור אפשרויות"
+  "enableAdvancedEditingHelp": {
+    "message": "אפשר עריכה מתקדמת נתמכת, כרגע מוגבלת לשינויי אינדקס סימנייה."
   },
-  "optionSaved": {
-    "message": "נשמר"
+  "enableAdvancedViewing": {
+    "message": "הפעל הצגת פרטים מתקדמים"
   },
-  "saveFailed": {
-    "message": "השמירה נכשלה: {error}"
+  "enableAdvancedViewingHelp": {
+    "message": "הצג מטא-נתונים מתקדמים של סימניות לקריאה בלבד בחלונית הפרטים."
   },
-  "loadFailed": {
-    "message": "הטעינה נכשלה: {error}"
+  "expandAll": {
+    "message": "הרחב הכל"
   },
-  "defaultsRestored": {
-    "message": "ברירות המחדל שוחזרו"
+  "expandFolderTitle": {
+    "message": "הרחב תיקייה"
   },
-  "userInterface": {
-    "message": "ממשק משתמש"
+  "folderAlt": {
+    "message": "תיקייה"
   },
-  "userInterfaceLanguage": {
-    "message": "שפת הממשק"
+  "folderFallback": {
+    "message": "(תיקייה)"
   },
-  "userInterfaceLanguageHelp": {
-    "message": "אוטומטי עוקב אחרי שפת ממשק הדפדפן. בחירות ידניות משפיעות על המנהל ועל דפי האפשרויות."
+  "folderNamePrompt": {
+    "message": "שם תיקייה"
+  },
+  "folders": {
+    "message": "תיקיות:"
   },
   "font": {
     "message": "גופן"
@@ -164,17 +224,14 @@
   "fontHelp": {
     "message": "קובע את משפחת הגופן הראשית המשמשת את ממשק מנהל הסימניות."
   },
-  "fontSystem": {
-    "message": "ברירת מחדל של המערכת"
+  "fontMono": {
+    "message": "Consolas / חד-רווחי"
   },
   "fontSans": {
     "message": "Arial / Helvetica"
   },
   "fontSerif": {
     "message": "Georgia / Times"
-  },
-  "fontMono": {
-    "message": "Consolas / חד-רווחי"
   },
   "fontSize": {
     "message": "גודל גופן"
@@ -188,35 +245,35 @@
   "fontSpacingHelp": {
     "message": "מכפיל מרווח שורות לשורות ותוויות צפופות יותר או קריאות יותר."
   },
-  "search": {
-    "message": "חיפוש"
+  "fontSystem": {
+    "message": "ברירת מחדל של המערכת"
   },
-  "searchLimitOptionHelp": {
-    "message": "כאשר מופעל, תיבת החיפוש הראשית מחפשת רק בתוך עץ התיקייה הנראה הנוכחי."
+  "forward": {
+    "message": "קדימה"
   },
-  "safety": {
-    "message": "בטיחות"
+  "guidUuid": {
+    "message": "GUID / UUID"
   },
-  "showDeleteWarning": {
-    "message": "הצג אישור מחיקה"
+  "help": {
+    "message": "עזרה"
   },
-  "showDeleteWarningHelp": {
-    "message": "שאל לפני מחיקת פריטי סימניות או תיקיות."
+  "hideDetailsPaneTooltip": {
+    "message": "הסתר את חלונית הפרטים"
   },
-  "showSortWarning": {
-    "message": "הצג אישור למיון קבוע"
+  "keepEditing": {
+    "message": "המשך לערוך"
   },
-  "showSortWarningHelp": {
-    "message": "שאל לפני החלת מיון מתפריט ההקשר שמשנה לצמיתות את סדר תיקיית הסימניות."
+  "library": {
+    "message": "ספרייה"
   },
-  "allowKeyboardDelete": {
-    "message": "אפשר למקש Delete למחוק פריטים נבחרים"
+  "limitSearchTo": {
+    "message": "הגבל חיפוש אל"
   },
-  "allowKeyboardDeleteHelp": {
-    "message": "כאשר כבוי, מקש Delete לא מוחק עוד רשומות סימניות שנבחרו."
+  "loadFailed": {
+    "message": "הטעינה נכשלה: {error}"
   },
-  "sorting": {
-    "message": "מיון"
+  "managerFailed": {
+    "message": "מנהל הסימניות נכשל: {error}"
   },
   "naturalSort": {
     "message": "השתמש בסדר טבעי של תיקיות/סימניות"
@@ -224,134 +281,23 @@
   "naturalSortHelp": {
     "message": "מיון קבוע לפי שם מציב קודם תיקיות, אחר כך מפרידים, ואז סימניות."
   },
-  "advanced": {
-    "message": "מתקדם"
+  "newBookmark": {
+    "message": "סימנייה חדשה"
   },
-  "enableAdvancedViewing": {
-    "message": "הפעל הצגת פרטים מתקדמים"
-  },
-  "enableAdvancedViewingHelp": {
-    "message": "הצג מטא-נתונים מתקדמים של סימניות לקריאה בלבד בחלונית הפרטים."
-  },
-  "enableAdvancedEditing": {
-    "message": "הפעל עריכת פרטים מתקדמים"
-  },
-  "enableAdvancedEditingHelp": {
-    "message": "אפשר עריכה מתקדמת נתמכת, כרגע מוגבלת לשינויי אינדקס סימנייה."
-  },
-  "resetDefaults": {
-    "message": "אפס לברירות מחדל"
-  },
-  "folderAlt": {
-    "message": "תיקייה"
-  },
-  "bookmarkAlt": {
-    "message": "סימנייה"
-  },
-  "folderFallback": {
-    "message": "(תיקייה)"
-  },
-  "bookmarkFallback": {
-    "message": "(סימנייה)"
-  },
-  "rootFallback": {
-    "message": "(שורש)"
-  },
-  "browserRoot": {
-    "message": "שורש הדפדפן"
-  },
-  "bookmarksPathFallback": {
-    "message": "סימניות"
-  },
-  "sortDate": {
-    "message": "תאריך"
-  },
-  "sortNameLower": {
-    "message": "שם"
-  },
-  "sortFolderConfirm": {
-    "message": "למיין את „{folderName}” לפי {sortName}?\n\nפעולה זו משנה לצמיתות את סדר הסימניות השמור ב-Chromium. היא שונה מהרשימה הזמנית מיון חזותי."
-  },
-  "couldNotOpenWindow": {
-    "message": "לא ניתן לפתוח חלון {windowType}: {error}"
-  },
-  "privateWindowType": {
-    "message": "פרטי"
-  },
-  "newWindowType": {
-    "message": "חדש"
-  },
-  "couldNotOpenTabGroup": {
-    "message": "לא ניתן לפתוח קבוצת כרטיסיות: {error}"
-  },
-  "newFolderNamePrompt": {
-    "message": "שם תיקייה חדשה"
-  },
-  "folderNamePrompt": {
-    "message": "שם תיקייה"
-  },
-  "bookmarkNamePrompt": {
-    "message": "שם סימנייה"
-  },
-  "bookmarkUrlPrompt": {
-    "message": "כתובת URL של סימנייה"
-  },
-  "deleteSingleConfirm": {
-    "message": "למחוק את „{label}”?"
-  },
-  "deleteMultipleConfirm": {
-    "message": "למחוק {count} פריטים שנבחרו?"
-  },
-  "thisItem": {
-    "message": "פריט זה"
+  "newFolder": {
+    "message": "תיקייה חדשה"
   },
   "newFolderDefaultName": {
     "message": "תיקייה חדשה"
   },
-  "couldNotMoveBookmark": {
-    "message": "לא ניתן להזיז את פריט הסימנייה: {error}"
+  "newFolderNamePrompt": {
+    "message": "שם תיקייה חדשה"
   },
-  "actionFailed": {
-    "message": "הפעולה נכשלה: {error}"
+  "newWindowType": {
+    "message": "חדש"
   },
-  "openDefaultBookmarksManager": {
-    "message": "פתח את מנהל הסימניות המוגדר כברירת מחדל"
-  },
-  "options": {
-    "message": "אפשרויות"
-  },
-  "help": {
-    "message": "עזרה"
-  },
-  "about": {
-    "message": "אודות"
-  },
-  "renameFolder": {
-    "message": "שנה שם תיקייה"
-  },
-  "cut": {
-    "message": "גזור"
-  },
-  "copy": {
-    "message": "העתק"
-  },
-  "paste": {
-    "message": "הדבק"
-  },
-  "sortByName": {
-    "message": "מיין לפי שם"
-  },
-  "sortByDate": {
-    "message": "מיין לפי תאריך"
-  },
-  "addNewBookmark": {
-    "message": "הוסף סימנייה חדשה"
-  },
-  "addNewFolder": {
-    "message": "הוסף תיקייה חדשה"
-  },
-  "addSeparator": {
-    "message": "הוסף מפריד"
+  "notAvailable": {
+    "message": "לא זמין"
   },
   "openAllBookmarks": {
     "message": "פתח את כל הסימניות"
@@ -359,23 +305,26 @@
   "openAllInNewTab": {
     "message": "פתח הכל בכרטיסיות חדשות"
   },
+  "openAllInNewTabGroup": {
+    "message": "פתח הכול בקבוצת כרטיסיות חדשה"
+  },
   "openAllInNewWindow": {
     "message": "פתח הכל בחלון חדש"
   },
   "openAllInPrivateWindow": {
     "message": "פתח הכל בחלון פרטי"
   },
-  "openAllInNewTabGroup": {
-    "message": "פתח הכול בקבוצת כרטיסיות חדשה"
-  },
   "openAllInSplitView": {
     "message": "פתח הכול בתצוגה מפוצלת"
   },
-  "edit": {
-    "message": "ערוך"
+  "openDefaultBookmarksManager": {
+    "message": "פתח את מנהל הסימניות המוגדר כברירת מחדל"
   },
   "openInNewTab": {
     "message": "פתח בכרטיסייה חדשה"
+  },
+  "openInNewTabGroup": {
+    "message": "פתח בקבוצת כרטיסיות חדשה"
   },
   "openInNewWindow": {
     "message": "פתח בחלון חדש"
@@ -383,77 +332,122 @@
   "openInPrivateWindow": {
     "message": "פתח בחלון פרטי"
   },
-  "openInNewTabGroup": {
-    "message": "פתח בקבוצת כרטיסיות חדשה"
-  },
   "openInSplitView": {
     "message": "פתח בתצוגה מפוצלת"
   },
-  "expandAll": {
-    "message": "הרחב הכל"
+  "openMenu": {
+    "message": "פתח תפריט"
   },
-  "collapseAll": {
-    "message": "כווץ הכל"
+  "openSbmMenu": {
+    "message": "פתח את תפריט Simple Bookmarks Manager"
   },
-  "dragFolderTitle": {
-    "message": "גרור כדי לסדר מחדש תיקייה זו"
+  "optimisationDOMrendering": {
+    "message": "Optimisation: DOM rendering pass"
   },
-  "collapseFolderTitle": {
-    "message": "כווץ תיקייה"
+  "optimisationDOMrenderingHelp": {
+    "message": "Experimental. Enables reduced DOM churn for selected rendering, drag/drop indicators, and row icon handling. Disable only when comparing performance or troubleshooting UI behavior."
   },
-  "expandFolderTitle": {
-    "message": "הרחב תיקייה"
+  "optimisationTempBookmarkTreeMaps": {
+    "message": "Optimisation: temporary bookmark tree maps"
   },
-  "doubleClickExpandCollapseTitle": {
-    "message": "לחץ פעמיים כדי להרחיב או לכווץ תיקייה זו"
+  "optimisationTempBookmarkTreeMapsHelp": {
+    "message": "Experimental. Builds short-lived lookup maps during some render/search/tree operations, then discards them to avoid a persistent stale cache."
   },
-  "hideDetailsPaneTooltip": {
-    "message": "הסתר את חלונית הפרטים"
+  "optionSaved": {
+    "message": "נשמר"
   },
-  "showDetailsPaneTooltip": {
-    "message": "הצג את חלונית הפרטים"
+  "options": {
+    "message": "אפשרויות"
   },
-  "clickHideDetails": {
-    "message": "לחץ כדי להסתיר פרטים"
+  "optionsTitle": {
+    "message": "אפשרויות Simple Bookmarks Manager"
   },
-  "clickShowDetails": {
-    "message": "לחץ כדי להציג פרטים"
+  "parentFolder": {
+    "message": "תיקיית אב"
   },
-  "dragItemTitle": {
-    "message": "גרור כדי להזיז או לסדר מחדש פריט זה"
+  "paste": {
+    "message": "הדבק"
+  },
+  "privateWindowType": {
+    "message": "פרטי"
+  },
+  "renameFolder": {
+    "message": "שנה שם תיקייה"
+  },
+  "resetDefaults": {
+    "message": "אפס לברירות מחדל"
+  },
+  "rootFallback": {
+    "message": "(שורש)"
+  },
+  "safety": {
+    "message": "בטיחות"
+  },
+  "save": {
+    "message": "שמור"
+  },
+  "saveFailed": {
+    "message": "השמירה נכשלה: {error}"
+  },
+  "search": {
+    "message": "חיפוש"
+  },
+  "searchBookmarks": {
+    "message": "חיפוש סימניות"
+  },
+  "searchLimitFull": {
+    "message": "הגבל חיפוש לתיקייה הנוכחית ולתיקיות משנה"
+  },
+  "searchLimitOptionHelp": {
+    "message": "כאשר מופעל, תיבת החיפוש הראשית מחפשת רק בתוך עץ התיקייה הנראה הנוכחי."
+  },
+  "searchLimitTitle": {
+    "message": "כאשר מופעל, החיפוש מתבצע רק בתיקייה הנוכחית ובתיקיות המשנה שלה. כאשר כבוי, החיפוש מתבצע בכל הסימניות."
   },
   "separator": {
     "message": "מפריד"
   },
-  "unsavedChanges": {
-    "message": "שינויים שלא נשמרו"
+  "separators": {
+    "message": "מפרידים:"
   },
-  "unsavedChangesMessage": {
-    "message": "בחלונית הפרטים יש שינויים שלא נשמרו. מה ברצונך לעשות?"
+  "showDeleteWarning": {
+    "message": "הצג אישור מחיקה"
   },
-  "keepEditing": {
-    "message": "המשך לערוך"
+  "showDeleteWarningHelp": {
+    "message": "שאל לפני מחיקת פריטי סימניות או תיקיות."
   },
-  "discard": {
-    "message": "בטל"
+  "showDetailsPaneTooltip": {
+    "message": "הצג את חלונית הפרטים"
   },
-  "couldNotSaveChanges": {
-    "message": "לא ניתן לשמור שינויים: {error}"
+  "showErrorsWarnings": {
+    "message": "Show warnings/errors log"
   },
-  "sortDefaultTooltip": {
-    "message": "סדר התיקיות המוגדר כברירת מחדל של Chromium. לחץ כדי לחזור למיון ברירת המחדל; עמודה זו אינה ממיינת הפוך."
+  "showErrorsWarningsHelp": {
+    "message": "Advanced. Shows a transient in-memory log for this SBM session. Log entries are not saved to extension settings."
   },
-  "sortNameAscTooltip": {
-    "message": "מיין לפי שם: A עד Z"
+  "showSortWarning": {
+    "message": "הצג אישור למיון קבוע"
   },
-  "sortNameDescTooltip": {
-    "message": "מיין לפי שם: Z עד A"
+  "showSortWarningHelp": {
+    "message": "שאל לפני החלת מיון מתפריט ההקשר שמשנה לצמיתות את סדר תיקיית הסימניות."
   },
-  "sortUrlAscTooltip": {
-    "message": "מיין לפי URL: A עד Z"
+  "sortBookmarks": {
+    "message": "מיין סימניות"
   },
-  "sortUrlDescTooltip": {
-    "message": "מיין לפי URL: Z עד A"
+  "sortByDate": {
+    "message": "מיין לפי תאריך"
+  },
+  "sortByName": {
+    "message": "מיין לפי שם"
+  },
+  "sortDate": {
+    "message": "תאריך"
+  },
+  "sortDateAdded": {
+    "message": "תאריך הוספה"
+  },
+  "sortDateAddedHeader": {
+    "message": "תאריך הוספה"
   },
   "sortDateAscTooltip": {
     "message": "מיין לפי תאריך הוספה: הישן ביותר תחילה"
@@ -461,17 +455,47 @@
   "sortDateDescTooltip": {
     "message": "מיין לפי תאריך הוספה: החדש ביותר תחילה"
   },
+  "sortDefault": {
+    "message": "ברירת מחדל"
+  },
+  "sortDefaultTooltip": {
+    "message": "סדר התיקיות המוגדר כברירת מחדל של Chromium. לחץ כדי לחזור למיון ברירת המחדל; עמודה זו אינה ממיינת הפוך."
+  },
+  "sortFolderConfirm": {
+    "message": "למיין את „{folderName}” לפי {sortName}?\n\nפעולה זו משנה לצמיתות את סדר הסימניות השמור ב-Chromium. היא שונה מהרשימה הזמנית מיון חזותי."
+  },
+  "sortId": {
+    "message": "ID"
+  },
   "sortIdAscTooltip": {
     "message": "מיין לפי ID: הנמוך ביותר תחילה"
   },
   "sortIdDescTooltip": {
     "message": "מיין לפי ID: הגבוה ביותר תחילה"
   },
-  "sortBookmarks": {
-    "message": "מיין סימניות"
+  "sortName": {
+    "message": "שם"
+  },
+  "sortNameAscTooltip": {
+    "message": "מיין לפי שם: A עד Z"
+  },
+  "sortNameDescTooltip": {
+    "message": "מיין לפי שם: Z עד A"
+  },
+  "sortNameLower": {
+    "message": "שם"
+  },
+  "sortOrder": {
+    "message": "סדר"
+  },
+  "sortSelectDateAddedTitle": {
+    "message": "מיון לפי תאריך הוספה. עולה הוא הישן ביותר תחילה; יורד הוא החדש ביותר תחילה."
   },
   "sortSelectDefaultTitle": {
     "message": "סדר התיקיות המוגדר כברירת מחדל של Chromium."
+  },
+  "sortSelectIdTitle": {
+    "message": "מיון לפי ID. עולה הוא הנמוך ביותר תחילה; יורד הוא הגבוה ביותר תחילה."
   },
   "sortSelectTitleTitle": {
     "message": "מיון לפי שם. עולה הוא A עד Z; יורד הוא Z עד A."
@@ -479,25 +503,67 @@
   "sortSelectUrlTitle": {
     "message": "מיון לפי URL. עולה הוא A עד Z; יורד הוא Z עד A."
   },
-  "sortSelectDateAddedTitle": {
-    "message": "מיון לפי תאריך הוספה. עולה הוא הישן ביותר תחילה; יורד הוא החדש ביותר תחילה."
+  "sortUrl": {
+    "message": "URL"
   },
-  "sortSelectIdTitle": {
-    "message": "מיון לפי ID. עולה הוא הנמוך ביותר תחילה; יורד הוא הגבוה ביותר תחילה."
+  "sortUrlAscTooltip": {
+    "message": "מיין לפי URL: A עד Z"
   },
-  "managerFailed": {
-    "message": "מנהל הסימניות נכשל: {error}"
+  "sortUrlDescTooltip": {
+    "message": "מיין לפי URL: Z עד A"
   },
-  "notAvailable": {
-    "message": "לא זמין"
+  "sorting": {
+    "message": "מיון"
   },
-  "searchLimitFull": {
-    "message": "הגבל חיפוש לתיקייה הנוכחית ולתיקיות משנה"
+  "thisItem": {
+    "message": "פריט זה"
   },
-  "optimisationDOMrendering": {
-    "message": "Optimisation: DOM rendering pass"
+  "totalSelected": {
+    "message": "סה״כ נבחרו:"
   },
-  "optimisationDOMrenderingHelp": {
-    "message": "Experimental. Enables reduced DOM churn for selected rendering, drag/drop indicators, and row icon handling. Disable only when comparing performance or troubleshooting UI behavior."
+  "unsavedChanges": {
+    "message": "שינויים שלא נשמרו"
+  },
+  "unsavedChangesMessage": {
+    "message": "בחלונית הפרטים יש שינויים שלא נשמרו. מה ברצונך לעשות?"
+  },
+  "url": {
+    "message": "URL"
+  },
+  "urlWarningControlCharacters": {
+    "message": "URL contained hidden control characters; they will be removed before saving."
+  },
+  "urlWarningEmpty": {
+    "message": "URL is empty. Chrome may reject this bookmark until a URL is provided."
+  },
+  "urlWarningInvalidBlocked": {
+    "message": "This URL is not valid enough to save as a bookmark. Fix the URL before saving."
+  },
+  "urlWarningInvalidButAllowed": {
+    "message": "This URL is not valid enough to save as a bookmark. Fix the URL before saving."
+  },
+  "urlWarningWhitespace": {
+    "message": "URL contains whitespace. It will be saved if Chrome accepts it, but it may not open as expected."
+  },
+  "userInterface": {
+    "message": "ממשק משתמש"
+  },
+  "userInterfaceLanguage": {
+    "message": "שפת הממשק"
+  },
+  "userInterfaceLanguageHelp": {
+    "message": "אוטומטי עוקב אחרי שפת ממשק הדפדפן. בחירות ידניות משפיעות על המנהל ועל דפי האפשרויות."
+  },
+  "visualSort": {
+    "message": "מיון חזותי:"
+  },
+  "warningsErrorsLog": {
+    "message": "Warnings / Errors Log"
+  },
+  "warningsErrorsLogEmpty": {
+    "message": "No warnings or errors recorded for this session."
+  },
+  "warningsErrorsLogHelp": {
+    "message": "Transient warnings/errors for this current SBM session. This is not saved to settings."
   }
 }
