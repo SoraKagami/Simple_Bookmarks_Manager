@@ -1062,8 +1062,16 @@ function canMoveSelectedListItemsToTarget(target, intent, context, ids = null) {
     return true;
   }
 
-  // Above/below reordering is supported only inside the current middle-pane folder.
-  return context === "list" && canReorderList() && !!target.parentId && target.parentId === state.folderId;
+  if (!isReorderable(target) || !target.parentId || target.parentId === "0") return false;
+
+  for (const id of selectedIds) {
+    const item = nodes.get(id);
+    if (!item || !isMutable(item)) return false;
+    if (isFolder(item) && isDescendantOf(target, item)) return false;
+  }
+
+  if (context === "list") return canReorderList() && target.parentId === state.folderId;
+  return context === "tree";
 }
 
 function canMoveSelectedTreeFoldersToTarget(target, intent, context, ids = null) {
@@ -1110,13 +1118,15 @@ async function moveSelectedListItems(targetId, intent, context = "list", ids = n
     return;
   }
 
-  const items = visibleItems();
-  const targetIndex = items.findIndex((item) => item.id === targetId);
+  const targetParentId = target.parentId;
+  const targetParent = nodes.get(targetParentId);
+  const targetChildren = targetParent?.children || [];
+  const targetIndex = targetChildren.findIndex((item) => item.id === targetId);
   if (targetIndex < 0) return;
 
   const selectedSet = new Set(selectedIds);
-  const remaining = items.filter((item) => !selectedSet.has(item.id));
-  const selectedBeforeTarget = items.slice(0, targetIndex).filter((item) => selectedSet.has(item.id)).length;
+  const remaining = targetChildren.filter((item) => !selectedSet.has(item.id));
+  const selectedBeforeTarget = targetChildren.slice(0, targetIndex).filter((item) => selectedSet.has(item.id)).length;
   let insertIndex = targetIndex - selectedBeforeTarget + (intent === "after" ? 1 : 0);
   insertIndex = Math.max(0, Math.min(insertIndex, remaining.length));
   const selectedItems = selectedIds.map((id) => nodes.get(id)).filter(Boolean);
@@ -1129,14 +1139,18 @@ async function moveSelectedListItems(targetId, intent, context = "list", ids = n
   state.suppressBookmarkEvents = true;
   try {
     for (let i = 0; i < finalOrder.length; i += 1) {
-      await bookmarks("move", finalOrder[i].id, { parentId: state.folderId, index: i });
+      await bookmarks("move", finalOrder[i].id, { parentId: targetParentId, index: i });
     }
   } finally {
     state.suppressBookmarkEvents = false;
   }
   clearMultiSelect();
   state.selectedId = selectedIds[selectedIds.length - 1] || null;
-  state.activePane = "list";
+  state.activePane = context === "tree" ? "tree" : "list";
+  if (context === "tree") {
+    state.treeSelectedId = target.id;
+    if (targetParentId) state.expandedFolders.add(targetParentId);
+  }
   await loadTree();
 }
 
@@ -1186,7 +1200,6 @@ async function moveSelectedTreeFolders(targetId, intent, context = "tree", ids =
 
 function currentDragIntent(event, row, target, context) {
   const source = state.drag?.source;
-  if (state.drag?.multi && source === "list" && context === "tree") return "into";
   if (state.drag?.multi && source === "list" && context === "list") return listDropIntent(event, row, target);
   return dropIntent(event, row, target);
 }
