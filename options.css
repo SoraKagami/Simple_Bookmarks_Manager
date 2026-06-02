@@ -1,3 +1,4 @@
+[hidden] { display: none !important; }
 :root { --sbm-ui-font-family: system-ui, sans-serif; --sbm-ui-font-size: 14px; --sbm-ui-line-height: 1.4; font-family: var(--sbm-ui-font-family); font-size: var(--sbm-ui-font-size); line-height: var(--sbm-ui-line-height); color-scheme: light dark; }
 body { margin: 0; background: Canvas; color: CanvasText; font-family: var(--sbm-ui-font-family); font-size: var(--sbm-ui-font-size); line-height: var(--sbm-ui-line-height); }
 .options-page { box-sizing: border-box; max-width: 860px; margin: 0 auto; padding: 24px; }

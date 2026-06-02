@@ -1,6 +1,6 @@
 # Source Audit
 
-Version: 0.7.11
+Version: 0.7.12
 
 ## Summary
 

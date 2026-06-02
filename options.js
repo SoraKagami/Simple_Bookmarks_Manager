@@ -82,12 +82,17 @@ function setWarningsErrorsLogVisible(visible) {
   }
 }
 
-function setDebugOptionsVisible(visible) {
-  const button = $("debug-failed-bookmark-operation");
-  if (button) button.hidden = !visible;
+function setHidden(element, hidden) {
+  if (!element) return;
+  element.hidden = hidden;
+  // Some option rows have author-level display rules; keep inline display in sync
+  // so debug-only controls stay hidden even if stylesheet order changes.
+  element.style.display = hidden ? "none" : "";
+}
 
-  const warningsToggleRow = $("show-errors-warnings-option-row");
-  if (warningsToggleRow) warningsToggleRow.hidden = !visible;
+function setDebugOptionsVisible(visible) {
+  setHidden($("debug-failed-bookmark-operation"), !visible);
+  setHidden($("show-errors-warnings-option-row"), !visible);
 
   // Keep the diagnostics log hidden unless the explicit Debug options gate is enabled.
   // The Show_ErrorsWarnings setting is still preserved so it can resume if Debug options is re-enabled.

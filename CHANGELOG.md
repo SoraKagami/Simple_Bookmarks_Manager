@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.7.12
+
+- Fixed the Advanced Options page so the actual **Show warnings/errors log** option row is hidden unless **Debug options** is enabled.
+- Added a defensive `[hidden]` CSS rule and synchronized inline hiding for debug-only controls so Options page display rules cannot accidentally override hidden state.
+- Updated `manifest.json` to `0.7.12`.
+
 ## 0.7.11
 
 - Hid the **Show warnings/errors log** Advanced option unless **Debug options** is enabled.
