@@ -1,12 +1,16 @@
 const api = chrome;
 
+if (new URLSearchParams(location.search).has("embedded")) {
+  document.body.classList.add("embedded");
+}
+
 const DEFAULT_SETTINGS = Object.freeze({
   SearchLimitToFolderAndSub: false,
   DeleteShowWarning: true,
   SortShowWarning: true,
   KeyboardDeleteAllow: true,
   SortByNameNatural: true,
-  EnableAdvancedDetailsViewing: true,
+  EnableAdvancedDetailsViewing: false,
   EnableAdvancedDetailsEditing: false
 });
 

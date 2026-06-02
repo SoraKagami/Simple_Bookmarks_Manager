@@ -249,3 +249,58 @@ h2 { font-size: 13px; margin: 0 0 10px; opacity: .75; text-transform: uppercase;
 .unsaved-modal h3 { margin: 0 0 8px; font-size: 16px; }
 .unsaved-modal p { margin: 0 0 16px; }
 .unsaved-modal-actions { display: flex; justify-content: flex-end; gap: 8px; flex-wrap: wrap; }
+
+.options-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 10000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  background: color-mix(in srgb, CanvasText 42%, transparent);
+}
+.options-dialog {
+  box-sizing: border-box;
+  width: min(860px, calc(100vw - 48px));
+  height: min(760px, calc(100vh - 48px));
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  border: 1px solid color-mix(in srgb, CanvasText 30%, transparent);
+  border-radius: 12px;
+  background: Canvas;
+  color: CanvasText;
+  box-shadow: 0 16px 48px color-mix(in srgb, CanvasText 35%, transparent);
+}
+.options-dialog-header {
+  flex: 0 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 10px 12px;
+  border-bottom: 1px solid color-mix(in srgb, CanvasText 22%, transparent);
+  background: color-mix(in srgb, Canvas 94%, CanvasText);
+}
+.options-dialog-header h2 {
+  margin: 0;
+}
+.options-close {
+  min-width: 32px;
+  min-height: 28px;
+  padding: 0 8px;
+  font-size: 20px;
+  line-height: 1;
+}
+.options-frame-host {
+  flex: 1 1 auto;
+  min-height: 0;
+}
+.options-frame {
+  width: 100%;
+  height: 100%;
+  border: 0;
+  background: Canvas;
+  color: CanvasText;
+}

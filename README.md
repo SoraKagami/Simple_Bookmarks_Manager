@@ -1,6 +1,6 @@
 # Simple Bookmarks Manager
 
-Version: 0.5.0
+Version: 0.5.1
 
 A Manifest V3 Chrome/Chromium extension that provides a simple local bookmark manager inspired by Firefox Places Library ideas.
 
@@ -42,7 +42,7 @@ This Source Code Form is subject to the terms of the Mozilla Public License, v. 
 - Uses Chromium's extension favicon endpoint for bookmark favicons, plus a bundled folder icon for bookmark folders.
 - Refreshes visible bookmark favicon image URLs when switching folders so newly cached icons can appear without keeping an in-memory favicon cache.
 - Uses an in-page custom context menu for bookmark/folder actions; the Details pane keeps the normal browser context menu.
-- Provides a top-right application menu with entries to open the default Chromium Bookmark Manager and Simple Bookmarks Manager Options, plus future Help and About entry points.
+- Provides a top-right application menu with entries to open the default Chromium Bookmark Manager and an in-page Simple Bookmarks Manager Options dialog, plus future Help and About entry points.
 
 ## Source audit summary
 
@@ -98,6 +98,14 @@ Note: v0.2.2+ no longer overrides `chrome://bookmarks`, so Chromium/Brave's buil
 - Chromium BSD license reference: https://chromium.googlesource.com/chromium/src/+/HEAD/LICENSE
 
 ## Changelog
+
+### 0.5.1
+
+- Changed the default for **Enable advanced details viewing** to off/false.
+- Updated the app menu **Options** entry to open a centered in-page options dialog instead of opening a separate tab.
+- Reused the existing `options.html`, `options.css`, and `options.js` inside the manager via an iframe so Chromium's normal Extension options page remains available separately.
+- The in-page options dialog is created only when opened and removed when closed to avoid keeping the Options page loaded unnecessarily.
+- Updated version to `0.5.1`.
 
 ### 0.5.0
 

@@ -29,7 +29,7 @@ const nodes = new Map();
 const SEPARATOR_TITLE = "———";
 const SEPARATOR_URL = "about:blank";
 const DEFAULT_SETTINGS = Object.freeze({
-  EnableAdvancedDetailsViewing: true,
+  EnableAdvancedDetailsViewing: false,
   EnableAdvancedDetailsEditing: false,
   SortByNameNatural: true,
   SortShowWarning: true,
@@ -1436,8 +1436,36 @@ async function openDefaultBookmarksManager() {
   await api.tabs.create({ url: "chrome://bookmarks/" });
 }
 
-async function openOptionsPage() {
-  await api.runtime.openOptionsPage();
+function isOptionsDialogOpen() {
+  return !$('options-modal').hidden;
+}
+
+function showOptionsDialog() {
+  hideContextMenu();
+  hideAppMenu();
+  const modal = $('options-modal');
+  const host = $('options-frame-host');
+  if (!host.querySelector('iframe')) {
+    const frame = document.createElement('iframe');
+    frame.className = 'options-frame';
+    frame.title = 'Simple Bookmarks Manager Options';
+    frame.src = api.runtime.getURL('options.html?embedded=1');
+    host.append(frame);
+  }
+  modal.hidden = false;
+  $('options-close').focus();
+}
+
+function hideOptionsDialog() {
+  const modal = $('options-modal');
+  if (modal.hidden) return;
+  modal.hidden = true;
+  $('options-frame-host').replaceChildren();
+  $('app-menu-button')?.focus();
+}
+
+function openOptionsPage() {
+  showOptionsDialog();
 }
 
 function buildAppMenu() {
@@ -2719,6 +2747,10 @@ $("app-menu-button").onclick = (e) => {
   e.stopPropagation();
   toggleAppMenu();
 };
+$("options-close").onclick = hideOptionsDialog;
+$("options-modal").addEventListener("mousedown", (e) => {
+  if (e.target === $("options-modal")) hideOptionsDialog();
+});
 $("roots").addEventListener("focusin", () => { state.activePane = "tree"; updateSelectionHighlights(); });
 $("list").addEventListener("focusin", () => { state.activePane = "list"; updateSelectionHighlights(); });
 $("details-form").addEventListener("focusin", () => { state.activePane = "details"; updateSelectionHighlights(); });
@@ -2746,6 +2778,12 @@ window.addEventListener("resize", () => { hideContextMenu(); hideAppMenu(); });
 window.addEventListener("scroll", () => { hideContextMenu(); hideAppMenu(); }, true);
 window.addEventListener("keydown", async (e) => {
   if (e.key === "Escape") {
+    if (isOptionsDialogOpen()) {
+      hideOptionsDialog();
+      e.preventDefault();
+      e.stopPropagation();
+      return;
+    }
     hideContextMenu();
     hideAppMenu();
     if (cancelMultiSelectToFocus()) {
