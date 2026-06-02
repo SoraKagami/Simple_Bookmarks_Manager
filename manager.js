@@ -276,6 +276,119 @@ function updateUrlWarning() {
   warning.hidden = !message;
 }
 
+
+/**
+ * Show an in-page bookmark editor for create/edit prompt flows.
+ *
+ * Native prompt() closes before validation feedback can be displayed.  This
+ * lightweight modal keeps the user's current values visible, shows local-only
+ * URL validation errors inline, and only resolves with bookmark data when the
+ * URL is safe to send to chrome.bookmarks.
+ */
+function showBookmarkEditorDialog({ heading, title = "", url = "https://", submitLabel = t("save") } = {}) {
+  return new Promise((resolve) => {
+    hideContextMenu();
+
+    const backdrop = document.createElement("div");
+    backdrop.className = "unsaved-modal-backdrop";
+    backdrop.setAttribute("role", "presentation");
+
+    const modal = document.createElement("section");
+    modal.className = "unsaved-modal bookmark-editor-modal";
+    modal.setAttribute("role", "dialog");
+    modal.setAttribute("aria-modal", "true");
+    modal.setAttribute("aria-labelledby", "bookmark-editor-title");
+
+    const headingEl = document.createElement("h3");
+    headingEl.id = "bookmark-editor-title";
+    headingEl.textContent = heading || t("newBookmark");
+
+    const form = document.createElement("form");
+    form.className = "bookmark-editor-form";
+
+    const nameLabel = document.createElement("label");
+    nameLabel.textContent = t("bookmarkNamePrompt");
+    const nameInput = document.createElement("input");
+    nameInput.type = "text";
+    nameInput.value = title || "";
+    nameInput.autocomplete = "off";
+    nameLabel.append(nameInput);
+
+    const urlLabel = document.createElement("label");
+    urlLabel.textContent = t("bookmarkUrlPrompt");
+    const urlInput = document.createElement("input");
+    urlInput.type = "text";
+    urlInput.value = url || "https://";
+    urlInput.autocomplete = "off";
+    urlLabel.append(urlInput);
+
+    const warning = document.createElement("div");
+    warning.className = "url-warning bookmark-editor-warning";
+    warning.setAttribute("role", "alert");
+    warning.hidden = true;
+
+    const actions = document.createElement("div");
+    actions.className = "unsaved-modal-actions";
+
+    const finish = (value) => {
+      backdrop.remove();
+      resolve(value);
+    };
+
+    const cancel = document.createElement("button");
+    cancel.type = "button";
+    cancel.textContent = t("cancel");
+    cancel.onclick = () => finish(null);
+
+    const submit = document.createElement("button");
+    submit.type = "submit";
+    submit.textContent = submitLabel;
+
+    const updateWarning = () => {
+      const message = bookmarkUrlProblem(urlInput.value);
+      warning.textContent = message;
+      warning.hidden = !message;
+    };
+
+    urlInput.addEventListener("input", updateWarning);
+    form.addEventListener("submit", (e) => {
+      e.preventDefault();
+      const cleanUrl = sanitizeBookmarkUrl(urlInput.value);
+      const blockingMessage = bookmarkUrlBlockingProblem(cleanUrl);
+      if (blockingMessage) {
+        warning.textContent = blockingMessage;
+        warning.hidden = false;
+        urlInput.focus();
+        urlInput.select();
+        return;
+      }
+      finish({
+        title: sanitizeBookmarkTitle(nameInput.value, cleanUrl),
+        url: cleanUrl,
+      });
+    });
+
+    backdrop.addEventListener("mousedown", (e) => {
+      if (e.target === backdrop) finish(null);
+    });
+    modal.addEventListener("keydown", (e) => {
+      if (e.key === "Escape") {
+        e.preventDefault();
+        finish(null);
+      }
+    });
+
+    actions.append(cancel, submit);
+    form.append(nameLabel, urlLabel, warning, actions);
+    modal.append(headingEl, form);
+    backdrop.append(modal);
+    document.body.append(backdrop);
+    updateWarning();
+    urlInput.focus();
+    urlInput.select();
+  });
+}
+
 function validNodeId(id) {
   return typeof id === "string" && nodes.has(id);
 }
@@ -1032,17 +1145,15 @@ async function renameFolder(folder) {
 
 async function editBookmark(bookmark) {
   if (!bookmark || isFolder(bookmark) || !isMutable(bookmark)) return;
-  const title = prompt(t("bookmarkNamePrompt"), bookmark.title || bookmark.url || "");
-  if (title === null) return;
-  const url = prompt(t("bookmarkUrlPrompt"), bookmark.url || "https://");
-  if (url === null) return;
-  const cleanUrl = sanitizeBookmarkUrl(url);
-  if (!isValidBookmarkUrl(cleanUrl)) {
-    console.warn("Simple Bookmarks Manager: bookmark URL was not saved because local validation failed.", cleanUrl);
-    return;
-  }
+  const edited = await showBookmarkEditorDialog({
+    heading: t("editBookmark"),
+    title: bookmark.title || bookmark.url || "",
+    url: bookmark.url || "https://",
+    submitLabel: t("save"),
+  });
+  if (!edited) return;
   try {
-    await bookmarks("update", bookmark.id, { title: sanitizeBookmarkTitle(title, cleanUrl), url: cleanUrl });
+    await bookmarks("update", bookmark.id, edited);
   } catch (err) {
     console.error(err);
     alert(t("couldNotSaveChanges", { error: err.message || err }));
@@ -1205,16 +1316,14 @@ async function createFolderIn(parentId, index = null) {
 async function createBookmarkIn(parentId, index = null) {
   const target = safeMoveDetails(parentId, index);
   if (!target) return;
-  const url = prompt(t("bookmarkUrlPrompt"), "https://");
-  if (url === null) return;
-  const cleanUrl = sanitizeBookmarkUrl(url);
-  if (!isValidBookmarkUrl(cleanUrl)) {
-    console.warn("Simple Bookmarks Manager: bookmark was not created because local URL validation failed.", cleanUrl);
-    return;
-  }
-  const title = prompt(t("bookmarkNamePrompt"), cleanUrl);
-  if (title === null) return;
-  const details = { ...target, title: sanitizeBookmarkTitle(title, cleanUrl), url: cleanUrl };
+  const bookmarkDetails = await showBookmarkEditorDialog({
+    heading: t("newBookmark"),
+    title: "",
+    url: "https://",
+    submitLabel: t("create"),
+  });
+  if (!bookmarkDetails) return;
+  const details = { ...target, ...bookmarkDetails };
   try {
     const node = await bookmarks("create", details);
     await loadTree();

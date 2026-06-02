@@ -313,3 +313,27 @@ h2 { font-size: .929rem; margin: 0 0 10px; opacity: .75; text-transform: upperca
 }
 
 .field-warning[hidden] { display: none; }
+
+.bookmark-editor-modal {
+  width: min(520px, 100%);
+}
+.bookmark-editor-form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.bookmark-editor-form label {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  font-weight: 600;
+}
+.bookmark-editor-form input {
+  box-sizing: border-box;
+  width: 100%;
+  padding: 6px 8px;
+  font: inherit;
+}
+.bookmark-editor-warning {
+  margin-top: -2px;
+}

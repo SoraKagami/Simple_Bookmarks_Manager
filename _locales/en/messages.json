@@ -508,5 +508,14 @@
   },
   "urlWarningInvalidBlocked": {
     "message": "This URL is not valid enough to save as a bookmark. Fix the URL before saving."
+  },
+  "create": {
+    "message": "Create"
+  },
+  "cancel": {
+    "message": "Cancel"
+  },
+  "editBookmark": {
+    "message": "Edit Bookmark"
   }
 }

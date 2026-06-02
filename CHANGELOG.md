@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.7.5
+
+- Replaced native bookmark create/edit URL prompts with an in-page bookmark editor dialog so invalid URLs keep the dialog open for correction.
+- Added inline local-only URL validation feedback to the new bookmark dialog used by toolbar and context-menu creation flows.
+- Updated context-menu bookmark editing to use the same validation dialog, preventing silent failure when an invalid URL is entered.
+- Kept validation local-only; SBM does not access websites or perform network URL checks.
+- Updated `manifest.json` to `0.7.5`.
+
 ## 0.7.4
 
 - Fixed invalid bookmark URL creation such as `https://` so Chrome bookmark API errors no longer surface as uncaught promise exceptions.
