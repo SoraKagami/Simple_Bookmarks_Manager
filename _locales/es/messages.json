@@ -33,7 +33,7 @@
     "message": "Cuando está desactivado, la tecla Supr ya no elimina las entradas de marcador seleccionadas."
   },
   "appDescription": {
-    "message": "Un administrador local sencillo de marcadores para Chrome/Chromium inspirado en los patrones de la biblioteca Places de Firefox."
+    "message": "Un sencillo gestor local de marcadores para navegadores Chromium, inspirado en Firefox Places, el sistema de gestión de marcadores de Firefox."
   },
   "appName": {
     "message": "Simple Bookmarks Manager"

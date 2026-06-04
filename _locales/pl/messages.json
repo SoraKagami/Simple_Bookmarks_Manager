@@ -33,7 +33,7 @@
     "message": "Po wyłączeniu klawisz Delete nie usuwa wybranych wpisów zakładek."
   },
   "appDescription": {
-    "message": "Prosty lokalny menedżer zakładek dla Chrome/Chromium inspirowany wzorcami biblioteki Firefox Places."
+    "message": "Prosty lokalny menedżer zakładek dla przeglądarek Chromium, inspirowany Firefox Places, systemem zarządzania zakładkami Firefoksa."
   },
   "appName": {
     "message": "Simple Bookmarks Manager"

@@ -33,7 +33,7 @@
     "message": "停用時，Delete 鍵不再刪除選取的書籤項目。"
   },
   "appDescription": {
-    "message": "受 Firefox Places Library 模式啟發，適用於 Chrome/Chromium 的簡易本機書籤管理員。"
+    "message": "一款適用於 Chromium 瀏覽器的簡易本機書籤管理員，靈感來自 Firefox 的書籤管理系統 Firefox Places。"
   },
   "appName": {
     "message": "Simple Bookmarks Manager"

@@ -33,7 +33,7 @@
     "message": "Quando disattivo, il tasto Canc non elimina più le voci dei segnalibri selezionate."
   },
   "appDescription": {
-    "message": "Un semplice gestore locale di segnalibri per Chrome/Chromium ispirato ai modelli della libreria Places di Firefox."
+    "message": "Un semplice gestore locale di segnalibri per browser Chromium, ispirato a Firefox Places, il sistema di gestione dei segnalibri di Firefox."
   },
   "appName": {
     "message": "Simple Bookmarks Manager"

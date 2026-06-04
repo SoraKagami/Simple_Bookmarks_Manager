@@ -33,7 +33,7 @@
     "message": "כאשר כבוי, מקש Delete לא מוחק עוד רשומות סימניות שנבחרו."
   },
   "appDescription": {
-    "message": "מנהל סימניות מקומי פשוט עבור Chrome/Chromium בהשראת תבניות ספריית Firefox Places."
+    "message": "מנהל סימניות מקומי פשוט לדפדפני Chromium, בהשראת Firefox Places, מערכת ניהול הסימניות של Firefox."
   },
   "appName": {
     "message": "Simple Bookmarks Manager"

@@ -33,7 +33,7 @@
     "message": "Jika nonaktif, tombol Delete tidak lagi menghapus entri bookmark terpilih."
   },
   "appDescription": {
-    "message": "Pengelola bookmark lokal sederhana untuk Chrome/Chromium yang terinspirasi pola Firefox Places Library."
+    "message": "Pengelola bookmark lokal sederhana untuk peramban Chromium, terinspirasi oleh Firefox Places, sistem pengelolaan bookmark Firefox."
   },
   "appName": {
     "message": "Simple Bookmarks Manager"

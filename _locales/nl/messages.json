@@ -33,7 +33,7 @@
     "message": "Indien uitgeschakeld verwijdert de Delete-toets geselecteerde bladwijzeritems niet meer."
   },
   "appDescription": {
-    "message": "Een eenvoudige lokale bladwijzerbeheerder voor Chrome/Chromium, geïnspireerd op de patronen van Firefox Places-bibliotheek."
+    "message": "Een eenvoudige lokale bladwijzerbeheerder voor Chromium-browsers, geïnspireerd op Firefox Places, het bladwijzerbeheersysteem van Firefox."
   },
   "appName": {
     "message": "Simple Bookmarks Manager"

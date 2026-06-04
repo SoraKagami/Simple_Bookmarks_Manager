@@ -33,7 +33,7 @@
     "message": "Quando desativado, a tecla Delete não exclui mais as entradas de favoritos selecionadas."
   },
   "appDescription": {
-    "message": "Um gerenciador local simples de favoritos para Chrome/Chromium inspirado nos padrões da biblioteca Places do Firefox."
+    "message": "Um gerenciador local simples de favoritos para navegadores Chromium, inspirado no Firefox Places, o sistema de gerenciamento de favoritos do Firefox."
   },
   "appName": {
     "message": "Simple Bookmarks Manager"

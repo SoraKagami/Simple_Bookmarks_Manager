@@ -33,7 +33,7 @@
     "message": "Khi tắt, phím Delete không còn xóa các mục dấu trang đã chọn."
   },
   "appDescription": {
-    "message": "Trình quản lý dấu trang cục bộ đơn giản cho Chrome/Chromium, lấy cảm hứng từ mẫu thư viện Firefox Places."
+    "message": "Trình quản lý dấu trang cục bộ đơn giản cho các trình duyệt Chromium, lấy cảm hứng từ Firefox Places, hệ thống quản lý dấu trang của Firefox."
   },
   "appName": {
     "message": "Simple Bookmarks Manager"

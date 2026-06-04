@@ -33,7 +33,7 @@
     "message": "禁用时，Delete 键不再删除所选书签项目。"
   },
   "appDescription": {
-    "message": "受 Firefox Places Library 模式启发，适用于 Chrome/Chromium 的简易本地书签管理器。"
+    "message": "一款适用于 Chromium 浏览器的简易本地书签管理器，灵感来自 Firefox 的书签管理系统 Firefox Places。"
   },
   "appName": {
     "message": "Simple Bookmarks Manager"

@@ -33,7 +33,7 @@
     "message": "Quand cette option est désactivée, la touche Suppr ne supprime plus les entrées de favoris sélectionnées."
   },
   "appDescription": {
-    "message": "Un gestionnaire local simple de favoris pour Chrome/Chromium, inspiré des modèles de la bibliothèque Places de Firefox."
+    "message": "Un gestionnaire local simple de favoris pour les navigateurs Chromium, inspiré de Firefox Places, le système de gestion des marque-pages de Firefox."
   },
   "appName": {
     "message": "Simple Bookmarks Manager"

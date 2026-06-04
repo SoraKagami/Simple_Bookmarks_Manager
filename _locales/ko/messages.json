@@ -33,7 +33,7 @@
     "message": "끄면 Delete 키가 선택된 북마크 항목을 삭제하지 않습니다."
   },
   "appDescription": {
-    "message": "Firefox Places 라이브러리 방식을 참고한 Chrome/Chromium용 간단한 로컬 북마크 관리자입니다."
+    "message": "Firefox의 북마크 관리 시스템인 Firefox Places에서 영감을 받은 Chromium 브라우저용 간단한 로컬 북마크 관리자입니다."
   },
   "appName": {
     "message": "Simple Bookmarks Manager"

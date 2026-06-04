@@ -33,7 +33,7 @@
     "message": "無効にすると、Delete キーで選択したブックマーク項目を削除しなくなります。"
   },
   "appDescription": {
-    "message": "Firefox Places ライブラリの考え方を参考にした、Chrome/Chromium 用のシンプルなローカルブックマークマネージャーです。"
+    "message": "Firefox のブックマーク管理システムである Firefox Places に着想を得た、Chromium ブラウザー向けのシンプルなローカルブックマークマネージャーです。"
   },
   "appName": {
     "message": "Simple Bookmarks Manager"

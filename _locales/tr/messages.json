@@ -33,7 +33,7 @@
     "message": "Devre dışıysa Delete tuşu seçili yer imi girdilerini artık silmez."
   },
   "appDescription": {
-    "message": "Firefox Places Kitaplığı desenlerinden esinlenen, Chrome/Chromium için basit bir yerel yer imi yöneticisi."
+    "message": "Firefox’un yer imi yönetim sistemi Firefox Places’ten ilham alan, Chromium tarayıcıları için basit bir yerel yer imi yöneticisi."
   },
   "appName": {
     "message": "Simple Bookmarks Manager"

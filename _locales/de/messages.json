@@ -33,7 +33,7 @@
     "message": "Wenn deaktiviert, löscht die Entf-Taste ausgewählte Lesezeicheneinträge nicht mehr."
   },
   "appDescription": {
-    "message": "Ein einfacher lokaler Lesezeichen-Manager für Chrome/Chromium, inspiriert von den Mustern der Firefox-Places-Bibliothek."
+    "message": "Ein einfacher lokaler Lesezeichen-Manager für Chromium-Browser, inspiriert von Firefox Places, dem Lesezeichenverwaltungssystem von Firefox."
   },
   "appName": {
     "message": "Simple Bookmarks Manager"

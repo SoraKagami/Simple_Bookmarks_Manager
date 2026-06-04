@@ -33,7 +33,7 @@
     "message": "When disabled, the Delete key no longer deletes selected bookmark entries."
   },
   "appDescription": {
-    "message": "A simple local bookmark manager for Chrome/Chromium inspired by Firefox Places Library patterns."
+    "message": "A simple local bookmarks manager for Chromium browsers, inspired by Firefox Places, Firefox’s bookmark management system."
   },
   "appName": {
     "message": "Simple Bookmarks Manager"

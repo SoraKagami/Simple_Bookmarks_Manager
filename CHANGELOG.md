@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.7.27
+
+- Updated `appDescription` in the English locale to clarify Chromium browser support and the Firefox Places inspiration.
+- Updated `appDescription` translations across `_locales` and `sbm_locales`, preserving product names such as Chromium, Firefox, and Firefox Places.
+- Updated `manifest.json` to `0.7.27`.
+
 ## 0.7.26
 
 - Performed a targeted DOM rendering optimisation pass without modifying locale files.
