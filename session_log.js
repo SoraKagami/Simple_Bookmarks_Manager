@@ -14,6 +14,7 @@ const ORIGINAL_CONSOLE = Object.freeze({
 let records = [];
 const subscribers = new Set();
 
+/** Convert console arguments into safe log text without throwing on circular values. */
 function stringifyLogValue(value) {
   if (value instanceof Error) return value.stack || value.message || String(value);
   if (typeof value === "string") return value;
@@ -28,6 +29,7 @@ function stringifyLogValue(value) {
   }
 }
 
+/** Append a bounded warning/error log record and notify observers. */
 function addSessionLogRecord(level, args, source = "SBM") {
   const record = {
     time: new Date().toISOString(),
@@ -42,6 +44,7 @@ function addSessionLogRecord(level, args, source = "SBM") {
   }
 }
 
+/** Capture console warnings/errors into the transient diagnostics log while preserving console output. */
 export function installConsoleCapture(source = "SBM") {
   if (globalThis.__SBM_CONSOLE_CAPTURE_INSTALLED__) return;
   globalThis.__SBM_CONSOLE_CAPTURE_INSTALLED__ = true;
@@ -56,10 +59,12 @@ export function installConsoleCapture(source = "SBM") {
   };
 }
 
+/** Return a defensive copy of current warning/error log records. */
 export function getSessionLogRecords() {
   return records.slice();
 }
 
+/** Clear the transient warning/error log and notify subscribers. */
 export function clearSessionLogRecords() {
   records = [];
   for (const subscriber of subscribers) {
@@ -67,6 +72,7 @@ export function clearSessionLogRecords() {
   }
 }
 
+/** Subscribe to warning/error log changes and return an unsubscribe callback. */
 export function subscribeSessionLog(callback) {
   subscribers.add(callback);
   return () => subscribers.delete(callback);

@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.7.32
+
+- Added and refreshed function-level documentation comments across the JavaScript codebase, focusing on bookmark mutations, URL-open protections, drag/drop, context menus, rendering, settings, localization, service-worker tab management, and the session warning/error log.
+- Verified existing documentation comments against current function behavior and kept comments concise so they describe intent without duplicating implementation details.
+
 ## 0.7.31
 
 - Reworked the v0.7.30 bookmark URL opening hardening to preserve normal Chromium-family browser compatibility for internal pages such as `chrome://`, `brave://`, `edge://`, and `opera://`, plus `about:`, `file:`, `mailto:`, and other user-bookmarked schemes.

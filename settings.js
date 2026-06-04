@@ -68,6 +68,7 @@ export function clampNumber(value, min, max, fallback) {
   return Math.min(max, Math.max(min, numberValue));
 }
 
+/** Resolve a configured font-family token to its CSS font-family value. */
 export function fontFamilyCss(value) {
   return (FONT_FAMILY_OPTIONS.find((option) => option.value === value) || FONT_FAMILY_OPTIONS[0]).css;
 }

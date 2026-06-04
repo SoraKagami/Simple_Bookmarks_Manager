@@ -99,6 +99,7 @@ async function registerManagerInstance() {
   }
 }
 
+/** Release the session manager-tab marker only when it still points at this tab. */
 async function clearManagerInstanceIfCurrent() {
   try {
     const tab = await api.tabs.getCurrent();
@@ -178,6 +179,7 @@ function applySettings(settings, { render = false } = {}) {
 }
 
 
+/** Start a left/right pane resize drag and persist the final width setting. */
 function beginPaneResize(e, pane) {
   const isLeft = pane === "left";
   const settingKey = isLeft ? "left_Lib_Width" : "right_Details_Width";
@@ -217,6 +219,7 @@ function beginPaneResize(e, pane) {
   return true;
 }
 
+/** Resize a pane by a keyboard-friendly delta while respecting configured bounds. */
 function nudgePaneWidth(pane, delta) {
   const isLeft = pane === "left";
   const key = isLeft ? "left_Lib_Width" : "right_Details_Width";
@@ -227,6 +230,7 @@ function nudgePaneWidth(pane, delta) {
   });
 }
 
+/** Return the localized display label for a Folder Contents column sort key. */
 function localizedColumnLabel(key) {
   if (key === "title") return t("sortName");
   if (key === "url") return t("sortUrl");
@@ -244,6 +248,7 @@ const MID_FC_COLUMNS = Object.freeze([
   { id: "Order", sortKey: "index", settingKey: "mid_FC_Width_Order", showKey: "mid_FC_Show_Order" }
 ]);
 
+/** Read and normalize a Folder Contents column setting from the current settings state. */
 function midFcSettingValue(key) {
   if (key === "mid_FC_Width_Name") return mid_FC_Width_Name;
   if (key === "mid_FC_Width_URL") return mid_FC_Width_URL;
@@ -256,16 +261,19 @@ function midFcSettingValue(key) {
   return DEFAULT_SETTINGS[key];
 }
 
+/** Return Folder Contents columns that should currently be rendered. */
 function visibleMidFcColumns() {
   return MID_FC_COLUMNS.filter((column) => !column.showKey || Boolean(midFcSettingValue(column.showKey)));
 }
 
+/** Build the CSS grid template used by the Folder Contents header and rows. */
 function midFcGridTemplate() {
   return visibleMidFcColumns()
     .map((column) => `${Math.max(MID_FC_COLUMN_MIN_WIDTHS[column.id] || 48, Number(midFcSettingValue(column.settingKey)) || 0)}px`)
     .join(" ") || "1fr";
 }
 
+/** Synchronize Folder Contents column visibility and widths with CSS custom properties. */
 function applyFolderContentsColumnSettings() {
   const columns = visibleMidFcColumns();
   const minWidth = columns.reduce((total, column) => {
@@ -276,6 +284,7 @@ function applyFolderContentsColumnSettings() {
   document.documentElement.style.setProperty("--bookmark-table-min-width", `${Math.max(360, minWidth)}px`);
 }
 
+/** Apply translated text, labels, and tooltips to static manager UI controls. */
 function localizeStaticUi() {
   applyI18n(document);
   document.title = t("appName");
@@ -336,10 +345,12 @@ async function getFreshBookmarkNode(id) {
   }
 }
 
+/** Identify bookmark operations where failures should be surfaced directly to the user. */
 function isUserCriticalBookmarkMutation(method) {
   return method === "create" || method === "update" || method === "remove" || method === "removeTree";
 }
 
+/** Report bookmark mutation failures through the debug log and optional user alert. */
 function notifyBookmarkMutationFailure(action, method, err) {
   const errorText = err?.message || String(err || t("notAvailable"));
   console.error(`[SBM] ${action} failed.`, { method, error: err });
@@ -408,10 +419,12 @@ function buildTempBookmarkTreeMaps(root = state.tree) {
   return map;
 }
 
+/** Return cached tree maps when enabled, otherwise rebuild maps for the current snapshot. */
 function tempBookmarkTreeMaps() {
   return Optimisation_TempBookmarkTreeMaps && state.tree ? buildTempBookmarkTreeMaps(state.tree) : null;
 }
 
+/** Flatten a folder subtree using precomputed child lookup maps. */
 function flattenBookmarksWithMaps(folder, maps) {
   if (!folder || !maps) return flattenBookmarks(folder);
   const out = [];
@@ -435,15 +448,18 @@ function isSeparator(node) {
   return !!node && !isFolder(node) && (node.title || "") === SEPARATOR_TITLE && (node.url || "") === SEPARATOR_URL;
 }
 
+/** Remove C0/C1 control characters that do not belong in bookmark text fields. */
 function stripControlChars(value) {
   return String(value ?? "").replace(/[\u0000-\u001F\u007F-\u009F]/gu, " ");
 }
 
+/** Remove unsafe control characters from a title and fall back when it becomes empty. */
 function sanitizeBookmarkTitle(value, fallback = "") {
   const cleaned = stripControlChars(value).trim();
   return cleaned || fallback;
 }
 
+/** Trim bookmark URL input and remove control characters before validation or saving. */
 function sanitizeBookmarkUrl(value) {
   return stripControlChars(value).trim();
 }
@@ -462,6 +478,7 @@ function bookmarkOpenProtocolBlocked(protocol) {
   return false;
 }
 
+/** Validate a user-controlled bookmark URL before passing it to Chromium open APIs. */
 function safeBookmarkOpenUrl(rawValue) {
   const sanitized = sanitizeBookmarkUrl(rawValue);
   if (!sanitized) return null;
@@ -475,6 +492,7 @@ function safeBookmarkOpenUrl(rawValue) {
   return parsed.href;
 }
 
+/** Filter a list of bookmark URLs to the subset allowed by the current protections. */
 function safeBookmarkOpenUrls(urls) {
   const safeUrls = [];
   for (const url of urls || []) {
@@ -485,6 +503,7 @@ function safeBookmarkOpenUrls(urls) {
   return safeUrls;
 }
 
+/** Build a user-facing explanation for bookmark URLs blocked by protection settings. */
 function bookmarkOpenBlockedMessage() {
   return t("urlOpenBlockedByProtection");
 }
@@ -522,6 +541,7 @@ function bookmarkUrlProblem(rawValue) {
   return "";
 }
 
+/** Return the blocking reason for risky URL protocols controlled by advanced settings. */
 function bookmarkUrlBlockingProblem(rawValue) {
   const sanitized = sanitizeBookmarkUrl(rawValue);
   if (!sanitized) return t("urlWarningEmpty");
@@ -544,10 +564,12 @@ function bookmarkUrlBlockingProblem(rawValue) {
   return "";
 }
 
+/** Return whether a URL is acceptable for saving in Chromium bookmarks. */
 function isValidBookmarkUrl(rawValue) {
   return !bookmarkUrlBlockingProblem(rawValue);
 }
 
+/** Show the localized bookmark URL validation message to the user. */
 function showUrlValidationError(rawValue) {
   const warning = $("url-warning");
   const message = bookmarkUrlBlockingProblem(rawValue) || bookmarkUrlProblem(rawValue);
@@ -558,10 +580,12 @@ function showUrlValidationError(rawValue) {
   return message;
 }
 
+/** Return the localized message for a bookmark URL validation failure. */
 function urlValidationMessage(rawValue) {
   return bookmarkUrlProblem(rawValue);
 }
 
+/** Refresh inline URL validation and URL-open protection warnings in the editor dialog. */
 function updateUrlWarning() {
   const warning = $("url-warning");
   const input = $("url");
@@ -691,18 +715,22 @@ function showBookmarkEditorDialog({ heading, title = "", url = "https://", submi
   });
 }
 
+/** Return whether an ID points to a known bookmark-tree node. */
 function validNodeId(id) {
   return typeof id === "string" && nodes.has(id);
 }
 
+/** Return whether an ID points to a known node that Chromium allows SBM to change. */
 function validMutableNodeId(id) {
   return validNodeId(id) && isMutable(nodes.get(id));
 }
 
+/** Return whether an ID points to a known folder node. */
 function validFolderId(id) {
   return validNodeId(id) && canContainChildren(nodes.get(id));
 }
 
+/** Strip unsafe move parameters and keep only valid Chromium bookmark move details. */
 function safeMoveDetails(parentId, index = null) {
   if (!validFolderId(parentId)) return null;
   const details = { parentId };
@@ -711,6 +739,7 @@ function safeMoveDetails(parentId, index = null) {
   return details;
 }
 
+/** Create a minimal sanitized bookmark snapshot for cut/copy/paste operations. */
 function sanitizeSnapshot(snapshot) {
   if (!snapshot || typeof snapshot !== "object") return null;
   const clean = { title: sanitizeBookmarkTitle(snapshot.title) };
@@ -723,10 +752,12 @@ function sanitizeSnapshot(snapshot) {
   return clean;
 }
 
+/** Resolve the packaged extension icon URL for a given size. */
 function extensionIconPath(name) {
   return api.runtime.getURL(`icons/${name}`);
 }
 
+/** Refresh the favicon cache-busting token after bookmark URL changes. */
 function refreshFaviconToken() {
   // Chromium's extension favicon endpoint can keep returning the same cached
   // image URL while the browser learns new favicons in the background.  This
@@ -745,6 +776,7 @@ function bookmarkFaviconUrl(url, size = 16) {
   return favicon.toString();
 }
 
+/** Create the icon element used in tree, list, and menu rows. */
 function makeIcon(src, alt = "") {
   const img = document.createElement("img");
   img.className = "row-icon";
@@ -770,12 +802,14 @@ function applySelectionState(row, selected, active) {
   row.classList.toggle("selected-inactive", selected && !active);
 }
 
+/** Replace children through a DocumentFragment for benchmarkable batched DOM rendering. */
 function replaceChildrenWithFragment(element, children) {
   const fragment = document.createDocumentFragment();
   for (const child of children) fragment.append(child);
   element.replaceChildren(fragment);
 }
 
+/** Create the title cell, including icon and type-specific fallback text. */
 function makeTitleCell(item) {
   const cell = document.createElement("span");
   cell.className = "title-cell";
@@ -792,33 +826,40 @@ function makeTitleCell(item) {
   return cell;
 }
 
+/** Return whether a node is one of Chromium's immutable root bookmark containers. */
 function isRootFolder(node) {
   return !!node && node.parentId === "0";
 }
 
+/** Return whether a node can legally contain child bookmark items. */
 function canContainChildren(node) {
   return isFolder(node) && node.id !== "0" && !node.unmodifiable && node.folderType !== "managed";
 }
 
+/** Return whether SBM should allow editing, moving, or deleting a node. */
 function isMutable(node) {
   // Chrome forbids modifying the root, special root children, and managed folders.
   return (canContainChildren(node) && !isRootFolder(node)) || (!!node && !isFolder(node) && !node.unmodifiable);
 }
 
+/** Return whether a node can be reordered within its current parent. */
 function isReorderable(node) {
   return isMutable(node) && !isRootFolder(node);
 }
 
+/** Return whether a Folder Contents item can start a drag operation. */
 function canDragListItem(node) {
   // Items can always be dragged to a folder. Before/after reordering is
   // separately gated by canReorderList() in validDrop().
   return isReorderable(node);
 }
 
+/** Return whether a Library tree folder can start a drag operation. */
 function canDragTreeFolder(node) {
   return isFolder(node) && isReorderable(node);
 }
 
+/** Return whether the current list sort preserves Chromium child order for reordering. */
 function canReorderList() {
   // Drag order only makes sense in the natural direct-child order.
   return !state.search && state.sort === "index";
@@ -834,6 +875,7 @@ function flattenBookmarks(folder) {
   return out;
 }
 
+/** Compare two bookmark nodes according to the active sort key and direction. */
 function compareNodes(a, b, key) {
   const value = (node) => {
     if (key === "dateAdded") return node.dateAdded || 0;
@@ -850,6 +892,7 @@ function compareNodes(a, b, key) {
   return String(av).localeCompare(String(bv), undefined, { numeric: true, sensitivity: "base" });
 }
 
+/** Return the default direction to use when activating a sort key. */
 function defaultSortDirection(key) {
   return key === "dateAdded" || key === "id" ? "desc" : "asc";
 }
@@ -901,20 +944,24 @@ async function loadTree(options = {}) {
   if (renderNow) render();
 }
 
+/** Return Chromium's visible top-level bookmark roots. */
 function rootFolders() {
   const maps = tempBookmarkTreeMaps();
   if (maps) return maps.rootFolders;
   return (state.tree?.children || []).filter(isFolder);
 }
 
+/** Choose the startup folder, preferring the bookmarks bar when available. */
 function defaultFolderId() {
   return rootFolders()[0]?.id || state.tree?.id || null;
 }
 
+/** Return direct folder children, optionally using precomputed tree maps. */
 function childFolders(folder) {
   return (folder.children || []).filter(isFolder);
 }
 
+/** Return all descendant folders for a folder, optionally using precomputed tree maps. */
 function descendantFolders(folder) {
   const out = [];
   const maps = tempBookmarkTreeMaps();
@@ -942,12 +989,14 @@ function visibleTreeFolders() {
   return out;
 }
 
+/** Expand all ancestor folders so a target folder is visible in the Library tree. */
 function ensureExpandedPath(folderId) {
   for (let n = nodes.get(folderId)?.parentNode; n && n.id !== "0"; n = n.parentNode) {
     state.expandedFolders.add(n.id);
   }
 }
 
+/** Reset search, sort, selection, and expansion state when moving to a new folder view. */
 function resetFolderViewState() {
   refreshFaviconToken();
   state.resetMiddleScrollOnNextRender = true;
@@ -993,6 +1042,7 @@ async function toggleTreeFolderFromClick(folder) {
   render();
 }
 
+/** Return whether one node is inside another node's subtree. */
 function isDescendantOf(node, possibleAncestor) {
   for (let n = node?.parentNode; n; n = n.parentNode) {
     if (n.id === possibleAncestor?.id) return true;
@@ -1051,10 +1101,12 @@ function paneItems(pane) {
   return pane === "tree" ? visibleTreeFolders() : pane === "list" ? visibleItems() : [];
 }
 
+/** Return the selected node ID for the requested pane. */
 function paneSelectionId(pane) {
   return pane === "tree" ? (state.treeSelectedId || state.folderId) : state.selectedId;
 }
 
+/** Return whether a pane currently has an active multi-selection. */
 function isMultiSelectActive(pane = state.activePane) {
   return state.multiSelect.pane === pane && state.multiSelect.ids.size > 1;
 }
@@ -1064,17 +1116,20 @@ function clearMultiSelect() {
   state.multiSelect = { pane: null, ids: new Set(), anchorId: null, focusId: null };
 }
 
+/** Return selected IDs for a pane, expanding multi-selection when active. */
 function selectionIdsForPane(pane) {
   if (isMultiSelectActive(pane)) return [...state.multiSelect.ids].filter((id) => nodes.has(id));
   const id = paneSelectionId(pane);
   return id && nodes.has(id) ? [id] : [];
 }
 
+/** Return pane selection IDs in their current visual order. */
 function orderedIdsForPane(ids, pane) {
   const wanted = new Set(ids);
   return paneItems(pane).filter((item) => wanted.has(item.id)).map((item) => item.id);
 }
 
+/** Return whether a node is already covered by a selected ancestor. */
 function hasAncestorInSet(node, idSet) {
   for (let n = node?.parentNode; n && n.id !== "0"; n = n.parentNode) {
     if (idSet.has(n.id)) return true;
@@ -1138,6 +1193,7 @@ function setMultiSelection(pane, ids, anchorId, focusId) {
   state.activePane = pane;
 }
 
+/** Return the contiguous visual ID range between two pane items. */
 function rangeIds(pane, fromId, toId) {
   const items = paneItems(pane);
   const a = items.findIndex((item) => item.id === fromId);
@@ -1181,6 +1237,7 @@ async function handlePaneClick(e, pane, item) {
   render();
 }
 
+/** Collapse a multi-selection to one focused item without navigating away. */
 function cancelMultiSelectToFocus() {
   if (!state.multiSelect.pane) return false;
   const pane = state.multiSelect.pane;
@@ -1206,10 +1263,12 @@ function multiSelectionStats() {
   return stats;
 }
 
+/** Return whether an event target is inside the Details pane. */
 function isInDetailsPane(element) {
   return !!element?.closest?.("#details-pane");
 }
 
+/** Collect bookmark URLs from a folder subtree in Chromium order. */
 function folderUrls(folder) {
   const urls = [];
   const visit = (node) => {
@@ -1256,11 +1315,13 @@ async function createFromSnapshot(snapshot, parentId, index = null) {
 }
 
 
+/** Return the IDs affected by the current context-menu action. */
 function selectedContextIds(context = state.contextMenu) {
   if (context?.kind === "multi") return orderedIdsForPane(context.ids || [], context.pane);
   return context?.id ? [context.id] : [];
 }
 
+/** Return openable bookmark URLs for a set of selected IDs. */
 function selectionUrls(ids) {
   const urls = [];
   for (const id of ids) {
@@ -1276,10 +1337,12 @@ function selectionUrls(ids) {
   return urls;
 }
 
+/** Return bookmark URLs represented by the active multi-selection context. */
 function multiContextUrls(context) {
   return selectionUrls(selectedContextIds(context));
 }
 
+/** Return sanitized clipboard snapshots from the current cut/copy buffer. */
 function clipboardItems(clipboard = state.clipboard) {
   if (!clipboard) return [];
   if (clipboard.items) return clipboard.items;
@@ -1288,6 +1351,7 @@ function clipboardItems(clipboard = state.clipboard) {
   return [];
 }
 
+/** Return whether snapshots can be pasted into a destination folder. */
 function canPasteInto(parentFolder, clipboard = state.clipboard) {
   if (!clipboard || !canContainChildren(parentFolder)) return false;
   if (clipboard.mode === "cut") {
@@ -1302,6 +1366,7 @@ function canPasteInto(parentFolder, clipboard = state.clipboard) {
 }
 
 
+/** Return whether the current clipboard can be pasted for a context-menu target. */
 function canPasteForContext(context) {
   const target = pasteTargetForContext(context);
   if (!target || !target.parent || !canPasteInto(target.parent)) return false;
@@ -1309,6 +1374,7 @@ function canPasteForContext(context) {
   return true;
 }
 
+/** Resolve the folder ID that should receive a context-menu paste action. */
 function pasteTargetForContext(context) {
   if (!context) return null;
   const item = nodes.get(context.id);
@@ -1373,12 +1439,14 @@ async function pasteClipboard(context = state.contextMenu) {
 }
 
 
+/** Classify nodes so natural name sort keeps folders, bookmarks, and separators grouped. */
 function naturalNameSortGroup(node) {
   if (isFolder(node)) return 0;
   if (isSeparator(node)) return 1;
   return 2;
 }
 
+/** Compare two nodes by localized natural title order with stable fallbacks. */
 function compareNaturalNameSort(a, b) {
   const groupDiff = naturalNameSortGroup(a) - naturalNameSortGroup(b);
   if (groupDiff !== 0) return groupDiff;
@@ -1420,6 +1488,7 @@ async function sortFolderChildren(folder, key) {
   await loadTree();
 }
 
+/** Open allowed bookmark URLs as new tabs in the current browser window. */
 async function openUrlsInCurrentWindow(urls) {
   const safeUrls = safeBookmarkOpenUrls(urls);
   if (!safeUrls.length) {
@@ -1436,6 +1505,7 @@ async function openUrlsInCurrentWindow(urls) {
   }
 }
 
+/** Open allowed bookmark URLs in a new normal or private browser window. */
 async function openUrlsInWindow(urls, incognito = false) {
   const safeUrls = safeBookmarkOpenUrls(urls);
   if (!safeUrls.length) {
@@ -1449,6 +1519,7 @@ async function openUrlsInWindow(urls, incognito = false) {
   }
 }
 
+/** Open allowed bookmark URLs and group them when the tabGroups API is available. */
 async function openUrlsInTabGroup(urls) {
   if (!api.tabs?.group) return;
   const safeUrls = safeBookmarkOpenUrls(urls);
@@ -1468,10 +1539,12 @@ async function openUrlsInTabGroup(urls) {
   }
 }
 
+/** Return whether the current Chromium build exposes tab-group creation APIs. */
 function isTabGroupSupported() {
   return typeof api.tabs?.group === "function";
 }
 
+/** Return whether split-view commands should be exposed for this browser. */
 function isSplitViewSupported() {
   // Chromium does not currently expose a stable cross-browser extension API
   // for browser-specific split-view features, so the menu item stays hidden.
@@ -1489,6 +1562,7 @@ function contextUrls(context) {
   return safeUrl ? [safeUrl] : [];
 }
 
+/** Prompt for a folder name and apply it to a mutable folder node. */
 async function renameFolder(folder) {
   if (!isMutable(folder)) return;
   const title = prompt(t("newFolderNamePrompt"), folder.title || "");
@@ -1503,6 +1577,7 @@ async function renameFolder(folder) {
   performSelect(folder.id);
 }
 
+/** Prompt for bookmark changes and update a mutable bookmark node. */
 async function editBookmark(bookmark) {
   if (!bookmark || isFolder(bookmark) || !isMutable(bookmark)) return;
   const edited = await showBookmarkEditorDialog({
@@ -1523,12 +1598,14 @@ async function editBookmark(bookmark) {
   performSelect(bookmark.id, "list");
 }
 
+/** Choose the next Folder Contents selection after deleting an item. */
 function listSelectionAfterDelete(item) {
   const items = visibleItems();
   const index = items.findIndex((node) => node.id === item?.id);
   return { index: index >= 0 ? index : null };
 }
 
+/** Choose the next Library tree selection after deleting a folder. */
 function treeSelectionAfterDelete(item) {
   const parent = nodes.get(item?.parentId);
   const siblings = parent ? childFolders(parent) : rootFolders();
@@ -1536,12 +1613,14 @@ function treeSelectionAfterDelete(item) {
   return { parentId: parent?.id || null, index: index >= 0 ? index : null };
 }
 
+/** Return a stable list selection target after deleting one or more rows. */
 function chooseListSelectionAfterDelete(snapshot) {
   if (!snapshot || snapshot.index === null) return null;
   const items = visibleItems();
   return items[snapshot.index]?.id || items[snapshot.index - 1]?.id || null;
 }
 
+/** Return a stable tree selection target after deleting one or more folders. */
 function chooseTreeSelectionAfterDelete(snapshot) {
   if (!snapshot || snapshot.index === null) return null;
   const parent = snapshot.parentId ? nodes.get(snapshot.parentId) : null;
@@ -1625,6 +1704,7 @@ async function deleteSelection(context = null) {
 }
 
 
+/** Return the parent/index pair for inserting a new item after a node. */
 function insertionTargetAfterNode(item) {
   if (!item || !item.parentId || item.parentId === "0") return null;
   const parent = nodes.get(item.parentId);
@@ -1668,6 +1748,7 @@ function insertionTargetForContext(context = null) {
   return { parentId: state.folderId, index: null };
 }
 
+/** Create a folder under the requested parent with a localized default name. */
 async function createFolderIn(parentId, index = null) {
   const target = safeMoveDetails(parentId, index);
   if (!target) return;
@@ -1683,6 +1764,7 @@ async function createFolderIn(parentId, index = null) {
   performSelect(node.id);
 }
 
+/** Create a bookmark under the requested parent after collecting dialog input. */
 async function createBookmarkIn(parentId, index = null) {
   const target = safeMoveDetails(parentId, index);
   if (!target) return;
@@ -1708,6 +1790,7 @@ async function createBookmarkIn(parentId, index = null) {
   }
 }
 
+/** Create SBM's separator bookmark marker under the requested parent. */
 async function createSeparatorIn(parentId, index = null) {
   const target = safeMoveDetails(parentId, index);
   if (!target) return;
@@ -1721,6 +1804,7 @@ async function createSeparatorIn(parentId, index = null) {
   performSelect(node.id);
 }
 
+/** Prevent create actions that would discard unsaved Details pane changes. */
 async function blockAddIfUnsavedDetails() {
   if (!hasUnsavedDetails()) return false;
   // Adding a new item changes selection after creation. If the Details pane has
@@ -1732,6 +1816,7 @@ async function blockAddIfUnsavedDetails() {
   return true;
 }
 
+/** Create a folder at the currently focused/contextual insertion target. */
 async function createFolderAtTarget(context = null) {
   if (await blockAddIfUnsavedDetails()) return;
   const target = insertionTargetForContext(context);
@@ -1739,6 +1824,7 @@ async function createFolderAtTarget(context = null) {
   await createFolderIn(target.parentId, target.index);
 }
 
+/** Create a bookmark at the currently focused/contextual insertion target. */
 async function createBookmarkAtTarget(context = null) {
   if (await blockAddIfUnsavedDetails()) return;
   const target = insertionTargetForContext(context);
@@ -1746,6 +1832,7 @@ async function createBookmarkAtTarget(context = null) {
   await createBookmarkIn(target.parentId, target.index);
 }
 
+/** Create a separator at the currently focused/contextual insertion target. */
 async function createSeparatorAtTarget(context = null) {
   if (await blockAddIfUnsavedDetails()) return;
   const target = insertionTargetForContext(context);
@@ -1753,12 +1840,14 @@ async function createSeparatorAtTarget(context = null) {
   await createSeparatorIn(target.parentId, target.index);
 }
 
+/** Store a single node snapshot for a later move-style paste. */
 function cutNode(item) {
   if (!item || !isMutable(item)) return;
   state.clipboard = { mode: "cut", items: [{ id: item.id }] };
   render();
 }
 
+/** Store a single node snapshot for a later clone-style paste. */
 function copyNode(item) {
   if (!item || item.id === "0") return;
   state.clipboard = { mode: "copy", items: [{ snapshot: cloneBookmarkNode(item) }] };
@@ -1804,14 +1893,17 @@ function dropIntent(event, element, target) {
   return y < rect.height / 2 ? "before" : "after";
 }
 
+/** Return the CSS class that represents a drag/drop intent. */
 function dropClass(intent) {
   return intent === "into" ? "drop-into" : intent === "before" ? "drop-before" : "drop-after";
 }
 
+/** Remove row-level drag/drop highlighting from all panes. */
 function clearDropRow(row) {
   row?.classList?.remove("drop-before", "drop-after", "drop-into");
 }
 
+/** Clear all drag/drop visual indicators. */
 function clearDropIndicators() {
   clearDropRow(state.dropIndicator?.row);
   state.dropIndicator = null;
@@ -1853,10 +1945,12 @@ function validDrop(dragged, target, intent, context) {
   return !!target.parentId && target.parentId !== "0";
 }
 
+/** Return the number of children in a folder node. */
 function childCount(parentId) {
   return (nodes.get(parentId)?.children || []).length;
 }
 
+/** Clamp a requested move index to Chromium's valid range for a destination folder. */
 function normalizeMoveIndex(parentId, requestedIndex) {
   if (!Number.isInteger(requestedIndex)) return null;
 
@@ -1902,12 +1996,14 @@ async function moveWithIntent(draggedId, targetId, intent) {
   await loadTree();
 }
 
+/** Resolve the drop intent for a pointer location over a Folder Contents row. */
 function listDropIntent(event, element, target) {
   // Multi-drag in the middle pane needs three folder zones: above, into, below.
   // Non-folder targets keep the simpler before/after behavior.
   return dropIntent(event, element, target);
 }
 
+/** Return the selected IDs that should move together with a drag source. */
 function draggableIdsForPane(ids, pane) {
   const ordered = topLevelIds(orderedIdsForPane(ids || [], pane));
   return ordered.filter((id) => {
@@ -1945,6 +2041,7 @@ function canMoveSelectedListItemsToTarget(target, intent, context, ids = null) {
   return context === "tree";
 }
 
+/** Return whether selected Library folders can move to a target folder safely. */
 function canMoveSelectedTreeFoldersToTarget(target, intent, context, ids = null) {
   const sourceIds = ids || (isMultiSelectActive("tree") ? [...state.multiSelect.ids] : []);
   const selectedIds = draggableIdsForPane(sourceIds, "tree");
@@ -2078,12 +2175,14 @@ async function moveSelectedTreeFolders(targetId, intent, context = "tree", ids =
   await loadTree();
 }
 
+/** Return drag metadata captured from the browser dataTransfer object. */
 function currentDragIntent(event, row, target, context) {
   const source = state.drag?.source;
   if (state.drag?.multi && source === "list" && context === "list") return listDropIntent(event, row, target);
   return dropIntent(event, row, target);
 }
 
+/** Return whether the active drag source can be dropped on a target. */
 function canMoveCurrentDragToTarget(target, intent, context) {
   if (!(state.drag?.multi)) return false;
   if (state.drag.source === "list") return canMoveSelectedListItemsToTarget(target, intent, context, state.drag.ids || []);
@@ -2091,6 +2190,7 @@ function canMoveCurrentDragToTarget(target, intent, context) {
   return false;
 }
 
+/** Move the active drag selection to a resolved drop target. */
 async function moveCurrentDragToTarget(targetId, intent, context) {
   const drag = state.drag;
   state.drag = null;
@@ -2161,6 +2261,7 @@ function hideContextMenu() {
   state.contextMenu = null;
 }
 
+/** Create a context-menu button with disabled and click behavior wired consistently. */
 function makeMenuItem(label, action, { disabled = false, hidden = false } = {}) {
   if (hidden) return null;
   const button = document.createElement("button");
@@ -2183,6 +2284,7 @@ function makeMenuItem(label, action, { disabled = false, hidden = false } = {}) 
   return button;
 }
 
+/** Create a visual separator for custom context menus. */
 function makeSeparator() {
   const sep = document.createElement("div");
   sep.className = "context-menu-separator";
@@ -2190,11 +2292,13 @@ function makeSeparator() {
   return sep;
 }
 
+/** Hide the app menu and reset its expanded button state. */
 function hideAppMenu() {
   document.querySelector(".app-menu")?.remove();
   $("app-menu-button")?.setAttribute("aria-expanded", "false");
 }
 
+/** Create an app-menu button with optional disabled state and click behavior. */
 function makeAppMenuItem(label, action, { disabled = false } = {}) {
   const button = document.createElement("button");
   button.type = "button";
@@ -2215,6 +2319,7 @@ function makeAppMenuItem(label, action, { disabled = false } = {}) {
   return button;
 }
 
+/** Create a visual separator for the app menu. */
 function makeAppMenuSeparator() {
   const sep = document.createElement("div");
   sep.className = "app-menu-separator";
@@ -2222,6 +2327,7 @@ function makeAppMenuSeparator() {
   return sep;
 }
 
+/** Open Chromium's built-in bookmarks manager in a browser tab. */
 async function openDefaultBookmarksManager() {
   try {
     await api.tabs.create({ url: "chrome://bookmarks/" });
@@ -2231,10 +2337,12 @@ async function openDefaultBookmarksManager() {
   }
 }
 
+/** Return whether the embedded Options dialog is currently visible. */
 function isOptionsDialogOpen() {
   return !$('options-modal').hidden;
 }
 
+/** Open the Options page inside the manager modal iframe. */
 function showOptionsDialog() {
   hideContextMenu();
   hideAppMenu();
@@ -2253,6 +2361,7 @@ function showOptionsDialog() {
   $('options-close').focus();
 }
 
+/** Close and reset the embedded Options dialog. */
 function hideOptionsDialog() {
   const modal = $('options-modal');
   if (modal.hidden) return;
@@ -2261,10 +2370,12 @@ function hideOptionsDialog() {
   $('app-menu-button')?.focus();
 }
 
+/** Open the extension Options page in a standalone tab. */
 function openOptionsPage() {
   showOptionsDialog();
 }
 
+/** Render the top-right app menu based on browser feature support. */
 function buildAppMenu() {
   return [
     makeAppMenuItem(t("openDefaultBookmarksManager"), openDefaultBookmarksManager),
@@ -2275,6 +2386,7 @@ function buildAppMenu() {
   ];
 }
 
+/** Toggle the app menu and lazily rebuild its items when opened. */
 function toggleAppMenu() {
   const button = $("app-menu-button");
   const existing = document.querySelector(".app-menu");
@@ -2301,6 +2413,7 @@ function toggleAppMenu() {
   menu.querySelector("button:not(:disabled)")?.focus({ preventScroll: true });
 }
 
+/** Resolve the folder that should receive create/paste context actions. */
 function contextParentId(context) {
   const item = nodes.get(context?.id);
   if (context?.kind === "folder") return item?.id || state.folderId;
@@ -2308,11 +2421,13 @@ function contextParentId(context) {
   return state.folderId;
 }
 
+/** Return whether new bookmark items can be created at the current context. */
 function canCreateAtContext(context = null) {
   const target = insertionTargetForContext(context);
   return !!target && canContainChildren(nodes.get(target.parentId));
 }
 
+/** Render context-menu actions for a folder target. */
 function buildFolderMenu(context) {
   const folder = nodes.get(context.id);
   const urls = contextUrls(context);
@@ -2346,6 +2461,7 @@ function buildFolderMenu(context) {
   ];
 }
 
+/** Render context-menu actions for a bookmark or separator target. */
 function buildBookmarkMenu(context) {
   const bookmark = nodes.get(context.id);
   const urls = contextUrls(context);
@@ -2391,6 +2507,7 @@ function buildMultiMenu(context) {
   ];
 }
 
+/** Render context-menu actions for empty pane space. */
 function buildEmptyMenu(context) {
   const parentId = contextParentId(context);
   const parent = nodes.get(parentId);
@@ -2409,6 +2526,7 @@ function buildEmptyMenu(context) {
   return items;
 }
 
+/** Resolve pane, item, and parent context from a pointer event target. */
 function contextFromEvent(e) {
   const row = e.target.closest?.(".item,.tree-row");
   if (row?.dataset?.id) {
@@ -2572,10 +2690,12 @@ function renderRoots() {
   else roots.replaceChildren(...rows);
 }
 
+/** Return the correct tooltip for the Details pane toggle button. */
 function detailsToggleTooltip() {
   return state.detailsVisible ? t("hideDetailsPaneTooltip") : t("showDetailsPaneTooltip");
 }
 
+/** Render the breadcrumb path for the current folder. */
 function renderCrumbs() {
   const path = [];
   for (let n = nodes.get(state.folderId); n && n.id !== "0"; n = n.parentNode) path.unshift(n.title || t("rootFallback"));
@@ -2608,15 +2728,18 @@ function renderCrumbs() {
 }
 
 
+/** Return the element whose scroll position should be preserved for the middle pane. */
 function middleScroller() {
   return $("table-scroll");
 }
 
+/** Capture the current middle-pane scroll position. */
 function getMiddleScrollPosition() {
   const scroller = middleScroller();
   return scroller ? { top: scroller.scrollTop, left: scroller.scrollLeft } : { top: 0, left: 0 };
 }
 
+/** Restore a saved middle-pane scroll position. */
 function setMiddleScrollPosition(position) {
   const scroller = middleScroller();
   if (!scroller) return;
@@ -2624,6 +2747,7 @@ function setMiddleScrollPosition(position) {
   scroller.scrollLeft = Math.max(0, position?.left || 0);
 }
 
+/** Restore scrolling after DOM replacement, then clear the saved position. */
 function restoreMiddleScrollPosition(position) {
   setMiddleScrollPosition(position);
   requestAnimationFrame(() => setMiddleScrollPosition(position));
@@ -2702,10 +2826,12 @@ function updateSelectionHighlights() {
 }
 
 
+/** Return a safe display value for optional bookmark metadata fields. */
 function availableFieldValue(value) {
   return value === undefined || value === null || value === "" ? t("notAvailable") : String(value);
 }
 
+/** Format Chromium timestamp values for Details display. */
 function formatBookmarkDate(value) {
   if (!value) return t("notAvailable");
   const date = new Date(value);
@@ -2713,6 +2839,7 @@ function formatBookmarkDate(value) {
   return date.toLocaleString();
 }
 
+/** Collect advanced Details values from the selected node for dirty tracking. */
 function advancedDetailsSnapshot(selected = nodes.get(state.selectedId)) {
   if (!selected) return null;
   return {
@@ -2724,6 +2851,7 @@ function advancedDetailsSnapshot(selected = nodes.get(state.selectedId)) {
   };
 }
 
+/** Populate read-only/editable advanced Details controls from a node. */
 function setAdvancedDetailsFields(snapshot) {
   const advanced = snapshot || advancedDetailsSnapshot();
   if (!advanced) return;
@@ -2734,6 +2862,7 @@ function setAdvancedDetailsFields(snapshot) {
   $("advanced-index").value = advanced.index;
 }
 
+/** Show, hide, and disable advanced Details controls according to settings and node type. */
 function syncAdvancedDetailsControls(selected = nodes.get(state.selectedId)) {
   $("advanced-details").hidden = !EnableAdvancedDetailsViewing;
 
@@ -2746,10 +2875,12 @@ function syncAdvancedDetailsControls(selected = nodes.get(state.selectedId)) {
   $("advanced-index").readOnly = !(EnableAdvancedDetailsViewing && EnableAdvancedDetailsEditing && isMutable(selected));
 }
 
+/** Return the current advanced index field value. */
 function advancedIndexValue() {
   return $("advanced-index").value.trim();
 }
 
+/** Create one parent-folder option for the Details parent selector. */
 function makeParentOption(folder) {
   const opt = document.createElement("option");
   opt.value = folder.id;
@@ -2757,6 +2888,7 @@ function makeParentOption(folder) {
   return opt;
 }
 
+/** Create the disabled placeholder option used when the current parent is unavailable. */
 function makeParentPlaceholderOption(desiredValue) {
   const placeholder = document.createElement("option");
   placeholder.value = desiredValue;
@@ -2766,6 +2898,7 @@ function makeParentPlaceholderOption(desiredValue) {
   return placeholder;
 }
 
+/** Render valid parent-folder choices for moving the selected item. */
 function renderParents(selectedValue = null) {
   const selected = nodes.get(state.selectedId);
   const parentSelect = $("parent");
@@ -2878,12 +3011,14 @@ function renderDetails() {
   updateDetailsOpenBookmarkButton(selected);
 }
 
+/** Return a human-readable folder path for a bookmark-tree node. */
 function folderPath(folder) {
   const path = [];
   for (let n = folder; n && n.id !== "0"; n = n.parentNode) path.unshift(n.title || t("rootFallback"));
   return path.join(" / ");
 }
 
+/** Build the Details dirty-check snapshot for the current selection. */
 function selectedDetailsSnapshot(selected = nodes.get(state.selectedId)) {
   if (!selected) return null;
   return {
@@ -2897,6 +3032,7 @@ function selectedDetailsSnapshot(selected = nodes.get(state.selectedId)) {
   };
 }
 
+/** Store the selected item's current Details values as the clean baseline. */
 function setDetailsCleanBaseline(selected = nodes.get(state.selectedId)) {
   if (!selected) {
     state.detailsOriginal = null;
@@ -2916,6 +3052,7 @@ function setDetailsCleanBaseline(selected = nodes.get(state.selectedId)) {
   updateDetailsOpenBookmarkButton(selected);
 }
 
+/** Collect current Details form values for dirty-check comparison. */
 function currentDetailsValues() {
   const selected = nodes.get(state.selectedId);
   if (!selected || !state.detailsOriginal || state.detailsOriginal.id !== selected.id) return null;
@@ -2932,6 +3069,7 @@ function currentDetailsValues() {
   return values;
 }
 
+/** Return whether one Details field differs from the clean baseline. */
 function detailFieldChanged(field) {
   const current = currentDetailsValues();
   const original = state.detailsOriginal;
@@ -2939,6 +3077,7 @@ function detailFieldChanged(field) {
   return current[field] !== original[field];
 }
 
+/** Return whether the Details pane has unsaved editable changes. */
 function hasUnsavedDetails() {
   const selected = nodes.get(state.selectedId);
   if (!selected || !state.detailsOriginal || state.detailsOriginal.id !== selected.id) return false;
@@ -2949,10 +3088,12 @@ function hasUnsavedDetails() {
   return false;
 }
 
+/** Return whether the Details open button should be enabled for the selected bookmark. */
 function isDetailsOpenBookmarkAllowed(selected = nodes.get(state.selectedId)) {
   return !!selected && !isFolder(selected) && !isSeparator(selected) && !!selected.url && !hasUnsavedDetails();
 }
 
+/** Synchronize the Details open button disabled state and tooltip. */
 function updateDetailsOpenBookmarkButton(selected = nodes.get(state.selectedId)) {
   const button = $("open-bookmark-details");
   if (!button) return;
@@ -2961,6 +3102,7 @@ function updateDetailsOpenBookmarkButton(selected = nodes.get(state.selectedId))
   button.disabled = !show || !isDetailsOpenBookmarkAllowed(selected);
 }
 
+/** Open the selected bookmark from the Details pane after URL protection checks. */
 async function openDetailsBookmark() {
   const selected = nodes.get(state.selectedId);
   if (!isDetailsOpenBookmarkAllowed(selected)) return;
@@ -2978,6 +3120,7 @@ async function openDetailsBookmark() {
   }
 }
 
+/** Mark Details fields and buttons according to unsaved-change state. */
 function updateDetailsDirtyIndicators() {
   const selected = nodes.get(state.selectedId);
   const titleDirty = detailFieldChanged("title");
@@ -2994,6 +3137,7 @@ function updateDetailsDirtyIndicators() {
   updateDetailsOpenBookmarkButton(selected);
 }
 
+/** Reset Details form values back to the clean selected-node baseline. */
 function discardDetailsChanges() {
   const selected = nodes.get(state.selectedId);
   if (!selected || !state.detailsOriginal || state.detailsOriginal.id !== selected.id) return;
@@ -3060,6 +3204,7 @@ function showUnsavedChangesPrompt() {
   });
 }
 
+/** Ask the user what to do with dirty Details fields before selection or navigation changes. */
 async function confirmUnsavedDetailsBeforeNavigation() {
   if (!hasUnsavedDetails()) return true;
   if (state.unsavedPromptActive) return false;
@@ -3089,6 +3234,7 @@ async function confirmUnsavedDetailsBeforeNavigation() {
   }
 }
 
+/** Return localized tooltip text for the current sort key and direction. */
 function sortTooltip(key, direction = state.sortDirection) {
   if (key === "index") {
     return t("sortDefaultTooltip");
@@ -3139,6 +3285,7 @@ function renderColumnHeaders() {
   else columns.replaceChildren(...headerNodes);
 }
 
+/** Create one Folder Contents cell for the requested visible column. */
 function cellForColumn(item, columnId) {
   if (columnId === "Name") return makeTitleCell(item);
   const cell = document.createElement("span");
@@ -3150,11 +3297,13 @@ function cellForColumn(item, columnId) {
   return cell;
 }
 
+/** Enable or disable Back/Forward navigation buttons. */
 function renderNavButtons() {
   $("back").disabled = state.back.length === 0;
   $("forward").disabled = state.forward.length === 0;
 }
 
+/** Toggle Details visibility and re-render dependent layout and controls. */
 function toggleDetailsPane() {
   state.detailsVisible = !state.detailsVisible;
   renderCrumbs();
@@ -3201,6 +3350,7 @@ async function navigate(folderId, pushHistory = true, activePane = "tree") {
   performNavigate(folderId, pushHistory, activePane);
 }
 
+/** Change selection immediately without asynchronous unsaved-change checks. */
 function performSelect(id, activePane = "list") {
   clearMultiSelect();
   if (activePane === "tree") {
@@ -3211,6 +3361,7 @@ function performSelect(id, activePane = "list") {
   render();
 }
 
+/** Select an item after protecting unsaved Details edits. */
 async function select(id, activePane = "list") {
   if (id === paneSelectionId(activePane) && state.activePane === activePane && !isMultiSelectActive(activePane)) return;
   if (!(await confirmUnsavedDetailsBeforeNavigation())) return;
@@ -3305,6 +3456,7 @@ async function saveDetailsForSelected() {
   }
 }
 
+/** Handle the Details form submit action and surface save failures. */
 async function saveSelected(e) {
   e.preventDefault();
   try {
@@ -3315,18 +3467,22 @@ async function saveSelected(e) {
   }
 }
 
+/** Delete the currently selected node from the active pane context. */
 async function removeSelected() {
   await deleteNode(nodes.get(state.selectedId), state.activePane === "details" ? "details" : state.activePane);
 }
 
+/** Toolbar wrapper for creating a folder at the active target. */
 async function createFolder() {
   await createFolderAtTarget();
 }
 
+/** Toolbar wrapper for creating a bookmark at the active target. */
 async function createBookmark() {
   await createBookmarkAtTarget();
 }
 
+/** Navigate backward through SBM's folder history after dirty-checking Details. */
 async function goBack() {
   const id = state.back[0];
   if (!id) return;
@@ -3336,6 +3492,7 @@ async function goBack() {
   performNavigate(id, false, "tree");
 }
 
+/** Navigate forward through SBM's folder history after dirty-checking Details. */
 async function goForward() {
   const id = state.forward[0];
   if (!id) return;
@@ -3345,6 +3502,7 @@ async function goForward() {
   performNavigate(id, false, "tree");
 }
 
+/** Handle Mouse4/Mouse5 navigation without triggering browser history too. */
 function handleMouseHistoryButton(e) {
   // Mouse4/Mouse5 are commonly exposed as button 3/4 in Chromium.
   // Chromium can fire both mousedown and auxclick for the same side-button
@@ -3360,6 +3518,7 @@ function handleMouseHistoryButton(e) {
   if (e.button === 4) goForward();
 }
 
+/** Return whether keyboard shortcuts should defer to an editable text control. */
 function isEditingTextField(element) {
   if (!element) return false;
   if (element.isContentEditable) return true;
@@ -3367,11 +3526,13 @@ function isEditingTextField(element) {
   return tag === "input" || tag === "textarea" || tag === "select";
 }
 
+/** Move focus back to the pane that owns the current keyboard context. */
 function focusActivePane() {
   const target = state.activePane === "tree" ? $("roots") : state.activePane === "list" ? $("list") : null;
   target?.focus?.({ preventScroll: true });
 }
 
+/** Scroll the focused selection into view after keyboard navigation. */
 function scrollActiveSelectionIntoView() {
   const selector = state.activePane === "tree"
     ? `.tree-row[data-id="${CSS.escape(state.folderId || "")}"]`
@@ -3424,6 +3585,7 @@ async function handleTreeHorizontalNavigation(direction) {
   return false;
 }
 
+/** Return visible folders under a root, respecting expanded/collapsed state. */
 function visibleTreeFoldersForRoot(rootFolder) {
   const out = [];
   const maps = tempBookmarkTreeMaps();
@@ -3437,6 +3599,7 @@ function visibleTreeFoldersForRoot(rootFolder) {
   return out;
 }
 
+/** Return the top-level root that owns a folder. */
 function rootFolderFor(folder) {
   let current = folder;
   while (current?.parentNode && current.parentNode.id !== "0") current = current.parentNode;
@@ -3491,6 +3654,7 @@ async function moveTreeSelectionToBoundary(position) {
   return true;
 }
 
+/** Move Folder Contents selection to first/last visible item. */
 async function moveListSelectionToBoundary(position) {
   if (state.activePane !== "list") return false;
   const items = visibleItems();
@@ -3526,12 +3690,14 @@ async function navigateUpFolderNode() {
   return true;
 }
 
+/** Focus and select the search box for keyboard access. */
 function focusSearchField() {
   const search = $("search");
   search.focus({ preventScroll: true });
   search.select?.();
 }
 
+/** Move Library tree selection by one visible folder. */
 async function moveTreeSelection(delta) {
   const folders = visibleTreeFolders();
   if (!folders.length) return false;
@@ -3546,6 +3712,7 @@ async function moveTreeSelection(delta) {
   return true;
 }
 
+/** Move Folder Contents selection by one visible item. */
 async function moveListSelection(delta) {
   const items = visibleItems();
   if (!items.length) return false;
@@ -3562,6 +3729,7 @@ async function moveListSelection(delta) {
   return true;
 }
 
+/** Open or navigate the current keyboard selection. */
 async function openKeyboardSelection() {
   if (state.activePane === "tree") {
     const folder = nodes.get(paneSelectionId("tree"));
@@ -3646,6 +3814,7 @@ async function handleKeyboardDelete(e) {
   await deleteNode(selected, sourcePane);
 }
 
+/** Refresh option tooltips for the Folder Contents sort selector. */
 function setSortSelectTooltips() {
   const labels = {
     index: sortTooltip("index"),
@@ -3678,6 +3847,7 @@ $("sort").onchange = (e) => {
   renderColumnHeaders();
 };
 
+/** Apply a column-header sort request to Folder Contents. */
 function setFolderContentsSort(key) {
   if (key === "index") {
     // Same behavior as the toolbar's "Default" entry: show Chromium's
@@ -3695,6 +3865,7 @@ function setFolderContentsSort(key) {
   renderColumnHeaders();
 }
 
+/** Start resizing a Folder Contents column and persist the final width. */
 function beginFolderContentsColumnResize(e) {
   const resizer = e.target.closest(".column-resizer");
   if (!resizer) return false;

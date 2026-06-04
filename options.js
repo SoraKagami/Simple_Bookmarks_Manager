@@ -38,6 +38,7 @@ function applyUserInterfaceSettings(settings) {
   document.documentElement.style.setProperty("--sbm-ui-line-height", String(spacing));
 }
 
+/** Preview each font-family option using the font it represents. */
 function applyFontOptionStyles() {
   const control = $("UserInterfaceFontFamily");
   for (const optionElement of control.options) {
@@ -45,11 +46,13 @@ function applyFontOptionStyles() {
   }
 }
 
+/** Format one warning/error log record for the diagnostics textarea. */
 function formatSessionLogRecord(record) {
   if (!record) return "";
   return `[${record.time}] ${record.source} ${record.level.toUpperCase()}: ${record.message}`;
 }
 
+/** Read transient manager-page log records when Options is embedded in the manager. */
 function parentManagerLogRecords() {
   try {
     if (window.parent && window.parent !== window && typeof window.parent.SBM_getSessionLogRecords === "function") {
@@ -61,6 +64,7 @@ function parentManagerLogRecords() {
   return [];
 }
 
+/** Refresh the visible warnings/errors log from manager and options session records. */
 function refreshWarningsErrorsLog() {
   const section = $("warnings-errors-log-section");
   const output = $("warnings-errors-log");
@@ -70,6 +74,7 @@ function refreshWarningsErrorsLog() {
   output.value = records.length ? records.map(formatSessionLogRecord).join("\n") : t("warningsErrorsLogEmpty");
 }
 
+/** Show or hide the diagnostics log and manage its refresh timer. */
 function setWarningsErrorsLogVisible(visible) {
   const section = $("warnings-errors-log-section");
   if (!section) return;
@@ -82,6 +87,7 @@ function setWarningsErrorsLogVisible(visible) {
   }
 }
 
+/** Hide or show an option row while keeping inline display state consistent. */
 function setHidden(element, hidden) {
   if (!element) return;
   element.hidden = hidden;
@@ -90,6 +96,7 @@ function setHidden(element, hidden) {
   element.style.display = hidden ? "none" : "";
 }
 
+/** Toggle debug-only options and their dependent diagnostics log state. */
 function setDebugOptionsVisible(visible) {
   setHidden($("debug-failed-bookmark-operation"), !visible);
   setHidden($("debug-settings-group"), !visible);
@@ -99,12 +106,14 @@ function setDebugOptionsVisible(visible) {
   if (!visible) setWarningsErrorsLogVisible(false);
 }
 
+/** Read one option control using checkbox/value semantics. */
 function readControlValue(key) {
   const control = $(key);
   if (control.type === "checkbox") return control.checked;
   return control.value;
 }
 
+/** Collect all option control values according to the shared settings schema. */
 function readAllControlValues() {
   const values = {};
   for (const key of Object.keys(DEFAULT_SETTINGS)) {

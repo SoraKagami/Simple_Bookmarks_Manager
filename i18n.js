@@ -36,10 +36,12 @@ let currentLanguage = "en";
 let messages = Object.create(null);
 let fallbackMessages = Object.create(null);
 
+/** Normalize stored/browser locale tags to SBM's underscore-separated IDs. */
 function normalizeLocaleTag(value) {
   return String(value || "").trim().replace(/-/g, "_");
 }
 
+/** Return the configured language option for a supported SBM language ID. */
 function languageOption(value) {
   return LANGUAGE_OPTIONS.find((option) => option.value === value) || null;
 }
@@ -54,10 +56,12 @@ function normalizeBrowserLanguage(value) {
   return language;
 }
 
+/** Return the list of language IDs that can be selected in SBM settings. */
 export function supportedLanguageValues() {
   return LANGUAGE_OPTIONS.map((option) => option.value);
 }
 
+/** Normalize a persisted language setting, falling back to automatic detection. */
 export function normalizeLanguageSetting(value) {
   return supportedLanguageValues().includes(value) ? value : "auto";
 }
@@ -103,6 +107,7 @@ export async function setI18nLanguage(requested = "auto") {
   return currentLanguage;
 }
 
+/** Return the currently loaded effective language ID. */
 export function getCurrentLanguage() {
   return currentLanguage;
 }
