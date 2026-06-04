@@ -52,6 +52,8 @@ const $ = (id) => document.getElementById(id);
 const nodes = new Map();
 const SEPARATOR_TITLE = "———";
 const SEPARATOR_URL = "about:blank";
+let left_Lib_Width = DEFAULT_SETTINGS.left_Lib_Width;
+let right_Details_Width = DEFAULT_SETTINGS.right_Details_Width;
 let UserInterfaceLanguage = DEFAULT_SETTINGS.UserInterfaceLanguage;
 let UserInterfaceFontFamily = DEFAULT_SETTINGS.UserInterfaceFontFamily;
 let UserInterfaceFontSize = DEFAULT_SETTINGS.UserInterfaceFontSize;
@@ -84,6 +86,8 @@ function applyUserInterfaceSettings() {
   document.documentElement.style.setProperty("--sbm-ui-font-family", fontFamilyCss(UserInterfaceFontFamily));
   document.documentElement.style.setProperty("--sbm-ui-font-size", `${UserInterfaceFontSize}px`);
   document.documentElement.style.setProperty("--sbm-ui-line-height", String(UserInterfaceLineSpacing));
+  document.documentElement.style.setProperty("--left-lib-width", `${left_Lib_Width}px`);
+  document.documentElement.style.setProperty("--right-details-width", `${right_Details_Width}px`);
   applyFolderContentsColumnSettings();
 }
 
@@ -96,7 +100,9 @@ function applySettings(settings, { render = false } = {}) {
   for (const key of keys) {
     if (!(key in settings)) continue;
     const value = normalizeSettingValue(key, settings[key]);
-    if (key === "UserInterfaceLanguage") UserInterfaceLanguage = value;
+    if (key === "left_Lib_Width") left_Lib_Width = value;
+    else if (key === "right_Details_Width") right_Details_Width = value;
+    else if (key === "UserInterfaceLanguage") UserInterfaceLanguage = value;
     else if (key === "UserInterfaceFontFamily") UserInterfaceFontFamily = value;
     else if (key === "UserInterfaceFontSize") UserInterfaceFontSize = value;
     else if (key === "UserInterfaceLineSpacing") UserInterfaceLineSpacing = value;
@@ -131,6 +137,56 @@ function applySettings(settings, { render = false } = {}) {
     renderList();
     renderDetails();
   }
+}
+
+
+function beginPaneResize(e, pane) {
+  const isLeft = pane === "left";
+  const settingKey = isLeft ? "left_Lib_Width" : "right_Details_Width";
+  const minWidth = isLeft ? 180 : 220;
+  const maxWidth = isLeft ? 800 : 900;
+  const startX = e.clientX;
+  const startWidth = isLeft ? left_Lib_Width : right_Details_Width;
+  let latestWidth = startWidth;
+
+  e.preventDefault();
+  e.stopPropagation();
+  document.body.classList.add("pane-resizing");
+
+  const onMove = (moveEvent) => {
+    const delta = moveEvent.clientX - startX;
+    const rawWidth = isLeft ? startWidth + delta : startWidth - delta;
+    const nextWidth = normalizeSettingValue(settingKey, Math.min(maxWidth, Math.max(minWidth, rawWidth)));
+    if (nextWidth === latestWidth) return;
+    latestWidth = nextWidth;
+    applySettings({ [settingKey]: latestWidth }, { render: false });
+  };
+
+  const onUp = async () => {
+    document.body.classList.remove("pane-resizing");
+    window.removeEventListener("mousemove", onMove, true);
+    window.removeEventListener("mouseup", onUp, true);
+    try {
+      await saveSetting(settingKey, latestWidth);
+    } catch (err) {
+      console.error(err);
+      alert(t("actionFailed", { error: err.message || err }));
+    }
+  };
+
+  window.addEventListener("mousemove", onMove, true);
+  window.addEventListener("mouseup", onUp, true);
+  return true;
+}
+
+function nudgePaneWidth(pane, delta) {
+  const isLeft = pane === "left";
+  const key = isLeft ? "left_Lib_Width" : "right_Details_Width";
+  const current = isLeft ? left_Lib_Width : right_Details_Width;
+  saveSetting(key, current + delta).catch((err) => {
+    console.error(err);
+    alert(t("actionFailed", { error: err.message || err }));
+  });
 }
 
 function localizedColumnLabel(key) {
@@ -3487,6 +3543,19 @@ function beginFolderContentsColumnResize(e) {
   window.addEventListener("mouseup", onUp, true);
   return true;
 }
+
+$("left-pane-resizer").addEventListener("mousedown", (e) => beginPaneResize(e, "left"));
+$("right-pane-resizer").addEventListener("mousedown", (e) => beginPaneResize(e, "right"));
+$("left-pane-resizer").addEventListener("keydown", (e) => {
+  if (e.key !== "ArrowLeft" && e.key !== "ArrowRight") return;
+  e.preventDefault();
+  nudgePaneWidth("left", e.key === "ArrowRight" ? 10 : -10);
+});
+$("right-pane-resizer").addEventListener("keydown", (e) => {
+  if (e.key !== "ArrowLeft" && e.key !== "ArrowRight") return;
+  e.preventDefault();
+  nudgePaneWidth("right", e.key === "ArrowLeft" ? 10 : -10);
+});
 
 $("table-scroll").addEventListener("mousedown", (e) => {
   beginFolderContentsColumnResize(e);

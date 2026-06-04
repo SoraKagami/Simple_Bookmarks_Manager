@@ -23,6 +23,9 @@
   "advancedDetails": {
     "message": "Advanced Details"
   },
+  "advancedDetailsHelp": {
+    "message": "Configure advanced metadata viewing and supported advanced editing in the Details pane."
+  },
   "allowKeyboardDelete": {
     "message": "Allow Delete key to delete selected items"
   },
@@ -136,6 +139,12 @@
   },
   "debugOptionsHelp": {
     "message": "Advanced. Shows debug-only test controls. Leave disabled during normal use."
+  },
+  "debugSettings": {
+    "message": "Debug Settings"
+  },
+  "debugSettingsHelp": {
+    "message": "Controls shown only when Debug options is enabled."
   },
   "defaultsRestored": {
     "message": "Defaults restored"
@@ -268,6 +277,12 @@
   },
   "keepEditing": {
     "message": "Keep Editing"
+  },
+  "leftLibWidth": {
+    "message": "Library pane width"
+  },
+  "leftLibWidthHelp": {
+    "message": "Width in pixels for the left Library pane."
   },
   "library": {
     "message": "Library"
@@ -407,6 +422,12 @@
   "optimisationTempBookmarkTreeMapsHelp": {
     "message": "Experimental. Builds short-lived lookup maps during some render/search/tree operations, then discards them to avoid a persistent stale cache."
   },
+  "optimisations": {
+    "message": "Optimisations"
+  },
+  "optimisationsHelp": {
+    "message": "Experimental performance options for benchmarking and troubleshooting."
+  },
   "optionSaved": {
     "message": "Saved"
   },
@@ -415,6 +436,12 @@
   },
   "optionsTitle": {
     "message": "Simple Bookmarks Manager Options"
+  },
+  "paneWidths": {
+    "message": "Pane widths"
+  },
+  "paneWidthsHelp": {
+    "message": "Configure the Library and Details pane widths. These are also updated when panes are resized in the manager UI."
   },
   "parentFolder": {
     "message": "Parent folder"
@@ -433,6 +460,18 @@
   },
   "resizeColumn": {
     "message": "Drag to resize column"
+  },
+  "resizeDetailsPane": {
+    "message": "Resize Details pane"
+  },
+  "resizeLibraryPane": {
+    "message": "Resize Library pane"
+  },
+  "rightDetailsWidth": {
+    "message": "Details pane width"
+  },
+  "rightDetailsWidthHelp": {
+    "message": "Width in pixels for the right Details pane."
   },
   "rootFallback": {
     "message": "(root)"
@@ -622,20 +661,5 @@
   },
   "warningsErrorsLogHelp": {
     "message": "Transient warnings/errors for this current SBM session. This is not saved to settings."
-  },
-  "advancedDetailsHelp": {
-    "message": "Configure advanced metadata viewing and supported advanced editing in the Details pane."
-  },
-  "optimisations": {
-    "message": "Optimisations"
-  },
-  "optimisationsHelp": {
-    "message": "Experimental performance options for benchmarking and troubleshooting."
-  },
-  "debugSettings": {
-    "message": "Debug Settings"
-  },
-  "debugSettingsHelp": {
-    "message": "Controls shown only when Debug options is enabled."
   }
 }

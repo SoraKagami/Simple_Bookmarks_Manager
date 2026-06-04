@@ -30,6 +30,8 @@ export const FONT_FAMILY_OPTIONS = Object.freeze([
 ]);
 
 export const DEFAULT_SETTINGS = Object.freeze({
+  left_Lib_Width: 260,
+  right_Details_Width: 320,
   UserInterfaceLanguage: "auto",
   UserInterfaceFontFamily: "system",
   UserInterfaceFontSize: 12.5,
@@ -74,6 +76,8 @@ export function normalizeSettingValue(key, value) {
   }
   if (key === "UserInterfaceFontSize") return clampNumber(value, 11, 20, DEFAULT_SETTINGS[key]);
   if (key === "UserInterfaceLineSpacing") return clampNumber(value, 1.0, 1.8, DEFAULT_SETTINGS[key]);
+  if (key === "left_Lib_Width") return Math.round(clampNumber(value, 180, 800, DEFAULT_SETTINGS[key]));
+  if (key === "right_Details_Width") return Math.round(clampNumber(value, 220, 900, DEFAULT_SETTINGS[key]));
   if (key.startsWith("mid_FC_Width_")) {
     const column = key.slice("mid_FC_Width_".length);
     const min = MID_FC_COLUMN_MIN_WIDTHS[column] || 48;

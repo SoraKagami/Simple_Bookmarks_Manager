@@ -1,4 +1,4 @@
-:root { --sbm-ui-font-family: system-ui, sans-serif; --sbm-ui-font-size: 14px; --sbm-ui-line-height: 1.4; font-family: var(--sbm-ui-font-family); font-size: var(--sbm-ui-font-size); line-height: var(--sbm-ui-line-height); color-scheme: light dark; --bookmark-table-min-width: 860px; --mid-fc-grid-template: 240px 360px 140px 72px 72px; }
+:root { --sbm-ui-font-family: system-ui, sans-serif; --sbm-ui-font-size: 14px; --sbm-ui-line-height: 1.4; font-family: var(--sbm-ui-font-family); font-size: var(--sbm-ui-font-size); line-height: var(--sbm-ui-line-height); color-scheme: light dark; --bookmark-table-min-width: 860px; --mid-fc-grid-template: 240px 360px 140px 72px 72px; --left-lib-width: 260px; --right-details-width: 320px; }
 html { height: 100%; overflow: hidden; }
 body { margin: 0; height: 100vh; overflow: hidden; display: flex; flex-direction: column; font-family: var(--sbm-ui-font-family); font-size: var(--sbm-ui-font-size); line-height: var(--sbm-ui-line-height); }
 .toolbar { display: flex; gap: 8px; padding: 10px; border-bottom: 1px solid CanvasText; align-items: center; }
@@ -29,10 +29,14 @@ body { margin: 0; height: 100vh; overflow: hidden; display: flex; flex-direction
   white-space: nowrap;
 }
 button, select, input { font-family: var(--sbm-ui-font-family); font-size: inherit; line-height: inherit; }
-.layout { flex: 1; display: grid; grid-template-columns: 260px 1fr 320px; min-height: 0; overflow: hidden; }
-.layout.details-hidden { grid-template-columns: 260px 1fr; }
+.layout { flex: 1; display: grid; grid-template-columns: var(--left-lib-width) 7px minmax(0, 1fr) 7px var(--right-details-width); min-height: 0; overflow: hidden; }
+.layout.details-hidden { grid-template-columns: var(--left-lib-width) 7px minmax(0, 1fr); }
+.layout.details-hidden .pane-resizer-right { display: none; }
 .left, .details { min-height: 0; padding: 12px; overflow: auto; overscroll-behavior: contain; background: color-mix(in srgb, Canvas 92%, CanvasText); }
 .left { display: flex; flex-direction: column; min-height: 0; }
+.pane-resizer { min-width: 7px; cursor: col-resize; background: color-mix(in srgb, CanvasText 8%, transparent); border-inline: 1px solid color-mix(in srgb, CanvasText 12%, transparent); touch-action: none; }
+.pane-resizer:hover, .pane-resizer:focus-visible, body.pane-resizing .pane-resizer { background: color-mix(in srgb, Highlight 30%, transparent); outline: none; }
+body.pane-resizing { cursor: col-resize; user-select: none; }
 .left .tree { flex: 1 1 auto; }
 .content { min-width: 0; min-height: 0; overflow: hidden; display: flex; flex-direction: column; }
 h2 { font-size: .929rem; margin: 0 0 10px; opacity: .75; text-transform: uppercase; }

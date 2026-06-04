@@ -103,6 +103,29 @@
 
       <details class="option-subsection option-collapsible">
         <summary>
+          <span class="option-subsection-summary-title" data-i18n="paneWidths">Pane widths</span>
+          <span class="option-subsection-summary-help" data-i18n="paneWidthsHelp">Configure the Library and Details pane widths. These are also updated when panes are resized in the manager UI.</span>
+        </summary>
+        <div class="option-subsection-body">
+          <label class="option-row option-row-control">
+            <span>
+              <strong data-i18n="leftLibWidth">Library pane width</strong>
+              <small data-i18n="leftLibWidthHelp">Width in pixels for the left Library pane.</small>
+            </span>
+            <input id="left_Lib_Width" type="number" min="180" max="800" step="1">
+          </label>
+          <label class="option-row option-row-control">
+            <span>
+              <strong data-i18n="rightDetailsWidth">Details pane width</strong>
+              <small data-i18n="rightDetailsWidthHelp">Width in pixels for the right Details pane.</small>
+            </span>
+            <input id="right_Details_Width" type="number" min="220" max="900" step="1">
+          </label>
+        </div>
+      </details>
+
+      <details class="option-subsection option-collapsible">
+        <summary>
           <span class="option-subsection-summary-title" data-i18n="folderContentsView">Folder Contents view</span>
           <span class="option-subsection-summary-help" data-i18n="folderContentsViewHelp">Configure middle-pane column widths and optional columns. Name and URL are always shown.</span>
         </summary>

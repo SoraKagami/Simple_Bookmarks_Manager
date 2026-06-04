@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.7.15
+
+- Added resizable left **Library** and right **Details** panes in the manager UI.
+- Added persistent `left_Lib_Width` and `right_Details_Width` settings, using the previous pane sizes as defaults.
+- Added Advanced Options controls for Library and Details pane widths.
+- Drag-resizing the pane splitters saves updated widths to extension storage.
+- Updated `manifest.json` to `0.7.15`.
+
 ## 0.7.14
 
 - Updated the Options page Advanced section layout.
