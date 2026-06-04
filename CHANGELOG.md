@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.8.3
+
+- Restored the About page typography to visually match the original v0.8.0 design when SBM's configured UI font size is 12.5px.
+- Replaced the v0.8.2 About page `calc()`-based font-size adjustments with fixed rem values so the page keeps simple, static CSS sizing while still scaling from SBM's configured root UI font size.
+
 ## 0.8.2
 
 - Increased the About page body, card, tagline, and section text sizing relative to the configured SBM UI font size, while applying only a small increase to the main title.
