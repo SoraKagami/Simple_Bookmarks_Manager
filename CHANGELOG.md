@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.8.0
+
+- Enabled the hamburger-menu About action and added a polished in-SBM About interface loaded from the packaged `about.html` page.
+- Added `about.css` and packaged `icons/SBM_Icon.png` for the About page presentation.
+- Added a new hamburger-menu Changelog action below About that fetches the packaged `CHANGELOG.md` and renders it in a scrollable in-SBM dialog.
+- Rendered changelog markdown with DOM node creation and `textContent` instead of `innerHTML` to preserve extension-surface hardening.
+- Added English UI strings for the Changelog menu item and generic dialog close label.
+
 ## 0.7.33
 
 - Removed the embedded Options iframe `sandbox` attribute to avoid Chromium's `allow-scripts` plus `allow-same-origin` sandbox warning.

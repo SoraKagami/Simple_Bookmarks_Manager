@@ -754,5 +754,11 @@
   },
   "urlOpenBlockedByProtection": {
     "message": "This bookmark URL is blocked by an advanced URL-opening protection. You can review the protection toggles in Options > Advanced."
+  },
+  "changelog": {
+    "message": "Changelog"
+  },
+  "closeDialog": {
+    "message": "Close dialog"
   }
 }

@@ -353,6 +353,119 @@ body.column-resizing { cursor: col-resize; user-select: none; }
   color: CanvasText;
 }
 
+.info-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 10000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  background: color-mix(in srgb, CanvasText 42%, transparent);
+}
+.info-dialog {
+  box-sizing: border-box;
+  width: min(760px, calc(100vw - 48px));
+  height: min(620px, calc(100vh - 48px));
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  border: 1px solid color-mix(in srgb, CanvasText 30%, transparent);
+  border-radius: 12px;
+  background: Canvas;
+  color: CanvasText;
+  box-shadow: 0 16px 48px color-mix(in srgb, CanvasText 35%, transparent);
+}
+.info-dialog-header {
+  flex: 0 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 10px 12px;
+  border-bottom: 1px solid color-mix(in srgb, CanvasText 22%, transparent);
+  background: color-mix(in srgb, Canvas 94%, CanvasText);
+}
+.info-dialog-header h2 {
+  margin: 0;
+}
+.info-close {
+  min-width: 32px;
+  min-height: 28px;
+  padding: 0 8px;
+  font-size: 20px;
+  line-height: 1;
+}
+.info-content-host {
+  flex: 1 1 auto;
+  min-height: 0;
+  overflow: hidden;
+}
+.info-frame {
+  width: 100%;
+  height: 100%;
+  border: 0;
+  background: Canvas;
+  color: CanvasText;
+}
+.markdown-view {
+  box-sizing: border-box;
+  height: 100%;
+  overflow: auto;
+  overscroll-behavior: contain;
+  padding: 22px 28px 28px;
+  line-height: 1.55;
+}
+.markdown-view h1,
+.markdown-view h2,
+.markdown-view h3 {
+  text-transform: none;
+  opacity: 1;
+  margin: 0 0 12px;
+}
+.markdown-view h1 {
+  font-size: 1.65rem;
+}
+.markdown-view h2 {
+  margin-top: 24px;
+  padding-bottom: 5px;
+  border-bottom: 1px solid color-mix(in srgb, CanvasText 18%, transparent);
+  font-size: 1.25rem;
+}
+.markdown-view h3 {
+  margin-top: 18px;
+  font-size: 1.05rem;
+}
+.markdown-view p,
+.markdown-view ul,
+.markdown-view ol,
+.markdown-view pre {
+  margin: 0 0 12px;
+}
+.markdown-view ul,
+.markdown-view ol {
+  padding-left: 1.35rem;
+}
+.markdown-view code {
+  padding: 1px 4px;
+  border-radius: 4px;
+  background: color-mix(in srgb, CanvasText 10%, transparent);
+  font-family: Consolas, "Cascadia Mono", "Courier New", monospace;
+}
+.markdown-view pre {
+  overflow: auto;
+  padding: 10px 12px;
+  border-radius: 8px;
+  background: color-mix(in srgb, CanvasText 10%, transparent);
+}
+.markdown-view pre code {
+  padding: 0;
+  background: transparent;
+}
+.markdown-view a {
+  color: LinkText;
+}
+
 .field-warning {
   margin: -4px 0 6px;
   font-size: calc(var(--sbm-ui-font-size) * .86);

@@ -73,6 +73,7 @@ let Optimisation_TempBookmarkTreeMaps = DEFAULT_SETTINGS.Optimisation_TempBookma
 let Optimisation_DOMrendering = DEFAULT_SETTINGS.Optimisation_DOMrendering;
 let Show_ErrorsWarnings = DEFAULT_SETTINGS.Show_ErrorsWarnings;
 let DebugOptions = DEFAULT_SETTINGS.DebugOptions;
+let cachedChangelogMarkdown = null;
 let mid_FC_Width_Name = DEFAULT_SETTINGS.mid_FC_Width_Name;
 let mid_FC_Width_URL = DEFAULT_SETTINGS.mid_FC_Width_URL;
 let mid_FC_Width_DateAdded = DEFAULT_SETTINGS.mid_FC_Width_DateAdded;
@@ -2337,6 +2338,11 @@ async function openDefaultBookmarksManager() {
   }
 }
 
+/** Return whether any manager-owned modal dialog is currently visible. */
+function isManagerModalOpen() {
+  return !$("options-modal").hidden || !$("info-modal").hidden;
+}
+
 /** Return whether the embedded Options dialog is currently visible. */
 function isOptionsDialogOpen() {
   return !$('options-modal').hidden;
@@ -2344,6 +2350,7 @@ function isOptionsDialogOpen() {
 
 /** Open the Options page inside the manager modal iframe. */
 function showOptionsDialog() {
+  hideInfoDialog();
   hideContextMenu();
   hideAppMenu();
   const modal = $('options-modal');
@@ -2364,17 +2371,190 @@ function showOptionsDialog() {
 }
 
 /** Close and reset the embedded Options dialog. */
-function hideOptionsDialog() {
+function hideOptionsDialog({ restoreFocus = true } = {}) {
   const modal = $('options-modal');
   if (modal.hidden) return;
   modal.hidden = true;
   $('options-frame-host').replaceChildren();
-  $('app-menu-button')?.focus();
+  if (restoreFocus) $('app-menu-button')?.focus();
 }
 
-/** Open the extension Options page in a standalone tab. */
+/** Open the extension Options page in the in-manager dialog. */
 function openOptionsPage() {
   showOptionsDialog();
+}
+
+/** Close and clear the reusable About/Changelog dialog. */
+function hideInfoDialog({ restoreFocus = true } = {}) {
+  const modal = $("info-modal");
+  if (modal.hidden) return;
+  modal.hidden = true;
+  $("info-content-host").replaceChildren();
+  if (restoreFocus) $("app-menu-button")?.focus();
+}
+
+/** Show the reusable About/Changelog dialog with an already-built content node. */
+function showInfoDialog(title, contentNode) {
+  hideOptionsDialog({ restoreFocus: false });
+  hideContextMenu();
+  hideAppMenu();
+
+  const modal = $("info-modal");
+  const titleNode = $("info-modal-title");
+  const host = $("info-content-host");
+  titleNode.textContent = title;
+  host.replaceChildren(contentNode);
+  modal.hidden = false;
+  $("info-close").focus();
+}
+
+/** Open the packaged About page in an in-manager iframe. */
+function showAboutDialog() {
+  const frame = document.createElement("iframe");
+  frame.className = "info-frame";
+  frame.title = t("about");
+  frame.referrerPolicy = "no-referrer";
+  frame.src = api.runtime.getURL("about.html");
+  showInfoDialog(t("about"), frame);
+}
+
+/** Append inline markdown text with minimal safe formatting to a parent node. */
+function appendMarkdownInline(parent, text) {
+  const tokenPattern = /(\*\*[^*]+\*\*|`[^`]+`|\[[^\]]+\]\(([^)\s]+)\))/g;
+  let lastIndex = 0;
+  for (const match of text.matchAll(tokenPattern)) {
+    if (match.index > lastIndex) parent.append(document.createTextNode(text.slice(lastIndex, match.index)));
+    const token = match[0];
+
+    if (token.startsWith("**")) {
+      const strong = document.createElement("strong");
+      strong.textContent = token.slice(2, -2);
+      parent.append(strong);
+    } else if (token.startsWith("`")) {
+      const code = document.createElement("code");
+      code.textContent = token.slice(1, -1);
+      parent.append(code);
+    } else {
+      const labelEnd = token.indexOf("](");
+      const label = token.slice(1, labelEnd);
+      const href = token.slice(labelEnd + 2, -1);
+      const link = document.createElement("a");
+      link.textContent = label;
+      try {
+        const url = new URL(href, api.runtime.getURL(""));
+        if (url.protocol === "https:" || url.protocol === "http:") {
+          link.href = url.href;
+          link.target = "_blank";
+          link.rel = "noopener noreferrer";
+        }
+      } catch {
+        // Keep the label as inert text when the URL is not parseable.
+      }
+      if (link.href) parent.append(link);
+      else parent.append(document.createTextNode(label));
+    }
+    lastIndex = match.index + token.length;
+  }
+  if (lastIndex < text.length) parent.append(document.createTextNode(text.slice(lastIndex)));
+}
+
+/** Convert the packaged changelog markdown to DOM nodes without using innerHTML. */
+function renderMarkdownDocument(markdown) {
+  const root = document.createElement("article");
+  root.className = "markdown-view";
+
+  const lines = markdown.replace(/\r\n?/g, "\n").split("\n");
+  let list = null;
+  let paragraphLines = [];
+  let codeBlock = null;
+
+  const closeList = () => {
+    list = null;
+  };
+  const flushParagraph = () => {
+    if (!paragraphLines.length) return;
+    const paragraph = document.createElement("p");
+    appendMarkdownInline(paragraph, paragraphLines.join(" "));
+    root.append(paragraph);
+    paragraphLines = [];
+  };
+  const appendHeading = (level, text) => {
+    const heading = document.createElement(`h${level}`);
+    appendMarkdownInline(heading, text.trim());
+    root.append(heading);
+  };
+  const appendListItem = (text) => {
+    if (!list) {
+      list = document.createElement("ul");
+      root.append(list);
+    }
+    const item = document.createElement("li");
+    appendMarkdownInline(item, text.trim());
+    list.append(item);
+  };
+
+  for (const rawLine of lines) {
+    const line = rawLine.trimEnd();
+
+    if (codeBlock) {
+      if (line.trim().startsWith("```")) {
+        root.append(codeBlock.pre);
+        codeBlock = null;
+      } else {
+        codeBlock.lines.push(rawLine);
+        codeBlock.code.textContent = codeBlock.lines.join("\n");
+      }
+      continue;
+    }
+
+    if (line.trim().startsWith("```")) {
+      flushParagraph();
+      closeList();
+      const pre = document.createElement("pre");
+      const code = document.createElement("code");
+      pre.append(code);
+      codeBlock = { pre, code, lines: [] };
+      continue;
+    }
+
+    if (!line.trim()) {
+      flushParagraph();
+      closeList();
+      continue;
+    }
+
+    const headingMatch = /^(#{1,3})\s+(.+)$/.exec(line);
+    if (headingMatch) {
+      flushParagraph();
+      closeList();
+      appendHeading(headingMatch[1].length, headingMatch[2]);
+      continue;
+    }
+
+    const bulletMatch = /^[-*]\s+(.+)$/.exec(line);
+    if (bulletMatch) {
+      flushParagraph();
+      appendListItem(bulletMatch[1]);
+      continue;
+    }
+
+    closeList();
+    paragraphLines.push(line.trim());
+  }
+
+  if (codeBlock) root.append(codeBlock.pre);
+  flushParagraph();
+  return root;
+}
+
+/** Fetch and display the packaged changelog in a scrollable markdown view. */
+async function showChangelogDialog() {
+  if (cachedChangelogMarkdown === null) {
+    const response = await fetch(api.runtime.getURL("CHANGELOG.md"));
+    if (!response.ok) throw new Error(`Unable to load changelog (${response.status})`);
+    cachedChangelogMarkdown = await response.text();
+  }
+  showInfoDialog(t("changelog"), renderMarkdownDocument(cachedChangelogMarkdown));
 }
 
 /** Render the top-right app menu based on browser feature support. */
@@ -2384,7 +2564,8 @@ function buildAppMenu() {
     makeAppMenuSeparator(),
     makeAppMenuItem(t("options"), openOptionsPage),
     makeAppMenuItem(t("help"), () => {}, { disabled: true }),
-    makeAppMenuItem(t("about"), () => {}, { disabled: true })
+    makeAppMenuItem(t("about"), showAboutDialog),
+    makeAppMenuItem(t("changelog"), showChangelogDialog)
   ];
 }
 
@@ -3940,6 +4121,10 @@ $("options-close").onclick = hideOptionsDialog;
 $("options-modal").addEventListener("mousedown", (e) => {
   if (e.target === $("options-modal")) hideOptionsDialog();
 });
+$("info-close").onclick = hideInfoDialog;
+$("info-modal").addEventListener("mousedown", (e) => {
+  if (e.target === $("info-modal")) hideInfoDialog();
+});
 $("roots").addEventListener("focusin", () => { state.activePane = "tree"; updateSelectionHighlights(); });
 $("list").addEventListener("focusin", () => { state.activePane = "list"; updateSelectionHighlights(); });
 $("details-form").addEventListener("focusin", () => { state.activePane = "details"; updateSelectionHighlights(); });
@@ -3971,8 +4156,9 @@ window.addEventListener("pagehide", () => { clearManagerInstanceIfCurrent(); });
 window.addEventListener("scroll", () => { hideContextMenu(); hideAppMenu(); }, true);
 window.addEventListener("keydown", async (e) => {
   if (e.key === "Escape") {
-    if (isOptionsDialogOpen()) {
+    if (isManagerModalOpen()) {
       hideOptionsDialog();
+      hideInfoDialog();
       e.preventDefault();
       e.stopPropagation();
       return;
