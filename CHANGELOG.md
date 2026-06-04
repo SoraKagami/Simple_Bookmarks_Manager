@@ -1,5 +1,12 @@
 # Changelog
 
+## 0.8.2
+
+- Increased the About page body, card, tagline, and section text sizing relative to the configured SBM UI font size, while applying only a small increase to the main title.
+- Added `referrerpolicy="no-referrer"` to the About page GitHub link as a small external-link hardening improvement.
+- Expanded documentation comments for the About page controller functions added during the v0.8.0/v0.8.1 About interface work.
+- Re-reviewed the About page implementation for extension-surface hardening; it continues to use packaged local assets, localized text assignment, a fixed HTTPS GitHub link with `noopener`/`noreferrer`, and the existing extension CSP.
+
 ## 0.8.1
 
 - Updated the About page Privacy text to state more clearly that SBM is purely local and does not send bookmark data, telemetry, pings, or usage data to remote services.

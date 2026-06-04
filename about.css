@@ -3,6 +3,10 @@
   font-family: var(--sbm-ui-font-family, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif);
   font-size: var(--sbm-ui-font-size, 12.5px);
   line-height: var(--sbm-ui-line-height, 1.5);
+  --sbm-about-body-font-size: calc(var(--sbm-ui-font-size, 12.5px) + 6px);
+  --sbm-about-title-font-size-min: calc(2rem + 1px);
+  --sbm-about-title-font-size-fluid: calc(6vw + 1px);
+  --sbm-about-title-font-size-max: calc(3rem + 1px);
 }
 * {
   box-sizing: border-box;
@@ -14,6 +18,7 @@ body {
     radial-gradient(circle at top left, color-mix(in srgb, Highlight 18%, transparent), transparent 34rem),
     Canvas;
   color: CanvasText;
+  font-size: var(--sbm-about-body-font-size);
 }
 .about-page {
   max-width: 720px;
@@ -36,21 +41,21 @@ body {
 .eyebrow {
   margin: 0 0 4px;
   color: color-mix(in srgb, CanvasText 62%, transparent);
-  font-size: .85rem;
+  font-size: calc(.85rem + 6px);
   font-weight: 700;
   letter-spacing: .12em;
   text-transform: uppercase;
 }
 h1 {
   margin: 0;
-  font-size: clamp(2rem, 6vw, 3rem);
+  font-size: clamp(var(--sbm-about-title-font-size-min), var(--sbm-about-title-font-size-fluid), var(--sbm-about-title-font-size-max));
   line-height: 1.05;
 }
 .tagline {
   max-width: 48rem;
   margin: 12px 0 0;
   color: color-mix(in srgb, CanvasText 78%, transparent);
-  font-size: 1.05rem;
+  font-size: calc(1.05rem + 6px);
 }
 .card {
   margin-top: 16px;
@@ -63,7 +68,7 @@ h1 {
 .card h2 {
   margin: 0 0 8px;
   color: color-mix(in srgb, CanvasText 72%, transparent);
-  font-size: .86rem;
+  font-size: calc(.86rem + 6px);
   letter-spacing: .08em;
   text-transform: uppercase;
 }

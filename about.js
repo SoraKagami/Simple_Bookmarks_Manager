@@ -11,7 +11,12 @@ import { DEFAULT_SETTINGS, fontFamilyCss, normalizeSettingValue } from "./settin
 
 const api = chrome;
 
-/** Load normalized settings needed by the standalone About page. */
+/**
+ * Load and normalize the settings needed by the standalone About page.
+ *
+ * Storage values are treated the same way as the main manager page so malformed
+ * or old settings cannot directly become CSS values.
+ */
 async function loadAboutSettings() {
   const stored = await api.storage.local.get(DEFAULT_SETTINGS);
   return Object.fromEntries(
@@ -19,14 +24,25 @@ async function loadAboutSettings() {
   );
 }
 
-/** Apply the configured UI font settings so About matches the manager page. */
+/**
+ * Apply configured UI typography through CSS custom properties.
+ *
+ * `fontFamilyCss` and `normalizeSettingValue` keep the values constrained to
+ * settings SBM already understands before they are written to inline style.
+ */
 function applyAboutUiSettings(settings) {
   document.documentElement.style.setProperty("--sbm-ui-font-family", fontFamilyCss(settings.UserInterfaceFontFamily));
   document.documentElement.style.setProperty("--sbm-ui-font-size", `${settings.UserInterfaceFontSize}px`);
   document.documentElement.style.setProperty("--sbm-ui-line-height", String(settings.UserInterfaceLineSpacing));
 }
 
-/** Initialize About page localization and visual settings. */
+/**
+ * Initialize About page localization and visual settings.
+ *
+ * The HTML keeps English fallback text in place.  If loading settings or locale
+ * JSON fails, the catch below leaves that static copy visible instead of
+ * partially clearing the page.
+ */
 async function initAboutPage() {
   const settings = await loadAboutSettings();
   applyAboutUiSettings(settings);
