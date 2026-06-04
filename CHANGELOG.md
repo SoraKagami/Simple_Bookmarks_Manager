@@ -1,5 +1,12 @@
 # Changelog
 
+## 0.7.20
+
+- Updated German (`de`), Spanish (`es`), French (`fr`), and Hebrew (`he`) locale files using the current English locale as the source.
+- Filled missing translation keys from recent UI updates, including Options page advanced groups, pane/column sizing controls, diagnostics/debug labels, bookmark mutation failure text, and URL validation warnings.
+- Kept placeholders such as `{action}` and `{error}` intact across the updated translations.
+- Updated `manifest.json` to `0.7.20`.
+
 ## 0.7.19
 
 - Reviewed manager/options UI paths for user-facing strings missed by localization support.

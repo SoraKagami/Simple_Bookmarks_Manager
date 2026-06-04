@@ -23,6 +23,9 @@
   "advancedDetails": {
     "message": "Erweiterte Details"
   },
+  "advancedDetailsHelp": {
+    "message": "Konfiguriert die Anzeige erweiterter Metadaten und die unterstützte erweiterte Bearbeitung im Detailbereich."
+  },
   "allowKeyboardDelete": {
     "message": "Entf-Taste zum Löschen erlauben"
   },
@@ -48,7 +51,7 @@
     "message": "Spalten der Lesezeichenliste"
   },
   "bookmarkMutationFailed": {
-    "message": "Bookmark operation failed ({action}): {error}"
+    "message": "Lesezeichenvorgang fehlgeschlagen ({action}): {error}"
   },
   "bookmarkNamePrompt": {
     "message": "Lesezeichenname"
@@ -69,13 +72,13 @@
     "message": "Browser-Stamm"
   },
   "cancel": {
-    "message": "Cancel"
+    "message": "Abbrechen"
   },
   "chooseSortModeTitle": {
     "message": "Sortiermodus für den mittleren Bereich auswählen. Standard verwendet die Ordnerreihenfolge von Chromium."
   },
   "clearLog": {
-    "message": "Clear Log"
+    "message": "Protokoll löschen"
   },
   "clickHideDetails": {
     "message": "Klicken, um Details auszublenden"
@@ -98,6 +101,9 @@
   "couldNotMoveBookmark": {
     "message": "Lesezeichenelement konnte nicht verschoben werden: {error}"
   },
+  "couldNotOpenBookmark": {
+    "message": "Lesezeichen konnte nicht geöffnet werden: {error}"
+  },
   "couldNotOpenTabGroup": {
     "message": "Tabgruppe konnte nicht geöffnet werden: {error}"
   },
@@ -108,7 +114,7 @@
     "message": "Änderungen konnten nicht gespeichert werden: {error}"
   },
   "create": {
-    "message": "Create"
+    "message": "Erstellen"
   },
   "currentFolderAndSubfolders": {
     "message": "Aktueller Ordner und Unterordner"
@@ -123,19 +129,25 @@
     "message": "Zuletzt verwendet"
   },
   "debugFailedBookmarkOperation": {
-    "message": "Debug: cause failed bookmark operation"
+    "message": "Debug: fehlgeschlagenen Lesezeichenvorgang auslösen"
   },
   "debugFailedBookmarkOperationAction": {
-    "message": "debug failed bookmark operation"
+    "message": "fehlgeschlagenen Lesezeichenvorgang debuggen"
   },
   "debugFailureUnexpectedSuccess": {
-    "message": "Debug failure unexpectedly succeeded"
+    "message": "Debug-Fehler war unerwartet erfolgreich"
   },
   "debugOptions": {
-    "message": "Debug options"
+    "message": "Debug-Optionen"
   },
   "debugOptionsHelp": {
-    "message": "Advanced. Shows debug-only test controls. Leave disabled during normal use."
+    "message": "Erweitert. Zeigt reine Debug-Teststeuerungen. Bei normaler Nutzung deaktiviert lassen."
+  },
+  "debugSettings": {
+    "message": "Debug-Einstellungen"
+  },
+  "debugSettingsHelp": {
+    "message": "Steuerungen, die nur angezeigt werden, wenn Debug-Optionen aktiviert sind."
   },
   "defaultsRestored": {
     "message": "Standardwerte wiederhergestellt"
@@ -183,7 +195,7 @@
     "message": "Bearbeiten"
   },
   "editBookmark": {
-    "message": "Edit Bookmark"
+    "message": "Lesezeichen bearbeiten"
   },
   "emptyDetails": {
     "message": "Wählen Sie ein Element aus oder wählen Sie einen Ordner, um dessen Inhalt anzuzeigen."
@@ -208,6 +220,12 @@
   },
   "folderAlt": {
     "message": "Ordner"
+  },
+  "folderContentsView": {
+    "message": "Ordnerinhalt-Ansicht"
+  },
+  "folderContentsViewHelp": {
+    "message": "Konfiguriert Spaltenbreiten und optionale Spalten im mittleren Ordnerinhaltsbereich. Name und URL werden immer angezeigt."
   },
   "folderFallback": {
     "message": "(Ordner)"
@@ -263,6 +281,15 @@
   "keepEditing": {
     "message": "Weiter bearbeiten"
   },
+  "languageAuto": {
+    "message": "Automatisch / Browserstandard"
+  },
+  "leftLibWidth": {
+    "message": "Breite des Bibliotheksbereichs"
+  },
+  "leftLibWidthHelp": {
+    "message": "Breite in Pixeln für den linken Bibliotheksbereich."
+  },
   "library": {
     "message": "Bibliothek"
   },
@@ -274,6 +301,111 @@
   },
   "managerFailed": {
     "message": "Lesezeichen-Manager fehlgeschlagen: {error}"
+  },
+  "midFcShowDateAdded": {
+    "message": "Spalte „Hinzugefügt am“ anzeigen"
+  },
+  "midFcShowDateAddedHelp": {
+    "message": "Blendet die Spalte „Hinzugefügt am“ im Ordnerinhaltsbereich ein oder aus."
+  },
+  "midFcShowId": {
+    "message": "ID-Spalte anzeigen"
+  },
+  "midFcShowIdHelp": {
+    "message": "Blendet die Chromium-Lesezeichen-ID-Spalte ein oder aus."
+  },
+  "midFcShowOrder": {
+    "message": "Spalte „Reihenfolge“ anzeigen"
+  },
+  "midFcShowOrderHelp": {
+    "message": "Blendet die Chromium-Ordnerreihenfolge/Index-Spalte ein oder aus."
+  },
+  "midFcWidthDateAdded": {
+    "message": "Breite der Spalte „Hinzugefügt am“"
+  },
+  "midFcWidthDateAddedHelp": {
+    "message": "Breite in Pixeln für die optionale Spalte „Hinzugefügt am“."
+  },
+  "midFcWidthId": {
+    "message": "Breite der ID-Spalte"
+  },
+  "midFcWidthIdHelp": {
+    "message": "Breite in Pixeln für die optionale ID-Spalte."
+  },
+  "midFcWidthName": {
+    "message": "Breite der Namensspalte"
+  },
+  "midFcWidthNameHelp": {
+    "message": "Breite in Pixeln für die Namensspalte im Ordnerinhalt."
+  },
+  "midFcWidthOrder": {
+    "message": "Breite der Spalte „Reihenfolge“"
+  },
+  "midFcWidthOrderHelp": {
+    "message": "Breite in Pixeln für die optionale Chromium-Reihenfolge/Index-Spalte."
+  },
+  "midFcWidthUrl": {
+    "message": "Breite der URL-Spalte"
+  },
+  "midFcWidthUrlHelp": {
+    "message": "Breite in Pixeln für die URL-Spalte im Ordnerinhalt."
+  },
+  "multipleInstancesAllowed": {
+    "message": "Mehrere SBM-Instanzen erlauben"
+  },
+  "multipleInstancesAllowedHelp": {
+    "message": "Wenn deaktiviert, fokussiert ein Klick auf die Erweiterungsschaltfläche den vorhandenen Simple-Bookmarks-Manager-Tab, statt einen weiteren zu öffnen."
+  },
+  "mutationCreateBookmark": {
+    "message": "Lesezeichen erstellen"
+  },
+  "mutationCreateFolder": {
+    "message": "Ordner erstellen"
+  },
+  "mutationCreateFromClipboardSnapshot": {
+    "message": "aus Zwischenablage-Schnappschuss erstellen"
+  },
+  "mutationCreateSeparator": {
+    "message": "Trenner erstellen"
+  },
+  "mutationDeleteBookmark": {
+    "message": "Lesezeichen löschen"
+  },
+  "mutationDeleteFolder": {
+    "message": "Ordner löschen"
+  },
+  "mutationDeleteSelectedBookmark": {
+    "message": "ausgewähltes Lesezeichen löschen"
+  },
+  "mutationDeleteSelectedFolder": {
+    "message": "ausgewählten Ordner löschen"
+  },
+  "mutationDragDropMove": {
+    "message": "Verschieben per Drag-and-drop"
+  },
+  "mutationEditBookmark": {
+    "message": "Lesezeichen bearbeiten"
+  },
+  "mutationMoveSelectedItem": {
+    "message": "ausgewähltes Element verschieben"
+  },
+  "mutationPasteCutItem": {
+    "message": "ausgeschnittenes Element einfügen"
+  },
+  "mutationRenameFolder": {
+    "message": "Ordner umbenennen"
+  },
+  "mutationReorderSelectedItems": {
+    "message": "ausgewählte Elemente neu anordnen"
+  },
+  "mutationSaveDetailsMove": {
+    "message": "Details-Verschiebung speichern"
+  },
+  "mutationSaveDetailsUpdate": {
+    "message": "Details-Aktualisierung speichern"
+  },
+  "mutationSortFolderChild": {
+    "message": "Ordnerunterelement sortieren"
   },
   "naturalSort": {
     "message": "Natürliche Ordner-/Lesezeichen-Sortierung verwenden"
@@ -317,6 +449,9 @@
   "openAllInSplitView": {
     "message": "Alle in geteilter Ansicht öffnen"
   },
+  "openBookmark": {
+    "message": "Lesezeichen öffnen"
+  },
   "openDefaultBookmarksManager": {
     "message": "Standard-Lesezeichen-Manager öffnen"
   },
@@ -342,16 +477,22 @@
     "message": "Simple-Bookmarks-Manager-Menü öffnen"
   },
   "optimisationDOMrendering": {
-    "message": "Optimisation: DOM rendering pass"
+    "message": "Optimierung: DOM-Rendering-Durchlauf"
   },
   "optimisationDOMrenderingHelp": {
-    "message": "Experimental. Enables reduced DOM churn for selected rendering, drag/drop indicators, and row icon handling. Disable only when comparing performance or troubleshooting UI behavior."
+    "message": "Experimentell. Reduziert DOM-Änderungen bei ausgewähltem Rendering, Drag-and-drop-Indikatoren und Zeilensymbolen. Nur zum Leistungsvergleich oder zur Fehlerbehebung der UI deaktivieren."
   },
   "optimisationTempBookmarkTreeMaps": {
-    "message": "Optimisation: temporary bookmark tree maps"
+    "message": "Optimierung: temporäre Lesezeichenbaum-Maps"
   },
   "optimisationTempBookmarkTreeMapsHelp": {
-    "message": "Experimental. Builds short-lived lookup maps during some render/search/tree operations, then discards them to avoid a persistent stale cache."
+    "message": "Experimentell. Erstellt bei einigen Render-, Such- und Baumoperationen kurzlebige Nachschlage-Maps und verwirft sie danach, um einen dauerhaft veralteten Cache zu vermeiden."
+  },
+  "optimisations": {
+    "message": "Optimierungen"
+  },
+  "optimisationsHelp": {
+    "message": "Experimentelle Leistungsoptionen für Benchmarking und Fehlerbehebung."
   },
   "optionSaved": {
     "message": "Gespeichert"
@@ -361,6 +502,12 @@
   },
   "optionsTitle": {
     "message": "Optionen für Simple Bookmarks Manager"
+  },
+  "paneWidths": {
+    "message": "Bereichsbreiten"
+  },
+  "paneWidthsHelp": {
+    "message": "Konfiguriert die Breiten des Bibliotheks- und Detailbereichs. Diese werden auch aktualisiert, wenn Bereiche in der Manager-Oberfläche geändert werden."
   },
   "parentFolder": {
     "message": "Übergeordneter Ordner"
@@ -376,6 +523,21 @@
   },
   "resetDefaults": {
     "message": "Standardwerte wiederherstellen"
+  },
+  "resizeColumn": {
+    "message": "Ziehen, um die Spaltenbreite zu ändern"
+  },
+  "resizeDetailsPane": {
+    "message": "Detailbereich vergrößern/verkleinern"
+  },
+  "resizeLibraryPane": {
+    "message": "Bibliotheksbereich vergrößern/verkleinern"
+  },
+  "rightDetailsWidth": {
+    "message": "Breite des Detailbereichs"
+  },
+  "rightDetailsWidthHelp": {
+    "message": "Breite in Pixeln für den rechten Detailbereich."
   },
   "rootFallback": {
     "message": "(Stamm)"
@@ -420,10 +582,10 @@
     "message": "Details-Bereich anzeigen"
   },
   "showErrorsWarnings": {
-    "message": "Show warnings/errors log"
+    "message": "Warnungs-/Fehlerprotokoll anzeigen"
   },
   "showErrorsWarningsHelp": {
-    "message": "Advanced. Shows a transient in-memory log for this SBM session. Log entries are not saved to extension settings."
+    "message": "Erweitert. Zeigt ein vorübergehendes In-Memory-Protokoll für diese SBM-Sitzung. Protokolleinträge werden nicht in den Erweiterungseinstellungen gespeichert."
   },
   "showSortWarning": {
     "message": "Bestätigung für dauerhafte Sortierung anzeigen"
@@ -531,19 +693,19 @@
     "message": "URL"
   },
   "urlWarningControlCharacters": {
-    "message": "URL contained hidden control characters; they will be removed before saving."
+    "message": "Die URL enthielt versteckte Steuerzeichen; sie werden vor dem Speichern entfernt."
   },
   "urlWarningEmpty": {
-    "message": "URL is empty. Chrome may reject this bookmark until a URL is provided."
+    "message": "Die URL ist leer. Chrome kann dieses Lesezeichen ablehnen, bis eine URL angegeben wird."
   },
   "urlWarningInvalidBlocked": {
-    "message": "This URL is not valid enough to save as a bookmark. Fix the URL before saving."
+    "message": "Diese URL ist nicht gültig genug, um als Lesezeichen gespeichert zu werden. Korrigieren Sie die URL vor dem Speichern."
   },
   "urlWarningInvalidButAllowed": {
-    "message": "This URL is not valid enough to save as a bookmark. Fix the URL before saving."
+    "message": "Diese URL ist nicht gültig genug, um als Lesezeichen gespeichert zu werden. Korrigieren Sie die URL vor dem Speichern."
   },
   "urlWarningWhitespace": {
-    "message": "URL contains whitespace. It will be saved if Chrome accepts it, but it may not open as expected."
+    "message": "Die URL enthält Leerzeichen. Sie wird gespeichert, wenn Chrome sie akzeptiert, öffnet sich aber möglicherweise nicht wie erwartet."
   },
   "userInterface": {
     "message": "Benutzeroberfläche"
@@ -558,12 +720,12 @@
     "message": "Visuelle Sortierung:"
   },
   "warningsErrorsLog": {
-    "message": "Warnings / Errors Log"
+    "message": "Warnungs-/Fehlerprotokoll"
   },
   "warningsErrorsLogEmpty": {
-    "message": "No warnings or errors recorded for this session."
+    "message": "Für diese Sitzung wurden keine Warnungen oder Fehler aufgezeichnet."
   },
   "warningsErrorsLogHelp": {
-    "message": "Transient warnings/errors for this current SBM session. This is not saved to settings."
+    "message": "Vorübergehende Warnungen/Fehler für diese aktuelle SBM-Sitzung. Dies wird nicht in den Einstellungen gespeichert."
   }
 }

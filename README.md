@@ -1,6 +1,6 @@
 # Simple Bookmarks Manager
 
-Version: 0.7.19
+Version: 0.7.20
 
 A Manifest V3 Chrome/Chromium extension that provides a simple local bookmark manager inspired by Firefox Places Library ideas.
 

@@ -23,6 +23,9 @@
   "advancedDetails": {
     "message": "Détails avancés"
   },
+  "advancedDetailsHelp": {
+    "message": "Configure l’affichage des métadonnées avancées et la modification avancée prise en charge dans le panneau Détails."
+  },
   "allowKeyboardDelete": {
     "message": "Autoriser Suppr à supprimer les éléments sélectionnés"
   },
@@ -48,7 +51,7 @@
     "message": "Colonnes de la liste de favoris"
   },
   "bookmarkMutationFailed": {
-    "message": "Bookmark operation failed ({action}): {error}"
+    "message": "L’opération sur les favoris a échoué ({action}) : {error}"
   },
   "bookmarkNamePrompt": {
     "message": "Nom du favori"
@@ -69,13 +72,13 @@
     "message": "Racine du navigateur"
   },
   "cancel": {
-    "message": "Cancel"
+    "message": "Annuler"
   },
   "chooseSortModeTitle": {
     "message": "Choisissez le mode de tri du volet central. Par défaut utilise l’ordre des dossiers de Chromium."
   },
   "clearLog": {
-    "message": "Clear Log"
+    "message": "Effacer le journal"
   },
   "clickHideDetails": {
     "message": "Cliquer pour masquer les détails"
@@ -98,6 +101,9 @@
   "couldNotMoveBookmark": {
     "message": "Impossible de déplacer l’élément de favori : {error}"
   },
+  "couldNotOpenBookmark": {
+    "message": "Impossible d’ouvrir le favori : {error}"
+  },
   "couldNotOpenTabGroup": {
     "message": "Impossible d’ouvrir le groupe d’onglets : {error}"
   },
@@ -108,7 +114,7 @@
     "message": "Impossible d’enregistrer les modifications : {error}"
   },
   "create": {
-    "message": "Create"
+    "message": "Créer"
   },
   "currentFolderAndSubfolders": {
     "message": "Dossier actuel et sous-dossiers"
@@ -123,19 +129,25 @@
     "message": "Dernière utilisation"
   },
   "debugFailedBookmarkOperation": {
-    "message": "Debug: cause failed bookmark operation"
+    "message": "Débogage : provoquer l’échec d’une opération sur les favoris"
   },
   "debugFailedBookmarkOperationAction": {
-    "message": "debug failed bookmark operation"
+    "message": "déboguer l’échec d’une opération sur les favoris"
   },
   "debugFailureUnexpectedSuccess": {
-    "message": "Debug failure unexpectedly succeeded"
+    "message": "L’échec de débogage a réussi de façon inattendue"
   },
   "debugOptions": {
-    "message": "Debug options"
+    "message": "Options de débogage"
   },
   "debugOptionsHelp": {
-    "message": "Advanced. Shows debug-only test controls. Leave disabled during normal use."
+    "message": "Avancé. Affiche les contrôles de test réservés au débogage. Laisser désactivé en utilisation normale."
+  },
+  "debugSettings": {
+    "message": "Paramètres de débogage"
+  },
+  "debugSettingsHelp": {
+    "message": "Contrôles affichés uniquement lorsque les options de débogage sont activées."
   },
   "defaultsRestored": {
     "message": "Valeurs par défaut restaurées"
@@ -183,7 +195,7 @@
     "message": "Modifier"
   },
   "editBookmark": {
-    "message": "Edit Bookmark"
+    "message": "Modifier le favori"
   },
   "emptyDetails": {
     "message": "Sélectionnez un élément ou un dossier pour afficher son contenu."
@@ -208,6 +220,12 @@
   },
   "folderAlt": {
     "message": "Dossier"
+  },
+  "folderContentsView": {
+    "message": "Vue du contenu du dossier"
+  },
+  "folderContentsViewHelp": {
+    "message": "Configure les largeurs de colonnes et les colonnes facultatives dans le panneau central Contenu du dossier. Nom et URL sont toujours affichés."
   },
   "folderFallback": {
     "message": "(Dossier)"
@@ -263,6 +281,15 @@
   "keepEditing": {
     "message": "Continuer la modification"
   },
+  "languageAuto": {
+    "message": "Automatique / valeur par défaut du navigateur"
+  },
+  "leftLibWidth": {
+    "message": "Largeur du panneau Bibliothèque"
+  },
+  "leftLibWidthHelp": {
+    "message": "Largeur en pixels du panneau Bibliothèque gauche."
+  },
   "library": {
     "message": "Bibliothèque"
   },
@@ -274,6 +301,111 @@
   },
   "managerFailed": {
     "message": "Échec du gestionnaire de favoris : {error}"
+  },
+  "midFcShowDateAdded": {
+    "message": "Afficher la colonne Date d’ajout"
+  },
+  "midFcShowDateAddedHelp": {
+    "message": "Affiche ou masque la colonne Date d’ajout dans le panneau Contenu du dossier."
+  },
+  "midFcShowId": {
+    "message": "Afficher la colonne ID"
+  },
+  "midFcShowIdHelp": {
+    "message": "Affiche ou masque la colonne d’ID de favori Chromium."
+  },
+  "midFcShowOrder": {
+    "message": "Afficher la colonne Ordre"
+  },
+  "midFcShowOrderHelp": {
+    "message": "Affiche ou masque la colonne d’ordre/index de dossier Chromium."
+  },
+  "midFcWidthDateAdded": {
+    "message": "Largeur de la colonne Date d’ajout"
+  },
+  "midFcWidthDateAddedHelp": {
+    "message": "Largeur en pixels de la colonne facultative Date d’ajout."
+  },
+  "midFcWidthId": {
+    "message": "Largeur de la colonne ID"
+  },
+  "midFcWidthIdHelp": {
+    "message": "Largeur en pixels de la colonne facultative ID."
+  },
+  "midFcWidthName": {
+    "message": "Largeur de la colonne Nom"
+  },
+  "midFcWidthNameHelp": {
+    "message": "Largeur en pixels de la colonne Nom du contenu du dossier."
+  },
+  "midFcWidthOrder": {
+    "message": "Largeur de la colonne Ordre"
+  },
+  "midFcWidthOrderHelp": {
+    "message": "Largeur en pixels de la colonne facultative d’ordre/index Chromium."
+  },
+  "midFcWidthUrl": {
+    "message": "Largeur de la colonne URL"
+  },
+  "midFcWidthUrlHelp": {
+    "message": "Largeur en pixels de la colonne URL du contenu du dossier."
+  },
+  "multipleInstancesAllowed": {
+    "message": "Autoriser plusieurs instances SBM"
+  },
+  "multipleInstancesAllowedHelp": {
+    "message": "Lorsque cette option est désactivée, cliquer sur le bouton de l’extension active l’onglet Simple Bookmarks Manager existant au lieu d’en ouvrir un autre."
+  },
+  "mutationCreateBookmark": {
+    "message": "créer un favori"
+  },
+  "mutationCreateFolder": {
+    "message": "créer un dossier"
+  },
+  "mutationCreateFromClipboardSnapshot": {
+    "message": "créer à partir de l’instantané du presse-papiers"
+  },
+  "mutationCreateSeparator": {
+    "message": "créer un séparateur"
+  },
+  "mutationDeleteBookmark": {
+    "message": "supprimer le favori"
+  },
+  "mutationDeleteFolder": {
+    "message": "supprimer le dossier"
+  },
+  "mutationDeleteSelectedBookmark": {
+    "message": "supprimer le favori sélectionné"
+  },
+  "mutationDeleteSelectedFolder": {
+    "message": "supprimer le dossier sélectionné"
+  },
+  "mutationDragDropMove": {
+    "message": "déplacement par glisser-déposer"
+  },
+  "mutationEditBookmark": {
+    "message": "modifier le favori"
+  },
+  "mutationMoveSelectedItem": {
+    "message": "déplacer l’élément sélectionné"
+  },
+  "mutationPasteCutItem": {
+    "message": "coller l’élément coupé"
+  },
+  "mutationRenameFolder": {
+    "message": "renommer le dossier"
+  },
+  "mutationReorderSelectedItems": {
+    "message": "réorganiser les éléments sélectionnés"
+  },
+  "mutationSaveDetailsMove": {
+    "message": "enregistrer le déplacement des détails"
+  },
+  "mutationSaveDetailsUpdate": {
+    "message": "enregistrer la mise à jour des détails"
+  },
+  "mutationSortFolderChild": {
+    "message": "trier l’élément enfant du dossier"
   },
   "naturalSort": {
     "message": "Utiliser le tri naturel dossiers/favoris"
@@ -317,6 +449,9 @@
   "openAllInSplitView": {
     "message": "Tout ouvrir en vue fractionnée"
   },
+  "openBookmark": {
+    "message": "Ouvrir le favori"
+  },
   "openDefaultBookmarksManager": {
     "message": "Ouvrir le gestionnaire de favoris par défaut"
   },
@@ -342,16 +477,22 @@
     "message": "Ouvrir le menu Simple Bookmarks Manager"
   },
   "optimisationDOMrendering": {
-    "message": "Optimisation: DOM rendering pass"
+    "message": "Optimisation : passe de rendu DOM"
   },
   "optimisationDOMrenderingHelp": {
-    "message": "Experimental. Enables reduced DOM churn for selected rendering, drag/drop indicators, and row icon handling. Disable only when comparing performance or troubleshooting UI behavior."
+    "message": "Expérimental. Réduit les modifications du DOM pour le rendu sélectionné, les indicateurs de glisser-déposer et la gestion des icônes de ligne. À désactiver uniquement pour comparer les performances ou dépanner l’interface."
   },
   "optimisationTempBookmarkTreeMaps": {
-    "message": "Optimisation: temporary bookmark tree maps"
+    "message": "Optimisation : cartes temporaires de l’arborescence des favoris"
   },
   "optimisationTempBookmarkTreeMapsHelp": {
-    "message": "Experimental. Builds short-lived lookup maps during some render/search/tree operations, then discards them to avoid a persistent stale cache."
+    "message": "Expérimental. Crée des cartes de recherche de courte durée pendant certaines opérations de rendu, de recherche et d’arborescence, puis les supprime afin d’éviter un cache persistant obsolète."
+  },
+  "optimisations": {
+    "message": "Optimisations"
+  },
+  "optimisationsHelp": {
+    "message": "Options de performance expérimentales pour les tests comparatifs et le dépannage."
   },
   "optionSaved": {
     "message": "Enregistré"
@@ -361,6 +502,12 @@
   },
   "optionsTitle": {
     "message": "Options de Simple Bookmarks Manager"
+  },
+  "paneWidths": {
+    "message": "Largeurs des panneaux"
+  },
+  "paneWidthsHelp": {
+    "message": "Configure les largeurs des panneaux Bibliothèque et Détails. Elles sont également mises à jour lorsque les panneaux sont redimensionnés dans l’interface du gestionnaire."
   },
   "parentFolder": {
     "message": "Dossier parent"
@@ -376,6 +523,21 @@
   },
   "resetDefaults": {
     "message": "Rétablir les valeurs par défaut"
+  },
+  "resizeColumn": {
+    "message": "Faire glisser pour redimensionner la colonne"
+  },
+  "resizeDetailsPane": {
+    "message": "Redimensionner le panneau Détails"
+  },
+  "resizeLibraryPane": {
+    "message": "Redimensionner le panneau Bibliothèque"
+  },
+  "rightDetailsWidth": {
+    "message": "Largeur du panneau Détails"
+  },
+  "rightDetailsWidthHelp": {
+    "message": "Largeur en pixels du panneau Détails droit."
   },
   "rootFallback": {
     "message": "(racine)"
@@ -420,10 +582,10 @@
     "message": "Afficher le volet Détails"
   },
   "showErrorsWarnings": {
-    "message": "Show warnings/errors log"
+    "message": "Afficher le journal des avertissements/erreurs"
   },
   "showErrorsWarningsHelp": {
-    "message": "Advanced. Shows a transient in-memory log for this SBM session. Log entries are not saved to extension settings."
+    "message": "Avancé. Affiche un journal transitoire en mémoire pour cette session SBM. Les entrées du journal ne sont pas enregistrées dans les paramètres de l’extension."
   },
   "showSortWarning": {
     "message": "Afficher la confirmation de tri permanent"
@@ -531,19 +693,19 @@
     "message": "URL"
   },
   "urlWarningControlCharacters": {
-    "message": "URL contained hidden control characters; they will be removed before saving."
+    "message": "L’URL contenait des caractères de contrôle masqués ; ils seront supprimés avant l’enregistrement."
   },
   "urlWarningEmpty": {
-    "message": "URL is empty. Chrome may reject this bookmark until a URL is provided."
+    "message": "L’URL est vide. Chrome peut refuser ce favori tant qu’une URL n’est pas fournie."
   },
   "urlWarningInvalidBlocked": {
-    "message": "This URL is not valid enough to save as a bookmark. Fix the URL before saving."
+    "message": "Cette URL n’est pas suffisamment valide pour être enregistrée comme favori. Corrigez l’URL avant d’enregistrer."
   },
   "urlWarningInvalidButAllowed": {
-    "message": "This URL is not valid enough to save as a bookmark. Fix the URL before saving."
+    "message": "Cette URL n’est pas suffisamment valide pour être enregistrée comme favori. Corrigez l’URL avant d’enregistrer."
   },
   "urlWarningWhitespace": {
-    "message": "URL contains whitespace. It will be saved if Chrome accepts it, but it may not open as expected."
+    "message": "L’URL contient des espaces. Elle sera enregistrée si Chrome l’accepte, mais elle pourrait ne pas s’ouvrir comme prévu."
   },
   "userInterface": {
     "message": "Interface utilisateur"
@@ -558,12 +720,12 @@
     "message": "Tri visuel :"
   },
   "warningsErrorsLog": {
-    "message": "Warnings / Errors Log"
+    "message": "Journal des avertissements / erreurs"
   },
   "warningsErrorsLogEmpty": {
-    "message": "No warnings or errors recorded for this session."
+    "message": "Aucun avertissement ni erreur enregistré pour cette session."
   },
   "warningsErrorsLogHelp": {
-    "message": "Transient warnings/errors for this current SBM session. This is not saved to settings."
+    "message": "Avertissements/erreurs transitoires pour cette session SBM actuelle. Ceci n’est pas enregistré dans les paramètres."
   }
 }

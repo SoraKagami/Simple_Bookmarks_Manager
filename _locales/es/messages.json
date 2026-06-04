@@ -23,6 +23,9 @@
   "advancedDetails": {
     "message": "Detalles avanzados"
   },
+  "advancedDetailsHelp": {
+    "message": "Configura la visualización de metadatos avanzados y la edición avanzada admitida en el panel Detalles."
+  },
   "allowKeyboardDelete": {
     "message": "Permitir que Supr elimine elementos seleccionados"
   },
@@ -48,7 +51,7 @@
     "message": "Columnas de la lista de marcadores"
   },
   "bookmarkMutationFailed": {
-    "message": "Bookmark operation failed ({action}): {error}"
+    "message": "Error en la operación de marcadores ({action}): {error}"
   },
   "bookmarkNamePrompt": {
     "message": "Nombre del marcador"
@@ -69,13 +72,13 @@
     "message": "Raíz del navegador"
   },
   "cancel": {
-    "message": "Cancel"
+    "message": "Cancelar"
   },
   "chooseSortModeTitle": {
     "message": "Elige el modo de ordenación del panel central. Predeterminado usa el orden de carpetas de Chromium."
   },
   "clearLog": {
-    "message": "Clear Log"
+    "message": "Borrar registro"
   },
   "clickHideDetails": {
     "message": "Clic para ocultar detalles"
@@ -98,6 +101,9 @@
   "couldNotMoveBookmark": {
     "message": "No se pudo mover el elemento de marcador: {error}"
   },
+  "couldNotOpenBookmark": {
+    "message": "No se pudo abrir el marcador: {error}"
+  },
   "couldNotOpenTabGroup": {
     "message": "No se pudo abrir el grupo de pestañas: {error}"
   },
@@ -108,7 +114,7 @@
     "message": "No se pudieron guardar los cambios: {error}"
   },
   "create": {
-    "message": "Create"
+    "message": "Crear"
   },
   "currentFolderAndSubfolders": {
     "message": "Carpeta actual y subcarpetas"
@@ -123,19 +129,25 @@
     "message": "Último uso"
   },
   "debugFailedBookmarkOperation": {
-    "message": "Debug: cause failed bookmark operation"
+    "message": "Depuración: provocar una operación de marcador fallida"
   },
   "debugFailedBookmarkOperationAction": {
-    "message": "debug failed bookmark operation"
+    "message": "depurar operación de marcador fallida"
   },
   "debugFailureUnexpectedSuccess": {
-    "message": "Debug failure unexpectedly succeeded"
+    "message": "La prueba de fallo de depuración se realizó correctamente de forma inesperada"
   },
   "debugOptions": {
-    "message": "Debug options"
+    "message": "Opciones de depuración"
   },
   "debugOptionsHelp": {
-    "message": "Advanced. Shows debug-only test controls. Leave disabled during normal use."
+    "message": "Avanzado. Muestra controles de prueba solo para depuración. Déjelo desactivado durante el uso normal."
+  },
+  "debugSettings": {
+    "message": "Ajustes de depuración"
+  },
+  "debugSettingsHelp": {
+    "message": "Controles que solo se muestran cuando las opciones de depuración están activadas."
   },
   "defaultsRestored": {
     "message": "Valores predeterminados restaurados"
@@ -183,7 +195,7 @@
     "message": "Editar"
   },
   "editBookmark": {
-    "message": "Edit Bookmark"
+    "message": "Editar marcador"
   },
   "emptyDetails": {
     "message": "Selecciona un elemento o una carpeta para mostrar su contenido."
@@ -208,6 +220,12 @@
   },
   "folderAlt": {
     "message": "Carpeta"
+  },
+  "folderContentsView": {
+    "message": "Vista de contenido de carpeta"
+  },
+  "folderContentsViewHelp": {
+    "message": "Configura los anchos de columna y las columnas opcionales del panel central de contenido de carpeta. Nombre y URL siempre se muestran."
   },
   "folderFallback": {
     "message": "(Carpeta)"
@@ -263,6 +281,15 @@
   "keepEditing": {
     "message": "Seguir editando"
   },
+  "languageAuto": {
+    "message": "Automático / predeterminado del navegador"
+  },
+  "leftLibWidth": {
+    "message": "Ancho del panel Biblioteca"
+  },
+  "leftLibWidthHelp": {
+    "message": "Ancho en píxeles del panel Biblioteca izquierdo."
+  },
   "library": {
     "message": "Biblioteca"
   },
@@ -274,6 +301,111 @@
   },
   "managerFailed": {
     "message": "El administrador de marcadores falló: {error}"
+  },
+  "midFcShowDateAdded": {
+    "message": "Mostrar columna Fecha de añadido"
+  },
+  "midFcShowDateAddedHelp": {
+    "message": "Muestra u oculta la columna Fecha de añadido en el panel Contenido de carpeta."
+  },
+  "midFcShowId": {
+    "message": "Mostrar columna ID"
+  },
+  "midFcShowIdHelp": {
+    "message": "Muestra u oculta la columna de ID de marcador de Chromium."
+  },
+  "midFcShowOrder": {
+    "message": "Mostrar columna Orden"
+  },
+  "midFcShowOrderHelp": {
+    "message": "Muestra u oculta la columna de orden/índice de carpeta de Chromium."
+  },
+  "midFcWidthDateAdded": {
+    "message": "Ancho de la columna Fecha de añadido"
+  },
+  "midFcWidthDateAddedHelp": {
+    "message": "Ancho en píxeles de la columna opcional Fecha de añadido."
+  },
+  "midFcWidthId": {
+    "message": "Ancho de la columna ID"
+  },
+  "midFcWidthIdHelp": {
+    "message": "Ancho en píxeles de la columna opcional ID."
+  },
+  "midFcWidthName": {
+    "message": "Ancho de la columna Nombre"
+  },
+  "midFcWidthNameHelp": {
+    "message": "Ancho en píxeles de la columna Nombre del Contenido de carpeta."
+  },
+  "midFcWidthOrder": {
+    "message": "Ancho de la columna Orden"
+  },
+  "midFcWidthOrderHelp": {
+    "message": "Ancho en píxeles de la columna opcional de orden/índice de Chromium."
+  },
+  "midFcWidthUrl": {
+    "message": "Ancho de la columna URL"
+  },
+  "midFcWidthUrlHelp": {
+    "message": "Ancho en píxeles de la columna URL del Contenido de carpeta."
+  },
+  "multipleInstancesAllowed": {
+    "message": "Permitir varias instancias de SBM"
+  },
+  "multipleInstancesAllowedHelp": {
+    "message": "Cuando está desactivado, al hacer clic en el botón de la extensión se enfoca la pestaña existente de Simple Bookmarks Manager en lugar de abrir otra."
+  },
+  "mutationCreateBookmark": {
+    "message": "crear marcador"
+  },
+  "mutationCreateFolder": {
+    "message": "crear carpeta"
+  },
+  "mutationCreateFromClipboardSnapshot": {
+    "message": "crear desde instantánea del portapapeles"
+  },
+  "mutationCreateSeparator": {
+    "message": "crear separador"
+  },
+  "mutationDeleteBookmark": {
+    "message": "eliminar marcador"
+  },
+  "mutationDeleteFolder": {
+    "message": "eliminar carpeta"
+  },
+  "mutationDeleteSelectedBookmark": {
+    "message": "eliminar marcador seleccionado"
+  },
+  "mutationDeleteSelectedFolder": {
+    "message": "eliminar carpeta seleccionada"
+  },
+  "mutationDragDropMove": {
+    "message": "mover con arrastrar y soltar"
+  },
+  "mutationEditBookmark": {
+    "message": "editar marcador"
+  },
+  "mutationMoveSelectedItem": {
+    "message": "mover elemento seleccionado"
+  },
+  "mutationPasteCutItem": {
+    "message": "pegar elemento cortado"
+  },
+  "mutationRenameFolder": {
+    "message": "renombrar carpeta"
+  },
+  "mutationReorderSelectedItems": {
+    "message": "reordenar elementos seleccionados"
+  },
+  "mutationSaveDetailsMove": {
+    "message": "guardar movimiento de detalles"
+  },
+  "mutationSaveDetailsUpdate": {
+    "message": "guardar actualización de detalles"
+  },
+  "mutationSortFolderChild": {
+    "message": "ordenar elemento hijo de carpeta"
   },
   "naturalSort": {
     "message": "Usar orden natural de carpetas/marcadores"
@@ -317,6 +449,9 @@
   "openAllInSplitView": {
     "message": "Abrir todo en vista dividida"
   },
+  "openBookmark": {
+    "message": "Abrir marcador"
+  },
   "openDefaultBookmarksManager": {
     "message": "Abrir administrador de marcadores predeterminado"
   },
@@ -342,16 +477,22 @@
     "message": "Abrir el menú de Simple Bookmarks Manager"
   },
   "optimisationDOMrendering": {
-    "message": "Optimisation: DOM rendering pass"
+    "message": "Optimización: pasada de renderizado DOM"
   },
   "optimisationDOMrenderingHelp": {
-    "message": "Experimental. Enables reduced DOM churn for selected rendering, drag/drop indicators, and row icon handling. Disable only when comparing performance or troubleshooting UI behavior."
+    "message": "Experimental. Reduce cambios del DOM para el renderizado seleccionado, los indicadores de arrastrar y soltar y la gestión de iconos de filas. Desactívelo solo al comparar rendimiento o solucionar problemas de la interfaz."
   },
   "optimisationTempBookmarkTreeMaps": {
-    "message": "Optimisation: temporary bookmark tree maps"
+    "message": "Optimización: mapas temporales del árbol de marcadores"
   },
   "optimisationTempBookmarkTreeMapsHelp": {
-    "message": "Experimental. Builds short-lived lookup maps during some render/search/tree operations, then discards them to avoid a persistent stale cache."
+    "message": "Experimental. Crea mapas de búsqueda de corta duración durante algunas operaciones de renderizado, búsqueda y árbol, y luego los descarta para evitar una caché persistente obsoleta."
+  },
+  "optimisations": {
+    "message": "Optimizaciones"
+  },
+  "optimisationsHelp": {
+    "message": "Opciones experimentales de rendimiento para pruebas comparativas y solución de problemas."
   },
   "optionSaved": {
     "message": "Guardado"
@@ -361,6 +502,12 @@
   },
   "optionsTitle": {
     "message": "Opciones de Simple Bookmarks Manager"
+  },
+  "paneWidths": {
+    "message": "Anchos de panel"
+  },
+  "paneWidthsHelp": {
+    "message": "Configura los anchos de los paneles Biblioteca y Detalles. También se actualizan cuando se cambia el tamaño de los paneles en la interfaz del gestor."
   },
   "parentFolder": {
     "message": "Carpeta principal"
@@ -376,6 +523,21 @@
   },
   "resetDefaults": {
     "message": "Restablecer predeterminados"
+  },
+  "resizeColumn": {
+    "message": "Arrastre para cambiar el tamaño de la columna"
+  },
+  "resizeDetailsPane": {
+    "message": "Cambiar tamaño del panel Detalles"
+  },
+  "resizeLibraryPane": {
+    "message": "Cambiar tamaño del panel Biblioteca"
+  },
+  "rightDetailsWidth": {
+    "message": "Ancho del panel Detalles"
+  },
+  "rightDetailsWidthHelp": {
+    "message": "Ancho en píxeles del panel Detalles derecho."
   },
   "rootFallback": {
     "message": "(raíz)"
@@ -420,10 +582,10 @@
     "message": "Mostrar el panel Detalles"
   },
   "showErrorsWarnings": {
-    "message": "Show warnings/errors log"
+    "message": "Mostrar registro de advertencias/errores"
   },
   "showErrorsWarningsHelp": {
-    "message": "Advanced. Shows a transient in-memory log for this SBM session. Log entries are not saved to extension settings."
+    "message": "Avanzado. Muestra un registro transitorio en memoria para esta sesión de SBM. Las entradas del registro no se guardan en la configuración de la extensión."
   },
   "showSortWarning": {
     "message": "Mostrar confirmación de ordenación permanente"
@@ -531,19 +693,19 @@
     "message": "URL"
   },
   "urlWarningControlCharacters": {
-    "message": "URL contained hidden control characters; they will be removed before saving."
+    "message": "La URL contenía caracteres de control ocultos; se eliminarán antes de guardar."
   },
   "urlWarningEmpty": {
-    "message": "URL is empty. Chrome may reject this bookmark until a URL is provided."
+    "message": "La URL está vacía. Chrome puede rechazar este marcador hasta que se proporcione una URL."
   },
   "urlWarningInvalidBlocked": {
-    "message": "This URL is not valid enough to save as a bookmark. Fix the URL before saving."
+    "message": "Esta URL no es lo bastante válida para guardarse como marcador. Corrija la URL antes de guardar."
   },
   "urlWarningInvalidButAllowed": {
-    "message": "This URL is not valid enough to save as a bookmark. Fix the URL before saving."
+    "message": "Esta URL no es lo bastante válida para guardarse como marcador. Corrija la URL antes de guardar."
   },
   "urlWarningWhitespace": {
-    "message": "URL contains whitespace. It will be saved if Chrome accepts it, but it may not open as expected."
+    "message": "La URL contiene espacios en blanco. Se guardará si Chrome la acepta, pero puede que no se abra como se espera."
   },
   "userInterface": {
     "message": "Interfaz de usuario"
@@ -558,12 +720,12 @@
     "message": "Orden visual:"
   },
   "warningsErrorsLog": {
-    "message": "Warnings / Errors Log"
+    "message": "Registro de advertencias / errores"
   },
   "warningsErrorsLogEmpty": {
-    "message": "No warnings or errors recorded for this session."
+    "message": "No se han registrado advertencias ni errores en esta sesión."
   },
   "warningsErrorsLogHelp": {
-    "message": "Transient warnings/errors for this current SBM session. This is not saved to settings."
+    "message": "Advertencias/errores transitorios para esta sesión actual de SBM. Esto no se guarda en los ajustes."
   }
 }

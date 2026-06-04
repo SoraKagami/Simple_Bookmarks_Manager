@@ -23,6 +23,9 @@
   "advancedDetails": {
     "message": "פרטים מתקדמים"
   },
+  "advancedDetailsHelp": {
+    "message": "הגדרת תצוגת מטא־נתונים מתקדמים ועריכה מתקדמת נתמכת בחלונית הפרטים."
+  },
   "allowKeyboardDelete": {
     "message": "אפשר למקש Delete למחוק פריטים נבחרים"
   },
@@ -48,7 +51,7 @@
     "message": "עמודות רשימת סימניות"
   },
   "bookmarkMutationFailed": {
-    "message": "Bookmark operation failed ({action}): {error}"
+    "message": "פעולת הסימנייה נכשלה ({action}): {error}"
   },
   "bookmarkNamePrompt": {
     "message": "שם סימנייה"
@@ -69,13 +72,13 @@
     "message": "שורש הדפדפן"
   },
   "cancel": {
-    "message": "Cancel"
+    "message": "ביטול"
   },
   "chooseSortModeTitle": {
     "message": "בחר את מצב המיון של החלונית האמצעית. ברירת המחדל משתמשת בסדר התיקיות של Chromium."
   },
   "clearLog": {
-    "message": "Clear Log"
+    "message": "נקה יומן"
   },
   "clickHideDetails": {
     "message": "לחץ כדי להסתיר פרטים"
@@ -98,6 +101,9 @@
   "couldNotMoveBookmark": {
     "message": "לא ניתן להזיז את פריט הסימנייה: {error}"
   },
+  "couldNotOpenBookmark": {
+    "message": "לא ניתן לפתוח את הסימנייה: {error}"
+  },
   "couldNotOpenTabGroup": {
     "message": "לא ניתן לפתוח קבוצת כרטיסיות: {error}"
   },
@@ -108,7 +114,7 @@
     "message": "לא ניתן לשמור שינויים: {error}"
   },
   "create": {
-    "message": "Create"
+    "message": "צור"
   },
   "currentFolderAndSubfolders": {
     "message": "התיקייה הנוכחית ותיקיות משנה"
@@ -123,19 +129,25 @@
     "message": "שימוש אחרון"
   },
   "debugFailedBookmarkOperation": {
-    "message": "Debug: cause failed bookmark operation"
+    "message": "ניפוי שגיאות: גרום לפעולת סימנייה להיכשל"
   },
   "debugFailedBookmarkOperationAction": {
-    "message": "debug failed bookmark operation"
+    "message": "ניפוי שגיאות של פעולת סימנייה שנכשלה"
   },
   "debugFailureUnexpectedSuccess": {
-    "message": "Debug failure unexpectedly succeeded"
+    "message": "כשל הניפוי הצליח באופן בלתי צפוי"
   },
   "debugOptions": {
-    "message": "Debug options"
+    "message": "אפשרויות ניפוי שגיאות"
   },
   "debugOptionsHelp": {
-    "message": "Advanced. Shows debug-only test controls. Leave disabled during normal use."
+    "message": "מתקדם. מציג פקדי בדיקה לניפוי שגיאות בלבד. השאר כבוי בשימוש רגיל."
+  },
+  "debugSettings": {
+    "message": "הגדרות ניפוי שגיאות"
+  },
+  "debugSettingsHelp": {
+    "message": "פקדים שמוצגים רק כאשר אפשרויות ניפוי השגיאות מופעלות."
   },
   "defaultsRestored": {
     "message": "ברירות המחדל שוחזרו"
@@ -183,7 +195,7 @@
     "message": "ערוך"
   },
   "editBookmark": {
-    "message": "Edit Bookmark"
+    "message": "ערוך סימנייה"
   },
   "emptyDetails": {
     "message": "בחר פריט אחד, או בחר תיקייה כדי להציג את התוכן שלה."
@@ -208,6 +220,12 @@
   },
   "folderAlt": {
     "message": "תיקייה"
+  },
+  "folderContentsView": {
+    "message": "תצוגת תוכן תיקייה"
+  },
+  "folderContentsViewHelp": {
+    "message": "הגדרת רוחבי עמודות ועמודות אופציונליות בחלונית תוכן התיקייה האמצעית. שם וכתובת URL מוצגים תמיד."
   },
   "folderFallback": {
     "message": "(תיקייה)"
@@ -263,6 +281,15 @@
   "keepEditing": {
     "message": "המשך לערוך"
   },
+  "languageAuto": {
+    "message": "אוטומטי / ברירת המחדל של הדפדפן"
+  },
+  "leftLibWidth": {
+    "message": "רוחב חלונית הספרייה"
+  },
+  "leftLibWidthHelp": {
+    "message": "רוחב בפיקסלים עבור חלונית הספרייה השמאלית."
+  },
   "library": {
     "message": "ספרייה"
   },
@@ -274,6 +301,111 @@
   },
   "managerFailed": {
     "message": "מנהל הסימניות נכשל: {error}"
+  },
+  "midFcShowDateAdded": {
+    "message": "הצג עמודת תאריך הוספה"
+  },
+  "midFcShowDateAddedHelp": {
+    "message": "הצגה או הסתרה של עמודת תאריך ההוספה בחלונית תוכן התיקייה."
+  },
+  "midFcShowId": {
+    "message": "הצג עמודת ID"
+  },
+  "midFcShowIdHelp": {
+    "message": "הצגה או הסתרה של עמודת מזהה הסימנייה של Chromium."
+  },
+  "midFcShowOrder": {
+    "message": "הצג עמודת סדר"
+  },
+  "midFcShowOrderHelp": {
+    "message": "הצגה או הסתרה של עמודת הסדר/אינדקס של תיקיית Chromium."
+  },
+  "midFcWidthDateAdded": {
+    "message": "רוחב עמודת תאריך הוספה"
+  },
+  "midFcWidthDateAddedHelp": {
+    "message": "רוחב בפיקסלים עבור עמודת תאריך ההוספה האופציונלית."
+  },
+  "midFcWidthId": {
+    "message": "רוחב עמודת ID"
+  },
+  "midFcWidthIdHelp": {
+    "message": "רוחב בפיקסלים עבור עמודת ID האופציונלית."
+  },
+  "midFcWidthName": {
+    "message": "רוחב עמודת שם"
+  },
+  "midFcWidthNameHelp": {
+    "message": "רוחב בפיקסלים עבור עמודת השם בתוכן התיקייה."
+  },
+  "midFcWidthOrder": {
+    "message": "רוחב עמודת סדר"
+  },
+  "midFcWidthOrderHelp": {
+    "message": "רוחב בפיקסלים עבור עמודת הסדר/אינדקס האופציונלית של Chromium."
+  },
+  "midFcWidthUrl": {
+    "message": "רוחב עמודת URL"
+  },
+  "midFcWidthUrlHelp": {
+    "message": "רוחב בפיקסלים עבור עמודת ה־URL בתוכן התיקייה."
+  },
+  "multipleInstancesAllowed": {
+    "message": "אפשר מספר מופעים של SBM"
+  },
+  "multipleInstancesAllowedHelp": {
+    "message": "כאשר כבוי, לחיצה על כפתור התוסף ממקדת את כרטיסיית Simple Bookmarks Manager הקיימת במקום לפתוח כרטיסייה נוספת."
+  },
+  "mutationCreateBookmark": {
+    "message": "יצירת סימנייה"
+  },
+  "mutationCreateFolder": {
+    "message": "יצירת תיקייה"
+  },
+  "mutationCreateFromClipboardSnapshot": {
+    "message": "יצירה מתמונת מצב של הלוח"
+  },
+  "mutationCreateSeparator": {
+    "message": "יצירת מפריד"
+  },
+  "mutationDeleteBookmark": {
+    "message": "מחיקת סימנייה"
+  },
+  "mutationDeleteFolder": {
+    "message": "מחיקת תיקייה"
+  },
+  "mutationDeleteSelectedBookmark": {
+    "message": "מחיקת הסימנייה שנבחרה"
+  },
+  "mutationDeleteSelectedFolder": {
+    "message": "מחיקת התיקייה שנבחרה"
+  },
+  "mutationDragDropMove": {
+    "message": "העברה בגרירה ושחרור"
+  },
+  "mutationEditBookmark": {
+    "message": "עריכת סימנייה"
+  },
+  "mutationMoveSelectedItem": {
+    "message": "העברת הפריט שנבחר"
+  },
+  "mutationPasteCutItem": {
+    "message": "הדבקת פריט שנגזר"
+  },
+  "mutationRenameFolder": {
+    "message": "שינוי שם תיקייה"
+  },
+  "mutationReorderSelectedItems": {
+    "message": "סידור מחדש של הפריטים שנבחרו"
+  },
+  "mutationSaveDetailsMove": {
+    "message": "שמירת העברת פרטים"
+  },
+  "mutationSaveDetailsUpdate": {
+    "message": "שמירת עדכון פרטים"
+  },
+  "mutationSortFolderChild": {
+    "message": "מיון פריט משנה של תיקייה"
   },
   "naturalSort": {
     "message": "השתמש בסדר טבעי של תיקיות/סימניות"
@@ -317,6 +449,9 @@
   "openAllInSplitView": {
     "message": "פתח הכול בתצוגה מפוצלת"
   },
+  "openBookmark": {
+    "message": "פתח סימנייה"
+  },
   "openDefaultBookmarksManager": {
     "message": "פתח את מנהל הסימניות המוגדר כברירת מחדל"
   },
@@ -342,16 +477,22 @@
     "message": "פתח את תפריט Simple Bookmarks Manager"
   },
   "optimisationDOMrendering": {
-    "message": "Optimisation: DOM rendering pass"
+    "message": "אופטימיזציה: מעבר רינדור DOM"
   },
   "optimisationDOMrenderingHelp": {
-    "message": "Experimental. Enables reduced DOM churn for selected rendering, drag/drop indicators, and row icon handling. Disable only when comparing performance or troubleshooting UI behavior."
+    "message": "ניסיוני. מפחית שינויי DOM עבור רינדור נבחר, מחווני גרירה ושחרור, וטיפול בסמלי שורות. השבת רק בעת השוואת ביצועים או פתרון בעיות בממשק."
   },
   "optimisationTempBookmarkTreeMaps": {
-    "message": "Optimisation: temporary bookmark tree maps"
+    "message": "אופטימיזציה: מפות זמניות של עץ הסימניות"
   },
   "optimisationTempBookmarkTreeMapsHelp": {
-    "message": "Experimental. Builds short-lived lookup maps during some render/search/tree operations, then discards them to avoid a persistent stale cache."
+    "message": "ניסיוני. בונה מפות חיפוש קצרות־טווח במהלך חלק מפעולות הרינדור/חיפוש/עץ, ואז משליך אותן כדי להימנע ממטמון מתמשך שעלול להתיישן."
+  },
+  "optimisations": {
+    "message": "אופטימיזציות"
+  },
+  "optimisationsHelp": {
+    "message": "אפשרויות ביצועים ניסיוניות למדידה ולפתרון בעיות."
   },
   "optionSaved": {
     "message": "נשמר"
@@ -361,6 +502,12 @@
   },
   "optionsTitle": {
     "message": "אפשרויות Simple Bookmarks Manager"
+  },
+  "paneWidths": {
+    "message": "רוחבי חלוניות"
+  },
+  "paneWidthsHelp": {
+    "message": "הגדרת רוחבי חלוניות הספרייה והפרטים. הם מתעדכנים גם כאשר משנים את גודל החלוניות בממשק המנהל."
   },
   "parentFolder": {
     "message": "תיקיית אב"
@@ -376,6 +523,21 @@
   },
   "resetDefaults": {
     "message": "אפס לברירות מחדל"
+  },
+  "resizeColumn": {
+    "message": "גרור כדי לשנות את רוחב העמודה"
+  },
+  "resizeDetailsPane": {
+    "message": "שנה את גודל חלונית הפרטים"
+  },
+  "resizeLibraryPane": {
+    "message": "שנה את גודל חלונית הספרייה"
+  },
+  "rightDetailsWidth": {
+    "message": "רוחב חלונית הפרטים"
+  },
+  "rightDetailsWidthHelp": {
+    "message": "רוחב בפיקסלים עבור חלונית הפרטים הימנית."
   },
   "rootFallback": {
     "message": "(שורש)"
@@ -420,10 +582,10 @@
     "message": "הצג את חלונית הפרטים"
   },
   "showErrorsWarnings": {
-    "message": "Show warnings/errors log"
+    "message": "הצג יומן אזהרות/שגיאות"
   },
   "showErrorsWarningsHelp": {
-    "message": "Advanced. Shows a transient in-memory log for this SBM session. Log entries are not saved to extension settings."
+    "message": "מתקדם. מציג יומן זמני בזיכרון עבור הפעלת SBM זו. רשומות היומן אינן נשמרות בהגדרות התוסף."
   },
   "showSortWarning": {
     "message": "הצג אישור למיון קבוע"
@@ -531,19 +693,19 @@
     "message": "URL"
   },
   "urlWarningControlCharacters": {
-    "message": "URL contained hidden control characters; they will be removed before saving."
+    "message": "כתובת ה־URL הכילה תווי בקרה מוסתרים; הם יוסרו לפני השמירה."
   },
   "urlWarningEmpty": {
-    "message": "URL is empty. Chrome may reject this bookmark until a URL is provided."
+    "message": "כתובת ה־URL ריקה. Chrome עשוי לדחות סימנייה זו עד שתסופק כתובת URL."
   },
   "urlWarningInvalidBlocked": {
-    "message": "This URL is not valid enough to save as a bookmark. Fix the URL before saving."
+    "message": "כתובת ה־URL אינה תקפה מספיק כדי להישמר כסימנייה. תקן את ה־URL לפני השמירה."
   },
   "urlWarningInvalidButAllowed": {
-    "message": "This URL is not valid enough to save as a bookmark. Fix the URL before saving."
+    "message": "כתובת ה־URL אינה תקפה מספיק כדי להישמר כסימנייה. תקן את ה־URL לפני השמירה."
   },
   "urlWarningWhitespace": {
-    "message": "URL contains whitespace. It will be saved if Chrome accepts it, but it may not open as expected."
+    "message": "כתובת ה־URL מכילה רווחים. היא תישמר אם Chrome יקבל אותה, אך ייתכן שלא תיפתח כצפוי."
   },
   "userInterface": {
     "message": "ממשק משתמש"
@@ -558,12 +720,12 @@
     "message": "מיון חזותי:"
   },
   "warningsErrorsLog": {
-    "message": "Warnings / Errors Log"
+    "message": "יומן אזהרות / שגיאות"
   },
   "warningsErrorsLogEmpty": {
-    "message": "No warnings or errors recorded for this session."
+    "message": "לא נרשמו אזהרות או שגיאות עבור הפעלה זו."
   },
   "warningsErrorsLogHelp": {
-    "message": "Transient warnings/errors for this current SBM session. This is not saved to settings."
+    "message": "אזהרות/שגיאות זמניות עבור הפעלת SBM הנוכחית. זה לא נשמר בהגדרות."
   }
 }
