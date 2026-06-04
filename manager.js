@@ -2519,7 +2519,10 @@ function renderCrumbs() {
   detailsToggle.setAttribute("aria-pressed", String(state.detailsVisible));
   detailsToggle.onclick = toggleDetailsPane;
 
-  $("crumbs").replaceChildren(pathText, sortLabel, sortSelect, detailsToggle);
+  const crumbs = $("crumbs");
+  const crumbNodes = [pathText, sortLabel, sortSelect, detailsToggle];
+  if (Optimisation_DOMrendering) replaceChildrenWithFragment(crumbs, crumbNodes);
+  else crumbs.replaceChildren(...crumbNodes);
 }
 
 
@@ -2665,6 +2668,22 @@ function advancedIndexValue() {
   return $("advanced-index").value.trim();
 }
 
+function makeParentOption(folder) {
+  const opt = document.createElement("option");
+  opt.value = folder.id;
+  opt.textContent = folderPath(folder);
+  return opt;
+}
+
+function makeParentPlaceholderOption(desiredValue) {
+  const placeholder = document.createElement("option");
+  placeholder.value = desiredValue;
+  const parentNode = nodes.get(desiredValue);
+  placeholder.textContent = parentNode ? folderPath(parentNode) : t("browserRoot");
+  placeholder.disabled = true;
+  return placeholder;
+}
+
 function renderParents(selectedValue = null) {
   const selected = nodes.get(state.selectedId);
   const parentSelect = $("parent");
@@ -2674,30 +2693,44 @@ function renderParents(selectedValue = null) {
     n.id !== selected?.id &&
     !(selected && isFolder(selected) && isDescendantOf(n, selected)));
 
-  parentSelect.replaceChildren(...options.map((folder) => {
-    const opt = document.createElement("option");
-    opt.value = folder.id;
-    opt.textContent = folderPath(folder);
-    return opt;
-  }));
+  if (Optimisation_DOMrendering) {
+    const optionNodes = [];
+    let hasDesiredValue = false;
+    for (const folder of options) {
+      const opt = makeParentOption(folder);
+      if (opt.value === desiredValue) hasDesiredValue = true;
+      optionNodes.push(opt);
+    }
+
+    if (desiredValue && !hasDesiredValue) {
+      // Chromium root-level folders such as Bookmarks bar / Other bookmarks
+      // report parentId "0".  The synthetic browser root is not a valid move
+      // target, so keep a disabled placeholder option to preserve the saved
+      // parent value and avoid false dirty-state / unsaved-change prompts.
+      optionNodes.unshift(makeParentPlaceholderOption(desiredValue));
+      hasDesiredValue = true;
+    }
+
+    replaceChildrenWithFragment(parentSelect, optionNodes);
+    if (hasDesiredValue) parentSelect.value = desiredValue;
+    return;
+  }
+
+  parentSelect.replaceChildren(...options.map(makeParentOption));
 
   if (desiredValue && ![...parentSelect.options].some((opt) => opt.value === desiredValue)) {
     // Chromium root-level folders such as Bookmarks bar / Other bookmarks
     // report parentId "0".  The synthetic browser root is not a valid move
     // target, so keep a disabled placeholder option to preserve the saved
     // parent value and avoid false dirty-state / unsaved-change prompts.
-    const placeholder = document.createElement("option");
-    placeholder.value = desiredValue;
-    const parentNode = nodes.get(desiredValue);
-    placeholder.textContent = parentNode ? folderPath(parentNode) : t("browserRoot");
-    placeholder.disabled = true;
-    parentSelect.prepend(placeholder);
+    parentSelect.prepend(makeParentPlaceholderOption(desiredValue));
   }
 
   if ([...parentSelect.options].some((opt) => opt.value === desiredValue)) {
     parentSelect.value = desiredValue;
   }
 }
+
 
 /** Render the Details pane or the Details Multiselect summary. */
 function renderDetails() {

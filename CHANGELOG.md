@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.7.26
+
+- Performed a targeted DOM rendering optimisation pass without modifying locale files.
+- Gated new rendering changes behind `Optimisation_DOMrendering` for benchmarking against the previous behavior.
+- Updated breadcrumb rendering to batch replacement through a `DocumentFragment` when DOM rendering optimisations are enabled.
+- Updated Details pane parent-folder option rendering to batch option replacement and avoid repeated live option-list scans when DOM rendering optimisations are enabled.
+- Updated `manifest.json` to `0.7.26`.
+
 ## 0.7.25
 
 - Updated the Māori (`mi`) SBM locale file under `sbm_locales` using the current English locale as the source.
