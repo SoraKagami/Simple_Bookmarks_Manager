@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.7.33
+
+- Removed the embedded Options iframe `sandbox` attribute to avoid Chromium's `allow-scripts` plus `allow-same-origin` sandbox warning.
+- Kept the iframe constrained to the packaged extension `options.html?embedded=1` page with `referrerPolicy="no-referrer"` and the existing manifest CSP `frame-src 'self'`.
+- Documented why the iframe should not use that ineffective sandbox combination, because the embedded Options page needs normal extension-page access to `chrome.storage` and same-origin manager warning/error log helpers.
+
 ## 0.7.32
 
 - Added and refreshed function-level documentation comments across the JavaScript codebase, focusing on bookmark mutations, URL-open protections, drag/drop, context menus, rendering, settings, localization, service-worker tab management, and the session warning/error log.

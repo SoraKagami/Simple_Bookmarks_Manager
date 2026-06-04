@@ -2353,7 +2353,9 @@ function showOptionsDialog() {
     frame.className = 'options-frame';
     frame.title = t("optionsTitle");
     frame.referrerPolicy = "no-referrer";
-    frame.sandbox = "allow-forms allow-same-origin allow-scripts";
+    // Do not add a sandbox here: Options needs normal extension-page privileges
+    // for chrome.storage and same-origin manager log access, and Chromium warns
+    // that allow-scripts + allow-same-origin makes a sandbox ineffective.
     frame.src = api.runtime.getURL('options.html?embedded=1');
     host.append(frame);
   }
