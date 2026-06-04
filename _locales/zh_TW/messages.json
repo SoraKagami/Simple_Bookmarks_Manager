@@ -23,6 +23,9 @@
   "advancedDetails": {
     "message": "進階詳細資料"
   },
+  "advancedDetailsHelp": {
+    "message": "設定「詳細資料」窗格中的進階中繼資料檢視與支援的進階編輯。"
+  },
   "allowKeyboardDelete": {
     "message": "允許 Delete 鍵刪除選取項目"
   },
@@ -48,7 +51,7 @@
     "message": "書籤清單欄位"
   },
   "bookmarkMutationFailed": {
-    "message": "Bookmark operation failed ({action}): {error}"
+    "message": "書籤操作失敗（{action}）：{error}"
   },
   "bookmarkNamePrompt": {
     "message": "書籤名稱"
@@ -69,13 +72,13 @@
     "message": "瀏覽器根目錄"
   },
   "cancel": {
-    "message": "Cancel"
+    "message": "取消"
   },
   "chooseSortModeTitle": {
     "message": "選擇中間窗格排序模式。預設使用 Chromium 的資料夾順序。"
   },
   "clearLog": {
-    "message": "Clear Log"
+    "message": "清除記錄"
   },
   "clickHideDetails": {
     "message": "點擊以隱藏詳細資料"
@@ -98,6 +101,9 @@
   "couldNotMoveBookmark": {
     "message": "無法移動書籤項目：{error}"
   },
+  "couldNotOpenBookmark": {
+    "message": "無法開啟書籤：{error}"
+  },
   "couldNotOpenTabGroup": {
     "message": "無法開啟分頁群組：{error}"
   },
@@ -108,7 +114,7 @@
     "message": "無法儲存變更：{error}"
   },
   "create": {
-    "message": "Create"
+    "message": "建立"
   },
   "currentFolderAndSubfolders": {
     "message": "目前資料夾與子資料夾"
@@ -123,19 +129,25 @@
     "message": "上次使用日期"
   },
   "debugFailedBookmarkOperation": {
-    "message": "Debug: cause failed bookmark operation"
+    "message": "偵錯：造成書籤操作失敗"
   },
   "debugFailedBookmarkOperationAction": {
-    "message": "debug failed bookmark operation"
+    "message": "偵錯失敗的書籤操作"
   },
   "debugFailureUnexpectedSuccess": {
-    "message": "Debug failure unexpectedly succeeded"
+    "message": "偵錯失敗未預期地成功"
   },
   "debugOptions": {
-    "message": "Debug options"
+    "message": "偵錯選項"
   },
   "debugOptionsHelp": {
-    "message": "Advanced. Shows debug-only test controls. Leave disabled during normal use."
+    "message": "進階。顯示僅供偵錯使用的測試控制項。一般使用時請保持停用。"
+  },
+  "debugSettings": {
+    "message": "偵錯設定"
+  },
+  "debugSettingsHelp": {
+    "message": "只有啟用「偵錯選項」時才會顯示的控制項。"
   },
   "defaultsRestored": {
     "message": "已還原預設值"
@@ -183,7 +195,7 @@
     "message": "編輯"
   },
   "editBookmark": {
-    "message": "Edit Bookmark"
+    "message": "編輯書籤"
   },
   "emptyDetails": {
     "message": "選取一個項目，或選取資料夾以顯示其內容。"
@@ -208,6 +220,12 @@
   },
   "folderAlt": {
     "message": "資料夾"
+  },
+  "folderContentsView": {
+    "message": "資料夾內容檢視"
+  },
+  "folderContentsViewHelp": {
+    "message": "設定中間窗格欄寬與選用欄位。「名稱」與「URL」一律顯示。"
   },
   "folderFallback": {
     "message": "（資料夾）"
@@ -263,6 +281,15 @@
   "keepEditing": {
     "message": "繼續編輯"
   },
+  "languageAuto": {
+    "message": "自動／瀏覽器預設值"
+  },
+  "leftLibWidth": {
+    "message": "書庫窗格寬度"
+  },
+  "leftLibWidthHelp": {
+    "message": "左側「書庫」窗格的寬度，以像素為單位。"
+  },
   "library": {
     "message": "收藏庫"
   },
@@ -274,6 +301,111 @@
   },
   "managerFailed": {
     "message": "書籤管理員失敗：{error}"
+  },
+  "midFcShowDateAdded": {
+    "message": "顯示「加入日期」欄"
+  },
+  "midFcShowDateAddedHelp": {
+    "message": "在「資料夾內容」窗格中顯示或隱藏「加入日期」欄。"
+  },
+  "midFcShowId": {
+    "message": "顯示 ID 欄"
+  },
+  "midFcShowIdHelp": {
+    "message": "顯示或隱藏 Chromium 書籤 ID 欄。"
+  },
+  "midFcShowOrder": {
+    "message": "顯示「順序」欄"
+  },
+  "midFcShowOrderHelp": {
+    "message": "顯示或隱藏 Chromium 資料夾順序／索引欄。"
+  },
+  "midFcWidthDateAdded": {
+    "message": "「加入日期」欄寬度"
+  },
+  "midFcWidthDateAddedHelp": {
+    "message": "選用「加入日期」欄的寬度，以像素為單位。"
+  },
+  "midFcWidthId": {
+    "message": "ID 欄寬度"
+  },
+  "midFcWidthIdHelp": {
+    "message": "選用 ID 欄的寬度，以像素為單位。"
+  },
+  "midFcWidthName": {
+    "message": "「名稱」欄寬度"
+  },
+  "midFcWidthNameHelp": {
+    "message": "「資料夾內容」中「名稱」欄的寬度，以像素為單位。"
+  },
+  "midFcWidthOrder": {
+    "message": "「順序」欄寬度"
+  },
+  "midFcWidthOrderHelp": {
+    "message": "選用 Chromium 順序／索引欄的寬度，以像素為單位。"
+  },
+  "midFcWidthUrl": {
+    "message": "URL 欄寬度"
+  },
+  "midFcWidthUrlHelp": {
+    "message": "「資料夾內容」中 URL 欄的寬度，以像素為單位。"
+  },
+  "multipleInstancesAllowed": {
+    "message": "允許多個 SBM 實例"
+  },
+  "multipleInstancesAllowedHelp": {
+    "message": "停用時，點擊擴充功能按鈕會聚焦現有的 Simple Bookmarks Manager 分頁，而不是另開一個分頁。"
+  },
+  "mutationCreateBookmark": {
+    "message": "建立書籤"
+  },
+  "mutationCreateFolder": {
+    "message": "建立資料夾"
+  },
+  "mutationCreateFromClipboardSnapshot": {
+    "message": "從剪貼簿快照建立"
+  },
+  "mutationCreateSeparator": {
+    "message": "建立分隔線"
+  },
+  "mutationDeleteBookmark": {
+    "message": "刪除書籤"
+  },
+  "mutationDeleteFolder": {
+    "message": "刪除資料夾"
+  },
+  "mutationDeleteSelectedBookmark": {
+    "message": "刪除選取的書籤"
+  },
+  "mutationDeleteSelectedFolder": {
+    "message": "刪除選取的資料夾"
+  },
+  "mutationDragDropMove": {
+    "message": "拖放移動"
+  },
+  "mutationEditBookmark": {
+    "message": "編輯書籤"
+  },
+  "mutationMoveSelectedItem": {
+    "message": "移動選取項目"
+  },
+  "mutationPasteCutItem": {
+    "message": "貼上剪下的項目"
+  },
+  "mutationRenameFolder": {
+    "message": "重新命名資料夾"
+  },
+  "mutationReorderSelectedItems": {
+    "message": "重新排序選取項目"
+  },
+  "mutationSaveDetailsMove": {
+    "message": "儲存詳細資料移動"
+  },
+  "mutationSaveDetailsUpdate": {
+    "message": "儲存詳細資料更新"
+  },
+  "mutationSortFolderChild": {
+    "message": "排序資料夾子項目"
   },
   "naturalSort": {
     "message": "使用自然資料夾/書籤排序"
@@ -317,6 +449,9 @@
   "openAllInSplitView": {
     "message": "在分割檢視中全部開啟"
   },
+  "openBookmark": {
+    "message": "開啟書籤"
+  },
   "openDefaultBookmarksManager": {
     "message": "開啟預設書籤管理員"
   },
@@ -342,16 +477,22 @@
     "message": "開啟 Simple Bookmarks Manager 選單"
   },
   "optimisationDOMrendering": {
-    "message": "Optimisation: DOM rendering pass"
+    "message": "最佳化：DOM 算繪階段"
   },
   "optimisationDOMrenderingHelp": {
-    "message": "Experimental. Enables reduced DOM churn for selected rendering, drag/drop indicators, and row icon handling. Disable only when comparing performance or troubleshooting UI behavior."
+    "message": "實驗性。針對選取項目的算繪、拖放指示器與列圖示處理，減少 DOM 變動。只有在比較效能或排解介面行為問題時才停用。"
   },
   "optimisationTempBookmarkTreeMaps": {
-    "message": "Optimisation: temporary bookmark tree maps"
+    "message": "最佳化：暫存書籤樹狀對應表"
   },
   "optimisationTempBookmarkTreeMapsHelp": {
-    "message": "Experimental. Builds short-lived lookup maps during some render/search/tree operations, then discards them to avoid a persistent stale cache."
+    "message": "實驗性。在部分算繪、搜尋與樹狀操作期間建立短暫的查詢對應表，之後即捨棄，以避免持續存在的過時快取。"
+  },
+  "optimisations": {
+    "message": "最佳化"
+  },
+  "optimisationsHelp": {
+    "message": "用於效能基準測試與疑難排解的實驗性效能選項。"
   },
   "optionSaved": {
     "message": "已儲存"
@@ -361,6 +502,12 @@
   },
   "optionsTitle": {
     "message": "Simple Bookmarks Manager 選項"
+  },
+  "paneWidths": {
+    "message": "窗格寬度"
+  },
+  "paneWidthsHelp": {
+    "message": "設定「書庫」與「詳細資料」窗格寬度。當管理員介面中的窗格大小變更時，也會同步更新這些設定。"
   },
   "parentFolder": {
     "message": "上層資料夾"
@@ -376,6 +523,21 @@
   },
   "resetDefaults": {
     "message": "重設為預設值"
+  },
+  "resizeColumn": {
+    "message": "拖曳以調整欄寬"
+  },
+  "resizeDetailsPane": {
+    "message": "調整「詳細資料」窗格大小"
+  },
+  "resizeLibraryPane": {
+    "message": "調整「書庫」窗格大小"
+  },
+  "rightDetailsWidth": {
+    "message": "詳細資料窗格寬度"
+  },
+  "rightDetailsWidthHelp": {
+    "message": "右側「詳細資料」窗格的寬度，以像素為單位。"
   },
   "rootFallback": {
     "message": "（根目錄）"
@@ -420,10 +582,10 @@
     "message": "顯示詳細資料窗格"
   },
   "showErrorsWarnings": {
-    "message": "Show warnings/errors log"
+    "message": "顯示警告／錯誤記錄"
   },
   "showErrorsWarningsHelp": {
-    "message": "Advanced. Shows a transient in-memory log for this SBM session. Log entries are not saved to extension settings."
+    "message": "進階。顯示此 SBM 工作階段的暫時記憶體內記錄。記錄項目不會儲存到擴充功能設定。"
   },
   "showSortWarning": {
     "message": "顯示永久排序確認警告"
@@ -531,19 +693,19 @@
     "message": "網址"
   },
   "urlWarningControlCharacters": {
-    "message": "URL contained hidden control characters; they will be removed before saving."
+    "message": "URL 包含隱藏控制字元；儲存前會移除這些字元。"
   },
   "urlWarningEmpty": {
-    "message": "URL is empty. Chrome may reject this bookmark until a URL is provided."
+    "message": "URL 是空的。在提供 URL 之前，Chrome 可能會拒絕此書籤。"
   },
   "urlWarningInvalidBlocked": {
-    "message": "This URL is not valid enough to save as a bookmark. Fix the URL before saving."
+    "message": "此 URL 不夠有效，無法儲存為書籤。請先修正 URL 再儲存。"
   },
   "urlWarningInvalidButAllowed": {
-    "message": "This URL is not valid enough to save as a bookmark. Fix the URL before saving."
+    "message": "此 URL 不夠有效，無法儲存為書籤。請先修正 URL 再儲存。"
   },
   "urlWarningWhitespace": {
-    "message": "URL contains whitespace. It will be saved if Chrome accepts it, but it may not open as expected."
+    "message": "URL 包含空白字元。如果 Chrome 接受，仍會儲存，但可能無法如預期開啟。"
   },
   "userInterface": {
     "message": "使用者介面"
@@ -558,12 +720,12 @@
     "message": "視覺排序："
   },
   "warningsErrorsLog": {
-    "message": "Warnings / Errors Log"
+    "message": "警告／錯誤記錄"
   },
   "warningsErrorsLogEmpty": {
-    "message": "No warnings or errors recorded for this session."
+    "message": "此工作階段沒有記錄任何警告或錯誤。"
   },
   "warningsErrorsLogHelp": {
-    "message": "Transient warnings/errors for this current SBM session. This is not saved to settings."
+    "message": "此目前 SBM 工作階段的暫時警告／錯誤。這不會儲存到設定。"
   }
 }

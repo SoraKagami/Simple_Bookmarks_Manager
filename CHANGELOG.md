@@ -1,5 +1,12 @@
 # Changelog
 
+## 0.7.24
+
+- Updated Traditional Chinese (`zh_TW`) and Simplified Chinese (`zh_CN`) locale files using the current English locale as the source.
+- Added translations for missing Options page advanced groups, pane/column sizing controls, diagnostics/debug labels, bookmark mutation failure text, and URL validation/open bookmark strings.
+- Reviewed Chinese locale wording to keep `zh_TW` in Traditional Chinese and `zh_CN` in Simplified Chinese while preserving product names, technical abbreviations, and placeholders such as `{action}` and `{error}`.
+- Updated `manifest.json` to `0.7.24`.
+
 ## 0.7.23
 
 - Updated Japanese (`ja`) and Korean (`ko`) locale files using the current English locale as the source.

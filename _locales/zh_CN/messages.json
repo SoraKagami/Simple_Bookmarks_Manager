@@ -23,6 +23,9 @@
   "advancedDetails": {
     "message": "高级详细信息"
   },
+  "advancedDetailsHelp": {
+    "message": "配置“详细信息”窗格中的高级元数据查看和支持的高级编辑。"
+  },
   "allowKeyboardDelete": {
     "message": "允许 Delete 键删除所选项目"
   },
@@ -48,7 +51,7 @@
     "message": "书签列表列"
   },
   "bookmarkMutationFailed": {
-    "message": "Bookmark operation failed ({action}): {error}"
+    "message": "书签操作失败（{action}）：{error}"
   },
   "bookmarkNamePrompt": {
     "message": "书签名称"
@@ -69,13 +72,13 @@
     "message": "浏览器根目录"
   },
   "cancel": {
-    "message": "Cancel"
+    "message": "取消"
   },
   "chooseSortModeTitle": {
     "message": "选择中间窗格排序模式。默认使用 Chromium 的文件夹顺序。"
   },
   "clearLog": {
-    "message": "Clear Log"
+    "message": "清除日志"
   },
   "clickHideDetails": {
     "message": "点击隐藏详细信息"
@@ -98,6 +101,9 @@
   "couldNotMoveBookmark": {
     "message": "无法移动书签项目：{error}"
   },
+  "couldNotOpenBookmark": {
+    "message": "无法打开书签：{error}"
+  },
   "couldNotOpenTabGroup": {
     "message": "无法打开标签页组：{error}"
   },
@@ -108,7 +114,7 @@
     "message": "无法保存更改：{error}"
   },
   "create": {
-    "message": "Create"
+    "message": "创建"
   },
   "currentFolderAndSubfolders": {
     "message": "当前文件夹和子文件夹"
@@ -123,19 +129,25 @@
     "message": "上次使用日期"
   },
   "debugFailedBookmarkOperation": {
-    "message": "Debug: cause failed bookmark operation"
+    "message": "调试：造成书签操作失败"
   },
   "debugFailedBookmarkOperationAction": {
-    "message": "debug failed bookmark operation"
+    "message": "调试失败的书签操作"
   },
   "debugFailureUnexpectedSuccess": {
-    "message": "Debug failure unexpectedly succeeded"
+    "message": "调试失败意外成功"
   },
   "debugOptions": {
-    "message": "Debug options"
+    "message": "调试选项"
   },
   "debugOptionsHelp": {
-    "message": "Advanced. Shows debug-only test controls. Leave disabled during normal use."
+    "message": "高级。显示仅用于调试的测试控件。正常使用时请保持禁用。"
+  },
+  "debugSettings": {
+    "message": "调试设置"
+  },
+  "debugSettingsHelp": {
+    "message": "仅在启用“调试选项”时显示的控件。"
   },
   "defaultsRestored": {
     "message": "已恢复默认值"
@@ -183,7 +195,7 @@
     "message": "编辑"
   },
   "editBookmark": {
-    "message": "Edit Bookmark"
+    "message": "编辑书签"
   },
   "emptyDetails": {
     "message": "选择一个项目，或选择文件夹以显示其内容。"
@@ -208,6 +220,12 @@
   },
   "folderAlt": {
     "message": "文件夹"
+  },
+  "folderContentsView": {
+    "message": "文件夹内容视图"
+  },
+  "folderContentsViewHelp": {
+    "message": "配置中间窗格列宽和可选列。“名称”和“URL”始终显示。"
   },
   "folderFallback": {
     "message": "（文件夹）"
@@ -263,6 +281,15 @@
   "keepEditing": {
     "message": "继续编辑"
   },
+  "languageAuto": {
+    "message": "自动 / 浏览器默认值"
+  },
+  "leftLibWidth": {
+    "message": "书库窗格宽度"
+  },
+  "leftLibWidthHelp": {
+    "message": "左侧“书库”窗格的宽度，以像素为单位。"
+  },
   "library": {
     "message": "库"
   },
@@ -274,6 +301,111 @@
   },
   "managerFailed": {
     "message": "书签管理器失败：{error}"
+  },
+  "midFcShowDateAdded": {
+    "message": "显示“添加日期”列"
+  },
+  "midFcShowDateAddedHelp": {
+    "message": "在“文件夹内容”窗格中显示或隐藏“添加日期”列。"
+  },
+  "midFcShowId": {
+    "message": "显示 ID 列"
+  },
+  "midFcShowIdHelp": {
+    "message": "显示或隐藏 Chromium 书签 ID 列。"
+  },
+  "midFcShowOrder": {
+    "message": "显示“顺序”列"
+  },
+  "midFcShowOrderHelp": {
+    "message": "显示或隐藏 Chromium 文件夹顺序/索引列。"
+  },
+  "midFcWidthDateAdded": {
+    "message": "“添加日期”列宽"
+  },
+  "midFcWidthDateAddedHelp": {
+    "message": "可选“添加日期”列的宽度，以像素为单位。"
+  },
+  "midFcWidthId": {
+    "message": "ID 列宽"
+  },
+  "midFcWidthIdHelp": {
+    "message": "可选 ID 列的宽度，以像素为单位。"
+  },
+  "midFcWidthName": {
+    "message": "“名称”列宽"
+  },
+  "midFcWidthNameHelp": {
+    "message": "“文件夹内容”中“名称”列的宽度，以像素为单位。"
+  },
+  "midFcWidthOrder": {
+    "message": "“顺序”列宽"
+  },
+  "midFcWidthOrderHelp": {
+    "message": "可选 Chromium 顺序/索引列的宽度，以像素为单位。"
+  },
+  "midFcWidthUrl": {
+    "message": "URL 列宽"
+  },
+  "midFcWidthUrlHelp": {
+    "message": "“文件夹内容”中 URL 列的宽度，以像素为单位。"
+  },
+  "multipleInstancesAllowed": {
+    "message": "允许多个 SBM 实例"
+  },
+  "multipleInstancesAllowedHelp": {
+    "message": "禁用时，点击扩展程序按钮会聚焦现有的 Simple Bookmarks Manager 标签页，而不是再打开一个标签页。"
+  },
+  "mutationCreateBookmark": {
+    "message": "创建书签"
+  },
+  "mutationCreateFolder": {
+    "message": "创建文件夹"
+  },
+  "mutationCreateFromClipboardSnapshot": {
+    "message": "从剪贴板快照创建"
+  },
+  "mutationCreateSeparator": {
+    "message": "创建分隔线"
+  },
+  "mutationDeleteBookmark": {
+    "message": "删除书签"
+  },
+  "mutationDeleteFolder": {
+    "message": "删除文件夹"
+  },
+  "mutationDeleteSelectedBookmark": {
+    "message": "删除所选书签"
+  },
+  "mutationDeleteSelectedFolder": {
+    "message": "删除所选文件夹"
+  },
+  "mutationDragDropMove": {
+    "message": "拖放移动"
+  },
+  "mutationEditBookmark": {
+    "message": "编辑书签"
+  },
+  "mutationMoveSelectedItem": {
+    "message": "移动所选项目"
+  },
+  "mutationPasteCutItem": {
+    "message": "粘贴剪切的项目"
+  },
+  "mutationRenameFolder": {
+    "message": "重命名文件夹"
+  },
+  "mutationReorderSelectedItems": {
+    "message": "重新排序所选项目"
+  },
+  "mutationSaveDetailsMove": {
+    "message": "保存详细信息移动"
+  },
+  "mutationSaveDetailsUpdate": {
+    "message": "保存详细信息更新"
+  },
+  "mutationSortFolderChild": {
+    "message": "排序文件夹子项"
   },
   "naturalSort": {
     "message": "使用自然文件夹/书签排序"
@@ -317,6 +449,9 @@
   "openAllInSplitView": {
     "message": "全部在分屏视图中打开"
   },
+  "openBookmark": {
+    "message": "打开书签"
+  },
   "openDefaultBookmarksManager": {
     "message": "打开默认书签管理器"
   },
@@ -342,16 +477,22 @@
     "message": "打开 Simple Bookmarks Manager 菜单"
   },
   "optimisationDOMrendering": {
-    "message": "Optimisation: DOM rendering pass"
+    "message": "优化：DOM 渲染过程"
   },
   "optimisationDOMrenderingHelp": {
-    "message": "Experimental. Enables reduced DOM churn for selected rendering, drag/drop indicators, and row icon handling. Disable only when comparing performance or troubleshooting UI behavior."
+    "message": "实验性。减少所选内容渲染、拖放指示器和行图标处理中的 DOM 变动。仅在比较性能或排查界面行为问题时禁用。"
   },
   "optimisationTempBookmarkTreeMaps": {
-    "message": "Optimisation: temporary bookmark tree maps"
+    "message": "优化：临时书签树映射"
   },
   "optimisationTempBookmarkTreeMapsHelp": {
-    "message": "Experimental. Builds short-lived lookup maps during some render/search/tree operations, then discards them to avoid a persistent stale cache."
+    "message": "实验性。在某些渲染、搜索和树操作期间构建短期查找映射，然后将其丢弃，以避免持久的过期缓存。"
+  },
+  "optimisations": {
+    "message": "优化"
+  },
+  "optimisationsHelp": {
+    "message": "用于性能基准测试和故障排查的实验性性能选项。"
   },
   "optionSaved": {
     "message": "已保存"
@@ -361,6 +502,12 @@
   },
   "optionsTitle": {
     "message": "Simple Bookmarks Manager 选项"
+  },
+  "paneWidths": {
+    "message": "窗格宽度"
+  },
+  "paneWidthsHelp": {
+    "message": "配置“书库”和“详细信息”窗格宽度。在管理器界面中调整窗格大小时，也会更新这些设置。"
   },
   "parentFolder": {
     "message": "上级文件夹"
@@ -376,6 +523,21 @@
   },
   "resetDefaults": {
     "message": "重置为默认值"
+  },
+  "resizeColumn": {
+    "message": "拖动以调整列宽"
+  },
+  "resizeDetailsPane": {
+    "message": "调整“详细信息”窗格大小"
+  },
+  "resizeLibraryPane": {
+    "message": "调整“书库”窗格大小"
+  },
+  "rightDetailsWidth": {
+    "message": "详细信息窗格宽度"
+  },
+  "rightDetailsWidthHelp": {
+    "message": "右侧“详细信息”窗格的宽度，以像素为单位。"
   },
   "rootFallback": {
     "message": "（根）"
@@ -420,10 +582,10 @@
     "message": "显示详细信息窗格"
   },
   "showErrorsWarnings": {
-    "message": "Show warnings/errors log"
+    "message": "显示警告/错误日志"
   },
   "showErrorsWarningsHelp": {
-    "message": "Advanced. Shows a transient in-memory log for this SBM session. Log entries are not saved to extension settings."
+    "message": "高级。显示此 SBM 会话的临时内存日志。日志条目不会保存到扩展程序设置。"
   },
   "showSortWarning": {
     "message": "显示永久排序确认警告"
@@ -531,19 +693,19 @@
     "message": "网址"
   },
   "urlWarningControlCharacters": {
-    "message": "URL contained hidden control characters; they will be removed before saving."
+    "message": "URL 包含隐藏控制字符；保存前会将其移除。"
   },
   "urlWarningEmpty": {
-    "message": "URL is empty. Chrome may reject this bookmark until a URL is provided."
+    "message": "URL 为空。在提供 URL 之前，Chrome 可能会拒绝此书签。"
   },
   "urlWarningInvalidBlocked": {
-    "message": "This URL is not valid enough to save as a bookmark. Fix the URL before saving."
+    "message": "此 URL 的有效性不足，无法保存为书签。请先修正 URL 再保存。"
   },
   "urlWarningInvalidButAllowed": {
-    "message": "This URL is not valid enough to save as a bookmark. Fix the URL before saving."
+    "message": "此 URL 的有效性不足，无法保存为书签。请先修正 URL 再保存。"
   },
   "urlWarningWhitespace": {
-    "message": "URL contains whitespace. It will be saved if Chrome accepts it, but it may not open as expected."
+    "message": "URL 包含空白字符。如果 Chrome 接受，仍会保存，但可能无法按预期打开。"
   },
   "userInterface": {
     "message": "用户界面"
@@ -558,12 +720,12 @@
     "message": "视觉排序："
   },
   "warningsErrorsLog": {
-    "message": "Warnings / Errors Log"
+    "message": "警告/错误日志"
   },
   "warningsErrorsLogEmpty": {
-    "message": "No warnings or errors recorded for this session."
+    "message": "此会话未记录任何警告或错误。"
   },
   "warningsErrorsLogHelp": {
-    "message": "Transient warnings/errors for this current SBM session. This is not saved to settings."
+    "message": "当前 SBM 会话的临时警告/错误。这不会保存到设置。"
   }
 }
