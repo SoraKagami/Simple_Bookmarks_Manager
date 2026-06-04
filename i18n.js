@@ -11,7 +11,7 @@ const api = chrome;
 // Language labels are intentionally written in each language so the dropdown is
 // usable even before the current UI language changes.
 export const LANGUAGE_OPTIONS = Object.freeze([
-  { value: "auto", label: "Automatic / Browser Default" },
+  { value: "auto", labelKey: "languageAuto" },
   { value: "en", label: "English" },
   { value: "zh_TW", label: "繁體中文" },
   { value: "zh_CN", label: "简体中文" },
@@ -138,8 +138,8 @@ export function populateLanguageSelect(select, selectedValue = "auto") {
   select.replaceChildren(...LANGUAGE_OPTIONS.map((language) => {
     const option = document.createElement("option");
     option.value = language.value;
-    option.textContent = language.label;
-    option.lang = language.value === "auto" ? "en" : language.value.replace("_", "-");
+    option.textContent = language.labelKey ? t(language.labelKey) : language.label;
+    option.lang = language.value === "auto" ? currentLanguage.replace("_", "-") : language.value.replace("_", "-");
     return option;
   }));
   select.value = normalizeLanguageSetting(selectedValue);

@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.7.19
+
+- Reviewed manager/options UI paths for user-facing strings missed by localization support.
+- Localized bookmark mutation action labels shown in failure alerts instead of passing hard-coded English action names.
+- Localized the language dropdown Automatic / Browser Default option.
+- Updated `sbm_locales/en_Netspeak/messages.json` to include all current English locale keys, including recent Options, pane resizing, diagnostics, and Details actions.
+- Updated `manifest.json` to `0.7.19`.
+
 ## 0.7.18
 
 - Added an **Open Bookmark** button to the Details pane header when a bookmark is selected.

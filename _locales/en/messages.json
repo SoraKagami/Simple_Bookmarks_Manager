@@ -101,6 +101,9 @@
   "couldNotMoveBookmark": {
     "message": "Could not move bookmark item: {error}"
   },
+  "couldNotOpenBookmark": {
+    "message": "Could not open bookmark: {error}"
+  },
   "couldNotOpenTabGroup": {
     "message": "Could not open tab group: {error}"
   },
@@ -278,6 +281,9 @@
   "keepEditing": {
     "message": "Keep Editing"
   },
+  "languageAuto": {
+    "message": "Automatic / Browser Default"
+  },
   "leftLibWidth": {
     "message": "Library pane width"
   },
@@ -344,6 +350,63 @@
   "midFcWidthUrlHelp": {
     "message": "Width in pixels for the Folder Contents URL column."
   },
+  "multipleInstancesAllowed": {
+    "message": "Allow multiple SBM instances"
+  },
+  "multipleInstancesAllowedHelp": {
+    "message": "When disabled, clicking the extension button focuses the existing Simple Bookmarks Manager tab instead of opening another one."
+  },
+  "mutationCreateBookmark": {
+    "message": "create bookmark"
+  },
+  "mutationCreateFolder": {
+    "message": "create folder"
+  },
+  "mutationCreateFromClipboardSnapshot": {
+    "message": "create from clipboard snapshot"
+  },
+  "mutationCreateSeparator": {
+    "message": "create separator"
+  },
+  "mutationDeleteBookmark": {
+    "message": "delete bookmark"
+  },
+  "mutationDeleteFolder": {
+    "message": "delete folder"
+  },
+  "mutationDeleteSelectedBookmark": {
+    "message": "delete selected bookmark"
+  },
+  "mutationDeleteSelectedFolder": {
+    "message": "delete selected folder"
+  },
+  "mutationDragDropMove": {
+    "message": "drag/drop move"
+  },
+  "mutationEditBookmark": {
+    "message": "edit bookmark"
+  },
+  "mutationMoveSelectedItem": {
+    "message": "move selected item"
+  },
+  "mutationPasteCutItem": {
+    "message": "paste cut item"
+  },
+  "mutationRenameFolder": {
+    "message": "rename folder"
+  },
+  "mutationReorderSelectedItems": {
+    "message": "reorder selected items"
+  },
+  "mutationSaveDetailsMove": {
+    "message": "save details move"
+  },
+  "mutationSaveDetailsUpdate": {
+    "message": "save details update"
+  },
+  "mutationSortFolderChild": {
+    "message": "sort folder child"
+  },
   "naturalSort": {
     "message": "Use natural folder/bookmark sort order"
   },
@@ -385,6 +448,9 @@
   },
   "openAllInSplitView": {
     "message": "Open All in Split View"
+  },
+  "openBookmark": {
+    "message": "Open Bookmark"
   },
   "openDefaultBookmarksManager": {
     "message": "Open Default Bookmarks Manager"
@@ -661,17 +727,5 @@
   },
   "warningsErrorsLogHelp": {
     "message": "Transient warnings/errors for this current SBM session. This is not saved to settings."
-  },
-  "multipleInstancesAllowed": {
-    "message": "Allow multiple SBM instances"
-  },
-  "multipleInstancesAllowedHelp": {
-    "message": "When disabled, clicking the extension button focuses the existing Simple Bookmarks Manager tab instead of opening another one."
-  },
-  "openBookmark": {
-    "message": "Open Bookmark"
-  },
-  "couldNotOpenBookmark": {
-    "message": "Could not open bookmark: {error}"
   }
 }

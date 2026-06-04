@@ -23,6 +23,9 @@
   "advancedDetails": {
     "message": "4dv4nc3d D3741lz"
   },
+  "advancedDetailsHelp": {
+    "message": "C0nf1g 4dv4nc3d m374d474 v13w1ng + zupp0r73d 3d17z 1n D3741lz."
+  },
   "allowKeyboardDelete": {
     "message": "4ll0w D3l373 k3y 70 d3l373 z3l3c73d 173mz"
   },
@@ -48,7 +51,7 @@
     "message": "B00km4rk l1z7 c0lumnz"
   },
   "bookmarkMutationFailed": {
-    "message": "Bookmark operation failed ({action}): {error}"
+    "message": "B00km4rk 0p3r4710n f41l3d ({action}): {error}"
   },
   "bookmarkNamePrompt": {
     "message": "B00km4rk n4m3"
@@ -69,13 +72,13 @@
     "message": "Br0wz3r r007"
   },
   "cancel": {
-    "message": "Cancel"
+    "message": "N0p3"
   },
   "chooseSortModeTitle": {
     "message": "Ch00z3 7h3 m1ddl3-p4n3 z0r7 m0d3. D3f4ul7 uz3z Chr0m1um’z f0ld3r 0rd3r."
   },
   "clearLog": {
-    "message": "Clear Log"
+    "message": "Cl34r L0g"
   },
   "clickHideDetails": {
     "message": "Cl1ck 70 H1d3 D3741lz"
@@ -98,6 +101,9 @@
   "couldNotMoveBookmark": {
     "message": "C0uld n07 m0v3 b00km4rk 173m: {error}"
   },
+  "couldNotOpenBookmark": {
+    "message": "C0uld n07 0p3n b00km4rk: {error}"
+  },
   "couldNotOpenTabGroup": {
     "message": "C0uld n07 0p3n 74b gr0up: {error}"
   },
@@ -108,7 +114,7 @@
     "message": "C0uld n07 z4v3 ch4ng3z: {error}"
   },
   "create": {
-    "message": "Create"
+    "message": "Cr3473"
   },
   "currentFolderAndSubfolders": {
     "message": "Th1s F0ld3r + Subz"
@@ -123,19 +129,25 @@
     "message": "D473 L4z7 Uz3d"
   },
   "debugFailedBookmarkOperation": {
-    "message": "Debug: cause failed bookmark operation"
+    "message": "D3bug: m4k3 b00km4rk 0p f41l 0n purp0z3"
   },
   "debugFailedBookmarkOperationAction": {
-    "message": "debug failed bookmark operation"
+    "message": "d3bug f41l3d b00km4rk 0p3r4710n"
   },
   "debugFailureUnexpectedSuccess": {
-    "message": "Debug failure unexpectedly succeeded"
+    "message": "D3bug f41lur3 4c7u4lly succ33d3d. w07?"
   },
   "debugOptions": {
-    "message": "Debug options"
+    "message": "D3bug 0p710nz"
   },
   "debugOptionsHelp": {
-    "message": "Advanced. Shows debug-only test controls. Leave disabled during normal use."
+    "message": "4dv4nc3d. Zh0wz d3bug-0nly 73z7 c0n7r0lz. L34v3 0ff f0r n0rm4l uz3."
+  },
+  "debugSettings": {
+    "message": "D3bug Z3771ngz"
+  },
+  "debugSettingsHelp": {
+    "message": "C0n7r0lz 7h47 0nly zp4wn wh3n D3bug 0p710nz 1z 0n."
   },
   "defaultsRestored": {
     "message": "D3f4ul7z r3z70r3d"
@@ -183,7 +195,7 @@
     "message": "3d17"
   },
   "editBookmark": {
-    "message": "Edit Bookmark"
+    "message": "3d17 B00km4rk"
   },
   "emptyDetails": {
     "message": "Z3l3c7 0n3 173m, 0r z3l3c7 4 f0ld3r 70 zh0w 17z c0n73n7z."
@@ -208,6 +220,12 @@
   },
   "folderAlt": {
     "message": "F0ld3r"
+  },
+  "folderContentsView": {
+    "message": "F0ld3r C0n73n7z v13w"
+  },
+  "folderContentsViewHelp": {
+    "message": "C0nf1g m1ddl3-p4n3 c0lumn w1d7hz + 0p710n4l c0lumnz. N4m3 + URL 4lw4yz zh0w."
   },
   "folderFallback": {
     "message": "(f0ld3r)"
@@ -263,6 +281,15 @@
   "keepEditing": {
     "message": "K33p 3d171ng"
   },
+  "languageAuto": {
+    "message": "4u70 / Br0wz3r D3f4ul7"
+  },
+  "leftLibWidth": {
+    "message": "L1br4ry p4n3 w1d7h"
+  },
+  "leftLibWidthHelp": {
+    "message": "W1d7h 1n p1x3lz f0r 7h3 l3f7 L1br4ry p4n3."
+  },
   "library": {
     "message": "L1br4ry lulz"
   },
@@ -274,6 +301,111 @@
   },
   "managerFailed": {
     "message": "B00km4rk m4n4g3r f41l3d: {error}"
+  },
+  "midFcShowDateAdded": {
+    "message": "Zh0w D473 4dd3d c0lumn"
+  },
+  "midFcShowDateAddedHelp": {
+    "message": "Zh0w 0r h1d3 D473 4dd3d 1n F0ld3r C0n73n7z."
+  },
+  "midFcShowId": {
+    "message": "Zh0w 1D c0lumn"
+  },
+  "midFcShowIdHelp": {
+    "message": "Zh0w 0r h1d3 7h3 Chr0m1um b00km4rk 1D c0lumn."
+  },
+  "midFcShowOrder": {
+    "message": "Zh0w 0rd3r c0lumn"
+  },
+  "midFcShowOrderHelp": {
+    "message": "Zh0w 0r h1d3 7h3 Chr0m1um f0ld3r 0rd3r/1nd3x c0lumn."
+  },
+  "midFcWidthDateAdded": {
+    "message": "D473 4dd3d c0lumn w1d7h"
+  },
+  "midFcWidthDateAddedHelp": {
+    "message": "W1d7h 1n p1x3lz f0r 7h3 0p710n4l D473 4dd3d c0lumn."
+  },
+  "midFcWidthId": {
+    "message": "1D c0lumn w1d7h"
+  },
+  "midFcWidthIdHelp": {
+    "message": "W1d7h 1n p1x3lz f0r 7h3 0p710n4l 1D c0lumn."
+  },
+  "midFcWidthName": {
+    "message": "N4m3 c0lumn w1d7h"
+  },
+  "midFcWidthNameHelp": {
+    "message": "W1d7h 1n p1x3lz f0r 7h3 F0ld3r C0n73n7z N4m3 c0lumn."
+  },
+  "midFcWidthOrder": {
+    "message": "0rd3r c0lumn w1d7h"
+  },
+  "midFcWidthOrderHelp": {
+    "message": "W1d7h 1n p1x3lz f0r 7h3 0p710n4l Chr0m1um 0rd3r/1nd3x c0lumn."
+  },
+  "midFcWidthUrl": {
+    "message": "URL c0lumn w1d7h"
+  },
+  "midFcWidthUrlHelp": {
+    "message": "W1d7h 1n p1x3lz f0r 7h3 F0ld3r C0n73n7z URL c0lumn."
+  },
+  "multipleInstancesAllowed": {
+    "message": "4ll0w mul71pl3 SBM 1nz74nc3z"
+  },
+  "multipleInstancesAllowedHelp": {
+    "message": "Wh3n 0ff, cl1ck1ng 7h3 3x73nz10n bu770n f0cuz3z 7h3 3x1z71ng SBM 74b 1nz734d 0f zp4wn1ng 4n07h3r."
+  },
+  "mutationCreateBookmark": {
+    "message": "cr3473 b00km4rk"
+  },
+  "mutationCreateFolder": {
+    "message": "cr3473 f0ld3r"
+  },
+  "mutationCreateFromClipboardSnapshot": {
+    "message": "cr3473 fr0m cl1pb04rd zn4psh07"
+  },
+  "mutationCreateSeparator": {
+    "message": "cr3473 z3p4r470r"
+  },
+  "mutationDeleteBookmark": {
+    "message": "d3l373 b00km4rk"
+  },
+  "mutationDeleteFolder": {
+    "message": "d3l373 f0ld3r"
+  },
+  "mutationDeleteSelectedBookmark": {
+    "message": "d3l373 z3l3c73d b00km4rk"
+  },
+  "mutationDeleteSelectedFolder": {
+    "message": "d3l373 z3l3c73d f0ld3r"
+  },
+  "mutationDragDropMove": {
+    "message": "dr4g/dr0p m0v3"
+  },
+  "mutationEditBookmark": {
+    "message": "3d17 b00km4rk"
+  },
+  "mutationMoveSelectedItem": {
+    "message": "m0v3 z3l3c73d 173m"
+  },
+  "mutationPasteCutItem": {
+    "message": "p4s73 cu7 173m"
+  },
+  "mutationRenameFolder": {
+    "message": "r3n4m3 f0ld3r"
+  },
+  "mutationReorderSelectedItems": {
+    "message": "r30rd3r z3l3c73d 173mz"
+  },
+  "mutationSaveDetailsMove": {
+    "message": "z4v3 d3741lz m0v3"
+  },
+  "mutationSaveDetailsUpdate": {
+    "message": "z4v3 d3741lz upd473"
+  },
+  "mutationSortFolderChild": {
+    "message": "z0r7 f0ld3r ch1ld"
   },
   "naturalSort": {
     "message": "Uz3 n47ur4l f0ld3r/b00km4rk z0r7 0rd3r"
@@ -317,6 +449,9 @@
   "openAllInSplitView": {
     "message": "0p3n 4ll 1n Zpl17 V13w"
   },
+  "openBookmark": {
+    "message": "0p3n B00km4rk"
+  },
   "openDefaultBookmarksManager": {
     "message": "0p3n D3f4ul7 B00km4rkz M4n4g3r"
   },
@@ -342,16 +477,22 @@
     "message": "0p3n Z1mpl3 B00km4rkz M4n4g3r m3nu"
   },
   "optimisationDOMrendering": {
-    "message": "Optimisation: DOM rendering pass"
+    "message": "0p71m1z4710n: D0M r3nd3r1ng p4zz"
   },
   "optimisationDOMrenderingHelp": {
-    "message": "Experimental. Enables reduced DOM churn for selected rendering, drag/drop indicators, and row icon handling. Disable only when comparing performance or troubleshooting UI behavior."
+    "message": "3xp3r1m3n74l. R3duc3z D0M ch4ng3-sp4m f0r z3l3c710n, dr4g/dr0p 1nd1c470rz, 4nd 1c0nz. D1z4bl3 0nly f0r p3rf t35tz 0r UI gr3ml1nz."
   },
   "optimisationTempBookmarkTreeMaps": {
-    "message": "Optimisation: temporary bookmark tree maps"
+    "message": "0p71m1z4710n: 73mp b00km4rk 7r33 m4pz"
   },
   "optimisationTempBookmarkTreeMapsHelp": {
-    "message": "Experimental. Builds short-lived lookup maps during some render/search/tree operations, then discards them to avoid a persistent stale cache."
+    "message": "3xp3r1m3n74l. Bu1ldz sh0r7-l1v3d l00kup m4pz dur1ng s0m3 r3nd3r/z34rch/7r33 0pz, 7h3n y33tz 7h3m 70 4v01d z74l3 c4ch3z."
+  },
+  "optimisations": {
+    "message": "0p71m1z4710nz"
+  },
+  "optimisationsHelp": {
+    "message": "3xp3r1m3n74l p3rf 7w1ddl3z f0r b3nchm4rk1ng + 7r0ubl3zh0071ng."
   },
   "optionSaved": {
     "message": "Z4v3d"
@@ -361,6 +502,12 @@
   },
   "optionsTitle": {
     "message": "Z1mpl3 B00km4rkz M4n4g3r 0p710nz"
+  },
+  "paneWidths": {
+    "message": "P4n3 w1d7hz"
+  },
+  "paneWidthsHelp": {
+    "message": "C0nf1g L1br4ry + D3741lz p4n3 w1d7hz. Dr4gg1ng p4n3z upd473z 7h3z3 700."
   },
   "parentFolder": {
     "message": "P4r3n7 f0ld3r"
@@ -376,6 +523,21 @@
   },
   "resetDefaults": {
     "message": "R3s37 2 D3f4ul7z"
+  },
+  "resizeColumn": {
+    "message": "Dr4g 70 r3z1z3 c0lumn"
+  },
+  "resizeDetailsPane": {
+    "message": "R3z1z3 D3741lz p4n3"
+  },
+  "resizeLibraryPane": {
+    "message": "R3z1z3 L1br4ry p4n3"
+  },
+  "rightDetailsWidth": {
+    "message": "D3741lz p4n3 w1d7h"
+  },
+  "rightDetailsWidthHelp": {
+    "message": "W1d7h 1n p1x3lz f0r 7h3 r1gh7 D3741lz p4n3."
   },
   "rootFallback": {
     "message": "(r007)"
@@ -420,10 +582,10 @@
     "message": "Zh0w 7h3 D3741lz p4n3"
   },
   "showErrorsWarnings": {
-    "message": "Show warnings/errors log"
+    "message": "Zh0w w4rn1ngz/3rr0rz l0g"
   },
   "showErrorsWarningsHelp": {
-    "message": "Advanced. Shows a transient in-memory log for this SBM session. Log entries are not saved to extension settings."
+    "message": "4dv4nc3d. Zh0wz 4 7r4nz13n7 1n-m3m0ry l0g f0r 7h1z SBM z3zz10n. L0g 3n7r13z 4r3 n07 z4v3d 70 z3771ngz."
   },
   "showSortWarning": {
     "message": "Zh0w p3rm4n3n7 z0r7 c0nf1rm4710n w4rn1ng"
@@ -465,7 +627,7 @@
     "message": "Z0r7 \"{folderName}\" by {sortName}?\n\n7h1z p3rm4n3n7ly ch4ng3z 7h3 z4v3d b00km4rk 0rd3r 1n Chr0m1um. 17 1z d1ff3r3n7 fr0m 7h3 73mp0r4ry V1zu4l z0r7 dr0pd0wn."
   },
   "sortId": {
-    "message": "ID"
+    "message": "1D"
   },
   "sortIdAscTooltip": {
     "message": "Z0r7 by 1D: l0w3z7 f1rz7"
@@ -531,19 +693,19 @@
     "message": "URL"
   },
   "urlWarningControlCharacters": {
-    "message": "URL contained hidden control characters; they will be removed before saving."
+    "message": "URL h4d h1dd3n c0n7r0l ch4rz; 7h3y g37 y33t3d b3f0r3 z4v1ng."
   },
   "urlWarningEmpty": {
-    "message": "URL is empty. Chrome may reject this bookmark until a URL is provided."
+    "message": "URL 1z 3mp7y. Chr0m3 m4y r3j3c7 7h1z b00km4rk un71l 4 URL 3x1z7z."
   },
   "urlWarningInvalidBlocked": {
-    "message": "This URL is not valid enough to save as a bookmark. Fix the URL before saving."
+    "message": "7h1z URL 1z 700 br0k3n 70 z4v3 4z 4 b00km4rk. F1x 17 b3f0r3 z4v1ng."
   },
   "urlWarningInvalidButAllowed": {
-    "message": "This URL is not valid enough to save as a bookmark. Fix the URL before saving."
+    "message": "7h1z URL 1z 700 br0k3n 70 z4v3 4z 4 b00km4rk. F1x 17 b3f0r3 z4v1ng."
   },
   "urlWarningWhitespace": {
-    "message": "URL contains whitespace. It will be saved if Chrome accepts it, but it may not open as expected."
+    "message": "URL h4z wh173zp4c3. 17 m4y z4v3 1f Chr0m3 4cc3p7z 17, bu7 m1gh7 n07 0p3n r1gh7."
   },
   "userInterface": {
     "message": "UI Zone"
@@ -558,12 +720,12 @@
     "message": "V1su4l s0r7:"
   },
   "warningsErrorsLog": {
-    "message": "Warnings / Errors Log"
+    "message": "W4rn1ngz / 3rr0rz L0g"
   },
   "warningsErrorsLogEmpty": {
-    "message": "No warnings or errors recorded for this session."
+    "message": "N0 w4rn1ngz 0r 3rr0rz r3c0rd3d f0r 7h1z z3zz10n."
   },
   "warningsErrorsLogHelp": {
-    "message": "Transient warnings/errors for this current SBM session. This is not saved to settings."
+    "message": "7r4nz13n7 w4rn1ngz/3rr0rz f0r 7h1z SBM z3zz10n. N07 z4v3d 70 z3771ngz."
   }
 }

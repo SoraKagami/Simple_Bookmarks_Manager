@@ -1198,7 +1198,7 @@ async function createFromSnapshot(snapshot, parentId, index = null) {
 
   const createDetails = { ...target, title: clean.title || "" };
   if (clean.url) createDetails.url = clean.url;
-  const created = await tryBookmarkMutation("create from clipboard snapshot", "create", createDetails);
+  const created = await tryBookmarkMutation(t("mutationCreateFromClipboardSnapshot"), "create", createDetails);
   if (!created) return null;
   for (const child of clean.children || []) {
     await createFromSnapshot(child, created.id);
@@ -1296,7 +1296,7 @@ async function pasteClipboard(context = state.contextMenu) {
         const moveDetails = safeMoveDetails(target.parent.id, index);
         if (!moveDetails) continue;
         if (Number.isInteger(index)) index = (moveDetails.index ?? index) + 1;
-        await tryBookmarkMutation("paste cut item", "move", node.id, moveDetails);
+        await tryBookmarkMutation(t("mutationPasteCutItem"), "move", node.id, moveDetails);
         lastId = node.id;
       }
       state.clipboard = null;
@@ -1357,7 +1357,7 @@ async function sortFolderChildren(folder, key) {
   state.suppressBookmarkEvents = true;
   try {
     for (let i = 0; i < sorted.length; i += 1) {
-      await tryBookmarkMutation("sort folder child", "move", sorted[i].id, { parentId: folder.id, index: i });
+      await tryBookmarkMutation(t("mutationSortFolderChild"), "move", sorted[i].id, { parentId: folder.id, index: i });
     }
   } finally {
     state.suppressBookmarkEvents = false;
@@ -1419,7 +1419,7 @@ async function renameFolder(folder) {
   const title = prompt(t("newFolderNamePrompt"), folder.title || "");
   if (title === null) return;
   const cleanTitle = sanitizeBookmarkTitle(title, folder.title || t("newFolderDefaultName"));
-  const updated = await tryBookmarkMutation("rename folder", "update", folder.id, { title: cleanTitle });
+  const updated = await tryBookmarkMutation(t("mutationRenameFolder"), "update", folder.id, { title: cleanTitle });
   if (!updated) {
     await loadTree();
     return;
@@ -1438,7 +1438,7 @@ async function editBookmark(bookmark) {
   });
   if (!edited) return;
   try {
-    const updated = await tryBookmarkMutation("edit bookmark", "update", bookmark.id, edited);
+    const updated = await tryBookmarkMutation(t("mutationEditBookmark"), "update", bookmark.id, edited);
     if (!updated) return;
   } catch (err) {
     console.error(err);
@@ -1492,8 +1492,8 @@ async function deleteNode(item, sourcePane = state.activePane) {
   }
 
   const removed = isFolder(item)
-    ? await tryBookmarkMutation("delete folder", "removeTree", item.id)
-    : await tryBookmarkMutation("delete bookmark", "remove", item.id);
+    ? await tryBookmarkMutation(t("mutationDeleteFolder"), "removeTree", item.id)
+    : await tryBookmarkMutation(t("mutationDeleteBookmark"), "remove", item.id);
   if (!removed) {
     await loadTree({ fallbackFolder: sourcePane !== "tree" });
     return;
@@ -1537,8 +1537,8 @@ async function deleteSelection(context = null) {
     for (const id of ordered.slice().reverse()) {
       const item = nodes.get(id);
       if (!item || !isMutable(item)) continue;
-      if (isFolder(item)) await tryBookmarkMutation("delete selected folder", "removeTree", item.id);
-      else await tryBookmarkMutation("delete selected bookmark", "remove", item.id);
+      if (isFolder(item)) await tryBookmarkMutation(t("mutationDeleteSelectedFolder"), "removeTree", item.id);
+      else await tryBookmarkMutation(t("mutationDeleteSelectedBookmark"), "remove", item.id);
     }
   } finally {
     state.suppressBookmarkEvents = false;
@@ -1599,7 +1599,7 @@ async function createFolderIn(parentId, index = null) {
   const title = prompt(t("folderNamePrompt"), t("newFolderDefaultName"));
   if (title === null) return;
   const details = { ...target, title: sanitizeBookmarkTitle(title, t("newFolderDefaultName")) };
-  const node = await tryBookmarkMutation("create folder", "create", details);
+  const node = await tryBookmarkMutation(t("mutationCreateFolder"), "create", details);
   if (!node) {
     await loadTree();
     return;
@@ -1620,7 +1620,7 @@ async function createBookmarkIn(parentId, index = null) {
   if (!bookmarkDetails) return;
   const details = { ...target, ...bookmarkDetails };
   try {
-    const node = await tryBookmarkMutation("create bookmark", "create", details);
+    const node = await tryBookmarkMutation(t("mutationCreateBookmark"), "create", details);
     if (!node) {
       await loadTree();
       return;
@@ -1637,7 +1637,7 @@ async function createSeparatorIn(parentId, index = null) {
   const target = safeMoveDetails(parentId, index);
   if (!target) return;
   const details = { ...target, title: SEPARATOR_TITLE, url: SEPARATOR_URL };
-  const node = await tryBookmarkMutation("create separator", "create", details);
+  const node = await tryBookmarkMutation(t("mutationCreateSeparator"), "create", details);
   if (!node) {
     await loadTree();
     return;
@@ -1803,7 +1803,7 @@ async function moveWithIntent(draggedId, targetId, intent) {
     const previousFolderId = state.folderId && nodes.has(state.folderId) ? state.folderId : null;
     const moveDetails = safeMoveDetails(target.id);
     if (!moveDetails) return;
-    await tryBookmarkMutation("drag/drop move", "move", dragged.id, moveDetails);
+    await tryBookmarkMutation(t("mutationDragDropMove"), "move", dragged.id, moveDetails);
 
     // Keep the user in their current folder after a successful move-into.
     // If there is no current folder, move the view to the drop target. If that
@@ -1821,7 +1821,7 @@ async function moveWithIntent(draggedId, targetId, intent) {
 
   const moveDetails = safeMoveDetails(target.parentId, index);
   if (!moveDetails) return;
-  await tryBookmarkMutation("drag/drop move", "move", dragged.id, moveDetails);
+  await tryBookmarkMutation(t("mutationDragDropMove"), "move", dragged.id, moveDetails);
   state.selectedId = dragged.id;
   if (isFolder(dragged)) ensureExpandedPath(dragged.id);
   await loadTree();
@@ -1903,7 +1903,7 @@ async function moveSelectedListItems(targetId, intent, context = "list", ids = n
         if (isFolder(item) && isDescendantOf(target, item)) continue;
         const moveDetails = safeMoveDetails(target.id);
         if (!moveDetails) continue;
-        await tryBookmarkMutation("move selected item", "move", item.id, moveDetails);
+        await tryBookmarkMutation(t("mutationMoveSelectedItem"), "move", item.id, moveDetails);
         lastId = item.id;
       }
     } finally {
@@ -1939,7 +1939,7 @@ async function moveSelectedListItems(targetId, intent, context = "list", ids = n
   try {
     for (let i = 0; i < finalOrder.length; i += 1) {
       const moveDetails = safeMoveDetails(targetParentId, i);
-      if (moveDetails) await tryBookmarkMutation("reorder selected items", "move", finalOrder[i].id, moveDetails);
+      if (moveDetails) await tryBookmarkMutation(t("mutationReorderSelectedItems"), "move", finalOrder[i].id, moveDetails);
     }
   } finally {
     state.suppressBookmarkEvents = false;
@@ -1969,7 +1969,7 @@ async function moveSelectedTreeFolders(targetId, intent, context = "tree", ids =
         if (!canDragTreeFolder(item) || isDescendantOf(target, item)) continue;
         const moveDetails = safeMoveDetails(target.id);
         if (!moveDetails) continue;
-        await tryBookmarkMutation("move selected item", "move", item.id, moveDetails);
+        await tryBookmarkMutation(t("mutationMoveSelectedItem"), "move", item.id, moveDetails);
         lastId = item.id;
       }
     } else {
@@ -1986,7 +1986,7 @@ async function moveSelectedTreeFolders(targetId, intent, context = "tree", ids =
         if (!canDragTreeFolder(item)) continue;
         const moveDetails = safeMoveDetails(target.parentId, insertIndex + i);
         if (!moveDetails) continue;
-        await tryBookmarkMutation("move selected item", "move", item.id, moveDetails);
+        await tryBookmarkMutation(t("mutationMoveSelectedItem"), "move", item.id, moveDetails);
         lastId = item.id;
       }
     }
@@ -3135,7 +3135,7 @@ async function saveDetailsForSelected() {
       return;
     }
 
-    const saved = await tryBookmarkMutation("save details update", "update", selectedId, changes);
+    const saved = await tryBookmarkMutation(t("mutationSaveDetailsUpdate"), "update", selectedId, changes);
     if (!saved) {
       await loadTree();
       return;
@@ -3152,7 +3152,7 @@ async function saveDetailsForSelected() {
     if (Object.keys(moveDetails).length) {
       moveDetails = { ...(safeMoveDetails(destinationParentId, moveDetails.index) || {}), ...moveDetails };
       if (moveDetails.parentId || Number.isInteger(moveDetails.index)) {
-        const moved = await tryBookmarkMutation("save details move", "move", selectedId, moveDetails);
+        const moved = await tryBookmarkMutation(t("mutationSaveDetailsMove"), "move", selectedId, moveDetails);
         if (!moved) {
           await loadTree();
           return;
