@@ -2,6 +2,36 @@
   "about": {
     "message": "Hakkında"
   },
+  "aboutPageTitle": {
+    "message": "Simple Bookmarks Manager Hakkında"
+  },
+  "aboutProjectHeading": {
+    "message": "Proje"
+  },
+  "aboutProjectDescription": {
+    "message": "Simple Bookmarks Manager, Chromium tabanlı tarayıcılar içinde yerel yer imi düzenlemeye, klasörlerde verimli gezinmeye ve tanıdık masaüstü tarzı bir yönetim akışına odaklanır."
+  },
+  "aboutGithubLabel": {
+    "message": "GitHub:"
+  },
+  "aboutDesignGoalsHeading": {
+    "message": "Tasarım hedefleri"
+  },
+  "aboutDesignGoalFastLocal": {
+    "message": "Hızlı yerel yer imi gezintisi ve düzenleme."
+  },
+  "aboutDesignGoalNoRemote": {
+    "message": "Uzak hizmetler veya hesaplar olmadan açık kontroller."
+  },
+  "aboutDesignGoalChromiumCompatibility": {
+    "message": "Chromium tabanlı tarayıcılar arasında pratik uyumluluk."
+  },
+  "aboutPrivacyHeading": {
+    "message": "Gizlilik"
+  },
+  "aboutPrivacyDescription": {
+    "message": "SBM tamamen yerel olarak çalışacak şekilde tasarlanmıştır. Yer imi verilerini, telemetriyi, pingleri veya başka herhangi bir kullanım verisini uzak hizmetlere göndermez."
+  },
   "actionFailed": {
     "message": "İşlem başarısız: {error}"
   },
@@ -754,5 +784,11 @@
   },
   "urlOpenBlockedByProtection": {
     "message": "Bu yer imi URL’si gelişmiş bir URL açma koruması tarafından engellendi. Koruma anahtarlarını Seçenekler > Gelişmiş bölümünde gözden geçirebilirsiniz."
+  },
+  "changelog": {
+    "message": "Değişiklik günlüğü"
+  },
+  "closeDialog": {
+    "message": "İletişim kutusunu kapat"
   }
 }

@@ -2,6 +2,36 @@
   "about": {
     "message": "Informazioni"
   },
+  "aboutPageTitle": {
+    "message": "Informazioni su Simple Bookmarks Manager"
+  },
+  "aboutProjectHeading": {
+    "message": "Progetto"
+  },
+  "aboutProjectDescription": {
+    "message": "Simple Bookmarks Manager si concentra sull’organizzazione locale dei segnalibri, sulla navigazione efficiente delle cartelle e su un flusso di gestione familiare in stile desktop all’interno dei browser basati su Chromium."
+  },
+  "aboutGithubLabel": {
+    "message": "GitHub:"
+  },
+  "aboutDesignGoalsHeading": {
+    "message": "Obiettivi di progettazione"
+  },
+  "aboutDesignGoalFastLocal": {
+    "message": "Navigazione e modifica rapida dei segnalibri locali."
+  },
+  "aboutDesignGoalNoRemote": {
+    "message": "Controlli chiari senza servizi remoti o account."
+  },
+  "aboutDesignGoalChromiumCompatibility": {
+    "message": "Compatibilità pratica tra browser basati su Chromium."
+  },
+  "aboutPrivacyHeading": {
+    "message": "Privacy"
+  },
+  "aboutPrivacyDescription": {
+    "message": "SBM è progettato per funzionare esclusivamente in locale. Non invia dati dei segnalibri, telemetria, ping o altri dati di utilizzo a servizi remoti."
+  },
   "actionFailed": {
     "message": "Azione non riuscita: {error}"
   },
@@ -754,5 +784,11 @@
   },
   "urlOpenBlockedByProtection": {
     "message": "Questo URL del segnalibro è bloccato da una protezione avanzata per l’apertura degli URL. Puoi controllare gli interruttori di protezione in Opzioni > Avanzate."
+  },
+  "changelog": {
+    "message": "Registro delle modifiche"
+  },
+  "closeDialog": {
+    "message": "Chiudi finestra di dialogo"
   }
 }

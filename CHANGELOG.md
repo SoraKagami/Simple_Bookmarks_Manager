@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.8.6
+
+- Updated non-CJK locale files using `_locales/en/messages.json` as the reference, filling the missing About and Changelog strings with appropriate translations.
+- Updated `sbm_locales/mi/messages.json` with the same new About and Changelog strings.
+- Left the Japanese, Korean, Simplified Chinese, and Traditional Chinese locale files unchanged for a separate Asian-locale pass.
+
 ## 0.8.5
 
 - Updated `sbm_locales/en_Netspeak/messages.json` to include the new About/Changelog locale strings from the English locale.

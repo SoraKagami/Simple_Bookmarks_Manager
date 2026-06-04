@@ -2,6 +2,36 @@
   "about": {
     "message": "אודות"
   },
+  "aboutPageTitle": {
+    "message": "אודות Simple Bookmarks Manager"
+  },
+  "aboutProjectHeading": {
+    "message": "פרויקט"
+  },
+  "aboutProjectDescription": {
+    "message": "Simple Bookmarks Manager מתמקד בארגון סימניות מקומי, בעיון יעיל בתיקיות ובתהליך ניהול מוכר בסגנון שולחני בתוך דפדפנים מבוססי Chromium."
+  },
+  "aboutGithubLabel": {
+    "message": "GitHub:"
+  },
+  "aboutDesignGoalsHeading": {
+    "message": "יעדי תכנון"
+  },
+  "aboutDesignGoalFastLocal": {
+    "message": "עיון ועריכה מהירים של סימניות באופן מקומי."
+  },
+  "aboutDesignGoalNoRemote": {
+    "message": "פקדים ברורים ללא שירותים מרוחקים או חשבונות."
+  },
+  "aboutDesignGoalChromiumCompatibility": {
+    "message": "תאימות מעשית בין דפדפנים מבוססי Chromium."
+  },
+  "aboutPrivacyHeading": {
+    "message": "פרטיות"
+  },
+  "aboutPrivacyDescription": {
+    "message": "SBM תוכנן לפעול באופן מקומי בלבד. הוא אינו שולח נתוני סימניות, טלמטריה, פינגים או כל נתון שימוש אחר לשירותים מרוחקים."
+  },
   "actionFailed": {
     "message": "הפעולה נכשלה: {error}"
   },
@@ -754,5 +784,11 @@
   },
   "urlOpenBlockedByProtection": {
     "message": "כתובת ה-URL של הסימנייה הזו נחסמה על ידי הגנת פתיחת URL מתקדמת. ניתן לבדוק את מתגי ההגנה תחת אפשרויות > מתקדם."
+  },
+  "changelog": {
+    "message": "יומן שינויים"
+  },
+  "closeDialog": {
+    "message": "סגירת תיבת הדו־שיח"
   }
 }

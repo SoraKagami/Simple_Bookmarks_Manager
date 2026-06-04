@@ -2,6 +2,36 @@
   "about": {
     "message": "Mō tēnei"
   },
+  "aboutPageTitle": {
+    "message": "Mō Simple Bookmarks Manager"
+  },
+  "aboutProjectHeading": {
+    "message": "Kaupapa"
+  },
+  "aboutProjectDescription": {
+    "message": "E aro ana a Simple Bookmarks Manager ki te whakarite tohuwāhi ā-rohe, te tirotiro kōpaki kia tōtika, me tētahi rerenga whakahaere āhua papamahi i roto i ngā pūtirotiro hāngai ki Chromium."
+  },
+  "aboutGithubLabel": {
+    "message": "GitHub:"
+  },
+  "aboutDesignGoalsHeading": {
+    "message": "Ngā whāinga hoahoa"
+  },
+  "aboutDesignGoalFastLocal": {
+    "message": "Te tirotiro me te whakatika tere i ngā tohuwāhi ā-rohe."
+  },
+  "aboutDesignGoalNoRemote": {
+    "message": "Ngā mana mārama, kāore he ratonga mamao, kāore hoki he pūkete."
+  },
+  "aboutDesignGoalChromiumCompatibility": {
+    "message": "Te hototahitanga whaihua puta noa i ngā pūtirotiro hāngai ki Chromium."
+  },
+  "aboutPrivacyHeading": {
+    "message": "Tūmataitinga"
+  },
+  "aboutPrivacyDescription": {
+    "message": "Kua hoahoatia a SBM kia rere katoa ā-rohe. Kāore e tuku raraunga tohuwāhi, telemetry, ping, rānei ētahi atu raraunga whakamahi ki ngā ratonga mamao."
+  },
   "actionFailed": {
     "message": "I rahua te mahi: {error}"
   },
@@ -754,5 +784,11 @@
   },
   "urlOpenBlockedByProtection": {
     "message": "Kua āraitia tēnei URL tohuwāhi e tētahi whakamarutanga whakatuwhera URL arā atu anō. Ka taea te arotake i ngā takahuri whakamarutanga i Options > Advanced."
+  },
+  "changelog": {
+    "message": "Rangitaki panonitanga"
+  },
+  "closeDialog": {
+    "message": "Katia te kōrero"
   }
 }

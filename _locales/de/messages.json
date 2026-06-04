@@ -2,6 +2,36 @@
   "about": {
     "message": "Über"
   },
+  "aboutPageTitle": {
+    "message": "Über Simple Bookmarks Manager"
+  },
+  "aboutProjectHeading": {
+    "message": "Projekt"
+  },
+  "aboutProjectDescription": {
+    "message": "Simple Bookmarks Manager konzentriert sich auf die lokale Organisation von Lesezeichen, effizientes Durchsuchen von Ordnern und einen vertrauten Desktop-ähnlichen Verwaltungsablauf in Chromium-basierten Browsern."
+  },
+  "aboutGithubLabel": {
+    "message": "GitHub:"
+  },
+  "aboutDesignGoalsHeading": {
+    "message": "Designziele"
+  },
+  "aboutDesignGoalFastLocal": {
+    "message": "Schnelles lokales Durchsuchen und Bearbeiten von Lesezeichen."
+  },
+  "aboutDesignGoalNoRemote": {
+    "message": "Klare Bedienelemente ohne externe Dienste oder Konten."
+  },
+  "aboutDesignGoalChromiumCompatibility": {
+    "message": "Praktische Kompatibilität mit Chromium-basierten Browsern."
+  },
+  "aboutPrivacyHeading": {
+    "message": "Datenschutz"
+  },
+  "aboutPrivacyDescription": {
+    "message": "SBM ist so konzipiert, dass es ausschließlich lokal ausgeführt wird. Es sendet keine Lesezeichendaten, Telemetrie, Pings oder andere Nutzungsdaten an entfernte Dienste."
+  },
   "actionFailed": {
     "message": "Aktion fehlgeschlagen: {error}"
   },
@@ -754,5 +784,11 @@
   },
   "urlOpenBlockedByProtection": {
     "message": "Diese Lesezeichen-URL wird durch einen erweiterten URL-Öffnungsschutz blockiert. Sie können die Schutzschalter unter Optionen > Erweitert prüfen."
+  },
+  "changelog": {
+    "message": "Änderungsprotokoll"
+  },
+  "closeDialog": {
+    "message": "Dialog schließen"
   }
 }

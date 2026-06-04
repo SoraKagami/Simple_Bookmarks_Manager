@@ -2,6 +2,36 @@
   "about": {
     "message": "Tentang"
   },
+  "aboutPageTitle": {
+    "message": "Tentang Simple Bookmarks Manager"
+  },
+  "aboutProjectHeading": {
+    "message": "Proyek"
+  },
+  "aboutProjectDescription": {
+    "message": "Simple Bookmarks Manager berfokus pada pengelolaan markah lokal, penjelajahan folder yang efisien, dan alur kerja pengelolaan bergaya desktop yang akrab di dalam browser berbasis Chromium."
+  },
+  "aboutGithubLabel": {
+    "message": "GitHub:"
+  },
+  "aboutDesignGoalsHeading": {
+    "message": "Tujuan desain"
+  },
+  "aboutDesignGoalFastLocal": {
+    "message": "Menjelajah dan mengedit markah lokal dengan cepat."
+  },
+  "aboutDesignGoalNoRemote": {
+    "message": "Kontrol yang jelas tanpa layanan jarak jauh atau akun."
+  },
+  "aboutDesignGoalChromiumCompatibility": {
+    "message": "Kompatibilitas praktis di berbagai browser berbasis Chromium."
+  },
+  "aboutPrivacyHeading": {
+    "message": "Privasi"
+  },
+  "aboutPrivacyDescription": {
+    "message": "SBM dirancang untuk berjalan sepenuhnya secara lokal. SBM tidak mengirim data markah, telemetri, ping, atau data penggunaan lainnya ke layanan jarak jauh."
+  },
   "actionFailed": {
     "message": "Aksi gagal: {error}"
   },
@@ -754,5 +784,11 @@
   },
   "urlOpenBlockedByProtection": {
     "message": "URL markah ini diblokir oleh perlindungan pembukaan URL tingkat lanjut. Anda dapat meninjau sakelar perlindungan di Opsi > Lanjutan."
+  },
+  "changelog": {
+    "message": "Catatan perubahan"
+  },
+  "closeDialog": {
+    "message": "Tutup dialog"
   }
 }

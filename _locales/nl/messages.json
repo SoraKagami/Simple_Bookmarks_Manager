@@ -2,6 +2,36 @@
   "about": {
     "message": "Over"
   },
+  "aboutPageTitle": {
+    "message": "Over Simple Bookmarks Manager"
+  },
+  "aboutProjectHeading": {
+    "message": "Project"
+  },
+  "aboutProjectDescription": {
+    "message": "Simple Bookmarks Manager richt zich op lokale bladwijzerorganisatie, efficiënt bladeren door mappen en een vertrouwde desktopachtige beheerworkflow binnen Chromium-gebaseerde browsers."
+  },
+  "aboutGithubLabel": {
+    "message": "GitHub:"
+  },
+  "aboutDesignGoalsHeading": {
+    "message": "Ontwerpdoelen"
+  },
+  "aboutDesignGoalFastLocal": {
+    "message": "Snel lokaal bladeren door en bewerken van bladwijzers."
+  },
+  "aboutDesignGoalNoRemote": {
+    "message": "Duidelijke bediening zonder externe diensten of accounts."
+  },
+  "aboutDesignGoalChromiumCompatibility": {
+    "message": "Praktische compatibiliteit met Chromium-gebaseerde browsers."
+  },
+  "aboutPrivacyHeading": {
+    "message": "Privacy"
+  },
+  "aboutPrivacyDescription": {
+    "message": "SBM is ontworpen om volledig lokaal te draaien. Het verzendt geen bladwijzergegevens, telemetrie, pings of andere gebruiksgegevens naar externe diensten."
+  },
   "actionFailed": {
     "message": "Actie mislukt: {error}"
   },
@@ -754,5 +784,11 @@
   },
   "urlOpenBlockedByProtection": {
     "message": "Deze bladwijzer-URL wordt geblokkeerd door een geavanceerde bescherming voor het openen van URL’s. Je kunt de beveiligingsschakelaars controleren in Opties > Geavanceerd."
+  },
+  "changelog": {
+    "message": "Wijzigingslogboek"
+  },
+  "closeDialog": {
+    "message": "Dialoog sluiten"
   }
 }

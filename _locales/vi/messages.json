@@ -2,6 +2,36 @@
   "about": {
     "message": "Giới thiệu"
   },
+  "aboutPageTitle": {
+    "message": "Giới thiệu về Simple Bookmarks Manager"
+  },
+  "aboutProjectHeading": {
+    "message": "Dự án"
+  },
+  "aboutProjectDescription": {
+    "message": "Simple Bookmarks Manager tập trung vào việc tổ chức dấu trang cục bộ, duyệt thư mục hiệu quả và quy trình quản lý quen thuộc theo phong cách máy tính trong các trình duyệt dựa trên Chromium."
+  },
+  "aboutGithubLabel": {
+    "message": "GitHub:"
+  },
+  "aboutDesignGoalsHeading": {
+    "message": "Mục tiêu thiết kế"
+  },
+  "aboutDesignGoalFastLocal": {
+    "message": "Duyệt và chỉnh sửa dấu trang cục bộ nhanh chóng."
+  },
+  "aboutDesignGoalNoRemote": {
+    "message": "Các điều khiển rõ ràng, không cần dịch vụ từ xa hoặc tài khoản."
+  },
+  "aboutDesignGoalChromiumCompatibility": {
+    "message": "Khả năng tương thích thực tế trên các trình duyệt dựa trên Chromium."
+  },
+  "aboutPrivacyHeading": {
+    "message": "Quyền riêng tư"
+  },
+  "aboutPrivacyDescription": {
+    "message": "SBM được thiết kế để chạy hoàn toàn cục bộ. SBM không gửi dữ liệu dấu trang, dữ liệu đo từ xa, ping hoặc bất kỳ dữ liệu sử dụng nào khác đến các dịch vụ từ xa."
+  },
   "actionFailed": {
     "message": "Thao tác thất bại: {error}"
   },
@@ -754,5 +784,11 @@
   },
   "urlOpenBlockedByProtection": {
     "message": "URL dấu trang này bị chặn bởi một biện pháp bảo vệ mở URL nâng cao. Bạn có thể xem lại các công tắc bảo vệ trong Tùy chọn > Nâng cao."
+  },
+  "changelog": {
+    "message": "Nhật ký thay đổi"
+  },
+  "closeDialog": {
+    "message": "Đóng hộp thoại"
   }
 }

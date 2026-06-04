@@ -2,6 +2,36 @@
   "about": {
     "message": "O programie"
   },
+  "aboutPageTitle": {
+    "message": "O Simple Bookmarks Manager"
+  },
+  "aboutProjectHeading": {
+    "message": "Projekt"
+  },
+  "aboutProjectDescription": {
+    "message": "Simple Bookmarks Manager skupia się na lokalnej organizacji zakładek, sprawnym przeglądaniu folderów oraz znajomym, desktopowym sposobie zarządzania w przeglądarkach opartych na Chromium."
+  },
+  "aboutGithubLabel": {
+    "message": "GitHub:"
+  },
+  "aboutDesignGoalsHeading": {
+    "message": "Cele projektu"
+  },
+  "aboutDesignGoalFastLocal": {
+    "message": "Szybkie lokalne przeglądanie i edytowanie zakładek."
+  },
+  "aboutDesignGoalNoRemote": {
+    "message": "Przejrzyste elementy sterujące bez usług zdalnych ani kont."
+  },
+  "aboutDesignGoalChromiumCompatibility": {
+    "message": "Praktyczna zgodność z przeglądarkami opartymi na Chromium."
+  },
+  "aboutPrivacyHeading": {
+    "message": "Prywatność"
+  },
+  "aboutPrivacyDescription": {
+    "message": "SBM został zaprojektowany do działania wyłącznie lokalnie. Nie wysyła danych zakładek, telemetrii, pingów ani żadnych innych danych użycia do usług zdalnych."
+  },
   "actionFailed": {
     "message": "Akcja nie powiodła się: {error}"
   },
@@ -754,5 +784,11 @@
   },
   "urlOpenBlockedByProtection": {
     "message": "Ten adres URL zakładki jest blokowany przez zaawansowaną ochronę otwierania URL. Przełączniki ochrony możesz sprawdzić w Opcje > Zaawansowane."
+  },
+  "changelog": {
+    "message": "Dziennik zmian"
+  },
+  "closeDialog": {
+    "message": "Zamknij okno dialogowe"
   }
 }

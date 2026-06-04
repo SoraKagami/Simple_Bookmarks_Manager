@@ -2,6 +2,36 @@
   "about": {
     "message": "Acerca de"
   },
+  "aboutPageTitle": {
+    "message": "Acerca de Simple Bookmarks Manager"
+  },
+  "aboutProjectHeading": {
+    "message": "Proyecto"
+  },
+  "aboutProjectDescription": {
+    "message": "Simple Bookmarks Manager se centra en la organización local de marcadores, la exploración eficiente de carpetas y un flujo de gestión familiar de estilo escritorio dentro de navegadores basados en Chromium."
+  },
+  "aboutGithubLabel": {
+    "message": "GitHub:"
+  },
+  "aboutDesignGoalsHeading": {
+    "message": "Objetivos de diseño"
+  },
+  "aboutDesignGoalFastLocal": {
+    "message": "Exploración y edición local rápida de marcadores."
+  },
+  "aboutDesignGoalNoRemote": {
+    "message": "Controles claros sin servicios remotos ni cuentas."
+  },
+  "aboutDesignGoalChromiumCompatibility": {
+    "message": "Compatibilidad práctica con navegadores basados en Chromium."
+  },
+  "aboutPrivacyHeading": {
+    "message": "Privacidad"
+  },
+  "aboutPrivacyDescription": {
+    "message": "SBM está diseñado para ejecutarse de forma puramente local. No envía datos de marcadores, telemetría, pings ni ningún otro dato de uso a servicios remotos."
+  },
   "actionFailed": {
     "message": "Acción fallida: {error}"
   },
@@ -754,5 +784,11 @@
   },
   "urlOpenBlockedByProtection": {
     "message": "Esta URL de marcador está bloqueada por una protección avanzada de apertura de URL. Puedes revisar los interruptores de protección en Opciones > Avanzado."
+  },
+  "changelog": {
+    "message": "Registro de cambios"
+  },
+  "closeDialog": {
+    "message": "Cerrar diálogo"
   }
 }
