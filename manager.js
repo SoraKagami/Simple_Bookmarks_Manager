@@ -65,6 +65,7 @@ let SortShowWarning = DEFAULT_SETTINGS.SortShowWarning;
 let KeyboardDeleteAllow = DEFAULT_SETTINGS.KeyboardDeleteAllow;
 let DeleteShowWarning = DEFAULT_SETTINGS.DeleteShowWarning;
 let SearchLimitToFolderAndSub = DEFAULT_SETTINGS.SearchLimitToFolderAndSub;
+let MultipleInstancesAllowed = DEFAULT_SETTINGS.MultipleInstancesAllowed;
 let Optimisation_TempBookmarkTreeMaps = DEFAULT_SETTINGS.Optimisation_TempBookmarkTreeMaps;
 let Optimisation_DOMrendering = DEFAULT_SETTINGS.Optimisation_DOMrendering;
 let Show_ErrorsWarnings = DEFAULT_SETTINGS.Show_ErrorsWarnings;
@@ -77,6 +78,29 @@ let mid_FC_Width_Order = DEFAULT_SETTINGS.mid_FC_Width_Order;
 let mid_FC_Show_DateAdded = DEFAULT_SETTINGS.mid_FC_Show_DateAdded;
 let mid_FC_Show_ID = DEFAULT_SETTINGS.mid_FC_Show_ID;
 let mid_FC_Show_Order = DEFAULT_SETTINGS.mid_FC_Show_Order;
+
+
+/** Record this manager tab so the toolbar button can focus it when single-instance mode is enabled. */
+async function registerManagerInstance() {
+  try {
+    const tab = await api.tabs.getCurrent();
+    if (tab?.id != null) await api.storage.session.set({ managerTabId: tab.id });
+  } catch (err) {
+    // getCurrent() is available to extension pages, but failure is non-fatal;
+    // the toolbar button can still open a fresh manager tab.
+    console.warn("[SBM] Could not register manager tab for single-instance handling.", err);
+  }
+}
+
+async function clearManagerInstanceIfCurrent() {
+  try {
+    const tab = await api.tabs.getCurrent();
+    const { managerTabId } = await api.storage.session.get("managerTabId");
+    if (tab?.id != null && managerTabId === tab.id) await api.storage.session.remove("managerTabId");
+  } catch {
+    // Best-effort cleanup only.
+  }
+}
 
 // ---------------------------------------------------------------------------
 // Settings and localization
@@ -113,6 +137,7 @@ function applySettings(settings, { render = false } = {}) {
     else if (key === "KeyboardDeleteAllow") KeyboardDeleteAllow = value;
     else if (key === "DeleteShowWarning") DeleteShowWarning = value;
     else if (key === "SearchLimitToFolderAndSub") SearchLimitToFolderAndSub = value;
+    else if (key === "MultipleInstancesAllowed") MultipleInstancesAllowed = value;
     else if (key === "Optimisation_TempBookmarkTreeMaps") Optimisation_TempBookmarkTreeMaps = value;
     else if (key === "Optimisation_DOMrendering") Optimisation_DOMrendering = value;
     else if (key === "Show_ErrorsWarnings") Show_ErrorsWarnings = value;
@@ -589,8 +614,10 @@ function showBookmarkEditorDialog({ heading, title = "", url = "https://", submi
       });
     });
 
+    // Do not close the bookmark editor on backdrop clicks. The user may have
+    // partially entered data; closing on an accidental click can lose work.
     backdrop.addEventListener("mousedown", (e) => {
-      if (e.target === backdrop) finish(null);
+      if (e.target === backdrop) e.preventDefault();
     });
     modal.addEventListener("keydown", (e) => {
       if (e.key === "Escape") {
@@ -599,7 +626,7 @@ function showBookmarkEditorDialog({ heading, title = "", url = "https://", submi
       }
     });
 
-    actions.append(cancel, submit);
+    actions.append(submit, cancel);
     form.append(nameLabel, urlLabel, warning, actions);
     modal.append(headingEl, form);
     backdrop.append(modal);
@@ -3601,6 +3628,7 @@ window.addEventListener("click", (e) => {
   if (!e.target.closest?.(".app-menu") && !e.target.closest?.("#app-menu-button")) hideAppMenu();
 });
 window.addEventListener("resize", () => { hideContextMenu(); hideAppMenu(); });
+window.addEventListener("pagehide", () => { clearManagerInstanceIfCurrent(); });
 window.addEventListener("scroll", () => { hideContextMenu(); hideAppMenu(); }, true);
 window.addEventListener("keydown", async (e) => {
   if (e.key === "Escape") {
@@ -3647,6 +3675,7 @@ for (const eventName of ["onCreated", "onRemoved", "onChanged", "onMoved", "onCh
 
 /** Main startup routine. */
 async function init() {
+  await registerManagerInstance();
   await loadSettings();
   await loadTree();
 }

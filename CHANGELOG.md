@@ -1,5 +1,14 @@
 # Changelog
 
+## 0.7.16
+
+- Changed the default `SearchLimitToFolderAndSub` setting to `false`.
+- Added `MultipleInstancesAllowed`, disabled by default, to control whether the extension button opens multiple manager tabs or focuses the existing manager tab.
+- Added an Advanced Options toggle for allowing multiple SBM manager tabs.
+- Updated the New Bookmark dialog so backdrop clicks no longer close it and risk losing partially entered data.
+- Swapped the New Bookmark dialog buttons so **Create** appears before **Cancel**.
+- Updated `manifest.json` to `0.7.16`.
+
 ## 0.7.15
 
 - Added resizable left **Library** and right **Details** panes in the manager UI.
