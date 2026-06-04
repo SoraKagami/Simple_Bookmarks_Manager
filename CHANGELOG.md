@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.8.4
+
+- Adjusted the About page typography defaults: body text now uses `1.25rem`, and the main heading now uses `3rem` as the preferred value in its `clamp()` expression.
+
 ## 0.8.3
 
 - Restored the About page typography to visually match the original v0.8.0 design when SBM's configured UI font size is 12.5px.
