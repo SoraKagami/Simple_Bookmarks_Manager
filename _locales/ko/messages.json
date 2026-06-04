@@ -2,6 +2,36 @@
   "about": {
     "message": "정보"
   },
+  "aboutPageTitle": {
+    "message": "Simple Bookmarks Manager 정보"
+  },
+  "aboutProjectHeading": {
+    "message": "프로젝트"
+  },
+  "aboutProjectDescription": {
+    "message": "Simple Bookmarks Manager는 Chromium 기반 브라우저 안에서 로컬 북마크 정리, 효율적인 폴더 탐색, 익숙한 데스크톱 스타일의 관리 흐름에 중점을 둡니다."
+  },
+  "aboutGithubLabel": {
+    "message": "GitHub:"
+  },
+  "aboutDesignGoalsHeading": {
+    "message": "설계 목표"
+  },
+  "aboutDesignGoalFastLocal": {
+    "message": "빠른 로컬 북마크 탐색 및 편집."
+  },
+  "aboutDesignGoalNoRemote": {
+    "message": "원격 서비스나 계정에 의존하지 않는 명확한 제어."
+  },
+  "aboutDesignGoalChromiumCompatibility": {
+    "message": "Chromium 기반 브라우저 전반의 실용적인 호환성."
+  },
+  "aboutPrivacyHeading": {
+    "message": "개인정보 보호"
+  },
+  "aboutPrivacyDescription": {
+    "message": "SBM은 순수하게 로컬에서 실행되도록 설계되었습니다. 북마크 데이터, 원격 측정, 핑 또는 기타 사용 데이터를 원격 서비스로 보내지 않습니다."
+  },
   "actionFailed": {
     "message": "작업 실패: {error}"
   },
@@ -754,5 +784,11 @@
   },
   "urlOpenBlockedByProtection": {
     "message": "이 북마크 URL은 고급 URL 열기 보호에 의해 차단되었습니다. 옵션 > 고급에서 보호 토글을 검토할 수 있습니다."
+  },
+  "changelog": {
+    "message": "변경 로그"
+  },
+  "closeDialog": {
+    "message": "대화상자 닫기"
   }
 }

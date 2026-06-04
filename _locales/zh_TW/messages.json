@@ -2,6 +2,36 @@
   "about": {
     "message": "關於"
   },
+  "aboutPageTitle": {
+    "message": "關於 Simple Bookmarks Manager"
+  },
+  "aboutProjectHeading": {
+    "message": "專案"
+  },
+  "aboutProjectDescription": {
+    "message": "Simple Bookmarks Manager 專注於在以 Chromium 為基礎的瀏覽器中進行本機書籤整理、高效率的資料夾瀏覽，以及熟悉的桌面式管理流程。"
+  },
+  "aboutGithubLabel": {
+    "message": "GitHub："
+  },
+  "aboutDesignGoalsHeading": {
+    "message": "設計目標"
+  },
+  "aboutDesignGoalFastLocal": {
+    "message": "快速瀏覽與編輯本機書籤。"
+  },
+  "aboutDesignGoalNoRemote": {
+    "message": "清楚易用的控制方式，無需遠端服務或帳號。"
+  },
+  "aboutDesignGoalChromiumCompatibility": {
+    "message": "在各種以 Chromium 為基礎的瀏覽器中提供實用的相容性。"
+  },
+  "aboutPrivacyHeading": {
+    "message": "隱私權"
+  },
+  "aboutPrivacyDescription": {
+    "message": "SBM 設計為完全在本機執行。它不會將書籤資料、遙測資料、ping 或任何其他使用資料傳送到遠端服務。"
+  },
   "actionFailed": {
     "message": "動作失敗：{error}"
   },
@@ -754,5 +784,11 @@
   },
   "urlOpenBlockedByProtection": {
     "message": "此書籤 URL 已被進階 URL 開啟保護阻止。你可以在「選項 > 進階」中檢視保護開關。"
+  },
+  "changelog": {
+    "message": "變更記錄"
+  },
+  "closeDialog": {
+    "message": "關閉對話方塊"
   }
 }

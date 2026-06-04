@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.8.7
+
+- Updated Asian locale files using `_locales/en/messages.json` as the reference, filling the missing About and Changelog strings with appropriate translations.
+- Updated Japanese, Korean, Simplified Chinese, and Traditional Chinese locale files while keeping Simplified and Traditional Chinese terminology and character sets separate.
+
 ## 0.8.6
 
 - Updated non-CJK locale files using `_locales/en/messages.json` as the reference, filling the missing About and Changelog strings with appropriate translations.

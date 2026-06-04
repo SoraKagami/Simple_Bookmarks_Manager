@@ -2,6 +2,36 @@
   "about": {
     "message": "关于"
   },
+  "aboutPageTitle": {
+    "message": "关于 Simple Bookmarks Manager"
+  },
+  "aboutProjectHeading": {
+    "message": "项目"
+  },
+  "aboutProjectDescription": {
+    "message": "Simple Bookmarks Manager 专注于在基于 Chromium 的浏览器中进行本地书签整理、高效的文件夹浏览，以及熟悉的桌面式管理流程。"
+  },
+  "aboutGithubLabel": {
+    "message": "GitHub："
+  },
+  "aboutDesignGoalsHeading": {
+    "message": "设计目标"
+  },
+  "aboutDesignGoalFastLocal": {
+    "message": "快速浏览和编辑本地书签。"
+  },
+  "aboutDesignGoalNoRemote": {
+    "message": "清晰的控制，无需远程服务或账户。"
+  },
+  "aboutDesignGoalChromiumCompatibility": {
+    "message": "在各种基于 Chromium 的浏览器中提供实用兼容性。"
+  },
+  "aboutPrivacyHeading": {
+    "message": "隐私"
+  },
+  "aboutPrivacyDescription": {
+    "message": "SBM 设计为完全在本地运行。它不会向远程服务发送书签数据、遥测数据、ping 或任何其他使用数据。"
+  },
   "actionFailed": {
     "message": "操作失败：{error}"
   },
@@ -754,5 +784,11 @@
   },
   "urlOpenBlockedByProtection": {
     "message": "此书签 URL 已被高级 URL 打开保护阻止。你可以在“选项 > 高级”中查看保护开关。"
+  },
+  "changelog": {
+    "message": "更新日志"
+  },
+  "closeDialog": {
+    "message": "关闭对话框"
   }
 }

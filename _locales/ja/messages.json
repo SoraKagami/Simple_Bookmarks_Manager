@@ -2,6 +2,36 @@
   "about": {
     "message": "情報"
   },
+  "aboutPageTitle": {
+    "message": "Simple Bookmarks Manager について"
+  },
+  "aboutProjectHeading": {
+    "message": "プロジェクト"
+  },
+  "aboutProjectDescription": {
+    "message": "Simple Bookmarks Manager は、Chromium 系ブラウザー内で、ローカルのブックマーク整理、効率的なフォルダー閲覧、使い慣れたデスクトップ風の管理ワークフローに重点を置いています。"
+  },
+  "aboutGithubLabel": {
+    "message": "GitHub:"
+  },
+  "aboutDesignGoalsHeading": {
+    "message": "設計目標"
+  },
+  "aboutDesignGoalFastLocal": {
+    "message": "高速なローカルブックマークの閲覧と編集。"
+  },
+  "aboutDesignGoalNoRemote": {
+    "message": "リモートサービスやアカウントに依存しない、分かりやすい操作。"
+  },
+  "aboutDesignGoalChromiumCompatibility": {
+    "message": "Chromium 系ブラウザー全般での実用的な互換性。"
+  },
+  "aboutPrivacyHeading": {
+    "message": "プライバシー"
+  },
+  "aboutPrivacyDescription": {
+    "message": "SBM は完全にローカルで動作するよう設計されています。ブックマークデータ、テレメトリ、ping、その他の利用データをリモートサービスに送信しません。"
+  },
   "actionFailed": {
     "message": "操作に失敗しました: {error}"
   },
@@ -754,5 +784,11 @@
   },
   "urlOpenBlockedByProtection": {
     "message": "このブックマーク URL は、高度な URL オープン保護によってブロックされています。オプション > 詳細設定で保護の切り替えを確認できます。"
+  },
+  "changelog": {
+    "message": "更新履歴"
+  },
+  "closeDialog": {
+    "message": "ダイアログを閉じる"
   }
 }
