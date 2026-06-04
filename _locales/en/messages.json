@@ -663,7 +663,7 @@
     "message": "Transient warnings/errors for this current SBM session. This is not saved to settings."
   },
   "multipleInstancesAllowed": {
-    "message": "Allow multiple SBM manager tabs"
+    "message": "Allow multiple SBM instances"
   },
   "multipleInstancesAllowedHelp": {
     "message": "When disabled, clicking the extension button focuses the existing Simple Bookmarks Manager tab instead of opening another one."

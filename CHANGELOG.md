@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.7.17
+
+- Fixed `MultipleInstancesAllowed` handling so disabling it reliably returns the toolbar button to single-instance behavior.
+- Made single-instance mode more robust by tracking/pruning known SBM manager tabs instead of relying only on one stored tab ID.
+- Treated only the boolean value `true` as enabling multiple instances, preventing stale/non-boolean stored values from behaving as enabled.
+- Renamed the Advanced option label from "Allow multiple SBM manager tabs" to "Allow multiple SBM instances".
+- Updated `manifest.json` to `0.7.17`.
+
 ## 0.7.16
 
 - Changed the default `SearchLimitToFolderAndSub` setting to `false`.

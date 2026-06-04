@@ -84,7 +84,11 @@ let mid_FC_Show_Order = DEFAULT_SETTINGS.mid_FC_Show_Order;
 async function registerManagerInstance() {
   try {
     const tab = await api.tabs.getCurrent();
-    if (tab?.id != null) await api.storage.session.set({ managerTabId: tab.id });
+    if (tab?.id == null) return;
+    const { managerTabIds } = await api.storage.session.get("managerTabIds");
+    const ids = Array.isArray(managerTabIds) ? managerTabIds.filter((id) => Number.isInteger(id) && id !== tab.id) : [];
+    ids.push(tab.id);
+    await api.storage.session.set({ managerTabId: tab.id, managerTabIds: ids });
   } catch (err) {
     // getCurrent() is available to extension pages, but failure is non-fatal;
     // the toolbar button can still open a fresh manager tab.
@@ -95,8 +99,11 @@ async function registerManagerInstance() {
 async function clearManagerInstanceIfCurrent() {
   try {
     const tab = await api.tabs.getCurrent();
-    const { managerTabId } = await api.storage.session.get("managerTabId");
-    if (tab?.id != null && managerTabId === tab.id) await api.storage.session.remove("managerTabId");
+    const { managerTabId, managerTabIds } = await api.storage.session.get(["managerTabId", "managerTabIds"]);
+    if (tab?.id == null) return;
+    const ids = Array.isArray(managerTabIds) ? managerTabIds.filter((id) => id !== tab.id) : [];
+    await api.storage.session.set({ managerTabIds: ids });
+    if (managerTabId === tab.id) await api.storage.session.remove("managerTabId");
   } catch {
     // Best-effort cleanup only.
   }
