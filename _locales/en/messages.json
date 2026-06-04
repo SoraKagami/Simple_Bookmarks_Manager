@@ -209,6 +209,12 @@
   "folderAlt": {
     "message": "Folder"
   },
+  "folderContentsView": {
+    "message": "Folder Contents view"
+  },
+  "folderContentsViewHelp": {
+    "message": "Configure middle-pane column widths and optional columns. Name and URL are always shown."
+  },
   "folderFallback": {
     "message": "(folder)"
   },
@@ -274,6 +280,54 @@
   },
   "managerFailed": {
     "message": "Bookmark manager failed: {error}"
+  },
+  "midFcShowDateAdded": {
+    "message": "Show Date Added column"
+  },
+  "midFcShowDateAddedHelp": {
+    "message": "Show or hide the Date Added column in the Folder Contents pane."
+  },
+  "midFcShowId": {
+    "message": "Show ID column"
+  },
+  "midFcShowIdHelp": {
+    "message": "Show or hide the Chromium bookmark ID column."
+  },
+  "midFcShowOrder": {
+    "message": "Show Order column"
+  },
+  "midFcShowOrderHelp": {
+    "message": "Show or hide the Chromium folder order/index column."
+  },
+  "midFcWidthDateAdded": {
+    "message": "Date Added column width"
+  },
+  "midFcWidthDateAddedHelp": {
+    "message": "Width in pixels for the optional Date Added column."
+  },
+  "midFcWidthId": {
+    "message": "ID column width"
+  },
+  "midFcWidthIdHelp": {
+    "message": "Width in pixels for the optional ID column."
+  },
+  "midFcWidthName": {
+    "message": "Name column width"
+  },
+  "midFcWidthNameHelp": {
+    "message": "Width in pixels for the Folder Contents Name column."
+  },
+  "midFcWidthOrder": {
+    "message": "Order column width"
+  },
+  "midFcWidthOrderHelp": {
+    "message": "Width in pixels for the optional Chromium order/index column."
+  },
+  "midFcWidthUrl": {
+    "message": "URL column width"
+  },
+  "midFcWidthUrlHelp": {
+    "message": "Width in pixels for the Folder Contents URL column."
   },
   "naturalSort": {
     "message": "Use natural folder/bookmark sort order"
@@ -376,6 +430,9 @@
   },
   "resetDefaults": {
     "message": "Reset to Defaults"
+  },
+  "resizeColumn": {
+    "message": "Drag to resize column"
   },
   "rootFallback": {
     "message": "(root)"

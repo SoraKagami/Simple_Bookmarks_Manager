@@ -7,7 +7,7 @@
  * uses a small i18n helper for all user-facing strings.
  */
 import { applyI18n, setI18nLanguage, t } from "./i18n.js";
-import { DEFAULT_SETTINGS, fontFamilyCss, normalizeSettingValue } from "./settings.js";
+import { DEFAULT_SETTINGS, MID_FC_COLUMN_MIN_WIDTHS, fontFamilyCss, normalizeSettingValue } from "./settings.js";
 import { clearSessionLogRecords, getSessionLogRecords, installConsoleCapture } from "./session_log.js";
 
 installConsoleCapture("SBM Manager");
@@ -67,6 +67,14 @@ let Optimisation_TempBookmarkTreeMaps = DEFAULT_SETTINGS.Optimisation_TempBookma
 let Optimisation_DOMrendering = DEFAULT_SETTINGS.Optimisation_DOMrendering;
 let Show_ErrorsWarnings = DEFAULT_SETTINGS.Show_ErrorsWarnings;
 let DebugOptions = DEFAULT_SETTINGS.DebugOptions;
+let mid_FC_Width_Name = DEFAULT_SETTINGS.mid_FC_Width_Name;
+let mid_FC_Width_URL = DEFAULT_SETTINGS.mid_FC_Width_URL;
+let mid_FC_Width_DateAdded = DEFAULT_SETTINGS.mid_FC_Width_DateAdded;
+let mid_FC_Width_ID = DEFAULT_SETTINGS.mid_FC_Width_ID;
+let mid_FC_Width_Order = DEFAULT_SETTINGS.mid_FC_Width_Order;
+let mid_FC_Show_DateAdded = DEFAULT_SETTINGS.mid_FC_Show_DateAdded;
+let mid_FC_Show_ID = DEFAULT_SETTINGS.mid_FC_Show_ID;
+let mid_FC_Show_Order = DEFAULT_SETTINGS.mid_FC_Show_Order;
 
 // ---------------------------------------------------------------------------
 // Settings and localization
@@ -76,6 +84,7 @@ function applyUserInterfaceSettings() {
   document.documentElement.style.setProperty("--sbm-ui-font-family", fontFamilyCss(UserInterfaceFontFamily));
   document.documentElement.style.setProperty("--sbm-ui-font-size", `${UserInterfaceFontSize}px`);
   document.documentElement.style.setProperty("--sbm-ui-line-height", String(UserInterfaceLineSpacing));
+  applyFolderContentsColumnSettings();
 }
 
 /**
@@ -102,6 +111,14 @@ function applySettings(settings, { render = false } = {}) {
     else if (key === "Optimisation_DOMrendering") Optimisation_DOMrendering = value;
     else if (key === "Show_ErrorsWarnings") Show_ErrorsWarnings = value;
     else if (key === "DebugOptions") DebugOptions = value;
+    else if (key === "mid_FC_Width_Name") mid_FC_Width_Name = value;
+    else if (key === "mid_FC_Width_URL") mid_FC_Width_URL = value;
+    else if (key === "mid_FC_Width_DateAdded") mid_FC_Width_DateAdded = value;
+    else if (key === "mid_FC_Width_ID") mid_FC_Width_ID = value;
+    else if (key === "mid_FC_Width_Order") mid_FC_Width_Order = value;
+    else if (key === "mid_FC_Show_DateAdded") mid_FC_Show_DateAdded = value;
+    else if (key === "mid_FC_Show_ID") mid_FC_Show_ID = value;
+    else if (key === "mid_FC_Show_Order") mid_FC_Show_Order = value;
   }
 
   applyUserInterfaceSettings();
@@ -123,6 +140,46 @@ function localizedColumnLabel(key) {
   if (key === "id") return t("sortId");
   if (key === "index") return t("sortOrder");
   return key;
+}
+
+const MID_FC_COLUMNS = Object.freeze([
+  { id: "Name", sortKey: "title", settingKey: "mid_FC_Width_Name", showKey: null },
+  { id: "URL", sortKey: "url", settingKey: "mid_FC_Width_URL", showKey: null },
+  { id: "DateAdded", sortKey: "dateAdded", settingKey: "mid_FC_Width_DateAdded", showKey: "mid_FC_Show_DateAdded" },
+  { id: "ID", sortKey: "id", settingKey: "mid_FC_Width_ID", showKey: "mid_FC_Show_ID" },
+  { id: "Order", sortKey: "index", settingKey: "mid_FC_Width_Order", showKey: "mid_FC_Show_Order" }
+]);
+
+function midFcSettingValue(key) {
+  if (key === "mid_FC_Width_Name") return mid_FC_Width_Name;
+  if (key === "mid_FC_Width_URL") return mid_FC_Width_URL;
+  if (key === "mid_FC_Width_DateAdded") return mid_FC_Width_DateAdded;
+  if (key === "mid_FC_Width_ID") return mid_FC_Width_ID;
+  if (key === "mid_FC_Width_Order") return mid_FC_Width_Order;
+  if (key === "mid_FC_Show_DateAdded") return mid_FC_Show_DateAdded;
+  if (key === "mid_FC_Show_ID") return mid_FC_Show_ID;
+  if (key === "mid_FC_Show_Order") return mid_FC_Show_Order;
+  return DEFAULT_SETTINGS[key];
+}
+
+function visibleMidFcColumns() {
+  return MID_FC_COLUMNS.filter((column) => !column.showKey || Boolean(midFcSettingValue(column.showKey)));
+}
+
+function midFcGridTemplate() {
+  return visibleMidFcColumns()
+    .map((column) => `${Math.max(MID_FC_COLUMN_MIN_WIDTHS[column.id] || 48, Number(midFcSettingValue(column.settingKey)) || 0)}px`)
+    .join(" ") || "1fr";
+}
+
+function applyFolderContentsColumnSettings() {
+  const columns = visibleMidFcColumns();
+  const minWidth = columns.reduce((total, column) => {
+    const width = Math.max(MID_FC_COLUMN_MIN_WIDTHS[column.id] || 48, Number(midFcSettingValue(column.settingKey)) || 0);
+    return total + width;
+  }, 0) + Math.max(0, columns.length - 1) * 10 + 24;
+  document.documentElement.style.setProperty("--mid-fc-grid-template", midFcGridTemplate());
+  document.documentElement.style.setProperty("--bookmark-table-min-width", `${Math.max(360, minWidth)}px`);
 }
 
 function localizeStaticUi() {
@@ -2442,25 +2499,7 @@ function renderList() {
       line.setAttribute("aria-hidden", "true");
       row.append(line);
     } else {
-      const title = makeTitleCell(item);
-
-      const url = document.createElement("span");
-      url.className = "url";
-      url.textContent = item.url || "";
-
-      const date = document.createElement("span");
-      date.className = "muted";
-      date.textContent = item.dateAdded ? new Date(item.dateAdded).toLocaleDateString() : "";
-
-      const id = document.createElement("span");
-      id.className = "muted";
-      id.textContent = item.id;
-
-      const order = document.createElement("span");
-      order.className = "muted";
-      order.textContent = Number.isInteger(item.index) ? String(item.index) : "";
-
-      row.append(title, url, date, id, order);
+      row.append(...visibleMidFcColumns().map((column) => cellForColumn(item, column.id)));
     }
     row.onclick = (e) => { handlePaneClick(e, "list", item); };
     row.ondblclick = () => openOrNavigate(item);
@@ -2823,18 +2862,53 @@ function sortTooltip(key, direction = state.sortDirection) {
   return t("sortBookmarks");
 }
 
-/** Render sortable column headers for the middle pane. */
+/** Render sortable and resizable column headers for the Folder Contents pane. */
 function renderColumnHeaders() {
-  for (const button of document.querySelectorAll(".columns [data-sort-key]")) {
-    const key = button.dataset.sortKey;
+  const columns = document.querySelector(".columns");
+  if (!columns) return;
+
+  const headerNodes = visibleMidFcColumns().map((column) => {
+    const key = column.sortKey;
     const active = state.sort === key;
+
+    const header = document.createElement("div");
+    header.className = "column-header";
+    header.dataset.column = column.id;
+
+    const button = document.createElement("button");
+    button.type = "button";
+    button.dataset.sortKey = key;
     button.setAttribute("aria-pressed", String(active));
     button.title = sortTooltip(key, active ? state.sortDirection : defaultSortDirection(key));
-
-    const label = button.dataset.label || button.textContent.replace(/[ ▲▼]$/u, "");
+    const label = localizedColumnLabel(key);
     const arrow = active && key !== "index" ? (state.sortDirection === "asc" ? " ▲" : " ▼") : "";
     button.textContent = `${label}${arrow}`;
-  }
+
+    const resizer = document.createElement("span");
+    resizer.className = "column-resizer";
+    resizer.dataset.column = column.id;
+    resizer.dataset.settingKey = column.settingKey;
+    resizer.setAttribute("role", "separator");
+    resizer.setAttribute("aria-orientation", "vertical");
+    resizer.title = t("resizeColumn");
+
+    header.append(button, resizer);
+    return header;
+  });
+
+  if (Optimisation_DOMrendering) replaceChildrenWithFragment(columns, headerNodes);
+  else columns.replaceChildren(...headerNodes);
+}
+
+function cellForColumn(item, columnId) {
+  if (columnId === "Name") return makeTitleCell(item);
+  const cell = document.createElement("span");
+  cell.className = columnId === "URL" ? "url" : "muted";
+  if (columnId === "URL") cell.textContent = item.url || "";
+  else if (columnId === "DateAdded") cell.textContent = item.dateAdded ? new Date(item.dateAdded).toLocaleDateString() : "";
+  else if (columnId === "ID") cell.textContent = item.id;
+  else if (columnId === "Order") cell.textContent = Number.isInteger(item.index) ? String(item.index) : "";
+  return cell;
 }
 
 function renderNavButtons() {
@@ -3356,26 +3430,74 @@ $("sort").onchange = (e) => {
   renderColumnHeaders();
 };
 
-for (const button of document.querySelectorAll(".columns [data-sort-key]")) {
-  button.dataset.label = button.textContent;
-  button.onclick = () => {
-    const key = button.dataset.sortKey;
-    if (key === "index") {
-      // Same behavior as the toolbar's "Default" entry: show Chromium's
-      // persisted child order exactly as returned by chrome.bookmarks.
-      state.sort = "index";
-      state.sortDirection = "asc";
-    } else if (state.sort === key) {
-      state.sortDirection = state.sortDirection === "asc" ? "desc" : "asc";
-    } else {
-      state.sort = key;
-      state.sortDirection = defaultSortDirection(key);
+function setFolderContentsSort(key) {
+  if (key === "index") {
+    // Same behavior as the toolbar's "Default" entry: show Chromium's
+    // persisted child order exactly as returned by chrome.bookmarks.
+    state.sort = "index";
+    state.sortDirection = "asc";
+  } else if (state.sort === key) {
+    state.sortDirection = state.sortDirection === "asc" ? "desc" : "asc";
+  } else {
+    state.sort = key;
+    state.sortDirection = defaultSortDirection(key);
+  }
+  $("sort").value = state.sort;
+  renderList();
+  renderColumnHeaders();
+}
+
+function beginFolderContentsColumnResize(e) {
+  const resizer = e.target.closest(".column-resizer");
+  if (!resizer) return false;
+
+  e.preventDefault();
+  e.stopPropagation();
+
+  const settingKey = resizer.dataset.settingKey;
+  const column = resizer.dataset.column;
+  const minWidth = MID_FC_COLUMN_MIN_WIDTHS[column] || 48;
+  const startX = e.clientX;
+  const startWidth = Number(midFcSettingValue(settingKey)) || minWidth;
+  let latestWidth = startWidth;
+
+  document.body.classList.add("column-resizing");
+
+  const onMove = (moveEvent) => {
+    const nextWidth = Math.max(minWidth, Math.round(startWidth + moveEvent.clientX - startX));
+    if (nextWidth === latestWidth) return;
+    latestWidth = nextWidth;
+    applySettings({ [settingKey]: nextWidth }, { render: false });
+  };
+
+  const onUp = async () => {
+    document.body.classList.remove("column-resizing");
+    window.removeEventListener("mousemove", onMove, true);
+    window.removeEventListener("mouseup", onUp, true);
+    try {
+      await saveSetting(settingKey, latestWidth);
+    } catch (err) {
+      console.error(err);
+      alert(t("actionFailed", { error: err.message || err }));
     }
-    $("sort").value = state.sort;
-    renderList();
     renderColumnHeaders();
   };
+
+  window.addEventListener("mousemove", onMove, true);
+  window.addEventListener("mouseup", onUp, true);
+  return true;
 }
+
+$("table-scroll").addEventListener("mousedown", (e) => {
+  beginFolderContentsColumnResize(e);
+});
+
+document.querySelector(".columns").addEventListener("click", (e) => {
+  const button = e.target.closest("button[data-sort-key]");
+  if (!button) return;
+  setFolderContentsSort(button.dataset.sortKey);
+});
+
 $("app-menu-button").onclick = (e) => {
   e.stopPropagation();
   toggleAppMenu();

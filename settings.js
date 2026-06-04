@@ -6,6 +6,22 @@
  */
 import { normalizeLanguageSetting } from "./i18n.js";
 
+export const MID_FC_COLUMN_MIN_WIDTHS = Object.freeze({
+  Name: 120,
+  URL: 160,
+  DateAdded: 105,
+  ID: 56,
+  Order: 70
+});
+
+export const MID_FC_COLUMN_DEFAULT_WIDTHS = Object.freeze({
+  Name: 240,
+  URL: 360,
+  DateAdded: 140,
+  ID: 72,
+  Order: 72
+});
+
 export const FONT_FAMILY_OPTIONS = Object.freeze([
   { value: "system", css: "system-ui, sans-serif" },
   { value: "sans", css: "Arial, Helvetica, sans-serif" },
@@ -28,7 +44,15 @@ export const DEFAULT_SETTINGS = Object.freeze({
   Optimisation_TempBookmarkTreeMaps: true,
   Optimisation_DOMrendering: true,
   Show_ErrorsWarnings: false,
-  DebugOptions: false
+  DebugOptions: false,
+  mid_FC_Width_Name: 240,
+  mid_FC_Width_URL: 360,
+  mid_FC_Width_DateAdded: 140,
+  mid_FC_Width_ID: 72,
+  mid_FC_Width_Order: 72,
+  mid_FC_Show_DateAdded: true,
+  mid_FC_Show_ID: true,
+  mid_FC_Show_Order: true
 });
 
 /** Clamp numeric option values loaded from storage or form controls. */
@@ -50,5 +74,11 @@ export function normalizeSettingValue(key, value) {
   }
   if (key === "UserInterfaceFontSize") return clampNumber(value, 11, 20, DEFAULT_SETTINGS[key]);
   if (key === "UserInterfaceLineSpacing") return clampNumber(value, 1.0, 1.8, DEFAULT_SETTINGS[key]);
+  if (key.startsWith("mid_FC_Width_")) {
+    const column = key.slice("mid_FC_Width_".length);
+    const min = MID_FC_COLUMN_MIN_WIDTHS[column] || 48;
+    const fallback = MID_FC_COLUMN_DEFAULT_WIDTHS[column] || DEFAULT_SETTINGS[key] || min;
+    return Math.round(clampNumber(value, min, 1200, fallback));
+  }
   return typeof value === "boolean" ? value : DEFAULT_SETTINGS[key];
 }

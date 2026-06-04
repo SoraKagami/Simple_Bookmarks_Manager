@@ -1,5 +1,14 @@
 # Changelog
 
+## 0.7.13
+
+- Added resizable columns to the middle **Folder Contents** pane.
+- Added persistent `mid_FC_Width_*` settings for Name, URL, Date Added, ID, and Order column widths.
+- Added persistent `mid_FC_Show_*` settings for optional Date Added, ID, and Order columns; Name and URL remain always visible.
+- Added Advanced Options controls for Folder Contents column widths and optional column visibility.
+- Column drag-resize changes in the Folder Contents header are saved to extension storage.
+- Updated `manifest.json` to `0.7.13`.
+
 ## 0.7.12
 
 - Fixed the Advanced Options page so the actual **Show warnings/errors log** option row is hidden unless **Debug options** is enabled.
