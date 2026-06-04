@@ -2,42 +2,43 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <title>About Simple Bookmarks Manager</title>
+  <title data-i18n="aboutPageTitle">About Simple Bookmarks Manager</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="about.css">
+  <script type="module" src="about.js"></script>
 </head>
 <body>
   <main class="about-page">
     <section class="hero" aria-labelledby="about-title">
       <img class="app-icon" src="icons/SBM_Icon.png" alt="" width="96" height="96">
       <div>
-        <p class="eyebrow">About</p>
-        <h1 id="about-title">Simple Bookmarks Manager</h1>
-        <p class="tagline">A simple local bookmarks manager for Chromium browsers, inspired by Firefox Places, Firefox’s bookmark management system.</p>
+        <p class="eyebrow" data-i18n="about">About</p>
+        <h1 id="about-title" data-i18n="appName">Simple Bookmarks Manager</h1>
+        <p class="tagline" data-i18n="appDescription">A simple local bookmarks manager for Chromium browsers, inspired by Firefox Places, Firefox’s bookmark management system.</p>
       </div>
     </section>
 
     <section class="card">
-      <h2>Project</h2>
-      <p>Simple Bookmarks Manager focuses on local bookmark organization, efficient folder browsing, and a familiar desktop-style management workflow inside Chromium-based browsers.</p>
+      <h2 data-i18n="aboutProjectHeading">Project</h2>
+      <p data-i18n="aboutProjectDescription">Simple Bookmarks Manager focuses on local bookmark organization, efficient folder browsing, and a familiar desktop-style management workflow inside Chromium-based browsers.</p>
       <p class="repo-line">
-        <span>GitHub:</span>
+        <span data-i18n="aboutGithubLabel">GitHub:</span>
         <a href="https://github.com/SoraKagami/Simple_Bookmarks_Manager" target="_blank" rel="noopener noreferrer">github.com/SoraKagami/Simple_Bookmarks_Manager</a>
       </p>
     </section>
 
     <section class="card two-column">
       <div>
-        <h2>Design goals</h2>
+        <h2 data-i18n="aboutDesignGoalsHeading">Design goals</h2>
         <ul>
-          <li>Fast local bookmark browsing and editing.</li>
-          <li>Clear controls without remote services or accounts.</li>
-          <li>Practical compatibility across Chromium-based browsers.</li>
+          <li data-i18n="aboutDesignGoalFastLocal">Fast local bookmark browsing and editing.</li>
+          <li data-i18n="aboutDesignGoalNoRemote">Clear controls without remote services or accounts.</li>
+          <li data-i18n="aboutDesignGoalChromiumCompatibility">Practical compatibility across Chromium-based browsers.</li>
         </ul>
       </div>
       <div>
-        <h2>Privacy</h2>
-        <p>SBM runs locally as a browser extension and does not intentionally send bookmark data to remote services.</p>
+        <h2 data-i18n="aboutPrivacyHeading">Privacy</h2>
+        <p data-i18n="aboutPrivacyDescription">SBM is designed to run purely locally. It does not send bookmark data, telemetry, pings, or any other usage data to remote services.</p>
       </div>
     </section>
   </main>

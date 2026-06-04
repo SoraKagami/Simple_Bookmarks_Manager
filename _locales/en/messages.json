@@ -2,6 +2,36 @@
   "about": {
     "message": "About"
   },
+  "aboutPageTitle": {
+    "message": "About Simple Bookmarks Manager"
+  },
+  "aboutProjectHeading": {
+    "message": "Project"
+  },
+  "aboutProjectDescription": {
+    "message": "Simple Bookmarks Manager focuses on local bookmark organization, efficient folder browsing, and a familiar desktop-style management workflow inside Chromium-based browsers."
+  },
+  "aboutGithubLabel": {
+    "message": "GitHub:"
+  },
+  "aboutDesignGoalsHeading": {
+    "message": "Design goals"
+  },
+  "aboutDesignGoalFastLocal": {
+    "message": "Fast local bookmark browsing and editing."
+  },
+  "aboutDesignGoalNoRemote": {
+    "message": "Clear controls without remote services or accounts."
+  },
+  "aboutDesignGoalChromiumCompatibility": {
+    "message": "Practical compatibility across Chromium-based browsers."
+  },
+  "aboutPrivacyHeading": {
+    "message": "Privacy"
+  },
+  "aboutPrivacyDescription": {
+    "message": "SBM is designed to run purely locally. It does not send bookmark data, telemetry, pings, or any other usage data to remote services."
+  },
   "actionFailed": {
     "message": "Action failed: {error}"
   },

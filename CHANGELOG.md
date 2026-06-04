@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.8.1
+
+- Updated the About page Privacy text to state more clearly that SBM is purely local and does not send bookmark data, telemetry, pings, or usage data to remote services.
+- Moved About page copy into the English locale so the page can be translated through the normal SBM localization workflow.
+- Added `about.js` so the packaged About page applies the configured SBM UI language and font settings when loaded in the manager iframe.
+
 ## 0.8.0
 
 - Enabled the hamburger-menu About action and added a polished in-SBM About interface loaded from the packaged `about.html` page.
