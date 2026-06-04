@@ -2720,6 +2720,7 @@ function renderDetails() {
     $("multi-bookmarks").textContent = String(stats.bookmarks);
     $("multi-separators").textContent = String(stats.separators);
     state.detailsOriginal = null;
+    updateDetailsOpenBookmarkButton(null);
     return;
   }
 
@@ -2728,6 +2729,7 @@ function renderDetails() {
   $("empty-details").hidden = !!selected;
   if (!selected) {
     state.detailsOriginal = null;
+    updateDetailsOpenBookmarkButton(null);
     return;
   }
 
@@ -2758,6 +2760,7 @@ function renderDetails() {
 
   updateUrlWarning();
   updateDetailsDirtyIndicators();
+  updateDetailsOpenBookmarkButton(selected);
 }
 
 function folderPath(folder) {
@@ -2795,6 +2798,7 @@ function setDetailsCleanBaseline(selected = nodes.get(state.selectedId)) {
   setAdvancedDetailsFields(state.detailsOriginal.advanced);
   syncAdvancedDetailsControls(selected);
   updateDetailsDirtyIndicators();
+  updateDetailsOpenBookmarkButton(selected);
 }
 
 function currentDetailsValues() {
@@ -2830,6 +2834,29 @@ function hasUnsavedDetails() {
   return false;
 }
 
+function isDetailsOpenBookmarkAllowed(selected = nodes.get(state.selectedId)) {
+  return !!selected && !isFolder(selected) && !isSeparator(selected) && !!selected.url && !hasUnsavedDetails();
+}
+
+function updateDetailsOpenBookmarkButton(selected = nodes.get(state.selectedId)) {
+  const button = $("open-bookmark-details");
+  if (!button) return;
+  const show = !!selected && !isFolder(selected) && !isSeparator(selected) && !!selected.url;
+  button.hidden = !show;
+  button.disabled = !show || !isDetailsOpenBookmarkAllowed(selected);
+}
+
+async function openDetailsBookmark() {
+  const selected = nodes.get(state.selectedId);
+  if (!isDetailsOpenBookmarkAllowed(selected)) return;
+  try {
+    await api.tabs.create({ url: selected.url });
+  } catch (err) {
+    console.error(err);
+    alert(t("couldNotOpenBookmark", { error: err.message || err }));
+  }
+}
+
 function updateDetailsDirtyIndicators() {
   const selected = nodes.get(state.selectedId);
   const titleDirty = detailFieldChanged("title");
@@ -2843,6 +2870,7 @@ function updateDetailsDirtyIndicators() {
   for (const id of ["advanced-id-label", "advanced-guid-label", "advanced-date-added-label", "advanced-date-last-used-label"]) {
     $(id).classList.remove("dirty");
   }
+  updateDetailsOpenBookmarkButton(selected);
 }
 
 function discardDetailsChanges() {
@@ -3615,6 +3643,7 @@ $("details-form").addEventListener("focusin", () => { state.activePane = "detail
 $("details-form").onsubmit = saveSelected;
 $("discard").onclick = discardDetailsChanges;
 $("delete").onclick = removeSelected;
+$("open-bookmark-details").onclick = openDetailsBookmark;
 for (const id of ["title", "url", "parent", "advanced-index"]) {
   $(id).addEventListener("input", updateDetailsDirtyIndicators);
   $(id).addEventListener("change", updateDetailsDirtyIndicators);

@@ -667,5 +667,11 @@
   },
   "multipleInstancesAllowedHelp": {
     "message": "When disabled, clicking the extension button focuses the existing Simple Bookmarks Manager tab instead of opening another one."
+  },
+  "openBookmark": {
+    "message": "Open Bookmark"
+  },
+  "couldNotOpenBookmark": {
+    "message": "Could not open bookmark: {error}"
   }
 }

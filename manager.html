@@ -55,7 +55,10 @@
 
     <div id="right-pane-resizer" class="pane-resizer pane-resizer-right" role="separator" aria-orientation="vertical" tabindex="0" data-i18n-title="resizeDetailsPane" title="Resize Details pane"></div>
     <aside id="details-pane" class="details">
-      <h2 data-i18n="details">Details</h2>
+      <div class="details-header">
+        <h2 data-i18n="details">Details</h2>
+        <button id="open-bookmark-details" class="open-bookmark-details" type="button" data-i18n="openBookmark" hidden disabled>Open Bookmark</button>
+      </div>
       <form id="details-form">
         <label id="title-label"><span class="field-caption" data-i18n="sortName">Name</span><input id="title" autocomplete="off"></label>
         <label id="url-label"><span class="field-caption" data-i18n="url">URL</span><input id="url" autocomplete="off" aria-describedby="url-warning"></label>

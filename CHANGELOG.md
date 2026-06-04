@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.7.18
+
+- Added an **Open Bookmark** button to the Details pane header when a bookmark is selected.
+- The button opens the selected bookmark in a new tab.
+- The button is hidden for folders, separators, empty Details state, and multi-select Details.
+- The button is disabled while Details has unsaved changes, and re-enabled after saving or discarding.
+- Updated `manifest.json` to `0.7.18`.
+
 ## 0.7.17
 
 - Fixed `MultipleInstancesAllowed` handling so disabling it reliably returns the toolbar button to single-instance behavior.
