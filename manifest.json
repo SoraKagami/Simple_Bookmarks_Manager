@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
   "name": "__MSG_appName__",
-  "version": "0.7.27",
+  "version": "0.7.30",
   "description": "__MSG_appDescription__",
   "minimum_chrome_version": "114",
   "permissions": [
@@ -31,5 +31,8 @@
     "page": "options.html",
     "open_in_tab": true
   },
-  "default_locale": "en"
+  "default_locale": "en",
+  "content_security_policy": {
+    "extension_pages": "script-src 'self'; object-src 'none'; frame-src 'self'; connect-src 'self'; img-src 'self' data:;"
+  }
 }

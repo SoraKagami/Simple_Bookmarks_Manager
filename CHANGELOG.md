@@ -1,5 +1,15 @@
 # Changelog
 
+## 0.7.30
+
+- Performed an extension-surface security hardening pass without changing locale translation files.
+- Added explicit extension page Content Security Policy in `manifest.json` to keep scripts, frames, connections, images, and object content constrained to the packaged extension surface.
+- Hardened extension-initiated bookmark opening by allowing only normal `http:`, `https:`, and `ftp:` bookmark URLs through `chrome.tabs.create`, `chrome.windows.create`, and tab-group open flows.
+- Added centralized safe URL normalization for context-menu, multi-select, folder open-all, and Details-pane open actions so unsupported schemes are skipped before reaching Chrome tab/window APIs.
+- Added defensive error handling around the default Chromium bookmarks manager open action.
+- Constrained the embedded Options iframe with a packaged-extension source, no-referrer policy, and a sandbox that allows only the features the options form needs.
+- Normalized service-worker storage reads for manager tab IDs and the multiple-instance setting before using them.
+
 ## 0.7.27
 
 - Updated `appDescription` in the English locale to clarify Chromium browser support and the Firefox Places inspiration.

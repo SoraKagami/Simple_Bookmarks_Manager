@@ -443,6 +443,42 @@ function sanitizeBookmarkUrl(value) {
 }
 
 /**
+ * Only normal navigation schemes are opened through extension initiated tab/window
+ * APIs.  Bookmark creation remains slightly more permissive for compatibility,
+ * but opening is a more sensitive path because the extension is actively
+ * instructing Chromium to navigate.
+ */
+const SAFE_BOOKMARK_OPEN_PROTOCOLS = Object.freeze(new Set(["http:", "https:", "ftp:"]));
+
+function safeBookmarkOpenUrl(rawValue) {
+  const sanitized = sanitizeBookmarkUrl(rawValue);
+  if (!sanitized) return null;
+  let parsed;
+  try {
+    parsed = new URL(sanitized);
+  } catch {
+    return null;
+  }
+  if (!SAFE_BOOKMARK_OPEN_PROTOCOLS.has(parsed.protocol.toLowerCase())) return null;
+  if (!parsed.hostname) return null;
+  return parsed.href;
+}
+
+function safeBookmarkOpenUrls(urls) {
+  const safeUrls = [];
+  for (const url of urls || []) {
+    const safeUrl = safeBookmarkOpenUrl(url);
+    if (safeUrl) safeUrls.push(safeUrl);
+    else console.warn("[SBM] Blocked unsupported bookmark URL from extension-initiated open.", { url });
+  }
+  return safeUrls;
+}
+
+function bookmarkOpenBlockedMessage() {
+  return t("urlWarningInvalidBlocked");
+}
+
+/**
  * Validate a bookmark URL using local parsing only.  This never performs a
  * network request; it only catches values that Chromium is likely to reject or
  * that can cause bookmark nodes to lose their URL shape after mutation.
@@ -1168,7 +1204,9 @@ function folderUrls(folder) {
   const visit = (node) => {
     for (const child of node.children || []) {
       if (child.url) {
-        if (!isSeparator(child)) urls.push(child.url);
+        const safeUrl = isSeparator(child) ? null : safeBookmarkOpenUrl(child.url);
+        if (safeUrl) urls.push(safeUrl);
+        else if (!isSeparator(child)) console.warn("[SBM] Skipped unsupported bookmark URL while building folder open list.", { id: child.id, url: child.url });
       } else {
         visit(child);
       }
@@ -1218,7 +1256,11 @@ function selectionUrls(ids) {
     const item = nodes.get(id);
     if (!item) continue;
     if (isFolder(item)) urls.push(...folderUrls(item));
-    else if (item.url && !isSeparator(item)) urls.push(item.url);
+    else if (item.url && !isSeparator(item)) {
+      const safeUrl = safeBookmarkOpenUrl(item.url);
+      if (safeUrl) urls.push(safeUrl);
+      else console.warn("[SBM] Skipped unsupported bookmark URL while building selection open list.", { id: item.id, url: item.url });
+    }
   }
   return urls;
 }
@@ -1368,14 +1410,24 @@ async function sortFolderChildren(folder, key) {
 }
 
 async function openUrlsInCurrentWindow(urls) {
-  for (const [i, url] of urls.entries()) {
+  const safeUrls = safeBookmarkOpenUrls(urls);
+  if (!safeUrls.length) {
+    alert(t("couldNotOpenBookmark", { error: bookmarkOpenBlockedMessage(urls) }));
+    return;
+  }
+  for (const [i, url] of safeUrls.entries()) {
     await api.tabs.create({ url, active: i === 0 });
   }
 }
 
 async function openUrlsInWindow(urls, incognito = false) {
+  const safeUrls = safeBookmarkOpenUrls(urls);
+  if (!safeUrls.length) {
+    alert(t("couldNotOpenWindow", { windowType: incognito ? t("privateWindowType") : t("newWindowType"), error: bookmarkOpenBlockedMessage(urls) }));
+    return;
+  }
   try {
-    await api.windows.create({ url: urls, incognito });
+    await api.windows.create({ url: safeUrls, incognito });
   } catch (err) {
     alert(t("couldNotOpenWindow", { windowType: incognito ? t("privateWindowType") : t("newWindowType"), error: err.message || err }));
   }
@@ -1383,9 +1435,14 @@ async function openUrlsInWindow(urls, incognito = false) {
 
 async function openUrlsInTabGroup(urls) {
   if (!api.tabs?.group) return;
+  const safeUrls = safeBookmarkOpenUrls(urls);
+  if (!safeUrls.length) {
+    alert(t("couldNotOpenTabGroup", { error: bookmarkOpenBlockedMessage(urls) }));
+    return;
+  }
   try {
     const createdTabs = [];
-    for (const [i, url] of urls.entries()) {
+    for (const [i, url] of safeUrls.entries()) {
       createdTabs.push(await api.tabs.create({ url, active: i === 0 }));
     }
     const tabIds = createdTabs.map((tab) => tab.id).filter(Number.isInteger);
@@ -1411,7 +1468,9 @@ function contextUrls(context) {
   if (!item) return [];
   if (isFolder(item)) return folderUrls(item);
   if (isSeparator(item)) return [];
-  return item.url ? [item.url] : [];
+  const safeUrl = item.url ? safeBookmarkOpenUrl(item.url) : null;
+  if (!safeUrl && item.url) console.warn("[SBM] Skipped unsupported bookmark URL while building context open list.", { id: item.id, url: item.url });
+  return safeUrl ? [safeUrl] : [];
 }
 
 async function renameFolder(folder) {
@@ -2148,7 +2207,12 @@ function makeAppMenuSeparator() {
 }
 
 async function openDefaultBookmarksManager() {
-  await api.tabs.create({ url: "chrome://bookmarks/" });
+  try {
+    await api.tabs.create({ url: "chrome://bookmarks/" });
+  } catch (err) {
+    console.error(err);
+    alert(t("couldNotOpenBookmark", { error: err.message || err }));
+  }
 }
 
 function isOptionsDialogOpen() {
@@ -2164,6 +2228,8 @@ function showOptionsDialog() {
     const frame = document.createElement('iframe');
     frame.className = 'options-frame';
     frame.title = t("optionsTitle");
+    frame.referrerPolicy = "no-referrer";
+    frame.sandbox = "allow-forms allow-same-origin allow-scripts";
     frame.src = api.runtime.getURL('options.html?embedded=1');
     host.append(frame);
   }
@@ -2882,8 +2948,14 @@ function updateDetailsOpenBookmarkButton(selected = nodes.get(state.selectedId))
 async function openDetailsBookmark() {
   const selected = nodes.get(state.selectedId);
   if (!isDetailsOpenBookmarkAllowed(selected)) return;
+  const safeUrl = safeBookmarkOpenUrl(selected.url);
+  if (!safeUrl) {
+    console.warn("[SBM] Blocked unsupported bookmark URL from Details open action.", { url: selected.url });
+    alert(t("couldNotOpenBookmark", { error: bookmarkOpenBlockedMessage([selected.url]) }));
+    return;
+  }
   try {
-    await api.tabs.create({ url: selected.url });
+    await api.tabs.create({ url: safeUrl });
   } catch (err) {
     console.error(err);
     alert(t("couldNotOpenBookmark", { error: err.message || err }));
@@ -3135,7 +3207,16 @@ function openOrNavigate(item) {
     const targetPane = state.activePane === "list" ? "list" : "tree";
     navigate(item.id, true, targetPane);
   } else if (item.url && !isSeparator(item)) {
-    api.tabs.create({ url: item.url });
+    const safeUrl = safeBookmarkOpenUrl(item.url);
+    if (!safeUrl) {
+      console.warn("[SBM] Blocked unsupported bookmark URL from row open action.", { id: item.id, url: item.url });
+      alert(t("couldNotOpenBookmark", { error: bookmarkOpenBlockedMessage([item.url]) }));
+      return;
+    }
+    api.tabs.create({ url: safeUrl }).catch((err) => {
+      console.error(err);
+      alert(t("couldNotOpenBookmark", { error: err.message || err }));
+    });
   }
 }
 

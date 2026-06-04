@@ -3,6 +3,14 @@ const MANAGER_URL = chrome.runtime.getURL(MANAGER_PAGE);
 const MANAGER_TAB_IDS_KEY = "managerTabIds";
 const LEGACY_MANAGER_TAB_ID_KEY = "managerTabId";
 
+function asBoolean(value, fallback = false) {
+  return typeof value === "boolean" ? value : fallback;
+}
+
+function normalizedTabIdList(value) {
+  return Array.isArray(value) ? [...new Set(value.filter(Number.isInteger))] : [];
+}
+
 async function focusTab(tabId) {
   try {
     const tab = await chrome.tabs.update(tabId, { active: true });
@@ -16,8 +24,8 @@ async function focusTab(tabId) {
 async function rememberManagerTab(tabId) {
   if (!Number.isInteger(tabId)) return;
   const session = await chrome.storage.session.get([MANAGER_TAB_IDS_KEY]);
-  const ids = Array.isArray(session[MANAGER_TAB_IDS_KEY]) ? session[MANAGER_TAB_IDS_KEY] : [];
-  const nextIds = ids.filter((id) => Number.isInteger(id) && id !== tabId);
+  const ids = normalizedTabIdList(session[MANAGER_TAB_IDS_KEY]);
+  const nextIds = ids.filter((id) => id !== tabId);
   nextIds.push(tabId);
   await chrome.storage.session.set({
     [LEGACY_MANAGER_TAB_ID_KEY]: tabId,
@@ -28,7 +36,7 @@ async function rememberManagerTab(tabId) {
 async function forgetManagerTab(tabId) {
   const session = await chrome.storage.session.get([LEGACY_MANAGER_TAB_ID_KEY, MANAGER_TAB_IDS_KEY]);
   const update = {};
-  const ids = Array.isArray(session[MANAGER_TAB_IDS_KEY]) ? session[MANAGER_TAB_IDS_KEY] : [];
+  const ids = normalizedTabIdList(session[MANAGER_TAB_IDS_KEY]);
   update[MANAGER_TAB_IDS_KEY] = ids.filter((id) => id !== tabId);
   if (session[LEGACY_MANAGER_TAB_ID_KEY] === tabId) update[LEGACY_MANAGER_TAB_ID_KEY] = null;
   await chrome.storage.session.set(update);
@@ -43,10 +51,10 @@ async function openManagerTab() {
 async function focusKnownManagerTab() {
   const session = await chrome.storage.session.get([LEGACY_MANAGER_TAB_ID_KEY, MANAGER_TAB_IDS_KEY]);
   const knownIds = [];
-  if (Array.isArray(session[MANAGER_TAB_IDS_KEY])) knownIds.push(...session[MANAGER_TAB_IDS_KEY]);
+  knownIds.push(...normalizedTabIdList(session[MANAGER_TAB_IDS_KEY]));
   if (Number.isInteger(session[LEGACY_MANAGER_TAB_ID_KEY])) knownIds.push(session[LEGACY_MANAGER_TAB_ID_KEY]);
 
-  const uniqueNewestFirst = [...new Set(knownIds.filter(Number.isInteger))].reverse();
+  const uniqueNewestFirst = normalizedTabIdList(knownIds).reverse();
   const stillValidIds = [];
   for (const tabId of uniqueNewestFirst) {
     if (await focusTab(tabId)) {
@@ -64,7 +72,7 @@ async function focusKnownManagerTab() {
 
 chrome.action.onClicked.addListener(async () => {
   const { MultipleInstancesAllowed = false } = await chrome.storage.local.get({ MultipleInstancesAllowed: false });
-  if (MultipleInstancesAllowed === true) {
+  if (asBoolean(MultipleInstancesAllowed, false)) {
     await openManagerTab();
     return;
   }
