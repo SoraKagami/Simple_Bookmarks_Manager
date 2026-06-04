@@ -727,5 +727,32 @@
   },
   "warningsErrorsLogHelp": {
     "message": "現在の SBM セッション用の一時的な警告/エラーです。設定には保存されません。"
+  },
+  "bookmarkUrlProtections": {
+    "message": "ブックマーク URL の保護"
+  },
+  "bookmarkUrlProtectionsHelp": {
+    "message": "リスクの高いブックマーク URL スキームに対する保護を制御します。これらの保護はブックマークを開く操作のみに影響し、保存には影響しません。"
+  },
+  "blockJavascriptBookmarkOpens": {
+    "message": "javascript: ブックマークを開くのをブロック"
+  },
+  "blockJavascriptBookmarkOpensHelp": {
+    "message": "推奨。SBM が拡張機能のタブ/ウィンドウ操作でブックマークレットやその他の javascript: URL を開くことを防ぎます。"
+  },
+  "blockDataBookmarkOpens": {
+    "message": "data: ブックマークを開くのをブロック"
+  },
+  "blockDataBookmarkOpensHelp": {
+    "message": "推奨。SBM が拡張機能のタブ/ウィンドウ操作でインラインの data: ドキュメントを開くことを防ぎます。"
+  },
+  "blockBlobBookmarkOpens": {
+    "message": "blob: ブックマークを開くのをブロック"
+  },
+  "blockBlobBookmarkOpensHelp": {
+    "message": "推奨。SBM が拡張機能のタブ/ウィンドウ操作で blob: URL を開くことを防ぎます。"
+  },
+  "urlOpenBlockedByProtection": {
+    "message": "このブックマーク URL は、高度な URL オープン保護によってブロックされています。オプション > 詳細設定で保護の切り替えを確認できます。"
   }
 }

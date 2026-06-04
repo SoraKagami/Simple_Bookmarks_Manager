@@ -727,5 +727,32 @@
   },
   "warningsErrorsLogHelp": {
     "message": "Geçerli SBM oturumu için geçici uyarılar/hatalar. Bu, ayarlara kaydedilmez."
+  },
+  "bookmarkUrlProtections": {
+    "message": "Yer imi URL korumaları"
+  },
+  "bookmarkUrlProtectionsHelp": {
+    "message": "Daha yüksek riskli yer imi URL şemaları için korumaları denetler. Bu korumalar yalnızca yer imlerini açmayı etkiler, kaydetmeyi etkilemez."
+  },
+  "blockJavascriptBookmarkOpens": {
+    "message": "javascript: yer imlerinin açılmasını engelle"
+  },
+  "blockJavascriptBookmarkOpensHelp": {
+    "message": "Önerilir. SBM’nin uzantı sekme/pencere işlemleriyle bookmarklet’leri veya diğer javascript: URL’lerini açmasını önler."
+  },
+  "blockDataBookmarkOpens": {
+    "message": "data: yer imlerinin açılmasını engelle"
+  },
+  "blockDataBookmarkOpensHelp": {
+    "message": "Önerilir. SBM’nin uzantı sekme/pencere işlemleriyle satır içi data: belgelerini açmasını önler."
+  },
+  "blockBlobBookmarkOpens": {
+    "message": "blob: yer imlerinin açılmasını engelle"
+  },
+  "blockBlobBookmarkOpensHelp": {
+    "message": "Önerilir. SBM’nin uzantı sekme/pencere işlemleriyle blob: URL’lerini açmasını önler."
+  },
+  "urlOpenBlockedByProtection": {
+    "message": "Bu yer imi URL’si gelişmiş bir URL açma koruması tarafından engellendi. Koruma anahtarlarını Seçenekler > Gelişmiş bölümünde gözden geçirebilirsiniz."
   }
 }

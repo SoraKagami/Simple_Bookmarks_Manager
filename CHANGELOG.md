@@ -1,5 +1,12 @@
 # Changelog
 
+## 0.7.31
+
+- Reworked the v0.7.30 bookmark URL opening hardening to preserve normal Chromium-family browser compatibility for internal pages such as `chrome://`, `brave://`, `edge://`, and `opera://`, plus `about:`, `file:`, `mailto:`, and other user-bookmarked schemes.
+- Added advanced, user-toggleable protections for extension-initiated opening of `javascript:`, `data:`, and `blob:` bookmark URLs. These protections are enabled by default.
+- Added Options UI and locale strings for the new bookmark URL protection toggles.
+- Updated blocked-open warnings to flow through SBM's existing session warning/error log via the installed console capture.
+
 ## 0.7.30
 
 - Performed an extension-surface security hardening pass without changing locale translation files.

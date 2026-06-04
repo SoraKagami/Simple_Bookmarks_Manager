@@ -109,6 +109,38 @@
         </span>
       </label>
 
+
+
+      <details class="option-subsection option-collapsible">
+        <summary>
+          <span class="option-subsection-summary-title" data-i18n="bookmarkUrlProtections">Bookmark URL protections</span>
+          <span class="option-subsection-summary-help" data-i18n="bookmarkUrlProtectionsHelp">Control protections for higher-risk bookmark URL schemes. These protections affect opening bookmarks only, not saving them.</span>
+        </summary>
+        <div class="option-subsection-body">
+          <label class="option-row">
+            <input id="BlockJavascriptBookmarkOpens" type="checkbox">
+            <span>
+              <strong data-i18n="blockJavascriptBookmarkOpens">Block opening javascript: bookmarks</strong>
+              <small data-i18n="blockJavascriptBookmarkOpensHelp">Recommended. Prevents SBM from opening bookmarklets or other javascript: URLs through extension tab/window actions.</small>
+            </span>
+          </label>
+          <label class="option-row">
+            <input id="BlockDataBookmarkOpens" type="checkbox">
+            <span>
+              <strong data-i18n="blockDataBookmarkOpens">Block opening data: bookmarks</strong>
+              <small data-i18n="blockDataBookmarkOpensHelp">Recommended. Prevents SBM from opening inline data: documents through extension tab/window actions.</small>
+            </span>
+          </label>
+          <label class="option-row">
+            <input id="BlockBlobBookmarkOpens" type="checkbox">
+            <span>
+              <strong data-i18n="blockBlobBookmarkOpens">Block opening blob: bookmarks</strong>
+              <small data-i18n="blockBlobBookmarkOpensHelp">Recommended. Prevents SBM from opening blob: URLs through extension tab/window actions.</small>
+            </span>
+          </label>
+        </div>
+      </details>
+
       <details class="option-subsection option-collapsible">
         <summary>
           <span class="option-subsection-summary-title" data-i18n="paneWidths">Pane widths</span>

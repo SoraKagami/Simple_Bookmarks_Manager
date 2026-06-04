@@ -727,5 +727,32 @@
   },
   "warningsErrorsLogHelp": {
     "message": "此目前 SBM 工作階段的暫時警告／錯誤。這不會儲存到設定。"
+  },
+  "bookmarkUrlProtections": {
+    "message": "書籤 URL 保護"
+  },
+  "bookmarkUrlProtectionsHelp": {
+    "message": "控制對風險較高的書籤 URL 通訊協定的保護。這些保護只影響開啟書籤，不影響儲存書籤。"
+  },
+  "blockJavascriptBookmarkOpens": {
+    "message": "阻止開啟 javascript: 書籤"
+  },
+  "blockJavascriptBookmarkOpensHelp": {
+    "message": "建議啟用。防止 SBM 透過擴充功能的分頁/視窗操作開啟書籤小程式或其他 javascript: URL。"
+  },
+  "blockDataBookmarkOpens": {
+    "message": "阻止開啟 data: 書籤"
+  },
+  "blockDataBookmarkOpensHelp": {
+    "message": "建議啟用。防止 SBM 透過擴充功能的分頁/視窗操作開啟內嵌 data: 文件。"
+  },
+  "blockBlobBookmarkOpens": {
+    "message": "阻止開啟 blob: 書籤"
+  },
+  "blockBlobBookmarkOpensHelp": {
+    "message": "建議啟用。防止 SBM 透過擴充功能的分頁/視窗操作開啟 blob: URL。"
+  },
+  "urlOpenBlockedByProtection": {
+    "message": "此書籤 URL 已被進階 URL 開啟保護阻止。你可以在「選項 > 進階」中檢視保護開關。"
   }
 }

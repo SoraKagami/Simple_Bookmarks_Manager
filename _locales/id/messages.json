@@ -727,5 +727,32 @@
   },
   "warningsErrorsLogHelp": {
     "message": "Peringatan/kesalahan sementara untuk sesi SBM saat ini. Ini tidak disimpan ke pengaturan."
+  },
+  "bookmarkUrlProtections": {
+    "message": "Perlindungan URL markah"
+  },
+  "bookmarkUrlProtectionsHelp": {
+    "message": "Mengontrol perlindungan untuk skema URL markah yang berisiko lebih tinggi. Perlindungan ini hanya memengaruhi pembukaan markah, bukan penyimpanannya."
+  },
+  "blockJavascriptBookmarkOpens": {
+    "message": "Blokir pembukaan markah javascript:"
+  },
+  "blockJavascriptBookmarkOpensHelp": {
+    "message": "Disarankan. Mencegah SBM membuka bookmarklet atau URL javascript: lain melalui tindakan tab/jendela ekstensi."
+  },
+  "blockDataBookmarkOpens": {
+    "message": "Blokir pembukaan markah data:"
+  },
+  "blockDataBookmarkOpensHelp": {
+    "message": "Disarankan. Mencegah SBM membuka dokumen data: inline melalui tindakan tab/jendela ekstensi."
+  },
+  "blockBlobBookmarkOpens": {
+    "message": "Blokir pembukaan markah blob:"
+  },
+  "blockBlobBookmarkOpensHelp": {
+    "message": "Disarankan. Mencegah SBM membuka URL blob: melalui tindakan tab/jendela ekstensi."
+  },
+  "urlOpenBlockedByProtection": {
+    "message": "URL markah ini diblokir oleh perlindungan pembukaan URL tingkat lanjut. Anda dapat meninjau sakelar perlindungan di Opsi > Lanjutan."
   }
 }

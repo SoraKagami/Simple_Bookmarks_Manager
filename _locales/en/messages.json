@@ -727,5 +727,32 @@
   },
   "warningsErrorsLogHelp": {
     "message": "Transient warnings/errors for this current SBM session. This is not saved to settings."
+  },
+  "bookmarkUrlProtections": {
+    "message": "Bookmark URL protections"
+  },
+  "bookmarkUrlProtectionsHelp": {
+    "message": "Control protections for higher-risk bookmark URL schemes. These protections affect opening bookmarks only, not saving them."
+  },
+  "blockJavascriptBookmarkOpens": {
+    "message": "Block opening javascript: bookmarks"
+  },
+  "blockJavascriptBookmarkOpensHelp": {
+    "message": "Recommended. Prevents SBM from opening bookmarklets or other javascript: URLs through extension tab/window actions."
+  },
+  "blockDataBookmarkOpens": {
+    "message": "Block opening data: bookmarks"
+  },
+  "blockDataBookmarkOpensHelp": {
+    "message": "Recommended. Prevents SBM from opening inline data: documents through extension tab/window actions."
+  },
+  "blockBlobBookmarkOpens": {
+    "message": "Block opening blob: bookmarks"
+  },
+  "blockBlobBookmarkOpensHelp": {
+    "message": "Recommended. Prevents SBM from opening blob: URLs through extension tab/window actions."
+  },
+  "urlOpenBlockedByProtection": {
+    "message": "This bookmark URL is blocked by an advanced URL-opening protection. You can review the protection toggles in Options > Advanced."
   }
 }

@@ -727,5 +727,32 @@
   },
   "warningsErrorsLogHelp": {
     "message": "Vorübergehende Warnungen/Fehler für diese aktuelle SBM-Sitzung. Dies wird nicht in den Einstellungen gespeichert."
+  },
+  "bookmarkUrlProtections": {
+    "message": "Lesezeichen-URL-Schutzmaßnahmen"
+  },
+  "bookmarkUrlProtectionsHelp": {
+    "message": "Steuern Sie Schutzmaßnahmen für risikoreichere Lesezeichen-URL-Schemata. Diese Schutzmaßnahmen betreffen nur das Öffnen von Lesezeichen, nicht das Speichern."
+  },
+  "blockJavascriptBookmarkOpens": {
+    "message": "Öffnen von javascript:-Lesezeichen blockieren"
+  },
+  "blockJavascriptBookmarkOpensHelp": {
+    "message": "Empfohlen. Verhindert, dass SBM Bookmarklets oder andere javascript:-URLs über Erweiterungsaktionen für Tabs/Fenster öffnet."
+  },
+  "blockDataBookmarkOpens": {
+    "message": "Öffnen von data:-Lesezeichen blockieren"
+  },
+  "blockDataBookmarkOpensHelp": {
+    "message": "Empfohlen. Verhindert, dass SBM eingebettete data:-Dokumente über Erweiterungsaktionen für Tabs/Fenster öffnet."
+  },
+  "blockBlobBookmarkOpens": {
+    "message": "Öffnen von blob:-Lesezeichen blockieren"
+  },
+  "blockBlobBookmarkOpensHelp": {
+    "message": "Empfohlen. Verhindert, dass SBM blob:-URLs über Erweiterungsaktionen für Tabs/Fenster öffnet."
+  },
+  "urlOpenBlockedByProtection": {
+    "message": "Diese Lesezeichen-URL wird durch einen erweiterten URL-Öffnungsschutz blockiert. Sie können die Schutzschalter unter Optionen > Erweitert prüfen."
   }
 }

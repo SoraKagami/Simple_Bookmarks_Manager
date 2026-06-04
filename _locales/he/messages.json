@@ -727,5 +727,32 @@
   },
   "warningsErrorsLogHelp": {
     "message": "אזהרות/שגיאות זמניות עבור הפעלת SBM הנוכחית. זה לא נשמר בהגדרות."
+  },
+  "bookmarkUrlProtections": {
+    "message": "הגנות על כתובות URL של סימניות"
+  },
+  "bookmarkUrlProtectionsHelp": {
+    "message": "שליטה בהגנות עבור סכמות URL של סימניות בעלות סיכון גבוה יותר. ההגנות האלה משפיעות רק על פתיחת סימניות, לא על שמירתן."
+  },
+  "blockJavascriptBookmarkOpens": {
+    "message": "חסום פתיחת סימניות javascript:"
+  },
+  "blockJavascriptBookmarkOpensHelp": {
+    "message": "מומלץ. מונע מ-SBM לפתוח bookmarklets או כתובות javascript: אחרות דרך פעולות כרטיסייה/חלון של ההרחבה."
+  },
+  "blockDataBookmarkOpens": {
+    "message": "חסום פתיחת סימניות data:"
+  },
+  "blockDataBookmarkOpensHelp": {
+    "message": "מומלץ. מונע מ-SBM לפתוח מסמכי data: מוטמעים דרך פעולות כרטיסייה/חלון של ההרחבה."
+  },
+  "blockBlobBookmarkOpens": {
+    "message": "חסום פתיחת סימניות blob:"
+  },
+  "blockBlobBookmarkOpensHelp": {
+    "message": "מומלץ. מונע מ-SBM לפתוח כתובות blob: דרך פעולות כרטיסייה/חלון של ההרחבה."
+  },
+  "urlOpenBlockedByProtection": {
+    "message": "כתובת ה-URL של הסימנייה הזו נחסמה על ידי הגנת פתיחת URL מתקדמת. ניתן לבדוק את מתגי ההגנה תחת אפשרויות > מתקדם."
   }
 }

@@ -727,5 +727,32 @@
   },
   "warningsErrorsLogHelp": {
     "message": "Cảnh báo/lỗi tạm thời cho phiên SBM hiện tại. Nội dung này không được lưu vào cài đặt."
+  },
+  "bookmarkUrlProtections": {
+    "message": "Bảo vệ URL dấu trang"
+  },
+  "bookmarkUrlProtectionsHelp": {
+    "message": "Kiểm soát các biện pháp bảo vệ cho các lược đồ URL dấu trang có rủi ro cao hơn. Các bảo vệ này chỉ ảnh hưởng đến việc mở dấu trang, không ảnh hưởng đến việc lưu."
+  },
+  "blockJavascriptBookmarkOpens": {
+    "message": "Chặn mở dấu trang javascript:"
+  },
+  "blockJavascriptBookmarkOpensHelp": {
+    "message": "Khuyến nghị. Ngăn SBM mở bookmarklet hoặc các URL javascript: khác thông qua thao tác tab/cửa sổ của tiện ích."
+  },
+  "blockDataBookmarkOpens": {
+    "message": "Chặn mở dấu trang data:"
+  },
+  "blockDataBookmarkOpensHelp": {
+    "message": "Khuyến nghị. Ngăn SBM mở tài liệu data: nội tuyến thông qua thao tác tab/cửa sổ của tiện ích."
+  },
+  "blockBlobBookmarkOpens": {
+    "message": "Chặn mở dấu trang blob:"
+  },
+  "blockBlobBookmarkOpensHelp": {
+    "message": "Khuyến nghị. Ngăn SBM mở URL blob: thông qua thao tác tab/cửa sổ của tiện ích."
+  },
+  "urlOpenBlockedByProtection": {
+    "message": "URL dấu trang này bị chặn bởi một biện pháp bảo vệ mở URL nâng cao. Bạn có thể xem lại các công tắc bảo vệ trong Tùy chọn > Nâng cao."
   }
 }

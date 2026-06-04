@@ -727,5 +727,32 @@
   },
   "warningsErrorsLogHelp": {
     "message": "Advertencias/errores transitorios para esta sesión actual de SBM. Esto no se guarda en los ajustes."
+  },
+  "bookmarkUrlProtections": {
+    "message": "Protecciones de URL de marcadores"
+  },
+  "bookmarkUrlProtectionsHelp": {
+    "message": "Controla las protecciones para esquemas de URL de marcadores de mayor riesgo. Estas protecciones solo afectan a la apertura de marcadores, no a su guardado."
+  },
+  "blockJavascriptBookmarkOpens": {
+    "message": "Bloquear la apertura de marcadores javascript:"
+  },
+  "blockJavascriptBookmarkOpensHelp": {
+    "message": "Recomendado. Evita que SBM abra bookmarklets u otras URL javascript: mediante acciones de pestañas/ventanas de la extensión."
+  },
+  "blockDataBookmarkOpens": {
+    "message": "Bloquear la apertura de marcadores data:"
+  },
+  "blockDataBookmarkOpensHelp": {
+    "message": "Recomendado. Evita que SBM abra documentos data: en línea mediante acciones de pestañas/ventanas de la extensión."
+  },
+  "blockBlobBookmarkOpens": {
+    "message": "Bloquear la apertura de marcadores blob:"
+  },
+  "blockBlobBookmarkOpensHelp": {
+    "message": "Recomendado. Evita que SBM abra URL blob: mediante acciones de pestañas/ventanas de la extensión."
+  },
+  "urlOpenBlockedByProtection": {
+    "message": "Esta URL de marcador está bloqueada por una protección avanzada de apertura de URL. Puedes revisar los interruptores de protección en Opciones > Avanzado."
   }
 }

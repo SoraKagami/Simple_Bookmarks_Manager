@@ -727,5 +727,32 @@
   },
   "warningsErrorsLogHelp": {
     "message": "Avisos/erros temporários para esta sessão atual do SBM. Isso não é salvo nas configurações."
+  },
+  "bookmarkUrlProtections": {
+    "message": "Proteções de URL de favoritos"
+  },
+  "bookmarkUrlProtectionsHelp": {
+    "message": "Controla as proteções para esquemas de URL de favoritos de maior risco. Essas proteções afetam apenas a abertura de favoritos, não o salvamento."
+  },
+  "blockJavascriptBookmarkOpens": {
+    "message": "Bloquear abertura de favoritos javascript:"
+  },
+  "blockJavascriptBookmarkOpensHelp": {
+    "message": "Recomendado. Impede que o SBM abra bookmarklets ou outros URLs javascript: por ações de abas/janelas da extensão."
+  },
+  "blockDataBookmarkOpens": {
+    "message": "Bloquear abertura de favoritos data:"
+  },
+  "blockDataBookmarkOpensHelp": {
+    "message": "Recomendado. Impede que o SBM abra documentos data: incorporados por ações de abas/janelas da extensão."
+  },
+  "blockBlobBookmarkOpens": {
+    "message": "Bloquear abertura de favoritos blob:"
+  },
+  "blockBlobBookmarkOpensHelp": {
+    "message": "Recomendado. Impede que o SBM abra URLs blob: por ações de abas/janelas da extensão."
+  },
+  "urlOpenBlockedByProtection": {
+    "message": "Este URL de favorito está bloqueado por uma proteção avançada de abertura de URL. Você pode revisar os seletores de proteção em Opções > Avançado."
   }
 }

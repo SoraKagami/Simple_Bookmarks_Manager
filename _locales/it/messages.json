@@ -727,5 +727,32 @@
   },
   "warningsErrorsLogHelp": {
     "message": "Avvisi/errori temporanei per questa sessione SBM corrente. Non vengono salvati nelle impostazioni."
+  },
+  "bookmarkUrlProtections": {
+    "message": "Protezioni URL dei segnalibri"
+  },
+  "bookmarkUrlProtectionsHelp": {
+    "message": "Controlla le protezioni per gli schemi URL dei segnalibri a rischio più elevato. Queste protezioni influiscono solo sull’apertura dei segnalibri, non sul loro salvataggio."
+  },
+  "blockJavascriptBookmarkOpens": {
+    "message": "Blocca l’apertura dei segnalibri javascript:"
+  },
+  "blockJavascriptBookmarkOpensHelp": {
+    "message": "Consigliato. Impedisce a SBM di aprire bookmarklet o altri URL javascript: tramite azioni di schede/finestre dell’estensione."
+  },
+  "blockDataBookmarkOpens": {
+    "message": "Blocca l’apertura dei segnalibri data:"
+  },
+  "blockDataBookmarkOpensHelp": {
+    "message": "Consigliato. Impedisce a SBM di aprire documenti data: incorporati tramite azioni di schede/finestre dell’estensione."
+  },
+  "blockBlobBookmarkOpens": {
+    "message": "Blocca l’apertura dei segnalibri blob:"
+  },
+  "blockBlobBookmarkOpensHelp": {
+    "message": "Consigliato. Impedisce a SBM di aprire URL blob: tramite azioni di schede/finestre dell’estensione."
+  },
+  "urlOpenBlockedByProtection": {
+    "message": "Questo URL del segnalibro è bloccato da una protezione avanzata per l’apertura degli URL. Puoi controllare gli interruttori di protezione in Opzioni > Avanzate."
   }
 }

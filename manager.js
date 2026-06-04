@@ -66,6 +66,9 @@ let KeyboardDeleteAllow = DEFAULT_SETTINGS.KeyboardDeleteAllow;
 let DeleteShowWarning = DEFAULT_SETTINGS.DeleteShowWarning;
 let SearchLimitToFolderAndSub = DEFAULT_SETTINGS.SearchLimitToFolderAndSub;
 let MultipleInstancesAllowed = DEFAULT_SETTINGS.MultipleInstancesAllowed;
+let BlockJavascriptBookmarkOpens = DEFAULT_SETTINGS.BlockJavascriptBookmarkOpens;
+let BlockDataBookmarkOpens = DEFAULT_SETTINGS.BlockDataBookmarkOpens;
+let BlockBlobBookmarkOpens = DEFAULT_SETTINGS.BlockBlobBookmarkOpens;
 let Optimisation_TempBookmarkTreeMaps = DEFAULT_SETTINGS.Optimisation_TempBookmarkTreeMaps;
 let Optimisation_DOMrendering = DEFAULT_SETTINGS.Optimisation_DOMrendering;
 let Show_ErrorsWarnings = DEFAULT_SETTINGS.Show_ErrorsWarnings;
@@ -145,6 +148,9 @@ function applySettings(settings, { render = false } = {}) {
     else if (key === "DeleteShowWarning") DeleteShowWarning = value;
     else if (key === "SearchLimitToFolderAndSub") SearchLimitToFolderAndSub = value;
     else if (key === "MultipleInstancesAllowed") MultipleInstancesAllowed = value;
+    else if (key === "BlockJavascriptBookmarkOpens") BlockJavascriptBookmarkOpens = value;
+    else if (key === "BlockDataBookmarkOpens") BlockDataBookmarkOpens = value;
+    else if (key === "BlockBlobBookmarkOpens") BlockBlobBookmarkOpens = value;
     else if (key === "Optimisation_TempBookmarkTreeMaps") Optimisation_TempBookmarkTreeMaps = value;
     else if (key === "Optimisation_DOMrendering") Optimisation_DOMrendering = value;
     else if (key === "Show_ErrorsWarnings") Show_ErrorsWarnings = value;
@@ -443,12 +449,18 @@ function sanitizeBookmarkUrl(value) {
 }
 
 /**
- * Only normal navigation schemes are opened through extension initiated tab/window
- * APIs.  Bookmark creation remains slightly more permissive for compatibility,
- * but opening is a more sensitive path because the extension is actively
- * instructing Chromium to navigate.
+ * Extension-initiated tab/window opens are intentionally conservative only for
+ * high-risk active/document-producing schemes.  Other schemes are passed through
+ * after URL parsing so Chromium-family browser pages (chrome://, brave://,
+ * edge://, opera://), about: pages, mailto:, file:, and other user-bookmarked
+ * schemes remain usable without maintaining a browser-specific allowlist.
  */
-const SAFE_BOOKMARK_OPEN_PROTOCOLS = Object.freeze(new Set(["http:", "https:", "ftp:"]));
+function bookmarkOpenProtocolBlocked(protocol) {
+  if (protocol === "javascript:") return BlockJavascriptBookmarkOpens;
+  if (protocol === "data:") return BlockDataBookmarkOpens;
+  if (protocol === "blob:") return BlockBlobBookmarkOpens;
+  return false;
+}
 
 function safeBookmarkOpenUrl(rawValue) {
   const sanitized = sanitizeBookmarkUrl(rawValue);
@@ -459,8 +471,7 @@ function safeBookmarkOpenUrl(rawValue) {
   } catch {
     return null;
   }
-  if (!SAFE_BOOKMARK_OPEN_PROTOCOLS.has(parsed.protocol.toLowerCase())) return null;
-  if (!parsed.hostname) return null;
+  if (bookmarkOpenProtocolBlocked(parsed.protocol.toLowerCase())) return null;
   return parsed.href;
 }
 
@@ -469,13 +480,13 @@ function safeBookmarkOpenUrls(urls) {
   for (const url of urls || []) {
     const safeUrl = safeBookmarkOpenUrl(url);
     if (safeUrl) safeUrls.push(safeUrl);
-    else console.warn("[SBM] Blocked unsupported bookmark URL from extension-initiated open.", { url });
+    else console.warn("[SBM] Blocked bookmark URL from extension-initiated open.", { url });
   }
   return safeUrls;
 }
 
 function bookmarkOpenBlockedMessage() {
-  return t("urlWarningInvalidBlocked");
+  return t("urlOpenBlockedByProtection");
 }
 
 /**
@@ -1259,7 +1270,7 @@ function selectionUrls(ids) {
     else if (item.url && !isSeparator(item)) {
       const safeUrl = safeBookmarkOpenUrl(item.url);
       if (safeUrl) urls.push(safeUrl);
-      else console.warn("[SBM] Skipped unsupported bookmark URL while building selection open list.", { id: item.id, url: item.url });
+      else console.warn("[SBM] Skipped bookmark URL while building selection open list.", { id: item.id, url: item.url });
     }
   }
   return urls;
@@ -1415,8 +1426,13 @@ async function openUrlsInCurrentWindow(urls) {
     alert(t("couldNotOpenBookmark", { error: bookmarkOpenBlockedMessage(urls) }));
     return;
   }
-  for (const [i, url] of safeUrls.entries()) {
-    await api.tabs.create({ url, active: i === 0 });
+  try {
+    for (const [i, url] of safeUrls.entries()) {
+      await api.tabs.create({ url, active: i === 0 });
+    }
+  } catch (err) {
+    console.error(err);
+    alert(t("couldNotOpenBookmark", { error: err.message || err }));
   }
 }
 
@@ -1469,7 +1485,7 @@ function contextUrls(context) {
   if (isFolder(item)) return folderUrls(item);
   if (isSeparator(item)) return [];
   const safeUrl = item.url ? safeBookmarkOpenUrl(item.url) : null;
-  if (!safeUrl && item.url) console.warn("[SBM] Skipped unsupported bookmark URL while building context open list.", { id: item.id, url: item.url });
+  if (!safeUrl && item.url) console.warn("[SBM] Skipped bookmark URL while building context open list.", { id: item.id, url: item.url });
   return safeUrl ? [safeUrl] : [];
 }
 
@@ -2950,7 +2966,7 @@ async function openDetailsBookmark() {
   if (!isDetailsOpenBookmarkAllowed(selected)) return;
   const safeUrl = safeBookmarkOpenUrl(selected.url);
   if (!safeUrl) {
-    console.warn("[SBM] Blocked unsupported bookmark URL from Details open action.", { url: selected.url });
+    console.warn("[SBM] Blocked bookmark URL from Details open action.", { url: selected.url });
     alert(t("couldNotOpenBookmark", { error: bookmarkOpenBlockedMessage([selected.url]) }));
     return;
   }
@@ -3209,7 +3225,7 @@ function openOrNavigate(item) {
   } else if (item.url && !isSeparator(item)) {
     const safeUrl = safeBookmarkOpenUrl(item.url);
     if (!safeUrl) {
-      console.warn("[SBM] Blocked unsupported bookmark URL from row open action.", { id: item.id, url: item.url });
+      console.warn("[SBM] Blocked bookmark URL from row open action.", { id: item.id, url: item.url });
       alert(t("couldNotOpenBookmark", { error: bookmarkOpenBlockedMessage([item.url]) }));
       return;
     }

@@ -727,5 +727,32 @@
   },
   "warningsErrorsLogHelp": {
     "message": "当前 SBM 会话的临时警告/错误。这不会保存到设置。"
+  },
+  "bookmarkUrlProtections": {
+    "message": "书签 URL 保护"
+  },
+  "bookmarkUrlProtectionsHelp": {
+    "message": "控制对风险较高的书签 URL 协议的保护。这些保护只影响打开书签，不影响保存书签。"
+  },
+  "blockJavascriptBookmarkOpens": {
+    "message": "阻止打开 javascript: 书签"
+  },
+  "blockJavascriptBookmarkOpensHelp": {
+    "message": "推荐启用。防止 SBM 通过扩展的标签页/窗口操作打开书签脚本或其他 javascript: URL。"
+  },
+  "blockDataBookmarkOpens": {
+    "message": "阻止打开 data: 书签"
+  },
+  "blockDataBookmarkOpensHelp": {
+    "message": "推荐启用。防止 SBM 通过扩展的标签页/窗口操作打开内联 data: 文档。"
+  },
+  "blockBlobBookmarkOpens": {
+    "message": "阻止打开 blob: 书签"
+  },
+  "blockBlobBookmarkOpensHelp": {
+    "message": "推荐启用。防止 SBM 通过扩展的标签页/窗口操作打开 blob: URL。"
+  },
+  "urlOpenBlockedByProtection": {
+    "message": "此书签 URL 已被高级 URL 打开保护阻止。你可以在“选项 > 高级”中查看保护开关。"
   }
 }

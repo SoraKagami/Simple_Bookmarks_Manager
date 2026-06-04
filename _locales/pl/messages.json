@@ -727,5 +727,32 @@
   },
   "warningsErrorsLogHelp": {
     "message": "Tymczasowe ostrzeżenia/błędy dla bieżącej sesji SBM. Nie są zapisywane w ustawieniach."
+  },
+  "bookmarkUrlProtections": {
+    "message": "Ochrona adresów URL zakładek"
+  },
+  "bookmarkUrlProtectionsHelp": {
+    "message": "Steruje ochroną dla bardziej ryzykownych schematów URL zakładek. Ta ochrona wpływa tylko na otwieranie zakładek, nie na ich zapisywanie."
+  },
+  "blockJavascriptBookmarkOpens": {
+    "message": "Blokuj otwieranie zakładek javascript:"
+  },
+  "blockJavascriptBookmarkOpensHelp": {
+    "message": "Zalecane. Uniemożliwia SBM otwieranie bookmarkletów lub innych adresów javascript: przez działania kart/okien rozszerzenia."
+  },
+  "blockDataBookmarkOpens": {
+    "message": "Blokuj otwieranie zakładek data:"
+  },
+  "blockDataBookmarkOpensHelp": {
+    "message": "Zalecane. Uniemożliwia SBM otwieranie osadzonych dokumentów data: przez działania kart/okien rozszerzenia."
+  },
+  "blockBlobBookmarkOpens": {
+    "message": "Blokuj otwieranie zakładek blob:"
+  },
+  "blockBlobBookmarkOpensHelp": {
+    "message": "Zalecane. Uniemożliwia SBM otwieranie adresów blob: przez działania kart/okien rozszerzenia."
+  },
+  "urlOpenBlockedByProtection": {
+    "message": "Ten adres URL zakładki jest blokowany przez zaawansowaną ochronę otwierania URL. Przełączniki ochrony możesz sprawdzić w Opcje > Zaawansowane."
   }
 }

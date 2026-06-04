@@ -727,5 +727,32 @@
   },
   "warningsErrorsLogHelp": {
     "message": "7r4nz13n7 w4rn1ngz/3rr0rz f0r 7h1z SBM z3zz10n. N07 z4v3d 70 z3771ngz."
+  },
+  "bookmarkUrlProtections": {
+    "message": "Bookmark URL shieldz"
+  },
+  "bookmarkUrlProtectionsHelp": {
+    "message": "Control shieldz for riskier bookmark URL schemez. These shieldz affect opening bookmarkz only, not saving them."
+  },
+  "blockJavascriptBookmarkOpens": {
+    "message": "Block opening javascript: bookmarkz"
+  },
+  "blockJavascriptBookmarkOpensHelp": {
+    "message": "Recommended. Stopz SBM from opening bookmarkletz or other javascript: URLz through extension tab/window actionz."
+  },
+  "blockDataBookmarkOpens": {
+    "message": "Block opening data: bookmarkz"
+  },
+  "blockDataBookmarkOpensHelp": {
+    "message": "Recommended. Stopz SBM from opening inline data: documentz through extension tab/window actionz."
+  },
+  "blockBlobBookmarkOpens": {
+    "message": "Block opening blob: bookmarkz"
+  },
+  "blockBlobBookmarkOpensHelp": {
+    "message": "Recommended. Stopz SBM from opening blob: URLz through extension tab/window actionz."
+  },
+  "urlOpenBlockedByProtection": {
+    "message": "This bookmark URL iz blocked by an advanced URL-opening shield. You can review the shield togglez in Options > Advanced."
   }
 }

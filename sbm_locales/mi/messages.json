@@ -727,5 +727,32 @@
   },
   "warningsErrorsLogHelp": {
     "message": "Ngā whakatūpato/hapa rangitahi mō tēnei wātū SBM o nāianei. Kāore tēnei e tiakina ki ngā tautuhinga."
+  },
+  "bookmarkUrlProtections": {
+    "message": "Ngā whakamarutanga URL tohuwāhi"
+  },
+  "bookmarkUrlProtectionsHelp": {
+    "message": "Whakahaerehia ngā whakamarutanga mō ngā kaupapa URL tohuwāhi mōrearea ake. Ka pā ēnei whakamarutanga ki te whakatuwhera tohuwāhi anake, kāore ki te tiaki."
+  },
+  "blockJavascriptBookmarkOpens": {
+    "message": "Ārai i te whakatuwhera tohuwāhi javascript:"
+  },
+  "blockJavascriptBookmarkOpensHelp": {
+    "message": "E taunakitia ana. Ka aukati i a SBM kia kaua e whakatuwhera bookmarklets, ētahi atu URL javascript: rānei mā ngā mahi ripa/matapihi o te toronga."
+  },
+  "blockDataBookmarkOpens": {
+    "message": "Ārai i te whakatuwhera tohuwāhi data:"
+  },
+  "blockDataBookmarkOpensHelp": {
+    "message": "E taunakitia ana. Ka aukati i a SBM kia kaua e whakatuwhera tuhinga data: ā-roto mā ngā mahi ripa/matapihi o te toronga."
+  },
+  "blockBlobBookmarkOpens": {
+    "message": "Ārai i te whakatuwhera tohuwāhi blob:"
+  },
+  "blockBlobBookmarkOpensHelp": {
+    "message": "E taunakitia ana. Ka aukati i a SBM kia kaua e whakatuwhera URL blob: mā ngā mahi ripa/matapihi o te toronga."
+  },
+  "urlOpenBlockedByProtection": {
+    "message": "Kua āraitia tēnei URL tohuwāhi e tētahi whakamarutanga whakatuwhera URL arā atu anō. Ka taea te arotake i ngā takahuri whakamarutanga i Options > Advanced."
   }
 }

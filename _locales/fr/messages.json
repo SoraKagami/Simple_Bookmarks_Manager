@@ -727,5 +727,32 @@
   },
   "warningsErrorsLogHelp": {
     "message": "Avertissements/erreurs transitoires pour cette session SBM actuelle. Ceci n’est pas enregistré dans les paramètres."
+  },
+  "bookmarkUrlProtections": {
+    "message": "Protections des URL de favoris"
+  },
+  "bookmarkUrlProtectionsHelp": {
+    "message": "Contrôle les protections pour les schémas d’URL de favoris à risque plus élevé. Ces protections concernent uniquement l’ouverture des favoris, pas leur enregistrement."
+  },
+  "blockJavascriptBookmarkOpens": {
+    "message": "Bloquer l’ouverture des favoris javascript:"
+  },
+  "blockJavascriptBookmarkOpensHelp": {
+    "message": "Recommandé. Empêche SBM d’ouvrir des bookmarklets ou d’autres URL javascript: via les actions d’onglet/fenêtre de l’extension."
+  },
+  "blockDataBookmarkOpens": {
+    "message": "Bloquer l’ouverture des favoris data:"
+  },
+  "blockDataBookmarkOpensHelp": {
+    "message": "Recommandé. Empêche SBM d’ouvrir des documents data: intégrés via les actions d’onglet/fenêtre de l’extension."
+  },
+  "blockBlobBookmarkOpens": {
+    "message": "Bloquer l’ouverture des favoris blob:"
+  },
+  "blockBlobBookmarkOpensHelp": {
+    "message": "Recommandé. Empêche SBM d’ouvrir des URL blob: via les actions d’onglet/fenêtre de l’extension."
+  },
+  "urlOpenBlockedByProtection": {
+    "message": "Cette URL de favori est bloquée par une protection avancée d’ouverture d’URL. Vous pouvez vérifier les interrupteurs de protection dans Options > Avancé."
   }
 }

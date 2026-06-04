@@ -727,5 +727,32 @@
   },
   "warningsErrorsLogHelp": {
     "message": "Tijdelijke waarschuwingen/fouten voor deze huidige SBM-sessie. Dit wordt niet opgeslagen in de instellingen."
+  },
+  "bookmarkUrlProtections": {
+    "message": "Beveiliging voor bladwijzer-URL’s"
+  },
+  "bookmarkUrlProtectionsHelp": {
+    "message": "Beheer beveiliging voor bladwijzer-URL-schema’s met een hoger risico. Deze beveiliging geldt alleen voor het openen van bladwijzers, niet voor het opslaan ervan."
+  },
+  "blockJavascriptBookmarkOpens": {
+    "message": "Openen van javascript:-bladwijzers blokkeren"
+  },
+  "blockJavascriptBookmarkOpensHelp": {
+    "message": "Aanbevolen. Voorkomt dat SBM bookmarklets of andere javascript:-URL’s opent via tab-/vensteracties van de extensie."
+  },
+  "blockDataBookmarkOpens": {
+    "message": "Openen van data:-bladwijzers blokkeren"
+  },
+  "blockDataBookmarkOpensHelp": {
+    "message": "Aanbevolen. Voorkomt dat SBM inline data:-documenten opent via tab-/vensteracties van de extensie."
+  },
+  "blockBlobBookmarkOpens": {
+    "message": "Openen van blob:-bladwijzers blokkeren"
+  },
+  "blockBlobBookmarkOpensHelp": {
+    "message": "Aanbevolen. Voorkomt dat SBM blob:-URL’s opent via tab-/vensteracties van de extensie."
+  },
+  "urlOpenBlockedByProtection": {
+    "message": "Deze bladwijzer-URL wordt geblokkeerd door een geavanceerde bescherming voor het openen van URL’s. Je kunt de beveiligingsschakelaars controleren in Opties > Geavanceerd."
   }
 }
