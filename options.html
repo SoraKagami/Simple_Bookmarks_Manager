@@ -101,102 +101,117 @@
     <section class="option-section">
       <h2 data-i18n="advanced">Advanced</h2>
 
-      <div class="option-subsection">
-        <h3 data-i18n="folderContentsView">Folder Contents view</h3>
-        <p class="option-note" data-i18n="folderContentsViewHelp">Configure middle-pane column widths and optional columns. Name and URL are always shown.</p>
-        <label class="option-row option-row-control">
-          <span>
-            <strong data-i18n="midFcWidthName">Name column width</strong>
-            <small data-i18n="midFcWidthNameHelp">Width in pixels for the Folder Contents Name column.</small>
-          </span>
-          <input id="mid_FC_Width_Name" type="number" min="120" max="1200" step="1">
-        </label>
-        <label class="option-row option-row-control">
-          <span>
-            <strong data-i18n="midFcWidthUrl">URL column width</strong>
-            <small data-i18n="midFcWidthUrlHelp">Width in pixels for the Folder Contents URL column.</small>
-          </span>
-          <input id="mid_FC_Width_URL" type="number" min="160" max="1200" step="1">
-        </label>
-        <label class="option-row option-row-control">
-          <span>
-            <strong data-i18n="midFcWidthDateAdded">Date Added column width</strong>
-            <small data-i18n="midFcWidthDateAddedHelp">Width in pixels for the optional Date Added column.</small>
-          </span>
-          <input id="mid_FC_Width_DateAdded" type="number" min="105" max="1200" step="1">
-        </label>
-        <label class="option-row">
-          <input id="mid_FC_Show_DateAdded" type="checkbox">
-          <span>
-            <strong data-i18n="midFcShowDateAdded">Show Date Added column</strong>
-            <small data-i18n="midFcShowDateAddedHelp">Show or hide the Date Added column in the Folder Contents pane.</small>
-          </span>
-        </label>
-        <label class="option-row option-row-control">
-          <span>
-            <strong data-i18n="midFcWidthId">ID column width</strong>
-            <small data-i18n="midFcWidthIdHelp">Width in pixels for the optional ID column.</small>
-          </span>
-          <input id="mid_FC_Width_ID" type="number" min="56" max="1200" step="1">
-        </label>
-        <label class="option-row">
-          <input id="mid_FC_Show_ID" type="checkbox">
-          <span>
-            <strong data-i18n="midFcShowId">Show ID column</strong>
-            <small data-i18n="midFcShowIdHelp">Show or hide the Chromium bookmark ID column.</small>
-          </span>
-        </label>
-        <label class="option-row option-row-control">
-          <span>
-            <strong data-i18n="midFcWidthOrder">Order column width</strong>
-            <small data-i18n="midFcWidthOrderHelp">Width in pixels for the optional Chromium order/index column.</small>
-          </span>
-          <input id="mid_FC_Width_Order" type="number" min="70" max="1200" step="1">
-        </label>
-        <label class="option-row">
-          <input id="mid_FC_Show_Order" type="checkbox">
-          <span>
-            <strong data-i18n="midFcShowOrder">Show Order column</strong>
-            <small data-i18n="midFcShowOrderHelp">Show or hide the Chromium folder order/index column.</small>
-          </span>
-        </label>
-      </div>
+      <details class="option-subsection option-collapsible">
+        <summary>
+          <span class="option-subsection-summary-title" data-i18n="folderContentsView">Folder Contents view</span>
+          <span class="option-subsection-summary-help" data-i18n="folderContentsViewHelp">Configure middle-pane column widths and optional columns. Name and URL are always shown.</span>
+        </summary>
+        <div class="option-subsection-body">
+          <label class="option-row option-row-control">
+            <span>
+              <strong data-i18n="midFcWidthName">Name column width</strong>
+              <small data-i18n="midFcWidthNameHelp">Width in pixels for the Folder Contents Name column.</small>
+            </span>
+            <input id="mid_FC_Width_Name" type="number" min="120" max="1200" step="1">
+          </label>
+          <label class="option-row option-row-control">
+            <span>
+              <strong data-i18n="midFcWidthUrl">URL column width</strong>
+              <small data-i18n="midFcWidthUrlHelp">Width in pixels for the Folder Contents URL column.</small>
+            </span>
+            <input id="mid_FC_Width_URL" type="number" min="160" max="1200" step="1">
+          </label>
+          <label class="option-row option-row-control">
+            <span>
+              <strong data-i18n="midFcWidthDateAdded">Date Added column width</strong>
+              <small data-i18n="midFcWidthDateAddedHelp">Width in pixels for the optional Date Added column.</small>
+            </span>
+            <input id="mid_FC_Width_DateAdded" type="number" min="105" max="1200" step="1">
+          </label>
+          <label class="option-row">
+            <input id="mid_FC_Show_DateAdded" type="checkbox">
+            <span>
+              <strong data-i18n="midFcShowDateAdded">Show Date Added column</strong>
+              <small data-i18n="midFcShowDateAddedHelp">Show or hide the Date Added column in the Folder Contents pane.</small>
+            </span>
+          </label>
+          <label class="option-row option-row-control">
+            <span>
+              <strong data-i18n="midFcWidthId">ID column width</strong>
+              <small data-i18n="midFcWidthIdHelp">Width in pixels for the optional ID column.</small>
+            </span>
+            <input id="mid_FC_Width_ID" type="number" min="56" max="1200" step="1">
+          </label>
+          <label class="option-row">
+            <input id="mid_FC_Show_ID" type="checkbox">
+            <span>
+              <strong data-i18n="midFcShowId">Show ID column</strong>
+              <small data-i18n="midFcShowIdHelp">Show or hide the Chromium bookmark ID column.</small>
+            </span>
+          </label>
+          <label class="option-row option-row-control">
+            <span>
+              <strong data-i18n="midFcWidthOrder">Order column width</strong>
+              <small data-i18n="midFcWidthOrderHelp">Width in pixels for the optional Chromium order/index column.</small>
+            </span>
+            <input id="mid_FC_Width_Order" type="number" min="70" max="1200" step="1">
+          </label>
+          <label class="option-row">
+            <input id="mid_FC_Show_Order" type="checkbox">
+            <span>
+              <strong data-i18n="midFcShowOrder">Show Order column</strong>
+              <small data-i18n="midFcShowOrderHelp">Show or hide the Chromium folder order/index column.</small>
+            </span>
+          </label>
+        </div>
+      </details>
 
-      <label class="option-row">
-        <input id="EnableAdvancedDetailsViewing" type="checkbox">
-        <span>
-          <strong data-i18n="enableAdvancedViewing">Enable advanced details viewing</strong>
-          <small data-i18n="enableAdvancedViewingHelp">Show read-only advanced bookmark metadata in the Details pane.</small>
-        </span>
-      </label>
-      <label class="option-row">
-        <input id="EnableAdvancedDetailsEditing" type="checkbox">
-        <span>
-          <strong data-i18n="enableAdvancedEditing">Enable advanced details editing</strong>
-          <small data-i18n="enableAdvancedEditingHelp">Allow supported advanced editing, currently limited to bookmark index changes.</small>
-        </span>
-      </label>
-      <label class="option-row">
-        <input id="Optimisation_DOMrendering" type="checkbox">
-        <span>
-          <strong data-i18n="optimisationDOMrendering">Optimisation: DOM rendering pass</strong>
-          <small data-i18n="optimisationDOMrenderingHelp">Experimental. Enables reduced DOM churn for selected rendering, drag/drop indicators, and row icon handling. Disable only when comparing performance or troubleshooting UI behavior.</small>
-        </span>
-      </label>
-      <label class="option-row">
-        <input id="Optimisation_TempBookmarkTreeMaps" type="checkbox">
-        <span>
-          <strong data-i18n="optimisationTempBookmarkTreeMaps">Optimisation: temporary bookmark tree maps</strong>
-          <small data-i18n="optimisationTempBookmarkTreeMapsHelp">Experimental. Builds short-lived lookup maps during some render/search/tree operations, then discards them to avoid a persistent stale cache.</small>
-        </span>
-      </label>
-      <label id="show-errors-warnings-option-row" class="option-row" hidden>
-        <input id="Show_ErrorsWarnings" type="checkbox">
-        <span>
-          <strong data-i18n="showErrorsWarnings">Show warnings/errors log</strong>
-          <small data-i18n="showErrorsWarningsHelp">Advanced. Shows a transient in-memory log for this SBM session. Log entries are not saved to extension settings.</small>
-        </span>
-      </label>
+      <details class="option-subsection option-collapsible">
+        <summary>
+          <span class="option-subsection-summary-title" data-i18n="advancedDetails">Advanced Details</span>
+          <span class="option-subsection-summary-help" data-i18n="advancedDetailsHelp">Configure advanced metadata viewing and supported advanced editing in the Details pane.</span>
+        </summary>
+        <div class="option-subsection-body">
+          <label class="option-row">
+            <input id="EnableAdvancedDetailsViewing" type="checkbox">
+            <span>
+              <strong data-i18n="enableAdvancedViewing">Enable advanced details viewing</strong>
+              <small data-i18n="enableAdvancedViewingHelp">Show read-only advanced bookmark metadata in the Details pane.</small>
+            </span>
+          </label>
+          <label class="option-row">
+            <input id="EnableAdvancedDetailsEditing" type="checkbox">
+            <span>
+              <strong data-i18n="enableAdvancedEditing">Enable advanced details editing</strong>
+              <small data-i18n="enableAdvancedEditingHelp">Allow supported advanced editing, currently limited to bookmark index changes.</small>
+            </span>
+          </label>
+        </div>
+      </details>
+
+      <details class="option-subsection option-collapsible">
+        <summary>
+          <span class="option-subsection-summary-title" data-i18n="optimisations">Optimisations</span>
+          <span class="option-subsection-summary-help" data-i18n="optimisationsHelp">Experimental performance options for benchmarking and troubleshooting.</span>
+        </summary>
+        <div class="option-subsection-body">
+          <label class="option-row">
+            <input id="Optimisation_DOMrendering" type="checkbox">
+            <span>
+              <strong data-i18n="optimisationDOMrendering">Optimisation: DOM rendering pass</strong>
+              <small data-i18n="optimisationDOMrenderingHelp">Experimental. Enables reduced DOM churn for selected rendering, drag/drop indicators, and row icon handling. Disable only when comparing performance or troubleshooting UI behavior.</small>
+            </span>
+          </label>
+          <label class="option-row">
+            <input id="Optimisation_TempBookmarkTreeMaps" type="checkbox">
+            <span>
+              <strong data-i18n="optimisationTempBookmarkTreeMaps">Optimisation: temporary bookmark tree maps</strong>
+              <small data-i18n="optimisationTempBookmarkTreeMapsHelp">Experimental. Builds short-lived lookup maps during some render/search/tree operations, then discards them to avoid a persistent stale cache.</small>
+            </span>
+          </label>
+        </div>
+      </details>
+
       <label class="option-row">
         <input id="DebugOptions" type="checkbox">
         <span>
@@ -204,6 +219,22 @@
           <small data-i18n="debugOptionsHelp">Advanced. Shows debug-only test controls. Leave disabled during normal use.</small>
         </span>
       </label>
+
+      <details id="debug-settings-group" class="option-subsection option-collapsible" hidden>
+        <summary>
+          <span class="option-subsection-summary-title" data-i18n="debugSettings">Debug Settings</span>
+          <span class="option-subsection-summary-help" data-i18n="debugSettingsHelp">Controls shown only when Debug options is enabled.</span>
+        </summary>
+        <div class="option-subsection-body">
+          <label id="show-errors-warnings-option-row" class="option-row">
+            <input id="Show_ErrorsWarnings" type="checkbox">
+            <span>
+              <strong data-i18n="showErrorsWarnings">Show warnings/errors log</strong>
+              <small data-i18n="showErrorsWarningsHelp">Advanced. Shows a transient in-memory log for this SBM session. Log entries are not saved to extension settings.</small>
+            </span>
+          </label>
+        </div>
+      </details>
     </section>
 
     <div class="actions">

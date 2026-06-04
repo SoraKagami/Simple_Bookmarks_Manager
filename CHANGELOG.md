@@ -1,5 +1,16 @@
 # Changelog
 
+## 0.7.14
+
+- Updated the Options page Advanced section layout.
+- Made the **Folder Contents view** controls collapsible and collapsed by default while keeping the title and description visible in the disclosure header.
+- Added collapsible **Advanced Details**, **Optimisations**, and **Debug Settings** groups, collapsed by default.
+- Moved advanced details viewing/editing controls into **Advanced Details**.
+- Moved optimisation toggles into **Optimisations**.
+- Moved **Show warnings/errors log** into **Debug Settings**, shown only when **Debug options** is enabled.
+- Increased the **Folder Contents view** group header styling to match the Advanced section heading scale.
+- Updated `manifest.json` to `0.7.14`.
+
 ## 0.7.13
 
 - Added resizable columns to the middle **Folder Contents** pane.

@@ -622,5 +622,20 @@
   },
   "warningsErrorsLogHelp": {
     "message": "Transient warnings/errors for this current SBM session. This is not saved to settings."
+  },
+  "advancedDetailsHelp": {
+    "message": "Configure advanced metadata viewing and supported advanced editing in the Details pane."
+  },
+  "optimisations": {
+    "message": "Optimisations"
+  },
+  "optimisationsHelp": {
+    "message": "Experimental performance options for benchmarking and troubleshooting."
+  },
+  "debugSettings": {
+    "message": "Debug Settings"
+  },
+  "debugSettingsHelp": {
+    "message": "Controls shown only when Debug options is enabled."
   }
 }

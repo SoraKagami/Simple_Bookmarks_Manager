@@ -92,7 +92,7 @@ function setHidden(element, hidden) {
 
 function setDebugOptionsVisible(visible) {
   setHidden($("debug-failed-bookmark-operation"), !visible);
-  setHidden($("show-errors-warnings-option-row"), !visible);
+  setHidden($("debug-settings-group"), !visible);
 
   // Keep the diagnostics log hidden unless the explicit Debug options gate is enabled.
   // The Show_ErrorsWarnings setting is still preserved so it can resume if Debug options is re-enabled.

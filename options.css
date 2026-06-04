@@ -53,3 +53,13 @@ body.embedded header h1 {
 .option-subsection { margin: 12px 0 16px; padding: 12px; border: 1px solid color-mix(in srgb, CanvasText 14%, transparent); border-radius: 8px; }
 .option-subsection h3 { margin: 0 0 6px; font-size: .929rem; }
 .option-note { margin: 0 0 8px; opacity: .78; font-size: .929rem; }
+
+.option-collapsible { padding: 0; overflow: hidden; }
+.option-collapsible summary { display: block; padding: 12px; cursor: pointer; list-style: none; }
+.option-collapsible summary::-webkit-details-marker { display: none; }
+.option-collapsible summary::before { content: "▸"; display: inline-block; width: 1.2em; opacity: .75; }
+.option-collapsible[open] summary::before { content: "▾"; }
+.option-subsection-summary-title { display: inline; font-size: 1rem; text-transform: uppercase; font-weight: 700; opacity: .75; }
+.option-subsection-summary-help { display: block; margin-top: 4px; margin-left: 1.2em; opacity: .78; font-size: .929rem; }
+.option-subsection-body { padding: 0 12px 12px; }
+.option-subsection-body .option-row:first-child { border-top: 1px solid color-mix(in srgb, CanvasText 12%, transparent); }
