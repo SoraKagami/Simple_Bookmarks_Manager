@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.8.5
+
+- Updated `sbm_locales/en_Netspeak/messages.json` to include the new About/Changelog locale strings from the English locale.
+- Reworked the new en_Netspeak strings with a more visually distinct, playful debugging style while keeping the text safe and understandable.
+
 ## 0.8.4
 
 - Adjusted the About page typography defaults: body text now uses `1.25rem`, and the main heading now uses `3rem` as the preferred value in its `clamp()` expression.

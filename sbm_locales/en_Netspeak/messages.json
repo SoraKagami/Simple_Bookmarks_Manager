@@ -2,6 +2,36 @@
   "about": {
     "message": "4b0u7"
   },
+  "aboutPageTitle": {
+    "message": "4b0u7 S1mpl3 B00km4rkz M4n4g3r"
+  },
+  "aboutProjectHeading": {
+    "message": "Pr0j3c7"
+  },
+  "aboutProjectDescription": {
+    "message": "S1mpl3 B00km4rkz M4n4g3r wr4ngl3z y0ur l0c4l b00km4rk hoard, zooms thru f0ld3rz, 4nd keeps 4 comfy desktop-style workflow inside Chromium-fl4v0r br0wz3rz."
+  },
+  "aboutGithubLabel": {
+    "message": "G17Hub:"
+  },
+  "aboutDesignGoalsHeading": {
+    "message": "D3z1gn g04lz"
+  },
+  "aboutDesignGoalFastLocal": {
+    "message": "F4s7 l0c4l b00km4rk browsing + editing, n0 lag dragonz."
+  },
+  "aboutDesignGoalNoRemote": {
+    "message": "Cl34r c0n7r0lz, z3r0 rem0t3 services, z3r0 acc0un7 quests."
+  },
+  "aboutDesignGoalChromiumCompatibility": {
+    "message": "Pr4c71c4l c0mp47 across Chromium-fl4v0r br0wz3rz."
+  },
+  "aboutPrivacyHeading": {
+    "message": "Pr1v4cy"
+  },
+  "aboutPrivacyDescription": {
+    "message": "SBM runs purely l0c4l, like a tiny b00km4rk goblin in y0ur browser. N0 b00km4rk d474, telemetry, pings, or usage crumbs get sent to rem0t3 services."
+  },
   "actionFailed": {
     "message": "4c710n f41l3d: {error}"
   },
@@ -33,7 +63,7 @@
     "message": "Wh3n d1z4bl3d, 7h3 D3l373 k3y n0 l0ng3r d3l373z z3l3c73d b00km4rk 3n7r13z."
   },
   "appDescription": {
-    "message": "A simple local b00km4rks manager for Chromium browsers, inspired by Firefox Places, Firefox’s bookmark management system."
+    "message": "A s1mpl3 l0c4l b00km4rkz m4n4g3r for Chromium br0wz3rz, inspired by Firefox Places — Firefox’s b00km4rk-wrangling HQ."
   },
   "appName": {
     "message": "S1mpl3 B00km4rkz M4n4g3r"
@@ -754,5 +784,11 @@
   },
   "urlOpenBlockedByProtection": {
     "message": "This bookmark URL iz blocked by an advanced URL-opening shield. You can review the shield togglez in Options > Advanced."
+  },
+  "changelog": {
+    "message": "Ch4ng3l0g"
+  },
+  "closeDialog": {
+    "message": "Cl0z3 d14l0g"
   }
 }
