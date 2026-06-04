@@ -42,16 +42,16 @@
     "message": "Kembali"
   },
   "bookmarkAlt": {
-    "message": "Bookmark"
+    "message": "Markah"
   },
   "bookmarkFallback": {
-    "message": "(Bookmark)"
+    "message": "(markah)"
   },
   "bookmarkListColumns": {
     "message": "Kolom daftar bookmark"
   },
   "bookmarkMutationFailed": {
-    "message": "Bookmark operation failed ({action}): {error}"
+    "message": "Operasi markah gagal ({action}): {error}"
   },
   "bookmarkNamePrompt": {
     "message": "Nama bookmark"
@@ -72,13 +72,13 @@
     "message": "Root browser"
   },
   "cancel": {
-    "message": "Cancel"
+    "message": "Batal"
   },
   "chooseSortModeTitle": {
     "message": "Pilih mode pengurutan panel tengah. Default memakai urutan folder Chromium."
   },
   "clearLog": {
-    "message": "Clear Log"
+    "message": "Hapus log"
   },
   "clickHideDetails": {
     "message": "Klik untuk menyembunyikan detail"
@@ -114,7 +114,7 @@
     "message": "Tidak dapat menyimpan perubahan: {error}"
   },
   "create": {
-    "message": "Create"
+    "message": "Buat"
   },
   "currentFolderAndSubfolders": {
     "message": "Folder saat ini dan subfolder"
@@ -129,19 +129,19 @@
     "message": "Terakhir digunakan"
   },
   "debugFailedBookmarkOperation": {
-    "message": "Debug: cause failed bookmark operation"
+    "message": "Debug: picu kegagalan operasi markah"
   },
   "debugFailedBookmarkOperationAction": {
-    "message": "debug failed bookmark operation"
+    "message": "operasi markah debug yang gagal"
   },
   "debugFailureUnexpectedSuccess": {
-    "message": "Debug failure unexpectedly succeeded"
+    "message": "Kegagalan debug tiba-tiba berhasil"
   },
   "debugOptions": {
-    "message": "Debug options"
+    "message": "Opsi debug"
   },
   "debugOptionsHelp": {
-    "message": "Advanced. Shows debug-only test controls. Leave disabled during normal use."
+    "message": "Lanjutan. Menampilkan kontrol pengujian khusus debug. Biarkan nonaktif selama penggunaan normal."
   },
   "debugSettings": {
     "message": "Pengaturan Debug"
@@ -192,10 +192,10 @@
     "message": "Seret untuk memindahkan atau mengurutkan ulang item ini"
   },
   "edit": {
-    "message": "Edit"
+    "message": "Sunting"
   },
   "editBookmark": {
-    "message": "Edit Bookmark"
+    "message": "Sunting Markah"
   },
   "emptyDetails": {
     "message": "Pilih satu item, atau pilih folder untuk menampilkan isinya."
@@ -228,7 +228,7 @@
     "message": "Konfigurasikan lebar kolom panel tengah dan kolom opsional. Nama dan URL selalu ditampilkan."
   },
   "folderFallback": {
-    "message": "(Folder)"
+    "message": "(folder)"
   },
   "folderNamePrompt": {
     "message": "Nama folder"
@@ -237,7 +237,7 @@
     "message": "Folder:"
   },
   "font": {
-    "message": "Font"
+    "message": "Fon"
   },
   "fontHelp": {
     "message": "Mengatur keluarga font utama yang digunakan UI pengelola bookmark."
@@ -384,7 +384,7 @@
     "message": "pindahkan dengan seret/lepas"
   },
   "mutationEditBookmark": {
-    "message": "edit bookmark"
+    "message": "sunting markah"
   },
   "mutationMoveSelectedItem": {
     "message": "pindahkan item yang dipilih"
@@ -450,7 +450,7 @@
     "message": "Buka semua di tampilan terpisah"
   },
   "openBookmark": {
-    "message": "Buka Bookmark"
+    "message": "Buka Markah"
   },
   "openDefaultBookmarksManager": {
     "message": "Buka Pengelola Bookmark Default"
@@ -477,16 +477,16 @@
     "message": "Buka menu Simple Bookmarks Manager"
   },
   "optimisationDOMrendering": {
-    "message": "Optimisation: DOM rendering pass"
+    "message": "Optimasi: proses rendering DOM"
   },
   "optimisationDOMrenderingHelp": {
-    "message": "Experimental. Enables reduced DOM churn for selected rendering, drag/drop indicators, and row icon handling. Disable only when comparing performance or troubleshooting UI behavior."
+    "message": "Eksperimental. Mengurangi perubahan DOM untuk rendering pilihan, indikator seret/lepas, dan penanganan ikon baris. Nonaktifkan hanya saat membandingkan performa atau memecahkan masalah perilaku UI."
   },
   "optimisationTempBookmarkTreeMaps": {
-    "message": "Optimisation: temporary bookmark tree maps"
+    "message": "Optimasi: peta sementara pohon markah"
   },
   "optimisationTempBookmarkTreeMapsHelp": {
-    "message": "Experimental. Builds short-lived lookup maps during some render/search/tree operations, then discards them to avoid a persistent stale cache."
+    "message": "Eksperimental. Membuat peta pencarian sementara selama beberapa operasi render/pencarian/pohon, lalu membuangnya untuk menghindari cache persisten yang usang."
   },
   "optimisations": {
     "message": "Optimasi"
@@ -540,7 +540,7 @@
     "message": "Lebar dalam piksel untuk panel Detail kanan."
   },
   "rootFallback": {
-    "message": "(root)"
+    "message": "(akar)"
   },
   "safety": {
     "message": "Keamanan"
@@ -582,10 +582,10 @@
     "message": "Tampilkan panel Detail"
   },
   "showErrorsWarnings": {
-    "message": "Show warnings/errors log"
+    "message": "Tampilkan log peringatan/kesalahan"
   },
   "showErrorsWarningsHelp": {
-    "message": "Advanced. Shows a transient in-memory log for this SBM session. Log entries are not saved to extension settings."
+    "message": "Lanjutan. Menampilkan log sementara dalam memori untuk sesi SBM ini. Entri log tidak disimpan ke pengaturan ekstensi."
   },
   "showSortWarning": {
     "message": "Tampilkan konfirmasi pengurutan permanen"
@@ -618,7 +618,7 @@
     "message": "Sortir berdasarkan tanggal ditambahkan: terbaru dulu"
   },
   "sortDefault": {
-    "message": "Default"
+    "message": "Bawaan"
   },
   "sortDefaultTooltip": {
     "message": "Urutan folder Chromium default. Klik untuk kembali ke pengurutan default; kolom ini tidak mengurutkan balik."
@@ -693,19 +693,19 @@
     "message": "URL"
   },
   "urlWarningControlCharacters": {
-    "message": "URL contained hidden control characters; they will be removed before saving."
+    "message": "URL berisi karakter kontrol tersembunyi; karakter tersebut akan dihapus sebelum disimpan."
   },
   "urlWarningEmpty": {
-    "message": "URL is empty. Chrome may reject this bookmark until a URL is provided."
+    "message": "URL kosong. Chrome mungkin menolak markah ini sampai URL diberikan."
   },
   "urlWarningInvalidBlocked": {
-    "message": "This URL is not valid enough to save as a bookmark. Fix the URL before saving."
+    "message": "URL ini tidak cukup valid untuk disimpan sebagai markah. Perbaiki URL sebelum menyimpan."
   },
   "urlWarningInvalidButAllowed": {
-    "message": "This URL is not valid enough to save as a bookmark. Fix the URL before saving."
+    "message": "URL ini tidak cukup valid untuk disimpan sebagai markah. Perbaiki URL sebelum menyimpan."
   },
   "urlWarningWhitespace": {
-    "message": "URL contains whitespace. It will be saved if Chrome accepts it, but it may not open as expected."
+    "message": "URL berisi spasi. URL akan disimpan jika Chrome menerimanya, tetapi mungkin tidak terbuka seperti yang diharapkan."
   },
   "userInterface": {
     "message": "Antarmuka Pengguna"
@@ -720,12 +720,12 @@
     "message": "Urutan visual:"
   },
   "warningsErrorsLog": {
-    "message": "Warnings / Errors Log"
+    "message": "Log Peringatan / Kesalahan"
   },
   "warningsErrorsLogEmpty": {
-    "message": "No warnings or errors recorded for this session."
+    "message": "Tidak ada peringatan atau kesalahan yang tercatat untuk sesi ini."
   },
   "warningsErrorsLogHelp": {
-    "message": "Transient warnings/errors for this current SBM session. This is not saved to settings."
+    "message": "Peringatan/kesalahan sementara untuk sesi SBM saat ini. Ini tidak disimpan ke pengaturan."
   }
 }

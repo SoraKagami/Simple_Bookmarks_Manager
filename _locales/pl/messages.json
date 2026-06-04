@@ -45,13 +45,13 @@
     "message": "Zakładka"
   },
   "bookmarkFallback": {
-    "message": "(bookmark)"
+    "message": "(zakładka)"
   },
   "bookmarkListColumns": {
     "message": "Kolumny listy zakładek"
   },
   "bookmarkMutationFailed": {
-    "message": "Bookmark operation failed ({action}): {error}"
+    "message": "Operacja na zakładce nie powiodła się ({action}): {error}"
   },
   "bookmarkNamePrompt": {
     "message": "Nazwa zakładki"
@@ -72,13 +72,13 @@
     "message": "Katalog główny przeglądarki"
   },
   "cancel": {
-    "message": "Cancel"
+    "message": "Anuluj"
   },
   "chooseSortModeTitle": {
     "message": "Wybierz tryb sortowania panelu środkowego. Domyślnie używa kolejności folderów Chromium."
   },
   "clearLog": {
-    "message": "Clear Log"
+    "message": "Wyczyść dziennik"
   },
   "clickHideDetails": {
     "message": "Kliknij, aby ukryć szczegóły"
@@ -114,7 +114,7 @@
     "message": "Nie można zapisać zmian: {error}"
   },
   "create": {
-    "message": "Create"
+    "message": "Utwórz"
   },
   "currentFolderAndSubfolders": {
     "message": "Bieżący folder i podfoldery"
@@ -129,19 +129,19 @@
     "message": "Ostatnio użyto"
   },
   "debugFailedBookmarkOperation": {
-    "message": "Debug: cause failed bookmark operation"
+    "message": "Debug: wywołaj nieudaną operację na zakładce"
   },
   "debugFailedBookmarkOperationAction": {
-    "message": "debug failed bookmark operation"
+    "message": "nieudana operacja debugowania zakładki"
   },
   "debugFailureUnexpectedSuccess": {
-    "message": "Debug failure unexpectedly succeeded"
+    "message": "Błąd debugowania nieoczekiwanie zakończył się powodzeniem"
   },
   "debugOptions": {
-    "message": "Debug options"
+    "message": "Opcje debugowania"
   },
   "debugOptionsHelp": {
-    "message": "Advanced. Shows debug-only test controls. Leave disabled during normal use."
+    "message": "Zaawansowane. Pokazuje kontrolki testowe tylko do debugowania. Pozostaw wyłączone podczas normalnego używania."
   },
   "debugSettings": {
     "message": "Ustawienia debugowania"
@@ -195,7 +195,7 @@
     "message": "Edytuj"
   },
   "editBookmark": {
-    "message": "Edit Bookmark"
+    "message": "Edytuj zakładkę"
   },
   "emptyDetails": {
     "message": "Wybierz jeden element albo folder, aby pokazać jego zawartość."
@@ -420,7 +420,7 @@
     "message": "Nowy folder"
   },
   "newFolderDefaultName": {
-    "message": "New Folder"
+    "message": "Nowy folder"
   },
   "newFolderNamePrompt": {
     "message": "Nazwa nowego folderu"
@@ -477,16 +477,16 @@
     "message": "Otwórz menu Simple Bookmarks Manager"
   },
   "optimisationDOMrendering": {
-    "message": "Optimisation: DOM rendering pass"
+    "message": "Optymalizacja: renderowanie DOM"
   },
   "optimisationDOMrenderingHelp": {
-    "message": "Experimental. Enables reduced DOM churn for selected rendering, drag/drop indicators, and row icon handling. Disable only when comparing performance or troubleshooting UI behavior."
+    "message": "Eksperymentalne. Zmniejsza liczbę zmian DOM przy renderowaniu zaznaczenia, wskaźnikach przeciągania i upuszczania oraz obsłudze ikon wierszy. Wyłączaj tylko podczas porównywania wydajności lub rozwiązywania problemów z interfejsem."
   },
   "optimisationTempBookmarkTreeMaps": {
-    "message": "Optimisation: temporary bookmark tree maps"
+    "message": "Optymalizacja: tymczasowe mapy drzewa zakładek"
   },
   "optimisationTempBookmarkTreeMapsHelp": {
-    "message": "Experimental. Builds short-lived lookup maps during some render/search/tree operations, then discards them to avoid a persistent stale cache."
+    "message": "Eksperymentalne. Tworzy krótkotrwałe mapy wyszukiwania podczas niektórych operacji renderowania, wyszukiwania i drzewa, a następnie je usuwa, aby uniknąć trwałej nieaktualnej pamięci podręcznej."
   },
   "optimisations": {
     "message": "Optymalizacje"
@@ -540,7 +540,7 @@
     "message": "Szerokość w pikselach prawego panelu Szczegóły."
   },
   "rootFallback": {
-    "message": "(root)"
+    "message": "(główny)"
   },
   "safety": {
     "message": "Bezpieczeństwo"
@@ -582,10 +582,10 @@
     "message": "Pokaż panel Szczegóły"
   },
   "showErrorsWarnings": {
-    "message": "Show warnings/errors log"
+    "message": "Pokaż dziennik ostrzeżeń/błędów"
   },
   "showErrorsWarningsHelp": {
-    "message": "Advanced. Shows a transient in-memory log for this SBM session. Log entries are not saved to extension settings."
+    "message": "Zaawansowane. Pokazuje tymczasowy dziennik w pamięci dla tej sesji SBM. Wpisy dziennika nie są zapisywane w ustawieniach rozszerzenia."
   },
   "showSortWarning": {
     "message": "Pokaż potwierdzenie trwałego sortowania"
@@ -693,19 +693,19 @@
     "message": "URL"
   },
   "urlWarningControlCharacters": {
-    "message": "URL contained hidden control characters; they will be removed before saving."
+    "message": "URL zawierał ukryte znaki sterujące; zostaną one usunięte przed zapisaniem."
   },
   "urlWarningEmpty": {
-    "message": "URL is empty. Chrome may reject this bookmark until a URL is provided."
+    "message": "URL jest pusty. Chrome może odrzucić tę zakładkę, dopóki nie zostanie podany URL."
   },
   "urlWarningInvalidBlocked": {
-    "message": "This URL is not valid enough to save as a bookmark. Fix the URL before saving."
+    "message": "Ten URL nie jest wystarczająco poprawny, aby zapisać go jako zakładkę. Popraw URL przed zapisaniem."
   },
   "urlWarningInvalidButAllowed": {
-    "message": "This URL is not valid enough to save as a bookmark. Fix the URL before saving."
+    "message": "Ten URL nie jest wystarczająco poprawny, aby zapisać go jako zakładkę. Popraw URL przed zapisaniem."
   },
   "urlWarningWhitespace": {
-    "message": "URL contains whitespace. It will be saved if Chrome accepts it, but it may not open as expected."
+    "message": "URL zawiera spacje. Zostanie zapisany, jeśli Chrome go zaakceptuje, ale może nie otworzyć się zgodnie z oczekiwaniami."
   },
   "userInterface": {
     "message": "Interfejs użytkownika"
@@ -720,12 +720,12 @@
     "message": "Sortowanie wizualne:"
   },
   "warningsErrorsLog": {
-    "message": "Warnings / Errors Log"
+    "message": "Dziennik ostrzeżeń / błędów"
   },
   "warningsErrorsLogEmpty": {
-    "message": "No warnings or errors recorded for this session."
+    "message": "Brak ostrzeżeń lub błędów zarejestrowanych w tej sesji."
   },
   "warningsErrorsLogHelp": {
-    "message": "Transient warnings/errors for this current SBM session. This is not saved to settings."
+    "message": "Tymczasowe ostrzeżenia/błędy dla bieżącej sesji SBM. Nie są zapisywane w ustawieniach."
   }
 }

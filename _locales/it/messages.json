@@ -51,7 +51,7 @@
     "message": "Colonne dell’elenco segnalibri"
   },
   "bookmarkMutationFailed": {
-    "message": "Bookmark operation failed ({action}): {error}"
+    "message": "Operazione sul segnalibro non riuscita ({action}): {error}"
   },
   "bookmarkNamePrompt": {
     "message": "Nome segnalibro"
@@ -72,13 +72,13 @@
     "message": "Radice del browser"
   },
   "cancel": {
-    "message": "Cancel"
+    "message": "Annulla"
   },
   "chooseSortModeTitle": {
     "message": "Scegli la modalità di ordinamento del riquadro centrale. Predefinito usa l’ordine delle cartelle di Chromium."
   },
   "clearLog": {
-    "message": "Clear Log"
+    "message": "Cancella registro"
   },
   "clickHideDetails": {
     "message": "Fai clic per nascondere i dettagli"
@@ -114,7 +114,7 @@
     "message": "Impossibile salvare le modifiche: {error}"
   },
   "create": {
-    "message": "Create"
+    "message": "Crea"
   },
   "currentFolderAndSubfolders": {
     "message": "Cartella corrente e sottocartelle"
@@ -129,19 +129,19 @@
     "message": "Ultimo utilizzo"
   },
   "debugFailedBookmarkOperation": {
-    "message": "Debug: cause failed bookmark operation"
+    "message": "Debug: provoca un errore nell’operazione sul segnalibro"
   },
   "debugFailedBookmarkOperationAction": {
-    "message": "debug failed bookmark operation"
+    "message": "operazione di debug sul segnalibro non riuscita"
   },
   "debugFailureUnexpectedSuccess": {
-    "message": "Debug failure unexpectedly succeeded"
+    "message": "L’errore di debug è riuscito inaspettatamente"
   },
   "debugOptions": {
-    "message": "Debug options"
+    "message": "Opzioni di debug"
   },
   "debugOptionsHelp": {
-    "message": "Advanced. Shows debug-only test controls. Leave disabled during normal use."
+    "message": "Avanzate. Mostra controlli di test solo per il debug. Lascia disattivato durante l’uso normale."
   },
   "debugSettings": {
     "message": "Impostazioni di debug"
@@ -195,7 +195,7 @@
     "message": "Modifica"
   },
   "editBookmark": {
-    "message": "Edit Bookmark"
+    "message": "Modifica segnalibro"
   },
   "emptyDetails": {
     "message": "Seleziona un elemento o una cartella per mostrarne il contenuto."
@@ -477,16 +477,16 @@
     "message": "Apri il menu di Simple Bookmarks Manager"
   },
   "optimisationDOMrendering": {
-    "message": "Optimisation: DOM rendering pass"
+    "message": "Ottimizzazione: rendering DOM"
   },
   "optimisationDOMrenderingHelp": {
-    "message": "Experimental. Enables reduced DOM churn for selected rendering, drag/drop indicators, and row icon handling. Disable only when comparing performance or troubleshooting UI behavior."
+    "message": "Sperimentale. Riduce le modifiche al DOM per rendering della selezione, indicatori di trascinamento/rilascio e gestione delle icone di riga. Disattiva solo per confrontare le prestazioni o risolvere problemi dell’interfaccia."
   },
   "optimisationTempBookmarkTreeMaps": {
-    "message": "Optimisation: temporary bookmark tree maps"
+    "message": "Ottimizzazione: mappe temporanee dell’albero dei segnalibri"
   },
   "optimisationTempBookmarkTreeMapsHelp": {
-    "message": "Experimental. Builds short-lived lookup maps during some render/search/tree operations, then discards them to avoid a persistent stale cache."
+    "message": "Sperimentale. Crea mappe di ricerca temporanee durante alcune operazioni di rendering/ricerca/albero, poi le elimina per evitare una cache persistente obsoleta."
   },
   "optimisations": {
     "message": "Ottimizzazioni"
@@ -582,10 +582,10 @@
     "message": "Mostra il riquadro Dettagli"
   },
   "showErrorsWarnings": {
-    "message": "Show warnings/errors log"
+    "message": "Mostra registro avvisi/errori"
   },
   "showErrorsWarningsHelp": {
-    "message": "Advanced. Shows a transient in-memory log for this SBM session. Log entries are not saved to extension settings."
+    "message": "Avanzate. Mostra un registro temporaneo in memoria per questa sessione SBM. Le voci del registro non vengono salvate nelle impostazioni dell’estensione."
   },
   "showSortWarning": {
     "message": "Mostra conferma ordinamento permanente"
@@ -693,19 +693,19 @@
     "message": "URL"
   },
   "urlWarningControlCharacters": {
-    "message": "URL contained hidden control characters; they will be removed before saving."
+    "message": "L’URL conteneva caratteri di controllo nascosti; saranno rimossi prima del salvataggio."
   },
   "urlWarningEmpty": {
-    "message": "URL is empty. Chrome may reject this bookmark until a URL is provided."
+    "message": "L’URL è vuoto. Chrome potrebbe rifiutare questo segnalibro finché non viene fornito un URL."
   },
   "urlWarningInvalidBlocked": {
-    "message": "This URL is not valid enough to save as a bookmark. Fix the URL before saving."
+    "message": "Questo URL non è abbastanza valido per essere salvato come segnalibro. Correggi l’URL prima di salvare."
   },
   "urlWarningInvalidButAllowed": {
-    "message": "This URL is not valid enough to save as a bookmark. Fix the URL before saving."
+    "message": "Questo URL non è abbastanza valido per essere salvato come segnalibro. Correggi l’URL prima di salvare."
   },
   "urlWarningWhitespace": {
-    "message": "URL contains whitespace. It will be saved if Chrome accepts it, but it may not open as expected."
+    "message": "L’URL contiene spazi. Verrà salvato se Chrome lo accetta, ma potrebbe non aprirsi come previsto."
   },
   "userInterface": {
     "message": "Interfaccia utente"
@@ -720,12 +720,12 @@
     "message": "Ordinamento visuale:"
   },
   "warningsErrorsLog": {
-    "message": "Warnings / Errors Log"
+    "message": "Registro avvisi / errori"
   },
   "warningsErrorsLogEmpty": {
-    "message": "No warnings or errors recorded for this session."
+    "message": "Nessun avviso o errore registrato per questa sessione."
   },
   "warningsErrorsLogHelp": {
-    "message": "Transient warnings/errors for this current SBM session. This is not saved to settings."
+    "message": "Avvisi/errori temporanei per questa sessione SBM corrente. Non vengono salvati nelle impostazioni."
   }
 }

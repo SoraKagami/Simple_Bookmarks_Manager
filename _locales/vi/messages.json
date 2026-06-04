@@ -51,7 +51,7 @@
     "message": "Các cột danh sách dấu trang"
   },
   "bookmarkMutationFailed": {
-    "message": "Bookmark operation failed ({action}): {error}"
+    "message": "Thao tác với dấu trang thất bại ({action}): {error}"
   },
   "bookmarkNamePrompt": {
     "message": "Tên dấu trang"
@@ -72,13 +72,13 @@
     "message": "Gốc trình duyệt"
   },
   "cancel": {
-    "message": "Cancel"
+    "message": "Hủy"
   },
   "chooseSortModeTitle": {
     "message": "Chọn chế độ sắp xếp của khung giữa. Mặc định dùng thứ tự thư mục của Chromium."
   },
   "clearLog": {
-    "message": "Clear Log"
+    "message": "Xóa nhật ký"
   },
   "clickHideDetails": {
     "message": "Nhấp để ẩn chi tiết"
@@ -114,7 +114,7 @@
     "message": "Không thể lưu thay đổi: {error}"
   },
   "create": {
-    "message": "Create"
+    "message": "Tạo"
   },
   "currentFolderAndSubfolders": {
     "message": "Thư mục hiện tại và thư mục con"
@@ -129,19 +129,19 @@
     "message": "Lần dùng cuối"
   },
   "debugFailedBookmarkOperation": {
-    "message": "Debug: cause failed bookmark operation"
+    "message": "Gỡ lỗi: gây lỗi thao tác dấu trang"
   },
   "debugFailedBookmarkOperationAction": {
-    "message": "debug failed bookmark operation"
+    "message": "thao tác dấu trang gỡ lỗi bị lỗi"
   },
   "debugFailureUnexpectedSuccess": {
-    "message": "Debug failure unexpectedly succeeded"
+    "message": "Lỗi gỡ lỗi bất ngờ thành công"
   },
   "debugOptions": {
-    "message": "Debug options"
+    "message": "Tùy chọn gỡ lỗi"
   },
   "debugOptionsHelp": {
-    "message": "Advanced. Shows debug-only test controls. Leave disabled during normal use."
+    "message": "Nâng cao. Hiển thị các điều khiển kiểm thử chỉ dành cho gỡ lỗi. Hãy để tắt trong quá trình sử dụng bình thường."
   },
   "debugSettings": {
     "message": "Cài đặt gỡ lỗi"
@@ -195,7 +195,7 @@
     "message": "Sửa"
   },
   "editBookmark": {
-    "message": "Edit Bookmark"
+    "message": "Chỉnh sửa dấu trang"
   },
   "emptyDetails": {
     "message": "Chọn một mục hoặc chọn thư mục để hiện nội dung."
@@ -477,16 +477,16 @@
     "message": "Mở menu Simple Bookmarks Manager"
   },
   "optimisationDOMrendering": {
-    "message": "Optimisation: DOM rendering pass"
+    "message": "Tối ưu hóa: lượt kết xuất DOM"
   },
   "optimisationDOMrenderingHelp": {
-    "message": "Experimental. Enables reduced DOM churn for selected rendering, drag/drop indicators, and row icon handling. Disable only when comparing performance or troubleshooting UI behavior."
+    "message": "Thử nghiệm. Giảm thay đổi DOM cho kết xuất vùng chọn, chỉ báo kéo/thả và xử lý biểu tượng hàng. Chỉ tắt khi so sánh hiệu năng hoặc khắc phục sự cố hành vi giao diện."
   },
   "optimisationTempBookmarkTreeMaps": {
-    "message": "Optimisation: temporary bookmark tree maps"
+    "message": "Tối ưu hóa: bản đồ cây dấu trang tạm thời"
   },
   "optimisationTempBookmarkTreeMapsHelp": {
-    "message": "Experimental. Builds short-lived lookup maps during some render/search/tree operations, then discards them to avoid a persistent stale cache."
+    "message": "Thử nghiệm. Tạo các bản đồ tra cứu ngắn hạn trong một số thao tác kết xuất/tìm kiếm/cây, rồi loại bỏ chúng để tránh bộ nhớ đệm cũ tồn tại lâu."
   },
   "optimisations": {
     "message": "Tối ưu hóa"
@@ -582,10 +582,10 @@
     "message": "Hiện khung Chi tiết"
   },
   "showErrorsWarnings": {
-    "message": "Show warnings/errors log"
+    "message": "Hiển thị nhật ký cảnh báo/lỗi"
   },
   "showErrorsWarningsHelp": {
-    "message": "Advanced. Shows a transient in-memory log for this SBM session. Log entries are not saved to extension settings."
+    "message": "Nâng cao. Hiển thị nhật ký tạm thời trong bộ nhớ cho phiên SBM này. Các mục nhật ký không được lưu vào cài đặt tiện ích."
   },
   "showSortWarning": {
     "message": "Hiện xác nhận sắp xếp vĩnh viễn"
@@ -693,19 +693,19 @@
     "message": "URL"
   },
   "urlWarningControlCharacters": {
-    "message": "URL contained hidden control characters; they will be removed before saving."
+    "message": "URL chứa ký tự điều khiển ẩn; chúng sẽ bị xóa trước khi lưu."
   },
   "urlWarningEmpty": {
-    "message": "URL is empty. Chrome may reject this bookmark until a URL is provided."
+    "message": "URL trống. Chrome có thể từ chối dấu trang này cho đến khi cung cấp URL."
   },
   "urlWarningInvalidBlocked": {
-    "message": "This URL is not valid enough to save as a bookmark. Fix the URL before saving."
+    "message": "URL này chưa đủ hợp lệ để lưu làm dấu trang. Hãy sửa URL trước khi lưu."
   },
   "urlWarningInvalidButAllowed": {
-    "message": "This URL is not valid enough to save as a bookmark. Fix the URL before saving."
+    "message": "URL này chưa đủ hợp lệ để lưu làm dấu trang. Hãy sửa URL trước khi lưu."
   },
   "urlWarningWhitespace": {
-    "message": "URL contains whitespace. It will be saved if Chrome accepts it, but it may not open as expected."
+    "message": "URL chứa khoảng trắng. URL sẽ được lưu nếu Chrome chấp nhận, nhưng có thể không mở như mong đợi."
   },
   "userInterface": {
     "message": "Giao diện người dùng"
@@ -720,12 +720,12 @@
     "message": "Sắp xếp hiển thị:"
   },
   "warningsErrorsLog": {
-    "message": "Warnings / Errors Log"
+    "message": "Nhật ký cảnh báo / lỗi"
   },
   "warningsErrorsLogEmpty": {
-    "message": "No warnings or errors recorded for this session."
+    "message": "Không có cảnh báo hoặc lỗi nào được ghi lại cho phiên này."
   },
   "warningsErrorsLogHelp": {
-    "message": "Transient warnings/errors for this current SBM session. This is not saved to settings."
+    "message": "Cảnh báo/lỗi tạm thời cho phiên SBM hiện tại. Nội dung này không được lưu vào cài đặt."
   }
 }

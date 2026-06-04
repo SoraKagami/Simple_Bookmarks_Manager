@@ -1,5 +1,12 @@
 # Changelog
 
+## 0.7.22
+
+- Finished translating English carryover strings in Indonesian (`id`), Italian (`it`), Dutch (`nl`), Polish (`pl`), Brazilian Portuguese (`pt_BR`), Turkish (`tr`), and Vietnamese (`vi`) locale files.
+- Reviewed the locale files against `_locales/en/messages.json` and kept all message keys aligned with the English source.
+- Preserved interpolation placeholders such as `{action}` and `{error}` across the updated translations.
+- Updated `manifest.json` to `0.7.22`.
+
 ## 0.7.21
 
 - Updated Indonesian (`id`), Italian (`it`), Dutch (`nl`), Polish (`pl`), Brazilian Portuguese (`pt_BR`), Turkish (`tr`), and Vietnamese (`vi`) locale files using the current English locale as the source.

@@ -45,13 +45,13 @@
     "message": "Bladwijzer"
   },
   "bookmarkFallback": {
-    "message": "(bookmark)"
+    "message": "(bladwijzer)"
   },
   "bookmarkListColumns": {
     "message": "Kolommen van bladwijzerlijst"
   },
   "bookmarkMutationFailed": {
-    "message": "Bookmark operation failed ({action}): {error}"
+    "message": "Bladwijzerbewerking mislukt ({action}): {error}"
   },
   "bookmarkNamePrompt": {
     "message": "Bladwijzernaam"
@@ -72,13 +72,13 @@
     "message": "Browserhoofdmap"
   },
   "cancel": {
-    "message": "Cancel"
+    "message": "Annuleren"
   },
   "chooseSortModeTitle": {
     "message": "Kies de sorteermodus voor het middelste paneel. Standaard gebruikt de Chromium-mapvolgorde."
   },
   "clearLog": {
-    "message": "Clear Log"
+    "message": "Log wissen"
   },
   "clickHideDetails": {
     "message": "Klik om details te verbergen"
@@ -114,7 +114,7 @@
     "message": "Kan wijzigingen niet opslaan: {error}"
   },
   "create": {
-    "message": "Create"
+    "message": "Aanmaken"
   },
   "currentFolderAndSubfolders": {
     "message": "Huidige map en submappen"
@@ -129,19 +129,19 @@
     "message": "Laatst gebruikt"
   },
   "debugFailedBookmarkOperation": {
-    "message": "Debug: cause failed bookmark operation"
+    "message": "Debug: mislukte bladwijzerbewerking veroorzaken"
   },
   "debugFailedBookmarkOperationAction": {
-    "message": "debug failed bookmark operation"
+    "message": "mislukte debug-bladwijzerbewerking"
   },
   "debugFailureUnexpectedSuccess": {
-    "message": "Debug failure unexpectedly succeeded"
+    "message": "Debugfout is onverwacht geslaagd"
   },
   "debugOptions": {
-    "message": "Debug options"
+    "message": "Debugopties"
   },
   "debugOptionsHelp": {
-    "message": "Advanced. Shows debug-only test controls. Leave disabled during normal use."
+    "message": "Geavanceerd. Toont testbediening alleen voor debuggen. Laat dit tijdens normaal gebruik uitgeschakeld."
   },
   "debugSettings": {
     "message": "Debug-instellingen"
@@ -195,7 +195,7 @@
     "message": "Bewerken"
   },
   "editBookmark": {
-    "message": "Edit Bookmark"
+    "message": "Bladwijzer bewerken"
   },
   "emptyDetails": {
     "message": "Selecteer één item of selecteer een map om de inhoud te tonen."
@@ -228,7 +228,7 @@
     "message": "Configureer kolombreedtes van het middelste paneel en optionele kolommen. Naam en URL worden altijd getoond."
   },
   "folderFallback": {
-    "message": "(folder)"
+    "message": "(map)"
   },
   "folderNamePrompt": {
     "message": "Mapnaam"
@@ -420,7 +420,7 @@
     "message": "Nieuwe map"
   },
   "newFolderDefaultName": {
-    "message": "New Folder"
+    "message": "Nieuwe map"
   },
   "newFolderNamePrompt": {
     "message": "Nieuwe mapnaam"
@@ -477,16 +477,16 @@
     "message": "Simple Bookmarks Manager-menu openen"
   },
   "optimisationDOMrendering": {
-    "message": "Optimisation: DOM rendering pass"
+    "message": "Optimalisatie: DOM-rendering"
   },
   "optimisationDOMrenderingHelp": {
-    "message": "Experimental. Enables reduced DOM churn for selected rendering, drag/drop indicators, and row icon handling. Disable only when comparing performance or troubleshooting UI behavior."
+    "message": "Experimenteel. Vermindert DOM-wijzigingen voor geselecteerde rendering, sleep-/neerzetindicatoren en verwerking van rijpictogrammen. Schakel dit alleen uit bij prestatievergelijking of probleemoplossing van UI-gedrag."
   },
   "optimisationTempBookmarkTreeMaps": {
-    "message": "Optimisation: temporary bookmark tree maps"
+    "message": "Optimalisatie: tijdelijke bladwijzerboommappen"
   },
   "optimisationTempBookmarkTreeMapsHelp": {
-    "message": "Experimental. Builds short-lived lookup maps during some render/search/tree operations, then discards them to avoid a persistent stale cache."
+    "message": "Experimenteel. Bouwt tijdelijke opzoekmappen tijdens sommige render-, zoek- en boombewerkingen en verwijdert ze daarna om een blijvende verouderde cache te voorkomen."
   },
   "optimisations": {
     "message": "Optimalisaties"
@@ -582,10 +582,10 @@
     "message": "Detailpaneel tonen"
   },
   "showErrorsWarnings": {
-    "message": "Show warnings/errors log"
+    "message": "Waarschuwingen-/foutenlog tonen"
   },
   "showErrorsWarningsHelp": {
-    "message": "Advanced. Shows a transient in-memory log for this SBM session. Log entries are not saved to extension settings."
+    "message": "Geavanceerd. Toont een tijdelijk log in het geheugen voor deze SBM-sessie. Logitems worden niet opgeslagen in de extensie-instellingen."
   },
   "showSortWarning": {
     "message": "Bevestiging voor permanente sortering tonen"
@@ -693,19 +693,19 @@
     "message": "URL"
   },
   "urlWarningControlCharacters": {
-    "message": "URL contained hidden control characters; they will be removed before saving."
+    "message": "De URL bevatte verborgen controletekens; deze worden vóór het opslaan verwijderd."
   },
   "urlWarningEmpty": {
-    "message": "URL is empty. Chrome may reject this bookmark until a URL is provided."
+    "message": "De URL is leeg. Chrome kan deze bladwijzer weigeren totdat er een URL is opgegeven."
   },
   "urlWarningInvalidBlocked": {
-    "message": "This URL is not valid enough to save as a bookmark. Fix the URL before saving."
+    "message": "Deze URL is niet geldig genoeg om als bladwijzer op te slaan. Corrigeer de URL voordat je opslaat."
   },
   "urlWarningInvalidButAllowed": {
-    "message": "This URL is not valid enough to save as a bookmark. Fix the URL before saving."
+    "message": "Deze URL is niet geldig genoeg om als bladwijzer op te slaan. Corrigeer de URL voordat je opslaat."
   },
   "urlWarningWhitespace": {
-    "message": "URL contains whitespace. It will be saved if Chrome accepts it, but it may not open as expected."
+    "message": "De URL bevat witruimte. De URL wordt opgeslagen als Chrome deze accepteert, maar wordt mogelijk niet geopend zoals verwacht."
   },
   "userInterface": {
     "message": "Gebruikersinterface"
@@ -720,12 +720,12 @@
     "message": "Visuele sortering:"
   },
   "warningsErrorsLog": {
-    "message": "Warnings / Errors Log"
+    "message": "Waarschuwingen- / foutenlog"
   },
   "warningsErrorsLogEmpty": {
-    "message": "No warnings or errors recorded for this session."
+    "message": "Geen waarschuwingen of fouten vastgelegd voor deze sessie."
   },
   "warningsErrorsLogHelp": {
-    "message": "Transient warnings/errors for this current SBM session. This is not saved to settings."
+    "message": "Tijdelijke waarschuwingen/fouten voor deze huidige SBM-sessie. Dit wordt niet opgeslagen in de instellingen."
   }
 }

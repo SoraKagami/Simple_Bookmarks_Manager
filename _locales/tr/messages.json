@@ -51,7 +51,7 @@
     "message": "Yer imi listesi sütunları"
   },
   "bookmarkMutationFailed": {
-    "message": "Bookmark operation failed ({action}): {error}"
+    "message": "Yer imi işlemi başarısız oldu ({action}): {error}"
   },
   "bookmarkNamePrompt": {
     "message": "Yer imi adı"
@@ -72,13 +72,13 @@
     "message": "Tarayıcı kökü"
   },
   "cancel": {
-    "message": "Cancel"
+    "message": "İptal"
   },
   "chooseSortModeTitle": {
     "message": "Orta bölme sıralama modunu seçin. Varsayılan, Chromium klasör sırasını kullanır."
   },
   "clearLog": {
-    "message": "Clear Log"
+    "message": "Günlüğü temizle"
   },
   "clickHideDetails": {
     "message": "Ayrıntıları gizlemek için tıklayın"
@@ -114,7 +114,7 @@
     "message": "Değişiklikler kaydedilemedi: {error}"
   },
   "create": {
-    "message": "Create"
+    "message": "Oluştur"
   },
   "currentFolderAndSubfolders": {
     "message": "Geçerli klasör ve alt klasörler"
@@ -129,19 +129,19 @@
     "message": "Son kullanım"
   },
   "debugFailedBookmarkOperation": {
-    "message": "Debug: cause failed bookmark operation"
+    "message": "Hata ayıklama: başarısız yer imi işlemi oluştur"
   },
   "debugFailedBookmarkOperationAction": {
-    "message": "debug failed bookmark operation"
+    "message": "başarısız yer imi işlemi hata ayıklaması"
   },
   "debugFailureUnexpectedSuccess": {
-    "message": "Debug failure unexpectedly succeeded"
+    "message": "Hata ayıklama hatası beklenmedik şekilde başarılı oldu"
   },
   "debugOptions": {
-    "message": "Debug options"
+    "message": "Hata ayıklama seçenekleri"
   },
   "debugOptionsHelp": {
-    "message": "Advanced. Shows debug-only test controls. Leave disabled during normal use."
+    "message": "Gelişmiş. Yalnızca hata ayıklamaya yönelik test denetimlerini gösterir. Normal kullanım sırasında devre dışı bırakın."
   },
   "debugSettings": {
     "message": "Hata ayıklama ayarları"
@@ -195,7 +195,7 @@
     "message": "Düzenle"
   },
   "editBookmark": {
-    "message": "Edit Bookmark"
+    "message": "Yer imini düzenle"
   },
   "emptyDetails": {
     "message": "Bir öğe seçin veya içeriğini göstermek için bir klasör seçin."
@@ -477,16 +477,16 @@
     "message": "Simple Bookmarks Manager menüsünü aç"
   },
   "optimisationDOMrendering": {
-    "message": "Optimisation: DOM rendering pass"
+    "message": "Optimizasyon: DOM işleme geçişi"
   },
   "optimisationDOMrenderingHelp": {
-    "message": "Experimental. Enables reduced DOM churn for selected rendering, drag/drop indicators, and row icon handling. Disable only when comparing performance or troubleshooting UI behavior."
+    "message": "Deneyseldir. Seçim işleme, sürükle/bırak göstergeleri ve satır simgesi işleme için DOM değişikliklerini azaltır. Yalnızca performansı karşılaştırırken veya arayüz davranışını giderirken devre dışı bırakın."
   },
   "optimisationTempBookmarkTreeMaps": {
-    "message": "Optimisation: temporary bookmark tree maps"
+    "message": "Optimizasyon: geçici yer imi ağacı haritaları"
   },
   "optimisationTempBookmarkTreeMapsHelp": {
-    "message": "Experimental. Builds short-lived lookup maps during some render/search/tree operations, then discards them to avoid a persistent stale cache."
+    "message": "Deneyseldir. Bazı işleme/arama/ağaç işlemleri sırasında kısa ömürlü arama haritaları oluşturur, ardından kalıcı eski bir önbellekten kaçınmak için bunları siler."
   },
   "optimisations": {
     "message": "Optimizasyonlar"
@@ -582,10 +582,10 @@
     "message": "Ayrıntılar bölmesini göster"
   },
   "showErrorsWarnings": {
-    "message": "Show warnings/errors log"
+    "message": "Uyarılar/hatalar günlüğünü göster"
   },
   "showErrorsWarningsHelp": {
-    "message": "Advanced. Shows a transient in-memory log for this SBM session. Log entries are not saved to extension settings."
+    "message": "Gelişmiş. Bu SBM oturumu için geçici bir bellek içi günlük gösterir. Günlük girdileri uzantı ayarlarına kaydedilmez."
   },
   "showSortWarning": {
     "message": "Kalıcı sıralama onayını göster"
@@ -693,19 +693,19 @@
     "message": "URL"
   },
   "urlWarningControlCharacters": {
-    "message": "URL contained hidden control characters; they will be removed before saving."
+    "message": "URL gizli kontrol karakterleri içeriyordu; kaydetmeden önce kaldırılacaklar."
   },
   "urlWarningEmpty": {
-    "message": "URL is empty. Chrome may reject this bookmark until a URL is provided."
+    "message": "URL boş. Bir URL sağlanana kadar Chrome bu yer imini reddedebilir."
   },
   "urlWarningInvalidBlocked": {
-    "message": "This URL is not valid enough to save as a bookmark. Fix the URL before saving."
+    "message": "Bu URL yer imi olarak kaydedilecek kadar geçerli değil. Kaydetmeden önce URL’yi düzeltin."
   },
   "urlWarningInvalidButAllowed": {
-    "message": "This URL is not valid enough to save as a bookmark. Fix the URL before saving."
+    "message": "Bu URL yer imi olarak kaydedilecek kadar geçerli değil. Kaydetmeden önce URL’yi düzeltin."
   },
   "urlWarningWhitespace": {
-    "message": "URL contains whitespace. It will be saved if Chrome accepts it, but it may not open as expected."
+    "message": "URL boşluk içeriyor. Chrome kabul ederse kaydedilir, ancak beklendiği gibi açılmayabilir."
   },
   "userInterface": {
     "message": "Kullanıcı Arayüzü"
@@ -720,12 +720,12 @@
     "message": "Görsel sıralama:"
   },
   "warningsErrorsLog": {
-    "message": "Warnings / Errors Log"
+    "message": "Uyarılar / Hatalar Günlüğü"
   },
   "warningsErrorsLogEmpty": {
-    "message": "No warnings or errors recorded for this session."
+    "message": "Bu oturum için kayıtlı uyarı veya hata yok."
   },
   "warningsErrorsLogHelp": {
-    "message": "Transient warnings/errors for this current SBM session. This is not saved to settings."
+    "message": "Geçerli SBM oturumu için geçici uyarılar/hatalar. Bu, ayarlara kaydedilmez."
   }
 }

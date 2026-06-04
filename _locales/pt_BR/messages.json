@@ -51,7 +51,7 @@
     "message": "Colunas da lista de favoritos"
   },
   "bookmarkMutationFailed": {
-    "message": "Bookmark operation failed ({action}): {error}"
+    "message": "Operação de favorito falhou ({action}): {error}"
   },
   "bookmarkNamePrompt": {
     "message": "Nome do favorito"
@@ -72,13 +72,13 @@
     "message": "Raiz do navegador"
   },
   "cancel": {
-    "message": "Cancel"
+    "message": "Cancelar"
   },
   "chooseSortModeTitle": {
     "message": "Escolha o modo de ordenação do painel central. Padrão usa a ordem de pastas do Chromium."
   },
   "clearLog": {
-    "message": "Clear Log"
+    "message": "Limpar log"
   },
   "clickHideDetails": {
     "message": "Clique para ocultar detalhes"
@@ -114,7 +114,7 @@
     "message": "Não foi possível salvar as alterações: {error}"
   },
   "create": {
-    "message": "Create"
+    "message": "Criar"
   },
   "currentFolderAndSubfolders": {
     "message": "Pasta atual e subpastas"
@@ -129,19 +129,19 @@
     "message": "Último uso"
   },
   "debugFailedBookmarkOperation": {
-    "message": "Debug: cause failed bookmark operation"
+    "message": "Depuração: causar falha na operação de favorito"
   },
   "debugFailedBookmarkOperationAction": {
-    "message": "debug failed bookmark operation"
+    "message": "operação de favorito com falha de depuração"
   },
   "debugFailureUnexpectedSuccess": {
-    "message": "Debug failure unexpectedly succeeded"
+    "message": "A falha de depuração foi bem-sucedida inesperadamente"
   },
   "debugOptions": {
-    "message": "Debug options"
+    "message": "Opções de depuração"
   },
   "debugOptionsHelp": {
-    "message": "Advanced. Shows debug-only test controls. Leave disabled during normal use."
+    "message": "Avançado. Mostra controles de teste exclusivos para depuração. Deixe desativado durante o uso normal."
   },
   "debugSettings": {
     "message": "Configurações de depuração"
@@ -195,7 +195,7 @@
     "message": "Editar"
   },
   "editBookmark": {
-    "message": "Edit Bookmark"
+    "message": "Editar favorito"
   },
   "emptyDetails": {
     "message": "Selecione um item ou selecione uma pasta para mostrar seu conteúdo."
@@ -477,16 +477,16 @@
     "message": "Abrir menu do Simple Bookmarks Manager"
   },
   "optimisationDOMrendering": {
-    "message": "Optimisation: DOM rendering pass"
+    "message": "Otimização: renderização do DOM"
   },
   "optimisationDOMrenderingHelp": {
-    "message": "Experimental. Enables reduced DOM churn for selected rendering, drag/drop indicators, and row icon handling. Disable only when comparing performance or troubleshooting UI behavior."
+    "message": "Experimental. Reduz alterações no DOM para renderização de seleção, indicadores de arrastar/soltar e manipulação de ícones de linha. Desative somente ao comparar desempenho ou solucionar problemas de comportamento da interface."
   },
   "optimisationTempBookmarkTreeMaps": {
-    "message": "Optimisation: temporary bookmark tree maps"
+    "message": "Otimização: mapas temporários da árvore de favoritos"
   },
   "optimisationTempBookmarkTreeMapsHelp": {
-    "message": "Experimental. Builds short-lived lookup maps during some render/search/tree operations, then discards them to avoid a persistent stale cache."
+    "message": "Experimental. Cria mapas de consulta temporários durante algumas operações de renderização, pesquisa e árvore, e depois os descarta para evitar um cache persistente desatualizado."
   },
   "optimisations": {
     "message": "Otimizações"
@@ -582,10 +582,10 @@
     "message": "Mostrar o painel Detalhes"
   },
   "showErrorsWarnings": {
-    "message": "Show warnings/errors log"
+    "message": "Mostrar log de avisos/erros"
   },
   "showErrorsWarningsHelp": {
-    "message": "Advanced. Shows a transient in-memory log for this SBM session. Log entries are not saved to extension settings."
+    "message": "Avançado. Mostra um log temporário em memória para esta sessão do SBM. As entradas do log não são salvas nas configurações da extensão."
   },
   "showSortWarning": {
     "message": "Mostrar confirmação de ordenação permanente"
@@ -693,19 +693,19 @@
     "message": "URL"
   },
   "urlWarningControlCharacters": {
-    "message": "URL contained hidden control characters; they will be removed before saving."
+    "message": "A URL continha caracteres de controle ocultos; eles serão removidos antes de salvar."
   },
   "urlWarningEmpty": {
-    "message": "URL is empty. Chrome may reject this bookmark until a URL is provided."
+    "message": "A URL está vazia. O Chrome pode rejeitar este favorito até que uma URL seja informada."
   },
   "urlWarningInvalidBlocked": {
-    "message": "This URL is not valid enough to save as a bookmark. Fix the URL before saving."
+    "message": "Esta URL não é válida o suficiente para ser salva como favorito. Corrija a URL antes de salvar."
   },
   "urlWarningInvalidButAllowed": {
-    "message": "This URL is not valid enough to save as a bookmark. Fix the URL before saving."
+    "message": "Esta URL não é válida o suficiente para ser salva como favorito. Corrija a URL antes de salvar."
   },
   "urlWarningWhitespace": {
-    "message": "URL contains whitespace. It will be saved if Chrome accepts it, but it may not open as expected."
+    "message": "A URL contém espaços em branco. Ela será salva se o Chrome aceitar, mas pode não abrir como esperado."
   },
   "userInterface": {
     "message": "Interface do usuário"
@@ -720,12 +720,12 @@
     "message": "Ordenação visual:"
   },
   "warningsErrorsLog": {
-    "message": "Warnings / Errors Log"
+    "message": "Log de avisos / erros"
   },
   "warningsErrorsLogEmpty": {
-    "message": "No warnings or errors recorded for this session."
+    "message": "Nenhum aviso ou erro registrado para esta sessão."
   },
   "warningsErrorsLogHelp": {
-    "message": "Transient warnings/errors for this current SBM session. This is not saved to settings."
+    "message": "Avisos/erros temporários para esta sessão atual do SBM. Isso não é salvo nas configurações."
   }
 }
