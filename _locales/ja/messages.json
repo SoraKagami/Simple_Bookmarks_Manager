@@ -23,6 +23,9 @@
   "advancedDetails": {
     "message": "詳細情報"
   },
+  "advancedDetailsHelp": {
+    "message": "詳細ペインでの高度なメタデータ表示と、対応している高度な編集を設定します。"
+  },
   "allowKeyboardDelete": {
     "message": "Delete キーで選択項目を削除する"
   },
@@ -48,7 +51,7 @@
     "message": "ブックマークリストの列"
   },
   "bookmarkMutationFailed": {
-    "message": "Bookmark operation failed ({action}): {error}"
+    "message": "ブックマーク操作に失敗しました（{action}）: {error}"
   },
   "bookmarkNamePrompt": {
     "message": "ブックマーク名"
@@ -69,13 +72,13 @@
     "message": "ブラウザールート"
   },
   "cancel": {
-    "message": "Cancel"
+    "message": "キャンセル"
   },
   "chooseSortModeTitle": {
     "message": "中央ペインの並べ替えモードを選択します。既定では Chromium のフォルダー順を使用します。"
   },
   "clearLog": {
-    "message": "Clear Log"
+    "message": "ログを消去"
   },
   "clickHideDetails": {
     "message": "クリックして詳細を隠す"
@@ -98,6 +101,9 @@
   "couldNotMoveBookmark": {
     "message": "ブックマーク項目を移動できませんでした: {error}"
   },
+  "couldNotOpenBookmark": {
+    "message": "ブックマークを開けませんでした: {error}"
+  },
   "couldNotOpenTabGroup": {
     "message": "タブグループを開けませんでした: {error}"
   },
@@ -108,7 +114,7 @@
     "message": "変更を保存できませんでした: {error}"
   },
   "create": {
-    "message": "Create"
+    "message": "作成"
   },
   "currentFolderAndSubfolders": {
     "message": "現在のフォルダーとサブフォルダー"
@@ -123,19 +129,25 @@
     "message": "最終使用日"
   },
   "debugFailedBookmarkOperation": {
-    "message": "Debug: cause failed bookmark operation"
+    "message": "デバッグ: ブックマーク操作を失敗させる"
   },
   "debugFailedBookmarkOperationAction": {
-    "message": "debug failed bookmark operation"
+    "message": "ブックマーク操作の失敗をデバッグ"
   },
   "debugFailureUnexpectedSuccess": {
-    "message": "Debug failure unexpectedly succeeded"
+    "message": "デバッグ用の失敗が予期せず成功しました"
   },
   "debugOptions": {
-    "message": "Debug options"
+    "message": "デバッグオプション"
   },
   "debugOptionsHelp": {
-    "message": "Advanced. Shows debug-only test controls. Leave disabled during normal use."
+    "message": "詳細設定。デバッグ専用のテストコントロールを表示します。通常の使用時は無効のままにしてください。"
+  },
+  "debugSettings": {
+    "message": "デバッグ設定"
+  },
+  "debugSettingsHelp": {
+    "message": "デバッグオプションが有効な場合にのみ表示されるコントロールです。"
   },
   "defaultsRestored": {
     "message": "既定値を復元しました"
@@ -183,7 +195,7 @@
     "message": "編集"
   },
   "editBookmark": {
-    "message": "Edit Bookmark"
+    "message": "ブックマークを編集"
   },
   "emptyDetails": {
     "message": "項目を 1 つ選択するか、フォルダーを選択して内容を表示してください。"
@@ -208,6 +220,12 @@
   },
   "folderAlt": {
     "message": "フォルダー"
+  },
+  "folderContentsView": {
+    "message": "フォルダー内容ビュー"
+  },
+  "folderContentsViewHelp": {
+    "message": "中央ペインの列幅と任意の列を設定します。名前と URL は常に表示されます。"
   },
   "folderFallback": {
     "message": "(フォルダー)"
@@ -263,6 +281,15 @@
   "keepEditing": {
     "message": "編集を続ける"
   },
+  "languageAuto": {
+    "message": "自動 / ブラウザーの既定"
+  },
+  "leftLibWidth": {
+    "message": "ライブラリペインの幅"
+  },
+  "leftLibWidthHelp": {
+    "message": "左側のライブラリペインの幅（ピクセル単位）。"
+  },
   "library": {
     "message": "ライブラリ"
   },
@@ -274,6 +301,111 @@
   },
   "managerFailed": {
     "message": "ブックマークマネージャーが失敗しました: {error}"
+  },
+  "midFcShowDateAdded": {
+    "message": "「追加日」列を表示"
+  },
+  "midFcShowDateAddedHelp": {
+    "message": "フォルダー内容ペインで「追加日」列の表示/非表示を切り替えます。"
+  },
+  "midFcShowId": {
+    "message": "ID 列を表示"
+  },
+  "midFcShowIdHelp": {
+    "message": "Chromium ブックマーク ID 列の表示/非表示を切り替えます。"
+  },
+  "midFcShowOrder": {
+    "message": "順序列を表示"
+  },
+  "midFcShowOrderHelp": {
+    "message": "Chromium フォルダーの順序/インデックス列の表示/非表示を切り替えます。"
+  },
+  "midFcWidthDateAdded": {
+    "message": "「追加日」列の幅"
+  },
+  "midFcWidthDateAddedHelp": {
+    "message": "任意の「追加日」列の幅（ピクセル単位）。"
+  },
+  "midFcWidthId": {
+    "message": "ID 列の幅"
+  },
+  "midFcWidthIdHelp": {
+    "message": "任意の ID 列の幅（ピクセル単位）。"
+  },
+  "midFcWidthName": {
+    "message": "名前列の幅"
+  },
+  "midFcWidthNameHelp": {
+    "message": "フォルダー内容の名前列の幅（ピクセル単位）。"
+  },
+  "midFcWidthOrder": {
+    "message": "順序列の幅"
+  },
+  "midFcWidthOrderHelp": {
+    "message": "任意の Chromium 順序/インデックス列の幅（ピクセル単位）。"
+  },
+  "midFcWidthUrl": {
+    "message": "URL 列の幅"
+  },
+  "midFcWidthUrlHelp": {
+    "message": "フォルダー内容の URL 列の幅（ピクセル単位）。"
+  },
+  "multipleInstancesAllowed": {
+    "message": "複数の SBM インスタンスを許可"
+  },
+  "multipleInstancesAllowedHelp": {
+    "message": "無効にすると、拡張機能ボタンをクリックしたときに別のタブを開かず、既存の Simple Bookmarks Manager タブにフォーカスします。"
+  },
+  "mutationCreateBookmark": {
+    "message": "ブックマークを作成"
+  },
+  "mutationCreateFolder": {
+    "message": "フォルダーを作成"
+  },
+  "mutationCreateFromClipboardSnapshot": {
+    "message": "クリップボードスナップショットから作成"
+  },
+  "mutationCreateSeparator": {
+    "message": "区切りを作成"
+  },
+  "mutationDeleteBookmark": {
+    "message": "ブックマークを削除"
+  },
+  "mutationDeleteFolder": {
+    "message": "フォルダーを削除"
+  },
+  "mutationDeleteSelectedBookmark": {
+    "message": "選択したブックマークを削除"
+  },
+  "mutationDeleteSelectedFolder": {
+    "message": "選択したフォルダーを削除"
+  },
+  "mutationDragDropMove": {
+    "message": "ドラッグ/ドロップで移動"
+  },
+  "mutationEditBookmark": {
+    "message": "ブックマークを編集"
+  },
+  "mutationMoveSelectedItem": {
+    "message": "選択した項目を移動"
+  },
+  "mutationPasteCutItem": {
+    "message": "切り取った項目を貼り付け"
+  },
+  "mutationRenameFolder": {
+    "message": "フォルダー名を変更"
+  },
+  "mutationReorderSelectedItems": {
+    "message": "選択した項目を並べ替え"
+  },
+  "mutationSaveDetailsMove": {
+    "message": "詳細の移動を保存"
+  },
+  "mutationSaveDetailsUpdate": {
+    "message": "詳細の更新を保存"
+  },
+  "mutationSortFolderChild": {
+    "message": "フォルダーの子項目を並べ替え"
   },
   "naturalSort": {
     "message": "自然なフォルダー/ブックマーク順を使用"
@@ -317,6 +449,9 @@
   "openAllInSplitView": {
     "message": "すべて分割ビューで開く"
   },
+  "openBookmark": {
+    "message": "ブックマークを開く"
+  },
   "openDefaultBookmarksManager": {
     "message": "既定のブックマークマネージャーを開く"
   },
@@ -342,16 +477,22 @@
     "message": "Simple Bookmarks Manager メニューを開く"
   },
   "optimisationDOMrendering": {
-    "message": "Optimisation: DOM rendering pass"
+    "message": "最適化: DOM レンダリング処理"
   },
   "optimisationDOMrenderingHelp": {
-    "message": "Experimental. Enables reduced DOM churn for selected rendering, drag/drop indicators, and row icon handling. Disable only when comparing performance or troubleshooting UI behavior."
+    "message": "実験的機能。選択項目のレンダリング、ドラッグ/ドロップ表示、行アイコン処理における DOM の変更を減らします。パフォーマンス比較や UI 動作のトラブルシューティング時のみ無効にしてください。"
   },
   "optimisationTempBookmarkTreeMaps": {
-    "message": "Optimisation: temporary bookmark tree maps"
+    "message": "最適化: 一時的なブックマークツリーマップ"
   },
   "optimisationTempBookmarkTreeMapsHelp": {
-    "message": "Experimental. Builds short-lived lookup maps during some render/search/tree operations, then discards them to avoid a persistent stale cache."
+    "message": "実験的機能。一部の描画/検索/ツリー操作中に短時間だけ使うルックアップマップを作成し、永続的な古いキャッシュを避けるためにその後破棄します。"
+  },
+  "optimisations": {
+    "message": "最適化"
+  },
+  "optimisationsHelp": {
+    "message": "ベンチマークとトラブルシューティング用の実験的なパフォーマンスオプションです。"
   },
   "optionSaved": {
     "message": "保存しました"
@@ -361,6 +502,12 @@
   },
   "optionsTitle": {
     "message": "Simple Bookmarks Manager オプション"
+  },
+  "paneWidths": {
+    "message": "ペイン幅"
+  },
+  "paneWidthsHelp": {
+    "message": "ライブラリペインと詳細ペインの幅を設定します。これらはマネージャー UI でペインのサイズを変更したときにも更新されます。"
   },
   "parentFolder": {
     "message": "親フォルダー"
@@ -376,6 +523,21 @@
   },
   "resetDefaults": {
     "message": "既定値に戻す"
+  },
+  "resizeColumn": {
+    "message": "ドラッグして列のサイズを変更"
+  },
+  "resizeDetailsPane": {
+    "message": "詳細ペインのサイズを変更"
+  },
+  "resizeLibraryPane": {
+    "message": "ライブラリペインのサイズを変更"
+  },
+  "rightDetailsWidth": {
+    "message": "詳細ペインの幅"
+  },
+  "rightDetailsWidthHelp": {
+    "message": "右側の詳細ペインの幅（ピクセル単位）。"
   },
   "rootFallback": {
     "message": "(ルート)"
@@ -420,10 +582,10 @@
     "message": "詳細ペインを表示"
   },
   "showErrorsWarnings": {
-    "message": "Show warnings/errors log"
+    "message": "警告/エラーログを表示"
   },
   "showErrorsWarningsHelp": {
-    "message": "Advanced. Shows a transient in-memory log for this SBM session. Log entries are not saved to extension settings."
+    "message": "詳細設定。この SBM セッション用の一時的なメモリ内ログを表示します。ログ項目は拡張機能の設定には保存されません。"
   },
   "showSortWarning": {
     "message": "恒久的な並べ替えの確認を表示"
@@ -531,19 +693,19 @@
     "message": "URL"
   },
   "urlWarningControlCharacters": {
-    "message": "URL contained hidden control characters; they will be removed before saving."
+    "message": "URL に非表示の制御文字が含まれていました。保存前に削除されます。"
   },
   "urlWarningEmpty": {
-    "message": "URL is empty. Chrome may reject this bookmark until a URL is provided."
+    "message": "URL が空です。URL が入力されるまで、Chrome がこのブックマークを拒否する可能性があります。"
   },
   "urlWarningInvalidBlocked": {
-    "message": "This URL is not valid enough to save as a bookmark. Fix the URL before saving."
+    "message": "この URL はブックマークとして保存するには有効性が不足しています。保存する前に URL を修正してください。"
   },
   "urlWarningInvalidButAllowed": {
-    "message": "This URL is not valid enough to save as a bookmark. Fix the URL before saving."
+    "message": "この URL はブックマークとして保存するには有効性が不足しています。保存する前に URL を修正してください。"
   },
   "urlWarningWhitespace": {
-    "message": "URL contains whitespace. It will be saved if Chrome accepts it, but it may not open as expected."
+    "message": "URL に空白が含まれています。Chrome が受け入れれば保存されますが、想定どおりに開かない可能性があります。"
   },
   "userInterface": {
     "message": "ユーザーインターフェイス"
@@ -558,12 +720,12 @@
     "message": "表示順:"
   },
   "warningsErrorsLog": {
-    "message": "Warnings / Errors Log"
+    "message": "警告 / エラーログ"
   },
   "warningsErrorsLogEmpty": {
-    "message": "No warnings or errors recorded for this session."
+    "message": "このセッションで記録された警告またはエラーはありません。"
   },
   "warningsErrorsLogHelp": {
-    "message": "Transient warnings/errors for this current SBM session. This is not saved to settings."
+    "message": "現在の SBM セッション用の一時的な警告/エラーです。設定には保存されません。"
   }
 }

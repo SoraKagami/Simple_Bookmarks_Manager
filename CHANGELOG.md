@@ -1,5 +1,12 @@
 # Changelog
 
+## 0.7.23
+
+- Updated Japanese (`ja`) and Korean (`ko`) locale files using the current English locale as the source.
+- Added translations for missing Options page advanced groups, pane/column sizing controls, diagnostics/debug labels, bookmark mutation failure text, and URL validation/open bookmark strings.
+- Reviewed existing Japanese and Korean locale strings to replace English carryover labels while preserving product names, standard technical abbreviations, and placeholders such as `{action}` and `{error}`.
+- Updated `manifest.json` to `0.7.23`.
+
 ## 0.7.22
 
 - Finished translating English carryover strings in Indonesian (`id`), Italian (`it`), Dutch (`nl`), Polish (`pl`), Brazilian Portuguese (`pt_BR`), Turkish (`tr`), and Vietnamese (`vi`) locale files.
