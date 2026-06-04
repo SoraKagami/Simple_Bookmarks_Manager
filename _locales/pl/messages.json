@@ -23,6 +23,9 @@
   "advancedDetails": {
     "message": "Szczegóły zaawansowane"
   },
+  "advancedDetailsHelp": {
+    "message": "Skonfiguruj wyświetlanie zaawansowanych metadanych i obsługiwaną zaawansowaną edycję w panelu Szczegóły."
+  },
   "allowKeyboardDelete": {
     "message": "Pozwól Delete usuwać zaznaczone elementy"
   },
@@ -98,6 +101,9 @@
   "couldNotMoveBookmark": {
     "message": "Nie można przenieść elementu zakładki: {error}"
   },
+  "couldNotOpenBookmark": {
+    "message": "Nie można otworzyć zakładki: {error}"
+  },
   "couldNotOpenTabGroup": {
     "message": "Nie można otworzyć grupy kart: {error}"
   },
@@ -136,6 +142,12 @@
   },
   "debugOptionsHelp": {
     "message": "Advanced. Shows debug-only test controls. Leave disabled during normal use."
+  },
+  "debugSettings": {
+    "message": "Ustawienia debugowania"
+  },
+  "debugSettingsHelp": {
+    "message": "Kontrolki widoczne tylko wtedy, gdy opcje debugowania są włączone."
   },
   "defaultsRestored": {
     "message": "Przywrócono domyślne"
@@ -209,6 +221,12 @@
   "folderAlt": {
     "message": "Folder"
   },
+  "folderContentsView": {
+    "message": "Widok zawartości folderu"
+  },
+  "folderContentsViewHelp": {
+    "message": "Skonfiguruj szerokości kolumn środkowego panelu oraz kolumny opcjonalne. Nazwa i URL są zawsze widoczne."
+  },
   "folderFallback": {
     "message": "(folder)"
   },
@@ -263,6 +281,15 @@
   "keepEditing": {
     "message": "Kontynuuj edycję"
   },
+  "languageAuto": {
+    "message": "Automatycznie / Domyślne przeglądarki"
+  },
+  "leftLibWidth": {
+    "message": "Szerokość panelu Biblioteka"
+  },
+  "leftLibWidthHelp": {
+    "message": "Szerokość w pikselach lewego panelu Biblioteka."
+  },
   "library": {
     "message": "Biblioteka"
   },
@@ -274,6 +301,111 @@
   },
   "managerFailed": {
     "message": "Menedżer zakładek nie powiódł się: {error}"
+  },
+  "midFcShowDateAdded": {
+    "message": "Pokaż kolumnę Data dodania"
+  },
+  "midFcShowDateAddedHelp": {
+    "message": "Pokaż lub ukryj kolumnę Data dodania w panelu Zawartość folderu."
+  },
+  "midFcShowId": {
+    "message": "Pokaż kolumnę ID"
+  },
+  "midFcShowIdHelp": {
+    "message": "Pokaż lub ukryj kolumnę ID zakładki Chromium."
+  },
+  "midFcShowOrder": {
+    "message": "Pokaż kolumnę Kolejność"
+  },
+  "midFcShowOrderHelp": {
+    "message": "Pokaż lub ukryj kolumnę kolejności/indeksu folderu Chromium."
+  },
+  "midFcWidthDateAdded": {
+    "message": "Szerokość kolumny Data dodania"
+  },
+  "midFcWidthDateAddedHelp": {
+    "message": "Szerokość w pikselach opcjonalnej kolumny Data dodania."
+  },
+  "midFcWidthId": {
+    "message": "Szerokość kolumny ID"
+  },
+  "midFcWidthIdHelp": {
+    "message": "Szerokość w pikselach opcjonalnej kolumny ID."
+  },
+  "midFcWidthName": {
+    "message": "Szerokość kolumny Nazwa"
+  },
+  "midFcWidthNameHelp": {
+    "message": "Szerokość w pikselach kolumny Nazwa w Zawartości folderu."
+  },
+  "midFcWidthOrder": {
+    "message": "Szerokość kolumny Kolejność"
+  },
+  "midFcWidthOrderHelp": {
+    "message": "Szerokość w pikselach opcjonalnej kolumny kolejności/indeksu Chromium."
+  },
+  "midFcWidthUrl": {
+    "message": "Szerokość kolumny URL"
+  },
+  "midFcWidthUrlHelp": {
+    "message": "Szerokość w pikselach kolumny URL w Zawartości folderu."
+  },
+  "multipleInstancesAllowed": {
+    "message": "Zezwalaj na wiele instancji SBM"
+  },
+  "multipleInstancesAllowedHelp": {
+    "message": "Gdy wyłączone, kliknięcie przycisku rozszerzenia uaktywnia istniejącą kartę Simple Bookmarks Manager zamiast otwierać kolejną."
+  },
+  "mutationCreateBookmark": {
+    "message": "utwórz zakładkę"
+  },
+  "mutationCreateFolder": {
+    "message": "utwórz folder"
+  },
+  "mutationCreateFromClipboardSnapshot": {
+    "message": "utwórz ze zrzutu schowka"
+  },
+  "mutationCreateSeparator": {
+    "message": "utwórz separator"
+  },
+  "mutationDeleteBookmark": {
+    "message": "usuń zakładkę"
+  },
+  "mutationDeleteFolder": {
+    "message": "usuń folder"
+  },
+  "mutationDeleteSelectedBookmark": {
+    "message": "usuń wybraną zakładkę"
+  },
+  "mutationDeleteSelectedFolder": {
+    "message": "usuń wybrany folder"
+  },
+  "mutationDragDropMove": {
+    "message": "przenieś metodą przeciągnij i upuść"
+  },
+  "mutationEditBookmark": {
+    "message": "edytuj zakładkę"
+  },
+  "mutationMoveSelectedItem": {
+    "message": "przenieś wybrany element"
+  },
+  "mutationPasteCutItem": {
+    "message": "wklej wycięty element"
+  },
+  "mutationRenameFolder": {
+    "message": "zmień nazwę folderu"
+  },
+  "mutationReorderSelectedItems": {
+    "message": "zmień kolejność wybranych elementów"
+  },
+  "mutationSaveDetailsMove": {
+    "message": "zapisz przeniesienie w szczegółach"
+  },
+  "mutationSaveDetailsUpdate": {
+    "message": "zapisz aktualizację szczegółów"
+  },
+  "mutationSortFolderChild": {
+    "message": "sortuj element podrzędny folderu"
   },
   "naturalSort": {
     "message": "Użyj naturalnej kolejności folderów/zakładek"
@@ -317,6 +449,9 @@
   "openAllInSplitView": {
     "message": "Otwórz wszystko w widoku podzielonym"
   },
+  "openBookmark": {
+    "message": "Otwórz zakładkę"
+  },
   "openDefaultBookmarksManager": {
     "message": "Otwórz domyślny menedżer zakładek"
   },
@@ -353,6 +488,12 @@
   "optimisationTempBookmarkTreeMapsHelp": {
     "message": "Experimental. Builds short-lived lookup maps during some render/search/tree operations, then discards them to avoid a persistent stale cache."
   },
+  "optimisations": {
+    "message": "Optymalizacje"
+  },
+  "optimisationsHelp": {
+    "message": "Eksperymentalne opcje wydajności do testów porównawczych i rozwiązywania problemów."
+  },
   "optionSaved": {
     "message": "Zapisano"
   },
@@ -361,6 +502,12 @@
   },
   "optionsTitle": {
     "message": "Opcje Simple Bookmarks Manager"
+  },
+  "paneWidths": {
+    "message": "Szerokości paneli"
+  },
+  "paneWidthsHelp": {
+    "message": "Skonfiguruj szerokości paneli Biblioteka i Szczegóły. Są one także aktualizowane, gdy panele są zmieniane w interfejsie menedżera."
   },
   "parentFolder": {
     "message": "Folder nadrzędny"
@@ -376,6 +523,21 @@
   },
   "resetDefaults": {
     "message": "Przywróć domyślne"
+  },
+  "resizeColumn": {
+    "message": "Przeciągnij, aby zmienić szerokość kolumny"
+  },
+  "resizeDetailsPane": {
+    "message": "Zmień rozmiar panelu Szczegóły"
+  },
+  "resizeLibraryPane": {
+    "message": "Zmień rozmiar panelu Biblioteka"
+  },
+  "rightDetailsWidth": {
+    "message": "Szerokość panelu Szczegóły"
+  },
+  "rightDetailsWidthHelp": {
+    "message": "Szerokość w pikselach prawego panelu Szczegóły."
   },
   "rootFallback": {
     "message": "(root)"

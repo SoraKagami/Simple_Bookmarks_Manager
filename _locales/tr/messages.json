@@ -23,6 +23,9 @@
   "advancedDetails": {
     "message": "Gelişmiş ayrıntılar"
   },
+  "advancedDetailsHelp": {
+    "message": "Ayrıntılar bölmesinde gelişmiş meta veri görüntülemeyi ve desteklenen gelişmiş düzenlemeyi yapılandırın."
+  },
   "allowKeyboardDelete": {
     "message": "Delete tuşu seçili öğeleri silebilsin"
   },
@@ -98,6 +101,9 @@
   "couldNotMoveBookmark": {
     "message": "Yer imi öğesi taşınamadı: {error}"
   },
+  "couldNotOpenBookmark": {
+    "message": "Yer imi açılamadı: {error}"
+  },
   "couldNotOpenTabGroup": {
     "message": "Sekme grubu açılamadı: {error}"
   },
@@ -136,6 +142,12 @@
   },
   "debugOptionsHelp": {
     "message": "Advanced. Shows debug-only test controls. Leave disabled during normal use."
+  },
+  "debugSettings": {
+    "message": "Hata ayıklama ayarları"
+  },
+  "debugSettingsHelp": {
+    "message": "Yalnızca Hata ayıklama seçenekleri etkinleştirildiğinde gösterilen denetimler."
   },
   "defaultsRestored": {
     "message": "Varsayılanlar geri yüklendi"
@@ -209,6 +221,12 @@
   "folderAlt": {
     "message": "Klasör"
   },
+  "folderContentsView": {
+    "message": "Klasör İçeriği görünümü"
+  },
+  "folderContentsViewHelp": {
+    "message": "Orta bölme sütun genişliklerini ve isteğe bağlı sütunları yapılandırın. Ad ve URL her zaman gösterilir."
+  },
   "folderFallback": {
     "message": "(Klasör)"
   },
@@ -263,6 +281,15 @@
   "keepEditing": {
     "message": "Düzenlemeye devam et"
   },
+  "languageAuto": {
+    "message": "Otomatik / Tarayıcı Varsayılanı"
+  },
+  "leftLibWidth": {
+    "message": "Kitaplık bölmesi genişliği"
+  },
+  "leftLibWidthHelp": {
+    "message": "Sol Kitaplık bölmesi için piksel cinsinden genişlik."
+  },
   "library": {
     "message": "Kitaplık"
   },
@@ -274,6 +301,111 @@
   },
   "managerFailed": {
     "message": "Yer imi yöneticisi başarısız oldu: {error}"
+  },
+  "midFcShowDateAdded": {
+    "message": "Eklenme Tarihi sütununu göster"
+  },
+  "midFcShowDateAddedHelp": {
+    "message": "Klasör İçeriği bölmesinde Eklenme Tarihi sütununu gösterin veya gizleyin."
+  },
+  "midFcShowId": {
+    "message": "ID sütununu göster"
+  },
+  "midFcShowIdHelp": {
+    "message": "Chromium yer imi ID sütununu gösterin veya gizleyin."
+  },
+  "midFcShowOrder": {
+    "message": "Sıra sütununu göster"
+  },
+  "midFcShowOrderHelp": {
+    "message": "Chromium klasör sıra/dizin sütununu gösterin veya gizleyin."
+  },
+  "midFcWidthDateAdded": {
+    "message": "Eklenme Tarihi sütun genişliği"
+  },
+  "midFcWidthDateAddedHelp": {
+    "message": "İsteğe bağlı Eklenme Tarihi sütunu için piksel cinsinden genişlik."
+  },
+  "midFcWidthId": {
+    "message": "ID sütun genişliği"
+  },
+  "midFcWidthIdHelp": {
+    "message": "İsteğe bağlı ID sütunu için piksel cinsinden genişlik."
+  },
+  "midFcWidthName": {
+    "message": "Ad sütunu genişliği"
+  },
+  "midFcWidthNameHelp": {
+    "message": "Klasör İçeriği Ad sütunu için piksel cinsinden genişlik."
+  },
+  "midFcWidthOrder": {
+    "message": "Sıra sütunu genişliği"
+  },
+  "midFcWidthOrderHelp": {
+    "message": "İsteğe bağlı Chromium sıra/dizin sütunu için piksel cinsinden genişlik."
+  },
+  "midFcWidthUrl": {
+    "message": "URL sütunu genişliği"
+  },
+  "midFcWidthUrlHelp": {
+    "message": "Klasör İçeriği URL sütunu için piksel cinsinden genişlik."
+  },
+  "multipleInstancesAllowed": {
+    "message": "Birden fazla SBM örneğine izin ver"
+  },
+  "multipleInstancesAllowedHelp": {
+    "message": "Devre dışı bırakıldığında, uzantı düğmesine tıklamak yeni bir sekme açmak yerine mevcut Simple Bookmarks Manager sekmesine odaklanır."
+  },
+  "mutationCreateBookmark": {
+    "message": "yer imi oluştur"
+  },
+  "mutationCreateFolder": {
+    "message": "klasör oluştur"
+  },
+  "mutationCreateFromClipboardSnapshot": {
+    "message": "pano anlık görüntüsünden oluştur"
+  },
+  "mutationCreateSeparator": {
+    "message": "ayırıcı oluştur"
+  },
+  "mutationDeleteBookmark": {
+    "message": "yer imini sil"
+  },
+  "mutationDeleteFolder": {
+    "message": "klasörü sil"
+  },
+  "mutationDeleteSelectedBookmark": {
+    "message": "seçili yer imini sil"
+  },
+  "mutationDeleteSelectedFolder": {
+    "message": "seçili klasörü sil"
+  },
+  "mutationDragDropMove": {
+    "message": "sürükle/bırak taşıma"
+  },
+  "mutationEditBookmark": {
+    "message": "yer imini düzenle"
+  },
+  "mutationMoveSelectedItem": {
+    "message": "seçili öğeyi taşı"
+  },
+  "mutationPasteCutItem": {
+    "message": "kesilen öğeyi yapıştır"
+  },
+  "mutationRenameFolder": {
+    "message": "klasörü yeniden adlandır"
+  },
+  "mutationReorderSelectedItems": {
+    "message": "seçili öğeleri yeniden sırala"
+  },
+  "mutationSaveDetailsMove": {
+    "message": "ayrıntı taşımasını kaydet"
+  },
+  "mutationSaveDetailsUpdate": {
+    "message": "ayrıntı güncellemesini kaydet"
+  },
+  "mutationSortFolderChild": {
+    "message": "klasör alt öğesini sırala"
   },
   "naturalSort": {
     "message": "Doğal klasör/yer imi sıralamasını kullan"
@@ -317,6 +449,9 @@
   "openAllInSplitView": {
     "message": "Tümünü bölünmüş görünümde aç"
   },
+  "openBookmark": {
+    "message": "Yer İmini Aç"
+  },
   "openDefaultBookmarksManager": {
     "message": "Varsayılan Yer İmleri Yöneticisini Aç"
   },
@@ -353,6 +488,12 @@
   "optimisationTempBookmarkTreeMapsHelp": {
     "message": "Experimental. Builds short-lived lookup maps during some render/search/tree operations, then discards them to avoid a persistent stale cache."
   },
+  "optimisations": {
+    "message": "Optimizasyonlar"
+  },
+  "optimisationsHelp": {
+    "message": "Karşılaştırma ve sorun giderme için deneysel performans seçenekleri."
+  },
   "optionSaved": {
     "message": "Kaydedildi"
   },
@@ -361,6 +502,12 @@
   },
   "optionsTitle": {
     "message": "Simple Bookmarks Manager Seçenekleri"
+  },
+  "paneWidths": {
+    "message": "Bölme genişlikleri"
+  },
+  "paneWidthsHelp": {
+    "message": "Kitaplık ve Ayrıntılar bölmelerinin genişliklerini yapılandırın. Bunlar, yönetici arayüzünde bölmeler yeniden boyutlandırıldığında da güncellenir."
   },
   "parentFolder": {
     "message": "Üst klasör"
@@ -376,6 +523,21 @@
   },
   "resetDefaults": {
     "message": "Varsayılanlara sıfırla"
+  },
+  "resizeColumn": {
+    "message": "Sütunu yeniden boyutlandırmak için sürükleyin"
+  },
+  "resizeDetailsPane": {
+    "message": "Ayrıntılar bölmesini yeniden boyutlandır"
+  },
+  "resizeLibraryPane": {
+    "message": "Kitaplık bölmesini yeniden boyutlandır"
+  },
+  "rightDetailsWidth": {
+    "message": "Ayrıntılar bölmesi genişliği"
+  },
+  "rightDetailsWidthHelp": {
+    "message": "Sağ Ayrıntılar bölmesi için piksel cinsinden genişlik."
   },
   "rootFallback": {
     "message": "(kök)"

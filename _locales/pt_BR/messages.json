@@ -23,6 +23,9 @@
   "advancedDetails": {
     "message": "Detalhes avançados"
   },
+  "advancedDetailsHelp": {
+    "message": "Configure a visualização de metadados avançados e a edição avançada compatível no painel Detalhes."
+  },
   "allowKeyboardDelete": {
     "message": "Permitir que Delete exclua itens selecionados"
   },
@@ -98,6 +101,9 @@
   "couldNotMoveBookmark": {
     "message": "Não foi possível mover o item de favorito: {error}"
   },
+  "couldNotOpenBookmark": {
+    "message": "Não foi possível abrir o favorito: {error}"
+  },
   "couldNotOpenTabGroup": {
     "message": "Não foi possível abrir o grupo de abas: {error}"
   },
@@ -136,6 +142,12 @@
   },
   "debugOptionsHelp": {
     "message": "Advanced. Shows debug-only test controls. Leave disabled during normal use."
+  },
+  "debugSettings": {
+    "message": "Configurações de depuração"
+  },
+  "debugSettingsHelp": {
+    "message": "Controles exibidos somente quando as opções de depuração estão ativadas."
   },
   "defaultsRestored": {
     "message": "Padrões restaurados"
@@ -209,6 +221,12 @@
   "folderAlt": {
     "message": "Pasta"
   },
+  "folderContentsView": {
+    "message": "Visualização de conteúdo da pasta"
+  },
+  "folderContentsViewHelp": {
+    "message": "Configure as larguras das colunas do painel central e as colunas opcionais. Nome e URL são sempre exibidos."
+  },
   "folderFallback": {
     "message": "(Pasta)"
   },
@@ -263,6 +281,15 @@
   "keepEditing": {
     "message": "Continuar editando"
   },
+  "languageAuto": {
+    "message": "Automático / Padrão do navegador"
+  },
+  "leftLibWidth": {
+    "message": "Largura do painel Biblioteca"
+  },
+  "leftLibWidthHelp": {
+    "message": "Largura em pixels do painel Biblioteca à esquerda."
+  },
   "library": {
     "message": "Biblioteca"
   },
@@ -274,6 +301,111 @@
   },
   "managerFailed": {
     "message": "Falha no gerenciador de favoritos: {error}"
+  },
+  "midFcShowDateAdded": {
+    "message": "Mostrar coluna Data de adição"
+  },
+  "midFcShowDateAddedHelp": {
+    "message": "Mostra ou oculta a coluna Data de adição no painel Conteúdo da pasta."
+  },
+  "midFcShowId": {
+    "message": "Mostrar coluna ID"
+  },
+  "midFcShowIdHelp": {
+    "message": "Mostra ou oculta a coluna de ID do favorito do Chromium."
+  },
+  "midFcShowOrder": {
+    "message": "Mostrar coluna Ordem"
+  },
+  "midFcShowOrderHelp": {
+    "message": "Mostra ou oculta a coluna de ordem/índice da pasta do Chromium."
+  },
+  "midFcWidthDateAdded": {
+    "message": "Largura da coluna Data de adição"
+  },
+  "midFcWidthDateAddedHelp": {
+    "message": "Largura em pixels da coluna opcional Data de adição."
+  },
+  "midFcWidthId": {
+    "message": "Largura da coluna ID"
+  },
+  "midFcWidthIdHelp": {
+    "message": "Largura em pixels da coluna opcional ID."
+  },
+  "midFcWidthName": {
+    "message": "Largura da coluna Nome"
+  },
+  "midFcWidthNameHelp": {
+    "message": "Largura em pixels da coluna Nome em Conteúdo da pasta."
+  },
+  "midFcWidthOrder": {
+    "message": "Largura da coluna Ordem"
+  },
+  "midFcWidthOrderHelp": {
+    "message": "Largura em pixels da coluna opcional de ordem/índice do Chromium."
+  },
+  "midFcWidthUrl": {
+    "message": "Largura da coluna URL"
+  },
+  "midFcWidthUrlHelp": {
+    "message": "Largura em pixels da coluna URL em Conteúdo da pasta."
+  },
+  "multipleInstancesAllowed": {
+    "message": "Permitir várias instâncias do SBM"
+  },
+  "multipleInstancesAllowedHelp": {
+    "message": "Quando desativado, clicar no botão da extensão foca a guia existente do Simple Bookmarks Manager em vez de abrir outra."
+  },
+  "mutationCreateBookmark": {
+    "message": "criar favorito"
+  },
+  "mutationCreateFolder": {
+    "message": "criar pasta"
+  },
+  "mutationCreateFromClipboardSnapshot": {
+    "message": "criar a partir de instantâneo da área de transferência"
+  },
+  "mutationCreateSeparator": {
+    "message": "criar separador"
+  },
+  "mutationDeleteBookmark": {
+    "message": "excluir favorito"
+  },
+  "mutationDeleteFolder": {
+    "message": "excluir pasta"
+  },
+  "mutationDeleteSelectedBookmark": {
+    "message": "excluir favorito selecionado"
+  },
+  "mutationDeleteSelectedFolder": {
+    "message": "excluir pasta selecionada"
+  },
+  "mutationDragDropMove": {
+    "message": "mover arrastando e soltando"
+  },
+  "mutationEditBookmark": {
+    "message": "editar favorito"
+  },
+  "mutationMoveSelectedItem": {
+    "message": "mover item selecionado"
+  },
+  "mutationPasteCutItem": {
+    "message": "colar item recortado"
+  },
+  "mutationRenameFolder": {
+    "message": "renomear pasta"
+  },
+  "mutationReorderSelectedItems": {
+    "message": "reordenar itens selecionados"
+  },
+  "mutationSaveDetailsMove": {
+    "message": "salvar movimentação dos detalhes"
+  },
+  "mutationSaveDetailsUpdate": {
+    "message": "salvar atualização dos detalhes"
+  },
+  "mutationSortFolderChild": {
+    "message": "ordenar item filho da pasta"
   },
   "naturalSort": {
     "message": "Usar ordem natural de pastas/favoritos"
@@ -317,6 +449,9 @@
   "openAllInSplitView": {
     "message": "Abrir tudo em exibição dividida"
   },
+  "openBookmark": {
+    "message": "Abrir favorito"
+  },
   "openDefaultBookmarksManager": {
     "message": "Abrir gerenciador de favoritos padrão"
   },
@@ -353,6 +488,12 @@
   "optimisationTempBookmarkTreeMapsHelp": {
     "message": "Experimental. Builds short-lived lookup maps during some render/search/tree operations, then discards them to avoid a persistent stale cache."
   },
+  "optimisations": {
+    "message": "Otimizações"
+  },
+  "optimisationsHelp": {
+    "message": "Opções experimentais de desempenho para benchmarks e solução de problemas."
+  },
   "optionSaved": {
     "message": "Salvo"
   },
@@ -361,6 +502,12 @@
   },
   "optionsTitle": {
     "message": "Opções do Simple Bookmarks Manager"
+  },
+  "paneWidths": {
+    "message": "Larguras dos painéis"
+  },
+  "paneWidthsHelp": {
+    "message": "Configure as larguras dos painéis Biblioteca e Detalhes. Elas também são atualizadas quando os painéis são redimensionados na interface do gerenciador."
   },
   "parentFolder": {
     "message": "Pasta pai"
@@ -376,6 +523,21 @@
   },
   "resetDefaults": {
     "message": "Restaurar padrões"
+  },
+  "resizeColumn": {
+    "message": "Arraste para redimensionar a coluna"
+  },
+  "resizeDetailsPane": {
+    "message": "Redimensionar painel Detalhes"
+  },
+  "resizeLibraryPane": {
+    "message": "Redimensionar painel Biblioteca"
+  },
+  "rightDetailsWidth": {
+    "message": "Largura do painel Detalhes"
+  },
+  "rightDetailsWidthHelp": {
+    "message": "Largura em pixels do painel Detalhes à direita."
   },
   "rootFallback": {
     "message": "(raiz)"

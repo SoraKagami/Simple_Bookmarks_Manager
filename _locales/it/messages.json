@@ -23,6 +23,9 @@
   "advancedDetails": {
     "message": "Dettagli avanzati"
   },
+  "advancedDetailsHelp": {
+    "message": "Configura la visualizzazione dei metadati avanzati e la modifica avanzata supportata nel riquadro Dettagli."
+  },
   "allowKeyboardDelete": {
     "message": "Consenti al tasto Canc di eliminare selezionati"
   },
@@ -98,6 +101,9 @@
   "couldNotMoveBookmark": {
     "message": "Impossibile spostare l’elemento segnalibro: {error}"
   },
+  "couldNotOpenBookmark": {
+    "message": "Impossibile aprire il segnalibro: {error}"
+  },
   "couldNotOpenTabGroup": {
     "message": "Impossibile aprire il gruppo di schede: {error}"
   },
@@ -136,6 +142,12 @@
   },
   "debugOptionsHelp": {
     "message": "Advanced. Shows debug-only test controls. Leave disabled during normal use."
+  },
+  "debugSettings": {
+    "message": "Impostazioni di debug"
+  },
+  "debugSettingsHelp": {
+    "message": "Controlli mostrati solo quando le opzioni di debug sono abilitate."
   },
   "defaultsRestored": {
     "message": "Valori predefiniti ripristinati"
@@ -209,6 +221,12 @@
   "folderAlt": {
     "message": "Cartella"
   },
+  "folderContentsView": {
+    "message": "Vista Contenuto cartella"
+  },
+  "folderContentsViewHelp": {
+    "message": "Configura le larghezze delle colonne del riquadro centrale e le colonne opzionali. Nome e URL sono sempre mostrati."
+  },
   "folderFallback": {
     "message": "(Cartella)"
   },
@@ -263,6 +281,15 @@
   "keepEditing": {
     "message": "Continua a modificare"
   },
+  "languageAuto": {
+    "message": "Automatico / Predefinito del browser"
+  },
+  "leftLibWidth": {
+    "message": "Larghezza riquadro Libreria"
+  },
+  "leftLibWidthHelp": {
+    "message": "Larghezza in pixel per il riquadro Libreria a sinistra."
+  },
   "library": {
     "message": "Libreria"
   },
@@ -274,6 +301,111 @@
   },
   "managerFailed": {
     "message": "Gestore segnalibri non riuscito: {error}"
+  },
+  "midFcShowDateAdded": {
+    "message": "Mostra colonna Data aggiunta"
+  },
+  "midFcShowDateAddedHelp": {
+    "message": "Mostra o nasconde la colonna Data aggiunta nel riquadro Contenuto cartella."
+  },
+  "midFcShowId": {
+    "message": "Mostra colonna ID"
+  },
+  "midFcShowIdHelp": {
+    "message": "Mostra o nasconde la colonna ID del segnalibro Chromium."
+  },
+  "midFcShowOrder": {
+    "message": "Mostra colonna Ordine"
+  },
+  "midFcShowOrderHelp": {
+    "message": "Mostra o nasconde la colonna ordine/indice della cartella Chromium."
+  },
+  "midFcWidthDateAdded": {
+    "message": "Larghezza colonna Data aggiunta"
+  },
+  "midFcWidthDateAddedHelp": {
+    "message": "Larghezza in pixel per la colonna opzionale Data aggiunta."
+  },
+  "midFcWidthId": {
+    "message": "Larghezza colonna ID"
+  },
+  "midFcWidthIdHelp": {
+    "message": "Larghezza in pixel per la colonna opzionale ID."
+  },
+  "midFcWidthName": {
+    "message": "Larghezza colonna Nome"
+  },
+  "midFcWidthNameHelp": {
+    "message": "Larghezza in pixel per la colonna Nome di Contenuto cartella."
+  },
+  "midFcWidthOrder": {
+    "message": "Larghezza colonna Ordine"
+  },
+  "midFcWidthOrderHelp": {
+    "message": "Larghezza in pixel per la colonna opzionale ordine/indice di Chromium."
+  },
+  "midFcWidthUrl": {
+    "message": "Larghezza colonna URL"
+  },
+  "midFcWidthUrlHelp": {
+    "message": "Larghezza in pixel per la colonna URL di Contenuto cartella."
+  },
+  "multipleInstancesAllowed": {
+    "message": "Consenti più istanze di SBM"
+  },
+  "multipleInstancesAllowedHelp": {
+    "message": "Quando disabilitato, facendo clic sul pulsante dell’estensione viene attivata la scheda esistente di Simple Bookmarks Manager invece di aprirne un’altra."
+  },
+  "mutationCreateBookmark": {
+    "message": "crea segnalibro"
+  },
+  "mutationCreateFolder": {
+    "message": "crea cartella"
+  },
+  "mutationCreateFromClipboardSnapshot": {
+    "message": "crea da snapshot degli appunti"
+  },
+  "mutationCreateSeparator": {
+    "message": "crea separatore"
+  },
+  "mutationDeleteBookmark": {
+    "message": "elimina segnalibro"
+  },
+  "mutationDeleteFolder": {
+    "message": "elimina cartella"
+  },
+  "mutationDeleteSelectedBookmark": {
+    "message": "elimina segnalibro selezionato"
+  },
+  "mutationDeleteSelectedFolder": {
+    "message": "elimina cartella selezionata"
+  },
+  "mutationDragDropMove": {
+    "message": "spostamento tramite trascinamento"
+  },
+  "mutationEditBookmark": {
+    "message": "modifica segnalibro"
+  },
+  "mutationMoveSelectedItem": {
+    "message": "sposta elemento selezionato"
+  },
+  "mutationPasteCutItem": {
+    "message": "incolla elemento tagliato"
+  },
+  "mutationRenameFolder": {
+    "message": "rinomina cartella"
+  },
+  "mutationReorderSelectedItems": {
+    "message": "riordina elementi selezionati"
+  },
+  "mutationSaveDetailsMove": {
+    "message": "salva spostamento nei dettagli"
+  },
+  "mutationSaveDetailsUpdate": {
+    "message": "salva aggiornamento dei dettagli"
+  },
+  "mutationSortFolderChild": {
+    "message": "ordina elemento figlio della cartella"
   },
   "naturalSort": {
     "message": "Usa ordinamento naturale cartelle/segnalibri"
@@ -317,6 +449,9 @@
   "openAllInSplitView": {
     "message": "Apri tutto in vista divisa"
   },
+  "openBookmark": {
+    "message": "Apri segnalibro"
+  },
   "openDefaultBookmarksManager": {
     "message": "Apri gestore segnalibri predefinito"
   },
@@ -353,6 +488,12 @@
   "optimisationTempBookmarkTreeMapsHelp": {
     "message": "Experimental. Builds short-lived lookup maps during some render/search/tree operations, then discards them to avoid a persistent stale cache."
   },
+  "optimisations": {
+    "message": "Ottimizzazioni"
+  },
+  "optimisationsHelp": {
+    "message": "Opzioni sperimentali per le prestazioni, per benchmark e risoluzione dei problemi."
+  },
   "optionSaved": {
     "message": "Salvato"
   },
@@ -361,6 +502,12 @@
   },
   "optionsTitle": {
     "message": "Opzioni di Simple Bookmarks Manager"
+  },
+  "paneWidths": {
+    "message": "Larghezze dei riquadri"
+  },
+  "paneWidthsHelp": {
+    "message": "Configura le larghezze dei riquadri Libreria e Dettagli. Vengono aggiornate anche quando i riquadri vengono ridimensionati nell’interfaccia del gestore."
   },
   "parentFolder": {
     "message": "Cartella superiore"
@@ -376,6 +523,21 @@
   },
   "resetDefaults": {
     "message": "Ripristina predefiniti"
+  },
+  "resizeColumn": {
+    "message": "Trascina per ridimensionare la colonna"
+  },
+  "resizeDetailsPane": {
+    "message": "Ridimensiona riquadro Dettagli"
+  },
+  "resizeLibraryPane": {
+    "message": "Ridimensiona riquadro Libreria"
+  },
+  "rightDetailsWidth": {
+    "message": "Larghezza riquadro Dettagli"
+  },
+  "rightDetailsWidthHelp": {
+    "message": "Larghezza in pixel per il riquadro Dettagli a destra."
   },
   "rootFallback": {
     "message": "(radice)"

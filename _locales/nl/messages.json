@@ -23,6 +23,9 @@
   "advancedDetails": {
     "message": "Geavanceerde details"
   },
+  "advancedDetailsHelp": {
+    "message": "Configureer geavanceerde metadataweergave en ondersteunde geavanceerde bewerking in het paneel Details."
+  },
   "allowKeyboardDelete": {
     "message": "Delete-toets mag geselecteerde items verwijderen"
   },
@@ -98,6 +101,9 @@
   "couldNotMoveBookmark": {
     "message": "Kan bladwijzeritem niet verplaatsen: {error}"
   },
+  "couldNotOpenBookmark": {
+    "message": "Kan bladwijzer niet openen: {error}"
+  },
   "couldNotOpenTabGroup": {
     "message": "Kan tabgroep niet openen: {error}"
   },
@@ -136,6 +142,12 @@
   },
   "debugOptionsHelp": {
     "message": "Advanced. Shows debug-only test controls. Leave disabled during normal use."
+  },
+  "debugSettings": {
+    "message": "Debug-instellingen"
+  },
+  "debugSettingsHelp": {
+    "message": "Besturingselementen die alleen worden getoond wanneer debugopties zijn ingeschakeld."
   },
   "defaultsRestored": {
     "message": "Standaardwaarden hersteld"
@@ -209,6 +221,12 @@
   "folderAlt": {
     "message": "Map"
   },
+  "folderContentsView": {
+    "message": "Weergave Mapinhoud"
+  },
+  "folderContentsViewHelp": {
+    "message": "Configureer kolombreedtes van het middelste paneel en optionele kolommen. Naam en URL worden altijd getoond."
+  },
   "folderFallback": {
     "message": "(folder)"
   },
@@ -263,6 +281,15 @@
   "keepEditing": {
     "message": "Verder bewerken"
   },
+  "languageAuto": {
+    "message": "Automatisch / Browserstandaard"
+  },
+  "leftLibWidth": {
+    "message": "Breedte van bibliotheekpaneel"
+  },
+  "leftLibWidthHelp": {
+    "message": "Breedte in pixels voor het linker bibliotheekpaneel."
+  },
   "library": {
     "message": "Bibliotheek"
   },
@@ -274,6 +301,111 @@
   },
   "managerFailed": {
     "message": "Bladwijzerbeheerder mislukt: {error}"
+  },
+  "midFcShowDateAdded": {
+    "message": "Kolom Datum toegevoegd tonen"
+  },
+  "midFcShowDateAddedHelp": {
+    "message": "Toon of verberg de kolom Datum toegevoegd in het paneel Mapinhoud."
+  },
+  "midFcShowId": {
+    "message": "ID-kolom tonen"
+  },
+  "midFcShowIdHelp": {
+    "message": "Toon of verberg de Chromium-bladwijzer-ID-kolom."
+  },
+  "midFcShowOrder": {
+    "message": "Kolom Volgorde tonen"
+  },
+  "midFcShowOrderHelp": {
+    "message": "Toon of verberg de Chromium-mapvolgorde-/indexkolom."
+  },
+  "midFcWidthDateAdded": {
+    "message": "Breedte kolom Datum toegevoegd"
+  },
+  "midFcWidthDateAddedHelp": {
+    "message": "Breedte in pixels voor de optionele kolom Datum toegevoegd."
+  },
+  "midFcWidthId": {
+    "message": "Breedte ID-kolom"
+  },
+  "midFcWidthIdHelp": {
+    "message": "Breedte in pixels voor de optionele ID-kolom."
+  },
+  "midFcWidthName": {
+    "message": "Breedte naamkolom"
+  },
+  "midFcWidthNameHelp": {
+    "message": "Breedte in pixels voor de kolom Naam van Mapinhoud."
+  },
+  "midFcWidthOrder": {
+    "message": "Breedte kolom Volgorde"
+  },
+  "midFcWidthOrderHelp": {
+    "message": "Breedte in pixels voor de optionele Chromium-volgorde-/indexkolom."
+  },
+  "midFcWidthUrl": {
+    "message": "Breedte URL-kolom"
+  },
+  "midFcWidthUrlHelp": {
+    "message": "Breedte in pixels voor de URL-kolom van Mapinhoud."
+  },
+  "multipleInstancesAllowed": {
+    "message": "Meerdere SBM-instanties toestaan"
+  },
+  "multipleInstancesAllowedHelp": {
+    "message": "Wanneer uitgeschakeld, focust een klik op de extensieknop het bestaande tabblad Simple Bookmarks Manager in plaats van een nieuw tabblad te openen."
+  },
+  "mutationCreateBookmark": {
+    "message": "bladwijzer maken"
+  },
+  "mutationCreateFolder": {
+    "message": "map maken"
+  },
+  "mutationCreateFromClipboardSnapshot": {
+    "message": "maken vanuit klembordmomentopname"
+  },
+  "mutationCreateSeparator": {
+    "message": "scheidingsteken maken"
+  },
+  "mutationDeleteBookmark": {
+    "message": "bladwijzer verwijderen"
+  },
+  "mutationDeleteFolder": {
+    "message": "map verwijderen"
+  },
+  "mutationDeleteSelectedBookmark": {
+    "message": "geselecteerde bladwijzer verwijderen"
+  },
+  "mutationDeleteSelectedFolder": {
+    "message": "geselecteerde map verwijderen"
+  },
+  "mutationDragDropMove": {
+    "message": "verplaatsen via slepen/neerzetten"
+  },
+  "mutationEditBookmark": {
+    "message": "bladwijzer bewerken"
+  },
+  "mutationMoveSelectedItem": {
+    "message": "geselecteerd item verplaatsen"
+  },
+  "mutationPasteCutItem": {
+    "message": "geknipt item plakken"
+  },
+  "mutationRenameFolder": {
+    "message": "map hernoemen"
+  },
+  "mutationReorderSelectedItems": {
+    "message": "geselecteerde items herschikken"
+  },
+  "mutationSaveDetailsMove": {
+    "message": "detailsverplaatsing opslaan"
+  },
+  "mutationSaveDetailsUpdate": {
+    "message": "detailsupdate opslaan"
+  },
+  "mutationSortFolderChild": {
+    "message": "mapkind sorteren"
   },
   "naturalSort": {
     "message": "Natuurlijke map-/bladwijzersortering gebruiken"
@@ -317,6 +449,9 @@
   "openAllInSplitView": {
     "message": "Alles openen in gesplitste weergave"
   },
+  "openBookmark": {
+    "message": "Bladwijzer openen"
+  },
   "openDefaultBookmarksManager": {
     "message": "Standaard bladwijzerbeheerder openen"
   },
@@ -353,6 +488,12 @@
   "optimisationTempBookmarkTreeMapsHelp": {
     "message": "Experimental. Builds short-lived lookup maps during some render/search/tree operations, then discards them to avoid a persistent stale cache."
   },
+  "optimisations": {
+    "message": "Optimalisaties"
+  },
+  "optimisationsHelp": {
+    "message": "Experimentele prestatieopties voor benchmarks en probleemoplossing."
+  },
   "optionSaved": {
     "message": "Opgeslagen"
   },
@@ -361,6 +502,12 @@
   },
   "optionsTitle": {
     "message": "Opties voor Simple Bookmarks Manager"
+  },
+  "paneWidths": {
+    "message": "Paneelbreedtes"
+  },
+  "paneWidthsHelp": {
+    "message": "Configureer de breedtes van de panelen Bibliotheek en Details. Deze worden ook bijgewerkt wanneer panelen in de beheerinterface worden aangepast."
   },
   "parentFolder": {
     "message": "Bovenliggende map"
@@ -376,6 +523,21 @@
   },
   "resetDefaults": {
     "message": "Standaardwaarden herstellen"
+  },
+  "resizeColumn": {
+    "message": "Sleep om kolomgrootte te wijzigen"
+  },
+  "resizeDetailsPane": {
+    "message": "Paneel Details vergroten/verkleinen"
+  },
+  "resizeLibraryPane": {
+    "message": "Paneel Bibliotheek vergroten/verkleinen"
+  },
+  "rightDetailsWidth": {
+    "message": "Breedte van detailpaneel"
+  },
+  "rightDetailsWidthHelp": {
+    "message": "Breedte in pixels voor het rechter detailpaneel."
   },
   "rootFallback": {
     "message": "(hoofdmap)"

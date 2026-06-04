@@ -1,5 +1,12 @@
 # Changelog
 
+## 0.7.21
+
+- Updated Indonesian (`id`), Italian (`it`), Dutch (`nl`), Polish (`pl`), Brazilian Portuguese (`pt_BR`), Turkish (`tr`), and Vietnamese (`vi`) locale files using the current English locale as the source.
+- Added translations for the latest Options page advanced groups, pane/column sizing controls, diagnostics/debug labels, bookmark mutation failure text, and URL validation/open bookmark strings.
+- Kept placeholders such as `{error}` intact across the updated translations.
+- Updated `manifest.json` to `0.7.21`.
+
 ## 0.7.20
 
 - Updated German (`de`), Spanish (`es`), French (`fr`), and Hebrew (`he`) locale files using the current English locale as the source.

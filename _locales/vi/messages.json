@@ -23,6 +23,9 @@
   "advancedDetails": {
     "message": "Chi tiết nâng cao"
   },
+  "advancedDetailsHelp": {
+    "message": "Cấu hình việc xem siêu dữ liệu nâng cao và chỉnh sửa nâng cao được hỗ trợ trong ngăn Chi tiết."
+  },
   "allowKeyboardDelete": {
     "message": "Cho phép phím Delete xóa mục đã chọn"
   },
@@ -98,6 +101,9 @@
   "couldNotMoveBookmark": {
     "message": "Không thể di chuyển mục dấu trang: {error}"
   },
+  "couldNotOpenBookmark": {
+    "message": "Không thể mở dấu trang: {error}"
+  },
   "couldNotOpenTabGroup": {
     "message": "Không thể mở nhóm thẻ: {error}"
   },
@@ -136,6 +142,12 @@
   },
   "debugOptionsHelp": {
     "message": "Advanced. Shows debug-only test controls. Leave disabled during normal use."
+  },
+  "debugSettings": {
+    "message": "Cài đặt gỡ lỗi"
+  },
+  "debugSettingsHelp": {
+    "message": "Các điều khiển chỉ hiển thị khi tùy chọn Gỡ lỗi được bật."
   },
   "defaultsRestored": {
     "message": "Đã khôi phục mặc định"
@@ -209,6 +221,12 @@
   "folderAlt": {
     "message": "Thư mục"
   },
+  "folderContentsView": {
+    "message": "Chế độ xem Nội dung thư mục"
+  },
+  "folderContentsViewHelp": {
+    "message": "Cấu hình độ rộng cột của ngăn giữa và các cột tùy chọn. Tên và URL luôn được hiển thị."
+  },
   "folderFallback": {
     "message": "(Thư mục)"
   },
@@ -263,6 +281,15 @@
   "keepEditing": {
     "message": "Tiếp tục sửa"
   },
+  "languageAuto": {
+    "message": "Tự động / Mặc định của trình duyệt"
+  },
+  "leftLibWidth": {
+    "message": "Độ rộng ngăn Thư viện"
+  },
+  "leftLibWidthHelp": {
+    "message": "Độ rộng tính bằng pixel cho ngăn Thư viện bên trái."
+  },
   "library": {
     "message": "Thư viện"
   },
@@ -274,6 +301,111 @@
   },
   "managerFailed": {
     "message": "Trình quản lý dấu trang thất bại: {error}"
+  },
+  "midFcShowDateAdded": {
+    "message": "Hiển thị cột Ngày thêm"
+  },
+  "midFcShowDateAddedHelp": {
+    "message": "Hiển thị hoặc ẩn cột Ngày thêm trong ngăn Nội dung thư mục."
+  },
+  "midFcShowId": {
+    "message": "Hiển thị cột ID"
+  },
+  "midFcShowIdHelp": {
+    "message": "Hiển thị hoặc ẩn cột ID dấu trang Chromium."
+  },
+  "midFcShowOrder": {
+    "message": "Hiển thị cột Thứ tự"
+  },
+  "midFcShowOrderHelp": {
+    "message": "Hiển thị hoặc ẩn cột thứ tự/chỉ mục thư mục Chromium."
+  },
+  "midFcWidthDateAdded": {
+    "message": "Độ rộng cột Ngày thêm"
+  },
+  "midFcWidthDateAddedHelp": {
+    "message": "Độ rộng tính bằng pixel cho cột tùy chọn Ngày thêm."
+  },
+  "midFcWidthId": {
+    "message": "Độ rộng cột ID"
+  },
+  "midFcWidthIdHelp": {
+    "message": "Độ rộng tính bằng pixel cho cột ID tùy chọn."
+  },
+  "midFcWidthName": {
+    "message": "Độ rộng cột Tên"
+  },
+  "midFcWidthNameHelp": {
+    "message": "Độ rộng tính bằng pixel cho cột Tên trong Nội dung thư mục."
+  },
+  "midFcWidthOrder": {
+    "message": "Độ rộng cột Thứ tự"
+  },
+  "midFcWidthOrderHelp": {
+    "message": "Độ rộng tính bằng pixel cho cột thứ tự/chỉ mục Chromium tùy chọn."
+  },
+  "midFcWidthUrl": {
+    "message": "Độ rộng cột URL"
+  },
+  "midFcWidthUrlHelp": {
+    "message": "Độ rộng tính bằng pixel cho cột URL trong Nội dung thư mục."
+  },
+  "multipleInstancesAllowed": {
+    "message": "Cho phép nhiều phiên bản SBM"
+  },
+  "multipleInstancesAllowedHelp": {
+    "message": "Khi tắt, việc nhấp vào nút tiện ích sẽ chuyển đến tab Simple Bookmarks Manager hiện có thay vì mở một tab khác."
+  },
+  "mutationCreateBookmark": {
+    "message": "tạo dấu trang"
+  },
+  "mutationCreateFolder": {
+    "message": "tạo thư mục"
+  },
+  "mutationCreateFromClipboardSnapshot": {
+    "message": "tạo từ ảnh chụp bảng tạm"
+  },
+  "mutationCreateSeparator": {
+    "message": "tạo dấu phân cách"
+  },
+  "mutationDeleteBookmark": {
+    "message": "xóa dấu trang"
+  },
+  "mutationDeleteFolder": {
+    "message": "xóa thư mục"
+  },
+  "mutationDeleteSelectedBookmark": {
+    "message": "xóa dấu trang đã chọn"
+  },
+  "mutationDeleteSelectedFolder": {
+    "message": "xóa thư mục đã chọn"
+  },
+  "mutationDragDropMove": {
+    "message": "di chuyển bằng kéo/thả"
+  },
+  "mutationEditBookmark": {
+    "message": "chỉnh sửa dấu trang"
+  },
+  "mutationMoveSelectedItem": {
+    "message": "di chuyển mục đã chọn"
+  },
+  "mutationPasteCutItem": {
+    "message": "dán mục đã cắt"
+  },
+  "mutationRenameFolder": {
+    "message": "đổi tên thư mục"
+  },
+  "mutationReorderSelectedItems": {
+    "message": "sắp xếp lại các mục đã chọn"
+  },
+  "mutationSaveDetailsMove": {
+    "message": "lưu di chuyển trong chi tiết"
+  },
+  "mutationSaveDetailsUpdate": {
+    "message": "lưu cập nhật chi tiết"
+  },
+  "mutationSortFolderChild": {
+    "message": "sắp xếp mục con của thư mục"
   },
   "naturalSort": {
     "message": "Dùng thứ tự tự nhiên cho thư mục/dấu trang"
@@ -317,6 +449,9 @@
   "openAllInSplitView": {
     "message": "Mở tất cả trong chế độ chia đôi"
   },
+  "openBookmark": {
+    "message": "Mở dấu trang"
+  },
   "openDefaultBookmarksManager": {
     "message": "Mở trình quản lý dấu trang mặc định"
   },
@@ -353,6 +488,12 @@
   "optimisationTempBookmarkTreeMapsHelp": {
     "message": "Experimental. Builds short-lived lookup maps during some render/search/tree operations, then discards them to avoid a persistent stale cache."
   },
+  "optimisations": {
+    "message": "Tối ưu hóa"
+  },
+  "optimisationsHelp": {
+    "message": "Các tùy chọn hiệu năng thử nghiệm để đo điểm chuẩn và khắc phục sự cố."
+  },
   "optionSaved": {
     "message": "Đã lưu"
   },
@@ -361,6 +502,12 @@
   },
   "optionsTitle": {
     "message": "Tùy chọn Simple Bookmarks Manager"
+  },
+  "paneWidths": {
+    "message": "Độ rộng ngăn"
+  },
+  "paneWidthsHelp": {
+    "message": "Cấu hình độ rộng ngăn Thư viện và Chi tiết. Các giá trị này cũng được cập nhật khi ngăn được đổi kích thước trong giao diện trình quản lý."
   },
   "parentFolder": {
     "message": "Thư mục cha"
@@ -376,6 +523,21 @@
   },
   "resetDefaults": {
     "message": "Khôi phục mặc định"
+  },
+  "resizeColumn": {
+    "message": "Kéo để đổi kích thước cột"
+  },
+  "resizeDetailsPane": {
+    "message": "Đổi kích thước ngăn Chi tiết"
+  },
+  "resizeLibraryPane": {
+    "message": "Đổi kích thước ngăn Thư viện"
+  },
+  "rightDetailsWidth": {
+    "message": "Độ rộng ngăn Chi tiết"
+  },
+  "rightDetailsWidthHelp": {
+    "message": "Độ rộng tính bằng pixel cho ngăn Chi tiết bên phải."
   },
   "rootFallback": {
     "message": "(gốc)"

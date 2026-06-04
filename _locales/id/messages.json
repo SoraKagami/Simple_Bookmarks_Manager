@@ -23,6 +23,9 @@
   "advancedDetails": {
     "message": "Detail lanjutan"
   },
+  "advancedDetailsHelp": {
+    "message": "Konfigurasikan tampilan metadata lanjutan dan pengeditan lanjutan yang didukung di panel Detail."
+  },
   "allowKeyboardDelete": {
     "message": "Izinkan tombol Delete menghapus item terpilih"
   },
@@ -98,6 +101,9 @@
   "couldNotMoveBookmark": {
     "message": "Tidak dapat memindahkan item bookmark: {error}"
   },
+  "couldNotOpenBookmark": {
+    "message": "Tidak dapat membuka bookmark: {error}"
+  },
   "couldNotOpenTabGroup": {
     "message": "Tidak dapat membuka grup tab: {error}"
   },
@@ -136,6 +142,12 @@
   },
   "debugOptionsHelp": {
     "message": "Advanced. Shows debug-only test controls. Leave disabled during normal use."
+  },
+  "debugSettings": {
+    "message": "Pengaturan Debug"
+  },
+  "debugSettingsHelp": {
+    "message": "Kontrol hanya ditampilkan saat opsi Debug diaktifkan."
   },
   "defaultsRestored": {
     "message": "Default dipulihkan"
@@ -209,6 +221,12 @@
   "folderAlt": {
     "message": "Folder"
   },
+  "folderContentsView": {
+    "message": "Tampilan Isi Folder"
+  },
+  "folderContentsViewHelp": {
+    "message": "Konfigurasikan lebar kolom panel tengah dan kolom opsional. Nama dan URL selalu ditampilkan."
+  },
   "folderFallback": {
     "message": "(Folder)"
   },
@@ -263,6 +281,15 @@
   "keepEditing": {
     "message": "Lanjut edit"
   },
+  "languageAuto": {
+    "message": "Otomatis / Bawaan Browser"
+  },
+  "leftLibWidth": {
+    "message": "Lebar panel Pustaka"
+  },
+  "leftLibWidthHelp": {
+    "message": "Lebar dalam piksel untuk panel Pustaka kiri."
+  },
   "library": {
     "message": "Pustaka"
   },
@@ -274,6 +301,111 @@
   },
   "managerFailed": {
     "message": "Pengelola bookmark gagal: {error}"
+  },
+  "midFcShowDateAdded": {
+    "message": "Tampilkan kolom Tanggal Ditambahkan"
+  },
+  "midFcShowDateAddedHelp": {
+    "message": "Tampilkan atau sembunyikan kolom Tanggal Ditambahkan di panel Isi Folder."
+  },
+  "midFcShowId": {
+    "message": "Tampilkan kolom ID"
+  },
+  "midFcShowIdHelp": {
+    "message": "Tampilkan atau sembunyikan kolom ID bookmark Chromium."
+  },
+  "midFcShowOrder": {
+    "message": "Tampilkan kolom Urutan"
+  },
+  "midFcShowOrderHelp": {
+    "message": "Tampilkan atau sembunyikan kolom urutan/indeks folder Chromium."
+  },
+  "midFcWidthDateAdded": {
+    "message": "Lebar kolom Tanggal Ditambahkan"
+  },
+  "midFcWidthDateAddedHelp": {
+    "message": "Lebar dalam piksel untuk kolom opsional Tanggal Ditambahkan."
+  },
+  "midFcWidthId": {
+    "message": "Lebar kolom ID"
+  },
+  "midFcWidthIdHelp": {
+    "message": "Lebar dalam piksel untuk kolom opsional ID."
+  },
+  "midFcWidthName": {
+    "message": "Lebar kolom Nama"
+  },
+  "midFcWidthNameHelp": {
+    "message": "Lebar dalam piksel untuk kolom Nama Isi Folder."
+  },
+  "midFcWidthOrder": {
+    "message": "Lebar kolom Urutan"
+  },
+  "midFcWidthOrderHelp": {
+    "message": "Lebar dalam piksel untuk kolom opsional urutan/indeks Chromium."
+  },
+  "midFcWidthUrl": {
+    "message": "Lebar kolom URL"
+  },
+  "midFcWidthUrlHelp": {
+    "message": "Lebar dalam piksel untuk kolom URL Isi Folder."
+  },
+  "multipleInstancesAllowed": {
+    "message": "Izinkan beberapa instans SBM"
+  },
+  "multipleInstancesAllowedHelp": {
+    "message": "Saat dinonaktifkan, mengeklik tombol ekstensi akan memfokuskan tab Simple Bookmarks Manager yang ada alih-alih membuka tab baru."
+  },
+  "mutationCreateBookmark": {
+    "message": "buat bookmark"
+  },
+  "mutationCreateFolder": {
+    "message": "buat folder"
+  },
+  "mutationCreateFromClipboardSnapshot": {
+    "message": "buat dari snapshot papan klip"
+  },
+  "mutationCreateSeparator": {
+    "message": "buat pemisah"
+  },
+  "mutationDeleteBookmark": {
+    "message": "hapus bookmark"
+  },
+  "mutationDeleteFolder": {
+    "message": "hapus folder"
+  },
+  "mutationDeleteSelectedBookmark": {
+    "message": "hapus bookmark yang dipilih"
+  },
+  "mutationDeleteSelectedFolder": {
+    "message": "hapus folder yang dipilih"
+  },
+  "mutationDragDropMove": {
+    "message": "pindahkan dengan seret/lepas"
+  },
+  "mutationEditBookmark": {
+    "message": "edit bookmark"
+  },
+  "mutationMoveSelectedItem": {
+    "message": "pindahkan item yang dipilih"
+  },
+  "mutationPasteCutItem": {
+    "message": "tempel item yang dipotong"
+  },
+  "mutationRenameFolder": {
+    "message": "ganti nama folder"
+  },
+  "mutationReorderSelectedItems": {
+    "message": "atur ulang item yang dipilih"
+  },
+  "mutationSaveDetailsMove": {
+    "message": "simpan pemindahan detail"
+  },
+  "mutationSaveDetailsUpdate": {
+    "message": "simpan pembaruan detail"
+  },
+  "mutationSortFolderChild": {
+    "message": "urutkan anak folder"
   },
   "naturalSort": {
     "message": "Gunakan urutan alami folder/bookmark"
@@ -317,6 +449,9 @@
   "openAllInSplitView": {
     "message": "Buka semua di tampilan terpisah"
   },
+  "openBookmark": {
+    "message": "Buka Bookmark"
+  },
   "openDefaultBookmarksManager": {
     "message": "Buka Pengelola Bookmark Default"
   },
@@ -353,6 +488,12 @@
   "optimisationTempBookmarkTreeMapsHelp": {
     "message": "Experimental. Builds short-lived lookup maps during some render/search/tree operations, then discards them to avoid a persistent stale cache."
   },
+  "optimisations": {
+    "message": "Optimasi"
+  },
+  "optimisationsHelp": {
+    "message": "Opsi performa eksperimental untuk benchmarking dan pemecahan masalah."
+  },
   "optionSaved": {
     "message": "Tersimpan"
   },
@@ -361,6 +502,12 @@
   },
   "optionsTitle": {
     "message": "Opsi Simple Bookmarks Manager"
+  },
+  "paneWidths": {
+    "message": "Lebar panel"
+  },
+  "paneWidthsHelp": {
+    "message": "Konfigurasikan lebar panel Pustaka dan Detail. Nilai ini juga diperbarui saat panel diubah ukurannya di UI pengelola."
   },
   "parentFolder": {
     "message": "Folder induk"
@@ -376,6 +523,21 @@
   },
   "resetDefaults": {
     "message": "Pulihkan default"
+  },
+  "resizeColumn": {
+    "message": "Seret untuk mengubah ukuran kolom"
+  },
+  "resizeDetailsPane": {
+    "message": "Ubah ukuran panel Detail"
+  },
+  "resizeLibraryPane": {
+    "message": "Ubah ukuran panel Pustaka"
+  },
+  "rightDetailsWidth": {
+    "message": "Lebar panel Detail"
+  },
+  "rightDetailsWidthHelp": {
+    "message": "Lebar dalam piksel untuk panel Detail kanan."
   },
   "rootFallback": {
     "message": "(root)"
