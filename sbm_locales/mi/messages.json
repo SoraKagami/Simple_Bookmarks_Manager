@@ -1,36 +1,39 @@
 {
   "about": {
-    "message": "About"
+    "message": "Mō tēnei"
   },
   "actionFailed": {
-    "message": "Action failed: {error}"
+    "message": "I rahua te mahi: {error}"
   },
   "addNewBookmark": {
-    "message": "Tāpiri tohuwāhi hōu"
+    "message": "Tāpiri Tohuwāhi Hōu"
   },
   "addNewFolder": {
-    "message": "Tāpiri kōpaki hōu"
+    "message": "Tāpiri Kōpaki Hōu"
   },
   "addSeparator": {
-    "message": "Tāpiri whakawehe"
+    "message": "Tāpiri Whakawehe"
   },
   "advanced": {
     "message": "Arā Atu Anō"
   },
   "advancedBookmarkDetails": {
-    "message": "Advanced bookmark details"
+    "message": "Ngā taipitopito tohuwāhi arā atu anō"
   },
   "advancedDetails": {
-    "message": "Advanced Details"
+    "message": "Ngā Taipitopito Arā Atu Anō"
+  },
+  "advancedDetailsHelp": {
+    "message": "Whirihorahia te tirohanga metadata arā atu anō me te whakatika arā atu anō e tautokona ana i te pihanga Taipitopito."
   },
   "allowKeyboardDelete": {
     "message": "Tukua te kī Delete ki te muku i ngā mea kua tīpakohia"
   },
   "allowKeyboardDeleteHelp": {
-    "message": "When disabled, the Delete key no longer deletes selected bookmark entries."
+    "message": "Ina monokia, kāore te kī Delete e muku i ngā tāurunga tohuwāhi kua tīpakohia."
   },
   "appDescription": {
-    "message": "A simple local bookmark manager for Chrome/Chromium inspired by Firefox Places Library patterns."
+    "message": "He kaiwhakahaere tohuwāhi paetata māmā mō Chrome/Chromium, he mea whakaaweawe e ngā tauira Firefox Places Library."
   },
   "appName": {
     "message": "Simple Bookmarks Manager"
@@ -42,73 +45,76 @@
     "message": "Tohuwāhi"
   },
   "bookmarkFallback": {
-    "message": "(Tohuwāhi)"
+    "message": "(tohuwāhi)"
   },
   "bookmarkListColumns": {
-    "message": "Bookmark list columns"
+    "message": "Ngā tīwae rārangi tohuwāhi"
   },
   "bookmarkMutationFailed": {
-    "message": "Bookmark operation failed ({action}): {error}"
+    "message": "I rahua te mahi tohuwāhi ({action}): {error}"
   },
   "bookmarkNamePrompt": {
-    "message": "Bookmark name"
+    "message": "Ingoa tohuwāhi"
   },
   "bookmarkUrlPrompt": {
-    "message": "Bookmark URL"
+    "message": "URL tohuwāhi"
   },
   "bookmarks": {
-    "message": "Tohuwāhi"
+    "message": "Ngā tohuwāhi:"
   },
   "bookmarksAria": {
-    "message": "Bookmarks"
+    "message": "Ngā tohuwāhi"
   },
   "bookmarksPathFallback": {
-    "message": "Tohuwāhi"
+    "message": "Ngā tohuwāhi"
   },
   "browserRoot": {
-    "message": "Browser root"
+    "message": "Pūtake pūtirotiro"
   },
   "cancel": {
-    "message": "Cancel"
+    "message": "Whakakore"
   },
   "chooseSortModeTitle": {
-    "message": "Choose the middle-pane sort mode. Default uses Chromium’s folder order."
+    "message": "Kōwhiria te aratau raupapa mō te pihanga waenga. Ka whakamahi te Taunoa i te raupapa kōpaki a Chromium."
   },
   "clearLog": {
-    "message": "Clear Log"
+    "message": "Ūkui Rangitaki"
   },
   "clickHideDetails": {
-    "message": "Click to Hide Details"
+    "message": "Pāwhiri kia Hunaia ngā Taipitopito"
   },
   "clickShowDetails": {
-    "message": "Click to Show Details"
+    "message": "Pāwhiri kia Whakaaturia ngā Taipitopito"
   },
   "closeOptions": {
     "message": "Katia ngā kōwhiringa"
   },
   "collapseAll": {
-    "message": "Whakakopa katoa"
+    "message": "Whakakopa Katoa"
   },
   "collapseFolderTitle": {
-    "message": "Collapse folder"
+    "message": "Whakakopa kōpaki"
   },
   "copy": {
     "message": "Tārua"
   },
   "couldNotMoveBookmark": {
-    "message": "Could not move bookmark item: {error}"
+    "message": "Kāore i taea te neke i te tūemi tohuwāhi: {error}"
+  },
+  "couldNotOpenBookmark": {
+    "message": "Kāore i taea te huaki i te tohuwāhi: {error}"
   },
   "couldNotOpenTabGroup": {
-    "message": "Could not open tab group: {error}"
+    "message": "Kāore i taea te huaki i te rōpū ripa: {error}"
   },
   "couldNotOpenWindow": {
-    "message": "Could not open {windowType} window: {error}"
+    "message": "Kāore i taea te huaki i te matapihi {windowType}: {error}"
   },
   "couldNotSaveChanges": {
-    "message": "Could not save changes: {error}"
+    "message": "Kāore i taea te tiaki huringa: {error}"
   },
   "create": {
-    "message": "Create"
+    "message": "Waihanga"
   },
   "currentFolderAndSubfolders": {
     "message": "Kōpaki o nāianei me ngā kōpaki-roto"
@@ -117,103 +123,115 @@
     "message": "Tapahi"
   },
   "dateAdded": {
-    "message": "Date Added"
+    "message": "Rā Tāpiri"
   },
   "dateLastUsed": {
-    "message": "Date Last Used"
+    "message": "Rā Whakamahi Whakamutunga"
   },
   "debugFailedBookmarkOperation": {
-    "message": "Debug: cause failed bookmark operation"
+    "message": "Patuiro: whakaputa mahi tohuwāhi rahua"
   },
   "debugFailedBookmarkOperationAction": {
-    "message": "debug failed bookmark operation"
+    "message": "patuiro mahi tohuwāhi rahua"
   },
   "debugFailureUnexpectedSuccess": {
-    "message": "Debug failure unexpectedly succeeded"
+    "message": "I angitu ohorere te rahunga patuiro"
   },
   "debugOptions": {
-    "message": "Debug options"
+    "message": "Kōwhiringa patuiro"
   },
   "debugOptionsHelp": {
-    "message": "Advanced. Shows debug-only test controls. Leave disabled during normal use."
+    "message": "Arā atu anō. Ka whakaatu i ngā mana whakamātau patuiro anake. Me waiho kia monokia mō te whakamahi noa."
+  },
+  "debugSettings": {
+    "message": "Tautuhinga Patuiro"
+  },
+  "debugSettingsHelp": {
+    "message": "Ngā mana ka whakaaturia anake ina whakahohea ngā kōwhiringa Patuiro."
   },
   "defaultsRestored": {
-    "message": "Defaults restored"
+    "message": "Kua whakahokia ngā taunoa"
   },
   "delete": {
     "message": "Muku"
   },
   "deleteBookmark": {
-    "message": "Muku tohuwāhi"
+    "message": "Muku Tohuwāhi"
   },
   "deleteFolder": {
-    "message": "Muku kōpaki"
+    "message": "Muku Kōpaki"
   },
   "deleteMultipleConfirm": {
-    "message": "Delete {count} selected item(s)?"
+    "message": "Mukua ngā tūemi kua tīpakohia e {count}?"
   },
   "deleteSingleConfirm": {
-    "message": "Delete \"{label}\"?"
+    "message": "Mukua \"{label}\"?"
   },
   "details": {
     "message": "Taipitopito"
   },
   "detailsItems": {
-    "message": "Details Items"
+    "message": "Tūemi Taipitopito"
   },
   "detailsMultiselect": {
-    "message": "Details Multiselect"
+    "message": "Tīpakonga-maha Taipitopito"
   },
   "discard": {
     "message": "Whakarere"
   },
   "discardChanges": {
-    "message": "Whakarere huringa"
+    "message": "Whakarere Huringa"
   },
   "doubleClickExpandCollapseTitle": {
-    "message": "Double-click to expand or collapse this folder"
+    "message": "Pāwhiri-rua kia whakawhānui, kia whakakopa rānei i tēnei kōpaki"
   },
   "dragFolderTitle": {
-    "message": "Drag to reorder this folder"
+    "message": "Tōia kia whakaraupapatia anō tēnei kōpaki"
   },
   "dragItemTitle": {
-    "message": "Drag to move or reorder this item"
+    "message": "Tōia kia nekehia, kia whakaraupapatia anō rānei tēnei tūemi"
   },
   "edit": {
     "message": "Whakatika"
   },
   "editBookmark": {
-    "message": "Edit Bookmark"
+    "message": "Whakatika Tohuwāhi"
   },
   "emptyDetails": {
-    "message": "Select one item, or select a folder to show its contents."
+    "message": "Tīpakohia tētahi tūemi, tīpakohia rānei tētahi kōpaki hei whakaatu i ōna ihirangi."
   },
   "enableAdvancedEditing": {
-    "message": "Enable advanced details editing"
+    "message": "Whakahohea te whakatika taipitopito arā atu anō"
   },
   "enableAdvancedEditingHelp": {
-    "message": "Allow supported advanced editing, currently limited to bookmark index changes."
+    "message": "Tukua te whakatika arā atu anō e tautokona ana, i tēnei wā he whāiti ki ngā huringa taupū tohuwāhi."
   },
   "enableAdvancedViewing": {
-    "message": "Enable advanced details viewing"
+    "message": "Whakahohea te tirohanga taipitopito arā atu anō"
   },
   "enableAdvancedViewingHelp": {
-    "message": "Show read-only advanced bookmark metadata in the Details pane."
+    "message": "Whakaaturia ngā metadata tohuwāhi arā atu anō pānui-anake ki te pihanga Taipitopito."
   },
   "expandAll": {
-    "message": "Whakaroha katoa"
+    "message": "Whakaroha Katoa"
   },
   "expandFolderTitle": {
-    "message": "Expand folder"
+    "message": "Whakaroha kōpaki"
   },
   "folderAlt": {
     "message": "Kōpaki"
   },
+  "folderContentsView": {
+    "message": "Tirohanga Ihirangi Kōpaki"
+  },
+  "folderContentsViewHelp": {
+    "message": "Whirihorahia ngā whānui tīwae o te pihanga Ihirangi Kōpaki me ngā tīwae kōwhiri. Ka whakaaturia tonutia te Ingoa me te URL."
+  },
   "folderFallback": {
-    "message": "(Kōpaki)"
+    "message": "(kōpaki)"
   },
   "folderNamePrompt": {
-    "message": "Folder name"
+    "message": "Ingoa kōpaki"
   },
   "folders": {
     "message": "Ngā kōpaki:"
@@ -222,7 +240,7 @@
     "message": "Momotuhi"
   },
   "fontHelp": {
-    "message": "Controls the main font family used by the bookmark manager UI."
+    "message": "Ka whakahaere i te whānau momotuhi matua e whakamahia ana e te atanga kaiwhakahaere tohuwāhi."
   },
   "fontMono": {
     "message": "Consolas / monospace"
@@ -237,13 +255,13 @@
     "message": "Rahi momotuhi"
   },
   "fontSizeHelp": {
-    "message": "Base text size. Headings and column labels scale relative to this value."
+    "message": "Rahi kuputuhi taketake. Ka āwhata ngā upoko me ngā tapanga tīwae ki tēnei uara."
   },
   "fontSpacing": {
     "message": "Mokowā momotuhi"
   },
   "fontSpacingHelp": {
-    "message": "Line spacing multiplier for denser or more readable rows and labels."
+    "message": "Whakarea mokowā rārangi mō ngā haupae me ngā tapanga kikī ake, pānui-ngāwari ake rānei."
   },
   "fontSystem": {
     "message": "Taunoa pūnaha"
@@ -255,112 +273,241 @@
     "message": "GUID / UUID"
   },
   "help": {
-    "message": "Help"
+    "message": "Āwhina"
   },
   "hideDetailsPaneTooltip": {
-    "message": "Hide the Details pane"
+    "message": "Hunaia te pihanga Taipitopito"
   },
   "keepEditing": {
-    "message": "Haere tonu ki te whakatika"
+    "message": "Haere Tonu ki te Whakatika"
+  },
+  "languageAuto": {
+    "message": "Aunoa / Taunoa Pūtirotiro"
+  },
+  "leftLibWidth": {
+    "message": "Whānui pihanga Pātaka"
+  },
+  "leftLibWidthHelp": {
+    "message": "Whānui ā-pika mō te pihanga Pātaka mauī."
   },
   "library": {
     "message": "Pātaka"
   },
   "limitSearchTo": {
-    "message": "Whakawhāitihia te rapu ki"
+    "message": "Whakawhāitihia te Rapu ki"
   },
   "loadFailed": {
-    "message": "Load failed: {error}"
+    "message": "I rahua te uta: {error}"
   },
   "managerFailed": {
-    "message": "Bookmark manager failed: {error}"
+    "message": "I rahua te kaiwhakahaere tohuwāhi: {error}"
+  },
+  "midFcShowDateAdded": {
+    "message": "Whakaaturia te tīwae Rā Tāpiri"
+  },
+  "midFcShowDateAddedHelp": {
+    "message": "Whakaaturia, hunaia rānei te tīwae Rā Tāpiri i te pihanga Ihirangi Kōpaki."
+  },
+  "midFcShowId": {
+    "message": "Whakaaturia te tīwae ID"
+  },
+  "midFcShowIdHelp": {
+    "message": "Whakaaturia, hunaia rānei te tīwae ID tohuwāhi Chromium."
+  },
+  "midFcShowOrder": {
+    "message": "Whakaaturia te tīwae Raupapa"
+  },
+  "midFcShowOrderHelp": {
+    "message": "Whakaaturia, hunaia rānei te tīwae raupapa/taupū kōpaki Chromium."
+  },
+  "midFcWidthDateAdded": {
+    "message": "Whānui tīwae Rā Tāpiri"
+  },
+  "midFcWidthDateAddedHelp": {
+    "message": "Whānui ā-pika mō te tīwae kōwhiri Rā Tāpiri."
+  },
+  "midFcWidthId": {
+    "message": "Whānui tīwae ID"
+  },
+  "midFcWidthIdHelp": {
+    "message": "Whānui ā-pika mō te tīwae kōwhiri ID."
+  },
+  "midFcWidthName": {
+    "message": "Whānui tīwae Ingoa"
+  },
+  "midFcWidthNameHelp": {
+    "message": "Whānui ā-pika mō te tīwae Ingoa Ihirangi Kōpaki."
+  },
+  "midFcWidthOrder": {
+    "message": "Whānui tīwae Raupapa"
+  },
+  "midFcWidthOrderHelp": {
+    "message": "Whānui ā-pika mō te tīwae kōwhiri raupapa/taupū Chromium."
+  },
+  "midFcWidthUrl": {
+    "message": "Whānui tīwae URL"
+  },
+  "midFcWidthUrlHelp": {
+    "message": "Whānui ā-pika mō te tīwae URL Ihirangi Kōpaki."
+  },
+  "multipleInstancesAllowed": {
+    "message": "Tukua ngā wāhanga SBM maha"
+  },
+  "multipleInstancesAllowedHelp": {
+    "message": "Ina monokia, mā te pāwhiri i te pātene toronga ka arotahi ki te ripa Simple Bookmarks Manager e tū ana, kaua ki te huaki i tētahi atu."
+  },
+  "mutationCreateBookmark": {
+    "message": "waihanga tohuwāhi"
+  },
+  "mutationCreateFolder": {
+    "message": "waihanga kōpaki"
+  },
+  "mutationCreateFromClipboardSnapshot": {
+    "message": "waihanga mai i te whakaahua papatopenga"
+  },
+  "mutationCreateSeparator": {
+    "message": "waihanga whakawehe"
+  },
+  "mutationDeleteBookmark": {
+    "message": "muku tohuwāhi"
+  },
+  "mutationDeleteFolder": {
+    "message": "muku kōpaki"
+  },
+  "mutationDeleteSelectedBookmark": {
+    "message": "muku tohuwāhi kua tīpakohia"
+  },
+  "mutationDeleteSelectedFolder": {
+    "message": "muku kōpaki kua tīpakohia"
+  },
+  "mutationDragDropMove": {
+    "message": "neke tō-me-te-tuku"
+  },
+  "mutationEditBookmark": {
+    "message": "whakatika tohuwāhi"
+  },
+  "mutationMoveSelectedItem": {
+    "message": "neke tūemi kua tīpakohia"
+  },
+  "mutationPasteCutItem": {
+    "message": "whakapiri tūemi kua tapahia"
+  },
+  "mutationRenameFolder": {
+    "message": "whakaingoa anō kōpaki"
+  },
+  "mutationReorderSelectedItems": {
+    "message": "whakaraupapa anō i ngā tūemi kua tīpakohia"
+  },
+  "mutationSaveDetailsMove": {
+    "message": "tiaki neke taipitopito"
+  },
+  "mutationSaveDetailsUpdate": {
+    "message": "tiaki whakahōu taipitopito"
+  },
+  "mutationSortFolderChild": {
+    "message": "raupapa tamaiti kōpaki"
   },
   "naturalSort": {
-    "message": "Use natural folder/bookmark sort order"
+    "message": "Whakamahia te raupapa māori mō ngā kōpaki/tohuwāhi"
   },
   "naturalSortHelp": {
-    "message": "Permanent Sort by Name places folders first, separators next, then bookmarks."
+    "message": "Ko te Raupapa Pūmau mā te Ingoa ka tuku i ngā kōpaki ki mua, kātahi ngā whakawehe, kātahi ngā tohuwāhi."
   },
   "newBookmark": {
-    "message": "Tohuwāhi hōu"
+    "message": "Tohuwāhi Hōu"
   },
   "newFolder": {
-    "message": "Kōpaki hōu"
+    "message": "Kōpaki Hōu"
   },
   "newFolderDefaultName": {
-    "message": "Kōpaki hōu"
+    "message": "Kōpaki Hōu"
   },
   "newFolderNamePrompt": {
-    "message": "New folder name"
+    "message": "Ingoa kōpaki hōu"
   },
   "newWindowType": {
-    "message": "new"
+    "message": "hōu"
   },
   "notAvailable": {
     "message": "Kāore i te wātea"
   },
   "openAllBookmarks": {
-    "message": "Huaki ngā tohuwāhi katoa"
+    "message": "Huaki Ngā Tohuwāhi Katoa"
   },
   "openAllInNewTab": {
-    "message": "Huaki katoa ki ngā ripa hōu"
+    "message": "Huaki Katoa ki te Ripa Hōu"
   },
   "openAllInNewTabGroup": {
-    "message": "Open All in New Tab Group"
+    "message": "Huaki Katoa ki te Rōpū Ripa Hōu"
   },
   "openAllInNewWindow": {
-    "message": "Huaki katoa ki te matapihi hōu"
+    "message": "Huaki Katoa ki te Matapihi Hōu"
   },
   "openAllInPrivateWindow": {
-    "message": "Huaki katoa ki te matapihi tūmataiti"
+    "message": "Huaki Katoa ki te Matapihi Tūmataiti"
   },
   "openAllInSplitView": {
-    "message": "Open All in Split View"
+    "message": "Huaki Katoa ki te Tirohanga Wehe"
+  },
+  "openBookmark": {
+    "message": "Huaki Tohuwāhi"
   },
   "openDefaultBookmarksManager": {
-    "message": "Open Default Bookmarks Manager"
+    "message": "Huaki te Kaiwhakahaere Tohuwāhi Taunoa"
   },
   "openInNewTab": {
-    "message": "Huaki ki te ripa hōu"
+    "message": "Huaki ki te Ripa Hōu"
   },
   "openInNewTabGroup": {
-    "message": "Open in New Tab Group"
+    "message": "Huaki ki te Rōpū Ripa Hōu"
   },
   "openInNewWindow": {
-    "message": "Huaki ki te matapihi hōu"
+    "message": "Huaki ki te Matapihi Hōu"
   },
   "openInPrivateWindow": {
-    "message": "Huaki ki te matapihi tūmataiti"
+    "message": "Huaki ki te Matapihi Tūmataiti"
   },
   "openInSplitView": {
-    "message": "Open in Split View"
+    "message": "Huaki ki te Tirohanga Wehe"
   },
   "openMenu": {
-    "message": "Open menu"
+    "message": "Huaki tahua"
   },
   "openSbmMenu": {
-    "message": "Open Simple Bookmarks Manager menu"
+    "message": "Huaki tahua Simple Bookmarks Manager"
   },
   "optimisationDOMrendering": {
-    "message": "Optimisation: DOM rendering pass"
+    "message": "Arotautanga: paahitanga tāhuahua DOM"
   },
   "optimisationDOMrenderingHelp": {
-    "message": "Experimental. Enables reduced DOM churn for selected rendering, drag/drop indicators, and row icon handling. Disable only when comparing performance or troubleshooting UI behavior."
+    "message": "Whakamātau. Ka whakaiti i te rerekētanga DOM mō te tāhuahua tīpakonga, ngā tohu tō/me-te-tuku, me te whakahaere ata haupae. Monokia anake ina whakataurite mahinga, ina raparongoā whanonga UI rānei."
   },
   "optimisationTempBookmarkTreeMaps": {
-    "message": "Optimisation: temporary bookmark tree maps"
+    "message": "Arotautanga: mahere rākau tohuwāhi rangitahi"
   },
   "optimisationTempBookmarkTreeMapsHelp": {
-    "message": "Experimental. Builds short-lived lookup maps during some render/search/tree operations, then discards them to avoid a persistent stale cache."
+    "message": "Whakamātau. Ka hanga mahere rapunga rangitahi i ētahi mahi tāhuahua/rapu/rākau, kātahi ka whakarerea kia karo i tētahi keteroki pūmau kua tawhito."
+  },
+  "optimisations": {
+    "message": "Ngā arotautanga"
+  },
+  "optimisationsHelp": {
+    "message": "Ngā kōwhiringa mahinga whakamātau mō te ine paearu me te raparongoā."
   },
   "optionSaved": {
     "message": "Kua tiakina"
   },
   "options": {
-    "message": "Options"
+    "message": "Kōwhiringa"
   },
   "optionsTitle": {
-    "message": "Ngā kōwhiringa Simple Bookmarks Manager"
+    "message": "Ngā Kōwhiringa Simple Bookmarks Manager"
+  },
+  "paneWidths": {
+    "message": "Ngā whānui pihanga"
+  },
+  "paneWidthsHelp": {
+    "message": "Whirihorahia ngā whānui pihanga Pātaka me Taipitopito. Ka whakahōutia hoki ēnei ina whakarahi anōtia ngā pihanga i te atanga kaiwhakahaere."
   },
   "parentFolder": {
     "message": "Kōpaki matua"
@@ -369,16 +516,31 @@
     "message": "Whakapiri"
   },
   "privateWindowType": {
-    "message": "private"
+    "message": "tūmataiti"
   },
   "renameFolder": {
-    "message": "Rename Folder"
+    "message": "Whakaingoa Anō Kōpaki"
   },
   "resetDefaults": {
-    "message": "Whakahokia ngā taunoa"
+    "message": "Whakahokia ngā Taunoa"
+  },
+  "resizeColumn": {
+    "message": "Tōia kia whakarahi anō i te tīwae"
+  },
+  "resizeDetailsPane": {
+    "message": "Whakarahi anō i te pihanga Taipitopito"
+  },
+  "resizeLibraryPane": {
+    "message": "Whakarahi anō i te pihanga Pātaka"
+  },
+  "rightDetailsWidth": {
+    "message": "Whānui pihanga Taipitopito"
+  },
+  "rightDetailsWidthHelp": {
+    "message": "Whānui ā-pika mō te pihanga Taipitopito matau."
   },
   "rootFallback": {
-    "message": "(root)"
+    "message": "(pūtake)"
   },
   "safety": {
     "message": "Haumaru"
@@ -387,7 +549,7 @@
     "message": "Tiaki"
   },
   "saveFailed": {
-    "message": "Save failed: {error}"
+    "message": "I rahua te tiaki: {error}"
   },
   "search": {
     "message": "Rapu"
@@ -396,13 +558,13 @@
     "message": "Rapua ngā tohuwāhi"
   },
   "searchLimitFull": {
-    "message": "Limit Search to Current Folder & Subfolders"
+    "message": "Whakawhāitihia te Rapu ki te Kōpaki o Nāianei me ngā Kōpaki-roto"
   },
   "searchLimitOptionHelp": {
-    "message": "When enabled, the main search box searches only inside the current visible folder tree."
+    "message": "Ina whakahohea, ka rapu te pouaka rapu matua i roto anake i te rākau kōpaki e kitea ana i tēnei wā."
   },
   "searchLimitTitle": {
-    "message": "When enabled, search only the current folder and its subfolders. When disabled, search all bookmarks."
+    "message": "Ina whakahohea, rapua anake te kōpaki o nāianei me ōna kōpaki-roto. Ina monokia, rapua ngā tohuwāhi katoa."
   },
   "separator": {
     "message": "Whakawehe"
@@ -411,139 +573,139 @@
     "message": "Ngā whakawehe:"
   },
   "showDeleteWarning": {
-    "message": "Whakaatu whakatūpato muku"
+    "message": "Whakaatu whakatūpato whakaū muku"
   },
   "showDeleteWarningHelp": {
-    "message": "Ask before deleting bookmark items or folders."
+    "message": "Pātaihia i mua i te muku i ngā tūemi tohuwāhi, i ngā kōpaki rānei."
   },
   "showDetailsPaneTooltip": {
-    "message": "Show the Details pane"
+    "message": "Whakaaturia te pihanga Taipitopito"
   },
   "showErrorsWarnings": {
-    "message": "Show warnings/errors log"
+    "message": "Whakaaturia te rangitaki whakatūpato/hapa"
   },
   "showErrorsWarningsHelp": {
-    "message": "Advanced. Shows a transient in-memory log for this SBM session. Log entries are not saved to extension settings."
+    "message": "Arā atu anō. Ka whakaatu i tētahi rangitaki rangitahi ā-pūmahara mō tēnei wātū SBM. Kāore ngā tāurunga rangitaki e tiakina ki ngā tautuhinga toronga."
   },
   "showSortWarning": {
     "message": "Whakaatu whakatūpato raupapa pūmau"
   },
   "showSortWarningHelp": {
-    "message": "Ask before applying context-menu sorts that permanently reorder a bookmark folder."
+    "message": "Pātaihia i mua i te whakamahi i ngā raupapa tahua-horopaki ka whakaraupapa pūmau i tētahi kōpaki tohuwāhi."
   },
   "sortBookmarks": {
-    "message": "Sort bookmarks"
+    "message": "Raupapa tohuwāhi"
   },
   "sortByDate": {
-    "message": "Raupapa ā-rā"
+    "message": "Raupapa mā te Rā"
   },
   "sortByName": {
-    "message": "Raupapa ā-ingoa"
+    "message": "Raupapa mā te Ingoa"
   },
   "sortDate": {
-    "message": "date"
+    "message": "rā"
   },
   "sortDateAdded": {
     "message": "Rā tāpiri"
   },
   "sortDateAddedHeader": {
-    "message": "Date Added"
+    "message": "Rā Tāpiri"
   },
   "sortDateAscTooltip": {
-    "message": "Sort by date added: oldest first"
+    "message": "Raupapa mā te rā tāpiri: ko te mea tawhito ki mua"
   },
   "sortDateDescTooltip": {
-    "message": "Sort by date added: newest first"
+    "message": "Raupapa mā te rā tāpiri: ko te mea hōu ki mua"
   },
   "sortDefault": {
     "message": "Taunoa"
   },
   "sortDefaultTooltip": {
-    "message": "Default Chromium folder order. Click to return to Default sorting; this column does not reverse-sort."
+    "message": "Raupapa kōpaki Chromium taunoa. Pāwhiri kia hoki ki te raupapa Taunoa; kāore tēnei tīwae e raupapa-whakamuri."
   },
   "sortFolderConfirm": {
-    "message": "Sort \"{folderName}\" by {sortName}?\n\nThis permanently changes the saved bookmark order in Chromium. It is different from the temporary Visual sort dropdown."
+    "message": "Raupapatia \"{folderName}\" mā te {sortName}?\n\nKa huri pūmau tēnei i te raupapa tohuwāhi kua tiakina ki Chromium. He rerekē tēnei i te takaiho Raupapa tirohanga rangitahi."
   },
   "sortId": {
     "message": "ID"
   },
   "sortIdAscTooltip": {
-    "message": "Sort by ID: lowest first"
+    "message": "Raupapa mā te ID: iti rawa ki mua"
   },
   "sortIdDescTooltip": {
-    "message": "Sort by ID: highest first"
+    "message": "Raupapa mā te ID: nui rawa ki mua"
   },
   "sortName": {
     "message": "Ingoa"
   },
   "sortNameAscTooltip": {
-    "message": "Sort by name: A to Z"
+    "message": "Raupapa mā te ingoa: A ki Z"
   },
   "sortNameDescTooltip": {
-    "message": "Sort by name: Z to A"
+    "message": "Raupapa mā te ingoa: Z ki A"
   },
   "sortNameLower": {
-    "message": "name"
+    "message": "ingoa"
   },
   "sortOrder": {
-    "message": "Order"
+    "message": "Raupapa"
   },
   "sortSelectDateAddedTitle": {
-    "message": "Date added sort. Ascending is oldest first; descending is newest first."
+    "message": "Raupapa rā tāpiri. Ko te piki haere, ko te mea tawhito ki mua; ko te heke haere, ko te mea hōu ki mua."
   },
   "sortSelectDefaultTitle": {
-    "message": "Default Chromium folder order."
+    "message": "Raupapa kōpaki Chromium taunoa."
   },
   "sortSelectIdTitle": {
-    "message": "ID sort. Ascending is lowest first; descending is highest first."
+    "message": "Raupapa ID. Ko te piki haere, ko te iti rawa ki mua; ko te heke haere, ko te nui rawa ki mua."
   },
   "sortSelectTitleTitle": {
-    "message": "Name sort. Ascending is A to Z; descending is Z to A."
+    "message": "Raupapa ingoa. Ko te piki haere, ko A ki Z; ko te heke haere, ko Z ki A."
   },
   "sortSelectUrlTitle": {
-    "message": "URL sort. Ascending is A to Z; descending is Z to A."
+    "message": "Raupapa URL. Ko te piki haere, ko A ki Z; ko te heke haere, ko Z ki A."
   },
   "sortUrl": {
     "message": "URL"
   },
   "sortUrlAscTooltip": {
-    "message": "Sort by URL: A to Z"
+    "message": "Raupapa mā te URL: A ki Z"
   },
   "sortUrlDescTooltip": {
-    "message": "Sort by URL: Z to A"
+    "message": "Raupapa mā te URL: Z ki A"
   },
   "sorting": {
     "message": "Raupapa"
   },
   "thisItem": {
-    "message": "this item"
+    "message": "tēnei tūemi"
   },
   "totalSelected": {
-    "message": "Katoa kua tīpakohia:"
+    "message": "Tapeke kua tīpakohia:"
   },
   "unsavedChanges": {
     "message": "Ngā huringa kāore anō kia tiakina"
   },
   "unsavedChangesMessage": {
-    "message": "The Details pane has unsaved changes. What would you like to do?"
+    "message": "He huringa kāore anō kia tiakina kei te pihanga Taipitopito. He aha tāu e hiahia ana kia mahia?"
   },
   "url": {
     "message": "URL"
   },
   "urlWarningControlCharacters": {
-    "message": "URL contained hidden control characters; they will be removed before saving."
+    "message": "I whai pūāhua whakahaere huna te URL; ka tangohia i mua i te tiaki."
   },
   "urlWarningEmpty": {
-    "message": "URL is empty. Chrome may reject this bookmark until a URL is provided."
+    "message": "He putu te URL. Tērā pea ka whakakāhoretia e Chrome tēnei tohuwāhi kia tukuna rā anō he URL."
   },
   "urlWarningInvalidBlocked": {
-    "message": "This URL is not valid enough to save as a bookmark. Fix the URL before saving."
+    "message": "Kāore tēnei URL i te tika kia tiakina hei tohuwāhi. Whakatikaina te URL i mua i te tiaki."
   },
   "urlWarningInvalidButAllowed": {
-    "message": "This URL is not valid enough to save as a bookmark. Fix the URL before saving."
+    "message": "Kāore tēnei URL i te tino tika hei tiaki hei tohuwāhi. Whakatikaina te URL i mua i te tiaki."
   },
   "urlWarningWhitespace": {
-    "message": "URL contains whitespace. It will be saved if Chrome accepts it, but it may not open as expected."
+    "message": "He mokowā kei roto i te URL. Ka tiakina mēnā ka whakaae a Chrome, engari tērā pea kāore e huaki tika."
   },
   "userInterface": {
     "message": "Atanga Kaiwhakamahi"
@@ -552,18 +714,18 @@
     "message": "Reo Atanga Kaiwhakamahi"
   },
   "userInterfaceLanguageHelp": {
-    "message": "Automatic follows the browser UI language. Manual choices affect the manager and options pages."
+    "message": "Ka whai te Aunoa i te reo UI o te pūtirotiro. Ka pā ngā kōwhiringa ā-ringa ki te kaiwhakahaere me ngā whārangi kōwhiringa."
   },
   "visualSort": {
     "message": "Raupapa tirohanga:"
   },
   "warningsErrorsLog": {
-    "message": "Warnings / Errors Log"
+    "message": "Rangitaki Whakatūpato / Hapa"
   },
   "warningsErrorsLogEmpty": {
-    "message": "No warnings or errors recorded for this session."
+    "message": "Kāore he whakatūpato, he hapa rānei i tuhia mō tēnei wātū."
   },
   "warningsErrorsLogHelp": {
-    "message": "Transient warnings/errors for this current SBM session. This is not saved to settings."
+    "message": "Ngā whakatūpato/hapa rangitahi mō tēnei wātū SBM o nāianei. Kāore tēnei e tiakina ki ngā tautuhinga."
   }
 }

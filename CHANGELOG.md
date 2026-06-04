@@ -1,5 +1,12 @@
 # Changelog
 
+## 0.7.25
+
+- Updated the Māori (`mi`) SBM locale file under `sbm_locales` using the current English locale as the source.
+- Added translations for missing Options page advanced groups, pane/column sizing controls, diagnostics/debug labels, bookmark mutation failure text, and URL validation/open bookmark strings.
+- Reviewed Māori wording conservatively, preserving product names, technical abbreviations, and English terms where a forced Māori translation could be unclear or inappropriate.
+- Updated `manifest.json` to `0.7.25`.
+
 ## 0.7.24
 
 - Updated Traditional Chinese (`zh_TW`) and Simplified Chinese (`zh_CN`) locale files using the current English locale as the source.
