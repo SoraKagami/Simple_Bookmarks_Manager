@@ -1,0 +1,830 @@
+{
+  "about": {
+    "message": "О программе"
+  },
+  "aboutPageTitle": {
+    "message": "О Simple Bookmarks Manager"
+  },
+  "aboutProjectHeading": {
+    "message": "Проект"
+  },
+  "aboutProjectDescription": {
+    "message": "Simple Bookmarks Manager предназначен для локальной организации закладок, удобного просмотра папок и привычного рабочего процесса управления в стиле настольного приложения внутри браузеров на базе Chromium."
+  },
+  "aboutGithubLabel": {
+    "message": "GitHub:"
+  },
+  "aboutDesignGoalsHeading": {
+    "message": "Цели разработки"
+  },
+  "aboutDesignGoalFastLocal": {
+    "message": "Быстрый локальный просмотр и редактирование закладок."
+  },
+  "aboutDesignGoalNoRemote": {
+    "message": "Понятные элементы управления без удалённых служб и учётных записей."
+  },
+  "aboutDesignGoalChromiumCompatibility": {
+    "message": "Практичная совместимость с браузерами на базе Chromium."
+  },
+  "aboutPrivacyHeading": {
+    "message": "Конфиденциальность"
+  },
+  "aboutPrivacyDescription": {
+    "message": "SBM разработан для полностью локальной работы. Он не отправляет данные закладок, телеметрию, ping-запросы или любые другие данные использования удалённым службам."
+  },
+  "actionFailed": {
+    "message": "Действие не выполнено: {error}"
+  },
+  "addNewBookmark": {
+    "message": "Добавить новую закладку"
+  },
+  "addNewFolder": {
+    "message": "Добавить новую папку"
+  },
+  "addSeparator": {
+    "message": "Добавить разделитель"
+  },
+  "advanced": {
+    "message": "Дополнительно"
+  },
+  "advancedBookmarkDetails": {
+    "message": "Дополнительные сведения о закладке"
+  },
+  "advancedDetails": {
+    "message": "Дополнительные сведения"
+  },
+  "advancedDetailsHelp": {
+    "message": "Настройте просмотр дополнительных метаданных и поддерживаемое расширенное редактирование в панели сведений."
+  },
+  "allowKeyboardDelete": {
+    "message": "Разрешить клавише Delete удалять выбранные элементы"
+  },
+  "allowKeyboardDeleteHelp": {
+    "message": "Если отключено, клавиша Delete больше не удаляет выбранные элементы закладок."
+  },
+  "appDescription": {
+    "message": "Простой локальный менеджер закладок для браузеров Chromium, вдохновлённый Firefox Places — системой управления закладками Firefox."
+  },
+  "appName": {
+    "message": "Simple Bookmarks Manager"
+  },
+  "back": {
+    "message": "Назад"
+  },
+  "bookmarkAlt": {
+    "message": "Закладка"
+  },
+  "bookmarkFallback": {
+    "message": "(закладка)"
+  },
+  "bookmarkListColumns": {
+    "message": "Столбцы списка закладок"
+  },
+  "bookmarkMutationFailed": {
+    "message": "Операция с закладкой не выполнена ({action}): {error}"
+  },
+  "bookmarkNamePrompt": {
+    "message": "Название закладки"
+  },
+  "bookmarkUrlPrompt": {
+    "message": "URL закладки"
+  },
+  "bookmarks": {
+    "message": "Закладки:"
+  },
+  "bookmarksAria": {
+    "message": "Закладки"
+  },
+  "bookmarksPathFallback": {
+    "message": "Закладки"
+  },
+  "browserRoot": {
+    "message": "Корень браузера"
+  },
+  "cancel": {
+    "message": "Отмена"
+  },
+  "chooseSortModeTitle": {
+    "message": "Выберите режим сортировки средней панели. По умолчанию используется порядок папок Chromium."
+  },
+  "clearLog": {
+    "message": "Очистить журнал"
+  },
+  "clickHideDetails": {
+    "message": "Нажмите, чтобы скрыть сведения"
+  },
+  "clickShowDetails": {
+    "message": "Нажмите, чтобы показать сведения"
+  },
+  "closeOptions": {
+    "message": "Закрыть настройки"
+  },
+  "collapseAll": {
+    "message": "Свернуть все"
+  },
+  "collapseFolderTitle": {
+    "message": "Свернуть папку"
+  },
+  "copy": {
+    "message": "Копировать"
+  },
+  "couldNotMoveBookmark": {
+    "message": "Не удалось переместить элемент закладки: {error}"
+  },
+  "couldNotOpenBookmark": {
+    "message": "Не удалось открыть закладку: {error}"
+  },
+  "couldNotOpenTabGroup": {
+    "message": "Не удалось открыть группу вкладок: {error}"
+  },
+  "couldNotOpenWindow": {
+    "message": "Не удалось открыть окно типа «{windowType}»: {error}"
+  },
+  "couldNotSaveChanges": {
+    "message": "Не удалось сохранить изменения: {error}"
+  },
+  "create": {
+    "message": "Создать"
+  },
+  "currentFolderAndSubfolders": {
+    "message": "Текущая папка и подпапки"
+  },
+  "cut": {
+    "message": "Вырезать"
+  },
+  "dateAdded": {
+    "message": "Дата добавления"
+  },
+  "dateLastUsed": {
+    "message": "Дата последнего использования"
+  },
+  "debugFailedBookmarkOperation": {
+    "message": "Отладка: вызвать неудачную операцию с закладкой"
+  },
+  "debugFailedBookmarkOperationAction": {
+    "message": "отладочная неудачная операция с закладкой"
+  },
+  "debugFailureUnexpectedSuccess": {
+    "message": "Отладочный сбой неожиданно завершился успешно"
+  },
+  "debugOptions": {
+    "message": "Параметры отладки"
+  },
+  "debugOptionsHelp": {
+    "message": "Дополнительно. Показывает тестовые элементы управления только для отладки. Оставляйте отключённым при обычном использовании."
+  },
+  "debugSettings": {
+    "message": "Настройки отладки"
+  },
+  "debugSettingsHelp": {
+    "message": "Элементы управления, отображаемые только когда включены параметры отладки."
+  },
+  "defaultsRestored": {
+    "message": "Значения по умолчанию восстановлены"
+  },
+  "delete": {
+    "message": "Удалить"
+  },
+  "deleteBookmark": {
+    "message": "Удалить закладку"
+  },
+  "deleteFolder": {
+    "message": "Удалить папку"
+  },
+  "deleteMultipleConfirm": {
+    "message": "Удалить выбранные элементы: {count}?"
+  },
+  "deleteSingleConfirm": {
+    "message": "Удалить «{label}»?"
+  },
+  "details": {
+    "message": "Сведения"
+  },
+  "detailsItems": {
+    "message": "Элементы сведений"
+  },
+  "detailsMultiselect": {
+    "message": "Множественный выбор в сведениях"
+  },
+  "discard": {
+    "message": "Отменить"
+  },
+  "discardChanges": {
+    "message": "Отменить изменения"
+  },
+  "doubleClickExpandCollapseTitle": {
+    "message": "Дважды щёлкните, чтобы развернуть или свернуть эту папку"
+  },
+  "dragFolderTitle": {
+    "message": "Перетащите, чтобы изменить порядок этой папки"
+  },
+  "dragItemTitle": {
+    "message": "Перетащите, чтобы переместить или изменить порядок этого элемента"
+  },
+  "edit": {
+    "message": "Редактировать"
+  },
+  "editBookmark": {
+    "message": "Редактировать закладку"
+  },
+  "emptyDetails": {
+    "message": "Выберите один элемент или выберите папку, чтобы показать её содержимое."
+  },
+  "enableAdvancedEditing": {
+    "message": "Включить расширенное редактирование сведений"
+  },
+  "enableAdvancedEditingHelp": {
+    "message": "Разрешает поддерживаемое расширенное редактирование, сейчас ограниченное изменением индекса закладки."
+  },
+  "enableAdvancedViewing": {
+    "message": "Включить просмотр дополнительных сведений"
+  },
+  "enableAdvancedViewingHelp": {
+    "message": "Показывать в панели сведений дополнительные метаданные закладок только для чтения."
+  },
+  "expandAll": {
+    "message": "Развернуть все"
+  },
+  "expandFolderTitle": {
+    "message": "Развернуть папку"
+  },
+  "folderAlt": {
+    "message": "Папка"
+  },
+  "folderContentsView": {
+    "message": "Представление содержимого папки"
+  },
+  "folderContentsViewHelp": {
+    "message": "Настройте ширину столбцов средней панели и необязательные столбцы. Название и URL отображаются всегда."
+  },
+  "folderFallback": {
+    "message": "(папка)"
+  },
+  "folderNamePrompt": {
+    "message": "Название папки"
+  },
+  "folders": {
+    "message": "Папки:"
+  },
+  "font": {
+    "message": "Шрифт"
+  },
+  "fontHelp": {
+    "message": "Управляет основной гарнитурой шрифта интерфейса менеджера закладок."
+  },
+  "fontMono": {
+    "message": "Consolas / моноширинный"
+  },
+  "fontSans": {
+    "message": "Arial / Helvetica"
+  },
+  "fontSerif": {
+    "message": "Georgia / Times"
+  },
+  "fontSize": {
+    "message": "Размер шрифта"
+  },
+  "fontSizeHelp": {
+    "message": "Базовый размер текста. Заголовки и подписи столбцов масштабируются относительно этого значения."
+  },
+  "fontSpacing": {
+    "message": "Межстрочный интервал"
+  },
+  "fontSpacingHelp": {
+    "message": "Множитель межстрочного интервала для более плотных или удобочитаемых строк и подписей."
+  },
+  "fontSystem": {
+    "message": "Системный по умолчанию"
+  },
+  "forward": {
+    "message": "Вперёд"
+  },
+  "guidUuid": {
+    "message": "GUID / UUID"
+  },
+  "help": {
+    "message": "Справка"
+  },
+  "hideDetailsPaneTooltip": {
+    "message": "Скрыть панель сведений"
+  },
+  "keepEditing": {
+    "message": "Продолжить редактирование"
+  },
+  "languageAuto": {
+    "message": "Автоматически / язык браузера по умолчанию"
+  },
+  "leftLibWidth": {
+    "message": "Ширина панели библиотеки"
+  },
+  "leftLibWidthHelp": {
+    "message": "Ширина левой панели библиотеки в пикселях."
+  },
+  "library": {
+    "message": "Библиотека"
+  },
+  "limitSearchTo": {
+    "message": "Ограничить поиск"
+  },
+  "loadFailed": {
+    "message": "Не удалось загрузить: {error}"
+  },
+  "managerFailed": {
+    "message": "Ошибка менеджера закладок: {error}"
+  },
+  "midFcShowDateAdded": {
+    "message": "Показать столбец даты добавления"
+  },
+  "midFcShowDateAddedHelp": {
+    "message": "Показать или скрыть столбец даты добавления в панели содержимого папки."
+  },
+  "midFcShowId": {
+    "message": "Показать столбец ID"
+  },
+  "midFcShowIdHelp": {
+    "message": "Показать или скрыть столбец ID закладки Chromium."
+  },
+  "midFcShowOrder": {
+    "message": "Показать столбец порядка"
+  },
+  "midFcShowOrderHelp": {
+    "message": "Показать или скрыть столбец порядка/индекса папки Chromium."
+  },
+  "midFcWidthDateAdded": {
+    "message": "Ширина столбца даты добавления"
+  },
+  "midFcWidthDateAddedHelp": {
+    "message": "Ширина необязательного столбца даты добавления в пикселях."
+  },
+  "midFcWidthId": {
+    "message": "Ширина столбца ID"
+  },
+  "midFcWidthIdHelp": {
+    "message": "Ширина необязательного столбца ID в пикселях."
+  },
+  "midFcWidthName": {
+    "message": "Ширина столбца названия"
+  },
+  "midFcWidthNameHelp": {
+    "message": "Ширина столбца названия в содержимом папки в пикселях."
+  },
+  "midFcWidthOrder": {
+    "message": "Ширина столбца порядка"
+  },
+  "midFcWidthOrderHelp": {
+    "message": "Ширина необязательного столбца порядка/индекса Chromium в пикселях."
+  },
+  "midFcWidthUrl": {
+    "message": "Ширина столбца URL"
+  },
+  "midFcWidthUrlHelp": {
+    "message": "Ширина столбца URL в содержимом папки в пикселях."
+  },
+  "multipleInstancesAllowed": {
+    "message": "Разрешить несколько экземпляров SBM"
+  },
+  "multipleInstancesAllowedHelp": {
+    "message": "Если отключено, нажатие кнопки расширения фокусирует существующую вкладку Simple Bookmarks Manager вместо открытия новой."
+  },
+  "mutationCreateBookmark": {
+    "message": "создать закладку"
+  },
+  "mutationCreateFolder": {
+    "message": "создать папку"
+  },
+  "mutationCreateFromClipboardSnapshot": {
+    "message": "создать из снимка буфера обмена"
+  },
+  "mutationCreateSeparator": {
+    "message": "создать разделитель"
+  },
+  "mutationDeleteBookmark": {
+    "message": "удалить закладку"
+  },
+  "mutationDeleteFolder": {
+    "message": "удалить папку"
+  },
+  "mutationDeleteSelectedBookmark": {
+    "message": "удалить выбранную закладку"
+  },
+  "mutationDeleteSelectedFolder": {
+    "message": "удалить выбранную папку"
+  },
+  "mutationDragDropMove": {
+    "message": "перемещение перетаскиванием"
+  },
+  "mutationEditBookmark": {
+    "message": "редактировать закладку"
+  },
+  "mutationMoveSelectedItem": {
+    "message": "переместить выбранный элемент"
+  },
+  "mutationPasteCutItem": {
+    "message": "вставить вырезанный элемент"
+  },
+  "mutationRenameFolder": {
+    "message": "переименовать папку"
+  },
+  "mutationReorderSelectedItems": {
+    "message": "изменить порядок выбранных элементов"
+  },
+  "mutationSaveDetailsMove": {
+    "message": "сохранить перемещение в сведениях"
+  },
+  "mutationSaveDetailsUpdate": {
+    "message": "сохранить обновление сведений"
+  },
+  "mutationSortFolderChild": {
+    "message": "сортировать дочерний элемент папки"
+  },
+  "naturalSort": {
+    "message": "Использовать естественный порядок сортировки папок/закладок"
+  },
+  "naturalSortHelp": {
+    "message": "Постоянная сортировка по названию сначала размещает папки, затем разделители, затем закладки."
+  },
+  "newBookmark": {
+    "message": "Новая закладка"
+  },
+  "newFolder": {
+    "message": "Новая папка"
+  },
+  "newFolderDefaultName": {
+    "message": "Новая папка"
+  },
+  "newFolderNamePrompt": {
+    "message": "Название новой папки"
+  },
+  "newWindowType": {
+    "message": "новое"
+  },
+  "notAvailable": {
+    "message": "Недоступно"
+  },
+  "openAllBookmarks": {
+    "message": "Открыть все закладки"
+  },
+  "openAllInNewTab": {
+    "message": "Открыть всё в новой вкладке"
+  },
+  "openAllInNewTabGroup": {
+    "message": "Открыть всё в новой группе вкладок"
+  },
+  "openAllInNewWindow": {
+    "message": "Открыть всё в новом окне"
+  },
+  "openAllInPrivateWindow": {
+    "message": "Открыть всё в приватном окне"
+  },
+  "openAllInSplitView": {
+    "message": "Открыть всё в разделённом представлении"
+  },
+  "openBookmark": {
+    "message": "Открыть закладку"
+  },
+  "openContainingFolder": {
+    "message": "Открыть папку, содержащую закладку."
+  },
+  "openDefaultBookmarksManager": {
+    "message": "Открыть стандартный менеджер закладок"
+  },
+  "openInNewTab": {
+    "message": "Открыть в новой вкладке"
+  },
+  "openInNewTabGroup": {
+    "message": "Открыть в новой группе вкладок"
+  },
+  "openInNewWindow": {
+    "message": "Открыть в новом окне"
+  },
+  "openInPrivateWindow": {
+    "message": "Открыть в приватном окне"
+  },
+  "openInSplitView": {
+    "message": "Открыть в разделённом представлении"
+  },
+  "openMenu": {
+    "message": "Открыть меню"
+  },
+  "openSbmMenu": {
+    "message": "Открыть меню Simple Bookmarks Manager"
+  },
+  "optimisationDOMrendering": {
+    "message": "Оптимизация: отрисовка DOM"
+  },
+  "optimisationDOMrenderingHelp": {
+    "message": "Экспериментально. Уменьшает изменения DOM для выбранной отрисовки, индикаторов перетаскивания и обработки значков строк. Отключайте только при сравнении производительности или устранении проблем поведения UI."
+  },
+  "optimisationTempBookmarkTreeMaps": {
+    "message": "Оптимизация: временные карты дерева закладок"
+  },
+  "optimisationTempBookmarkTreeMapsHelp": {
+    "message": "Экспериментально. Создаёт кратковременные карты поиска во время некоторых операций отрисовки/поиска/дерева, затем удаляет их, чтобы избежать постоянного устаревшего кэша."
+  },
+  "optimisations": {
+    "message": "Оптимизации"
+  },
+  "optimisationsHelp": {
+    "message": "Экспериментальные параметры производительности для тестирования и устранения проблем."
+  },
+  "optionSaved": {
+    "message": "Сохранено"
+  },
+  "options": {
+    "message": "Настройки"
+  },
+  "optionsTitle": {
+    "message": "Настройки Simple Bookmarks Manager"
+  },
+  "paneWidths": {
+    "message": "Ширина панелей"
+  },
+  "paneWidthsHelp": {
+    "message": "Настройте ширину панелей библиотеки и сведений. Они также обновляются, когда размер панелей изменяется в интерфейсе менеджера."
+  },
+  "parentFolder": {
+    "message": "Родительская папка"
+  },
+  "paste": {
+    "message": "Вставить"
+  },
+  "privateWindowType": {
+    "message": "приватное"
+  },
+  "renameFolder": {
+    "message": "Переименовать папку"
+  },
+  "resetDefaults": {
+    "message": "Сбросить по умолчанию"
+  },
+  "resizeColumn": {
+    "message": "Перетащите, чтобы изменить ширину столбца"
+  },
+  "resizeDetailsPane": {
+    "message": "Изменить размер панели сведений"
+  },
+  "resizeLibraryPane": {
+    "message": "Изменить размер панели библиотеки"
+  },
+  "rightDetailsWidth": {
+    "message": "Ширина панели сведений"
+  },
+  "rightDetailsWidthHelp": {
+    "message": "Ширина правой панели сведений в пикселях."
+  },
+  "rootFallback": {
+    "message": "(корень)"
+  },
+  "safety": {
+    "message": "Безопасность"
+  },
+  "save": {
+    "message": "Сохранить"
+  },
+  "saveFailed": {
+    "message": "Не удалось сохранить: {error}"
+  },
+  "search": {
+    "message": "Поиск"
+  },
+  "searchBookmarks": {
+    "message": "Искать закладки"
+  },
+  "searchLimitFull": {
+    "message": "Ограничить поиск текущей папкой и подпапками"
+  },
+  "searchLimitOptionHelp": {
+    "message": "Если включено, главное поле поиска ищет только внутри текущего видимого дерева папок."
+  },
+  "searchLimitTitle": {
+    "message": "Если включено, искать только в текущей папке и её подпапках. Если отключено, искать во всех закладках."
+  },
+  "separator": {
+    "message": "Разделитель"
+  },
+  "separators": {
+    "message": "Разделители:"
+  },
+  "showDeleteWarning": {
+    "message": "Показывать предупреждение подтверждения удаления"
+  },
+  "showDeleteWarningHelp": {
+    "message": "Запрашивать подтверждение перед удалением элементов закладок или папок."
+  },
+  "showDetailsPaneTooltip": {
+    "message": "Показать панель сведений"
+  },
+  "showErrorsWarnings": {
+    "message": "Показать журнал предупреждений/ошибок"
+  },
+  "showErrorsWarningsHelp": {
+    "message": "Дополнительно. Показывает временный журнал в памяти для этого сеанса SBM. Записи журнала не сохраняются в настройках расширения."
+  },
+  "showSortWarning": {
+    "message": "Показывать предупреждение подтверждения постоянной сортировки"
+  },
+  "showSortWarningHelp": {
+    "message": "Запрашивать подтверждение перед применением сортировок из контекстного меню, которые навсегда меняют порядок папки закладок."
+  },
+  "sortBookmarks": {
+    "message": "Сортировать закладки"
+  },
+  "sortByDate": {
+    "message": "Сортировать по дате"
+  },
+  "sortByName": {
+    "message": "Сортировать по названию"
+  },
+  "sortDate": {
+    "message": "дате"
+  },
+  "sortDateAdded": {
+    "message": "Дата добавления"
+  },
+  "sortDateAddedHeader": {
+    "message": "Дата добавления"
+  },
+  "sortDateAscTooltip": {
+    "message": "Сортировать по дате добавления: сначала самые старые"
+  },
+  "sortDateDescTooltip": {
+    "message": "Сортировать по дате добавления: сначала самые новые"
+  },
+  "sortDefault": {
+    "message": "По умолчанию"
+  },
+  "sortDefaultTooltip": {
+    "message": "Порядок папок Chromium по умолчанию. Нажмите, чтобы вернуться к сортировке по умолчанию; этот столбец не выполняет обратную сортировку."
+  },
+  "sortFolderConfirm": {
+    "message": "Сортировать «{folderName}» по {sortName}?\n\nЭто навсегда изменит сохранённый порядок закладок в Chromium. Это отличается от временного выпадающего списка визуальной сортировки."
+  },
+  "sortId": {
+    "message": "ID"
+  },
+  "sortIdAscTooltip": {
+    "message": "Сортировать по ID: сначала наименьшие"
+  },
+  "sortIdDescTooltip": {
+    "message": "Сортировать по ID: сначала наибольшие"
+  },
+  "sortName": {
+    "message": "Название"
+  },
+  "sortNameAscTooltip": {
+    "message": "Сортировать по названию: от A до Z"
+  },
+  "sortNameDescTooltip": {
+    "message": "Сортировать по названию: от Z до A"
+  },
+  "sortNameLower": {
+    "message": "названию"
+  },
+  "sortOrder": {
+    "message": "Порядок"
+  },
+  "sortSelectDateAddedTitle": {
+    "message": "Сортировка по дате добавления. По возрастанию — сначала самые старые; по убыванию — сначала самые новые."
+  },
+  "sortSelectDefaultTitle": {
+    "message": "Порядок папок Chromium по умолчанию."
+  },
+  "sortSelectIdTitle": {
+    "message": "Сортировка по ID. По возрастанию — сначала наименьшие; по убыванию — сначала наибольшие."
+  },
+  "sortSelectTitleTitle": {
+    "message": "Сортировка по названию. По возрастанию — от A до Z; по убыванию — от Z до A."
+  },
+  "sortSelectUrlTitle": {
+    "message": "Сортировка по URL. По возрастанию — от A до Z; по убыванию — от Z до A."
+  },
+  "sortUrl": {
+    "message": "URL"
+  },
+  "sortUrlAscTooltip": {
+    "message": "Сортировать по URL: от A до Z"
+  },
+  "sortUrlDescTooltip": {
+    "message": "Сортировать по URL: от Z до A"
+  },
+  "sorting": {
+    "message": "Сортировка"
+  },
+  "thisItem": {
+    "message": "этот элемент"
+  },
+  "totalSelected": {
+    "message": "Всего выбрано:"
+  },
+  "unsavedChanges": {
+    "message": "Несохранённые изменения"
+  },
+  "unsavedChangesMessage": {
+    "message": "В панели сведений есть несохранённые изменения. Что вы хотите сделать?"
+  },
+  "url": {
+    "message": "URL"
+  },
+  "urlWarningControlCharacters": {
+    "message": "URL содержал скрытые управляющие символы; они будут удалены перед сохранением."
+  },
+  "urlWarningEmpty": {
+    "message": "URL пуст. Chrome может отклонить эту закладку, пока URL не будет указан."
+  },
+  "urlWarningInvalidBlocked": {
+    "message": "Этот URL недостаточно корректен, чтобы сохранить его как закладку. Исправьте URL перед сохранением."
+  },
+  "urlWarningInvalidButAllowed": {
+    "message": "Этот URL недостаточно корректен, чтобы сохранить его как закладку. Исправьте URL перед сохранением."
+  },
+  "urlWarningWhitespace": {
+    "message": "URL содержит пробелы. Он будет сохранён, если Chrome его примет, но может открываться не так, как ожидается."
+  },
+  "userInterface": {
+    "message": "Пользовательский интерфейс"
+  },
+  "userInterfaceLanguage": {
+    "message": "Язык пользовательского интерфейса"
+  },
+  "userInterfaceLanguageHelp": {
+    "message": "Автоматический режим следует языку интерфейса браузера. Ручной выбор влияет на страницы менеджера и настроек."
+  },
+  "theme": {
+    "message": "Тема"
+  },
+  "themeHelp": {
+    "message": "Установите тему, используемую Simple Bookmarks Manager."
+  },
+  "themeSystem": {
+    "message": "Системная"
+  },
+  "themeLight": {
+    "message": "Светлая"
+  },
+  "themeSoftBlue": {
+    "message": "Мягкая синяя"
+  },
+  "themeSoftPink": {
+    "message": "Мягкая розовая"
+  },
+  "themeSoftPurple": {
+    "message": "Мягкая фиолетовая"
+  },
+  "themeSoftGold": {
+    "message": "Мягкая золотая"
+  },
+  "themeSoftOrange": {
+    "message": "Мягкая оранжевая"
+  },
+  "themeSoftGreen": {
+    "message": "Мягкая зелёная"
+  },
+  "themeDark": {
+    "message": "Тёмная"
+  },
+  "visualSort": {
+    "message": "Визуальная сортировка:"
+  },
+  "warningsErrorsLog": {
+    "message": "Журнал предупреждений / ошибок"
+  },
+  "warningsErrorsLogEmpty": {
+    "message": "В этом сеансе не записано предупреждений или ошибок."
+  },
+  "warningsErrorsLogHelp": {
+    "message": "Временные предупреждения/ошибки для текущего сеанса SBM. Это не сохраняется в настройках."
+  },
+  "bookmarkUrlProtections": {
+    "message": "Защита URL закладок"
+  },
+  "bookmarkUrlProtectionsHelp": {
+    "message": "Управляйте защитой для схем URL закладок с повышенным риском. Эти защиты влияют только на открытие закладок, а не на их сохранение."
+  },
+  "blockJavascriptBookmarkOpens": {
+    "message": "Блокировать открытие закладок javascript:"
+  },
+  "blockJavascriptBookmarkOpensHelp": {
+    "message": "Рекомендуется. Не позволяет SBM открывать букмарклеты или другие URL javascript: через действия расширения с вкладками/окнами."
+  },
+  "blockDataBookmarkOpens": {
+    "message": "Блокировать открытие закладок data:"
+  },
+  "blockDataBookmarkOpensHelp": {
+    "message": "Рекомендуется. Не позволяет SBM открывать встроенные документы data: через действия расширения с вкладками/окнами."
+  },
+  "blockBlobBookmarkOpens": {
+    "message": "Блокировать открытие закладок blob:"
+  },
+  "blockBlobBookmarkOpensHelp": {
+    "message": "Рекомендуется. Не позволяет SBM открывать URL blob: через действия расширения с вкладками/окнами."
+  },
+  "urlOpenBlockedByProtection": {
+    "message": "Этот URL закладки заблокирован расширенной защитой открытия URL. Переключатели защиты можно проверить в Настройки > Дополнительно."
+  },
+  "changelog": {
+    "message": "Журнал изменений"
+  },
+  "closeDialog": {
+    "message": "Закрыть диалог"
+  }
+}

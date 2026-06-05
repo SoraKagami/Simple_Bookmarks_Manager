@@ -28,6 +28,8 @@ export const LANGUAGE_OPTIONS = Object.freeze([
   { value: "vi", label: "Tiếng Việt" },
   { value: "id", label: "Bahasa Indonesia" },
   { value: "he", label: "עברית" },
+  { value: "uk", label: "Українська" },
+  { value: "ru", label: "Русский" },
   { value: "mi", label: "Te Reo Māori", path: "sbm_locales/mi/messages.json" },
   { value: "en_Netspeak", label: "N3tsp34k", path: "sbm_locales/en_Netspeak/messages.json" }
 ]);

@@ -43,9 +43,9 @@ Source code available at: https://github.com/SoraKagami/Simple_Bookmarks_Manager
 - Tiếng Việt
 - Bahasa Indonesia
 - עברית
-- Te Reo Māori
 - Українська
 - Русский
+- Te Reo Māori
 - N3tsp34k
 
 **Please note:** languages other than English are translations made using GenAI.

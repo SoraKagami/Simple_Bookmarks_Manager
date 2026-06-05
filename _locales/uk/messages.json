@@ -1,0 +1,830 @@
+{
+  "about": {
+    "message": "Про програму"
+  },
+  "aboutPageTitle": {
+    "message": "Про Simple Bookmarks Manager"
+  },
+  "aboutProjectHeading": {
+    "message": "Проєкт"
+  },
+  "aboutProjectDescription": {
+    "message": "Simple Bookmarks Manager зосереджується на локальній організації закладок, ефективному перегляді папок і звичному робочому процесі керування у стилі настільної програми в браузерах на базі Chromium."
+  },
+  "aboutGithubLabel": {
+    "message": "GitHub:"
+  },
+  "aboutDesignGoalsHeading": {
+    "message": "Цілі розробки"
+  },
+  "aboutDesignGoalFastLocal": {
+    "message": "Швидкий локальний перегляд і редагування закладок."
+  },
+  "aboutDesignGoalNoRemote": {
+    "message": "Зрозумілі елементи керування без віддалених служб або облікових записів."
+  },
+  "aboutDesignGoalChromiumCompatibility": {
+    "message": "Практична сумісність із браузерами на базі Chromium."
+  },
+  "aboutPrivacyHeading": {
+    "message": "Конфіденційність"
+  },
+  "aboutPrivacyDescription": {
+    "message": "SBM розроблено для повністю локальної роботи. Він не надсилає дані закладок, телеметрію, ping-запити чи будь-які інші дані використання до віддалених служб."
+  },
+  "actionFailed": {
+    "message": "Дія не вдалася: {error}"
+  },
+  "addNewBookmark": {
+    "message": "Додати нову закладку"
+  },
+  "addNewFolder": {
+    "message": "Додати нову папку"
+  },
+  "addSeparator": {
+    "message": "Додати розділювач"
+  },
+  "advanced": {
+    "message": "Додатково"
+  },
+  "advancedBookmarkDetails": {
+    "message": "Додаткові відомості про закладку"
+  },
+  "advancedDetails": {
+    "message": "Додаткові відомості"
+  },
+  "advancedDetailsHelp": {
+    "message": "Налаштуйте перегляд додаткових метаданих і підтримуване додаткове редагування в панелі відомостей."
+  },
+  "allowKeyboardDelete": {
+    "message": "Дозволити клавіші Delete видаляти вибрані елементи"
+  },
+  "allowKeyboardDeleteHelp": {
+    "message": "Якщо вимкнено, клавіша Delete більше не видаляє вибрані елементи закладок."
+  },
+  "appDescription": {
+    "message": "Простий локальний менеджер закладок для браузерів Chromium, натхненний Firefox Places — системою керування закладками Firefox."
+  },
+  "appName": {
+    "message": "Simple Bookmarks Manager"
+  },
+  "back": {
+    "message": "Назад"
+  },
+  "bookmarkAlt": {
+    "message": "Закладка"
+  },
+  "bookmarkFallback": {
+    "message": "(закладка)"
+  },
+  "bookmarkListColumns": {
+    "message": "Стовпці списку закладок"
+  },
+  "bookmarkMutationFailed": {
+    "message": "Операція із закладкою не вдалася ({action}): {error}"
+  },
+  "bookmarkNamePrompt": {
+    "message": "Назва закладки"
+  },
+  "bookmarkUrlPrompt": {
+    "message": "URL закладки"
+  },
+  "bookmarks": {
+    "message": "Закладки:"
+  },
+  "bookmarksAria": {
+    "message": "Закладки"
+  },
+  "bookmarksPathFallback": {
+    "message": "Закладки"
+  },
+  "browserRoot": {
+    "message": "Корінь браузера"
+  },
+  "cancel": {
+    "message": "Скасувати"
+  },
+  "chooseSortModeTitle": {
+    "message": "Виберіть режим сортування середньої панелі. За замовчуванням використовується порядок папок Chromium."
+  },
+  "clearLog": {
+    "message": "Очистити журнал"
+  },
+  "clickHideDetails": {
+    "message": "Натисніть, щоб приховати відомості"
+  },
+  "clickShowDetails": {
+    "message": "Натисніть, щоб показати відомості"
+  },
+  "closeOptions": {
+    "message": "Закрити налаштування"
+  },
+  "collapseAll": {
+    "message": "Згорнути все"
+  },
+  "collapseFolderTitle": {
+    "message": "Згорнути папку"
+  },
+  "copy": {
+    "message": "Копіювати"
+  },
+  "couldNotMoveBookmark": {
+    "message": "Не вдалося перемістити елемент закладки: {error}"
+  },
+  "couldNotOpenBookmark": {
+    "message": "Не вдалося відкрити закладку: {error}"
+  },
+  "couldNotOpenTabGroup": {
+    "message": "Не вдалося відкрити групу вкладок: {error}"
+  },
+  "couldNotOpenWindow": {
+    "message": "Не вдалося відкрити вікно типу «{windowType}»: {error}"
+  },
+  "couldNotSaveChanges": {
+    "message": "Не вдалося зберегти зміни: {error}"
+  },
+  "create": {
+    "message": "Створити"
+  },
+  "currentFolderAndSubfolders": {
+    "message": "Поточна папка та підпапки"
+  },
+  "cut": {
+    "message": "Вирізати"
+  },
+  "dateAdded": {
+    "message": "Дата додавання"
+  },
+  "dateLastUsed": {
+    "message": "Дата останнього використання"
+  },
+  "debugFailedBookmarkOperation": {
+    "message": "Налагодження: спричинити невдалу операцію із закладкою"
+  },
+  "debugFailedBookmarkOperationAction": {
+    "message": "налагодження невдалої операції із закладкою"
+  },
+  "debugFailureUnexpectedSuccess": {
+    "message": "Налагоджуваний збій неочікувано завершився успішно"
+  },
+  "debugOptions": {
+    "message": "Параметри налагодження"
+  },
+  "debugOptionsHelp": {
+    "message": "Додатково. Показує тестові елементи керування лише для налагодження. Залишайте вимкненим під час звичайного використання."
+  },
+  "debugSettings": {
+    "message": "Налаштування налагодження"
+  },
+  "debugSettingsHelp": {
+    "message": "Елементи керування, що показуються лише коли ввімкнено параметри налагодження."
+  },
+  "defaultsRestored": {
+    "message": "Типові значення відновлено"
+  },
+  "delete": {
+    "message": "Видалити"
+  },
+  "deleteBookmark": {
+    "message": "Видалити закладку"
+  },
+  "deleteFolder": {
+    "message": "Видалити папку"
+  },
+  "deleteMultipleConfirm": {
+    "message": "Видалити вибрані елементи: {count}?"
+  },
+  "deleteSingleConfirm": {
+    "message": "Видалити «{label}»?"
+  },
+  "details": {
+    "message": "Відомості"
+  },
+  "detailsItems": {
+    "message": "Елементи відомостей"
+  },
+  "detailsMultiselect": {
+    "message": "Множинний вибір у відомостях"
+  },
+  "discard": {
+    "message": "Відхилити"
+  },
+  "discardChanges": {
+    "message": "Відхилити зміни"
+  },
+  "doubleClickExpandCollapseTitle": {
+    "message": "Двічі клацніть, щоб розгорнути або згорнути цю папку"
+  },
+  "dragFolderTitle": {
+    "message": "Перетягніть, щоб змінити порядок цієї папки"
+  },
+  "dragItemTitle": {
+    "message": "Перетягніть, щоб перемістити або змінити порядок цього елемента"
+  },
+  "edit": {
+    "message": "Редагувати"
+  },
+  "editBookmark": {
+    "message": "Редагувати закладку"
+  },
+  "emptyDetails": {
+    "message": "Виберіть один елемент або виберіть папку, щоб показати її вміст."
+  },
+  "enableAdvancedEditing": {
+    "message": "Увімкнути додаткове редагування відомостей"
+  },
+  "enableAdvancedEditingHelp": {
+    "message": "Дозволяє підтримуване додаткове редагування, наразі обмежене зміною індексу закладки."
+  },
+  "enableAdvancedViewing": {
+    "message": "Увімкнути перегляд додаткових відомостей"
+  },
+  "enableAdvancedViewingHelp": {
+    "message": "Показувати в панелі відомостей додаткові метадані закладок лише для читання."
+  },
+  "expandAll": {
+    "message": "Розгорнути все"
+  },
+  "expandFolderTitle": {
+    "message": "Розгорнути папку"
+  },
+  "folderAlt": {
+    "message": "Папка"
+  },
+  "folderContentsView": {
+    "message": "Подання вмісту папки"
+  },
+  "folderContentsViewHelp": {
+    "message": "Налаштуйте ширину стовпців середньої панелі та необов’язкові стовпці. Назва й URL показуються завжди."
+  },
+  "folderFallback": {
+    "message": "(папка)"
+  },
+  "folderNamePrompt": {
+    "message": "Назва папки"
+  },
+  "folders": {
+    "message": "Папки:"
+  },
+  "font": {
+    "message": "Шрифт"
+  },
+  "fontHelp": {
+    "message": "Керує основною гарнітурою шрифту інтерфейсу менеджера закладок."
+  },
+  "fontMono": {
+    "message": "Consolas / моноширинний"
+  },
+  "fontSans": {
+    "message": "Arial / Helvetica"
+  },
+  "fontSerif": {
+    "message": "Georgia / Times"
+  },
+  "fontSize": {
+    "message": "Розмір шрифту"
+  },
+  "fontSizeHelp": {
+    "message": "Базовий розмір тексту. Заголовки й підписи стовпців масштабуються відносно цього значення."
+  },
+  "fontSpacing": {
+    "message": "Міжрядковий інтервал"
+  },
+  "fontSpacingHelp": {
+    "message": "Множник міжрядкового інтервалу для щільніших або легших для читання рядків і підписів."
+  },
+  "fontSystem": {
+    "message": "Системний типовий"
+  },
+  "forward": {
+    "message": "Вперед"
+  },
+  "guidUuid": {
+    "message": "GUID / UUID"
+  },
+  "help": {
+    "message": "Довідка"
+  },
+  "hideDetailsPaneTooltip": {
+    "message": "Приховати панель відомостей"
+  },
+  "keepEditing": {
+    "message": "Продовжити редагування"
+  },
+  "languageAuto": {
+    "message": "Автоматично / типово для браузера"
+  },
+  "leftLibWidth": {
+    "message": "Ширина панелі бібліотеки"
+  },
+  "leftLibWidthHelp": {
+    "message": "Ширина лівої панелі бібліотеки в пікселях."
+  },
+  "library": {
+    "message": "Бібліотека"
+  },
+  "limitSearchTo": {
+    "message": "Обмежити пошук до"
+  },
+  "loadFailed": {
+    "message": "Не вдалося завантажити: {error}"
+  },
+  "managerFailed": {
+    "message": "Помилка менеджера закладок: {error}"
+  },
+  "midFcShowDateAdded": {
+    "message": "Показати стовпець дати додавання"
+  },
+  "midFcShowDateAddedHelp": {
+    "message": "Показати або приховати стовпець дати додавання в панелі вмісту папки."
+  },
+  "midFcShowId": {
+    "message": "Показати стовпець ID"
+  },
+  "midFcShowIdHelp": {
+    "message": "Показати або приховати стовпець ID закладки Chromium."
+  },
+  "midFcShowOrder": {
+    "message": "Показати стовпець порядку"
+  },
+  "midFcShowOrderHelp": {
+    "message": "Показати або приховати стовпець порядку/індексу папки Chromium."
+  },
+  "midFcWidthDateAdded": {
+    "message": "Ширина стовпця дати додавання"
+  },
+  "midFcWidthDateAddedHelp": {
+    "message": "Ширина необов’язкового стовпця дати додавання в пікселях."
+  },
+  "midFcWidthId": {
+    "message": "Ширина стовпця ID"
+  },
+  "midFcWidthIdHelp": {
+    "message": "Ширина необов’язкового стовпця ID в пікселях."
+  },
+  "midFcWidthName": {
+    "message": "Ширина стовпця назви"
+  },
+  "midFcWidthNameHelp": {
+    "message": "Ширина стовпця назви у вмісті папки в пікселях."
+  },
+  "midFcWidthOrder": {
+    "message": "Ширина стовпця порядку"
+  },
+  "midFcWidthOrderHelp": {
+    "message": "Ширина необов’язкового стовпця порядку/індексу Chromium у пікселях."
+  },
+  "midFcWidthUrl": {
+    "message": "Ширина стовпця URL"
+  },
+  "midFcWidthUrlHelp": {
+    "message": "Ширина стовпця URL у вмісті папки в пікселях."
+  },
+  "multipleInstancesAllowed": {
+    "message": "Дозволити кілька екземплярів SBM"
+  },
+  "multipleInstancesAllowedHelp": {
+    "message": "Якщо вимкнено, натискання кнопки розширення фокусує наявну вкладку Simple Bookmarks Manager замість відкриття нової."
+  },
+  "mutationCreateBookmark": {
+    "message": "створити закладку"
+  },
+  "mutationCreateFolder": {
+    "message": "створити папку"
+  },
+  "mutationCreateFromClipboardSnapshot": {
+    "message": "створити зі знімка буфера обміну"
+  },
+  "mutationCreateSeparator": {
+    "message": "створити розділювач"
+  },
+  "mutationDeleteBookmark": {
+    "message": "видалити закладку"
+  },
+  "mutationDeleteFolder": {
+    "message": "видалити папку"
+  },
+  "mutationDeleteSelectedBookmark": {
+    "message": "видалити вибрану закладку"
+  },
+  "mutationDeleteSelectedFolder": {
+    "message": "видалити вибрану папку"
+  },
+  "mutationDragDropMove": {
+    "message": "переміщення перетягуванням"
+  },
+  "mutationEditBookmark": {
+    "message": "редагувати закладку"
+  },
+  "mutationMoveSelectedItem": {
+    "message": "перемістити вибраний елемент"
+  },
+  "mutationPasteCutItem": {
+    "message": "вставити вирізаний елемент"
+  },
+  "mutationRenameFolder": {
+    "message": "перейменувати папку"
+  },
+  "mutationReorderSelectedItems": {
+    "message": "змінити порядок вибраних елементів"
+  },
+  "mutationSaveDetailsMove": {
+    "message": "зберегти переміщення у відомостях"
+  },
+  "mutationSaveDetailsUpdate": {
+    "message": "зберегти оновлення відомостей"
+  },
+  "mutationSortFolderChild": {
+    "message": "сортувати дочірній елемент папки"
+  },
+  "naturalSort": {
+    "message": "Використовувати природний порядок сортування папок/закладок"
+  },
+  "naturalSortHelp": {
+    "message": "Постійне сортування за назвою спочатку розміщує папки, потім розділювачі, а потім закладки."
+  },
+  "newBookmark": {
+    "message": "Нова закладка"
+  },
+  "newFolder": {
+    "message": "Нова папка"
+  },
+  "newFolderDefaultName": {
+    "message": "Нова папка"
+  },
+  "newFolderNamePrompt": {
+    "message": "Назва нової папки"
+  },
+  "newWindowType": {
+    "message": "нове"
+  },
+  "notAvailable": {
+    "message": "Недоступно"
+  },
+  "openAllBookmarks": {
+    "message": "Відкрити всі закладки"
+  },
+  "openAllInNewTab": {
+    "message": "Відкрити все в новій вкладці"
+  },
+  "openAllInNewTabGroup": {
+    "message": "Відкрити все в новій групі вкладок"
+  },
+  "openAllInNewWindow": {
+    "message": "Відкрити все в новому вікні"
+  },
+  "openAllInPrivateWindow": {
+    "message": "Відкрити все в приватному вікні"
+  },
+  "openAllInSplitView": {
+    "message": "Відкрити все в розділеному перегляді"
+  },
+  "openBookmark": {
+    "message": "Відкрити закладку"
+  },
+  "openContainingFolder": {
+    "message": "Відкрити папку, що містить закладку."
+  },
+  "openDefaultBookmarksManager": {
+    "message": "Відкрити типовий менеджер закладок"
+  },
+  "openInNewTab": {
+    "message": "Відкрити в новій вкладці"
+  },
+  "openInNewTabGroup": {
+    "message": "Відкрити в новій групі вкладок"
+  },
+  "openInNewWindow": {
+    "message": "Відкрити в новому вікні"
+  },
+  "openInPrivateWindow": {
+    "message": "Відкрити в приватному вікні"
+  },
+  "openInSplitView": {
+    "message": "Відкрити в розділеному перегляді"
+  },
+  "openMenu": {
+    "message": "Відкрити меню"
+  },
+  "openSbmMenu": {
+    "message": "Відкрити меню Simple Bookmarks Manager"
+  },
+  "optimisationDOMrendering": {
+    "message": "Оптимізація: рендеринг DOM"
+  },
+  "optimisationDOMrenderingHelp": {
+    "message": "Експериментально. Зменшує зміни DOM для вибраного рендерингу, індикаторів перетягування та обробки піктограм рядків. Вимикайте лише для порівняння продуктивності або усунення проблем поведінки UI."
+  },
+  "optimisationTempBookmarkTreeMaps": {
+    "message": "Оптимізація: тимчасові мапи дерева закладок"
+  },
+  "optimisationTempBookmarkTreeMapsHelp": {
+    "message": "Експериментально. Створює короткочасні мапи пошуку під час деяких операцій рендерингу/пошуку/дерева, а потім відкидає їх, щоб уникнути постійного застарілого кешу."
+  },
+  "optimisations": {
+    "message": "Оптимізації"
+  },
+  "optimisationsHelp": {
+    "message": "Експериментальні параметри продуктивності для тестування й усунення проблем."
+  },
+  "optionSaved": {
+    "message": "Збережено"
+  },
+  "options": {
+    "message": "Налаштування"
+  },
+  "optionsTitle": {
+    "message": "Налаштування Simple Bookmarks Manager"
+  },
+  "paneWidths": {
+    "message": "Ширина панелей"
+  },
+  "paneWidthsHelp": {
+    "message": "Налаштуйте ширину панелей бібліотеки та відомостей. Вони також оновлюються, коли панелі змінюють розмір в інтерфейсі менеджера."
+  },
+  "parentFolder": {
+    "message": "Батьківська папка"
+  },
+  "paste": {
+    "message": "Вставити"
+  },
+  "privateWindowType": {
+    "message": "приватне"
+  },
+  "renameFolder": {
+    "message": "Перейменувати папку"
+  },
+  "resetDefaults": {
+    "message": "Скинути до типових"
+  },
+  "resizeColumn": {
+    "message": "Перетягніть, щоб змінити ширину стовпця"
+  },
+  "resizeDetailsPane": {
+    "message": "Змінити розмір панелі відомостей"
+  },
+  "resizeLibraryPane": {
+    "message": "Змінити розмір панелі бібліотеки"
+  },
+  "rightDetailsWidth": {
+    "message": "Ширина панелі відомостей"
+  },
+  "rightDetailsWidthHelp": {
+    "message": "Ширина правої панелі відомостей у пікселях."
+  },
+  "rootFallback": {
+    "message": "(корінь)"
+  },
+  "safety": {
+    "message": "Безпека"
+  },
+  "save": {
+    "message": "Зберегти"
+  },
+  "saveFailed": {
+    "message": "Не вдалося зберегти: {error}"
+  },
+  "search": {
+    "message": "Пошук"
+  },
+  "searchBookmarks": {
+    "message": "Шукати закладки"
+  },
+  "searchLimitFull": {
+    "message": "Обмежити пошук поточною папкою та підпапками"
+  },
+  "searchLimitOptionHelp": {
+    "message": "Якщо ввімкнено, головне поле пошуку шукає лише всередині поточного видимого дерева папок."
+  },
+  "searchLimitTitle": {
+    "message": "Якщо ввімкнено, шукати лише в поточній папці та її підпапках. Якщо вимкнено, шукати в усіх закладках."
+  },
+  "separator": {
+    "message": "Розділювач"
+  },
+  "separators": {
+    "message": "Розділювачі:"
+  },
+  "showDeleteWarning": {
+    "message": "Показувати попередження підтвердження видалення"
+  },
+  "showDeleteWarningHelp": {
+    "message": "Запитувати перед видаленням елементів закладок або папок."
+  },
+  "showDetailsPaneTooltip": {
+    "message": "Показати панель відомостей"
+  },
+  "showErrorsWarnings": {
+    "message": "Показати журнал попереджень/помилок"
+  },
+  "showErrorsWarningsHelp": {
+    "message": "Додатково. Показує тимчасовий журнал у пам’яті для цього сеансу SBM. Записи журналу не зберігаються в налаштуваннях розширення."
+  },
+  "showSortWarning": {
+    "message": "Показувати попередження підтвердження постійного сортування"
+  },
+  "showSortWarningHelp": {
+    "message": "Запитувати перед застосуванням сортувань із контекстного меню, які постійно змінюють порядок папки закладок."
+  },
+  "sortBookmarks": {
+    "message": "Сортувати закладки"
+  },
+  "sortByDate": {
+    "message": "Сортувати за датою"
+  },
+  "sortByName": {
+    "message": "Сортувати за назвою"
+  },
+  "sortDate": {
+    "message": "датою"
+  },
+  "sortDateAdded": {
+    "message": "Дата додавання"
+  },
+  "sortDateAddedHeader": {
+    "message": "Дата додавання"
+  },
+  "sortDateAscTooltip": {
+    "message": "Сортувати за датою додавання: спочатку найстаріші"
+  },
+  "sortDateDescTooltip": {
+    "message": "Сортувати за датою додавання: спочатку найновіші"
+  },
+  "sortDefault": {
+    "message": "Типово"
+  },
+  "sortDefaultTooltip": {
+    "message": "Типовий порядок папок Chromium. Натисніть, щоб повернутися до типового сортування; цей стовпець не сортує у зворотному порядку."
+  },
+  "sortFolderConfirm": {
+    "message": "Сортувати «{folderName}» за {sortName}?\n\nЦе назавжди змінить збережений порядок закладок у Chromium. Це відрізняється від тимчасового випадаючого списку візуального сортування."
+  },
+  "sortId": {
+    "message": "ID"
+  },
+  "sortIdAscTooltip": {
+    "message": "Сортувати за ID: спочатку найменші"
+  },
+  "sortIdDescTooltip": {
+    "message": "Сортувати за ID: спочатку найбільші"
+  },
+  "sortName": {
+    "message": "Назва"
+  },
+  "sortNameAscTooltip": {
+    "message": "Сортувати за назвою: від A до Z"
+  },
+  "sortNameDescTooltip": {
+    "message": "Сортувати за назвою: від Z до A"
+  },
+  "sortNameLower": {
+    "message": "назвою"
+  },
+  "sortOrder": {
+    "message": "Порядок"
+  },
+  "sortSelectDateAddedTitle": {
+    "message": "Сортування за датою додавання. За зростанням — спочатку найстаріші; за спаданням — спочатку найновіші."
+  },
+  "sortSelectDefaultTitle": {
+    "message": "Типовий порядок папок Chromium."
+  },
+  "sortSelectIdTitle": {
+    "message": "Сортування за ID. За зростанням — спочатку найменші; за спаданням — спочатку найбільші."
+  },
+  "sortSelectTitleTitle": {
+    "message": "Сортування за назвою. За зростанням — від A до Z; за спаданням — від Z до A."
+  },
+  "sortSelectUrlTitle": {
+    "message": "Сортування за URL. За зростанням — від A до Z; за спаданням — від Z до A."
+  },
+  "sortUrl": {
+    "message": "URL"
+  },
+  "sortUrlAscTooltip": {
+    "message": "Сортувати за URL: від A до Z"
+  },
+  "sortUrlDescTooltip": {
+    "message": "Сортувати за URL: від Z до A"
+  },
+  "sorting": {
+    "message": "Сортування"
+  },
+  "thisItem": {
+    "message": "цей елемент"
+  },
+  "totalSelected": {
+    "message": "Усього вибрано:"
+  },
+  "unsavedChanges": {
+    "message": "Незбережені зміни"
+  },
+  "unsavedChangesMessage": {
+    "message": "Панель відомостей має незбережені зміни. Що ви хочете зробити?"
+  },
+  "url": {
+    "message": "URL"
+  },
+  "urlWarningControlCharacters": {
+    "message": "URL містив приховані керівні символи; їх буде видалено перед збереженням."
+  },
+  "urlWarningEmpty": {
+    "message": "URL порожній. Chrome може відхилити цю закладку, доки не буде вказано URL."
+  },
+  "urlWarningInvalidBlocked": {
+    "message": "Цей URL недостатньо дійсний, щоб зберегти його як закладку. Виправте URL перед збереженням."
+  },
+  "urlWarningInvalidButAllowed": {
+    "message": "Цей URL недостатньо дійсний, щоб зберегти його як закладку. Виправте URL перед збереженням."
+  },
+  "urlWarningWhitespace": {
+    "message": "URL містить пробіли. Він буде збережений, якщо Chrome його прийме, але може відкриватися не так, як очікується."
+  },
+  "userInterface": {
+    "message": "Інтерфейс користувача"
+  },
+  "userInterfaceLanguage": {
+    "message": "Мова інтерфейсу користувача"
+  },
+  "userInterfaceLanguageHelp": {
+    "message": "Автоматичний режим відповідає мові інтерфейсу браузера. Вибір вручну впливає на сторінки менеджера та налаштувань."
+  },
+  "theme": {
+    "message": "Тема"
+  },
+  "themeHelp": {
+    "message": "Установіть тему, яку використовує Simple Bookmarks Manager."
+  },
+  "themeSystem": {
+    "message": "Системна"
+  },
+  "themeLight": {
+    "message": "Світла"
+  },
+  "themeSoftBlue": {
+    "message": "М’яка синя"
+  },
+  "themeSoftPink": {
+    "message": "М’яка рожева"
+  },
+  "themeSoftPurple": {
+    "message": "М’яка фіолетова"
+  },
+  "themeSoftGold": {
+    "message": "М’яка золота"
+  },
+  "themeSoftOrange": {
+    "message": "М’яка помаранчева"
+  },
+  "themeSoftGreen": {
+    "message": "М’яка зелена"
+  },
+  "themeDark": {
+    "message": "Темна"
+  },
+  "visualSort": {
+    "message": "Візуальне сортування:"
+  },
+  "warningsErrorsLog": {
+    "message": "Журнал попереджень / помилок"
+  },
+  "warningsErrorsLogEmpty": {
+    "message": "У цьому сеансі не записано попереджень або помилок."
+  },
+  "warningsErrorsLogHelp": {
+    "message": "Тимчасові попередження/помилки для поточного сеансу SBM. Це не зберігається в налаштуваннях."
+  },
+  "bookmarkUrlProtections": {
+    "message": "Захисти URL закладок"
+  },
+  "bookmarkUrlProtectionsHelp": {
+    "message": "Керуйте захистом для схем URL закладок із підвищеним ризиком. Ці захисти впливають лише на відкриття закладок, а не на їх збереження."
+  },
+  "blockJavascriptBookmarkOpens": {
+    "message": "Блокувати відкриття закладок javascript:"
+  },
+  "blockJavascriptBookmarkOpensHelp": {
+    "message": "Рекомендовано. Запобігає відкриттю SBM букмарклетів або інших URL javascript: через дії розширення з вкладками/вікнами."
+  },
+  "blockDataBookmarkOpens": {
+    "message": "Блокувати відкриття закладок data:"
+  },
+  "blockDataBookmarkOpensHelp": {
+    "message": "Рекомендовано. Запобігає відкриттю SBM вбудованих документів data: через дії розширення з вкладками/вікнами."
+  },
+  "blockBlobBookmarkOpens": {
+    "message": "Блокувати відкриття закладок blob:"
+  },
+  "blockBlobBookmarkOpensHelp": {
+    "message": "Рекомендовано. Запобігає відкриттю SBM URL blob: через дії розширення з вкладками/вікнами."
+  },
+  "urlOpenBlockedByProtection": {
+    "message": "Цей URL закладки заблоковано додатковим захистом відкриття URL. Переглянути перемикачі захисту можна в Налаштування > Додатково."
+  },
+  "changelog": {
+    "message": "Журнал змін"
+  },
+  "closeDialog": {
+    "message": "Закрити діалогове вікно"
+  }
+}

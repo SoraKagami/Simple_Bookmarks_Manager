@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.8.17
+
+- Added Ukrainian and Russian UI locale packs based on `_locales/en/messages.json`.
+- Updated `i18n.js` so Ukrainian and Russian are available in the language selector while keeping Netspeak at the bottom of the list.
+
 ## 0.8.15
 
 - Changed the default `mid_FC_Show_ID` setting to `false` so the middle-pane ID column is hidden by default for new/default configurations.
