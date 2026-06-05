@@ -1,0 +1,77 @@
+:root {
+  color-scheme: light dark;
+
+  --_sbm-color-bg-base: Canvas;
+  --_sbm-color-surface-base: Canvas;
+  --_sbm-color-text-base: CanvasText;
+  --_sbm-color-accent-base: Highlight;
+  --_sbm-color-accent-text-base: HighlightText;
+  --_sbm-color-link-base: LinkText;
+  --_sbm-color-warning-base: #7a4a00;
+
+  --sbm-color-bg: var(--_sbm-color-bg-base);
+  --sbm-color-surface: var(--_sbm-color-surface-base);
+  --sbm-color-text: var(--_sbm-color-text-base);
+  --sbm-color-accent: var(--_sbm-color-accent-base);
+  --sbm-color-accent-text: var(--_sbm-color-accent-text-base);
+  --sbm-color-link: var(--_sbm-color-link-base);
+  --sbm-color-warning-text: var(--_sbm-color-warning-base);
+
+  --sbm-color-pane: color-mix(in srgb, var(--_sbm-color-surface-base) 92%, var(--_sbm-color-text-base));
+  --sbm-color-surface-muted: color-mix(in srgb, var(--_sbm-color-surface-base) 94%, var(--_sbm-color-text-base));
+  --sbm-color-card: color-mix(in srgb, var(--_sbm-color-surface-base) 88%, var(--_sbm-color-text-base));
+
+  --sbm-color-text-muted: color-mix(in srgb, var(--_sbm-color-text-base) 70%, transparent);
+  --sbm-color-text-soft: color-mix(in srgb, var(--_sbm-color-text-base) 78%, transparent);
+  --sbm-color-heading-muted: color-mix(in srgb, var(--_sbm-color-text-base) 72%, transparent);
+  --sbm-color-eyebrow: color-mix(in srgb, var(--_sbm-color-text-base) 62%, transparent);
+
+  --sbm-color-border-faint: color-mix(in srgb, var(--_sbm-color-text-base) 10%, transparent);
+  --sbm-color-border-subtle: color-mix(in srgb, var(--_sbm-color-text-base) 12%, transparent);
+  --sbm-color-border-soft: color-mix(in srgb, var(--_sbm-color-text-base) 14%, transparent);
+  --sbm-color-border-card: color-mix(in srgb, var(--_sbm-color-text-base) 16%, transparent);
+  --sbm-color-border-muted: color-mix(in srgb, var(--_sbm-color-text-base) 18%, transparent);
+  --sbm-color-border-separator: color-mix(in srgb, var(--_sbm-color-text-base) 20%, transparent);
+  --sbm-color-border-header: color-mix(in srgb, var(--_sbm-color-text-base) 22%, transparent);
+  --sbm-color-border: color-mix(in srgb, var(--_sbm-color-text-base) 25%, transparent);
+  --sbm-color-border-strong: color-mix(in srgb, var(--_sbm-color-text-base) 30%, transparent);
+  --sbm-color-border-emphasis: color-mix(in srgb, var(--_sbm-color-text-base) 38%, transparent);
+
+  --sbm-color-resizer-bg: color-mix(in srgb, var(--_sbm-color-text-base) 8%, transparent);
+  --sbm-color-accent-soft: color-mix(in srgb, var(--_sbm-color-accent-base) 14%, transparent);
+  --sbm-color-accent-faint: color-mix(in srgb, var(--_sbm-color-accent-base) 18%, transparent);
+  --sbm-color-accent-hover: color-mix(in srgb, var(--_sbm-color-accent-base) 20%, transparent);
+  --sbm-color-accent-menu: color-mix(in srgb, var(--_sbm-color-accent-base) 22%, transparent);
+  --sbm-color-accent-drop: color-mix(in srgb, var(--_sbm-color-accent-base) 24%, transparent);
+  --sbm-color-accent-resizer: color-mix(in srgb, var(--_sbm-color-accent-base) 30%, transparent);
+  --sbm-color-selection-inactive-bg: color-mix(in srgb, var(--_sbm-color-accent-base) 38%, var(--_sbm-color-surface-base));
+
+  --sbm-color-overlay-soft: color-mix(in srgb, var(--_sbm-color-text-base) 35%, transparent);
+  --sbm-color-overlay: color-mix(in srgb, var(--_sbm-color-text-base) 42%, transparent);
+  --sbm-color-shadow-soft: color-mix(in srgb, var(--_sbm-color-text-base) 10%, transparent);
+  --sbm-color-shadow: color-mix(in srgb, var(--_sbm-color-text-base) 22%, transparent);
+  --sbm-color-shadow-strong: color-mix(in srgb, var(--_sbm-color-text-base) 35%, transparent);
+  --sbm-color-code-bg: color-mix(in srgb, var(--_sbm-color-text-base) 10%, transparent);
+}
+
+:root[data-sbm-theme="light"] {
+  color-scheme: light;
+  --_sbm-color-bg-base: #ffffff;
+  --_sbm-color-surface-base: #ffffff;
+  --_sbm-color-text-base: #1f2937;
+  --_sbm-color-accent-base: #2563eb;
+  --_sbm-color-accent-text-base: #ffffff;
+  --_sbm-color-link-base: #0645ad;
+  --_sbm-color-warning-base: #7a4a00;
+}
+
+:root[data-sbm-theme="dark"] {
+  color-scheme: dark;
+  --_sbm-color-bg-base: #111827;
+  --_sbm-color-surface-base: #111827;
+  --_sbm-color-text-base: #e5e7eb;
+  --_sbm-color-accent-base: #60a5fa;
+  --_sbm-color-accent-text-base: #0f172a;
+  --_sbm-color-link-base: #93c5fd;
+  --_sbm-color-warning-base: #fbbf24;
+}

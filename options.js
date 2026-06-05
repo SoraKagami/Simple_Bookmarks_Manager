@@ -8,6 +8,7 @@
 import { applyI18n, populateLanguageSelect, setI18nLanguage, t } from "./i18n.js";
 import { DEFAULT_SETTINGS, fontFamilyCss, normalizeSettingValue } from "./settings.js";
 import { clearSessionLogRecords, getSessionLogRecords, installConsoleCapture, subscribeSessionLog } from "./session_log.js";
+import { applyThemePreference, installThemePreferenceListener } from "./theme.js";
 
 installConsoleCapture("SBM Options");
 
@@ -20,6 +21,9 @@ if (new URLSearchParams(location.search).has("embedded")) {
 const $ = (id) => document.getElementById(id);
 let statusTimer = null;
 let logRefreshTimer = null;
+let currentThemeMode = DEFAULT_SETTINGS.ThemeMode;
+
+installThemePreferenceListener(() => currentThemeMode);
 
 /** Show a short-lived status message after saving/resetting options. */
 function showStatus(message) {
@@ -28,11 +32,13 @@ function showStatus(message) {
   statusTimer = setTimeout(() => { $("status").textContent = ""; }, 1600);
 }
 
-/** Apply UI font settings to the options page itself. */
+/** Apply normalized visual settings to the options page itself. */
 function applyUserInterfaceSettings(settings) {
+  currentThemeMode = normalizeSettingValue("ThemeMode", settings.ThemeMode);
   const family = normalizeSettingValue("UserInterfaceFontFamily", settings.UserInterfaceFontFamily);
   const size = normalizeSettingValue("UserInterfaceFontSize", settings.UserInterfaceFontSize);
   const spacing = normalizeSettingValue("UserInterfaceLineSpacing", settings.UserInterfaceLineSpacing);
+  applyThemePreference(currentThemeMode);
   document.documentElement.style.setProperty("--sbm-ui-font-family", fontFamilyCss(family));
   document.documentElement.style.setProperty("--sbm-ui-font-size", `${size}px`);
   document.documentElement.style.setProperty("--sbm-ui-line-height", String(spacing));

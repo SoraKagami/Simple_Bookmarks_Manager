@@ -5,6 +5,7 @@
  * page and options page from drifting apart when new settings are added.
  */
 import { normalizeLanguageSetting } from "./i18n.js";
+import { normalizeThemeMode } from "./theme.js";
 
 export const MID_FC_COLUMN_MIN_WIDTHS = Object.freeze({
   Name: 120,
@@ -33,6 +34,7 @@ export const DEFAULT_SETTINGS = Object.freeze({
   left_Lib_Width: 260,
   right_Details_Width: 320,
   UserInterfaceLanguage: "auto",
+  ThemeMode: "system",
   UserInterfaceFontFamily: "system",
   UserInterfaceFontSize: 12.5,
   UserInterfaceLineSpacing: 1.4,
@@ -76,6 +78,7 @@ export function fontFamilyCss(value) {
 /** Validate and normalize values before using or writing settings. */
 export function normalizeSettingValue(key, value) {
   if (key === "UserInterfaceLanguage") return normalizeLanguageSetting(value);
+  if (key === "ThemeMode") return normalizeThemeMode(value);
   if (key === "UserInterfaceFontFamily") {
     return FONT_FAMILY_OPTIONS.some((option) => option.value === value) ? value : DEFAULT_SETTINGS[key];
   }

@@ -8,8 +8,12 @@
  */
 import { applyI18n, setI18nLanguage } from "./i18n.js";
 import { DEFAULT_SETTINGS, fontFamilyCss, normalizeSettingValue } from "./settings.js";
+import { applyThemePreference, installThemePreferenceListener } from "./theme.js";
 
 const api = chrome;
+let currentThemeMode = DEFAULT_SETTINGS.ThemeMode;
+
+installThemePreferenceListener(() => currentThemeMode);
 
 /**
  * Load and normalize the settings needed by the standalone About page.
@@ -25,12 +29,14 @@ async function loadAboutSettings() {
 }
 
 /**
- * Apply configured UI typography through CSS custom properties.
+ * Apply configured theme and UI typography.
  *
- * `fontFamilyCss` and `normalizeSettingValue` keep the values constrained to
- * settings SBM already understands before they are written to inline style.
+ * The theme is written as normalized data attributes, and typography uses CSS
+ * custom properties constrained by the shared settings validators.
  */
 function applyAboutUiSettings(settings) {
+  currentThemeMode = normalizeSettingValue("ThemeMode", settings.ThemeMode);
+  applyThemePreference(currentThemeMode);
   document.documentElement.style.setProperty("--sbm-ui-font-family", fontFamilyCss(settings.UserInterfaceFontFamily));
   document.documentElement.style.setProperty("--sbm-ui-font-size", `${settings.UserInterfaceFontSize}px`);
   document.documentElement.style.setProperty("--sbm-ui-line-height", String(settings.UserInterfaceLineSpacing));

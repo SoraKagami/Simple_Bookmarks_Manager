@@ -746,6 +746,21 @@
   "userInterfaceLanguageHelp": {
     "message": "Automatic follows the browser UI language. Manual choices affect the manager and options pages."
   },
+  "theme": {
+    "message": "Theme"
+  },
+  "themeHelp": {
+    "message": "Choose whether SBM follows your browser/system colors or uses a fixed light or dark theme."
+  },
+  "themeSystem": {
+    "message": "System"
+  },
+  "themeLight": {
+    "message": "Light"
+  },
+  "themeDark": {
+    "message": "Dark"
+  },
   "visualSort": {
     "message": "Visual sort:"
   },

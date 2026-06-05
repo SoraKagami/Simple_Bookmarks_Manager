@@ -4,6 +4,7 @@
   <meta charset="utf-8">
   <title data-i18n="optionsTitle">Simple Bookmarks Manager Options</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="theme.css">
   <link rel="stylesheet" href="options.css">
 </head>
 <body>
@@ -22,6 +23,17 @@
           <small data-i18n="userInterfaceLanguageHelp">Automatic follows the browser UI language. Manual choices affect the manager and options pages.</small>
         </span>
         <select id="UserInterfaceLanguage"></select>
+      </label>
+      <label class="option-row option-row-control">
+        <span>
+          <strong data-i18n="theme">Theme</strong>
+          <small data-i18n="themeHelp">Choose whether SBM follows your browser/system colors or uses a fixed light or dark theme.</small>
+        </span>
+        <select id="ThemeMode">
+          <option value="system" data-i18n="themeSystem">System</option>
+          <option value="light" data-i18n="themeLight">Light</option>
+          <option value="dark" data-i18n="themeDark">Dark</option>
+        </select>
       </label>
       <label class="option-row option-row-control">
         <span>

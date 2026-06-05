@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.8.8
+
+- Added the initial theme foundation with System, Light, and Dark theme modes.
+- Added shared `theme.js` helpers to normalize theme settings, apply theme attributes, and respond to browser/OS color-scheme changes when System mode is selected.
+- Refactored manager, options, and about page colors into shared semantic CSS variables in `theme.css`, preparing the UI for future custom theme support.
+- Added an Options > User Interface theme selector and English locale strings for the new control.
+- Applied theme settings consistently to the manager page, options page, and about page while keeping stored values constrained to known safe theme modes.
+
 ## 0.8.7
 
 - Updated Asian locale files using `_locales/en/messages.json` as the reference, filling the missing About and Changelog strings with appropriate translations.

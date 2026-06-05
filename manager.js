@@ -9,6 +9,7 @@
 import { applyI18n, setI18nLanguage, t } from "./i18n.js";
 import { DEFAULT_SETTINGS, MID_FC_COLUMN_MIN_WIDTHS, fontFamilyCss, normalizeSettingValue } from "./settings.js";
 import { clearSessionLogRecords, getSessionLogRecords, installConsoleCapture } from "./session_log.js";
+import { applyThemePreference, installThemePreferenceListener } from "./theme.js";
 
 installConsoleCapture("SBM Manager");
 globalThis.SBM_getSessionLogRecords = getSessionLogRecords;
@@ -55,6 +56,7 @@ const SEPARATOR_URL = "about:blank";
 let left_Lib_Width = DEFAULT_SETTINGS.left_Lib_Width;
 let right_Details_Width = DEFAULT_SETTINGS.right_Details_Width;
 let UserInterfaceLanguage = DEFAULT_SETTINGS.UserInterfaceLanguage;
+let ThemeMode = DEFAULT_SETTINGS.ThemeMode;
 let UserInterfaceFontFamily = DEFAULT_SETTINGS.UserInterfaceFontFamily;
 let UserInterfaceFontSize = DEFAULT_SETTINGS.UserInterfaceFontSize;
 let UserInterfaceLineSpacing = DEFAULT_SETTINGS.UserInterfaceLineSpacing;
@@ -83,6 +85,7 @@ let mid_FC_Show_DateAdded = DEFAULT_SETTINGS.mid_FC_Show_DateAdded;
 let mid_FC_Show_ID = DEFAULT_SETTINGS.mid_FC_Show_ID;
 let mid_FC_Show_Order = DEFAULT_SETTINGS.mid_FC_Show_Order;
 
+installThemePreferenceListener(() => ThemeMode);
 
 /** Record this manager tab so the toolbar button can focus it when single-instance mode is enabled. */
 async function registerManagerInstance() {
@@ -118,7 +121,9 @@ async function clearManagerInstanceIfCurrent() {
 // Settings and localization
 // ---------------------------------------------------------------------------
 
+/** Apply normalized visual settings that are represented as CSS variables or attributes. */
 function applyUserInterfaceSettings() {
+  applyThemePreference(ThemeMode);
   document.documentElement.style.setProperty("--sbm-ui-font-family", fontFamilyCss(UserInterfaceFontFamily));
   document.documentElement.style.setProperty("--sbm-ui-font-size", `${UserInterfaceFontSize}px`);
   document.documentElement.style.setProperty("--sbm-ui-line-height", String(UserInterfaceLineSpacing));
@@ -139,6 +144,7 @@ function applySettings(settings, { render = false } = {}) {
     if (key === "left_Lib_Width") left_Lib_Width = value;
     else if (key === "right_Details_Width") right_Details_Width = value;
     else if (key === "UserInterfaceLanguage") UserInterfaceLanguage = value;
+    else if (key === "ThemeMode") ThemeMode = value;
     else if (key === "UserInterfaceFontFamily") UserInterfaceFontFamily = value;
     else if (key === "UserInterfaceFontSize") UserInterfaceFontSize = value;
     else if (key === "UserInterfaceLineSpacing") UserInterfaceLineSpacing = value;
