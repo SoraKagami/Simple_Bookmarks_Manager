@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.8.15
+
+- Changed the default `mid_FC_Show_ID` setting to `false` so the middle-pane ID column is hidden by default for new/default configurations.
+
 ## 0.8.14
 
 - Updated the non-Asian locale files using `_locales/en/messages.json` as the reference.

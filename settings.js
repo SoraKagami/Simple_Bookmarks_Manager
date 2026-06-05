@@ -59,7 +59,7 @@ export const DEFAULT_SETTINGS = Object.freeze({
   mid_FC_Width_ID: 72,
   mid_FC_Width_Order: 72,
   mid_FC_Show_DateAdded: true,
-  mid_FC_Show_ID: true,
+  mid_FC_Show_ID: false,
   mid_FC_Show_Order: true
 });
 
