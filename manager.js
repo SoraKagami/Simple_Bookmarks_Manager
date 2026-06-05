@@ -2718,8 +2718,9 @@ function buildBookmarkMenu(context) {
   const pasteDisabled = !canPasteForContext(context);
   const parentId = contextParentId(context);
   const canAddToParent = canCreateAtContext(context);
+  const showContainingFolderAction = canOpenContainingFolderContext(context, bookmark);
 
-  return [
+  const items = [
     makeMenuItem(t("edit"), () => editBookmark(bookmark), { disabled: !isMutable(bookmark) }),
     makeMenuItem(t("delete"), (context) => deleteNode(bookmark, context?.pane || "list"), { disabled: !isMutable(bookmark) }),
     makeSeparator(),
@@ -2732,12 +2733,20 @@ function buildBookmarkMenu(context) {
     makeMenuItem(t("addSeparator"), () => createSeparatorAtTarget(context), { disabled: !canAddToParent }),
     makeSeparator(),
     makeMenuItem(t("openInNewTab"), () => openUrlsInCurrentWindow(urls), { disabled: urls.length === 0 }),
-    makeMenuItem(t("openContainingFolder"), () => openContainingFolderForBookmark(bookmark), { hidden: !canOpenContainingFolderContext(context, bookmark) }),
     makeMenuItem(t("openInNewWindow"), () => openUrlsInWindow(urls, false), { disabled: urls.length === 0 }),
     makeMenuItem(t("openInPrivateWindow"), () => openUrlsInWindow(urls, true), { disabled: urls.length === 0 }),
     makeMenuItem(t("openInNewTabGroup"), () => openUrlsInTabGroup(urls), { disabled: urls.length === 0, hidden: !isTabGroupSupported() }),
     makeMenuItem(t("openInSplitView"), () => {}, { hidden: !isSplitViewSupported() })
   ];
+
+  if (showContainingFolderAction) {
+    items.push(
+      makeSeparator(),
+      makeMenuItem(t("openContainingFolder"), () => openContainingFolderForBookmark(bookmark))
+    );
+  }
+
+  return items;
 }
 
 /** Build the reduced context menu used for active multi-selections. */

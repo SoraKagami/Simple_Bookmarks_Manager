@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.8.12
+
+- Shifted the existing Library pane resizer 2px toward the Library pane so its translucent background no longer reveals middle-pane column or row lines underneath.
+- Moved the search-results "Open Folder containing the Bookmark." context-menu action to the bottom of the bookmark menu and added a separator above it.
+- Kept the resizer fix CSS-only with no overlay element or extra runtime processing.
+
 ## 0.8.11
 
 - Raised the Library pane resizer above the sticky Folder Contents column headers so the header edge no longer visually overlaps the resize bar.
