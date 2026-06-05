@@ -750,13 +750,16 @@
     "message": "Theme"
   },
   "themeHelp": {
-    "message": "Choose whether SBM follows your browser/system colors or uses a fixed light or dark theme."
+    "message": "Set the theme used by Simple Bookmarks Manager."
   },
   "themeSystem": {
     "message": "System"
   },
   "themeLight": {
     "message": "Light"
+  },
+  "themeSoftBlue": {
+    "message": "Soft Blue"
   },
   "themeDark": {
     "message": "Dark"

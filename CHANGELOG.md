@@ -1,5 +1,12 @@
 # Changelog
 
+## 0.8.9
+
+- Updated the Options theme description to use simpler Simple Bookmarks Manager wording.
+- Added a new Soft Blue theme option.
+- Styled the manager page Soft Blue theme with an About-page-inspired blue gradient across the toolbar, Library pane, and middle pane, while keeping the Details pane white.
+- Kept the new theme constrained to a fixed enum value and CSS variables so stored settings cannot inject arbitrary CSS.
+
 ## 0.8.8
 
 - Added the initial theme foundation with System, Light, and Dark theme modes.

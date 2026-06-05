@@ -8,18 +8,23 @@
 
 const SYSTEM_DARK_MEDIA_QUERY = "(prefers-color-scheme: dark)";
 
-export const THEME_MODE_OPTIONS = Object.freeze(["system", "light", "dark"]);
+export const THEME_MODE_OPTIONS = Object.freeze(["system", "light", "dark", "softBlue"]);
 
 /** Normalize a stored or form-provided theme choice to a supported theme mode. */
 export function normalizeThemeMode(value) {
   return THEME_MODE_OPTIONS.includes(value) ? value : "system";
 }
 
-/** Resolve System/Light/Dark preference to the concrete theme currently shown. */
+/** Resolve System mode to the concrete theme currently shown. */
 export function resolveEffectiveTheme(themeMode) {
   const normalized = normalizeThemeMode(themeMode);
   if (normalized !== "system") return normalized;
   return typeof matchMedia === "function" && matchMedia(SYSTEM_DARK_MEDIA_QUERY).matches ? "dark" : "light";
+}
+
+/** Return the browser color-scheme hint that best matches a resolved SBM theme. */
+function colorSchemeForTheme(effectiveTheme) {
+  return effectiveTheme === "dark" ? "dark" : "light";
 }
 
 /**
@@ -32,10 +37,11 @@ export function resolveEffectiveTheme(themeMode) {
 export function applyThemePreference(themeMode, root = document.documentElement) {
   const normalized = normalizeThemeMode(themeMode);
   const effectiveTheme = resolveEffectiveTheme(normalized);
+  const colorScheme = colorSchemeForTheme(effectiveTheme);
   root.dataset.sbmThemeMode = normalized;
   root.dataset.sbmTheme = effectiveTheme;
-  root.style.colorScheme = effectiveTheme;
-  return { mode: normalized, effectiveTheme };
+  root.style.colorScheme = colorScheme;
+  return { mode: normalized, effectiveTheme, colorScheme };
 }
 
 /**
