@@ -761,6 +761,21 @@
   "themeSoftBlue": {
     "message": "Soft Blue"
   },
+  "themeSoftPink": {
+    "message": "Soft Pink"
+  },
+  "themeSoftPurple": {
+    "message": "Soft Purple"
+  },
+  "themeSoftGold": {
+    "message": "Soft Gold"
+  },
+  "themeSoftOrange": {
+    "message": "Soft Orange"
+  },
+  "themeSoftGreen": {
+    "message": "Soft Green"
+  },
   "themeDark": {
     "message": "Dark"
   },

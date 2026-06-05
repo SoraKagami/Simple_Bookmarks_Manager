@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.8.10
+
+- Extended the Soft Blue manager background into the Details pane so the gradient continues across the full SBM workspace.
+- Added Soft Pink, Soft Purple, Soft Gold, Soft Orange, and Soft Green theme options based on the same contiguous soft-gradient theme structure.
+- Kept the new soft themes constrained to fixed enum values and CSS variables so stored settings cannot inject arbitrary CSS.
+
 ## 0.8.9
 
 - Updated the Options theme description to use simpler Simple Bookmarks Manager wording.

@@ -86,27 +86,102 @@
   --sbm-color-dirty-text: #93c5fd;
 }
 
-:root[data-sbm-theme="softBlue"] {
+:root[data-sbm-theme^="soft"] {
   color-scheme: light;
-  --_sbm-color-bg-base: #f8fbff;
   --_sbm-color-surface-base: #ffffff;
   --_sbm-color-text-base: #1f2937;
-  --_sbm-color-accent-base: #2563eb;
   --_sbm-color-accent-text-base: #ffffff;
-  --_sbm-color-link-base: #0645ad;
   --_sbm-color-warning-base: #7a4a00;
 
   --sbm-color-manager-bg:
-    radial-gradient(circle at calc(var(--left-lib-width, 260px) + 7px) 0rem, rgba(96, 165, 250, .50), rgba(147, 197, 253, .22) 18rem, rgba(219, 234, 254, .08) 34rem, transparent 46rem),
-    linear-gradient(115deg, #eaf5ff 0%, #f4f9ff 46%, #ffffff 100%);
+    radial-gradient(circle at calc(var(--left-lib-width, 260px) + 7px) 0rem, var(--sbm-soft-gradient-strong), var(--sbm-soft-gradient-mid) 18rem, var(--sbm-soft-gradient-faint) 34rem, transparent 46rem),
+    linear-gradient(115deg, var(--sbm-soft-bg-start) 0%, var(--sbm-soft-bg-mid) 46%, var(--sbm-soft-bg-end) 100%);
   --sbm-color-manager-toolbar-bg: transparent;
   --sbm-color-manager-left-bg: transparent;
   --sbm-color-manager-content-bg: transparent;
-  --sbm-color-manager-details-bg: #ffffff;
+  --sbm-color-manager-details-bg: transparent;
   --sbm-color-manager-crumbs-bg: transparent;
   --sbm-color-manager-table-header-bg: rgba(255, 255, 255, .68);
   --sbm-color-pane: rgba(255, 255, 255, .70);
   --sbm-color-surface-muted: rgba(255, 255, 255, .74);
   --sbm-color-card: rgba(255, 255, 255, .82);
+}
+
+:root[data-sbm-theme="softBlue"] {
+  --_sbm-color-bg-base: #f8fbff;
+  --_sbm-color-accent-base: #2563eb;
+  --_sbm-color-link-base: #0645ad;
+  --sbm-soft-gradient-strong: rgba(96, 165, 250, .50);
+  --sbm-soft-gradient-mid: rgba(147, 197, 253, .22);
+  --sbm-soft-gradient-faint: rgba(219, 234, 254, .08);
+  --sbm-soft-bg-start: #eaf5ff;
+  --sbm-soft-bg-mid: #f4f9ff;
+  --sbm-soft-bg-end: #ffffff;
   --sbm-color-dirty-text: #1d4ed8;
 }
+
+:root[data-sbm-theme="softPink"] {
+  --_sbm-color-bg-base: #fff7fb;
+  --_sbm-color-accent-base: #db2777;
+  --_sbm-color-link-base: #9d174d;
+  --sbm-soft-gradient-strong: rgba(244, 114, 182, .46);
+  --sbm-soft-gradient-mid: rgba(251, 207, 232, .25);
+  --sbm-soft-gradient-faint: rgba(252, 231, 243, .10);
+  --sbm-soft-bg-start: #fff0f7;
+  --sbm-soft-bg-mid: #fff7fb;
+  --sbm-soft-bg-end: #ffffff;
+  --sbm-color-dirty-text: #be185d;
+}
+
+:root[data-sbm-theme="softPurple"] {
+  --_sbm-color-bg-base: #fbf8ff;
+  --_sbm-color-accent-base: #7c3aed;
+  --_sbm-color-link-base: #5b21b6;
+  --sbm-soft-gradient-strong: rgba(167, 139, 250, .48);
+  --sbm-soft-gradient-mid: rgba(196, 181, 253, .24);
+  --sbm-soft-gradient-faint: rgba(237, 233, 254, .10);
+  --sbm-soft-bg-start: #f4f0ff;
+  --sbm-soft-bg-mid: #faf7ff;
+  --sbm-soft-bg-end: #ffffff;
+  --sbm-color-dirty-text: #6d28d9;
+}
+
+:root[data-sbm-theme="softGold"] {
+  --_sbm-color-bg-base: #fffaf0;
+  --_sbm-color-accent-base: #b45309;
+  --_sbm-color-link-base: #92400e;
+  --sbm-soft-gradient-strong: rgba(251, 191, 36, .44);
+  --sbm-soft-gradient-mid: rgba(253, 230, 138, .25);
+  --sbm-soft-gradient-faint: rgba(254, 243, 199, .10);
+  --sbm-soft-bg-start: #fff8e1;
+  --sbm-soft-bg-mid: #fffaf0;
+  --sbm-soft-bg-end: #ffffff;
+  --sbm-color-dirty-text: #a16207;
+}
+
+:root[data-sbm-theme="softOrange"] {
+  --_sbm-color-bg-base: #fff8f1;
+  --_sbm-color-accent-base: #ea580c;
+  --_sbm-color-link-base: #c2410c;
+  --sbm-soft-gradient-strong: rgba(251, 146, 60, .46);
+  --sbm-soft-gradient-mid: rgba(254, 215, 170, .24);
+  --sbm-soft-gradient-faint: rgba(255, 237, 213, .10);
+  --sbm-soft-bg-start: #fff3e6;
+  --sbm-soft-bg-mid: #fff8f1;
+  --sbm-soft-bg-end: #ffffff;
+  --sbm-color-dirty-text: #c2410c;
+}
+
+:root[data-sbm-theme="softGreen"] {
+  --_sbm-color-bg-base: #f7fef9;
+  --_sbm-color-accent-base: #16a34a;
+  --_sbm-color-link-base: #15803d;
+  --sbm-soft-gradient-strong: rgba(74, 222, 128, .43);
+  --sbm-soft-gradient-mid: rgba(187, 247, 208, .24);
+  --sbm-soft-gradient-faint: rgba(220, 252, 231, .10);
+  --sbm-soft-bg-start: #effdf4;
+  --sbm-soft-bg-mid: #f7fef9;
+  --sbm-soft-bg-end: #ffffff;
+  --sbm-color-dirty-text: #15803d;
+}
+

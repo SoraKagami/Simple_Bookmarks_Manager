@@ -8,7 +8,7 @@
 
 const SYSTEM_DARK_MEDIA_QUERY = "(prefers-color-scheme: dark)";
 
-export const THEME_MODE_OPTIONS = Object.freeze(["system", "light", "dark", "softBlue"]);
+export const THEME_MODE_OPTIONS = Object.freeze(["system", "light", "dark", "softBlue", "softPink", "softPurple", "softGold", "softOrange", "softGreen"]);
 
 /** Normalize a stored or form-provided theme choice to a supported theme mode. */
 export function normalizeThemeMode(value) {
