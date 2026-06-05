@@ -482,6 +482,9 @@
   "openBookmark": {
     "message": "Huaki Tohuwāhi"
   },
+  "openContainingFolder": {
+    "message": "Whakatuwheratia te kōpaki kei roto te tohuwāhi."
+  },
   "openDefaultBookmarksManager": {
     "message": "Huaki te Kaiwhakahaere Tohuwāhi Taunoa"
   },
@@ -745,6 +748,39 @@
   },
   "userInterfaceLanguageHelp": {
     "message": "Ka whai te Aunoa i te reo UI o te pūtirotiro. Ka pā ngā kōwhiringa ā-ringa ki te kaiwhakahaere me ngā whārangi kōwhiringa."
+  },
+  "theme": {
+    "message": "Kaupapa"
+  },
+  "themeHelp": {
+    "message": "Tautuhia te kaupapa e whakamahia ana e Simple Bookmarks Manager."
+  },
+  "themeSystem": {
+    "message": "Pūnaha"
+  },
+  "themeLight": {
+    "message": "Mārama"
+  },
+  "themeSoftBlue": {
+    "message": "Kahurangi ngawari"
+  },
+  "themeSoftPink": {
+    "message": "Māwhero ngawari"
+  },
+  "themeSoftPurple": {
+    "message": "Waiporoporo ngawari"
+  },
+  "themeSoftGold": {
+    "message": "Kōura ngawari"
+  },
+  "themeSoftOrange": {
+    "message": "Karaka ngawari"
+  },
+  "themeSoftGreen": {
+    "message": "Kākāriki ngawari"
+  },
+  "themeDark": {
+    "message": "Pōuri"
   },
   "visualSort": {
     "message": "Raupapa tirohanga:"

@@ -482,6 +482,9 @@
   "openBookmark": {
     "message": "פתח סימנייה"
   },
+  "openContainingFolder": {
+    "message": "פתיחת התיקייה שמכילה את הסימנייה."
+  },
   "openDefaultBookmarksManager": {
     "message": "פתח את מנהל הסימניות המוגדר כברירת מחדל"
   },
@@ -745,6 +748,39 @@
   },
   "userInterfaceLanguageHelp": {
     "message": "אוטומטי עוקב אחרי שפת ממשק הדפדפן. בחירות ידניות משפיעות על המנהל ועל דפי האפשרויות."
+  },
+  "theme": {
+    "message": "ערכת נושא"
+  },
+  "themeHelp": {
+    "message": "הגדרת ערכת הנושא שבה Simple Bookmarks Manager משתמש."
+  },
+  "themeSystem": {
+    "message": "מערכת"
+  },
+  "themeLight": {
+    "message": "בהיר"
+  },
+  "themeSoftBlue": {
+    "message": "כחול רך"
+  },
+  "themeSoftPink": {
+    "message": "ורוד רך"
+  },
+  "themeSoftPurple": {
+    "message": "סגול רך"
+  },
+  "themeSoftGold": {
+    "message": "זהוב רך"
+  },
+  "themeSoftOrange": {
+    "message": "כתום רך"
+  },
+  "themeSoftGreen": {
+    "message": "ירוק רך"
+  },
+  "themeDark": {
+    "message": "כהה"
   },
   "visualSort": {
     "message": "מיון חזותי:"

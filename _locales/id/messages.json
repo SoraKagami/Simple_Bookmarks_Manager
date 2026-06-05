@@ -482,6 +482,9 @@
   "openBookmark": {
     "message": "Buka Markah"
   },
+  "openContainingFolder": {
+    "message": "Buka folder yang berisi bookmark."
+  },
   "openDefaultBookmarksManager": {
     "message": "Buka Pengelola Bookmark Default"
   },
@@ -745,6 +748,39 @@
   },
   "userInterfaceLanguageHelp": {
     "message": "Otomatis mengikuti bahasa UI browser. Pilihan manual memengaruhi pengelola dan halaman opsi."
+  },
+  "theme": {
+    "message": "Tema"
+  },
+  "themeHelp": {
+    "message": "Atur tema yang digunakan oleh Simple Bookmarks Manager."
+  },
+  "themeSystem": {
+    "message": "Sistem"
+  },
+  "themeLight": {
+    "message": "Terang"
+  },
+  "themeSoftBlue": {
+    "message": "Biru Lembut"
+  },
+  "themeSoftPink": {
+    "message": "Merah Muda Lembut"
+  },
+  "themeSoftPurple": {
+    "message": "Ungu Lembut"
+  },
+  "themeSoftGold": {
+    "message": "Emas Lembut"
+  },
+  "themeSoftOrange": {
+    "message": "Oranye Lembut"
+  },
+  "themeSoftGreen": {
+    "message": "Hijau Lembut"
+  },
+  "themeDark": {
+    "message": "Gelap"
   },
   "visualSort": {
     "message": "Urutan visual:"

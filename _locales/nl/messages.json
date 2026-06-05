@@ -482,6 +482,9 @@
   "openBookmark": {
     "message": "Bladwijzer openen"
   },
+  "openContainingFolder": {
+    "message": "Open de map die de bladwijzer bevat."
+  },
   "openDefaultBookmarksManager": {
     "message": "Standaard bladwijzerbeheerder openen"
   },
@@ -745,6 +748,39 @@
   },
   "userInterfaceLanguageHelp": {
     "message": "Automatisch volgt de taal van de browserinterface. Handmatige keuzes gelden voor de beheerder en optiespagina’s."
+  },
+  "theme": {
+    "message": "Thema"
+  },
+  "themeHelp": {
+    "message": "Stel het thema in dat Simple Bookmarks Manager gebruikt."
+  },
+  "themeSystem": {
+    "message": "Systeem"
+  },
+  "themeLight": {
+    "message": "Licht"
+  },
+  "themeSoftBlue": {
+    "message": "Zacht blauw"
+  },
+  "themeSoftPink": {
+    "message": "Zacht roze"
+  },
+  "themeSoftPurple": {
+    "message": "Zacht paars"
+  },
+  "themeSoftGold": {
+    "message": "Zacht goud"
+  },
+  "themeSoftOrange": {
+    "message": "Zacht oranje"
+  },
+  "themeSoftGreen": {
+    "message": "Zacht groen"
+  },
+  "themeDark": {
+    "message": "Donker"
   },
   "visualSort": {
     "message": "Visuele sortering:"

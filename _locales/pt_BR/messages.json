@@ -482,6 +482,9 @@
   "openBookmark": {
     "message": "Abrir favorito"
   },
+  "openContainingFolder": {
+    "message": "Abrir a pasta que contém o favorito."
+  },
   "openDefaultBookmarksManager": {
     "message": "Abrir gerenciador de favoritos padrão"
   },
@@ -745,6 +748,39 @@
   },
   "userInterfaceLanguageHelp": {
     "message": "Automático segue o idioma da interface do navegador. Escolhas manuais afetam o gerenciador e as páginas de opções."
+  },
+  "theme": {
+    "message": "Tema"
+  },
+  "themeHelp": {
+    "message": "Defina o tema usado pelo Simple Bookmarks Manager."
+  },
+  "themeSystem": {
+    "message": "Sistema"
+  },
+  "themeLight": {
+    "message": "Claro"
+  },
+  "themeSoftBlue": {
+    "message": "Azul suave"
+  },
+  "themeSoftPink": {
+    "message": "Rosa suave"
+  },
+  "themeSoftPurple": {
+    "message": "Roxo suave"
+  },
+  "themeSoftGold": {
+    "message": "Dourado suave"
+  },
+  "themeSoftOrange": {
+    "message": "Laranja suave"
+  },
+  "themeSoftGreen": {
+    "message": "Verde suave"
+  },
+  "themeDark": {
+    "message": "Escuro"
   },
   "visualSort": {
     "message": "Ordenação visual:"

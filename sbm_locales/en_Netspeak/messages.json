@@ -482,6 +482,9 @@
   "openBookmark": {
     "message": "0p3n B00km4rk"
   },
+  "openContainingFolder": {
+    "message": "Open teh folder where dis b00km4rk lives."
+  },
   "openDefaultBookmarksManager": {
     "message": "0p3n D3f4ul7 B00km4rkz M4n4g3r"
   },
@@ -745,6 +748,39 @@
   },
   "userInterfaceLanguageHelp": {
     "message": "4u70m471c f0ll0wz 7h3 br0wz3r U1 l4ngu4g3. M4nu4l ch01c3z 4ff3c7 7h3 m4n4g3r 4nd 0p710nz p4g3z."
+  },
+  "theme": {
+    "message": "Th3m3"
+  },
+  "themeHelp": {
+    "message": "Pick teh vibe Simple Bookmarks Manager wears."
+  },
+  "themeSystem": {
+    "message": "Sys7em"
+  },
+  "themeLight": {
+    "message": "L1ght"
+  },
+  "themeSoftBlue": {
+    "message": "Soft Blu"
+  },
+  "themeSoftPink": {
+    "message": "Soft P1nk"
+  },
+  "themeSoftPurple": {
+    "message": "Soft Purpl"
+  },
+  "themeSoftGold": {
+    "message": "Soft G0ld"
+  },
+  "themeSoftOrange": {
+    "message": "Soft Or4nge"
+  },
+  "themeSoftGreen": {
+    "message": "Soft Gr33n"
+  },
+  "themeDark": {
+    "message": "D4rk"
   },
   "visualSort": {
     "message": "V1su4l s0r7:"

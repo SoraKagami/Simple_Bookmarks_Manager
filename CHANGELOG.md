@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.8.14
+
+- Updated the non-Asian locale files using `_locales/en/messages.json` as the reference.
+- Added translations for the latest theme labels and search-results containing-folder action across German, Spanish, French, Hebrew, Indonesian, Italian, Dutch, Polish, Brazilian Portuguese, Turkish, Vietnamese, Māori, and Netspeak.
+- Left the Asian locale files unchanged after the v0.8.13 pass.
+
 ## 0.8.13
 
 - Updated the Asian locale files using `_locales/en/messages.json` as the reference.

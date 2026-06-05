@@ -482,6 +482,9 @@
   "openBookmark": {
     "message": "Yer İmini Aç"
   },
+  "openContainingFolder": {
+    "message": "Yer imini içeren klasörü aç."
+  },
   "openDefaultBookmarksManager": {
     "message": "Varsayılan Yer İmleri Yöneticisini Aç"
   },
@@ -745,6 +748,39 @@
   },
   "userInterfaceLanguageHelp": {
     "message": "Otomatik, tarayıcı arayüz dilini izler. El ile seçimler yönetici ve seçenek sayfalarını etkiler."
+  },
+  "theme": {
+    "message": "Tema"
+  },
+  "themeHelp": {
+    "message": "Simple Bookmarks Manager tarafından kullanılan temayı ayarlayın."
+  },
+  "themeSystem": {
+    "message": "Sistem"
+  },
+  "themeLight": {
+    "message": "Açık"
+  },
+  "themeSoftBlue": {
+    "message": "Yumuşak Mavi"
+  },
+  "themeSoftPink": {
+    "message": "Yumuşak Pembe"
+  },
+  "themeSoftPurple": {
+    "message": "Yumuşak Mor"
+  },
+  "themeSoftGold": {
+    "message": "Yumuşak Altın"
+  },
+  "themeSoftOrange": {
+    "message": "Yumuşak Turuncu"
+  },
+  "themeSoftGreen": {
+    "message": "Yumuşak Yeşil"
+  },
+  "themeDark": {
+    "message": "Koyu"
   },
   "visualSort": {
     "message": "Görsel sıralama:"

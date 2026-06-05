@@ -482,6 +482,9 @@
   "openBookmark": {
     "message": "Mở dấu trang"
   },
+  "openContainingFolder": {
+    "message": "Mở thư mục chứa dấu trang."
+  },
   "openDefaultBookmarksManager": {
     "message": "Mở trình quản lý dấu trang mặc định"
   },
@@ -745,6 +748,39 @@
   },
   "userInterfaceLanguageHelp": {
     "message": "Tự động dùng theo ngôn ngữ giao diện trình duyệt. Lựa chọn thủ công áp dụng cho trang quản lý và tùy chọn."
+  },
+  "theme": {
+    "message": "Chủ đề"
+  },
+  "themeHelp": {
+    "message": "Đặt chủ đề được Simple Bookmarks Manager sử dụng."
+  },
+  "themeSystem": {
+    "message": "Hệ thống"
+  },
+  "themeLight": {
+    "message": "Sáng"
+  },
+  "themeSoftBlue": {
+    "message": "Xanh dương dịu"
+  },
+  "themeSoftPink": {
+    "message": "Hồng dịu"
+  },
+  "themeSoftPurple": {
+    "message": "Tím dịu"
+  },
+  "themeSoftGold": {
+    "message": "Vàng dịu"
+  },
+  "themeSoftOrange": {
+    "message": "Cam dịu"
+  },
+  "themeSoftGreen": {
+    "message": "Xanh lá dịu"
+  },
+  "themeDark": {
+    "message": "Tối"
   },
   "visualSort": {
     "message": "Sắp xếp hiển thị:"

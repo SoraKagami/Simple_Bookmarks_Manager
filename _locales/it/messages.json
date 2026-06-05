@@ -482,6 +482,9 @@
   "openBookmark": {
     "message": "Apri segnalibro"
   },
+  "openContainingFolder": {
+    "message": "Apri la cartella che contiene il segnalibro."
+  },
   "openDefaultBookmarksManager": {
     "message": "Apri gestore segnalibri predefinito"
   },
@@ -745,6 +748,39 @@
   },
   "userInterfaceLanguageHelp": {
     "message": "Automatico segue la lingua dell’interfaccia del browser. Le scelte manuali influiscono sul gestore e sulle pagine delle opzioni."
+  },
+  "theme": {
+    "message": "Tema"
+  },
+  "themeHelp": {
+    "message": "Imposta il tema usato da Simple Bookmarks Manager."
+  },
+  "themeSystem": {
+    "message": "Sistema"
+  },
+  "themeLight": {
+    "message": "Chiaro"
+  },
+  "themeSoftBlue": {
+    "message": "Azzurro tenue"
+  },
+  "themeSoftPink": {
+    "message": "Rosa tenue"
+  },
+  "themeSoftPurple": {
+    "message": "Viola tenue"
+  },
+  "themeSoftGold": {
+    "message": "Oro tenue"
+  },
+  "themeSoftOrange": {
+    "message": "Arancione tenue"
+  },
+  "themeSoftGreen": {
+    "message": "Verde tenue"
+  },
+  "themeDark": {
+    "message": "Scuro"
   },
   "visualSort": {
     "message": "Ordinamento visuale:"

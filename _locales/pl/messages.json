@@ -482,6 +482,9 @@
   "openBookmark": {
     "message": "Otwórz zakładkę"
   },
+  "openContainingFolder": {
+    "message": "Otwórz folder zawierający zakładkę."
+  },
   "openDefaultBookmarksManager": {
     "message": "Otwórz domyślny menedżer zakładek"
   },
@@ -745,6 +748,39 @@
   },
   "userInterfaceLanguageHelp": {
     "message": "Automatycznie podąża za językiem interfejsu przeglądarki. Wybory ręczne wpływają na menedżera i strony opcji."
+  },
+  "theme": {
+    "message": "Motyw"
+  },
+  "themeHelp": {
+    "message": "Ustaw motyw używany przez Simple Bookmarks Manager."
+  },
+  "themeSystem": {
+    "message": "Systemowy"
+  },
+  "themeLight": {
+    "message": "Jasny"
+  },
+  "themeSoftBlue": {
+    "message": "Łagodny niebieski"
+  },
+  "themeSoftPink": {
+    "message": "Łagodny różowy"
+  },
+  "themeSoftPurple": {
+    "message": "Łagodny fioletowy"
+  },
+  "themeSoftGold": {
+    "message": "Łagodny złoty"
+  },
+  "themeSoftOrange": {
+    "message": "Łagodny pomarańczowy"
+  },
+  "themeSoftGreen": {
+    "message": "Łagodny zielony"
+  },
+  "themeDark": {
+    "message": "Ciemny"
   },
   "visualSort": {
     "message": "Sortowanie wizualne:"

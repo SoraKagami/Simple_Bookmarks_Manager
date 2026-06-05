@@ -482,6 +482,9 @@
   "openBookmark": {
     "message": "Ouvrir le favori"
   },
+  "openContainingFolder": {
+    "message": "Ouvrir le dossier contenant le marque-page."
+  },
   "openDefaultBookmarksManager": {
     "message": "Ouvrir le gestionnaire de favoris par défaut"
   },
@@ -745,6 +748,39 @@
   },
   "userInterfaceLanguageHelp": {
     "message": "Automatique suit la langue de l’interface du navigateur. Les choix manuels affectent le gestionnaire et les pages d’options."
+  },
+  "theme": {
+    "message": "Thème"
+  },
+  "themeHelp": {
+    "message": "Définit le thème utilisé par Simple Bookmarks Manager."
+  },
+  "themeSystem": {
+    "message": "Système"
+  },
+  "themeLight": {
+    "message": "Clair"
+  },
+  "themeSoftBlue": {
+    "message": "Bleu doux"
+  },
+  "themeSoftPink": {
+    "message": "Rose doux"
+  },
+  "themeSoftPurple": {
+    "message": "Violet doux"
+  },
+  "themeSoftGold": {
+    "message": "Doré doux"
+  },
+  "themeSoftOrange": {
+    "message": "Orange doux"
+  },
+  "themeSoftGreen": {
+    "message": "Vert doux"
+  },
+  "themeDark": {
+    "message": "Sombre"
   },
   "visualSort": {
     "message": "Tri visuel :"
