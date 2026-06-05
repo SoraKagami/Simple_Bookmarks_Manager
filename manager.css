@@ -36,7 +36,7 @@ button, select, input { font-family: var(--sbm-ui-font-family); font-size: inher
 .left { background: var(--sbm-color-manager-left-bg); }
 .details { background: var(--sbm-color-manager-details-bg); }
 .left { display: flex; flex-direction: column; min-height: 0; }
-.pane-resizer { min-width: 7px; cursor: col-resize; background: var(--sbm-color-resizer-bg); border-inline: 1px solid var(--sbm-color-border-subtle); touch-action: none; }
+.pane-resizer { position: relative; z-index: 4; min-width: 7px; cursor: col-resize; background: var(--sbm-color-resizer-bg); border-inline: 1px solid var(--sbm-color-border-subtle); touch-action: none; }
 .pane-resizer:hover, .pane-resizer:focus-visible, body.pane-resizing .pane-resizer { background: var(--sbm-color-accent-resizer); outline: none; }
 body.pane-resizing { cursor: col-resize; user-select: none; }
 .left .tree { flex: 1 1 auto; }

@@ -1,5 +1,12 @@
 # Changelog
 
+## 0.8.11
+
+- Raised the Library pane resizer above the sticky Folder Contents column headers so the header edge no longer visually overlaps the resize bar.
+- Added middle-click support in the middle pane for opening direct URL bookmarks, including selected bookmark groups when the clicked row is part of an active middle-pane multi-selection.
+- Added a search-results context-menu action to open the folder containing a right-clicked bookmark, clearing the search view and selecting that bookmark in its parent folder.
+- Kept new opening behavior routed through the existing bookmark URL protection checks and warning/error logging path.
+
 ## 0.8.10
 
 - Extended the Soft Blue manager background into the Details pane so the gradient continues across the full SBM workspace.

@@ -872,6 +872,11 @@ function canReorderList() {
   return !state.search && state.sort === "index";
 }
 
+/** Return whether the middle pane is currently showing filtered search results. */
+function isSearchResultsActive() {
+  return state.search.trim().length > 0;
+}
+
 /** Return all non-folder bookmarks under a folder, recursively, for search/open-all. */
 function flattenBookmarks(folder) {
   const out = [];
@@ -1344,6 +1349,16 @@ function selectionUrls(ids) {
   return urls;
 }
 
+/** Return raw URL strings for direct URL-bookmark IDs without expanding folders. */
+function directBookmarkUrlsForIds(ids) {
+  const urls = [];
+  for (const id of orderedIdsForPane(ids || [], "list")) {
+    const item = nodes.get(id);
+    if (item?.url && !isFolder(item) && !isSeparator(item)) urls.push(item.url);
+  }
+  return urls;
+}
+
 /** Return bookmark URLs represented by the active multi-selection context. */
 function multiContextUrls(context) {
   return selectionUrls(selectedContextIds(context));
@@ -1567,6 +1582,52 @@ function contextUrls(context) {
   const safeUrl = item.url ? safeBookmarkOpenUrl(item.url) : null;
   if (!safeUrl && item.url) console.warn("[SBM] Skipped bookmark URL while building context open list.", { id: item.id, url: item.url });
   return safeUrl ? [safeUrl] : [];
+}
+
+/** Return whether a search-result bookmark can offer its containing folder action. */
+function canOpenContainingFolderContext(context, bookmark) {
+  return context?.pane === "list"
+    && context?.kind === "bookmark"
+    && isSearchResultsActive()
+    && !!bookmark?.parentId
+    && nodes.has(bookmark.parentId)
+    && !isSeparator(bookmark)
+    && !isFolder(bookmark);
+}
+
+/**
+ * Leave search mode, navigate to a bookmark's parent folder, and select the
+ * bookmark so users can see its local folder context immediately.
+ */
+async function openContainingFolderForBookmark(bookmark) {
+  if (!bookmark?.parentId || !nodes.has(bookmark.parentId)) return;
+  if (!(await confirmUnsavedDetailsBeforeNavigation())) return;
+
+  const parentId = bookmark.parentId;
+  const bookmarkId = bookmark.id;
+  if (parentId !== state.folderId && state.folderId) {
+    state.back.unshift(state.folderId);
+    state.forward = [];
+  }
+
+  clearMultiSelect();
+  state.folderId = parentId;
+  state.treeSelectedId = parentId;
+  state.selectedId = bookmarkId;
+  state.activePane = "list";
+  ensureExpandedPath(parentId);
+  resetFolderViewState();
+  render();
+
+  requestAnimationFrame(() => {
+    const list = $("list");
+    for (const row of list?.children || []) {
+      if (row.dataset.id === bookmarkId) {
+        row.scrollIntoView({ block: "nearest", inline: "nearest" });
+        break;
+      }
+    }
+  });
 }
 
 /** Prompt for a folder name and apply it to a mutable folder node. */
@@ -2671,6 +2732,7 @@ function buildBookmarkMenu(context) {
     makeMenuItem(t("addSeparator"), () => createSeparatorAtTarget(context), { disabled: !canAddToParent }),
     makeSeparator(),
     makeMenuItem(t("openInNewTab"), () => openUrlsInCurrentWindow(urls), { disabled: urls.length === 0 }),
+    makeMenuItem(t("openContainingFolder"), () => openContainingFolderForBookmark(bookmark), { hidden: !canOpenContainingFolderContext(context, bookmark) }),
     makeMenuItem(t("openInNewWindow"), () => openUrlsInWindow(urls, false), { disabled: urls.length === 0 }),
     makeMenuItem(t("openInPrivateWindow"), () => openUrlsInWindow(urls, true), { disabled: urls.length === 0 }),
     makeMenuItem(t("openInNewTabGroup"), () => openUrlsInTabGroup(urls), { disabled: urls.length === 0, hidden: !isTabGroupSupported() }),
@@ -2990,6 +3052,7 @@ function renderList() {
       row.append(...visibleMidFcColumns().map((column) => cellForColumn(item, column.id)));
     }
     row.onclick = (e) => { handlePaneClick(e, "list", item); };
+    row.onauxclick = (e) => { handleListAuxClick(e, item); };
     row.ondblclick = () => openOrNavigate(item);
     return row;
   });
@@ -3555,6 +3618,29 @@ async function select(id, activePane = "list") {
   if (id === paneSelectionId(activePane) && state.activePane === activePane && !isMultiSelectActive(activePane)) return;
   if (!(await confirmUnsavedDetailsBeforeNavigation())) return;
   performSelect(id, activePane);
+}
+
+/** Return row IDs that a middle-click should open from the middle pane. */
+function middleClickBookmarkOpenIds(item) {
+  if (!item?.id) return [];
+  if (state.multiSelect.pane === "list" && state.multiSelect.ids.has(item.id)) {
+    return orderedIdsForPane([...state.multiSelect.ids], "list");
+  }
+  return [item.id];
+}
+
+/**
+ * Open direct bookmark URLs on middle-click in the middle pane.  Folders and
+ * separators are ignored so the gesture matches normal bookmark-list behavior.
+ */
+function handleListAuxClick(e, item) {
+  if (e.button !== 1) return;
+  e.preventDefault();
+  e.stopPropagation();
+
+  if (!item || isFolder(item) || isSeparator(item) || !item.url) return;
+  const urls = directBookmarkUrlsForIds(middleClickBookmarkOpenIds(item));
+  if (urls.length) openUrlsInCurrentWindow(urls);
 }
 
 /** Open bookmarks in a new tab or navigate into folders. */

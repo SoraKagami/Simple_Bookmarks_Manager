@@ -482,6 +482,9 @@
   "openBookmark": {
     "message": "Open Bookmark"
   },
+  "openContainingFolder": {
+    "message": "Open Folder containing the Bookmark."
+  },
   "openDefaultBookmarksManager": {
     "message": "Open Default Bookmarks Manager"
   },
