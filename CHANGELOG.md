@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.8.13
+
+- Updated the Asian locale files using `_locales/en/messages.json` as the reference.
+- Added translations for the latest theme labels and search-results containing-folder action in Japanese, Korean, Simplified Chinese, and Traditional Chinese.
+- Kept Simplified Chinese and Traditional Chinese translations separated with the appropriate character sets.
+
 ## 0.8.12
 
 - Shifted the existing Library pane resizer 2px toward the Library pane so its translucent background no longer reveals middle-pane column or row lines underneath.

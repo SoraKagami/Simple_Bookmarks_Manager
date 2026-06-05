@@ -482,6 +482,9 @@
   "openBookmark": {
     "message": "ブックマークを開く"
   },
+  "openContainingFolder": {
+    "message": "ブックマークを含むフォルダーを開く"
+  },
   "openDefaultBookmarksManager": {
     "message": "既定のブックマークマネージャーを開く"
   },
@@ -745,6 +748,39 @@
   },
   "userInterfaceLanguageHelp": {
     "message": "自動ではブラウザー UI の言語に従います。手動選択はマネージャーとオプションページに適用されます。"
+  },
+  "theme": {
+    "message": "テーマ"
+  },
+  "themeHelp": {
+    "message": "Simple Bookmarks Manager で使用するテーマを設定します。"
+  },
+  "themeSystem": {
+    "message": "システム"
+  },
+  "themeLight": {
+    "message": "ライト"
+  },
+  "themeSoftBlue": {
+    "message": "ソフトブルー"
+  },
+  "themeSoftPink": {
+    "message": "ソフトピンク"
+  },
+  "themeSoftPurple": {
+    "message": "ソフトパープル"
+  },
+  "themeSoftGold": {
+    "message": "ソフトゴールド"
+  },
+  "themeSoftOrange": {
+    "message": "ソフトオレンジ"
+  },
+  "themeSoftGreen": {
+    "message": "ソフトグリーン"
+  },
+  "themeDark": {
+    "message": "ダーク"
   },
   "visualSort": {
     "message": "表示順:"

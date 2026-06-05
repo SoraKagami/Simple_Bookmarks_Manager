@@ -482,6 +482,9 @@
   "openBookmark": {
     "message": "開啟書籤"
   },
+  "openContainingFolder": {
+    "message": "開啟包含此書籤的資料夾"
+  },
   "openDefaultBookmarksManager": {
     "message": "開啟預設書籤管理員"
   },
@@ -745,6 +748,39 @@
   },
   "userInterfaceLanguageHelp": {
     "message": "自動會跟隨瀏覽器 UI 語言。手動選擇會影響管理員與選項頁面。"
+  },
+  "theme": {
+    "message": "主題"
+  },
+  "themeHelp": {
+    "message": "設定 Simple Bookmarks Manager 使用的主題。"
+  },
+  "themeSystem": {
+    "message": "系統"
+  },
+  "themeLight": {
+    "message": "淺色"
+  },
+  "themeSoftBlue": {
+    "message": "柔和藍色"
+  },
+  "themeSoftPink": {
+    "message": "柔和粉紅色"
+  },
+  "themeSoftPurple": {
+    "message": "柔和紫色"
+  },
+  "themeSoftGold": {
+    "message": "柔和金色"
+  },
+  "themeSoftOrange": {
+    "message": "柔和橙色"
+  },
+  "themeSoftGreen": {
+    "message": "柔和綠色"
+  },
+  "themeDark": {
+    "message": "深色"
   },
   "visualSort": {
     "message": "視覺排序："

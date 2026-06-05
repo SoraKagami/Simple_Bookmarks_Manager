@@ -482,6 +482,9 @@
   "openBookmark": {
     "message": "북마크 열기"
   },
+  "openContainingFolder": {
+    "message": "북마크가 들어 있는 폴더 열기"
+  },
   "openDefaultBookmarksManager": {
     "message": "기본 북마크 관리자 열기"
   },
@@ -745,6 +748,39 @@
   },
   "userInterfaceLanguageHelp": {
     "message": "자동은 브라우저 UI 언어를 따릅니다. 수동 선택은 관리자와 옵션 페이지에 적용됩니다."
+  },
+  "theme": {
+    "message": "테마"
+  },
+  "themeHelp": {
+    "message": "Simple Bookmarks Manager에서 사용할 테마를 설정합니다."
+  },
+  "themeSystem": {
+    "message": "시스템"
+  },
+  "themeLight": {
+    "message": "라이트"
+  },
+  "themeSoftBlue": {
+    "message": "소프트 블루"
+  },
+  "themeSoftPink": {
+    "message": "소프트 핑크"
+  },
+  "themeSoftPurple": {
+    "message": "소프트 퍼플"
+  },
+  "themeSoftGold": {
+    "message": "소프트 골드"
+  },
+  "themeSoftOrange": {
+    "message": "소프트 오렌지"
+  },
+  "themeSoftGreen": {
+    "message": "소프트 그린"
+  },
+  "themeDark": {
+    "message": "다크"
   },
   "visualSort": {
     "message": "보기 정렬:"
