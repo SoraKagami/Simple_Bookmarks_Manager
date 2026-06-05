@@ -1,9 +1,15 @@
 # Changelog
 
+## 0.8.18
+- README.md updated
+
 ## 0.8.17
 
 - Added Ukrainian and Russian UI locale packs based on `_locales/en/messages.json`.
 - Updated `i18n.js` so Ukrainian and Russian are available in the language selector while keeping Netspeak at the bottom of the list.
+
+## 0.8.16
+- Manual documentation update (Incomplete)
 
 ## 0.8.15
 

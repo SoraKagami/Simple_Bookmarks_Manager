@@ -3,7 +3,9 @@
 A simple local bookmarks manager for Chromium browsers, inspired by Firefox Places, Firefox’s bookmark management system.
 
 This Source Code Form is subject to the terms of the `Mozilla Public License, v.2.0`. See `LICENSE`.
-Source code available at: https://github.com/SoraKagami/Simple_Bookmarks_Manager/tree/master
+Source code available at: https://github.com/SoraKagami/Simple_Bookmarks_Manager
+
+Please report issues, bugs, and suggestions at: https://github.com/SoraKagami/Simple_Bookmarks_Manager/issues
 
 ## Features
 
@@ -13,7 +15,7 @@ Source code available at: https://github.com/SoraKagami/Simple_Bookmarks_Manager
 - Separator support using a Chromium-compatible bookmark convention: title `———` plus URL `about:blank`
 - Left-pane Library folder tree with collapsible subfolders
 - Drag-and-drop reordering for bookmarks and folders
-- Bookmarks search with optional limitation to current folder & subfolders
+- Bookmarks search with optional limitation to the current folder & subfolders
 - Keyboard navigation support
 - Visual temporary sorting for folders
 - Permanent Sort-by-Name and Sort-by-Date options
@@ -54,16 +56,16 @@ Source code available at: https://github.com/SoraKagami/Simple_Bookmarks_Manager
 
 ### Permissions
 
-- **Bookmarks**: Required to read, modify and write to bookmarks
+- **Bookmarks**: Required to read, modify and write bookmarks
 - **Favicon**: Required to display the bookmark icons
-- **Storage**: Extension's settings
+- **Storage**: Required to store extension settings
 
 ### Privacy
 
 - **No Telemetry**
 - **No Ads**
 - **No Subscriptions**
-- **No Web Connections**
+- **No Network Connections**
 
 ## Project history
 
