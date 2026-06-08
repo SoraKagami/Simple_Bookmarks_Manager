@@ -2,7 +2,8 @@
 
 A simple local bookmarks manager for Chromium browsers, inspired by Firefox Places, Firefox’s bookmark management system.
 
-This Source Code Form is subject to the terms of the `Mozilla Public License, v.2.0`. See `LICENSE`.
+This project is licensed under the `Mozilla Public License 2.0` (`MPL-2.0`).
+See [LICENSE](LICENSE) for details.
 Source code available at: https://github.com/SoraKagami/Simple_Bookmarks_Manager
 
 Please report issues, bugs, and suggestions at: https://github.com/SoraKagami/Simple_Bookmarks_Manager/issues
