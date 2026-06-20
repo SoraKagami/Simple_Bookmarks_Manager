@@ -8,6 +8,8 @@ Source code available at: https://github.com/SoraKagami/Simple_Bookmarks_Manager
 
 Please report issues, bugs, and suggestions at: https://github.com/SoraKagami/Simple_Bookmarks_Manager/issues
 
+The latest stable release of Simple Bookmarks Manager is available on the [Chrome Web Store](https://chromewebstore.google.com/detail/simple-bookmarks-manager/bljcbgidellmijkcbhjbajpnkeaaknle).
+
 ## Features
 
 - Layout & features inspired by Firefox's bookmarks manager
@@ -70,8 +72,14 @@ Please report issues, bugs, and suggestions at: https://github.com/SoraKagami/Si
 
 ## Project history
 
-For background on how this extension was developed, including the GenAI-assisted development process, see `PROJECT_HISTORY.md`.
+For background on how this extension was developed, including the GenAI-assisted development process, see [PROJECT_HISTORY.md](Documentation/PROJECT_HISTORY.md).
+
+## Source Code Audit by ChatGPT
+
+As part of the development process, ChatGPT was asked to perform a source code audit to check whether any code appeared to originate from other repositories. This was done as an additional precaution rather than assuming that all code was original.
+
+The result, last updated for the `v0.7.20` release made for an interesting read and has been preserved in [SOURCE_AUDIT.md](Documentation/SOURCE_AUDIT.md).
 
 ## Changelog
 
-See `CHANGELOG.md` for version history.
+See [CHANGELOG.md](CHANGELOG.md) for version history.

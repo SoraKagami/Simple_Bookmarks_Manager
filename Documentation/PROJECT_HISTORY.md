@@ -5,7 +5,7 @@ During the inception of this extension in April 2026, Chrome's (`v147`) built-in
 ### How this extension grew
 Initially the aim was to ask a custom `ChatGPT 5.4` (web) to see if it could reproduce the Firefox bookmarks manager using `Firefox 140.10 ESR`'s codebase, converted/rewritten for Chromium browsers.
 
-Instead of just making a modified copy, **ChatGPT decided to write the whole thing from scratch without using anything from Firefox's source code**. Oops.
+Instead of just making a modified copy, **ChatGPT decided to write the whole thing from scratch without using anything from Firefox's source code**.
 
 The `v0.1.0` result surprisingly worked without errors, but was completely rudimentary and missing most features expected of a bookmarks manager. It "worked", but left a lot to be desired.
 
@@ -15,9 +15,11 @@ At this point the plan changed to seeing if it was possible to vibe code an almo
 
 In short: **NO Telemetry**, **NO Ads**, **NO Subscriptions**, **NO Web ANYTHING**.
 
-What started out as something simple turned into what felt like attempting to map out an ant nest. Simple features we take for granted were missing and required creating from scratch and instead of using pre-made packages; well, everything was written from scratch.
+What started as a simple experiment grew into a much larger implementation effort. Simple features we take for granted were missing and required creating from scratch and instead of using pre-made packages; everything was written from scratch.
 
-Since Firefox's bookmarks manager was the role model for this extension, it was decided that as a nod to Mozilla Firefox, the open source `Mozilla's MPL 2.0` license will be used for this extension. The source code will be published to GitHub for anyone to check and use.
+As a nod to Firefox's influence on the project, the extension is released under the Mozilla Public License 2.0 (`MPL-2.0`).
+
+The source code has be published to [GitHub](https://github.com/SoraKagami/Simple_Bookmarks_Manager/tree/master).
 
 ### The original aims became:
 1. Attempt to recreate something similar in experience and usability to Firefox's bookmarks manager as a Chromium extension

@@ -1,7 +1,16 @@
 # Changelog
 
+## 0.8.19
+
+Manual Documentation Updates for:
+- Updated for clarity: `README.md`.
+- Updated for clarity: `PROJECT_HISTORY.md`.
+- Fixed a few GenAI_Prompt_Logs which had formatting issues.
+- Fixed `Documentation\v0.7.8.md` which was missing ChatGPT's reply.
+- Added missing full stops in `CHANGELOG.md`.
+
 ## 0.8.18
-- README.md updated
+- README.md updated.
 
 ## 0.8.17
 
@@ -9,7 +18,7 @@
 - Updated `i18n.js` so Ukrainian and Russian are available in the language selector while keeping Netspeak at the bottom of the list.
 
 ## 0.8.16
-- Manual documentation update (Incomplete)
+- Manual documentation update (Incomplete).
 
 ## 0.8.15
 
