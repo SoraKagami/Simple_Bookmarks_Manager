@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.8.20
+
+Manual Update: Updated `.gitattributes` and `.gitignore` to properly support using `git archive` for preparing release archives.
+
+Also updated `README.md` to document that release builds and Chrome Web Store releases exclude non-critical files.
+
 ## 0.8.19
 
 Manual Documentation Updates for:

@@ -10,3 +10,4 @@
 *.xcworkspace
 ~$*.xlsx
 ExcludeFromGit
+dist

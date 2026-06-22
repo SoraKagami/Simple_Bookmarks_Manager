@@ -2,3 +2,21 @@
 *.bin binary
 *.zip binary
 *.reg text eol=crlf
+
+# Exclude from release builds
+/ExcludeFromGit export-ignore
+/ExcludeFromGit/** export-ignore
+/GenAI_Prompt_Logs export-ignore
+/GenAI_Prompt_Logs/** export-ignore
+/Documentation export-ignore
+/Documentation/** export-ignore
+/dist export-ignore
+/dist/** export-ignore
+/.gitignore export-ignore
+/.gitattributes export-ignore
+/.github export-ignore
+/.github/** export-ignore
+
+# May add Tests later so excluding this folder in advance
+/Tests export-ignore
+/Tests/** export-ignore

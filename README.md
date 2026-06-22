@@ -83,3 +83,9 @@ The result, last updated for the `v0.7.20` release made for an interesting read 
 ## Changelog
 
 See [CHANGELOG.md](CHANGELOG.md) for version history.
+
+## Notes
+
+**Please note:** `Release builds` and `Chrome Web Store Releases` do not contain files that are unnecessary.
+
+The `Documentation` and `GenAI_Prompt_Logs` folders can be accessed directly on GitHub.
