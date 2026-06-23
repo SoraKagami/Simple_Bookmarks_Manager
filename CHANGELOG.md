@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.8.24
+
+- Added a `DetailsPanePosition` setting with a User Interface option for showing the Details pane on the right side or below the middle pane.
+- Kept the default Details pane position on the right side.
+- Changed the default theme for new/default configurations from System to Soft Blue.
+
 ## 0.8.23.1
 
 - Adjusted F2 bookmark editing so the Edit Bookmark dialog focuses the Bookmark name field first.

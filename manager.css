@@ -32,6 +32,13 @@ button, select, input { font-family: var(--sbm-ui-font-family); font-size: inher
 .layout { flex: 1; display: grid; grid-template-columns: var(--left-lib-width) 7px minmax(0, 1fr) 7px var(--right-details-width); min-height: 0; overflow: hidden; }
 .layout.details-hidden { grid-template-columns: var(--left-lib-width) 7px minmax(0, 1fr); }
 .layout.details-hidden .pane-resizer-right { display: none; }
+.layout.details-bottom { grid-template-columns: var(--left-lib-width) 7px minmax(0, 1fr); grid-template-rows: minmax(0, 1fr) minmax(180px, 32vh); }
+.layout.details-bottom.details-hidden { grid-template-columns: var(--left-lib-width) 7px minmax(0, 1fr); grid-template-rows: minmax(0, 1fr); }
+.layout.details-bottom .left { grid-column: 1; grid-row: 1 / -1; }
+.layout.details-bottom .pane-resizer-left { grid-column: 2; grid-row: 1 / -1; }
+.layout.details-bottom .content { grid-column: 3; grid-row: 1; }
+.layout.details-bottom .pane-resizer-right { display: none; }
+.layout.details-bottom .details { grid-column: 3; grid-row: 2; border-top: 1px solid var(--sbm-color-border); }
 .left, .details { min-height: 0; padding: 12px; overflow: auto; overscroll-behavior: contain; }
 .left { background: var(--sbm-color-manager-left-bg); }
 .details { background: var(--sbm-color-manager-details-bg); }
@@ -228,7 +235,13 @@ body.column-resizing { cursor: col-resize; user-select: none; }
 
 [hidden] { display: none !important; }
 @media (max-width: 900px) {
-  .layout, .layout.details-hidden { grid-template-columns: 1fr; grid-template-rows: minmax(120px, 28vh) minmax(240px, 1fr) minmax(120px, 28vh); }
+  .layout, .layout.details-bottom { grid-template-columns: 1fr; grid-template-rows: minmax(120px, 28vh) minmax(240px, 1fr) minmax(120px, 28vh); }
+  .layout.details-hidden, .layout.details-bottom.details-hidden { grid-template-columns: 1fr; grid-template-rows: minmax(120px, 28vh) minmax(240px, 1fr); }
+  .layout .left, .layout .content, .layout .details { grid-column: 1; }
+  .layout .left { grid-row: 1; }
+  .layout .content { grid-row: 2; }
+  .layout .details { grid-row: 3; }
+  .layout.details-hidden .details { grid-row: auto; }
   .left, .details { max-height: none; }
 }
 

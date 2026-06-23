@@ -12,7 +12,7 @@ export const THEME_MODE_OPTIONS = Object.freeze(["system", "light", "dark", "sof
 
 /** Normalize a stored or form-provided theme choice to a supported theme mode. */
 export function normalizeThemeMode(value) {
-  return THEME_MODE_OPTIONS.includes(value) ? value : "system";
+  return THEME_MODE_OPTIONS.includes(value) ? value : "softBlue";
 }
 
 /** Resolve System mode to the concrete theme currently shown. */

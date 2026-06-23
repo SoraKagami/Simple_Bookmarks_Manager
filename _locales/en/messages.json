@@ -785,6 +785,18 @@
   "themeHelp": {
     "message": "Set the theme used by Simple Bookmarks Manager."
   },
+  "detailsPanePosition": {
+    "message": "Details pane position"
+  },
+  "detailsPanePositionHelp": {
+    "message": "Choose whether the Details pane appears on the right side or below the Folder Contents pane."
+  },
+  "detailsPanePositionRight": {
+    "message": "Right side"
+  },
+  "detailsPanePositionBottom": {
+    "message": "Bottom"
+  },
   "themeSystem": {
     "message": "System"
   },

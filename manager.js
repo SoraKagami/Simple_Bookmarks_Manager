@@ -57,6 +57,7 @@ let left_Lib_Width = DEFAULT_SETTINGS.left_Lib_Width;
 let right_Details_Width = DEFAULT_SETTINGS.right_Details_Width;
 let UserInterfaceLanguage = DEFAULT_SETTINGS.UserInterfaceLanguage;
 let ThemeMode = DEFAULT_SETTINGS.ThemeMode;
+let DetailsPanePosition = DEFAULT_SETTINGS.DetailsPanePosition;
 let UserInterfaceFontFamily = DEFAULT_SETTINGS.UserInterfaceFontFamily;
 let UserInterfaceFontSize = DEFAULT_SETTINGS.UserInterfaceFontSize;
 let UserInterfaceLineSpacing = DEFAULT_SETTINGS.UserInterfaceLineSpacing;
@@ -147,6 +148,7 @@ function applySettings(settings, { render = false } = {}) {
     else if (key === "right_Details_Width") right_Details_Width = value;
     else if (key === "UserInterfaceLanguage") UserInterfaceLanguage = value;
     else if (key === "ThemeMode") ThemeMode = value;
+    else if (key === "DetailsPanePosition") DetailsPanePosition = value;
     else if (key === "UserInterfaceFontFamily") UserInterfaceFontFamily = value;
     else if (key === "UserInterfaceFontSize") UserInterfaceFontSize = value;
     else if (key === "UserInterfaceLineSpacing") UserInterfaceLineSpacing = value;
@@ -190,8 +192,20 @@ function applySettings(settings, { render = false } = {}) {
 }
 
 
+/** Reflect the configured Details pane position into layout classes and resizer metadata. */
+function applyDetailsPanePosition() {
+  const layout = $("layout");
+  if (!layout) return;
+  const isBottom = DetailsPanePosition === "bottom";
+  layout.classList.toggle("details-bottom", isBottom);
+  const resizer = $("right-pane-resizer");
+  if (resizer) resizer.setAttribute("aria-orientation", isBottom ? "horizontal" : "vertical");
+}
+
+
 /** Start a left/right pane resize drag and persist the final width setting. */
 function beginPaneResize(e, pane) {
+  if (pane === "right" && DetailsPanePosition !== "right") return false;
   const isLeft = pane === "left";
   const settingKey = isLeft ? "left_Lib_Width" : "right_Details_Width";
   const minWidth = isLeft ? 180 : 220;
@@ -232,6 +246,7 @@ function beginPaneResize(e, pane) {
 
 /** Resize a pane by a keyboard-friendly delta while respecting configured bounds. */
 function nudgePaneWidth(pane, delta) {
+  if (pane === "right" && DetailsPanePosition !== "right") return;
   const isLeft = pane === "left";
   const key = isLeft ? "left_Lib_Width" : "right_Details_Width";
   const current = isLeft ? left_Lib_Width : right_Details_Width;
@@ -3370,6 +3385,7 @@ function renderParents(selectedValue = null) {
 
 /** Render the Details pane or the Details Multiselect summary. */
 function renderDetails() {
+  applyDetailsPanePosition();
   $("layout").classList.toggle("details-hidden", !state.detailsVisible);
   $("details-pane").hidden = !state.detailsVisible;
   if (!state.detailsVisible) return;

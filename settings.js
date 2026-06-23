@@ -23,6 +23,8 @@ export const MID_FC_COLUMN_DEFAULT_WIDTHS = Object.freeze({
   Order: 72
 });
 
+export const DETAILS_PANE_POSITION_OPTIONS = Object.freeze(["right", "bottom"]);
+
 export const FONT_FAMILY_OPTIONS = Object.freeze([
   { value: "system", css: "system-ui, sans-serif" },
   { value: "sans", css: "Arial, Helvetica, sans-serif" },
@@ -34,7 +36,8 @@ export const DEFAULT_SETTINGS = Object.freeze({
   left_Lib_Width: 260,
   right_Details_Width: 320,
   UserInterfaceLanguage: "auto",
-  ThemeMode: "system",
+  ThemeMode: "softBlue",
+  DetailsPanePosition: "right",
   UserInterfaceFontFamily: "system",
   UserInterfaceFontSize: 12.5,
   UserInterfaceLineSpacing: 1.4,
@@ -81,6 +84,7 @@ export function fontFamilyCss(value) {
 export function normalizeSettingValue(key, value) {
   if (key === "UserInterfaceLanguage") return normalizeLanguageSetting(value);
   if (key === "ThemeMode") return normalizeThemeMode(value);
+  if (key === "DetailsPanePosition") return DETAILS_PANE_POSITION_OPTIONS.includes(value) ? value : DEFAULT_SETTINGS[key];
   if (key === "UserInterfaceFontFamily") {
     return FONT_FAMILY_OPTIONS.some((option) => option.value === value) ? value : DEFAULT_SETTINGS[key];
   }
