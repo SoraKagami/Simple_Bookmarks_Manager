@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.8.22
+
+- Changed the expected stale startup-folder reset diagnostic so it is recorded only in SBM's transient warnings/errors log instead of emitting a browser-console warning.
+- Kept the invalid startup-folder reset behavior unchanged: SBM clears the stale folder setting and falls back to its normal startup folder.
+
 ## 0.8.21.1
 
 - Normalized release archive text-file line endings to LF to keep Git diffs consistent across Windows and container-based tooling.

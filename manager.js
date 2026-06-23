@@ -8,7 +8,7 @@
  */
 import { applyI18n, setI18nLanguage, t } from "./i18n.js";
 import { DEFAULT_SETTINGS, MID_FC_COLUMN_MIN_WIDTHS, fontFamilyCss, normalizeSettingValue } from "./settings.js";
-import { clearSessionLogRecords, getSessionLogRecords, installConsoleCapture } from "./session_log.js";
+import { addSessionLogRecord, clearSessionLogRecords, getSessionLogRecords, installConsoleCapture } from "./session_log.js";
 import { applyThemePreference, installThemePreferenceListener } from "./theme.js";
 
 installConsoleCapture("SBM Manager");
@@ -986,7 +986,7 @@ async function clearInvalidStartupFolderSetting() {
   };
   applySettings(update, { render: false });
   await api.storage.local.set(update);
-  console.warn("[SBM] Cleared invalid configured startup bookmark folder.");
+  addSessionLogRecord("warn", ["[SBM] Cleared invalid configured startup bookmark folder."], "SBM Manager");
 }
 
 /** Resolve the initial folder for this manager launch after the bookmark tree is indexed. */

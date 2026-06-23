@@ -30,7 +30,7 @@ function stringifyLogValue(value) {
 }
 
 /** Append a bounded warning/error log record and notify observers. */
-function addSessionLogRecord(level, args, source = "SBM") {
+export function addSessionLogRecord(level, args, source = "SBM") {
   const record = {
     time: new Date().toISOString(),
     level,
