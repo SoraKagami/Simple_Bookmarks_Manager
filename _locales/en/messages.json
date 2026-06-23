@@ -386,6 +386,33 @@
   "multipleInstancesAllowedHelp": {
     "message": "When disabled, clicking the extension button focuses the existing Simple Bookmarks Manager tab instead of opening another one."
   },
+  "startupBehavior": {
+    "message": "Startup behavior"
+  },
+  "startupBehaviorHelp": {
+    "message": "Choose where Simple Bookmarks Manager opens when launched."
+  },
+  "startAtConfiguredBookmarkFolder": {
+    "message": "Start at chosen folder"
+  },
+  "startAtConfiguredBookmarkFolderHelp": {
+    "message": "When enabled, SBM opens at the selected bookmark folder. If the folder no longer exists, this setting is cleared and SBM uses its normal startup folder."
+  },
+  "startupBookmarkFolder": {
+    "message": "Startup folder"
+  },
+  "startupBookmarkFolderHelp": {
+    "message": "Select the existing bookmark folder to show when SBM starts."
+  },
+  "startupBookmarkFolderNone": {
+    "message": "No startup folder selected"
+  },
+  "startupBookmarkFolderMissing": {
+    "message": "Previously selected folder is missing"
+  },
+  "startupBookmarkFolderLoadFailed": {
+    "message": "Could not load bookmark folders."
+  },
   "mutationCreateBookmark": {
     "message": "create bookmark"
   },

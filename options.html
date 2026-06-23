@@ -127,7 +127,28 @@
         </span>
       </label>
 
-
+      <details class="option-subsection option-collapsible">
+        <summary>
+          <span class="option-subsection-summary-title" data-i18n="startupBehavior">Startup behavior</span>
+          <span class="option-subsection-summary-help" data-i18n="startupBehaviorHelp">Choose where Simple Bookmarks Manager opens when launched.</span>
+        </summary>
+        <div class="option-subsection-body">
+          <label class="option-row">
+            <input id="StartAtConfiguredBookmarkFolder" type="checkbox">
+            <span>
+              <strong data-i18n="startAtConfiguredBookmarkFolder">Start at chosen folder</strong>
+              <small data-i18n="startAtConfiguredBookmarkFolderHelp">When enabled, SBM opens at the selected bookmark folder. If the folder no longer exists, this setting is cleared and SBM uses its normal startup folder.</small>
+            </span>
+          </label>
+          <label class="option-row option-row-control" id="startup-bookmark-folder-row">
+            <span>
+              <strong data-i18n="startupBookmarkFolder">Startup folder</strong>
+              <small data-i18n="startupBookmarkFolderHelp">Select the existing bookmark folder to show when SBM starts.</small>
+            </span>
+            <select id="StartupBookmarkFolderId"></select>
+          </label>
+        </div>
+      </details>
 
       <details class="option-subsection option-collapsible">
         <summary>

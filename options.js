@@ -128,15 +128,74 @@ function readAllControlValues() {
   return values;
 }
 
+
+/** Return a readable label for a bookmark folder in the startup-folder dropdown. */
+function startupFolderTitle(node) {
+  return String(node?.title || t("folderFallback") || t("folder"));
+}
+
+/** Flatten bookmark folders into stable dropdown options, excluding Chromium's invisible root node. */
+function collectStartupFolderOptions(root) {
+  const folders = [];
+  const visit = (node, path = []) => {
+    if (!node || node.url) return;
+    const nextPath = node.id === "0" ? path : [...path, startupFolderTitle(node)];
+    if (node.id !== "0") folders.push({ id: String(node.id), label: nextPath.join(" / ") });
+    for (const child of node.children || []) visit(child, nextPath);
+  };
+  visit(root);
+  return folders;
+}
+
+/** Create one safe option element for the startup-folder dropdown. */
+function makeStartupFolderOption(value, label, { disabled = false } = {}) {
+  const option = document.createElement("option");
+  option.value = value;
+  option.textContent = label;
+  option.disabled = disabled;
+  return option;
+}
+
+/** Populate the startup-folder dropdown from Chromium's local bookmark tree. */
+async function populateStartupFolderSelect(selectedId = "") {
+  const select = $("StartupBookmarkFolderId");
+  if (!select) return;
+  const wantedId = String(selectedId || "");
+  const fragment = document.createDocumentFragment();
+  fragment.append(makeStartupFolderOption("", t("startupBookmarkFolderNone")));
+
+  try {
+    const [root] = await api.bookmarks.getTree();
+    const folders = collectStartupFolderOptions(root);
+    const folderIds = new Set(folders.map((folder) => folder.id));
+    for (const folder of folders) fragment.append(makeStartupFolderOption(folder.id, folder.label));
+    if (wantedId && !folderIds.has(wantedId)) {
+      fragment.append(makeStartupFolderOption(wantedId, t("startupBookmarkFolderMissing"), { disabled: true }));
+    }
+    select.replaceChildren(fragment);
+    const hasWantedOption = [...select.options].some((option) => option.value === wantedId);
+    select.value = wantedId && hasWantedOption ? wantedId : "";
+  } catch (err) {
+    console.error(err);
+    fragment.append(makeStartupFolderOption(wantedId, t("startupBookmarkFolderLoadFailed"), { disabled: true }));
+    select.replaceChildren(fragment);
+    select.value = wantedId;
+  }
+}
+
 /** Reflect persisted settings into form controls and dependent disabled states. */
 function setControlState(settings) {
   populateLanguageSelect($("UserInterfaceLanguage"), settings.UserInterfaceLanguage);
   for (const key of Object.keys(DEFAULT_SETTINGS)) {
     const control = $(key);
+    if (!control) continue;
     const value = normalizeSettingValue(key, settings[key]);
     if (control.type === "checkbox") control.checked = value;
     else control.value = String(value);
   }
+
+  const startupFolderSelect = $("StartupBookmarkFolderId");
+  if (startupFolderSelect) startupFolderSelect.disabled = !$("StartAtConfiguredBookmarkFolder").checked;
 
   if (!$("EnableAdvancedDetailsViewing").checked) {
     $("EnableAdvancedDetailsEditing").checked = false;
@@ -154,6 +213,7 @@ async function loadOptions() {
   await setI18nLanguage(settings.UserInterfaceLanguage);
   applyI18n(document);
   applyFontOptionStyles();
+  await populateStartupFolderSelect(settings.StartupBookmarkFolderId);
   setControlState(settings);
 }
 
@@ -171,6 +231,7 @@ async function saveOption(key, value) {
     await setI18nLanguage(settings.UserInterfaceLanguage);
     applyI18n(document);
     applyFontOptionStyles();
+    await populateStartupFolderSelect(settings.StartupBookmarkFolderId);
   }
   setControlState(settings);
   showStatus(t("optionSaved"));
@@ -194,9 +255,10 @@ for (const key of Object.keys(DEFAULT_SETTINGS)) {
 
 $("reset").addEventListener("click", async () => {
   await api.storage.local.set({ ...DEFAULT_SETTINGS });
-  setControlState(DEFAULT_SETTINGS);
   await setI18nLanguage(DEFAULT_SETTINGS.UserInterfaceLanguage);
   applyI18n(document);
+  await populateStartupFolderSelect(DEFAULT_SETTINGS.StartupBookmarkFolderId);
+  setControlState(DEFAULT_SETTINGS);
   populateLanguageSelect($("UserInterfaceLanguage"), DEFAULT_SETTINGS.UserInterfaceLanguage);
   applyFontOptionStyles();
   showStatus(t("defaultsRestored"));

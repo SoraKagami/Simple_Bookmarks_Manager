@@ -1,5 +1,17 @@
 # Changelog
 
+## 0.8.21.1
+
+- Normalized release archive text-file line endings to LF to keep Git diffs consistent across Windows and container-based tooling.
+- Updated `manifest.json` to `0.8.21.1`.
+
+## 0.8.21
+
+- Added an Advanced startup behavior setting that can open SBM at a user-selected bookmark folder when launched.
+- Added a startup folder selector populated from the local Chromium bookmark tree.
+- Added validation that clears the configured startup folder setting if the selected folder no longer exists, then falls back to SBM's normal startup folder.
+- Reviewed current-tab bookmark-folder startup, but did not implement it because reading the previously active tab's URL would require adding a new tab URL access permission such as `activeTab`.
+
 ## 0.8.20
 
 Manual Update: Updated `.gitattributes` and `.gitignore` to properly support using `git archive` for preparing release archives.

@@ -68,6 +68,8 @@ let KeyboardDeleteAllow = DEFAULT_SETTINGS.KeyboardDeleteAllow;
 let DeleteShowWarning = DEFAULT_SETTINGS.DeleteShowWarning;
 let SearchLimitToFolderAndSub = DEFAULT_SETTINGS.SearchLimitToFolderAndSub;
 let MultipleInstancesAllowed = DEFAULT_SETTINGS.MultipleInstancesAllowed;
+let StartAtConfiguredBookmarkFolder = DEFAULT_SETTINGS.StartAtConfiguredBookmarkFolder;
+let StartupBookmarkFolderId = DEFAULT_SETTINGS.StartupBookmarkFolderId;
 let BlockJavascriptBookmarkOpens = DEFAULT_SETTINGS.BlockJavascriptBookmarkOpens;
 let BlockDataBookmarkOpens = DEFAULT_SETTINGS.BlockDataBookmarkOpens;
 let BlockBlobBookmarkOpens = DEFAULT_SETTINGS.BlockBlobBookmarkOpens;
@@ -156,6 +158,8 @@ function applySettings(settings, { render = false } = {}) {
     else if (key === "DeleteShowWarning") DeleteShowWarning = value;
     else if (key === "SearchLimitToFolderAndSub") SearchLimitToFolderAndSub = value;
     else if (key === "MultipleInstancesAllowed") MultipleInstancesAllowed = value;
+    else if (key === "StartAtConfiguredBookmarkFolder") StartAtConfiguredBookmarkFolder = value;
+    else if (key === "StartupBookmarkFolderId") StartupBookmarkFolderId = value;
     else if (key === "BlockJavascriptBookmarkOpens") BlockJavascriptBookmarkOpens = value;
     else if (key === "BlockDataBookmarkOpens") BlockDataBookmarkOpens = value;
     else if (key === "BlockBlobBookmarkOpens") BlockBlobBookmarkOpens = value;
@@ -966,6 +970,43 @@ function rootFolders() {
 /** Choose the startup folder, preferring the bookmarks bar when available. */
 function defaultFolderId() {
   return rootFolders()[0]?.id || state.tree?.id || null;
+}
+
+
+/** Return whether a node is a valid target for the configured startup folder. */
+function isValidStartupFolderNode(node) {
+  return isFolder(node) && node.id !== "0";
+}
+
+/** Clear a stale configured-startup folder so future launches use the default folder. */
+async function clearInvalidStartupFolderSetting() {
+  const update = {
+    StartAtConfiguredBookmarkFolder: false,
+    StartupBookmarkFolderId: ""
+  };
+  applySettings(update, { render: false });
+  await api.storage.local.set(update);
+  console.warn("[SBM] Cleared invalid configured startup bookmark folder.");
+}
+
+/** Resolve the initial folder for this manager launch after the bookmark tree is indexed. */
+async function resolveInitialFolderId() {
+  if (StartAtConfiguredBookmarkFolder) {
+    const configuredFolder = nodes.get(StartupBookmarkFolderId);
+    if (isValidStartupFolderNode(configuredFolder)) return configuredFolder.id;
+    await clearInvalidStartupFolderSetting();
+  }
+  return defaultFolderId();
+}
+
+/** Apply startup-folder preferences without pushing history entries or prompting for Details edits. */
+async function applyInitialFolderPreference() {
+  const initialFolderId = await resolveInitialFolderId();
+  state.folderId = initialFolderId;
+  state.treeSelectedId = initialFolderId;
+  state.selectedId = initialFolderId;
+  state.activePane = "tree";
+  if (initialFolderId) ensureExpandedPath(initialFolderId);
 }
 
 /** Return direct folder children, optionally using precomputed tree maps. */
@@ -4303,7 +4344,9 @@ for (const eventName of ["onCreated", "onRemoved", "onChanged", "onMoved", "onCh
 async function init() {
   await registerManagerInstance();
   await loadSettings();
-  await loadTree();
+  await loadTree({ renderNow: false });
+  await applyInitialFolderPreference();
+  render();
 }
 
 init().catch((err) => {

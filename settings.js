@@ -46,6 +46,8 @@ export const DEFAULT_SETTINGS = Object.freeze({
   DeleteShowWarning: true,
   SearchLimitToFolderAndSub: false,
   MultipleInstancesAllowed: false,
+  StartAtConfiguredBookmarkFolder: false,
+  StartupBookmarkFolderId: "",
   BlockJavascriptBookmarkOpens: true,
   BlockDataBookmarkOpens: true,
   BlockBlobBookmarkOpens: true,
@@ -86,6 +88,7 @@ export function normalizeSettingValue(key, value) {
   if (key === "UserInterfaceLineSpacing") return clampNumber(value, 1.0, 1.8, DEFAULT_SETTINGS[key]);
   if (key === "left_Lib_Width") return Math.round(clampNumber(value, 180, 800, DEFAULT_SETTINGS[key]));
   if (key === "right_Details_Width") return Math.round(clampNumber(value, 220, 900, DEFAULT_SETTINGS[key]));
+  if (key === "StartupBookmarkFolderId") return typeof value === "string" ? value : DEFAULT_SETTINGS[key];
   if (key.startsWith("mid_FC_Width_")) {
     const column = key.slice("mid_FC_Width_".length);
     const min = MID_FC_COLUMN_MIN_WIDTHS[column] || 48;

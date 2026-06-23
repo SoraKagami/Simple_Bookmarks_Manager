@@ -1,4 +1,5 @@
-* text=auto
+# Normalize text containing files to LF
+* text=auto eol=lf
 *.bin binary
 *.zip binary
 *.reg text eol=crlf
@@ -20,3 +21,12 @@
 # May add Tests later so excluding this folder in advance
 /Tests export-ignore
 /Tests/** export-ignore
+
+# Extra precaution to ensure the following file types are not treated as text by accident and have LF/CRLF altered
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.webp binary
+*.ico binary
+*.zip binary
