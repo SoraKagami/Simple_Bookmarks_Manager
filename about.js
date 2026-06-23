@@ -1,10 +1,10 @@
 /**
- * About page controller.
+ * Packaged information-page controller.
  *
- * The About page is loaded inside the manager iframe, but it is also a normal
- * packaged extension page.  It localizes itself from the same language setting
- * used by the rest of SBM so the page can be translated without rebuilding its
- * HTML structure.
+ * The About and Help pages are loaded inside the manager iframe, but each is
+ * also a normal packaged extension page. They localize themselves from the same
+ * language setting used by the rest of SBM so the pages can be translated
+ * without rebuilding their HTML structures.
  */
 import { applyI18n, setI18nLanguage } from "./i18n.js";
 import { DEFAULT_SETTINGS, fontFamilyCss, normalizeSettingValue } from "./settings.js";
@@ -16,7 +16,7 @@ let currentThemeMode = DEFAULT_SETTINGS.ThemeMode;
 installThemePreferenceListener(() => currentThemeMode);
 
 /**
- * Load and normalize the settings needed by the standalone About page.
+ * Load and normalize the settings needed by standalone information pages.
  *
  * Storage values are treated the same way as the main manager page so malformed
  * or old settings cannot directly become CSS values.
@@ -43,7 +43,7 @@ function applyAboutUiSettings(settings) {
 }
 
 /**
- * Initialize About page localization and visual settings.
+ * Initialize packaged information-page localization and visual settings.
  *
  * The HTML keeps English fallback text in place.  If loading settings or locale
  * JSON fails, the catch below leaves that static copy visible instead of

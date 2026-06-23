@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.8.27
+
+- Updated the Help page to support localization through the shared i18n system.
+- Moved Help page user-facing text into `_locales/en/messages.json` as English fallback strings.
+- Reused the packaged information-page controller for both About and Help localization/visual settings.
+
 ## 0.8.26
 
 - Added the Help hamburger-menu entry and connected it to a packaged `help.html` page shown in the in-SBM info dialog.
