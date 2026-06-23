@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.8.23.1
+
+- Adjusted F2 bookmark editing so the Edit Bookmark dialog focuses the Bookmark name field first.
+
 ## 0.8.23
 
 - Added a bookmark context-menu action to copy a bookmark URL to the clipboard.

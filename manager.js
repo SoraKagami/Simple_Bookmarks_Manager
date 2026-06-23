@@ -620,7 +620,7 @@ function updateUrlWarning() {
  * URL validation errors inline, and only resolves with bookmark data when the
  * URL is safe to send to chrome.bookmarks.
  */
-function showBookmarkEditorDialog({ heading, title = "", url = "https://", submitLabel = t("save") } = {}) {
+function showBookmarkEditorDialog({ heading, title = "", url = "https://", submitLabel = t("save"), initialFocus = "url" } = {}) {
   return new Promise((resolve) => {
     hideContextMenu();
 
@@ -721,8 +721,9 @@ function showBookmarkEditorDialog({ heading, title = "", url = "https://", submi
     backdrop.append(modal);
     document.body.append(backdrop);
     updateWarning();
-    urlInput.focus();
-    urlInput.select();
+    const focusInput = initialFocus === "title" ? nameInput : urlInput;
+    focusInput.focus();
+    focusInput.select();
   });
 }
 
@@ -1802,13 +1803,14 @@ async function renameFolder(folder, sourcePane = "tree") {
 }
 
 /** Open the Edit Bookmark dialog and update a mutable bookmark node. */
-async function editBookmark(bookmark) {
+async function editBookmark(bookmark, { initialFocus = "url" } = {}) {
   if (!bookmark || isFolder(bookmark) || !isMutable(bookmark)) return;
   const edited = await showBookmarkEditorDialog({
     heading: t("editBookmark"),
     title: bookmark.title || bookmark.url || "",
     url: bookmark.url || "https://",
     submitLabel: t("save"),
+    initialFocus
   });
   if (!edited) return;
   try {
@@ -4181,7 +4183,7 @@ async function editSelectedItemWithKeyboard() {
     return true;
   }
   if (isSeparator(item) || !item.url) return false;
-  await editBookmark(item);
+  await editBookmark(item, { initialFocus: "title" });
   return true;
 }
 
