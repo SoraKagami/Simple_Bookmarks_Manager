@@ -128,6 +128,9 @@
   "copy": {
     "message": "Copier"
   },
+  "copyUrlToClipboard": {
+    "message": "Copier l’URL dans le presse-papiers"
+  },
   "couldNotMoveBookmark": {
     "message": "Impossible de déplacer l’élément de favori : {error}"
   },
@@ -305,6 +308,300 @@
   "help": {
     "message": "Aide"
   },
+  "clickLabel": {
+    "message": "Cliquez"
+  },
+  "selectLabel": {
+    "message": "Sélectionnez"
+  },
+  "helpDocumentTitle": {
+    "message": "Aide de Simple Bookmarks Manager"
+  },
+  "helpTagline": {
+    "message": "Un guide pratique pour utiliser SBM afin de parcourir, modifier, trier et organiser localement les favoris."
+  },
+  "helpQuickStartHeading": {
+    "message": "Démarrage rapide"
+  },
+  "helpQuickStartIntro": {
+    "message": "Ouvrez SBM depuis le bouton de la barre d’outils du navigateur. Le gestionnaire s’ouvre comme une page d’extension normale et travaille directement avec l’arborescence de favoris existante de Chromium."
+  },
+  "helpLibraryPaneLabel": {
+    "message": "Volet Bibliothèque :"
+  },
+  "helpLibraryPaneDescription": {
+    "message": "parcourir les dossiers de favoris et développer ou réduire les sous-dossiers."
+  },
+  "helpFolderContentsPaneLabel": {
+    "message": "Volet Contenu du dossier :"
+  },
+  "helpFolderContentsPaneDescription": {
+    "message": "afficher, sélectionner, trier, ouvrir, faire glisser et gérer les éléments du dossier sélectionné."
+  },
+  "helpDetailsPaneLabel": {
+    "message": "Volet Détails :"
+  },
+  "helpDetailsPaneDescription": {
+    "message": "consulter et modifier le favori ou le dossier sélectionné."
+  },
+  "helpBasicBookmarkManagementHeading": {
+    "message": "Gestion de base des favoris"
+  },
+  "helpBasicUseNewButtonsBefore": {
+    "message": "Utilisez"
+  },
+  "helpBasicUseNewButtonsMiddle": {
+    "message": "et"
+  },
+  "helpBasicUseNewButtonsAfter": {
+    "message": "pour ajouter des éléments au dossier actuel."
+  },
+  "helpBasicRightClickActions": {
+    "message": "Cliquez avec le bouton droit sur des dossiers ou des favoris pour accéder à des actions comme renommer, modifier, supprimer, couper, copier, coller, trier et ouvrir."
+  },
+  "helpBasicDragDrop": {
+    "message": "Utilisez le glisser-déposer pour réordonner des éléments ou déplacer des favoris et des dossiers vers un autre dossier."
+  },
+  "helpBasicDetailsPaneEdits": {
+    "message": "Utilisez le volet Détails pour modifier les noms de favoris, les URL, les dossiers parents et les champs avancés pris en charge."
+  },
+  "helpBasicF2Before": {
+    "message": "Utilisez"
+  },
+  "helpBasicF2After": {
+    "message": "pour renommer le dossier actif ou modifier le favori actif."
+  },
+  "helpBasicMiddleClick": {
+    "message": "Cliquez avec le bouton du milieu sur un favori dans le volet Contenu du dossier pour l’ouvrir dans un nouvel onglet."
+  },
+  "helpSearchSortingHeading": {
+    "message": "Recherche et tri"
+  },
+  "helpSearchBox": {
+    "message": "Utilisez la zone de recherche pour rechercher des favoris par nom ou URL."
+  },
+  "helpSearchLimitBefore": {
+    "message": "Activez"
+  },
+  "helpSearchLimitAfter": {
+    "message": "pour rechercher uniquement dans l’arborescence du dossier actuel."
+  },
+  "helpVisualSort": {
+    "message": "Utilisez la liste de tri visuel ou les en-têtes de colonnes pour effectuer un tri temporaire dans le volet Contenu du dossier."
+  },
+  "helpPermanentSort": {
+    "message": "Utilisez le tri permanent par clic droit lorsque vous voulez modifier l’ordre des favoris enregistré dans Chromium."
+  },
+  "helpSeparatorsBeforeTitle": {
+    "message": "SBM prend en charge une convention de séparateur compatible avec Chromium. Un séparateur est enregistré comme favori avec le titre"
+  },
+  "helpSeparatorsBetweenTitleUrl": {
+    "message": "et l’URL"
+  },
+  "helpSeparatorsAfterUrl": {
+    "message": "SBM affiche cette convention comme une séparation visuelle."
+  },
+  "helpKeyboardShortcutsHeading": {
+    "message": "Raccourcis clavier"
+  },
+  "helpShortcutArrowKeysLabel": {
+    "message": "Touches fléchées :"
+  },
+  "helpShortcutArrowKeysDescription": {
+    "message": "se déplacer dans le volet actif."
+  },
+  "helpShortcutEnterLabel": {
+    "message": "Entrée :"
+  },
+  "helpShortcutEnterDescription": {
+    "message": "ouvrir un favori ou entrer dans un dossier."
+  },
+  "helpShortcutBackspaceLabel": {
+    "message": "Retour arrière :"
+  },
+  "helpShortcutBackspaceDescription": {
+    "message": "remonter d’un niveau de dossier lorsque c’est possible."
+  },
+  "helpShortcutCtrlFLabel": {
+    "message": "Ctrl+F :"
+  },
+  "helpShortcutCtrlFDescription": {
+    "message": "placer le focus dans la zone de recherche."
+  },
+  "helpShortcutF2Label": {
+    "message": "F2 :"
+  },
+  "helpShortcutF2Description": {
+    "message": "renommer le dossier actif ou modifier le favori actif."
+  },
+  "helpShortcutDeleteLabel": {
+    "message": "Suppr :"
+  },
+  "helpShortcutDeleteDescription": {
+    "message": "supprimer l’élément sélectionné lorsque la suppression au clavier est activée."
+  },
+  "helpShortcutEscapeLabel": {
+    "message": "Échap :"
+  },
+  "helpShortcutEscapeDescription": {
+    "message": "fermer les boîtes de dialogue ou menus SBM ouverts."
+  },
+  "helpPinningHeading": {
+    "message": "Épingler Simple Bookmarks Manager pour un accès rapide"
+  },
+  "helpPinningIntro": {
+    "message": "Épingler Simple Bookmarks Manager (SBM) à la barre d’outils permet d’accéder plus rapidement et plus facilement à l’extension."
+  },
+  "helpPinningIntro2": {
+    "message": "Une fois SBM installé dans votre navigateur basé sur Chromium, vous pouvez l’épingler à la barre d’outils de l’une des façons suivantes :"
+  },
+  "helpPinViaExtensionsMenuHeading": {
+    "message": "1. Épingler depuis le menu Extensions"
+  },
+  "helpPinViaExtensionsMenuStep1": {
+    "message": "Cliquez sur le bouton Extensions, généralement situé à droite de la barre d’adresse."
+  },
+  "helpFindSbmBefore": {
+    "message": "Recherchez"
+  },
+  "helpFindSbmAfter": {
+    "message": "dans la liste."
+  },
+  "helpPinIconBefore": {
+    "message": "Cliquez sur l’icône d’épingle à côté de"
+  },
+  "helpPinToggleExplanation": {
+    "message": "Cela épingle SBM à la barre d’outils. Si SBM est déjà épinglé, cliquer sur l’icône d’épingle le désépinglera."
+  },
+  "helpPinViaManageExtensionsHeading": {
+    "message": "2. Épingler depuis la page Gérer les extensions"
+  },
+  "helpPinViaManageExtensionsStep1": {
+    "message": "Cliquez sur le bouton Extensions, généralement situé à droite de la barre d’adresse."
+  },
+  "helpManageExtensions": {
+    "message": "Gérer les extensions"
+  },
+  "helpAlternatively": {
+    "message": "Autre méthode :"
+  },
+  "helpChromiumMenuStep": {
+    "message": "Cliquez sur le bouton du menu Chromium."
+  },
+  "helpExtensions": {
+    "message": "Extensions"
+  },
+  "helpOnceExtensionsPageOpen": {
+    "message": "Une fois la page Extensions ouverte :"
+  },
+  "helpScrollDownToBefore": {
+    "message": "Faites défiler jusqu’à"
+  },
+  "helpPinToToolbar": {
+    "message": "Épingler à la barre d’outils"
+  },
+  "helpToggleOptionOn": {
+    "message": "Activez l’option."
+  },
+  "helpOptionsReferenceHeading": {
+    "message": "Référence des options"
+  },
+  "helpOptionsReferenceBeforeStorage": {
+    "message": "La page Options stocke les réglages persistants dans"
+  },
+  "helpOptionsReferenceAfterStorage": {
+    "message": "Ces réglages restent locaux dans le profil du navigateur."
+  },
+  "helpOptionUserInterfaceLanguageDescription": {
+    "message": ": choisir la détection automatique de la langue ou une langue d’interface SBM spécifique."
+  },
+  "helpOptionThemeDescription": {
+    "message": ": choisir le thème visuel utilisé par SBM."
+  },
+  "helpOptionDetailsPanePositionDescription": {
+    "message": ": placer le volet Détails à droite ou sous le volet Contenu du dossier."
+  },
+  "helpOptionFontDescription": {
+    "message": ": choisir l’une des familles de polices prises en charge."
+  },
+  "helpOptionFontSizeDescription": {
+    "message": ": ajuster la taille de base du texte de l’interface."
+  },
+  "helpOptionFontSpacingDescription": {
+    "message": ": ajuster l’interligne utilisé par les libellés et les lignes."
+  },
+  "helpOptionLimitSearchDescription": {
+    "message": "fait passer la recherche principale de tous les favoris à la seule arborescence du dossier actuel."
+  },
+  "helpOptionShowDeleteWarningDescription": {
+    "message": ": demander confirmation avant de supprimer des favoris ou des dossiers."
+  },
+  "helpOptionShowSortWarningDescription": {
+    "message": ": demander confirmation avant d’appliquer des tris permanents depuis le menu contextuel."
+  },
+  "helpOptionAllowKeyboardDeleteDescription": {
+    "message": ": contrôler si la touche Suppr peut supprimer les éléments sélectionnés."
+  },
+  "helpOptionNaturalSortDescription": {
+    "message": "contrôle l’ordre utilisé par les tris permanents par nom. Lorsque cette option est activée, les dossiers sont placés d’abord, puis les séparateurs, puis les favoris."
+  },
+  "helpOptionMultipleInstancesDescription": {
+    "message": ": lorsque cette option est désactivée, cliquer sur le bouton de l’extension active l’onglet SBM existant au lieu d’en ouvrir un nouveau."
+  },
+  "helpOptionStartAtFolderDescription": {
+    "message": ": ouvrir SBM dans un dossier de favoris sélectionné au lancement."
+  },
+  "helpOptionStartupFolderDescription": {
+    "message": ": sélectionner le dossier utilisé par l’option de lancement dans un dossier choisi."
+  },
+  "helpOptionUrlProtectionsDescription": {
+    "message": "Ces options contrôlent les protections pour les schémas d’URL de favoris plus risqués lorsque SBM ouvre des favoris via des actions d’onglet ou de fenêtre de l’extension. Elles n’empêchent pas l’enregistrement des favoris."
+  },
+  "helpOptionLibraryPaneWidthDescription": {
+    "message": ": largeur en pixels du volet Bibliothèque gauche."
+  },
+  "helpOptionDetailsPaneWidthDescription": {
+    "message": ": largeur en pixels du volet Détails de droite."
+  },
+  "helpOptionBottomDetailsHeightDescription": {
+    "message": ": hauteur en pixels du volet Détails inférieur."
+  },
+  "helpOptionPaneResizeBars": {
+    "message": "La taille des volets peut aussi être modifiée en faisant glisser les barres de redimensionnement visibles."
+  },
+  "helpOptionFolderContentsDescription": {
+    "message": "Ces options configurent les colonnes facultatives et les largeurs enregistrées dans le volet central Contenu du dossier. Nom et URL sont toujours affichés."
+  },
+  "helpOptionDateAddedColumnDescription": {
+    "message": ": colonne facultative indiquant quand un élément a été ajouté."
+  },
+  "helpOptionIdColumnDescription": {
+    "message": ": colonne facultative affichant les ID de favoris Chromium."
+  },
+  "helpOptionOrderColumnDescription": {
+    "message": ": colonne facultative affichant les valeurs d’ordre/index de dossier Chromium."
+  },
+  "helpOptionAdvancedDetailsViewDescription": {
+    "message": ": afficher les métadonnées avancées de favoris en lecture seule dans le volet Détails."
+  },
+  "helpOptionAdvancedDetailsEditDescription": {
+    "message": ": autoriser l’édition avancée prise en charge, actuellement limitée aux changements d’index de favoris."
+  },
+  "helpOptionOptimisationsDescription": {
+    "message": "Ces options servent principalement aux tests de performance et au dépannage. Laissez-les activées sauf si vous comparez les performances ou diagnostiquez un problème d’affichage."
+  },
+  "helpOptionDomRenderingDescription": {
+    "message": ": réduire certaines modifications du DOM dans les chemins de rendu."
+  },
+  "helpOptionTempTreeMapsDescription": {
+    "message": ": créer des tables de recherche temporaires lors de certaines opérations d’arborescence, puis les supprimer."
+  },
+  "helpOptionDebugSettingsBefore": {
+    "message": "Les réglages de débogage apparaissent uniquement lorsque"
+  },
+  "helpOptionDebugSettingsAfter": {
+    "message": "est activé. Le journal des avertissements/erreurs est temporaire et n’est pas enregistré dans les paramètres de l’extension."
+  },
   "hideDetailsPaneTooltip": {
     "message": "Masquer le volet Détails"
   },
@@ -385,6 +682,33 @@
   },
   "multipleInstancesAllowedHelp": {
     "message": "Lorsque cette option est désactivée, cliquer sur le bouton de l’extension active l’onglet Simple Bookmarks Manager existant au lieu d’en ouvrir un autre."
+  },
+  "startupBehavior": {
+    "message": "Comportement au démarrage"
+  },
+  "startupBehaviorHelp": {
+    "message": "Choisissez où Simple Bookmarks Manager s’ouvre au lancement."
+  },
+  "startAtConfiguredBookmarkFolder": {
+    "message": "Démarrer dans le dossier choisi"
+  },
+  "startAtConfiguredBookmarkFolderHelp": {
+    "message": "Lorsque cette option est activée, SBM s’ouvre dans le dossier de favoris sélectionné. Si le dossier n’existe plus, ce réglage est effacé et SBM utilise son dossier de démarrage normal."
+  },
+  "startupBookmarkFolder": {
+    "message": "Dossier de démarrage"
+  },
+  "startupBookmarkFolderHelp": {
+    "message": "Sélectionner le dossier de favoris existant à afficher au démarrage de SBM."
+  },
+  "startupBookmarkFolderNone": {
+    "message": "Aucun dossier de démarrage sélectionné"
+  },
+  "startupBookmarkFolderMissing": {
+    "message": "Le dossier précédemment sélectionné est manquant"
+  },
+  "startupBookmarkFolderLoadFailed": {
+    "message": "Impossible de charger les dossiers de favoris."
   },
   "mutationCreateBookmark": {
     "message": "créer un favori"
@@ -572,6 +896,12 @@
   "rightDetailsWidthHelp": {
     "message": "Largeur en pixels du panneau Détails droit."
   },
+  "bottomDetailsHeight": {
+    "message": "Hauteur du volet Détails inférieur"
+  },
+  "bottomDetailsHeightHelp": {
+    "message": "Hauteur en pixels utilisée lorsque la position du volet Détails est définie sur Bas."
+  },
   "rootFallback": {
     "message": "(racine)"
   },
@@ -619,6 +949,18 @@
   },
   "showErrorsWarningsHelp": {
     "message": "Avancé. Affiche un journal transitoire en mémoire pour cette session SBM. Les entrées du journal ne sont pas enregistrées dans les paramètres de l’extension."
+  },
+  "showAtLaunch": {
+    "message": "Afficher au démarrage"
+  },
+  "showHelpOnLaunch": {
+    "message": "Afficher l’aide au prochain démarrage"
+  },
+  "showHelpOnLaunchHelp": {
+    "message": "Lorsque cette option est activée, SBM affiche la boîte de dialogue d’aide une seule fois à la prochaine ouverture, puis désactive à nouveau ce réglage."
+  },
+  "helpOptionShowHelpOnLaunchDescription": {
+    "message": ": affiche la boîte de dialogue d’aide une seule fois à la prochaine ouverture de SBM, puis se désactive automatiquement."
   },
   "showSortWarning": {
     "message": "Afficher la confirmation de tri permanent"
@@ -754,6 +1096,18 @@
   },
   "themeHelp": {
     "message": "Définit le thème utilisé par Simple Bookmarks Manager."
+  },
+  "detailsPanePosition": {
+    "message": "Position du volet Détails"
+  },
+  "detailsPanePositionHelp": {
+    "message": "Choisir si le volet Détails apparaît à droite ou sous le volet Contenu du dossier."
+  },
+  "detailsPanePositionRight": {
+    "message": "Côté droit"
+  },
+  "detailsPanePositionBottom": {
+    "message": "Bas"
   },
   "themeSystem": {
     "message": "Système"

@@ -128,6 +128,9 @@
   "copy": {
     "message": "Copia"
   },
+  "copyUrlToClipboard": {
+    "message": "Copia URL negli appunti"
+  },
   "couldNotMoveBookmark": {
     "message": "Impossibile spostare l’elemento segnalibro: {error}"
   },
@@ -305,6 +308,300 @@
   "help": {
     "message": "Aiuto"
   },
+  "clickLabel": {
+    "message": "Fai clic"
+  },
+  "selectLabel": {
+    "message": "Seleziona"
+  },
+  "helpDocumentTitle": {
+    "message": "Guida di Simple Bookmarks Manager"
+  },
+  "helpTagline": {
+    "message": "Una guida pratica all’uso di SBM per esplorare, modificare, ordinare e organizzare localmente i segnalibri."
+  },
+  "helpQuickStartHeading": {
+    "message": "Avvio rapido"
+  },
+  "helpQuickStartIntro": {
+    "message": "Apri SBM dal pulsante nella barra degli strumenti del browser. Il gestore si apre come una normale pagina dell’estensione e lavora direttamente con l’albero dei segnalibri esistente di Chromium."
+  },
+  "helpLibraryPaneLabel": {
+    "message": "Riquadro Libreria:"
+  },
+  "helpLibraryPaneDescription": {
+    "message": "sfoglia le cartelle dei segnalibri ed espandi o comprimi le sottocartelle."
+  },
+  "helpFolderContentsPaneLabel": {
+    "message": "Riquadro Contenuto cartella:"
+  },
+  "helpFolderContentsPaneDescription": {
+    "message": "visualizza, seleziona, ordina, apri, trascina e gestisci gli elementi nella cartella selezionata."
+  },
+  "helpDetailsPaneLabel": {
+    "message": "Riquadro Dettagli:"
+  },
+  "helpDetailsPaneDescription": {
+    "message": "controlla e modifica il segnalibro o la cartella selezionata."
+  },
+  "helpBasicBookmarkManagementHeading": {
+    "message": "Gestione base dei segnalibri"
+  },
+  "helpBasicUseNewButtonsBefore": {
+    "message": "Usa"
+  },
+  "helpBasicUseNewButtonsMiddle": {
+    "message": "e"
+  },
+  "helpBasicUseNewButtonsAfter": {
+    "message": "per aggiungere elementi alla cartella corrente."
+  },
+  "helpBasicRightClickActions": {
+    "message": "Fai clic destro su cartelle o segnalibri per azioni come rinomina, modifica, elimina, taglia, copia, incolla, ordina e apri."
+  },
+  "helpBasicDragDrop": {
+    "message": "Usa il trascinamento per riordinare elementi o spostare segnalibri e cartelle in un’altra cartella."
+  },
+  "helpBasicDetailsPaneEdits": {
+    "message": "Usa il riquadro Dettagli per cambiare nomi dei segnalibri, URL, cartelle padre e campi avanzati supportati."
+  },
+  "helpBasicF2Before": {
+    "message": "Usa"
+  },
+  "helpBasicF2After": {
+    "message": "per rinominare la cartella attiva o modificare il segnalibro attivo."
+  },
+  "helpBasicMiddleClick": {
+    "message": "Fai clic con il tasto centrale su un segnalibro nel riquadro Contenuto cartella per aprirlo in una nuova scheda."
+  },
+  "helpSearchSortingHeading": {
+    "message": "Ricerca e ordinamento"
+  },
+  "helpSearchBox": {
+    "message": "Usa la casella di ricerca per cercare segnalibri per nome o URL."
+  },
+  "helpSearchLimitBefore": {
+    "message": "Attiva"
+  },
+  "helpSearchLimitAfter": {
+    "message": "per cercare solo dentro l’albero della cartella corrente."
+  },
+  "helpVisualSort": {
+    "message": "Usa il menu di ordinamento visivo o le intestazioni delle colonne per ordinare temporaneamente il riquadro Contenuto cartella."
+  },
+  "helpPermanentSort": {
+    "message": "Usa l’ordinamento permanente dal clic destro quando vuoi modificare l’ordine dei segnalibri salvato in Chromium."
+  },
+  "helpSeparatorsBeforeTitle": {
+    "message": "SBM supporta una convenzione per separatori compatibile con Chromium. Un separatore viene salvato come segnalibro con titolo"
+  },
+  "helpSeparatorsBetweenTitleUrl": {
+    "message": "e URL"
+  },
+  "helpSeparatorsAfterUrl": {
+    "message": "SBM visualizza questa convenzione come divisore visivo."
+  },
+  "helpKeyboardShortcutsHeading": {
+    "message": "Scorciatoie da tastiera"
+  },
+  "helpShortcutArrowKeysLabel": {
+    "message": "Tasti freccia:"
+  },
+  "helpShortcutArrowKeysDescription": {
+    "message": "spostarsi nel riquadro attivo."
+  },
+  "helpShortcutEnterLabel": {
+    "message": "Invio:"
+  },
+  "helpShortcutEnterDescription": {
+    "message": "aprire un segnalibro o entrare in una cartella."
+  },
+  "helpShortcutBackspaceLabel": {
+    "message": "Backspace:"
+  },
+  "helpShortcutBackspaceDescription": {
+    "message": "salire di un livello cartella quando disponibile."
+  },
+  "helpShortcutCtrlFLabel": {
+    "message": "Ctrl+F:"
+  },
+  "helpShortcutCtrlFDescription": {
+    "message": "mettere a fuoco la casella di ricerca."
+  },
+  "helpShortcutF2Label": {
+    "message": "F2:"
+  },
+  "helpShortcutF2Description": {
+    "message": "rinominare la cartella attiva o modificare il segnalibro attivo."
+  },
+  "helpShortcutDeleteLabel": {
+    "message": "Canc:"
+  },
+  "helpShortcutDeleteDescription": {
+    "message": "eliminare l’elemento selezionato quando l’eliminazione da tastiera è attiva."
+  },
+  "helpShortcutEscapeLabel": {
+    "message": "Esc:"
+  },
+  "helpShortcutEscapeDescription": {
+    "message": "chiudere dialoghi o menu SBM aperti."
+  },
+  "helpPinningHeading": {
+    "message": "Fissare Simple Bookmarks Manager per un accesso rapido"
+  },
+  "helpPinningIntro": {
+    "message": "Fissare Simple Bookmarks Manager (SBM) alla barra degli strumenti permette un accesso più rapido e comodo all’estensione."
+  },
+  "helpPinningIntro2": {
+    "message": "Dopo aver installato SBM nel browser basato su Chromium, puoi fissarlo alla barra degli strumenti in uno dei modi seguenti:"
+  },
+  "helpPinViaExtensionsMenuHeading": {
+    "message": "1. Fissare dal menu Estensioni"
+  },
+  "helpPinViaExtensionsMenuStep1": {
+    "message": "Fai clic sul pulsante Estensioni, di solito a destra della barra degli indirizzi."
+  },
+  "helpFindSbmBefore": {
+    "message": "Trova"
+  },
+  "helpFindSbmAfter": {
+    "message": "nell’elenco."
+  },
+  "helpPinIconBefore": {
+    "message": "Fai clic sull’icona di fissaggio accanto a"
+  },
+  "helpPinToggleExplanation": {
+    "message": "Questo fisserà SBM alla barra degli strumenti. Se SBM è già fissato, fare clic sull’icona lo rimuoverà."
+  },
+  "helpPinViaManageExtensionsHeading": {
+    "message": "2. Fissare dalla pagina Gestisci estensioni"
+  },
+  "helpPinViaManageExtensionsStep1": {
+    "message": "Fai clic sul pulsante Estensioni, di solito a destra della barra degli indirizzi."
+  },
+  "helpManageExtensions": {
+    "message": "Gestisci estensioni"
+  },
+  "helpAlternatively": {
+    "message": "In alternativa:"
+  },
+  "helpChromiumMenuStep": {
+    "message": "Fai clic sul pulsante del menu Chromium."
+  },
+  "helpExtensions": {
+    "message": "Estensioni"
+  },
+  "helpOnceExtensionsPageOpen": {
+    "message": "Quando la pagina Estensioni è aperta:"
+  },
+  "helpScrollDownToBefore": {
+    "message": "Scorri verso il basso fino a"
+  },
+  "helpPinToToolbar": {
+    "message": "Fissa alla barra degli strumenti"
+  },
+  "helpToggleOptionOn": {
+    "message": "Attiva l’opzione."
+  },
+  "helpOptionsReferenceHeading": {
+    "message": "Riferimento opzioni"
+  },
+  "helpOptionsReferenceBeforeStorage": {
+    "message": "La pagina Opzioni salva le impostazioni persistenti in"
+  },
+  "helpOptionsReferenceAfterStorage": {
+    "message": "Queste impostazioni restano locali nel profilo del browser."
+  },
+  "helpOptionUserInterfaceLanguageDescription": {
+    "message": ": scegli il rilevamento automatico della lingua o una lingua specifica per l’interfaccia SBM."
+  },
+  "helpOptionThemeDescription": {
+    "message": ": scegli il tema visivo usato da SBM."
+  },
+  "helpOptionDetailsPanePositionDescription": {
+    "message": ": posiziona il riquadro Dettagli a destra o sotto il riquadro Contenuto cartella."
+  },
+  "helpOptionFontDescription": {
+    "message": ": scegli una delle famiglie di caratteri supportate."
+  },
+  "helpOptionFontSizeDescription": {
+    "message": ": regola la dimensione base del testo dell’interfaccia."
+  },
+  "helpOptionFontSpacingDescription": {
+    "message": ": regola l’interlinea usata da etichette e righe."
+  },
+  "helpOptionLimitSearchDescription": {
+    "message": "cambia la casella di ricerca principale da tutti i segnalibri al solo albero della cartella corrente."
+  },
+  "helpOptionShowDeleteWarningDescription": {
+    "message": ": chiede conferma prima di eliminare segnalibri o cartelle."
+  },
+  "helpOptionShowSortWarningDescription": {
+    "message": ": chiede conferma prima di applicare ordinamenti permanenti dal menu contestuale."
+  },
+  "helpOptionAllowKeyboardDeleteDescription": {
+    "message": ": controlla se il tasto Canc può rimuovere gli elementi selezionati."
+  },
+  "helpOptionNaturalSortDescription": {
+    "message": "controlla l’ordine usato dagli ordinamenti permanenti per nome. Se attivo, prima vengono le cartelle, poi i separatori, poi i segnalibri."
+  },
+  "helpOptionMultipleInstancesDescription": {
+    "message": ": se disattivato, il pulsante dell’estensione porta in primo piano la scheda SBM esistente invece di aprirne una nuova."
+  },
+  "helpOptionStartAtFolderDescription": {
+    "message": ": apre SBM in una cartella di segnalibri selezionata all’avvio."
+  },
+  "helpOptionStartupFolderDescription": {
+    "message": ": seleziona la cartella usata dall’opzione di avvio nella cartella scelta."
+  },
+  "helpOptionUrlProtectionsDescription": {
+    "message": "Queste opzioni controllano le protezioni per schemi URL di segnalibri più rischiosi quando SBM apre segnalibri tramite azioni di scheda o finestra dell’estensione. Non impediscono il salvataggio dei segnalibri."
+  },
+  "helpOptionLibraryPaneWidthDescription": {
+    "message": ": larghezza in pixel del riquadro Libreria sinistro."
+  },
+  "helpOptionDetailsPaneWidthDescription": {
+    "message": ": larghezza in pixel del riquadro Dettagli destro."
+  },
+  "helpOptionBottomDetailsHeightDescription": {
+    "message": ": altezza in pixel del riquadro Dettagli inferiore."
+  },
+  "helpOptionPaneResizeBars": {
+    "message": "Le dimensioni dei riquadri possono anche essere cambiate trascinando le barre di ridimensionamento visibili."
+  },
+  "helpOptionFolderContentsDescription": {
+    "message": "Queste opzioni configurano le colonne facoltative e le larghezze salvate nel riquadro centrale Contenuto cartella. Nome e URL sono sempre mostrati."
+  },
+  "helpOptionDateAddedColumnDescription": {
+    "message": ": colonna facoltativa che mostra quando un elemento è stato aggiunto."
+  },
+  "helpOptionIdColumnDescription": {
+    "message": ": colonna facoltativa che mostra gli ID dei segnalibri Chromium."
+  },
+  "helpOptionOrderColumnDescription": {
+    "message": ": colonna facoltativa che mostra valori di ordine/indice cartella di Chromium."
+  },
+  "helpOptionAdvancedDetailsViewDescription": {
+    "message": ": mostra metadati avanzati dei segnalibri in sola lettura nel riquadro Dettagli."
+  },
+  "helpOptionAdvancedDetailsEditDescription": {
+    "message": ": consente la modifica avanzata supportata, attualmente limitata alle modifiche dell’indice segnalibro."
+  },
+  "helpOptionOptimisationsDescription": {
+    "message": "Queste opzioni servono principalmente per benchmark e risoluzione problemi. Lasciale attive salvo confronto prestazioni o diagnosi di un problema di rendering."
+  },
+  "helpOptionDomRenderingDescription": {
+    "message": ": riduce alcune modifiche DOM nei percorsi di rendering."
+  },
+  "helpOptionTempTreeMapsDescription": {
+    "message": ": crea mappe di ricerca temporanee durante alcune operazioni sull’albero e poi le elimina."
+  },
+  "helpOptionDebugSettingsBefore": {
+    "message": "Le impostazioni di debug compaiono solo quando"
+  },
+  "helpOptionDebugSettingsAfter": {
+    "message": "è attivo. Il registro avvisi/errori è temporaneo e non viene salvato nelle impostazioni dell’estensione."
+  },
   "hideDetailsPaneTooltip": {
     "message": "Nascondi il riquadro Dettagli"
   },
@@ -385,6 +682,33 @@
   },
   "multipleInstancesAllowedHelp": {
     "message": "Quando disabilitato, facendo clic sul pulsante dell’estensione viene attivata la scheda esistente di Simple Bookmarks Manager invece di aprirne un’altra."
+  },
+  "startupBehavior": {
+    "message": "Comportamento all’avvio"
+  },
+  "startupBehaviorHelp": {
+    "message": "Scegli dove si apre Simple Bookmarks Manager all’avvio."
+  },
+  "startAtConfiguredBookmarkFolder": {
+    "message": "Avvia nella cartella scelta"
+  },
+  "startAtConfiguredBookmarkFolderHelp": {
+    "message": "Se attivo, SBM si apre nella cartella di segnalibri selezionata. Se la cartella non esiste più, l’impostazione viene cancellata e SBM usa la cartella di avvio normale."
+  },
+  "startupBookmarkFolder": {
+    "message": "Cartella di avvio"
+  },
+  "startupBookmarkFolderHelp": {
+    "message": "Seleziona la cartella di segnalibri esistente da mostrare all’avvio di SBM."
+  },
+  "startupBookmarkFolderNone": {
+    "message": "Nessuna cartella di avvio selezionata"
+  },
+  "startupBookmarkFolderMissing": {
+    "message": "La cartella selezionata in precedenza non è presente"
+  },
+  "startupBookmarkFolderLoadFailed": {
+    "message": "Impossibile caricare le cartelle dei segnalibri."
   },
   "mutationCreateBookmark": {
     "message": "crea segnalibro"
@@ -572,6 +896,12 @@
   "rightDetailsWidthHelp": {
     "message": "Larghezza in pixel per il riquadro Dettagli a destra."
   },
+  "bottomDetailsHeight": {
+    "message": "Altezza riquadro Dettagli inferiore"
+  },
+  "bottomDetailsHeightHelp": {
+    "message": "Altezza in pixel usata quando la posizione del riquadro Dettagli è impostata su In basso."
+  },
   "rootFallback": {
     "message": "(radice)"
   },
@@ -619,6 +949,18 @@
   },
   "showErrorsWarningsHelp": {
     "message": "Avanzate. Mostra un registro temporaneo in memoria per questa sessione SBM. Le voci del registro non vengono salvate nelle impostazioni dell’estensione."
+  },
+  "showAtLaunch": {
+    "message": "Mostra all’avvio"
+  },
+  "showHelpOnLaunch": {
+    "message": "Mostra la Guida al prossimo avvio"
+  },
+  "showHelpOnLaunchHelp": {
+    "message": "Se attivo, SBM mostra la finestra Guida una volta alla prossima apertura, poi disattiva di nuovo questa impostazione."
+  },
+  "helpOptionShowHelpOnLaunchDescription": {
+    "message": ": mostra la finestra Guida una volta alla prossima apertura di SBM, poi si disattiva automaticamente."
   },
   "showSortWarning": {
     "message": "Mostra conferma ordinamento permanente"
@@ -754,6 +1096,18 @@
   },
   "themeHelp": {
     "message": "Imposta il tema usato da Simple Bookmarks Manager."
+  },
+  "detailsPanePosition": {
+    "message": "Posizione riquadro Dettagli"
+  },
+  "detailsPanePositionHelp": {
+    "message": "Scegli se il riquadro Dettagli appare a destra o sotto il riquadro Contenuto cartella."
+  },
+  "detailsPanePositionRight": {
+    "message": "Lato destro"
+  },
+  "detailsPanePositionBottom": {
+    "message": "In basso"
   },
   "themeSystem": {
     "message": "Sistema"

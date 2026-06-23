@@ -128,6 +128,9 @@
   "copy": {
     "message": "Tārua"
   },
+  "copyUrlToClipboard": {
+    "message": "Copy URL ki te papatopenga"
+  },
   "couldNotMoveBookmark": {
     "message": "Kāore i taea te neke i te tūemi tohuwāhi: {error}"
   },
@@ -305,6 +308,300 @@
   "help": {
     "message": "Āwhina"
   },
+  "clickLabel": {
+    "message": "Pāwhiri"
+  },
+  "selectLabel": {
+    "message": "Tīpako"
+  },
+  "helpDocumentTitle": {
+    "message": "Āwhina Simple Bookmarks Manager"
+  },
+  "helpTagline": {
+    "message": "He aratohu mō te whakamahi i te SBM hei tiro, whakatika, whakaraupapa, me te whakahaere bookmarks ā-rohe."
+  },
+  "helpQuickStartHeading": {
+    "message": "Tīmata tere"
+  },
+  "helpQuickStartIntro": {
+    "message": "Open SBM from the browser toolbar button. The manager opens as a normal extension page and works directly with Chromium's existing bookmark tree."
+  },
+  "helpLibraryPaneLabel": {
+    "message": "Library pane:"
+  },
+  "helpLibraryPaneDescription": {
+    "message": "browse bookmark folders and expand or collapse subfolders."
+  },
+  "helpFolderContentsPaneLabel": {
+    "message": "Folder Contents pane:"
+  },
+  "helpFolderContentsPaneDescription": {
+    "message": "view, select, sort, open, drag, and manage items in the selected folder."
+  },
+  "helpDetailsPaneLabel": {
+    "message": "Details pane:"
+  },
+  "helpDetailsPaneDescription": {
+    "message": "inspect and edit the selected bookmark or folder."
+  },
+  "helpBasicBookmarkManagementHeading": {
+    "message": "Whakahaere bookmark taketake"
+  },
+  "helpBasicUseNewButtonsBefore": {
+    "message": "Use"
+  },
+  "helpBasicUseNewButtonsMiddle": {
+    "message": "and"
+  },
+  "helpBasicUseNewButtonsAfter": {
+    "message": "to add items to the current folder."
+  },
+  "helpBasicRightClickActions": {
+    "message": "Right-click folders or bookmarks for actions such as rename, edit, delete, cut, copy, paste, sort, and open."
+  },
+  "helpBasicDragDrop": {
+    "message": "Use drag-and-drop to reorder items or move bookmarks and folders into another folder."
+  },
+  "helpBasicDetailsPaneEdits": {
+    "message": "Use the Details pane to change bookmark names, URLs, parent folders, and supported advanced fields."
+  },
+  "helpBasicF2Before": {
+    "message": "Use"
+  },
+  "helpBasicF2After": {
+    "message": "to rename the active folder or edit the active bookmark."
+  },
+  "helpBasicMiddleClick": {
+    "message": "Middle-click a bookmark in the Folder Contents pane to open it in a new tab."
+  },
+  "helpSearchSortingHeading": {
+    "message": "Rapu me te whakaraupapa"
+  },
+  "helpSearchBox": {
+    "message": "Use the search box to search bookmarks by name or URL."
+  },
+  "helpSearchLimitBefore": {
+    "message": "Enable"
+  },
+  "helpSearchLimitAfter": {
+    "message": "to search only inside the current folder tree."
+  },
+  "helpVisualSort": {
+    "message": "Use the visual sort dropdown or column headers for temporary sorting in the Folder Contents pane."
+  },
+  "helpPermanentSort": {
+    "message": "Use right-click permanent sorting when you want Chromium's saved bookmark order changed."
+  },
+  "helpSeparatorsBeforeTitle": {
+    "message": "SBM supports a Chromium-compatible separator convention. A separator is stored as a bookmark with the title"
+  },
+  "helpSeparatorsBetweenTitleUrl": {
+    "message": "and URL"
+  },
+  "helpSeparatorsAfterUrl": {
+    "message": "SBM renders that convention as a visual divider."
+  },
+  "helpKeyboardShortcutsHeading": {
+    "message": "Pokatata papapātuhi"
+  },
+  "helpShortcutArrowKeysLabel": {
+    "message": "Arrow keys:"
+  },
+  "helpShortcutArrowKeysDescription": {
+    "message": "move through the active pane."
+  },
+  "helpShortcutEnterLabel": {
+    "message": "Enter:"
+  },
+  "helpShortcutEnterDescription": {
+    "message": "open a bookmark or navigate into a folder."
+  },
+  "helpShortcutBackspaceLabel": {
+    "message": "Backspace:"
+  },
+  "helpShortcutBackspaceDescription": {
+    "message": "move up one folder level when available."
+  },
+  "helpShortcutCtrlFLabel": {
+    "message": "Ctrl+F:"
+  },
+  "helpShortcutCtrlFDescription": {
+    "message": "focus the search box."
+  },
+  "helpShortcutF2Label": {
+    "message": "F2:"
+  },
+  "helpShortcutF2Description": {
+    "message": "rename the active folder or edit the active bookmark."
+  },
+  "helpShortcutDeleteLabel": {
+    "message": "Delete:"
+  },
+  "helpShortcutDeleteDescription": {
+    "message": "delete the selected item when keyboard deletion is enabled."
+  },
+  "helpShortcutEscapeLabel": {
+    "message": "Escape:"
+  },
+  "helpShortcutEscapeDescription": {
+    "message": "close open SBM dialogs or menus."
+  },
+  "helpPinningHeading": {
+    "message": "Pin Simple Bookmarks Manager mō te uru tere"
+  },
+  "helpPinningIntro": {
+    "message": "Pinning Simple Bookmarks Manager (SBM) to the toolbar allows faster and easier access to the extension."
+  },
+  "helpPinningIntro2": {
+    "message": "Once SBM is installed in your Chromium-based browser, you can pin it to the toolbar in one of the following ways:"
+  },
+  "helpPinViaExtensionsMenuHeading": {
+    "message": "1. Pin via the Extensions menu"
+  },
+  "helpPinViaExtensionsMenuStep1": {
+    "message": "Click the Extensions button, usually located to the right of the address bar."
+  },
+  "helpFindSbmBefore": {
+    "message": "Find"
+  },
+  "helpFindSbmAfter": {
+    "message": "in the list."
+  },
+  "helpPinIconBefore": {
+    "message": "Click the pin icon next to"
+  },
+  "helpPinToggleExplanation": {
+    "message": "This will pin SBM to the toolbar. If SBM is already pinned, clicking the pin icon will unpin it."
+  },
+  "helpPinViaManageExtensionsHeading": {
+    "message": "2. Pin via the Manage Extensions page"
+  },
+  "helpPinViaManageExtensionsStep1": {
+    "message": "Click the Extensions button, usually located to the right of the address bar."
+  },
+  "helpManageExtensions": {
+    "message": "Manage Extensions"
+  },
+  "helpAlternatively": {
+    "message": "Alternatively:"
+  },
+  "helpChromiumMenuStep": {
+    "message": "Click the Chromium menu button."
+  },
+  "helpExtensions": {
+    "message": "Extensions"
+  },
+  "helpOnceExtensionsPageOpen": {
+    "message": "Once the Extensions page is open:"
+  },
+  "helpScrollDownToBefore": {
+    "message": "Scroll down to"
+  },
+  "helpPinToToolbar": {
+    "message": "Pin to toolbar"
+  },
+  "helpToggleOptionOn": {
+    "message": "Toggle the option on."
+  },
+  "helpOptionsReferenceHeading": {
+    "message": "Options reference"
+  },
+  "helpOptionsReferenceBeforeStorage": {
+    "message": "The Options page stores persistent settings in"
+  },
+  "helpOptionsReferenceAfterStorage": {
+    "message": "These settings stay local to the browser profile."
+  },
+  "helpOptionUserInterfaceLanguageDescription": {
+    "message": ": choose automatic language detection or a specific SBM UI language."
+  },
+  "helpOptionThemeDescription": {
+    "message": ": choose the visual theme used by SBM."
+  },
+  "helpOptionDetailsPanePositionDescription": {
+    "message": ": place the Details pane on the right side or below the Folder Contents pane."
+  },
+  "helpOptionFontDescription": {
+    "message": ": choose one of the supported font families."
+  },
+  "helpOptionFontSizeDescription": {
+    "message": ": adjust the base UI text size."
+  },
+  "helpOptionFontSpacingDescription": {
+    "message": ": adjust the line spacing used by labels and rows."
+  },
+  "helpOptionLimitSearchDescription": {
+    "message": "changes the main search box from searching all bookmarks to searching only within the current folder tree."
+  },
+  "helpOptionShowDeleteWarningDescription": {
+    "message": ": asks before deleting bookmark items or folders."
+  },
+  "helpOptionShowSortWarningDescription": {
+    "message": ": asks before applying permanent context-menu sorting."
+  },
+  "helpOptionAllowKeyboardDeleteDescription": {
+    "message": ": controls whether the keyboard Delete key can remove selected items."
+  },
+  "helpOptionNaturalSortDescription": {
+    "message": "controls the order used by permanent Sort by Name operations. When enabled, folders are placed first, separators next, then bookmarks."
+  },
+  "helpOptionMultipleInstancesDescription": {
+    "message": ": when disabled, clicking the extension button focuses the existing SBM tab instead of opening a new one."
+  },
+  "helpOptionStartAtFolderDescription": {
+    "message": ": opens SBM at a selected bookmark folder when launched."
+  },
+  "helpOptionStartupFolderDescription": {
+    "message": ": selects the folder used by the chosen-folder startup option."
+  },
+  "helpOptionUrlProtectionsDescription": {
+    "message": "These options control protections for higher-risk bookmark URL schemes when SBM opens bookmarks through extension tab or window actions. They do not prevent saving bookmarks."
+  },
+  "helpOptionLibraryPaneWidthDescription": {
+    "message": ": width in pixels for the left Library pane."
+  },
+  "helpOptionDetailsPaneWidthDescription": {
+    "message": ": width in pixels for the right-side Details pane."
+  },
+  "helpOptionBottomDetailsHeightDescription": {
+    "message": ": height in pixels for the bottom Details pane."
+  },
+  "helpOptionPaneResizeBars": {
+    "message": "Pane sizes can also be changed by dragging the visible pane resize bars."
+  },
+  "helpOptionFolderContentsDescription": {
+    "message": "These options configure the optional columns and saved column widths in the middle Folder Contents pane. Name and URL are always shown."
+  },
+  "helpOptionDateAddedColumnDescription": {
+    "message": ": optional column showing when an item was added."
+  },
+  "helpOptionIdColumnDescription": {
+    "message": ": optional column showing Chromium bookmark IDs."
+  },
+  "helpOptionOrderColumnDescription": {
+    "message": ": optional column showing Chromium folder order/index values."
+  },
+  "helpOptionAdvancedDetailsViewDescription": {
+    "message": ": shows read-only advanced bookmark metadata in the Details pane."
+  },
+  "helpOptionAdvancedDetailsEditDescription": {
+    "message": ": allows supported advanced editing, currently limited to bookmark index changes."
+  },
+  "helpOptionOptimisationsDescription": {
+    "message": "These options are mainly for benchmarking and troubleshooting. Leave them enabled unless you are comparing performance or diagnosing a rendering issue."
+  },
+  "helpOptionDomRenderingDescription": {
+    "message": ": reduces selected DOM churn in rendering paths."
+  },
+  "helpOptionTempTreeMapsDescription": {
+    "message": ": builds short-lived lookup maps during some tree operations, then discards them."
+  },
+  "helpOptionDebugSettingsBefore": {
+    "message": "Debug settings appear only when"
+  },
+  "helpOptionDebugSettingsAfter": {
+    "message": "is enabled. The warnings/errors log is transient and is not saved to extension settings."
+  },
   "hideDetailsPaneTooltip": {
     "message": "Hunaia te pihanga Taipitopito"
   },
@@ -385,6 +682,33 @@
   },
   "multipleInstancesAllowedHelp": {
     "message": "Ina monokia, mā te pāwhiri i te pātene toronga ka arotahi ki te ripa Simple Bookmarks Manager e tū ana, kaua ki te huaki i tētahi atu."
+  },
+  "startupBehavior": {
+    "message": "Āhua tīmatanga"
+  },
+  "startupBehaviorHelp": {
+    "message": "Choose where Simple Bookmarks Manager opens when launched."
+  },
+  "startAtConfiguredBookmarkFolder": {
+    "message": "Tīmata ki te folder kua tīpakohia"
+  },
+  "startAtConfiguredBookmarkFolderHelp": {
+    "message": "When enabled, SBM opens at the selected bookmark folder. If the folder no longer exists, this setting is cleared and SBM uses its normal startup folder."
+  },
+  "startupBookmarkFolder": {
+    "message": "Startup folder"
+  },
+  "startupBookmarkFolderHelp": {
+    "message": "Select the existing bookmark folder to show when SBM starts."
+  },
+  "startupBookmarkFolderNone": {
+    "message": "Kāore anō kia tīpakohia he startup folder"
+  },
+  "startupBookmarkFolderMissing": {
+    "message": "Kua ngaro te folder i tīpakohia i mua"
+  },
+  "startupBookmarkFolderLoadFailed": {
+    "message": "Kāore i taea te uta i ngā bookmark folders."
   },
   "mutationCreateBookmark": {
     "message": "waihanga tohuwāhi"
@@ -572,6 +896,12 @@
   "rightDetailsWidthHelp": {
     "message": "Whānui ā-pika mō te pihanga Taipitopito matau."
   },
+  "bottomDetailsHeight": {
+    "message": "Teitei o te Bottom Details pane"
+  },
+  "bottomDetailsHeightHelp": {
+    "message": "Height in pixels used when the Details pane position is set to Bottom."
+  },
   "rootFallback": {
     "message": "(pūtake)"
   },
@@ -619,6 +949,18 @@
   },
   "showErrorsWarningsHelp": {
     "message": "Arā atu anō. Ka whakaatu i tētahi rangitaki rangitahi ā-pūmahara mō tēnei wātū SBM. Kāore ngā tāurunga rangitaki e tiakina ki ngā tautuhinga toronga."
+  },
+  "showAtLaunch": {
+    "message": "Whakaatu i te tīmatanga"
+  },
+  "showHelpOnLaunch": {
+    "message": "Whakaatu Āwhina i te tīmatanga e whai ake nei"
+  },
+  "showHelpOnLaunchHelp": {
+    "message": "When enabled, SBM shows the Help dialog once the next time it opens, then turns this setting off again."
+  },
+  "helpOptionShowHelpOnLaunchDescription": {
+    "message": ": shows the Help dialog once the next time SBM opens, then turns itself off again."
   },
   "showSortWarning": {
     "message": "Whakaatu whakatūpato raupapa pūmau"
@@ -754,6 +1096,18 @@
   },
   "themeHelp": {
     "message": "Tautuhia te kaupapa e whakamahia ana e Simple Bookmarks Manager."
+  },
+  "detailsPanePosition": {
+    "message": "Tūnga Details pane"
+  },
+  "detailsPanePositionHelp": {
+    "message": "Choose whether the Details pane appears on the right side or below the Folder Contents pane."
+  },
+  "detailsPanePositionRight": {
+    "message": "Taha matau"
+  },
+  "detailsPanePositionBottom": {
+    "message": "Raro"
   },
   "themeSystem": {
     "message": "Pūnaha"

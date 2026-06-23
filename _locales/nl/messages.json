@@ -128,6 +128,9 @@
   "copy": {
     "message": "Kopiëren"
   },
+  "copyUrlToClipboard": {
+    "message": "URL naar klembord kopiëren"
+  },
   "couldNotMoveBookmark": {
     "message": "Kan bladwijzeritem niet verplaatsen: {error}"
   },
@@ -305,6 +308,300 @@
   "help": {
     "message": "Help"
   },
+  "clickLabel": {
+    "message": "Klik"
+  },
+  "selectLabel": {
+    "message": "Selecteer"
+  },
+  "helpDocumentTitle": {
+    "message": "Help voor Simple Bookmarks Manager"
+  },
+  "helpTagline": {
+    "message": "Een praktische gids voor het lokaal bekijken, bewerken, sorteren en organiseren van bladwijzers met SBM."
+  },
+  "helpQuickStartHeading": {
+    "message": "Snel starten"
+  },
+  "helpQuickStartIntro": {
+    "message": "Open SBM via de knop op de browserwerkbalk. De manager opent als een normale extensiepagina en werkt direct met de bestaande Chromium-bladwijzerstructuur."
+  },
+  "helpLibraryPaneLabel": {
+    "message": "Bibliotheekpaneel:"
+  },
+  "helpLibraryPaneDescription": {
+    "message": "bladwijzermappen bekijken en submappen uit- of inklappen."
+  },
+  "helpFolderContentsPaneLabel": {
+    "message": "Paneel Mapinhoud:"
+  },
+  "helpFolderContentsPaneDescription": {
+    "message": "items in de geselecteerde map bekijken, selecteren, sorteren, openen, slepen en beheren."
+  },
+  "helpDetailsPaneLabel": {
+    "message": "Detailspaneel:"
+  },
+  "helpDetailsPaneDescription": {
+    "message": "de geselecteerde bladwijzer of map bekijken en bewerken."
+  },
+  "helpBasicBookmarkManagementHeading": {
+    "message": "Basisbeheer van bladwijzers"
+  },
+  "helpBasicUseNewButtonsBefore": {
+    "message": "Gebruik"
+  },
+  "helpBasicUseNewButtonsMiddle": {
+    "message": "en"
+  },
+  "helpBasicUseNewButtonsAfter": {
+    "message": "om items aan de huidige map toe te voegen."
+  },
+  "helpBasicRightClickActions": {
+    "message": "Klik met de rechtermuisknop op mappen of bladwijzers voor acties zoals hernoemen, bewerken, verwijderen, knippen, kopiëren, plakken, sorteren en openen."
+  },
+  "helpBasicDragDrop": {
+    "message": "Gebruik slepen en neerzetten om items opnieuw te ordenen of bladwijzers en mappen naar een andere map te verplaatsen."
+  },
+  "helpBasicDetailsPaneEdits": {
+    "message": "Gebruik het detailspaneel om bladwijzernamen, URL’s, bovenliggende mappen en ondersteunde geavanceerde velden te wijzigen."
+  },
+  "helpBasicF2Before": {
+    "message": "Gebruik"
+  },
+  "helpBasicF2After": {
+    "message": "om de actieve map te hernoemen of de actieve bladwijzer te bewerken."
+  },
+  "helpBasicMiddleClick": {
+    "message": "Klik met de middelste muisknop op een bladwijzer in het paneel Mapinhoud om deze in een nieuw tabblad te openen."
+  },
+  "helpSearchSortingHeading": {
+    "message": "Zoeken en sorteren"
+  },
+  "helpSearchBox": {
+    "message": "Gebruik het zoekvak om bladwijzers op naam of URL te zoeken."
+  },
+  "helpSearchLimitBefore": {
+    "message": "Schakel"
+  },
+  "helpSearchLimitAfter": {
+    "message": "in om alleen binnen de huidige mapstructuur te zoeken."
+  },
+  "helpVisualSort": {
+    "message": "Gebruik de keuzelijst voor visueel sorteren of de kolomkoppen voor tijdelijk sorteren in het paneel Mapinhoud."
+  },
+  "helpPermanentSort": {
+    "message": "Gebruik permanente sortering via rechtsklik wanneer je de opgeslagen bladwijzervolgorde in Chromium wilt wijzigen."
+  },
+  "helpSeparatorsBeforeTitle": {
+    "message": "SBM ondersteunt een Chromium-compatibele scheidingslijnconventie. Een scheidingslijn wordt opgeslagen als bladwijzer met de titel"
+  },
+  "helpSeparatorsBetweenTitleUrl": {
+    "message": "en URL"
+  },
+  "helpSeparatorsAfterUrl": {
+    "message": "SBM geeft die conventie weer als een visuele scheidingslijn."
+  },
+  "helpKeyboardShortcutsHeading": {
+    "message": "Sneltoetsen"
+  },
+  "helpShortcutArrowKeysLabel": {
+    "message": "Pijltoetsen:"
+  },
+  "helpShortcutArrowKeysDescription": {
+    "message": "door het actieve paneel bewegen."
+  },
+  "helpShortcutEnterLabel": {
+    "message": "Enter:"
+  },
+  "helpShortcutEnterDescription": {
+    "message": "een bladwijzer openen of een map binnengaan."
+  },
+  "helpShortcutBackspaceLabel": {
+    "message": "Backspace:"
+  },
+  "helpShortcutBackspaceDescription": {
+    "message": "een mapniveau omhoog gaan wanneer beschikbaar."
+  },
+  "helpShortcutCtrlFLabel": {
+    "message": "Ctrl+F:"
+  },
+  "helpShortcutCtrlFDescription": {
+    "message": "het zoekvak focussen."
+  },
+  "helpShortcutF2Label": {
+    "message": "F2:"
+  },
+  "helpShortcutF2Description": {
+    "message": "de actieve map hernoemen of de actieve bladwijzer bewerken."
+  },
+  "helpShortcutDeleteLabel": {
+    "message": "Delete:"
+  },
+  "helpShortcutDeleteDescription": {
+    "message": "het geselecteerde item verwijderen wanneer verwijderen via toetsenbord is ingeschakeld."
+  },
+  "helpShortcutEscapeLabel": {
+    "message": "Escape:"
+  },
+  "helpShortcutEscapeDescription": {
+    "message": "open SBM-dialogen of menu’s sluiten."
+  },
+  "helpPinningHeading": {
+    "message": "Simple Bookmarks Manager vastmaken voor snelle toegang"
+  },
+  "helpPinningIntro": {
+    "message": "Door Simple Bookmarks Manager (SBM) aan de werkbalk vast te maken, krijg je sneller en makkelijker toegang tot de extensie."
+  },
+  "helpPinningIntro2": {
+    "message": "Nadat SBM in je Chromium-gebaseerde browser is geïnstalleerd, kun je het op een van de volgende manieren aan de werkbalk vastmaken:"
+  },
+  "helpPinViaExtensionsMenuHeading": {
+    "message": "1. Vastmaken via het menu Extensies"
+  },
+  "helpPinViaExtensionsMenuStep1": {
+    "message": "Klik op de knop Extensies, meestal rechts van de adresbalk."
+  },
+  "helpFindSbmBefore": {
+    "message": "Zoek"
+  },
+  "helpFindSbmAfter": {
+    "message": "in de lijst."
+  },
+  "helpPinIconBefore": {
+    "message": "Klik op het vastmaakpictogram naast"
+  },
+  "helpPinToggleExplanation": {
+    "message": "Hiermee wordt SBM aan de werkbalk vastgemaakt. Als SBM al is vastgemaakt, maakt klikken op het pictogram het weer los."
+  },
+  "helpPinViaManageExtensionsHeading": {
+    "message": "2. Vastmaken via de pagina Extensies beheren"
+  },
+  "helpPinViaManageExtensionsStep1": {
+    "message": "Klik op de knop Extensies, meestal rechts van de adresbalk."
+  },
+  "helpManageExtensions": {
+    "message": "Extensies beheren"
+  },
+  "helpAlternatively": {
+    "message": "Als alternatief:"
+  },
+  "helpChromiumMenuStep": {
+    "message": "Klik op de Chromium-menuknop."
+  },
+  "helpExtensions": {
+    "message": "Extensies"
+  },
+  "helpOnceExtensionsPageOpen": {
+    "message": "Wanneer de pagina Extensies is geopend:"
+  },
+  "helpScrollDownToBefore": {
+    "message": "Scrol omlaag naar"
+  },
+  "helpPinToToolbar": {
+    "message": "Vastmaken aan werkbalk"
+  },
+  "helpToggleOptionOn": {
+    "message": "Zet de optie aan."
+  },
+  "helpOptionsReferenceHeading": {
+    "message": "Optiereferentie"
+  },
+  "helpOptionsReferenceBeforeStorage": {
+    "message": "De optiespagina slaat blijvende instellingen op in"
+  },
+  "helpOptionsReferenceAfterStorage": {
+    "message": "Deze instellingen blijven lokaal in het browserprofiel."
+  },
+  "helpOptionUserInterfaceLanguageDescription": {
+    "message": ": kies automatische taaldetectie of een specifieke SBM-UI-taal."
+  },
+  "helpOptionThemeDescription": {
+    "message": ": kies het visuele thema dat SBM gebruikt."
+  },
+  "helpOptionDetailsPanePositionDescription": {
+    "message": ": plaats het detailspaneel rechts of onder het paneel Mapinhoud."
+  },
+  "helpOptionFontDescription": {
+    "message": ": kies een van de ondersteunde lettertypefamilies."
+  },
+  "helpOptionFontSizeDescription": {
+    "message": ": pas de basistekstgrootte van de UI aan."
+  },
+  "helpOptionFontSpacingDescription": {
+    "message": ": pas de regelafstand voor labels en rijen aan."
+  },
+  "helpOptionLimitSearchDescription": {
+    "message": "wijzigt het hoofdzoekvak van zoeken in alle bladwijzers naar alleen zoeken binnen de huidige mapstructuur."
+  },
+  "helpOptionShowDeleteWarningDescription": {
+    "message": ": vraagt om bevestiging voordat bladwijzeritems of mappen worden verwijderd."
+  },
+  "helpOptionShowSortWarningDescription": {
+    "message": ": vraagt om bevestiging voordat permanente contextmenusorteringen worden toegepast."
+  },
+  "helpOptionAllowKeyboardDeleteDescription": {
+    "message": ": bepaalt of de Delete-toets geselecteerde items mag verwijderen."
+  },
+  "helpOptionNaturalSortDescription": {
+    "message": "bepaalt de volgorde die wordt gebruikt bij permanent sorteren op naam. Indien ingeschakeld komen eerst mappen, daarna scheidingslijnen en daarna bladwijzers."
+  },
+  "helpOptionMultipleInstancesDescription": {
+    "message": ": indien uitgeschakeld focust de extensieknop het bestaande SBM-tabblad in plaats van een nieuw tabblad te openen."
+  },
+  "helpOptionStartAtFolderDescription": {
+    "message": ": opent SBM bij het starten in een geselecteerde bladwijzermap."
+  },
+  "helpOptionStartupFolderDescription": {
+    "message": ": selecteert de map die wordt gebruikt door de startoptie met gekozen map."
+  },
+  "helpOptionUrlProtectionsDescription": {
+    "message": "Deze opties beheren bescherming voor risicovollere bladwijzer-URL-schema’s wanneer SBM bladwijzers opent via extensieacties voor tabbladen of vensters. Ze verhinderen niet dat bladwijzers worden opgeslagen."
+  },
+  "helpOptionLibraryPaneWidthDescription": {
+    "message": ": breedte in pixels van het linker bibliotheekpaneel."
+  },
+  "helpOptionDetailsPaneWidthDescription": {
+    "message": ": breedte in pixels van het rechter detailspaneel."
+  },
+  "helpOptionBottomDetailsHeightDescription": {
+    "message": ": hoogte in pixels van het onderste detailspaneel."
+  },
+  "helpOptionPaneResizeBars": {
+    "message": "Paneelgroottes kunnen ook worden gewijzigd door de zichtbare groottebalken te verslepen."
+  },
+  "helpOptionFolderContentsDescription": {
+    "message": "Deze opties configureren de optionele kolommen en opgeslagen kolombreedtes in het middelste paneel Mapinhoud. Naam en URL worden altijd getoond."
+  },
+  "helpOptionDateAddedColumnDescription": {
+    "message": ": optionele kolom die toont wanneer een item is toegevoegd."
+  },
+  "helpOptionIdColumnDescription": {
+    "message": ": optionele kolom die Chromium-bladwijzer-ID’s toont."
+  },
+  "helpOptionOrderColumnDescription": {
+    "message": ": optionele kolom die Chromium-mapvolgorde/indexwaarden toont."
+  },
+  "helpOptionAdvancedDetailsViewDescription": {
+    "message": ": toont alleen-lezen geavanceerde bladwijzermetadata in het detailspaneel."
+  },
+  "helpOptionAdvancedDetailsEditDescription": {
+    "message": ": staat ondersteunde geavanceerde bewerking toe, momenteel beperkt tot wijzigingen van de bladwijzerindex."
+  },
+  "helpOptionOptimisationsDescription": {
+    "message": "Deze opties zijn vooral bedoeld voor benchmarks en probleemoplossing. Laat ze ingeschakeld tenzij je prestaties vergelijkt of een renderprobleem onderzoekt."
+  },
+  "helpOptionDomRenderingDescription": {
+    "message": ": vermindert geselecteerde DOM-wijzigingen in renderpaden."
+  },
+  "helpOptionTempTreeMapsDescription": {
+    "message": ": bouwt tijdelijke zoekkaarten tijdens sommige boomoperaties en verwijdert ze daarna."
+  },
+  "helpOptionDebugSettingsBefore": {
+    "message": "Debuginstellingen verschijnen alleen wanneer"
+  },
+  "helpOptionDebugSettingsAfter": {
+    "message": "is ingeschakeld. Het waarschuwingen-/foutenlog is tijdelijk en wordt niet opgeslagen in extensie-instellingen."
+  },
   "hideDetailsPaneTooltip": {
     "message": "Detailpaneel verbergen"
   },
@@ -385,6 +682,33 @@
   },
   "multipleInstancesAllowedHelp": {
     "message": "Wanneer uitgeschakeld, focust een klik op de extensieknop het bestaande tabblad Simple Bookmarks Manager in plaats van een nieuw tabblad te openen."
+  },
+  "startupBehavior": {
+    "message": "Startgedrag"
+  },
+  "startupBehaviorHelp": {
+    "message": "Kies waar Simple Bookmarks Manager opent bij het starten."
+  },
+  "startAtConfiguredBookmarkFolder": {
+    "message": "Starten in gekozen map"
+  },
+  "startAtConfiguredBookmarkFolderHelp": {
+    "message": "Indien ingeschakeld opent SBM in de geselecteerde bladwijzermap. Als de map niet meer bestaat, wordt deze instelling gewist en gebruikt SBM de normale startmap."
+  },
+  "startupBookmarkFolder": {
+    "message": "Startmap"
+  },
+  "startupBookmarkFolderHelp": {
+    "message": "Selecteer de bestaande bladwijzermap die moet worden getoond wanneer SBM start."
+  },
+  "startupBookmarkFolderNone": {
+    "message": "Geen startmap geselecteerd"
+  },
+  "startupBookmarkFolderMissing": {
+    "message": "Eerder geselecteerde map ontbreekt"
+  },
+  "startupBookmarkFolderLoadFailed": {
+    "message": "Kon bladwijzermappen niet laden."
   },
   "mutationCreateBookmark": {
     "message": "bladwijzer maken"
@@ -572,6 +896,12 @@
   "rightDetailsWidthHelp": {
     "message": "Breedte in pixels voor het rechter detailpaneel."
   },
+  "bottomDetailsHeight": {
+    "message": "Hoogte onderste detailspaneel"
+  },
+  "bottomDetailsHeightHelp": {
+    "message": "Hoogte in pixels wanneer de positie van het detailspaneel op Onder is ingesteld."
+  },
   "rootFallback": {
     "message": "(hoofdmap)"
   },
@@ -619,6 +949,18 @@
   },
   "showErrorsWarningsHelp": {
     "message": "Geavanceerd. Toont een tijdelijk log in het geheugen voor deze SBM-sessie. Logitems worden niet opgeslagen in de extensie-instellingen."
+  },
+  "showAtLaunch": {
+    "message": "Tonen bij starten"
+  },
+  "showHelpOnLaunch": {
+    "message": "Help tonen bij volgende start"
+  },
+  "showHelpOnLaunchHelp": {
+    "message": "Indien ingeschakeld toont SBM het Help-dialoogvenster één keer bij de volgende opening en zet deze instelling daarna weer uit."
+  },
+  "helpOptionShowHelpOnLaunchDescription": {
+    "message": ": toont het Help-dialoogvenster één keer wanneer SBM de volgende keer opent en schakelt zichzelf daarna weer uit."
   },
   "showSortWarning": {
     "message": "Bevestiging voor permanente sortering tonen"
@@ -754,6 +1096,18 @@
   },
   "themeHelp": {
     "message": "Stel het thema in dat Simple Bookmarks Manager gebruikt."
+  },
+  "detailsPanePosition": {
+    "message": "Positie detailspaneel"
+  },
+  "detailsPanePositionHelp": {
+    "message": "Kies of het detailspaneel rechts of onder het paneel Mapinhoud verschijnt."
+  },
+  "detailsPanePositionRight": {
+    "message": "Rechterkant"
+  },
+  "detailsPanePositionBottom": {
+    "message": "Onder"
   },
   "themeSystem": {
     "message": "Systeem"

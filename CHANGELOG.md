@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.8.30
+
+- Updated non-Asian locale translations using the English locale as the base.
+- Added missing Help, startup Help, Details pane position, bottom Details height, and recent context-menu text for German, Spanish, French, Hebrew, Indonesian, Italian, Dutch, Polish, Portuguese (Brazil), Russian, Turkish, Ukrainian, Vietnamese, Māori, and en_Netspeak.
+
 ## 0.8.29
 
 - Updated Asian locale translations using the English locale as the base.

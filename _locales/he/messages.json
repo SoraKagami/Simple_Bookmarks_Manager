@@ -128,6 +128,9 @@
   "copy": {
     "message": "העתק"
   },
+  "copyUrlToClipboard": {
+    "message": "העתק URL ללוח"
+  },
   "couldNotMoveBookmark": {
     "message": "לא ניתן להזיז את פריט הסימנייה: {error}"
   },
@@ -305,6 +308,300 @@
   "help": {
     "message": "עזרה"
   },
+  "clickLabel": {
+    "message": "לחץ"
+  },
+  "selectLabel": {
+    "message": "בחר"
+  },
+  "helpDocumentTitle": {
+    "message": "עזרה עבור Simple Bookmarks Manager"
+  },
+  "helpTagline": {
+    "message": "מדריך מעשי לשימוש ב-SBM לעיון, עריכה, מיון וארגון מקומי של סימניות."
+  },
+  "helpQuickStartHeading": {
+    "message": "התחלה מהירה"
+  },
+  "helpQuickStartIntro": {
+    "message": "פתח את SBM מכפתור סרגל הכלים של הדפדפן. המנהל נפתח כדף הרחבה רגיל ועובד ישירות עם עץ הסימניות הקיים של Chromium."
+  },
+  "helpLibraryPaneLabel": {
+    "message": "חלונית ספרייה:"
+  },
+  "helpLibraryPaneDescription": {
+    "message": "עיין בתיקיות סימניות והרחב או כווץ תיקיות משנה."
+  },
+  "helpFolderContentsPaneLabel": {
+    "message": "חלונית תוכן תיקייה:"
+  },
+  "helpFolderContentsPaneDescription": {
+    "message": "הצג, בחר, מיין, פתח, גרור ונהל פריטים בתיקייה שנבחרה."
+  },
+  "helpDetailsPaneLabel": {
+    "message": "חלונית פרטים:"
+  },
+  "helpDetailsPaneDescription": {
+    "message": "בדוק וערוך את הסימנייה או התיקייה שנבחרה."
+  },
+  "helpBasicBookmarkManagementHeading": {
+    "message": "ניהול סימניות בסיסי"
+  },
+  "helpBasicUseNewButtonsBefore": {
+    "message": "השתמש ב־"
+  },
+  "helpBasicUseNewButtonsMiddle": {
+    "message": "וב־"
+  },
+  "helpBasicUseNewButtonsAfter": {
+    "message": "כדי להוסיף פריטים לתיקייה הנוכחית."
+  },
+  "helpBasicRightClickActions": {
+    "message": "לחץ לחיצה ימנית על תיקיות או סימניות לפעולות כגון שינוי שם, עריכה, מחיקה, גזירה, העתקה, הדבקה, מיון ופתיחה."
+  },
+  "helpBasicDragDrop": {
+    "message": "השתמש בגרירה ושחרור כדי לשנות סדר פריטים או להעביר סימניות ותיקיות לתיקייה אחרת."
+  },
+  "helpBasicDetailsPaneEdits": {
+    "message": "השתמש בחלונית הפרטים כדי לשנות שמות סימניות, כתובות URL, תיקיות אב ושדות מתקדמים נתמכים."
+  },
+  "helpBasicF2Before": {
+    "message": "השתמש ב־"
+  },
+  "helpBasicF2After": {
+    "message": "כדי לשנות את שם התיקייה הפעילה או לערוך את הסימנייה הפעילה."
+  },
+  "helpBasicMiddleClick": {
+    "message": "לחץ לחיצה אמצעית על סימנייה בחלונית תוכן התיקייה כדי לפתוח אותה בכרטיסייה חדשה."
+  },
+  "helpSearchSortingHeading": {
+    "message": "חיפוש ומיון"
+  },
+  "helpSearchBox": {
+    "message": "השתמש בתיבת החיפוש כדי לחפש סימניות לפי שם או URL."
+  },
+  "helpSearchLimitBefore": {
+    "message": "הפעל"
+  },
+  "helpSearchLimitAfter": {
+    "message": "כדי לחפש רק בתוך עץ התיקייה הנוכחי."
+  },
+  "helpVisualSort": {
+    "message": "השתמש בתפריט המיון החזותי או בכותרות העמודות למיון זמני בחלונית תוכן התיקייה."
+  },
+  "helpPermanentSort": {
+    "message": "השתמש במיון קבוע בלחיצה ימנית כאשר ברצונך לשנות את סדר הסימניות השמור ב-Chromium."
+  },
+  "helpSeparatorsBeforeTitle": {
+    "message": "SBM תומך בכלל מפריד התואם ל-Chromium. מפריד נשמר כסימנייה עם הכותרת"
+  },
+  "helpSeparatorsBetweenTitleUrl": {
+    "message": "ו-URL"
+  },
+  "helpSeparatorsAfterUrl": {
+    "message": "SBM מציג כלל זה כמפריד חזותי."
+  },
+  "helpKeyboardShortcutsHeading": {
+    "message": "קיצורי מקלדת"
+  },
+  "helpShortcutArrowKeysLabel": {
+    "message": "מקשי חצים:"
+  },
+  "helpShortcutArrowKeysDescription": {
+    "message": "מעבר בתוך החלונית הפעילה."
+  },
+  "helpShortcutEnterLabel": {
+    "message": "Enter:"
+  },
+  "helpShortcutEnterDescription": {
+    "message": "פתיחת סימנייה או כניסה לתיקייה."
+  },
+  "helpShortcutBackspaceLabel": {
+    "message": "Backspace:"
+  },
+  "helpShortcutBackspaceDescription": {
+    "message": "מעבר רמה אחת למעלה כאשר אפשר."
+  },
+  "helpShortcutCtrlFLabel": {
+    "message": "Ctrl+F:"
+  },
+  "helpShortcutCtrlFDescription": {
+    "message": "מיקוד תיבת החיפוש."
+  },
+  "helpShortcutF2Label": {
+    "message": "F2:"
+  },
+  "helpShortcutF2Description": {
+    "message": "שינוי שם התיקייה הפעילה או עריכת הסימנייה הפעילה."
+  },
+  "helpShortcutDeleteLabel": {
+    "message": "Delete:"
+  },
+  "helpShortcutDeleteDescription": {
+    "message": "מחיקת הפריט שנבחר כאשר מחיקה מהמקלדת מופעלת."
+  },
+  "helpShortcutEscapeLabel": {
+    "message": "Escape:"
+  },
+  "helpShortcutEscapeDescription": {
+    "message": "סגירת תיבות דו-שיח או תפריטים פתוחים של SBM."
+  },
+  "helpPinningHeading": {
+    "message": "הצמדת Simple Bookmarks Manager לגישה מהירה"
+  },
+  "helpPinningIntro": {
+    "message": "הצמדת Simple Bookmarks Manager (SBM) לסרגל הכלים מאפשרת גישה מהירה ונוחה יותר להרחבה."
+  },
+  "helpPinningIntro2": {
+    "message": "לאחר התקנת SBM בדפדפן מבוסס Chromium, ניתן להצמיד אותו לסרגל הכלים באחת מהדרכים הבאות:"
+  },
+  "helpPinViaExtensionsMenuHeading": {
+    "message": "1. הצמדה דרך תפריט ההרחבות"
+  },
+  "helpPinViaExtensionsMenuStep1": {
+    "message": "לחץ על כפתור ההרחבות, בדרך כלל מימין לשורת הכתובת."
+  },
+  "helpFindSbmBefore": {
+    "message": "מצא את"
+  },
+  "helpFindSbmAfter": {
+    "message": "ברשימה."
+  },
+  "helpPinIconBefore": {
+    "message": "לחץ על סמל ההצמדה ליד"
+  },
+  "helpPinToggleExplanation": {
+    "message": "פעולה זו תצמיד את SBM לסרגל הכלים. אם SBM כבר מוצמד, לחיצה על סמל ההצמדה תבטל את ההצמדה."
+  },
+  "helpPinViaManageExtensionsHeading": {
+    "message": "2. הצמדה דרך דף ניהול ההרחבות"
+  },
+  "helpPinViaManageExtensionsStep1": {
+    "message": "לחץ על כפתור ההרחבות, בדרך כלל מימין לשורת הכתובת."
+  },
+  "helpManageExtensions": {
+    "message": "נהל הרחבות"
+  },
+  "helpAlternatively": {
+    "message": "לחלופין:"
+  },
+  "helpChromiumMenuStep": {
+    "message": "לחץ על כפתור התפריט של Chromium."
+  },
+  "helpExtensions": {
+    "message": "הרחבות"
+  },
+  "helpOnceExtensionsPageOpen": {
+    "message": "לאחר שדף ההרחבות פתוח:"
+  },
+  "helpScrollDownToBefore": {
+    "message": "גלול מטה אל"
+  },
+  "helpPinToToolbar": {
+    "message": "הצמד לסרגל הכלים"
+  },
+  "helpToggleOptionOn": {
+    "message": "הפעל את האפשרות."
+  },
+  "helpOptionsReferenceHeading": {
+    "message": "מדריך אפשרויות"
+  },
+  "helpOptionsReferenceBeforeStorage": {
+    "message": "דף האפשרויות שומר הגדרות קבועות ב־"
+  },
+  "helpOptionsReferenceAfterStorage": {
+    "message": "הגדרות אלה נשארות מקומיות בפרופיל הדפדפן."
+  },
+  "helpOptionUserInterfaceLanguageDescription": {
+    "message": ": בחר זיהוי שפה אוטומטי או שפת ממשק SBM מסוימת."
+  },
+  "helpOptionThemeDescription": {
+    "message": ": בחר את ערכת הנושא החזותית של SBM."
+  },
+  "helpOptionDetailsPanePositionDescription": {
+    "message": ": מקם את חלונית הפרטים בצד ימין או מתחת לחלונית תוכן התיקייה."
+  },
+  "helpOptionFontDescription": {
+    "message": ": בחר אחת ממשפחות הגופנים הנתמכות."
+  },
+  "helpOptionFontSizeDescription": {
+    "message": ": התאם את גודל הטקסט הבסיסי של הממשק."
+  },
+  "helpOptionFontSpacingDescription": {
+    "message": ": התאם את מרווח השורות המשמש תוויות ושורות."
+  },
+  "helpOptionLimitSearchDescription": {
+    "message": "משנה את תיבת החיפוש הראשית מחיפוש בכל הסימניות לחיפוש רק בתוך עץ התיקייה הנוכחי."
+  },
+  "helpOptionShowDeleteWarningDescription": {
+    "message": ": מבקש אישור לפני מחיקת פריטי סימניות או תיקיות."
+  },
+  "helpOptionShowSortWarningDescription": {
+    "message": ": מבקש אישור לפני החלת מיון קבוע מתפריט ההקשר."
+  },
+  "helpOptionAllowKeyboardDeleteDescription": {
+    "message": ": קובע אם מקש Delete יכול להסיר פריטים שנבחרו."
+  },
+  "helpOptionNaturalSortDescription": {
+    "message": "קובע את הסדר המשמש מיון קבוע לפי שם. כאשר מופעל, תיקיות מופיעות תחילה, לאחר מכן מפרידים, ואז סימניות."
+  },
+  "helpOptionMultipleInstancesDescription": {
+    "message": ": כאשר כבוי, לחיצה על כפתור ההרחבה מתמקדת בכרטיסיית SBM הקיימת במקום לפתוח חדשה."
+  },
+  "helpOptionStartAtFolderDescription": {
+    "message": ": פותח את SBM בתיקיית סימניות שנבחרה בעת ההפעלה."
+  },
+  "helpOptionStartupFolderDescription": {
+    "message": ": בוחר את התיקייה המשמשת את אפשרות ההפעלה בתיקייה שנבחרה."
+  },
+  "helpOptionUrlProtectionsDescription": {
+    "message": "אפשרויות אלה שולטות בהגנות עבור סכמות URL מסוכנות יותר של סימניות כאשר SBM פותח סימניות דרך פעולות כרטיסייה או חלון של ההרחבה. הן אינן מונעות שמירת סימניות."
+  },
+  "helpOptionLibraryPaneWidthDescription": {
+    "message": ": רוחב בפיקסלים של חלונית הספרייה השמאלית."
+  },
+  "helpOptionDetailsPaneWidthDescription": {
+    "message": ": רוחב בפיקסלים של חלונית הפרטים הימנית."
+  },
+  "helpOptionBottomDetailsHeightDescription": {
+    "message": ": גובה בפיקסלים של חלונית הפרטים התחתונה."
+  },
+  "helpOptionPaneResizeBars": {
+    "message": "ניתן לשנות את גדלי החלוניות גם על ידי גרירת פסי שינוי הגודל הגלויים."
+  },
+  "helpOptionFolderContentsDescription": {
+    "message": "אפשרויות אלה מגדירות עמודות אופציונליות ורוחבי עמודות שמורים בחלונית תוכן התיקייה האמצעית. שם ו-URL תמיד מוצגים."
+  },
+  "helpOptionDateAddedColumnDescription": {
+    "message": ": עמודה אופציונלית המציגה מתי פריט נוסף."
+  },
+  "helpOptionIdColumnDescription": {
+    "message": ": עמודה אופציונלית המציגה מזהי סימניות של Chromium."
+  },
+  "helpOptionOrderColumnDescription": {
+    "message": ": עמודה אופציונלית המציגה ערכי סדר/אינדקס תיקייה של Chromium."
+  },
+  "helpOptionAdvancedDetailsViewDescription": {
+    "message": ": מציג מטא-נתונים מתקדמים של סימניות לקריאה בלבד בחלונית הפרטים."
+  },
+  "helpOptionAdvancedDetailsEditDescription": {
+    "message": ": מאפשר עריכה מתקדמת נתמכת, כרגע מוגבלת לשינויי אינדקס סימנייה."
+  },
+  "helpOptionOptimisationsDescription": {
+    "message": "אפשרויות אלה מיועדות בעיקר למדידות ביצועים ולפתרון בעיות. השאר אותן פעילות אלא אם אתה משווה ביצועים או מאבחן בעיית תצוגה."
+  },
+  "helpOptionDomRenderingDescription": {
+    "message": ": מפחית שינויי DOM נבחרים בנתיבי תצוגה."
+  },
+  "helpOptionTempTreeMapsDescription": {
+    "message": ": בונה מפות חיפוש קצרות-חיים במהלך חלק מפעולות העץ ואז משליך אותן."
+  },
+  "helpOptionDebugSettingsBefore": {
+    "message": "הגדרות ניפוי שגיאות מופיעות רק כאשר"
+  },
+  "helpOptionDebugSettingsAfter": {
+    "message": "מופעל. יומן האזהרות/שגיאות זמני ואינו נשמר בהגדרות ההרחבה."
+  },
   "hideDetailsPaneTooltip": {
     "message": "הסתר את חלונית הפרטים"
   },
@@ -385,6 +682,33 @@
   },
   "multipleInstancesAllowedHelp": {
     "message": "כאשר כבוי, לחיצה על כפתור התוסף ממקדת את כרטיסיית Simple Bookmarks Manager הקיימת במקום לפתוח כרטיסייה נוספת."
+  },
+  "startupBehavior": {
+    "message": "התנהגות בעת הפעלה"
+  },
+  "startupBehaviorHelp": {
+    "message": "בחר היכן Simple Bookmarks Manager ייפתח בעת ההפעלה."
+  },
+  "startAtConfiguredBookmarkFolder": {
+    "message": "התחל בתיקייה שנבחרה"
+  },
+  "startAtConfiguredBookmarkFolderHelp": {
+    "message": "כאשר מופעל, SBM נפתח בתיקיית הסימניות שנבחרה. אם התיקייה אינה קיימת עוד, הגדרה זו נמחקת ו-SBM משתמש בתיקיית ההפעלה הרגילה."
+  },
+  "startupBookmarkFolder": {
+    "message": "תיקיית הפעלה"
+  },
+  "startupBookmarkFolderHelp": {
+    "message": "בחר תיקיית סימניות קיימת להצגה כאשר SBM מופעל."
+  },
+  "startupBookmarkFolderNone": {
+    "message": "לא נבחרה תיקיית הפעלה"
+  },
+  "startupBookmarkFolderMissing": {
+    "message": "התיקייה שנבחרה בעבר חסרה"
+  },
+  "startupBookmarkFolderLoadFailed": {
+    "message": "לא ניתן לטעון תיקיות סימניות."
   },
   "mutationCreateBookmark": {
     "message": "יצירת סימנייה"
@@ -572,6 +896,12 @@
   "rightDetailsWidthHelp": {
     "message": "רוחב בפיקסלים עבור חלונית הפרטים הימנית."
   },
+  "bottomDetailsHeight": {
+    "message": "גובה חלונית הפרטים התחתונה"
+  },
+  "bottomDetailsHeightHelp": {
+    "message": "גובה בפיקסלים כאשר מיקום חלונית הפרטים מוגדר לתחתית."
+  },
   "rootFallback": {
     "message": "(שורש)"
   },
@@ -619,6 +949,18 @@
   },
   "showErrorsWarningsHelp": {
     "message": "מתקדם. מציג יומן זמני בזיכרון עבור הפעלת SBM זו. רשומות היומן אינן נשמרות בהגדרות התוסף."
+  },
+  "showAtLaunch": {
+    "message": "הצג בעת ההפעלה"
+  },
+  "showHelpOnLaunch": {
+    "message": "הצג עזרה בהפעלה הבאה"
+  },
+  "showHelpOnLaunchHelp": {
+    "message": "כאשר מופעל, SBM מציג את תיבת העזרה פעם אחת בפעם הבאה שהוא נפתח, ואז מכבה שוב הגדרה זו."
+  },
+  "helpOptionShowHelpOnLaunchDescription": {
+    "message": ": מציג את תיבת העזרה פעם אחת בפעם הבאה ש-SBM נפתח, ואז מכבה את עצמו."
   },
   "showSortWarning": {
     "message": "הצג אישור למיון קבוע"
@@ -754,6 +1096,18 @@
   },
   "themeHelp": {
     "message": "הגדרת ערכת הנושא שבה Simple Bookmarks Manager משתמש."
+  },
+  "detailsPanePosition": {
+    "message": "מיקום חלונית הפרטים"
+  },
+  "detailsPanePositionHelp": {
+    "message": "בחר אם חלונית הפרטים תופיע בצד ימין או מתחת לחלונית תוכן התיקייה."
+  },
+  "detailsPanePositionRight": {
+    "message": "צד ימין"
+  },
+  "detailsPanePositionBottom": {
+    "message": "תחתית"
   },
   "themeSystem": {
     "message": "מערכת"

@@ -128,6 +128,9 @@
   "copy": {
     "message": "Kopiuj"
   },
+  "copyUrlToClipboard": {
+    "message": "Kopiuj URL do schowka"
+  },
   "couldNotMoveBookmark": {
     "message": "Nie można przenieść elementu zakładki: {error}"
   },
@@ -305,6 +308,300 @@
   "help": {
     "message": "Pomoc"
   },
+  "clickLabel": {
+    "message": "Kliknij"
+  },
+  "selectLabel": {
+    "message": "Wybierz"
+  },
+  "helpDocumentTitle": {
+    "message": "Pomoc Simple Bookmarks Manager"
+  },
+  "helpTagline": {
+    "message": "Praktyczny przewodnik po lokalnym przeglądaniu, edytowaniu, sortowaniu i organizowaniu zakładek w SBM."
+  },
+  "helpQuickStartHeading": {
+    "message": "Szybki start"
+  },
+  "helpQuickStartIntro": {
+    "message": "Otwórz SBM przyciskiem na pasku narzędzi przeglądarki. Menedżer otwiera się jako normalna strona rozszerzenia i działa bezpośrednio na istniejącym drzewie zakładek Chromium."
+  },
+  "helpLibraryPaneLabel": {
+    "message": "Panel Biblioteka:"
+  },
+  "helpLibraryPaneDescription": {
+    "message": "przeglądaj foldery zakładek oraz rozwijaj lub zwijaj podfoldery."
+  },
+  "helpFolderContentsPaneLabel": {
+    "message": "Panel Zawartość folderu:"
+  },
+  "helpFolderContentsPaneDescription": {
+    "message": "wyświetlaj, zaznaczaj, sortuj, otwieraj, przeciągaj i zarządzaj elementami w wybranym folderze."
+  },
+  "helpDetailsPaneLabel": {
+    "message": "Panel Szczegóły:"
+  },
+  "helpDetailsPaneDescription": {
+    "message": "sprawdzaj i edytuj wybraną zakładkę lub folder."
+  },
+  "helpBasicBookmarkManagementHeading": {
+    "message": "Podstawowe zarządzanie zakładkami"
+  },
+  "helpBasicUseNewButtonsBefore": {
+    "message": "Użyj"
+  },
+  "helpBasicUseNewButtonsMiddle": {
+    "message": "oraz"
+  },
+  "helpBasicUseNewButtonsAfter": {
+    "message": "aby dodać elementy do bieżącego folderu."
+  },
+  "helpBasicRightClickActions": {
+    "message": "Kliknij foldery lub zakładki prawym przyciskiem myszy, aby użyć akcji takich jak zmiana nazwy, edycja, usuwanie, wycinanie, kopiowanie, wklejanie, sortowanie i otwieranie."
+  },
+  "helpBasicDragDrop": {
+    "message": "Użyj przeciągania i upuszczania, aby zmieniać kolejność elementów albo przenosić zakładki i foldery do innego folderu."
+  },
+  "helpBasicDetailsPaneEdits": {
+    "message": "Użyj panelu Szczegóły, aby zmieniać nazwy zakładek, URL, foldery nadrzędne i obsługiwane pola zaawansowane."
+  },
+  "helpBasicF2Before": {
+    "message": "Użyj"
+  },
+  "helpBasicF2After": {
+    "message": "aby zmienić nazwę aktywnego folderu lub edytować aktywną zakładkę."
+  },
+  "helpBasicMiddleClick": {
+    "message": "Kliknij zakładkę środkowym przyciskiem myszy w panelu Zawartość folderu, aby otworzyć ją w nowej karcie."
+  },
+  "helpSearchSortingHeading": {
+    "message": "Wyszukiwanie i sortowanie"
+  },
+  "helpSearchBox": {
+    "message": "Użyj pola wyszukiwania, aby szukać zakładek według nazwy lub URL."
+  },
+  "helpSearchLimitBefore": {
+    "message": "Włącz"
+  },
+  "helpSearchLimitAfter": {
+    "message": "aby wyszukiwać tylko w bieżącym drzewie folderów."
+  },
+  "helpVisualSort": {
+    "message": "Użyj listy sortowania wizualnego lub nagłówków kolumn do tymczasowego sortowania w panelu Zawartość folderu."
+  },
+  "helpPermanentSort": {
+    "message": "Użyj stałego sortowania z menu kontekstowego, gdy chcesz zmienić zapisaną kolejność zakładek w Chromium."
+  },
+  "helpSeparatorsBeforeTitle": {
+    "message": "SBM obsługuje konwencję separatorów zgodną z Chromium. Separator jest zapisywany jako zakładka z tytułem"
+  },
+  "helpSeparatorsBetweenTitleUrl": {
+    "message": "i adresem URL"
+  },
+  "helpSeparatorsAfterUrl": {
+    "message": "SBM wyświetla tę konwencję jako wizualną linię podziału."
+  },
+  "helpKeyboardShortcutsHeading": {
+    "message": "Skróty klawiaturowe"
+  },
+  "helpShortcutArrowKeysLabel": {
+    "message": "Klawisze strzałek:"
+  },
+  "helpShortcutArrowKeysDescription": {
+    "message": "poruszanie się po aktywnym panelu."
+  },
+  "helpShortcutEnterLabel": {
+    "message": "Enter:"
+  },
+  "helpShortcutEnterDescription": {
+    "message": "otwarcie zakładki lub wejście do folderu."
+  },
+  "helpShortcutBackspaceLabel": {
+    "message": "Backspace:"
+  },
+  "helpShortcutBackspaceDescription": {
+    "message": "przejście o jeden poziom folderu wyżej, jeśli to możliwe."
+  },
+  "helpShortcutCtrlFLabel": {
+    "message": "Ctrl+F:"
+  },
+  "helpShortcutCtrlFDescription": {
+    "message": "ustawienie fokusu na polu wyszukiwania."
+  },
+  "helpShortcutF2Label": {
+    "message": "F2:"
+  },
+  "helpShortcutF2Description": {
+    "message": "zmiana nazwy aktywnego folderu lub edycja aktywnej zakładki."
+  },
+  "helpShortcutDeleteLabel": {
+    "message": "Delete:"
+  },
+  "helpShortcutDeleteDescription": {
+    "message": "usunięcie wybranego elementu, gdy usuwanie z klawiatury jest włączone."
+  },
+  "helpShortcutEscapeLabel": {
+    "message": "Escape:"
+  },
+  "helpShortcutEscapeDescription": {
+    "message": "zamknięcie otwartych okien dialogowych lub menu SBM."
+  },
+  "helpPinningHeading": {
+    "message": "Przypinanie Simple Bookmarks Manager dla szybkiego dostępu"
+  },
+  "helpPinningIntro": {
+    "message": "Przypięcie Simple Bookmarks Manager (SBM) do paska narzędzi ułatwia i przyspiesza dostęp do rozszerzenia."
+  },
+  "helpPinningIntro2": {
+    "message": "Po zainstalowaniu SBM w przeglądarce opartej na Chromium możesz przypiąć go do paska narzędzi na jeden z poniższych sposobów:"
+  },
+  "helpPinViaExtensionsMenuHeading": {
+    "message": "1. Przypnij przez menu Rozszerzenia"
+  },
+  "helpPinViaExtensionsMenuStep1": {
+    "message": "Kliknij przycisk Rozszerzenia, zwykle znajdujący się po prawej stronie paska adresu."
+  },
+  "helpFindSbmBefore": {
+    "message": "Znajdź"
+  },
+  "helpFindSbmAfter": {
+    "message": "na liście."
+  },
+  "helpPinIconBefore": {
+    "message": "Kliknij ikonę przypięcia obok"
+  },
+  "helpPinToggleExplanation": {
+    "message": "Spowoduje to przypięcie SBM do paska narzędzi. Jeśli SBM jest już przypięty, kliknięcie ikony odepnije go."
+  },
+  "helpPinViaManageExtensionsHeading": {
+    "message": "2. Przypnij przez stronę Zarządzaj rozszerzeniami"
+  },
+  "helpPinViaManageExtensionsStep1": {
+    "message": "Kliknij przycisk Rozszerzenia, zwykle znajdujący się po prawej stronie paska adresu."
+  },
+  "helpManageExtensions": {
+    "message": "Zarządzaj rozszerzeniami"
+  },
+  "helpAlternatively": {
+    "message": "Alternatywnie:"
+  },
+  "helpChromiumMenuStep": {
+    "message": "Kliknij przycisk menu Chromium."
+  },
+  "helpExtensions": {
+    "message": "Rozszerzenia"
+  },
+  "helpOnceExtensionsPageOpen": {
+    "message": "Gdy strona Rozszerzenia jest otwarta:"
+  },
+  "helpScrollDownToBefore": {
+    "message": "Przewiń w dół do"
+  },
+  "helpPinToToolbar": {
+    "message": "Przypnij do paska narzędzi"
+  },
+  "helpToggleOptionOn": {
+    "message": "Włącz tę opcję."
+  },
+  "helpOptionsReferenceHeading": {
+    "message": "Opis opcji"
+  },
+  "helpOptionsReferenceBeforeStorage": {
+    "message": "Strona Opcje przechowuje trwałe ustawienia w"
+  },
+  "helpOptionsReferenceAfterStorage": {
+    "message": "Te ustawienia pozostają lokalne w profilu przeglądarki."
+  },
+  "helpOptionUserInterfaceLanguageDescription": {
+    "message": ": wybierz automatyczne wykrywanie języka lub konkretny język interfejsu SBM."
+  },
+  "helpOptionThemeDescription": {
+    "message": ": wybierz motyw wizualny używany przez SBM."
+  },
+  "helpOptionDetailsPanePositionDescription": {
+    "message": ": umieść panel Szczegóły po prawej stronie lub pod panelem Zawartość folderu."
+  },
+  "helpOptionFontDescription": {
+    "message": ": wybierz jedną z obsługiwanych rodzin czcionek."
+  },
+  "helpOptionFontSizeDescription": {
+    "message": ": dostosuj podstawowy rozmiar tekstu interfejsu."
+  },
+  "helpOptionFontSpacingDescription": {
+    "message": ": dostosuj odstępy wierszy używane przez etykiety i wiersze."
+  },
+  "helpOptionLimitSearchDescription": {
+    "message": "zmienia główne pole wyszukiwania tak, aby przeszukiwało tylko bieżące drzewo folderów zamiast wszystkich zakładek."
+  },
+  "helpOptionShowDeleteWarningDescription": {
+    "message": ": pyta przed usunięciem elementów zakładek lub folderów."
+  },
+  "helpOptionShowSortWarningDescription": {
+    "message": ": pyta przed zastosowaniem stałego sortowania z menu kontekstowego."
+  },
+  "helpOptionAllowKeyboardDeleteDescription": {
+    "message": ": określa, czy klawisz Delete może usuwać wybrane elementy."
+  },
+  "helpOptionNaturalSortDescription": {
+    "message": "określa kolejność używaną przy stałym sortowaniu według nazwy. Po włączeniu najpierw są foldery, potem separatory, a potem zakładki."
+  },
+  "helpOptionMultipleInstancesDescription": {
+    "message": ": po wyłączeniu kliknięcie przycisku rozszerzenia ustawia fokus na istniejącej karcie SBM zamiast otwierać nową."
+  },
+  "helpOptionStartAtFolderDescription": {
+    "message": ": otwiera SBM w wybranym folderze zakładek podczas uruchamiania."
+  },
+  "helpOptionStartupFolderDescription": {
+    "message": ": wybiera folder używany przez opcję startu w wybranym folderze."
+  },
+  "helpOptionUrlProtectionsDescription": {
+    "message": "Te opcje kontrolują zabezpieczenia dla bardziej ryzykownych schematów URL zakładek, gdy SBM otwiera zakładki przez działania kart lub okien rozszerzenia. Nie blokują zapisywania zakładek."
+  },
+  "helpOptionLibraryPaneWidthDescription": {
+    "message": ": szerokość lewego panelu Biblioteka w pikselach."
+  },
+  "helpOptionDetailsPaneWidthDescription": {
+    "message": ": szerokość prawego panelu Szczegóły w pikselach."
+  },
+  "helpOptionBottomDetailsHeightDescription": {
+    "message": ": wysokość dolnego panelu Szczegóły w pikselach."
+  },
+  "helpOptionPaneResizeBars": {
+    "message": "Rozmiary paneli można także zmieniać przez przeciąganie widocznych pasków zmiany rozmiaru."
+  },
+  "helpOptionFolderContentsDescription": {
+    "message": "Te opcje konfigurują opcjonalne kolumny i zapisane szerokości kolumn w środkowym panelu Zawartość folderu. Nazwa i URL są zawsze widoczne."
+  },
+  "helpOptionDateAddedColumnDescription": {
+    "message": ": opcjonalna kolumna pokazująca, kiedy element został dodany."
+  },
+  "helpOptionIdColumnDescription": {
+    "message": ": opcjonalna kolumna pokazująca ID zakładek Chromium."
+  },
+  "helpOptionOrderColumnDescription": {
+    "message": ": opcjonalna kolumna pokazująca wartości kolejności/indeksu folderu Chromium."
+  },
+  "helpOptionAdvancedDetailsViewDescription": {
+    "message": ": pokazuje w panelu Szczegóły tylko do odczytu zaawansowane metadane zakładki."
+  },
+  "helpOptionAdvancedDetailsEditDescription": {
+    "message": ": pozwala na obsługiwaną edycję zaawansowaną, obecnie ograniczoną do zmian indeksu zakładki."
+  },
+  "helpOptionOptimisationsDescription": {
+    "message": "Te opcje są głównie do testów wydajności i rozwiązywania problemów. Pozostaw je włączone, chyba że porównujesz wydajność lub diagnozujesz problem renderowania."
+  },
+  "helpOptionDomRenderingDescription": {
+    "message": ": zmniejsza wybrane zmiany DOM w ścieżkach renderowania."
+  },
+  "helpOptionTempTreeMapsDescription": {
+    "message": ": tworzy krótkotrwałe mapy wyszukiwania podczas niektórych operacji drzewa, a następnie je usuwa."
+  },
+  "helpOptionDebugSettingsBefore": {
+    "message": "Ustawienia debugowania pojawiają się tylko wtedy, gdy"
+  },
+  "helpOptionDebugSettingsAfter": {
+    "message": "jest włączone. Dziennik ostrzeżeń/błędów jest tymczasowy i nie jest zapisywany w ustawieniach rozszerzenia."
+  },
   "hideDetailsPaneTooltip": {
     "message": "Ukryj panel Szczegóły"
   },
@@ -385,6 +682,33 @@
   },
   "multipleInstancesAllowedHelp": {
     "message": "Gdy wyłączone, kliknięcie przycisku rozszerzenia uaktywnia istniejącą kartę Simple Bookmarks Manager zamiast otwierać kolejną."
+  },
+  "startupBehavior": {
+    "message": "Zachowanie przy uruchamianiu"
+  },
+  "startupBehaviorHelp": {
+    "message": "Wybierz, gdzie Simple Bookmarks Manager otwiera się po uruchomieniu."
+  },
+  "startAtConfiguredBookmarkFolder": {
+    "message": "Startuj w wybranym folderze"
+  },
+  "startAtConfiguredBookmarkFolderHelp": {
+    "message": "Po włączeniu SBM otwiera się w wybranym folderze zakładek. Jeśli folder już nie istnieje, to ustawienie zostaje wyczyszczone, a SBM używa normalnego folderu startowego."
+  },
+  "startupBookmarkFolder": {
+    "message": "Folder startowy"
+  },
+  "startupBookmarkFolderHelp": {
+    "message": "Wybierz istniejący folder zakładek do pokazania przy uruchamianiu SBM."
+  },
+  "startupBookmarkFolderNone": {
+    "message": "Nie wybrano folderu startowego"
+  },
+  "startupBookmarkFolderMissing": {
+    "message": "Poprzednio wybrany folder nie istnieje"
+  },
+  "startupBookmarkFolderLoadFailed": {
+    "message": "Nie można załadować folderów zakładek."
   },
   "mutationCreateBookmark": {
     "message": "utwórz zakładkę"
@@ -572,6 +896,12 @@
   "rightDetailsWidthHelp": {
     "message": "Szerokość w pikselach prawego panelu Szczegóły."
   },
+  "bottomDetailsHeight": {
+    "message": "Wysokość dolnego panelu Szczegóły"
+  },
+  "bottomDetailsHeightHelp": {
+    "message": "Wysokość w pikselach używana, gdy pozycja panelu Szczegóły jest ustawiona na Dół."
+  },
   "rootFallback": {
     "message": "(główny)"
   },
@@ -619,6 +949,18 @@
   },
   "showErrorsWarningsHelp": {
     "message": "Zaawansowane. Pokazuje tymczasowy dziennik w pamięci dla tej sesji SBM. Wpisy dziennika nie są zapisywane w ustawieniach rozszerzenia."
+  },
+  "showAtLaunch": {
+    "message": "Pokaż przy uruchomieniu"
+  },
+  "showHelpOnLaunch": {
+    "message": "Pokaż Pomoc przy następnym uruchomieniu"
+  },
+  "showHelpOnLaunchHelp": {
+    "message": "Po włączeniu SBM pokaże okno Pomocy raz przy następnym otwarciu, a następnie ponownie wyłączy to ustawienie."
+  },
+  "helpOptionShowHelpOnLaunchDescription": {
+    "message": ": pokazuje okno Pomocy raz przy następnym otwarciu SBM, a potem samo się wyłącza."
   },
   "showSortWarning": {
     "message": "Pokaż potwierdzenie trwałego sortowania"
@@ -754,6 +1096,18 @@
   },
   "themeHelp": {
     "message": "Ustaw motyw używany przez Simple Bookmarks Manager."
+  },
+  "detailsPanePosition": {
+    "message": "Pozycja panelu Szczegóły"
+  },
+  "detailsPanePositionHelp": {
+    "message": "Wybierz, czy panel Szczegóły ma pojawiać się po prawej stronie, czy pod panelem Zawartość folderu."
+  },
+  "detailsPanePositionRight": {
+    "message": "Prawa strona"
+  },
+  "detailsPanePositionBottom": {
+    "message": "Dół"
   },
   "themeSystem": {
     "message": "Systemowy"

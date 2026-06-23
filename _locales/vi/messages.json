@@ -128,6 +128,9 @@
   "copy": {
     "message": "Sao chép"
   },
+  "copyUrlToClipboard": {
+    "message": "Sao chép URL vào bảng nhớ tạm"
+  },
   "couldNotMoveBookmark": {
     "message": "Không thể di chuyển mục dấu trang: {error}"
   },
@@ -305,6 +308,300 @@
   "help": {
     "message": "Trợ giúp"
   },
+  "clickLabel": {
+    "message": "Nhấp"
+  },
+  "selectLabel": {
+    "message": "Chọn"
+  },
+  "helpDocumentTitle": {
+    "message": "Trợ giúp Simple Bookmarks Manager"
+  },
+  "helpTagline": {
+    "message": "Hướng dẫn thực tế để dùng SBM cho việc duyệt, sửa, sắp xếp và tổ chức dấu trang cục bộ."
+  },
+  "helpQuickStartHeading": {
+    "message": "Bắt đầu nhanh"
+  },
+  "helpQuickStartIntro": {
+    "message": "Mở SBM từ nút trên thanh công cụ của trình duyệt. Trình quản lý mở như một trang tiện ích bình thường và làm việc trực tiếp với cây dấu trang hiện có của Chromium."
+  },
+  "helpLibraryPaneLabel": {
+    "message": "Khung Thư viện:"
+  },
+  "helpLibraryPaneDescription": {
+    "message": "duyệt các thư mục dấu trang và mở rộng hoặc thu gọn thư mục con."
+  },
+  "helpFolderContentsPaneLabel": {
+    "message": "Khung Nội dung thư mục:"
+  },
+  "helpFolderContentsPaneDescription": {
+    "message": "xem, chọn, sắp xếp, mở, kéo và quản lý các mục trong thư mục đã chọn."
+  },
+  "helpDetailsPaneLabel": {
+    "message": "Khung Chi tiết:"
+  },
+  "helpDetailsPaneDescription": {
+    "message": "kiểm tra và chỉnh sửa dấu trang hoặc thư mục đã chọn."
+  },
+  "helpBasicBookmarkManagementHeading": {
+    "message": "Quản lý dấu trang cơ bản"
+  },
+  "helpBasicUseNewButtonsBefore": {
+    "message": "Dùng"
+  },
+  "helpBasicUseNewButtonsMiddle": {
+    "message": "và"
+  },
+  "helpBasicUseNewButtonsAfter": {
+    "message": "để thêm mục vào thư mục hiện tại."
+  },
+  "helpBasicRightClickActions": {
+    "message": "Nhấp chuột phải vào thư mục hoặc dấu trang để dùng các thao tác như đổi tên, sửa, xóa, cắt, sao chép, dán, sắp xếp và mở."
+  },
+  "helpBasicDragDrop": {
+    "message": "Dùng kéo-thả để sắp xếp lại các mục hoặc di chuyển dấu trang và thư mục vào thư mục khác."
+  },
+  "helpBasicDetailsPaneEdits": {
+    "message": "Dùng khung Chi tiết để thay đổi tên dấu trang, URL, thư mục cha và các trường nâng cao được hỗ trợ."
+  },
+  "helpBasicF2Before": {
+    "message": "Dùng"
+  },
+  "helpBasicF2After": {
+    "message": "để đổi tên thư mục đang hoạt động hoặc sửa dấu trang đang hoạt động."
+  },
+  "helpBasicMiddleClick": {
+    "message": "Nhấp chuột giữa vào dấu trang trong khung Nội dung thư mục để mở trong thẻ mới."
+  },
+  "helpSearchSortingHeading": {
+    "message": "Tìm kiếm và sắp xếp"
+  },
+  "helpSearchBox": {
+    "message": "Dùng ô tìm kiếm để tìm dấu trang theo tên hoặc URL."
+  },
+  "helpSearchLimitBefore": {
+    "message": "Bật"
+  },
+  "helpSearchLimitAfter": {
+    "message": "để chỉ tìm trong cây thư mục hiện tại."
+  },
+  "helpVisualSort": {
+    "message": "Dùng danh sách sắp xếp trực quan hoặc tiêu đề cột để sắp xếp tạm thời trong khung Nội dung thư mục."
+  },
+  "helpPermanentSort": {
+    "message": "Dùng sắp xếp vĩnh viễn bằng chuột phải khi muốn thay đổi thứ tự dấu trang đã lưu trong Chromium."
+  },
+  "helpSeparatorsBeforeTitle": {
+    "message": "SBM hỗ trợ quy ước đường phân cách tương thích với Chromium. Một đường phân cách được lưu dưới dạng dấu trang có tiêu đề"
+  },
+  "helpSeparatorsBetweenTitleUrl": {
+    "message": "và URL"
+  },
+  "helpSeparatorsAfterUrl": {
+    "message": "SBM hiển thị quy ước đó như một đường chia trực quan."
+  },
+  "helpKeyboardShortcutsHeading": {
+    "message": "Phím tắt bàn phím"
+  },
+  "helpShortcutArrowKeysLabel": {
+    "message": "Phím mũi tên:"
+  },
+  "helpShortcutArrowKeysDescription": {
+    "message": "di chuyển trong khung đang hoạt động."
+  },
+  "helpShortcutEnterLabel": {
+    "message": "Enter:"
+  },
+  "helpShortcutEnterDescription": {
+    "message": "mở dấu trang hoặc đi vào thư mục."
+  },
+  "helpShortcutBackspaceLabel": {
+    "message": "Backspace:"
+  },
+  "helpShortcutBackspaceDescription": {
+    "message": "lên một cấp thư mục khi có thể."
+  },
+  "helpShortcutCtrlFLabel": {
+    "message": "Ctrl+F:"
+  },
+  "helpShortcutCtrlFDescription": {
+    "message": "đưa tiêu điểm vào ô tìm kiếm."
+  },
+  "helpShortcutF2Label": {
+    "message": "F2:"
+  },
+  "helpShortcutF2Description": {
+    "message": "đổi tên thư mục đang hoạt động hoặc sửa dấu trang đang hoạt động."
+  },
+  "helpShortcutDeleteLabel": {
+    "message": "Delete:"
+  },
+  "helpShortcutDeleteDescription": {
+    "message": "xóa mục đã chọn khi cho phép xóa bằng bàn phím."
+  },
+  "helpShortcutEscapeLabel": {
+    "message": "Escape:"
+  },
+  "helpShortcutEscapeDescription": {
+    "message": "đóng các hộp thoại hoặc menu SBM đang mở."
+  },
+  "helpPinningHeading": {
+    "message": "Ghim Simple Bookmarks Manager để truy cập nhanh"
+  },
+  "helpPinningIntro": {
+    "message": "Ghim Simple Bookmarks Manager (SBM) vào thanh công cụ giúp truy cập tiện ích nhanh và dễ hơn."
+  },
+  "helpPinningIntro2": {
+    "message": "Sau khi cài SBM trong trình duyệt dựa trên Chromium, bạn có thể ghim vào thanh công cụ bằng một trong các cách sau:"
+  },
+  "helpPinViaExtensionsMenuHeading": {
+    "message": "1. Ghim qua menu Tiện ích"
+  },
+  "helpPinViaExtensionsMenuStep1": {
+    "message": "Nhấp nút Tiện ích, thường nằm bên phải thanh địa chỉ."
+  },
+  "helpFindSbmBefore": {
+    "message": "Tìm"
+  },
+  "helpFindSbmAfter": {
+    "message": "trong danh sách."
+  },
+  "helpPinIconBefore": {
+    "message": "Nhấp biểu tượng ghim bên cạnh"
+  },
+  "helpPinToggleExplanation": {
+    "message": "Thao tác này sẽ ghim SBM vào thanh công cụ. Nếu SBM đã được ghim, nhấp biểu tượng ghim sẽ bỏ ghim."
+  },
+  "helpPinViaManageExtensionsHeading": {
+    "message": "2. Ghim qua trang Quản lý tiện ích"
+  },
+  "helpPinViaManageExtensionsStep1": {
+    "message": "Nhấp nút Tiện ích, thường nằm bên phải thanh địa chỉ."
+  },
+  "helpManageExtensions": {
+    "message": "Quản lý tiện ích"
+  },
+  "helpAlternatively": {
+    "message": "Hoặc:"
+  },
+  "helpChromiumMenuStep": {
+    "message": "Nhấp nút menu Chromium."
+  },
+  "helpExtensions": {
+    "message": "Tiện ích"
+  },
+  "helpOnceExtensionsPageOpen": {
+    "message": "Khi trang Tiện ích đã mở:"
+  },
+  "helpScrollDownToBefore": {
+    "message": "Cuộn xuống đến"
+  },
+  "helpPinToToolbar": {
+    "message": "Ghim vào thanh công cụ"
+  },
+  "helpToggleOptionOn": {
+    "message": "Bật tùy chọn đó."
+  },
+  "helpOptionsReferenceHeading": {
+    "message": "Tham khảo tùy chọn"
+  },
+  "helpOptionsReferenceBeforeStorage": {
+    "message": "Trang Tùy chọn lưu các thiết lập bền vững trong"
+  },
+  "helpOptionsReferenceAfterStorage": {
+    "message": "Các thiết lập này vẫn nằm cục bộ trong hồ sơ trình duyệt."
+  },
+  "helpOptionUserInterfaceLanguageDescription": {
+    "message": ": chọn tự động phát hiện ngôn ngữ hoặc một ngôn ngữ UI SBM cụ thể."
+  },
+  "helpOptionThemeDescription": {
+    "message": ": chọn chủ đề giao diện dùng bởi SBM."
+  },
+  "helpOptionDetailsPanePositionDescription": {
+    "message": ": đặt khung Chi tiết ở bên phải hoặc bên dưới khung Nội dung thư mục."
+  },
+  "helpOptionFontDescription": {
+    "message": ": chọn một trong các họ phông chữ được hỗ trợ."
+  },
+  "helpOptionFontSizeDescription": {
+    "message": ": điều chỉnh cỡ chữ cơ bản của UI."
+  },
+  "helpOptionFontSpacingDescription": {
+    "message": ": điều chỉnh giãn dòng dùng cho nhãn và hàng."
+  },
+  "helpOptionLimitSearchDescription": {
+    "message": "đổi ô tìm kiếm chính từ tìm tất cả dấu trang sang chỉ tìm trong cây thư mục hiện tại."
+  },
+  "helpOptionShowDeleteWarningDescription": {
+    "message": ": hỏi trước khi xóa mục dấu trang hoặc thư mục."
+  },
+  "helpOptionShowSortWarningDescription": {
+    "message": ": hỏi trước khi áp dụng sắp xếp vĩnh viễn từ menu ngữ cảnh."
+  },
+  "helpOptionAllowKeyboardDeleteDescription": {
+    "message": ": kiểm soát phím Delete có được xóa mục đã chọn hay không."
+  },
+  "helpOptionNaturalSortDescription": {
+    "message": "kiểm soát thứ tự dùng bởi sắp xếp vĩnh viễn theo tên. Khi bật, thư mục được đặt trước, tiếp theo là đường phân cách, rồi đến dấu trang."
+  },
+  "helpOptionMultipleInstancesDescription": {
+    "message": ": khi tắt, nhấp nút tiện ích sẽ chuyển tiêu điểm đến thẻ SBM hiện có thay vì mở thẻ mới."
+  },
+  "helpOptionStartAtFolderDescription": {
+    "message": ": mở SBM tại một thư mục dấu trang đã chọn khi khởi chạy."
+  },
+  "helpOptionStartupFolderDescription": {
+    "message": ": chọn thư mục dùng cho tùy chọn khởi động tại thư mục đã chọn."
+  },
+  "helpOptionUrlProtectionsDescription": {
+    "message": "Các tùy chọn này điều khiển bảo vệ cho các lược đồ URL dấu trang có rủi ro cao hơn khi SBM mở dấu trang qua hành động thẻ hoặc cửa sổ của tiện ích. Chúng không ngăn lưu dấu trang."
+  },
+  "helpOptionLibraryPaneWidthDescription": {
+    "message": ": chiều rộng tính bằng pixel của khung Thư viện bên trái."
+  },
+  "helpOptionDetailsPaneWidthDescription": {
+    "message": ": chiều rộng tính bằng pixel của khung Chi tiết bên phải."
+  },
+  "helpOptionBottomDetailsHeightDescription": {
+    "message": ": chiều cao tính bằng pixel của khung Chi tiết phía dưới."
+  },
+  "helpOptionPaneResizeBars": {
+    "message": "Cũng có thể đổi kích thước khung bằng cách kéo các thanh đổi kích thước đang hiển thị."
+  },
+  "helpOptionFolderContentsDescription": {
+    "message": "Các tùy chọn này cấu hình các cột tùy chọn và chiều rộng cột đã lưu trong khung Nội dung thư mục ở giữa. Tên và URL luôn được hiển thị."
+  },
+  "helpOptionDateAddedColumnDescription": {
+    "message": ": cột tùy chọn hiển thị thời điểm một mục được thêm."
+  },
+  "helpOptionIdColumnDescription": {
+    "message": ": cột tùy chọn hiển thị ID dấu trang Chromium."
+  },
+  "helpOptionOrderColumnDescription": {
+    "message": ": cột tùy chọn hiển thị giá trị thứ tự/chỉ mục thư mục Chromium."
+  },
+  "helpOptionAdvancedDetailsViewDescription": {
+    "message": ": hiển thị siêu dữ liệu dấu trang nâng cao chỉ đọc trong khung Chi tiết."
+  },
+  "helpOptionAdvancedDetailsEditDescription": {
+    "message": ": cho phép chỉnh sửa nâng cao được hỗ trợ, hiện giới hạn ở thay đổi chỉ mục dấu trang."
+  },
+  "helpOptionOptimisationsDescription": {
+    "message": "Các tùy chọn này chủ yếu dành cho đo hiệu năng và khắc phục sự cố. Hãy để bật trừ khi bạn đang so sánh hiệu năng hoặc chẩn đoán vấn đề hiển thị."
+  },
+  "helpOptionDomRenderingDescription": {
+    "message": ": giảm một số thay đổi DOM trong các đường dẫn kết xuất."
+  },
+  "helpOptionTempTreeMapsDescription": {
+    "message": ": tạo bản đồ tra cứu ngắn hạn trong một số thao tác cây, rồi loại bỏ chúng."
+  },
+  "helpOptionDebugSettingsBefore": {
+    "message": "Thiết lập gỡ lỗi chỉ xuất hiện khi"
+  },
+  "helpOptionDebugSettingsAfter": {
+    "message": "được bật. Nhật ký cảnh báo/lỗi là tạm thời và không được lưu vào thiết lập tiện ích."
+  },
   "hideDetailsPaneTooltip": {
     "message": "Ẩn khung Chi tiết"
   },
@@ -385,6 +682,33 @@
   },
   "multipleInstancesAllowedHelp": {
     "message": "Khi tắt, việc nhấp vào nút tiện ích sẽ chuyển đến tab Simple Bookmarks Manager hiện có thay vì mở một tab khác."
+  },
+  "startupBehavior": {
+    "message": "Hành vi khởi động"
+  },
+  "startupBehaviorHelp": {
+    "message": "Chọn nơi Simple Bookmarks Manager mở khi khởi chạy."
+  },
+  "startAtConfiguredBookmarkFolder": {
+    "message": "Bắt đầu tại thư mục đã chọn"
+  },
+  "startAtConfiguredBookmarkFolderHelp": {
+    "message": "Khi bật, SBM mở tại thư mục dấu trang đã chọn. Nếu thư mục không còn tồn tại, thiết lập này sẽ bị xóa và SBM dùng thư mục khởi động mặc định."
+  },
+  "startupBookmarkFolder": {
+    "message": "Thư mục khởi động"
+  },
+  "startupBookmarkFolderHelp": {
+    "message": "Chọn thư mục dấu trang hiện có để hiển thị khi SBM khởi động."
+  },
+  "startupBookmarkFolderNone": {
+    "message": "Chưa chọn thư mục khởi động"
+  },
+  "startupBookmarkFolderMissing": {
+    "message": "Thư mục đã chọn trước đó bị thiếu"
+  },
+  "startupBookmarkFolderLoadFailed": {
+    "message": "Không thể tải thư mục dấu trang."
   },
   "mutationCreateBookmark": {
     "message": "tạo dấu trang"
@@ -572,6 +896,12 @@
   "rightDetailsWidthHelp": {
     "message": "Độ rộng tính bằng pixel cho ngăn Chi tiết bên phải."
   },
+  "bottomDetailsHeight": {
+    "message": "Chiều cao khung Chi tiết phía dưới"
+  },
+  "bottomDetailsHeightHelp": {
+    "message": "Chiều cao tính bằng pixel dùng khi vị trí khung Chi tiết được đặt là Phía dưới."
+  },
   "rootFallback": {
     "message": "(gốc)"
   },
@@ -619,6 +949,18 @@
   },
   "showErrorsWarningsHelp": {
     "message": "Nâng cao. Hiển thị nhật ký tạm thời trong bộ nhớ cho phiên SBM này. Các mục nhật ký không được lưu vào cài đặt tiện ích."
+  },
+  "showAtLaunch": {
+    "message": "Hiển thị khi khởi động"
+  },
+  "showHelpOnLaunch": {
+    "message": "Hiển thị Trợ giúp ở lần khởi động tiếp theo"
+  },
+  "showHelpOnLaunchHelp": {
+    "message": "Khi bật, SBM hiển thị hộp thoại Trợ giúp một lần vào lần mở tiếp theo, rồi tự tắt thiết lập này."
+  },
+  "helpOptionShowHelpOnLaunchDescription": {
+    "message": ": hiển thị hộp thoại Trợ giúp một lần vào lần mở SBM tiếp theo, rồi tự tắt."
   },
   "showSortWarning": {
     "message": "Hiện xác nhận sắp xếp vĩnh viễn"
@@ -754,6 +1096,18 @@
   },
   "themeHelp": {
     "message": "Đặt chủ đề được Simple Bookmarks Manager sử dụng."
+  },
+  "detailsPanePosition": {
+    "message": "Vị trí khung Chi tiết"
+  },
+  "detailsPanePositionHelp": {
+    "message": "Chọn khung Chi tiết xuất hiện bên phải hay bên dưới khung Nội dung thư mục."
+  },
+  "detailsPanePositionRight": {
+    "message": "Bên phải"
+  },
+  "detailsPanePositionBottom": {
+    "message": "Phía dưới"
   },
   "themeSystem": {
     "message": "Hệ thống"

@@ -128,6 +128,9 @@
   "copy": {
     "message": "Kopyala"
   },
+  "copyUrlToClipboard": {
+    "message": "URL’yi Panoya Kopyala"
+  },
   "couldNotMoveBookmark": {
     "message": "Yer imi öğesi taşınamadı: {error}"
   },
@@ -305,6 +308,300 @@
   "help": {
     "message": "Yardım"
   },
+  "clickLabel": {
+    "message": "Tıkla"
+  },
+  "selectLabel": {
+    "message": "Seç"
+  },
+  "helpDocumentTitle": {
+    "message": "Simple Bookmarks Manager Yardımı"
+  },
+  "helpTagline": {
+    "message": "SBM ile yerel yer imi gezme, düzenleme, sıralama ve düzenleme için pratik bir kılavuz."
+  },
+  "helpQuickStartHeading": {
+    "message": "Hızlı başlangıç"
+  },
+  "helpQuickStartIntro": {
+    "message": "SBM’yi tarayıcı araç çubuğu düğmesinden açın. Yönetici normal bir uzantı sayfası olarak açılır ve Chromium’un mevcut yer imi ağacıyla doğrudan çalışır."
+  },
+  "helpLibraryPaneLabel": {
+    "message": "Kitaplık bölmesi:"
+  },
+  "helpLibraryPaneDescription": {
+    "message": "yer imi klasörlerine göz atın ve alt klasörleri genişletin veya daraltın."
+  },
+  "helpFolderContentsPaneLabel": {
+    "message": "Klasör İçeriği bölmesi:"
+  },
+  "helpFolderContentsPaneDescription": {
+    "message": "seçili klasördeki öğeleri görüntüleyin, seçin, sıralayın, açın, sürükleyin ve yönetin."
+  },
+  "helpDetailsPaneLabel": {
+    "message": "Ayrıntılar bölmesi:"
+  },
+  "helpDetailsPaneDescription": {
+    "message": "seçili yer imini veya klasörü inceleyin ve düzenleyin."
+  },
+  "helpBasicBookmarkManagementHeading": {
+    "message": "Temel yer imi yönetimi"
+  },
+  "helpBasicUseNewButtonsBefore": {
+    "message": "Kullan:"
+  },
+  "helpBasicUseNewButtonsMiddle": {
+    "message": "ve"
+  },
+  "helpBasicUseNewButtonsAfter": {
+    "message": "geçerli klasöre öğe eklemek için."
+  },
+  "helpBasicRightClickActions": {
+    "message": "Yeniden adlandırma, düzenleme, silme, kesme, kopyalama, yapıştırma, sıralama ve açma gibi işlemler için klasörlere veya yer imlerine sağ tıklayın."
+  },
+  "helpBasicDragDrop": {
+    "message": "Öğeleri yeniden sıralamak veya yer imlerini ve klasörleri başka bir klasöre taşımak için sürükle-bırak kullanın."
+  },
+  "helpBasicDetailsPaneEdits": {
+    "message": "Yer imi adlarını, URL’leri, üst klasörleri ve desteklenen gelişmiş alanları değiştirmek için Ayrıntılar bölmesini kullanın."
+  },
+  "helpBasicF2Before": {
+    "message": ""
+  },
+  "helpBasicF2After": {
+    "message": "tuşu etkin klasörü yeniden adlandırır veya etkin yer imini düzenler."
+  },
+  "helpBasicMiddleClick": {
+    "message": "Klasör İçeriği bölmesindeki bir yer imini yeni sekmede açmak için orta tıklayın."
+  },
+  "helpSearchSortingHeading": {
+    "message": "Arama ve sıralama"
+  },
+  "helpSearchBox": {
+    "message": "Yer imlerini ada veya URL’ye göre aramak için arama kutusunu kullanın."
+  },
+  "helpSearchLimitBefore": {
+    "message": "Etkinleştir:"
+  },
+  "helpSearchLimitAfter": {
+    "message": "yalnızca geçerli klasör ağacı içinde aramak için."
+  },
+  "helpVisualSort": {
+    "message": "Klasör İçeriği bölmesinde geçici sıralama için görsel sıralama açılır menüsünü veya sütun başlıklarını kullanın."
+  },
+  "helpPermanentSort": {
+    "message": "Chromium’da kayıtlı yer imi sırasını değiştirmek istediğinizde sağ tık kalıcı sıralamayı kullanın."
+  },
+  "helpSeparatorsBeforeTitle": {
+    "message": "SBM, Chromium ile uyumlu bir ayırıcı kuralını destekler. Ayırıcı, başlığı"
+  },
+  "helpSeparatorsBetweenTitleUrl": {
+    "message": "ve URL’si"
+  },
+  "helpSeparatorsAfterUrl": {
+    "message": "olan bir yer imi olarak kaydedilir. SBM bu kuralı görsel bir ayırıcı olarak gösterir."
+  },
+  "helpKeyboardShortcutsHeading": {
+    "message": "Klavye kısayolları"
+  },
+  "helpShortcutArrowKeysLabel": {
+    "message": "Ok tuşları:"
+  },
+  "helpShortcutArrowKeysDescription": {
+    "message": "etkin bölmede hareket eder."
+  },
+  "helpShortcutEnterLabel": {
+    "message": "Enter:"
+  },
+  "helpShortcutEnterDescription": {
+    "message": "bir yer imini açar veya klasöre girer."
+  },
+  "helpShortcutBackspaceLabel": {
+    "message": "Backspace:"
+  },
+  "helpShortcutBackspaceDescription": {
+    "message": "mümkünse bir klasör düzeyi yukarı çıkar."
+  },
+  "helpShortcutCtrlFLabel": {
+    "message": "Ctrl+F:"
+  },
+  "helpShortcutCtrlFDescription": {
+    "message": "arama kutusuna odaklanır."
+  },
+  "helpShortcutF2Label": {
+    "message": "F2:"
+  },
+  "helpShortcutF2Description": {
+    "message": "etkin klasörü yeniden adlandırır veya etkin yer imini düzenler."
+  },
+  "helpShortcutDeleteLabel": {
+    "message": "Delete:"
+  },
+  "helpShortcutDeleteDescription": {
+    "message": "klavyeyle silme etkinse seçili öğeyi siler."
+  },
+  "helpShortcutEscapeLabel": {
+    "message": "Escape:"
+  },
+  "helpShortcutEscapeDescription": {
+    "message": "açık SBM iletişim kutularını veya menülerini kapatır."
+  },
+  "helpPinningHeading": {
+    "message": "Kolay erişim için Simple Bookmarks Manager’ı sabitleme"
+  },
+  "helpPinningIntro": {
+    "message": "Simple Bookmarks Manager’ı (SBM) araç çubuğuna sabitlemek uzantıya daha hızlı ve kolay erişim sağlar."
+  },
+  "helpPinningIntro2": {
+    "message": "SBM Chromium tabanlı tarayıcınıza yüklendikten sonra şu yöntemlerden biriyle araç çubuğuna sabitleyebilirsiniz:"
+  },
+  "helpPinViaExtensionsMenuHeading": {
+    "message": "1. Uzantılar menüsünden sabitle"
+  },
+  "helpPinViaExtensionsMenuStep1": {
+    "message": "Genellikle adres çubuğunun sağında bulunan Uzantılar düğmesine tıklayın."
+  },
+  "helpFindSbmBefore": {
+    "message": "Listede"
+  },
+  "helpFindSbmAfter": {
+    "message": "öğesini bulun."
+  },
+  "helpPinIconBefore": {
+    "message": "Yanındaki sabitle simgesine tıklayın:"
+  },
+  "helpPinToggleExplanation": {
+    "message": "Bu SBM’yi araç çubuğuna sabitler. SBM zaten sabitliyse, simgeye tıklamak sabitlemeyi kaldırır."
+  },
+  "helpPinViaManageExtensionsHeading": {
+    "message": "2. Uzantıları Yönet sayfasından sabitle"
+  },
+  "helpPinViaManageExtensionsStep1": {
+    "message": "Genellikle adres çubuğunun sağında bulunan Uzantılar düğmesine tıklayın."
+  },
+  "helpManageExtensions": {
+    "message": "Uzantıları Yönet"
+  },
+  "helpAlternatively": {
+    "message": "Alternatif olarak:"
+  },
+  "helpChromiumMenuStep": {
+    "message": "Chromium menü düğmesine tıklayın."
+  },
+  "helpExtensions": {
+    "message": "Uzantılar"
+  },
+  "helpOnceExtensionsPageOpen": {
+    "message": "Uzantılar sayfası açıldığında:"
+  },
+  "helpScrollDownToBefore": {
+    "message": "Aşağı kaydırıp şuna gelin:"
+  },
+  "helpPinToToolbar": {
+    "message": "Araç çubuğuna sabitle"
+  },
+  "helpToggleOptionOn": {
+    "message": "Seçeneği açın."
+  },
+  "helpOptionsReferenceHeading": {
+    "message": "Seçenek başvurusu"
+  },
+  "helpOptionsReferenceBeforeStorage": {
+    "message": "Seçenekler sayfası kalıcı ayarları şurada saklar:"
+  },
+  "helpOptionsReferenceAfterStorage": {
+    "message": "Bu ayarlar tarayıcı profilinde yerel kalır."
+  },
+  "helpOptionUserInterfaceLanguageDescription": {
+    "message": ": otomatik dil algılama veya belirli bir SBM arayüz dili seçer."
+  },
+  "helpOptionThemeDescription": {
+    "message": ": SBM tarafından kullanılan görsel temayı seçer."
+  },
+  "helpOptionDetailsPanePositionDescription": {
+    "message": ": Ayrıntılar bölmesini sağ tarafa veya Klasör İçeriği bölmesinin altına yerleştirir."
+  },
+  "helpOptionFontDescription": {
+    "message": ": desteklenen yazı tipi ailelerinden birini seçer."
+  },
+  "helpOptionFontSizeDescription": {
+    "message": ": temel arayüz metin boyutunu ayarlar."
+  },
+  "helpOptionFontSpacingDescription": {
+    "message": ": etiketler ve satırlar için satır aralığını ayarlar."
+  },
+  "helpOptionLimitSearchDescription": {
+    "message": "ana arama kutusunu tüm yer imleri yerine yalnızca geçerli klasör ağacında arama yapacak şekilde değiştirir."
+  },
+  "helpOptionShowDeleteWarningDescription": {
+    "message": ": yer imi öğelerini veya klasörleri silmeden önce sorar."
+  },
+  "helpOptionShowSortWarningDescription": {
+    "message": ": kalıcı bağlam menüsü sıralamalarını uygulamadan önce sorar."
+  },
+  "helpOptionAllowKeyboardDeleteDescription": {
+    "message": ": Delete tuşunun seçili öğeleri kaldırıp kaldıramayacağını belirler."
+  },
+  "helpOptionNaturalSortDescription": {
+    "message": "kalıcı Ada Göre Sıralama işlemlerinde kullanılan sırayı belirler. Etkinse önce klasörler, sonra ayırıcılar, sonra yer imleri gelir."
+  },
+  "helpOptionMultipleInstancesDescription": {
+    "message": ": devre dışıysa uzantı düğmesi yeni sekme açmak yerine mevcut SBM sekmesine odaklanır."
+  },
+  "helpOptionStartAtFolderDescription": {
+    "message": ": başlatıldığında SBM’yi seçili bir yer imi klasöründe açar."
+  },
+  "helpOptionStartupFolderDescription": {
+    "message": ": seçili klasörde başlatma seçeneğinin kullanacağı klasörü seçer."
+  },
+  "helpOptionUrlProtectionsDescription": {
+    "message": "Bu seçenekler, SBM yer imlerini uzantı sekme veya pencere işlemleriyle açarken daha riskli yer imi URL şemaları için korumaları denetler. Yer imlerini kaydetmeyi engellemez."
+  },
+  "helpOptionLibraryPaneWidthDescription": {
+    "message": ": sol Kitaplık bölmesinin piksel cinsinden genişliği."
+  },
+  "helpOptionDetailsPaneWidthDescription": {
+    "message": ": sağ Ayrıntılar bölmesinin piksel cinsinden genişliği."
+  },
+  "helpOptionBottomDetailsHeightDescription": {
+    "message": ": alt Ayrıntılar bölmesinin piksel cinsinden yüksekliği."
+  },
+  "helpOptionPaneResizeBars": {
+    "message": "Bölme boyutları, görünür yeniden boyutlandırma çubukları sürüklenerek de değiştirilebilir."
+  },
+  "helpOptionFolderContentsDescription": {
+    "message": "Bu seçenekler orta Klasör İçeriği bölmesindeki isteğe bağlı sütunları ve kayıtlı sütun genişliklerini yapılandırır. Ad ve URL her zaman gösterilir."
+  },
+  "helpOptionDateAddedColumnDescription": {
+    "message": ": bir öğenin ne zaman eklendiğini gösteren isteğe bağlı sütun."
+  },
+  "helpOptionIdColumnDescription": {
+    "message": ": Chromium yer imi ID’lerini gösteren isteğe bağlı sütun."
+  },
+  "helpOptionOrderColumnDescription": {
+    "message": ": Chromium klasör sıra/indeks değerlerini gösteren isteğe bağlı sütun."
+  },
+  "helpOptionAdvancedDetailsViewDescription": {
+    "message": ": Ayrıntılar bölmesinde salt okunur gelişmiş yer imi meta verilerini gösterir."
+  },
+  "helpOptionAdvancedDetailsEditDescription": {
+    "message": ": desteklenen gelişmiş düzenlemeye izin verir; şu anda yer imi indeks değişiklikleriyle sınırlıdır."
+  },
+  "helpOptionOptimisationsDescription": {
+    "message": "Bu seçenekler çoğunlukla kıyaslama ve sorun giderme içindir. Performans karşılaştırmıyor veya render sorunu teşhis etmiyorsanız açık bırakın."
+  },
+  "helpOptionDomRenderingDescription": {
+    "message": ": render yollarında seçili DOM değişimlerini azaltır."
+  },
+  "helpOptionTempTreeMapsDescription": {
+    "message": ": bazı ağaç işlemleri sırasında kısa ömürlü arama haritaları oluşturur ve sonra atar."
+  },
+  "helpOptionDebugSettingsBefore": {
+    "message": "Hata ayıklama ayarları yalnızca"
+  },
+  "helpOptionDebugSettingsAfter": {
+    "message": "etkinken görünür. Uyarı/hata günlüğü geçicidir ve uzantı ayarlarına kaydedilmez."
+  },
   "hideDetailsPaneTooltip": {
     "message": "Ayrıntılar bölmesini gizle"
   },
@@ -385,6 +682,33 @@
   },
   "multipleInstancesAllowedHelp": {
     "message": "Devre dışı bırakıldığında, uzantı düğmesine tıklamak yeni bir sekme açmak yerine mevcut Simple Bookmarks Manager sekmesine odaklanır."
+  },
+  "startupBehavior": {
+    "message": "Başlatma davranışı"
+  },
+  "startupBehaviorHelp": {
+    "message": "Simple Bookmarks Manager başlatıldığında nerede açılacağını seçin."
+  },
+  "startAtConfiguredBookmarkFolder": {
+    "message": "Seçili klasörde başlat"
+  },
+  "startAtConfiguredBookmarkFolderHelp": {
+    "message": "Etkinleştirildiğinde SBM seçili yer imi klasöründe açılır. Klasör artık yoksa bu ayar temizlenir ve SBM normal başlangıç klasörünü kullanır."
+  },
+  "startupBookmarkFolder": {
+    "message": "Başlangıç klasörü"
+  },
+  "startupBookmarkFolderHelp": {
+    "message": "SBM başladığında gösterilecek mevcut yer imi klasörünü seçin."
+  },
+  "startupBookmarkFolderNone": {
+    "message": "Başlangıç klasörü seçilmedi"
+  },
+  "startupBookmarkFolderMissing": {
+    "message": "Önceden seçilen klasör eksik"
+  },
+  "startupBookmarkFolderLoadFailed": {
+    "message": "Yer imi klasörleri yüklenemedi."
   },
   "mutationCreateBookmark": {
     "message": "yer imi oluştur"
@@ -572,6 +896,12 @@
   "rightDetailsWidthHelp": {
     "message": "Sağ Ayrıntılar bölmesi için piksel cinsinden genişlik."
   },
+  "bottomDetailsHeight": {
+    "message": "Alt Ayrıntılar bölmesi yüksekliği"
+  },
+  "bottomDetailsHeightHelp": {
+    "message": "Ayrıntılar bölmesi konumu Alt olarak ayarlandığında kullanılan piksel yüksekliği."
+  },
   "rootFallback": {
     "message": "(kök)"
   },
@@ -619,6 +949,18 @@
   },
   "showErrorsWarningsHelp": {
     "message": "Gelişmiş. Bu SBM oturumu için geçici bir bellek içi günlük gösterir. Günlük girdileri uzantı ayarlarına kaydedilmez."
+  },
+  "showAtLaunch": {
+    "message": "Başlatmada göster"
+  },
+  "showHelpOnLaunch": {
+    "message": "Sonraki başlatmada Yardımı göster"
+  },
+  "showHelpOnLaunchHelp": {
+    "message": "Etkinleştirildiğinde SBM bir sonraki açılışında Yardım iletişim kutusunu bir kez gösterir, sonra bu ayarı tekrar kapatır."
+  },
+  "helpOptionShowHelpOnLaunchDescription": {
+    "message": ": SBM bir sonraki açılışında Yardım iletişim kutusunu bir kez gösterir ve sonra kendini kapatır."
   },
   "showSortWarning": {
     "message": "Kalıcı sıralama onayını göster"
@@ -754,6 +1096,18 @@
   },
   "themeHelp": {
     "message": "Simple Bookmarks Manager tarafından kullanılan temayı ayarlayın."
+  },
+  "detailsPanePosition": {
+    "message": "Ayrıntılar bölmesi konumu"
+  },
+  "detailsPanePositionHelp": {
+    "message": "Ayrıntılar bölmesinin sağda mı yoksa Klasör İçeriği bölmesinin altında mı görüneceğini seçin."
+  },
+  "detailsPanePositionRight": {
+    "message": "Sağ taraf"
+  },
+  "detailsPanePositionBottom": {
+    "message": "Alt"
   },
   "themeSystem": {
     "message": "Sistem"

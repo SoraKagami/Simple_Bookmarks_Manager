@@ -128,6 +128,9 @@
   "copy": {
     "message": "Kopieren"
   },
+  "copyUrlToClipboard": {
+    "message": "URL in die Zwischenablage kopieren"
+  },
   "couldNotMoveBookmark": {
     "message": "Lesezeichenelement konnte nicht verschoben werden: {error}"
   },
@@ -305,6 +308,300 @@
   "help": {
     "message": "Hilfe"
   },
+  "clickLabel": {
+    "message": "Klicken"
+  },
+  "selectLabel": {
+    "message": "Auswählen"
+  },
+  "helpDocumentTitle": {
+    "message": "Hilfe zu Simple Bookmarks Manager"
+  },
+  "helpTagline": {
+    "message": "Ein praktischer Leitfaden zur Nutzung von SBM zum lokalen Durchsuchen, Bearbeiten, Sortieren und Organisieren von Lesezeichen."
+  },
+  "helpQuickStartHeading": {
+    "message": "Schnellstart"
+  },
+  "helpQuickStartIntro": {
+    "message": "Öffnen Sie SBM über die Schaltfläche in der Browser-Symbolleiste. Der Manager wird als normale Erweiterungsseite geöffnet und arbeitet direkt mit der bestehenden Chromium-Lesezeichenstruktur."
+  },
+  "helpLibraryPaneLabel": {
+    "message": "Bibliotheksbereich:"
+  },
+  "helpLibraryPaneDescription": {
+    "message": "Lesezeichenordner durchsuchen und Unterordner ein- oder ausklappen."
+  },
+  "helpFolderContentsPaneLabel": {
+    "message": "Ordnerinhaltsbereich:"
+  },
+  "helpFolderContentsPaneDescription": {
+    "message": "Elemente im ausgewählten Ordner anzeigen, auswählen, sortieren, öffnen, ziehen und verwalten."
+  },
+  "helpDetailsPaneLabel": {
+    "message": "Detailbereich:"
+  },
+  "helpDetailsPaneDescription": {
+    "message": "Das ausgewählte Lesezeichen oder den ausgewählten Ordner prüfen und bearbeiten."
+  },
+  "helpBasicBookmarkManagementHeading": {
+    "message": "Grundlegende Lesezeichenverwaltung"
+  },
+  "helpBasicUseNewButtonsBefore": {
+    "message": "Verwenden Sie"
+  },
+  "helpBasicUseNewButtonsMiddle": {
+    "message": "und"
+  },
+  "helpBasicUseNewButtonsAfter": {
+    "message": "um Elemente zum aktuellen Ordner hinzuzufügen."
+  },
+  "helpBasicRightClickActions": {
+    "message": "Klicken Sie mit der rechten Maustaste auf Ordner oder Lesezeichen, um Aktionen wie Umbenennen, Bearbeiten, Löschen, Ausschneiden, Kopieren, Einfügen, Sortieren und Öffnen zu verwenden."
+  },
+  "helpBasicDragDrop": {
+    "message": "Verwenden Sie Drag-and-drop, um Elemente neu anzuordnen oder Lesezeichen und Ordner in einen anderen Ordner zu verschieben."
+  },
+  "helpBasicDetailsPaneEdits": {
+    "message": "Im Detailbereich können Sie Lesezeichennamen, URLs, übergeordnete Ordner und unterstützte erweiterte Felder ändern."
+  },
+  "helpBasicF2Before": {
+    "message": "Verwenden Sie"
+  },
+  "helpBasicF2After": {
+    "message": "um den aktiven Ordner umzubenennen oder das aktive Lesezeichen zu bearbeiten."
+  },
+  "helpBasicMiddleClick": {
+    "message": "Klicken Sie ein Lesezeichen im Ordnerinhaltsbereich mit der mittleren Maustaste an, um es in einem neuen Tab zu öffnen."
+  },
+  "helpSearchSortingHeading": {
+    "message": "Suche und Sortierung"
+  },
+  "helpSearchBox": {
+    "message": "Verwenden Sie das Suchfeld, um Lesezeichen nach Name oder URL zu suchen."
+  },
+  "helpSearchLimitBefore": {
+    "message": "Aktivieren Sie"
+  },
+  "helpSearchLimitAfter": {
+    "message": "um nur innerhalb der aktuellen Ordnerstruktur zu suchen."
+  },
+  "helpVisualSort": {
+    "message": "Verwenden Sie die Dropdown-Liste für die visuelle Sortierung oder die Spaltenüberschriften für eine temporäre Sortierung im Ordnerinhaltsbereich."
+  },
+  "helpPermanentSort": {
+    "message": "Verwenden Sie die permanente Sortierung per Rechtsklick, wenn die gespeicherte Lesezeichenreihenfolge in Chromium geändert werden soll."
+  },
+  "helpSeparatorsBeforeTitle": {
+    "message": "SBM unterstützt eine Chromium-kompatible Trennlinien-Konvention. Eine Trennlinie wird als Lesezeichen mit dem Titel"
+  },
+  "helpSeparatorsBetweenTitleUrl": {
+    "message": "und der URL"
+  },
+  "helpSeparatorsAfterUrl": {
+    "message": "gespeichert. SBM stellt diese Konvention als sichtbare Trennlinie dar."
+  },
+  "helpKeyboardShortcutsHeading": {
+    "message": "Tastenkürzel"
+  },
+  "helpShortcutArrowKeysLabel": {
+    "message": "Pfeiltasten:"
+  },
+  "helpShortcutArrowKeysDescription": {
+    "message": "durch den aktiven Bereich bewegen."
+  },
+  "helpShortcutEnterLabel": {
+    "message": "Enter:"
+  },
+  "helpShortcutEnterDescription": {
+    "message": "ein Lesezeichen öffnen oder in einen Ordner wechseln."
+  },
+  "helpShortcutBackspaceLabel": {
+    "message": "Backspace:"
+  },
+  "helpShortcutBackspaceDescription": {
+    "message": "wenn möglich eine Ordnerebene nach oben wechseln."
+  },
+  "helpShortcutCtrlFLabel": {
+    "message": "Strg+F:"
+  },
+  "helpShortcutCtrlFDescription": {
+    "message": "das Suchfeld fokussieren."
+  },
+  "helpShortcutF2Label": {
+    "message": "F2:"
+  },
+  "helpShortcutF2Description": {
+    "message": "den aktiven Ordner umbenennen oder das aktive Lesezeichen bearbeiten."
+  },
+  "helpShortcutDeleteLabel": {
+    "message": "Entf:"
+  },
+  "helpShortcutDeleteDescription": {
+    "message": "das ausgewählte Element löschen, wenn Tastaturlöschen aktiviert ist."
+  },
+  "helpShortcutEscapeLabel": {
+    "message": "Escape:"
+  },
+  "helpShortcutEscapeDescription": {
+    "message": "geöffnete SBM-Dialoge oder Menüs schließen."
+  },
+  "helpPinningHeading": {
+    "message": "Simple Bookmarks Manager für schnellen Zugriff anheften"
+  },
+  "helpPinningIntro": {
+    "message": "Wenn Simple Bookmarks Manager (SBM) an die Symbolleiste angeheftet wird, ist die Erweiterung schneller und einfacher erreichbar."
+  },
+  "helpPinningIntro2": {
+    "message": "Nachdem SBM in Ihrem Chromium-basierten Browser installiert wurde, können Sie es auf eine der folgenden Arten an die Symbolleiste anheften:"
+  },
+  "helpPinViaExtensionsMenuHeading": {
+    "message": "1. Über das Erweiterungsmenü anheften"
+  },
+  "helpPinViaExtensionsMenuStep1": {
+    "message": "Klicken Sie auf die Schaltfläche „Erweiterungen“, die sich normalerweise rechts neben der Adressleiste befindet."
+  },
+  "helpFindSbmBefore": {
+    "message": "Suchen Sie"
+  },
+  "helpFindSbmAfter": {
+    "message": "in der Liste."
+  },
+  "helpPinIconBefore": {
+    "message": "Klicken Sie auf das Stecknadelsymbol neben"
+  },
+  "helpPinToggleExplanation": {
+    "message": "Dadurch wird SBM an die Symbolleiste angeheftet. Wenn SBM bereits angeheftet ist, hebt ein Klick auf das Stecknadelsymbol die Anheftung auf."
+  },
+  "helpPinViaManageExtensionsHeading": {
+    "message": "2. Über die Seite „Erweiterungen verwalten“ anheften"
+  },
+  "helpPinViaManageExtensionsStep1": {
+    "message": "Klicken Sie auf die Schaltfläche „Erweiterungen“, die sich normalerweise rechts neben der Adressleiste befindet."
+  },
+  "helpManageExtensions": {
+    "message": "Erweiterungen verwalten"
+  },
+  "helpAlternatively": {
+    "message": "Alternativ:"
+  },
+  "helpChromiumMenuStep": {
+    "message": "Klicken Sie auf die Chromium-Menüschaltfläche."
+  },
+  "helpExtensions": {
+    "message": "Erweiterungen"
+  },
+  "helpOnceExtensionsPageOpen": {
+    "message": "Sobald die Erweiterungsseite geöffnet ist:"
+  },
+  "helpScrollDownToBefore": {
+    "message": "Scrollen Sie nach unten zu"
+  },
+  "helpPinToToolbar": {
+    "message": "An Symbolleiste anheften"
+  },
+  "helpToggleOptionOn": {
+    "message": "Schalten Sie die Option ein."
+  },
+  "helpOptionsReferenceHeading": {
+    "message": "Optionsreferenz"
+  },
+  "helpOptionsReferenceBeforeStorage": {
+    "message": "Die Optionsseite speichert dauerhafte Einstellungen in"
+  },
+  "helpOptionsReferenceAfterStorage": {
+    "message": "Diese Einstellungen bleiben lokal im Browserprofil."
+  },
+  "helpOptionUserInterfaceLanguageDescription": {
+    "message": ": automatische Spracherkennung oder eine bestimmte SBM-Oberflächensprache auswählen."
+  },
+  "helpOptionThemeDescription": {
+    "message": ": das von SBM verwendete visuelle Design auswählen."
+  },
+  "helpOptionDetailsPanePositionDescription": {
+    "message": ": den Detailbereich rechts oder unterhalb des Ordnerinhaltsbereichs platzieren."
+  },
+  "helpOptionFontDescription": {
+    "message": ": eine der unterstützten Schriftfamilien auswählen."
+  },
+  "helpOptionFontSizeDescription": {
+    "message": ": die Grundgröße des UI-Texts anpassen."
+  },
+  "helpOptionFontSpacingDescription": {
+    "message": ": den Zeilenabstand für Beschriftungen und Zeilen anpassen."
+  },
+  "helpOptionLimitSearchDescription": {
+    "message": "ändert das Hauptsuchfeld so, dass statt aller Lesezeichen nur die aktuelle Ordnerstruktur durchsucht wird."
+  },
+  "helpOptionShowDeleteWarningDescription": {
+    "message": ": vor dem Löschen von Lesezeichenelementen oder Ordnern nachfragen."
+  },
+  "helpOptionShowSortWarningDescription": {
+    "message": ": vor dem Anwenden permanenter Kontextmenü-Sortierungen nachfragen."
+  },
+  "helpOptionAllowKeyboardDeleteDescription": {
+    "message": ": steuert, ob die Entf-Taste ausgewählte Elemente entfernen darf."
+  },
+  "helpOptionNaturalSortDescription": {
+    "message": "steuert die Reihenfolge bei permanenten Sortierungen nach Name. Wenn aktiviert, werden zuerst Ordner, dann Trennlinien und anschließend Lesezeichen platziert."
+  },
+  "helpOptionMultipleInstancesDescription": {
+    "message": ": wenn deaktiviert, fokussiert ein Klick auf die Erweiterungsschaltfläche den vorhandenen SBM-Tab statt einen neuen zu öffnen."
+  },
+  "helpOptionStartAtFolderDescription": {
+    "message": ": öffnet SBM beim Start in einem ausgewählten Lesezeichenordner."
+  },
+  "helpOptionStartupFolderDescription": {
+    "message": ": wählt den Ordner aus, der für die Startoption mit ausgewähltem Ordner verwendet wird."
+  },
+  "helpOptionUrlProtectionsDescription": {
+    "message": "Diese Optionen steuern Schutzmaßnahmen für risikoreichere Lesezeichen-URL-Schemata, wenn SBM Lesezeichen über Erweiterungs-Tab- oder Fensteraktionen öffnet. Sie verhindern nicht das Speichern von Lesezeichen."
+  },
+  "helpOptionLibraryPaneWidthDescription": {
+    "message": ": Breite des linken Bibliotheksbereichs in Pixeln."
+  },
+  "helpOptionDetailsPaneWidthDescription": {
+    "message": ": Breite des rechten Detailbereichs in Pixeln."
+  },
+  "helpOptionBottomDetailsHeightDescription": {
+    "message": ": Höhe des unteren Detailbereichs in Pixeln."
+  },
+  "helpOptionPaneResizeBars": {
+    "message": "Bereichsgrößen können auch durch Ziehen der sichtbaren Größenleisten geändert werden."
+  },
+  "helpOptionFolderContentsDescription": {
+    "message": "Diese Optionen konfigurieren die optionalen Spalten und gespeicherten Spaltenbreiten im mittleren Ordnerinhaltsbereich. Name und URL werden immer angezeigt."
+  },
+  "helpOptionDateAddedColumnDescription": {
+    "message": ": optionale Spalte, die anzeigt, wann ein Element hinzugefügt wurde."
+  },
+  "helpOptionIdColumnDescription": {
+    "message": ": optionale Spalte für Chromium-Lesezeichen-IDs."
+  },
+  "helpOptionOrderColumnDescription": {
+    "message": ": optionale Spalte für Chromium-Ordnerreihenfolge/Indexwerte."
+  },
+  "helpOptionAdvancedDetailsViewDescription": {
+    "message": ": zeigt schreibgeschützte erweiterte Lesezeichen-Metadaten im Detailbereich."
+  },
+  "helpOptionAdvancedDetailsEditDescription": {
+    "message": ": erlaubt unterstützte erweiterte Bearbeitung, derzeit nur Änderungen des Lesezeichenindex."
+  },
+  "helpOptionOptimisationsDescription": {
+    "message": "Diese Optionen dienen hauptsächlich Benchmarks und der Fehlersuche. Lassen Sie sie aktiviert, außer Sie vergleichen Leistung oder untersuchen ein Darstellungsproblem."
+  },
+  "helpOptionDomRenderingDescription": {
+    "message": ": reduziert ausgewählte DOM-Änderungen in Renderpfaden."
+  },
+  "helpOptionTempTreeMapsDescription": {
+    "message": ": erstellt während einiger Baumoperationen kurzlebige Nachschlagetabellen und verwirft sie anschließend."
+  },
+  "helpOptionDebugSettingsBefore": {
+    "message": "Debug-Einstellungen werden nur angezeigt, wenn"
+  },
+  "helpOptionDebugSettingsAfter": {
+    "message": "aktiviert ist. Das Warnungs-/Fehlerprotokoll ist temporär und wird nicht in den Erweiterungseinstellungen gespeichert."
+  },
   "hideDetailsPaneTooltip": {
     "message": "Details-Bereich ausblenden"
   },
@@ -385,6 +682,33 @@
   },
   "multipleInstancesAllowedHelp": {
     "message": "Wenn deaktiviert, fokussiert ein Klick auf die Erweiterungsschaltfläche den vorhandenen Simple-Bookmarks-Manager-Tab, statt einen weiteren zu öffnen."
+  },
+  "startupBehavior": {
+    "message": "Startverhalten"
+  },
+  "startupBehaviorHelp": {
+    "message": "Auswählen, wo Simple Bookmarks Manager beim Start geöffnet wird."
+  },
+  "startAtConfiguredBookmarkFolder": {
+    "message": "Im gewählten Ordner starten"
+  },
+  "startAtConfiguredBookmarkFolderHelp": {
+    "message": "Wenn aktiviert, öffnet SBM den ausgewählten Lesezeichenordner. Falls der Ordner nicht mehr existiert, wird diese Einstellung gelöscht und SBM verwendet seinen normalen Startordner."
+  },
+  "startupBookmarkFolder": {
+    "message": "Startordner"
+  },
+  "startupBookmarkFolderHelp": {
+    "message": "Vorhandenen Lesezeichenordner auswählen, der beim Start von SBM angezeigt wird."
+  },
+  "startupBookmarkFolderNone": {
+    "message": "Kein Startordner ausgewählt"
+  },
+  "startupBookmarkFolderMissing": {
+    "message": "Zuvor ausgewählter Ordner fehlt"
+  },
+  "startupBookmarkFolderLoadFailed": {
+    "message": "Lesezeichenordner konnten nicht geladen werden."
   },
   "mutationCreateBookmark": {
     "message": "Lesezeichen erstellen"
@@ -572,6 +896,12 @@
   "rightDetailsWidthHelp": {
     "message": "Breite in Pixeln für den rechten Detailbereich."
   },
+  "bottomDetailsHeight": {
+    "message": "Höhe des unteren Detailbereichs"
+  },
+  "bottomDetailsHeightHelp": {
+    "message": "Höhe in Pixeln, wenn die Position des Detailbereichs auf „Unten“ gesetzt ist."
+  },
   "rootFallback": {
     "message": "(Stamm)"
   },
@@ -619,6 +949,18 @@
   },
   "showErrorsWarningsHelp": {
     "message": "Erweitert. Zeigt ein vorübergehendes In-Memory-Protokoll für diese SBM-Sitzung. Protokolleinträge werden nicht in den Erweiterungseinstellungen gespeichert."
+  },
+  "showAtLaunch": {
+    "message": "Beim Start anzeigen"
+  },
+  "showHelpOnLaunch": {
+    "message": "Hilfe beim nächsten Start anzeigen"
+  },
+  "showHelpOnLaunchHelp": {
+    "message": "Wenn aktiviert, zeigt SBM beim nächsten Öffnen einmal den Hilfedialog und deaktiviert diese Einstellung danach wieder."
+  },
+  "helpOptionShowHelpOnLaunchDescription": {
+    "message": ": zeigt den Hilfedialog beim nächsten Öffnen von SBM einmal an und schaltet sich danach wieder aus."
   },
   "showSortWarning": {
     "message": "Bestätigung für dauerhafte Sortierung anzeigen"
@@ -754,6 +1096,18 @@
   },
   "themeHelp": {
     "message": "Legt das Design fest, das von Simple Bookmarks Manager verwendet wird."
+  },
+  "detailsPanePosition": {
+    "message": "Position des Detailbereichs"
+  },
+  "detailsPanePositionHelp": {
+    "message": "Auswählen, ob der Detailbereich rechts oder unterhalb des Ordnerinhaltsbereichs angezeigt wird."
+  },
+  "detailsPanePositionRight": {
+    "message": "Rechts"
+  },
+  "detailsPanePositionBottom": {
+    "message": "Unten"
   },
   "themeSystem": {
     "message": "System"

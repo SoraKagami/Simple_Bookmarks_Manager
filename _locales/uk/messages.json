@@ -128,6 +128,9 @@
   "copy": {
     "message": "Копіювати"
   },
+  "copyUrlToClipboard": {
+    "message": "Скопіювати URL до буфера обміну"
+  },
   "couldNotMoveBookmark": {
     "message": "Не вдалося перемістити елемент закладки: {error}"
   },
@@ -305,6 +308,300 @@
   "help": {
     "message": "Довідка"
   },
+  "clickLabel": {
+    "message": "Натисніть"
+  },
+  "selectLabel": {
+    "message": "Виберіть"
+  },
+  "helpDocumentTitle": {
+    "message": "Довідка Simple Bookmarks Manager"
+  },
+  "helpTagline": {
+    "message": "Практичний посібник із локального перегляду, редагування, сортування й організації закладок у SBM."
+  },
+  "helpQuickStartHeading": {
+    "message": "Швидкий старт"
+  },
+  "helpQuickStartIntro": {
+    "message": "Відкрийте SBM кнопкою на панелі інструментів браузера. Менеджер відкривається як звичайна сторінка розширення та напряму працює з наявним деревом закладок Chromium."
+  },
+  "helpLibraryPaneLabel": {
+    "message": "Панель бібліотеки:"
+  },
+  "helpLibraryPaneDescription": {
+    "message": "переглядайте папки закладок і розгортайте або згортайте підпапки."
+  },
+  "helpFolderContentsPaneLabel": {
+    "message": "Панель вмісту папки:"
+  },
+  "helpFolderContentsPaneDescription": {
+    "message": "переглядайте, вибирайте, сортуйте, відкривайте, перетягуйте та керуйте елементами у вибраній папці."
+  },
+  "helpDetailsPaneLabel": {
+    "message": "Панель подробиць:"
+  },
+  "helpDetailsPaneDescription": {
+    "message": "переглядайте та редагуйте вибрану закладку або папку."
+  },
+  "helpBasicBookmarkManagementHeading": {
+    "message": "Базове керування закладками"
+  },
+  "helpBasicUseNewButtonsBefore": {
+    "message": "Використовуйте"
+  },
+  "helpBasicUseNewButtonsMiddle": {
+    "message": "і"
+  },
+  "helpBasicUseNewButtonsAfter": {
+    "message": "щоб додавати елементи до поточної папки."
+  },
+  "helpBasicRightClickActions": {
+    "message": "Клацніть правою кнопкою миші папку або закладку, щоб виконати дії на кшталт перейменування, редагування, видалення, вирізання, копіювання, вставлення, сортування й відкриття."
+  },
+  "helpBasicDragDrop": {
+    "message": "Використовуйте перетягування, щоб змінювати порядок елементів або переміщати закладки й папки до іншої папки."
+  },
+  "helpBasicDetailsPaneEdits": {
+    "message": "Використовуйте панель подробиць, щоб змінювати назви закладок, URL, батьківські папки та підтримувані розширені поля."
+  },
+  "helpBasicF2Before": {
+    "message": "Використовуйте"
+  },
+  "helpBasicF2After": {
+    "message": "щоб перейменувати активну папку або редагувати активну закладку."
+  },
+  "helpBasicMiddleClick": {
+    "message": "Клацніть закладку середньою кнопкою миші на панелі вмісту папки, щоб відкрити її в новій вкладці."
+  },
+  "helpSearchSortingHeading": {
+    "message": "Пошук і сортування"
+  },
+  "helpSearchBox": {
+    "message": "Використовуйте поле пошуку, щоб шукати закладки за назвою або URL."
+  },
+  "helpSearchLimitBefore": {
+    "message": "Увімкніть"
+  },
+  "helpSearchLimitAfter": {
+    "message": "щоб шукати лише в поточному дереві папок."
+  },
+  "helpVisualSort": {
+    "message": "Використовуйте розкривний список візуального сортування або заголовки стовпців для тимчасового сортування на панелі вмісту папки."
+  },
+  "helpPermanentSort": {
+    "message": "Використовуйте постійне сортування через правий клік, якщо хочете змінити збережений порядок закладок у Chromium."
+  },
+  "helpSeparatorsBeforeTitle": {
+    "message": "SBM підтримує сумісну з Chromium угоду для розділювачів. Розділювач зберігається як закладка із заголовком"
+  },
+  "helpSeparatorsBetweenTitleUrl": {
+    "message": "і URL"
+  },
+  "helpSeparatorsAfterUrl": {
+    "message": "SBM відображає цю угоду як візуальний розділювач."
+  },
+  "helpKeyboardShortcutsHeading": {
+    "message": "Сполучення клавіш"
+  },
+  "helpShortcutArrowKeysLabel": {
+    "message": "Клавіші зі стрілками:"
+  },
+  "helpShortcutArrowKeysDescription": {
+    "message": "переміщення активною панеллю."
+  },
+  "helpShortcutEnterLabel": {
+    "message": "Enter:"
+  },
+  "helpShortcutEnterDescription": {
+    "message": "відкрити закладку або перейти до папки."
+  },
+  "helpShortcutBackspaceLabel": {
+    "message": "Backspace:"
+  },
+  "helpShortcutBackspaceDescription": {
+    "message": "перейти на один рівень папки вище, якщо можливо."
+  },
+  "helpShortcutCtrlFLabel": {
+    "message": "Ctrl+F:"
+  },
+  "helpShortcutCtrlFDescription": {
+    "message": "перемістити фокус у поле пошуку."
+  },
+  "helpShortcutF2Label": {
+    "message": "F2:"
+  },
+  "helpShortcutF2Description": {
+    "message": "перейменувати активну папку або редагувати активну закладку."
+  },
+  "helpShortcutDeleteLabel": {
+    "message": "Delete:"
+  },
+  "helpShortcutDeleteDescription": {
+    "message": "видалити вибраний елемент, якщо ввімкнено видалення з клавіатури."
+  },
+  "helpShortcutEscapeLabel": {
+    "message": "Escape:"
+  },
+  "helpShortcutEscapeDescription": {
+    "message": "закрити відкриті діалоги або меню SBM."
+  },
+  "helpPinningHeading": {
+    "message": "Закріплення Simple Bookmarks Manager для швидкого доступу"
+  },
+  "helpPinningIntro": {
+    "message": "Закріплення Simple Bookmarks Manager (SBM) на панелі інструментів дає швидший і зручніший доступ до розширення."
+  },
+  "helpPinningIntro2": {
+    "message": "Після встановлення SBM у браузері на основі Chromium його можна закріпити на панелі інструментів одним із таких способів:"
+  },
+  "helpPinViaExtensionsMenuHeading": {
+    "message": "1. Закріплення через меню розширень"
+  },
+  "helpPinViaExtensionsMenuStep1": {
+    "message": "Натисніть кнопку розширень, зазвичай розташовану праворуч від адресного рядка."
+  },
+  "helpFindSbmBefore": {
+    "message": "Знайдіть"
+  },
+  "helpFindSbmAfter": {
+    "message": "у списку."
+  },
+  "helpPinIconBefore": {
+    "message": "Натисніть значок закріплення поруч із"
+  },
+  "helpPinToggleExplanation": {
+    "message": "Це закріпить SBM на панелі інструментів. Якщо SBM уже закріплено, натискання значка відкріпить його."
+  },
+  "helpPinViaManageExtensionsHeading": {
+    "message": "2. Закріплення через сторінку керування розширеннями"
+  },
+  "helpPinViaManageExtensionsStep1": {
+    "message": "Натисніть кнопку розширень, зазвичай розташовану праворуч від адресного рядка."
+  },
+  "helpManageExtensions": {
+    "message": "Керувати розширеннями"
+  },
+  "helpAlternatively": {
+    "message": "Або:"
+  },
+  "helpChromiumMenuStep": {
+    "message": "Натисніть кнопку меню Chromium."
+  },
+  "helpExtensions": {
+    "message": "Розширення"
+  },
+  "helpOnceExtensionsPageOpen": {
+    "message": "Коли сторінку розширень відкрито:"
+  },
+  "helpScrollDownToBefore": {
+    "message": "Прокрутіть униз до"
+  },
+  "helpPinToToolbar": {
+    "message": "Закріпити на панелі інструментів"
+  },
+  "helpToggleOptionOn": {
+    "message": "Увімкніть параметр."
+  },
+  "helpOptionsReferenceHeading": {
+    "message": "Довідник параметрів"
+  },
+  "helpOptionsReferenceBeforeStorage": {
+    "message": "Сторінка параметрів зберігає постійні налаштування в"
+  },
+  "helpOptionsReferenceAfterStorage": {
+    "message": "Ці налаштування залишаються локальними у профілі браузера."
+  },
+  "helpOptionUserInterfaceLanguageDescription": {
+    "message": ": виберіть автоматичне визначення мови або конкретну мову інтерфейсу SBM."
+  },
+  "helpOptionThemeDescription": {
+    "message": ": виберіть візуальну тему SBM."
+  },
+  "helpOptionDetailsPanePositionDescription": {
+    "message": ": розмістіть панель подробиць праворуч або під панеллю вмісту папки."
+  },
+  "helpOptionFontDescription": {
+    "message": ": виберіть один із підтримуваних шрифтів."
+  },
+  "helpOptionFontSizeDescription": {
+    "message": ": налаштуйте базовий розмір тексту інтерфейсу."
+  },
+  "helpOptionFontSpacingDescription": {
+    "message": ": налаштуйте міжрядковий інтервал для підписів і рядків."
+  },
+  "helpOptionLimitSearchDescription": {
+    "message": "змінює головне поле пошуку так, щоб воно шукало лише в поточному дереві папок, а не в усіх закладках."
+  },
+  "helpOptionShowDeleteWarningDescription": {
+    "message": ": запитує підтвердження перед видаленням елементів закладок або папок."
+  },
+  "helpOptionShowSortWarningDescription": {
+    "message": ": запитує підтвердження перед застосуванням постійного сортування з контекстного меню."
+  },
+  "helpOptionAllowKeyboardDeleteDescription": {
+    "message": ": керує тим, чи може клавіша Delete видаляти вибрані елементи."
+  },
+  "helpOptionNaturalSortDescription": {
+    "message": "керує порядком, який використовується під час постійного сортування за назвою. Якщо ввімкнено, спочатку розміщуються папки, потім розділювачі, а потім закладки."
+  },
+  "helpOptionMultipleInstancesDescription": {
+    "message": ": якщо вимкнено, кнопка розширення фокусує наявну вкладку SBM замість відкриття нової."
+  },
+  "helpOptionStartAtFolderDescription": {
+    "message": ": відкриває SBM у вибраній папці закладок під час запуску."
+  },
+  "helpOptionStartupFolderDescription": {
+    "message": ": вибирає папку, яку використовує параметр запуску у вибраній папці."
+  },
+  "helpOptionUrlProtectionsDescription": {
+    "message": "Ці параметри керують захистом для ризикованіших схем URL закладок, коли SBM відкриває закладки через дії вкладок або вікон розширення. Вони не забороняють зберігати закладки."
+  },
+  "helpOptionLibraryPaneWidthDescription": {
+    "message": ": ширина лівої панелі бібліотеки в пікселях."
+  },
+  "helpOptionDetailsPaneWidthDescription": {
+    "message": ": ширина правої панелі подробиць у пікселях."
+  },
+  "helpOptionBottomDetailsHeightDescription": {
+    "message": ": висота нижньої панелі подробиць у пікселях."
+  },
+  "helpOptionPaneResizeBars": {
+    "message": "Розміри панелей також можна змінювати, перетягуючи видимі смуги зміни розміру."
+  },
+  "helpOptionFolderContentsDescription": {
+    "message": "Ці параметри налаштовують додаткові стовпці та збережені ширини стовпців у середній панелі вмісту папки. Назва й URL завжди показуються."
+  },
+  "helpOptionDateAddedColumnDescription": {
+    "message": ": додатковий стовпець, що показує, коли елемент було додано."
+  },
+  "helpOptionIdColumnDescription": {
+    "message": ": додатковий стовпець із ID закладок Chromium."
+  },
+  "helpOptionOrderColumnDescription": {
+    "message": ": додатковий стовпець зі значеннями порядку/індексу папки Chromium."
+  },
+  "helpOptionAdvancedDetailsViewDescription": {
+    "message": ": показує розширені метадані закладок лише для читання на панелі подробиць."
+  },
+  "helpOptionAdvancedDetailsEditDescription": {
+    "message": ": дозволяє підтримуване розширене редагування, зараз лише зміну індексу закладки."
+  },
+  "helpOptionOptimisationsDescription": {
+    "message": "Ці параметри переважно призначені для тестів продуктивності та усунення проблем. Залишайте їх увімкненими, якщо не порівнюєте продуктивність або не діагностуєте проблему відображення."
+  },
+  "helpOptionDomRenderingDescription": {
+    "message": ": зменшує вибрані зміни DOM у шляхах відтворення."
+  },
+  "helpOptionTempTreeMapsDescription": {
+    "message": ": створює короткочасні карти пошуку під час деяких операцій із деревом, а потім відкидає їх."
+  },
+  "helpOptionDebugSettingsBefore": {
+    "message": "Налаштування налагодження відображаються лише коли"
+  },
+  "helpOptionDebugSettingsAfter": {
+    "message": "увімкнено. Журнал попереджень/помилок тимчасовий і не зберігається в налаштуваннях розширення."
+  },
   "hideDetailsPaneTooltip": {
     "message": "Приховати панель відомостей"
   },
@@ -385,6 +682,33 @@
   },
   "multipleInstancesAllowedHelp": {
     "message": "Якщо вимкнено, натискання кнопки розширення фокусує наявну вкладку Simple Bookmarks Manager замість відкриття нової."
+  },
+  "startupBehavior": {
+    "message": "Поведінка під час запуску"
+  },
+  "startupBehaviorHelp": {
+    "message": "Виберіть, де Simple Bookmarks Manager відкривається під час запуску."
+  },
+  "startAtConfiguredBookmarkFolder": {
+    "message": "Запускати у вибраній папці"
+  },
+  "startAtConfiguredBookmarkFolderHelp": {
+    "message": "Якщо ввімкнено, SBM відкривається у вибраній папці закладок. Якщо папка більше не існує, цей параметр очищується, а SBM використовує звичайну стартову папку."
+  },
+  "startupBookmarkFolder": {
+    "message": "Стартова папка"
+  },
+  "startupBookmarkFolderHelp": {
+    "message": "Виберіть наявну папку закладок для показу під час запуску SBM."
+  },
+  "startupBookmarkFolderNone": {
+    "message": "Стартову папку не вибрано"
+  },
+  "startupBookmarkFolderMissing": {
+    "message": "Раніше вибрана папка відсутня"
+  },
+  "startupBookmarkFolderLoadFailed": {
+    "message": "Не вдалося завантажити папки закладок."
   },
   "mutationCreateBookmark": {
     "message": "створити закладку"
@@ -572,6 +896,12 @@
   "rightDetailsWidthHelp": {
     "message": "Ширина правої панелі відомостей у пікселях."
   },
+  "bottomDetailsHeight": {
+    "message": "Висота нижньої панелі подробиць"
+  },
+  "bottomDetailsHeightHelp": {
+    "message": "Висота в пікселях, що використовується, коли положення панелі подробиць задано як низ."
+  },
   "rootFallback": {
     "message": "(корінь)"
   },
@@ -619,6 +949,18 @@
   },
   "showErrorsWarningsHelp": {
     "message": "Додатково. Показує тимчасовий журнал у пам’яті для цього сеансу SBM. Записи журналу не зберігаються в налаштуваннях розширення."
+  },
+  "showAtLaunch": {
+    "message": "Показувати під час запуску"
+  },
+  "showHelpOnLaunch": {
+    "message": "Показати довідку під час наступного запуску"
+  },
+  "showHelpOnLaunchHelp": {
+    "message": "Якщо ввімкнено, SBM один раз показує діалог довідки під час наступного відкриття, а потім знову вимикає цей параметр."
+  },
+  "helpOptionShowHelpOnLaunchDescription": {
+    "message": ": один раз показує діалог довідки під час наступного відкриття SBM, а потім вимикається."
   },
   "showSortWarning": {
     "message": "Показувати попередження підтвердження постійного сортування"
@@ -754,6 +1096,18 @@
   },
   "themeHelp": {
     "message": "Установіть тему, яку використовує Simple Bookmarks Manager."
+  },
+  "detailsPanePosition": {
+    "message": "Положення панелі подробиць"
+  },
+  "detailsPanePositionHelp": {
+    "message": "Виберіть, чи панель подробиць з’являється праворуч, чи під панеллю вмісту папки."
+  },
+  "detailsPanePositionRight": {
+    "message": "Праворуч"
+  },
+  "detailsPanePositionBottom": {
+    "message": "Знизу"
   },
   "themeSystem": {
     "message": "Системна"

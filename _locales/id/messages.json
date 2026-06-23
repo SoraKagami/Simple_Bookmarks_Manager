@@ -128,6 +128,9 @@
   "copy": {
     "message": "Salin"
   },
+  "copyUrlToClipboard": {
+    "message": "Salin URL ke Clipboard"
+  },
   "couldNotMoveBookmark": {
     "message": "Tidak dapat memindahkan item bookmark: {error}"
   },
@@ -305,6 +308,300 @@
   "help": {
     "message": "Bantuan"
   },
+  "clickLabel": {
+    "message": "Klik"
+  },
+  "selectLabel": {
+    "message": "Pilih"
+  },
+  "helpDocumentTitle": {
+    "message": "Bantuan Simple Bookmarks Manager"
+  },
+  "helpTagline": {
+    "message": "Panduan praktis untuk memakai SBM dalam penelusuran, penyuntingan, pengurutan, dan pengelolaan bookmark lokal."
+  },
+  "helpQuickStartHeading": {
+    "message": "Mulai cepat"
+  },
+  "helpQuickStartIntro": {
+    "message": "Buka SBM dari tombol bilah alat browser. Manager terbuka sebagai halaman ekstensi biasa dan bekerja langsung dengan pohon bookmark Chromium yang sudah ada."
+  },
+  "helpLibraryPaneLabel": {
+    "message": "Panel Pustaka:"
+  },
+  "helpLibraryPaneDescription": {
+    "message": "telusuri folder bookmark dan buka atau tutup subfolder."
+  },
+  "helpFolderContentsPaneLabel": {
+    "message": "Panel Isi Folder:"
+  },
+  "helpFolderContentsPaneDescription": {
+    "message": "lihat, pilih, urutkan, buka, seret, dan kelola item di folder yang dipilih."
+  },
+  "helpDetailsPaneLabel": {
+    "message": "Panel Detail:"
+  },
+  "helpDetailsPaneDescription": {
+    "message": "periksa dan edit bookmark atau folder yang dipilih."
+  },
+  "helpBasicBookmarkManagementHeading": {
+    "message": "Pengelolaan bookmark dasar"
+  },
+  "helpBasicUseNewButtonsBefore": {
+    "message": "Gunakan"
+  },
+  "helpBasicUseNewButtonsMiddle": {
+    "message": "dan"
+  },
+  "helpBasicUseNewButtonsAfter": {
+    "message": "untuk menambahkan item ke folder saat ini."
+  },
+  "helpBasicRightClickActions": {
+    "message": "Klik kanan folder atau bookmark untuk tindakan seperti ganti nama, edit, hapus, potong, salin, tempel, urutkan, dan buka."
+  },
+  "helpBasicDragDrop": {
+    "message": "Gunakan seret-dan-lepas untuk mengubah urutan item atau memindahkan bookmark dan folder ke folder lain."
+  },
+  "helpBasicDetailsPaneEdits": {
+    "message": "Gunakan panel Detail untuk mengubah nama bookmark, URL, folder induk, dan bidang lanjutan yang didukung."
+  },
+  "helpBasicF2Before": {
+    "message": "Gunakan"
+  },
+  "helpBasicF2After": {
+    "message": "untuk mengganti nama folder aktif atau mengedit bookmark aktif."
+  },
+  "helpBasicMiddleClick": {
+    "message": "Klik tengah bookmark di panel Isi Folder untuk membukanya di tab baru."
+  },
+  "helpSearchSortingHeading": {
+    "message": "Pencarian dan pengurutan"
+  },
+  "helpSearchBox": {
+    "message": "Gunakan kotak pencarian untuk mencari bookmark menurut nama atau URL."
+  },
+  "helpSearchLimitBefore": {
+    "message": "Aktifkan"
+  },
+  "helpSearchLimitAfter": {
+    "message": "untuk mencari hanya di dalam pohon folder saat ini."
+  },
+  "helpVisualSort": {
+    "message": "Gunakan dropdown urutan visual atau header kolom untuk pengurutan sementara di panel Isi Folder."
+  },
+  "helpPermanentSort": {
+    "message": "Gunakan pengurutan permanen dari klik kanan jika ingin mengubah urutan bookmark yang tersimpan di Chromium."
+  },
+  "helpSeparatorsBeforeTitle": {
+    "message": "SBM mendukung konvensi pemisah yang kompatibel dengan Chromium. Pemisah disimpan sebagai bookmark dengan judul"
+  },
+  "helpSeparatorsBetweenTitleUrl": {
+    "message": "dan URL"
+  },
+  "helpSeparatorsAfterUrl": {
+    "message": "SBM menampilkan konvensi itu sebagai pembatas visual."
+  },
+  "helpKeyboardShortcutsHeading": {
+    "message": "Pintasan keyboard"
+  },
+  "helpShortcutArrowKeysLabel": {
+    "message": "Tombol panah:"
+  },
+  "helpShortcutArrowKeysDescription": {
+    "message": "bergerak di panel aktif."
+  },
+  "helpShortcutEnterLabel": {
+    "message": "Enter:"
+  },
+  "helpShortcutEnterDescription": {
+    "message": "membuka bookmark atau masuk ke folder."
+  },
+  "helpShortcutBackspaceLabel": {
+    "message": "Backspace:"
+  },
+  "helpShortcutBackspaceDescription": {
+    "message": "naik satu tingkat folder jika tersedia."
+  },
+  "helpShortcutCtrlFLabel": {
+    "message": "Ctrl+F:"
+  },
+  "helpShortcutCtrlFDescription": {
+    "message": "fokus ke kotak pencarian."
+  },
+  "helpShortcutF2Label": {
+    "message": "F2:"
+  },
+  "helpShortcutF2Description": {
+    "message": "mengganti nama folder aktif atau mengedit bookmark aktif."
+  },
+  "helpShortcutDeleteLabel": {
+    "message": "Delete:"
+  },
+  "helpShortcutDeleteDescription": {
+    "message": "menghapus item yang dipilih saat penghapusan keyboard diaktifkan."
+  },
+  "helpShortcutEscapeLabel": {
+    "message": "Escape:"
+  },
+  "helpShortcutEscapeDescription": {
+    "message": "menutup dialog atau menu SBM yang terbuka."
+  },
+  "helpPinningHeading": {
+    "message": "Sematkan Simple Bookmarks Manager untuk akses mudah"
+  },
+  "helpPinningIntro": {
+    "message": "Menyematkan Simple Bookmarks Manager (SBM) ke bilah alat membuat akses ekstensi lebih cepat dan mudah."
+  },
+  "helpPinningIntro2": {
+    "message": "Setelah SBM dipasang di browser berbasis Chromium, Anda dapat menyematkannya ke bilah alat dengan salah satu cara berikut:"
+  },
+  "helpPinViaExtensionsMenuHeading": {
+    "message": "1. Sematkan lewat menu Ekstensi"
+  },
+  "helpPinViaExtensionsMenuStep1": {
+    "message": "Klik tombol Ekstensi, biasanya berada di kanan bilah alamat."
+  },
+  "helpFindSbmBefore": {
+    "message": "Temukan"
+  },
+  "helpFindSbmAfter": {
+    "message": "di daftar."
+  },
+  "helpPinIconBefore": {
+    "message": "Klik ikon semat di sebelah"
+  },
+  "helpPinToggleExplanation": {
+    "message": "Ini akan menyematkan SBM ke bilah alat. Jika SBM sudah disematkan, mengklik ikon semat akan melepasnya."
+  },
+  "helpPinViaManageExtensionsHeading": {
+    "message": "2. Sematkan lewat halaman Kelola Ekstensi"
+  },
+  "helpPinViaManageExtensionsStep1": {
+    "message": "Klik tombol Ekstensi, biasanya berada di kanan bilah alamat."
+  },
+  "helpManageExtensions": {
+    "message": "Kelola Ekstensi"
+  },
+  "helpAlternatively": {
+    "message": "Atau:"
+  },
+  "helpChromiumMenuStep": {
+    "message": "Klik tombol menu Chromium."
+  },
+  "helpExtensions": {
+    "message": "Ekstensi"
+  },
+  "helpOnceExtensionsPageOpen": {
+    "message": "Setelah halaman Ekstensi terbuka:"
+  },
+  "helpScrollDownToBefore": {
+    "message": "Gulir ke bawah ke"
+  },
+  "helpPinToToolbar": {
+    "message": "Sematkan ke bilah alat"
+  },
+  "helpToggleOptionOn": {
+    "message": "Aktifkan opsi tersebut."
+  },
+  "helpOptionsReferenceHeading": {
+    "message": "Referensi opsi"
+  },
+  "helpOptionsReferenceBeforeStorage": {
+    "message": "Halaman Opsi menyimpan pengaturan tetap di"
+  },
+  "helpOptionsReferenceAfterStorage": {
+    "message": "Pengaturan ini tetap lokal di profil browser."
+  },
+  "helpOptionUserInterfaceLanguageDescription": {
+    "message": ": pilih deteksi bahasa otomatis atau bahasa UI SBM tertentu."
+  },
+  "helpOptionThemeDescription": {
+    "message": ": pilih tema visual yang digunakan SBM."
+  },
+  "helpOptionDetailsPanePositionDescription": {
+    "message": ": letakkan panel Detail di sisi kanan atau di bawah panel Isi Folder."
+  },
+  "helpOptionFontDescription": {
+    "message": ": pilih salah satu keluarga font yang didukung."
+  },
+  "helpOptionFontSizeDescription": {
+    "message": ": sesuaikan ukuran teks dasar UI."
+  },
+  "helpOptionFontSpacingDescription": {
+    "message": ": sesuaikan jarak baris untuk label dan baris."
+  },
+  "helpOptionLimitSearchDescription": {
+    "message": "mengubah kotak pencarian utama dari mencari semua bookmark menjadi hanya di pohon folder saat ini."
+  },
+  "helpOptionShowDeleteWarningDescription": {
+    "message": ": meminta konfirmasi sebelum menghapus item bookmark atau folder."
+  },
+  "helpOptionShowSortWarningDescription": {
+    "message": ": meminta konfirmasi sebelum menerapkan pengurutan permanen dari menu konteks."
+  },
+  "helpOptionAllowKeyboardDeleteDescription": {
+    "message": ": mengontrol apakah tombol Delete dapat menghapus item yang dipilih."
+  },
+  "helpOptionNaturalSortDescription": {
+    "message": "mengontrol urutan yang digunakan oleh Sort by Name permanen. Jika aktif, folder ditempatkan dulu, lalu pemisah, lalu bookmark."
+  },
+  "helpOptionMultipleInstancesDescription": {
+    "message": ": jika dinonaktifkan, tombol ekstensi memfokuskan tab SBM yang sudah ada, bukan membuka tab baru."
+  },
+  "helpOptionStartAtFolderDescription": {
+    "message": ": membuka SBM di folder bookmark yang dipilih saat diluncurkan."
+  },
+  "helpOptionStartupFolderDescription": {
+    "message": ": memilih folder yang digunakan oleh opsi mulai di folder terpilih."
+  },
+  "helpOptionUrlProtectionsDescription": {
+    "message": "Opsi ini mengontrol perlindungan untuk skema URL bookmark berisiko lebih tinggi saat SBM membuka bookmark melalui tindakan tab atau jendela ekstensi. Opsi ini tidak mencegah penyimpanan bookmark."
+  },
+  "helpOptionLibraryPaneWidthDescription": {
+    "message": ": lebar dalam piksel untuk panel Pustaka kiri."
+  },
+  "helpOptionDetailsPaneWidthDescription": {
+    "message": ": lebar dalam piksel untuk panel Detail kanan."
+  },
+  "helpOptionBottomDetailsHeightDescription": {
+    "message": ": tinggi dalam piksel untuk panel Detail bawah."
+  },
+  "helpOptionPaneResizeBars": {
+    "message": "Ukuran panel juga dapat diubah dengan menyeret bilah pengubah ukuran yang terlihat."
+  },
+  "helpOptionFolderContentsDescription": {
+    "message": "Opsi ini mengatur kolom opsional dan lebar kolom tersimpan di panel tengah Isi Folder. Nama dan URL selalu ditampilkan."
+  },
+  "helpOptionDateAddedColumnDescription": {
+    "message": ": kolom opsional yang menunjukkan kapan item ditambahkan."
+  },
+  "helpOptionIdColumnDescription": {
+    "message": ": kolom opsional yang menampilkan ID bookmark Chromium."
+  },
+  "helpOptionOrderColumnDescription": {
+    "message": ": kolom opsional yang menampilkan nilai urutan/indeks folder Chromium."
+  },
+  "helpOptionAdvancedDetailsViewDescription": {
+    "message": ": menampilkan metadata bookmark lanjutan hanya-baca di panel Detail."
+  },
+  "helpOptionAdvancedDetailsEditDescription": {
+    "message": ": mengizinkan penyuntingan lanjutan yang didukung, saat ini terbatas pada perubahan indeks bookmark."
+  },
+  "helpOptionOptimisationsDescription": {
+    "message": "Opsi ini terutama untuk benchmark dan pemecahan masalah. Biarkan aktif kecuali Anda membandingkan performa atau mendiagnosis masalah rendering."
+  },
+  "helpOptionDomRenderingDescription": {
+    "message": ": mengurangi perubahan DOM tertentu pada jalur rendering."
+  },
+  "helpOptionTempTreeMapsDescription": {
+    "message": ": membuat peta pencarian sementara selama beberapa operasi pohon, lalu membuangnya."
+  },
+  "helpOptionDebugSettingsBefore": {
+    "message": "Pengaturan debug hanya muncul saat"
+  },
+  "helpOptionDebugSettingsAfter": {
+    "message": "diaktifkan. Log peringatan/kesalahan bersifat sementara dan tidak disimpan ke pengaturan ekstensi."
+  },
   "hideDetailsPaneTooltip": {
     "message": "Sembunyikan panel Detail"
   },
@@ -385,6 +682,33 @@
   },
   "multipleInstancesAllowedHelp": {
     "message": "Saat dinonaktifkan, mengeklik tombol ekstensi akan memfokuskan tab Simple Bookmarks Manager yang ada alih-alih membuka tab baru."
+  },
+  "startupBehavior": {
+    "message": "Perilaku saat mulai"
+  },
+  "startupBehaviorHelp": {
+    "message": "Pilih lokasi yang dibuka Simple Bookmarks Manager saat diluncurkan."
+  },
+  "startAtConfiguredBookmarkFolder": {
+    "message": "Mulai di folder terpilih"
+  },
+  "startAtConfiguredBookmarkFolderHelp": {
+    "message": "Jika aktif, SBM terbuka di folder bookmark yang dipilih. Jika folder tidak lagi ada, pengaturan ini dihapus dan SBM memakai folder awal normal."
+  },
+  "startupBookmarkFolder": {
+    "message": "Folder awal"
+  },
+  "startupBookmarkFolderHelp": {
+    "message": "Pilih folder bookmark yang ada untuk ditampilkan saat SBM mulai."
+  },
+  "startupBookmarkFolderNone": {
+    "message": "Tidak ada folder awal yang dipilih"
+  },
+  "startupBookmarkFolderMissing": {
+    "message": "Folder yang dipilih sebelumnya hilang"
+  },
+  "startupBookmarkFolderLoadFailed": {
+    "message": "Tidak dapat memuat folder bookmark."
   },
   "mutationCreateBookmark": {
     "message": "buat bookmark"
@@ -572,6 +896,12 @@
   "rightDetailsWidthHelp": {
     "message": "Lebar dalam piksel untuk panel Detail kanan."
   },
+  "bottomDetailsHeight": {
+    "message": "Tinggi panel Detail bawah"
+  },
+  "bottomDetailsHeightHelp": {
+    "message": "Tinggi dalam piksel yang digunakan saat posisi panel Detail diatur ke Bawah."
+  },
   "rootFallback": {
     "message": "(akar)"
   },
@@ -619,6 +949,18 @@
   },
   "showErrorsWarningsHelp": {
     "message": "Lanjutan. Menampilkan log sementara dalam memori untuk sesi SBM ini. Entri log tidak disimpan ke pengaturan ekstensi."
+  },
+  "showAtLaunch": {
+    "message": "Tampilkan saat mulai"
+  },
+  "showHelpOnLaunch": {
+    "message": "Tampilkan Bantuan saat mulai berikutnya"
+  },
+  "showHelpOnLaunchHelp": {
+    "message": "Jika aktif, SBM menampilkan dialog Bantuan sekali saat dibuka berikutnya, lalu mematikan pengaturan ini lagi."
+  },
+  "helpOptionShowHelpOnLaunchDescription": {
+    "message": ": menampilkan dialog Bantuan sekali saat SBM dibuka berikutnya, lalu mati sendiri."
   },
   "showSortWarning": {
     "message": "Tampilkan konfirmasi pengurutan permanen"
@@ -754,6 +1096,18 @@
   },
   "themeHelp": {
     "message": "Atur tema yang digunakan oleh Simple Bookmarks Manager."
+  },
+  "detailsPanePosition": {
+    "message": "Posisi panel Detail"
+  },
+  "detailsPanePositionHelp": {
+    "message": "Pilih apakah panel Detail muncul di sisi kanan atau di bawah panel Isi Folder."
+  },
+  "detailsPanePositionRight": {
+    "message": "Sisi kanan"
+  },
+  "detailsPanePositionBottom": {
+    "message": "Bawah"
   },
   "themeSystem": {
     "message": "Sistem"

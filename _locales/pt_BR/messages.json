@@ -128,6 +128,9 @@
   "copy": {
     "message": "Copiar"
   },
+  "copyUrlToClipboard": {
+    "message": "Copiar URL para a área de transferência"
+  },
   "couldNotMoveBookmark": {
     "message": "Não foi possível mover o item de favorito: {error}"
   },
@@ -305,6 +308,300 @@
   "help": {
     "message": "Ajuda"
   },
+  "clickLabel": {
+    "message": "Clique"
+  },
+  "selectLabel": {
+    "message": "Selecione"
+  },
+  "helpDocumentTitle": {
+    "message": "Ajuda do Simple Bookmarks Manager"
+  },
+  "helpTagline": {
+    "message": "Um guia prático para usar o SBM para navegação, edição, ordenação e organização local de favoritos."
+  },
+  "helpQuickStartHeading": {
+    "message": "Início rápido"
+  },
+  "helpQuickStartIntro": {
+    "message": "Abra o SBM pelo botão da barra de ferramentas do navegador. O gerenciador abre como uma página normal da extensão e trabalha diretamente com a árvore de favoritos existente do Chromium."
+  },
+  "helpLibraryPaneLabel": {
+    "message": "Painel Biblioteca:"
+  },
+  "helpLibraryPaneDescription": {
+    "message": "navegue por pastas de favoritos e expanda ou recolha subpastas."
+  },
+  "helpFolderContentsPaneLabel": {
+    "message": "Painel Conteúdo da pasta:"
+  },
+  "helpFolderContentsPaneDescription": {
+    "message": "visualize, selecione, ordene, abra, arraste e gerencie itens na pasta selecionada."
+  },
+  "helpDetailsPaneLabel": {
+    "message": "Painel Detalhes:"
+  },
+  "helpDetailsPaneDescription": {
+    "message": "inspecione e edite o favorito ou a pasta selecionada."
+  },
+  "helpBasicBookmarkManagementHeading": {
+    "message": "Gerenciamento básico de favoritos"
+  },
+  "helpBasicUseNewButtonsBefore": {
+    "message": "Use"
+  },
+  "helpBasicUseNewButtonsMiddle": {
+    "message": "e"
+  },
+  "helpBasicUseNewButtonsAfter": {
+    "message": "para adicionar itens à pasta atual."
+  },
+  "helpBasicRightClickActions": {
+    "message": "Clique com o botão direito em pastas ou favoritos para ações como renomear, editar, excluir, recortar, copiar, colar, ordenar e abrir."
+  },
+  "helpBasicDragDrop": {
+    "message": "Use arrastar e soltar para reordenar itens ou mover favoritos e pastas para outra pasta."
+  },
+  "helpBasicDetailsPaneEdits": {
+    "message": "Use o painel Detalhes para alterar nomes de favoritos, URLs, pastas pai e campos avançados compatíveis."
+  },
+  "helpBasicF2Before": {
+    "message": "Use"
+  },
+  "helpBasicF2After": {
+    "message": "para renomear a pasta ativa ou editar o favorito ativo."
+  },
+  "helpBasicMiddleClick": {
+    "message": "Clique com o botão do meio em um favorito no painel Conteúdo da pasta para abri-lo em uma nova guia."
+  },
+  "helpSearchSortingHeading": {
+    "message": "Pesquisa e ordenação"
+  },
+  "helpSearchBox": {
+    "message": "Use a caixa de pesquisa para pesquisar favoritos por nome ou URL."
+  },
+  "helpSearchLimitBefore": {
+    "message": "Ative"
+  },
+  "helpSearchLimitAfter": {
+    "message": "para pesquisar somente dentro da árvore da pasta atual."
+  },
+  "helpVisualSort": {
+    "message": "Use o menu de ordenação visual ou os cabeçalhos das colunas para ordenar temporariamente o painel Conteúdo da pasta."
+  },
+  "helpPermanentSort": {
+    "message": "Use a ordenação permanente pelo botão direito quando quiser alterar a ordem dos favoritos salva no Chromium."
+  },
+  "helpSeparatorsBeforeTitle": {
+    "message": "O SBM oferece suporte a uma convenção de separador compatível com Chromium. Um separador é salvo como um favorito com o título"
+  },
+  "helpSeparatorsBetweenTitleUrl": {
+    "message": "e URL"
+  },
+  "helpSeparatorsAfterUrl": {
+    "message": "O SBM renderiza essa convenção como um divisor visual."
+  },
+  "helpKeyboardShortcutsHeading": {
+    "message": "Atalhos de teclado"
+  },
+  "helpShortcutArrowKeysLabel": {
+    "message": "Setas:"
+  },
+  "helpShortcutArrowKeysDescription": {
+    "message": "mover pelo painel ativo."
+  },
+  "helpShortcutEnterLabel": {
+    "message": "Enter:"
+  },
+  "helpShortcutEnterDescription": {
+    "message": "abrir um favorito ou entrar em uma pasta."
+  },
+  "helpShortcutBackspaceLabel": {
+    "message": "Backspace:"
+  },
+  "helpShortcutBackspaceDescription": {
+    "message": "subir um nível de pasta quando disponível."
+  },
+  "helpShortcutCtrlFLabel": {
+    "message": "Ctrl+F:"
+  },
+  "helpShortcutCtrlFDescription": {
+    "message": "focar a caixa de pesquisa."
+  },
+  "helpShortcutF2Label": {
+    "message": "F2:"
+  },
+  "helpShortcutF2Description": {
+    "message": "renomear a pasta ativa ou editar o favorito ativo."
+  },
+  "helpShortcutDeleteLabel": {
+    "message": "Delete:"
+  },
+  "helpShortcutDeleteDescription": {
+    "message": "excluir o item selecionado quando a exclusão pelo teclado estiver ativada."
+  },
+  "helpShortcutEscapeLabel": {
+    "message": "Escape:"
+  },
+  "helpShortcutEscapeDescription": {
+    "message": "fechar diálogos ou menus abertos do SBM."
+  },
+  "helpPinningHeading": {
+    "message": "Fixar o Simple Bookmarks Manager para acesso fácil"
+  },
+  "helpPinningIntro": {
+    "message": "Fixar o Simple Bookmarks Manager (SBM) na barra de ferramentas permite acesso mais rápido e fácil à extensão."
+  },
+  "helpPinningIntro2": {
+    "message": "Depois que o SBM estiver instalado no seu navegador baseado em Chromium, você pode fixá-lo na barra de ferramentas de uma das seguintes formas:"
+  },
+  "helpPinViaExtensionsMenuHeading": {
+    "message": "1. Fixar pelo menu Extensões"
+  },
+  "helpPinViaExtensionsMenuStep1": {
+    "message": "Clique no botão Extensões, normalmente localizado à direita da barra de endereço."
+  },
+  "helpFindSbmBefore": {
+    "message": "Encontre"
+  },
+  "helpFindSbmAfter": {
+    "message": "na lista."
+  },
+  "helpPinIconBefore": {
+    "message": "Clique no ícone de fixar ao lado de"
+  },
+  "helpPinToggleExplanation": {
+    "message": "Isso fixará o SBM na barra de ferramentas. Se o SBM já estiver fixado, clicar no ícone de fixar irá desafixá-lo."
+  },
+  "helpPinViaManageExtensionsHeading": {
+    "message": "2. Fixar pela página Gerenciar extensões"
+  },
+  "helpPinViaManageExtensionsStep1": {
+    "message": "Clique no botão Extensões, normalmente localizado à direita da barra de endereço."
+  },
+  "helpManageExtensions": {
+    "message": "Gerenciar extensões"
+  },
+  "helpAlternatively": {
+    "message": "Como alternativa:"
+  },
+  "helpChromiumMenuStep": {
+    "message": "Clique no botão de menu do Chromium."
+  },
+  "helpExtensions": {
+    "message": "Extensões"
+  },
+  "helpOnceExtensionsPageOpen": {
+    "message": "Quando a página Extensões estiver aberta:"
+  },
+  "helpScrollDownToBefore": {
+    "message": "Role para baixo até"
+  },
+  "helpPinToToolbar": {
+    "message": "Fixar na barra de ferramentas"
+  },
+  "helpToggleOptionOn": {
+    "message": "Ative a opção."
+  },
+  "helpOptionsReferenceHeading": {
+    "message": "Referência das opções"
+  },
+  "helpOptionsReferenceBeforeStorage": {
+    "message": "A página Opções armazena configurações persistentes em"
+  },
+  "helpOptionsReferenceAfterStorage": {
+    "message": "Essas configurações permanecem locais no perfil do navegador."
+  },
+  "helpOptionUserInterfaceLanguageDescription": {
+    "message": ": escolha detecção automática de idioma ou um idioma específico da interface do SBM."
+  },
+  "helpOptionThemeDescription": {
+    "message": ": escolha o tema visual usado pelo SBM."
+  },
+  "helpOptionDetailsPanePositionDescription": {
+    "message": ": coloque o painel Detalhes à direita ou abaixo do painel Conteúdo da pasta."
+  },
+  "helpOptionFontDescription": {
+    "message": ": escolha uma das famílias de fontes compatíveis."
+  },
+  "helpOptionFontSizeDescription": {
+    "message": ": ajuste o tamanho base do texto da interface."
+  },
+  "helpOptionFontSpacingDescription": {
+    "message": ": ajuste o espaçamento entre linhas usado por rótulos e linhas."
+  },
+  "helpOptionLimitSearchDescription": {
+    "message": "altera a caixa de pesquisa principal para pesquisar apenas dentro da árvore da pasta atual em vez de todos os favoritos."
+  },
+  "helpOptionShowDeleteWarningDescription": {
+    "message": ": pede confirmação antes de excluir itens de favoritos ou pastas."
+  },
+  "helpOptionShowSortWarningDescription": {
+    "message": ": pede confirmação antes de aplicar ordenações permanentes do menu de contexto."
+  },
+  "helpOptionAllowKeyboardDeleteDescription": {
+    "message": ": controla se a tecla Delete pode remover itens selecionados."
+  },
+  "helpOptionNaturalSortDescription": {
+    "message": "controla a ordem usada por ordenações permanentes por nome. Quando ativado, pastas ficam primeiro, separadores depois e então favoritos."
+  },
+  "helpOptionMultipleInstancesDescription": {
+    "message": ": quando desativado, clicar no botão da extensão foca a guia existente do SBM em vez de abrir outra."
+  },
+  "helpOptionStartAtFolderDescription": {
+    "message": ": abre o SBM em uma pasta de favoritos selecionada ao iniciar."
+  },
+  "helpOptionStartupFolderDescription": {
+    "message": ": seleciona a pasta usada pela opção de iniciar em uma pasta escolhida."
+  },
+  "helpOptionUrlProtectionsDescription": {
+    "message": "Estas opções controlam proteções para esquemas de URL de favoritos de maior risco quando o SBM abre favoritos por ações de guia ou janela da extensão. Elas não impedem salvar favoritos."
+  },
+  "helpOptionLibraryPaneWidthDescription": {
+    "message": ": largura em pixels do painel Biblioteca esquerdo."
+  },
+  "helpOptionDetailsPaneWidthDescription": {
+    "message": ": largura em pixels do painel Detalhes à direita."
+  },
+  "helpOptionBottomDetailsHeightDescription": {
+    "message": ": altura em pixels do painel Detalhes inferior."
+  },
+  "helpOptionPaneResizeBars": {
+    "message": "Os tamanhos dos painéis também podem ser alterados arrastando as barras visíveis de redimensionamento."
+  },
+  "helpOptionFolderContentsDescription": {
+    "message": "Estas opções configuram as colunas opcionais e larguras salvas no painel central Conteúdo da pasta. Nome e URL são sempre exibidos."
+  },
+  "helpOptionDateAddedColumnDescription": {
+    "message": ": coluna opcional que mostra quando um item foi adicionado."
+  },
+  "helpOptionIdColumnDescription": {
+    "message": ": coluna opcional que mostra IDs de favoritos do Chromium."
+  },
+  "helpOptionOrderColumnDescription": {
+    "message": ": coluna opcional que mostra valores de ordem/índice de pasta do Chromium."
+  },
+  "helpOptionAdvancedDetailsViewDescription": {
+    "message": ": mostra metadados avançados de favoritos somente leitura no painel Detalhes."
+  },
+  "helpOptionAdvancedDetailsEditDescription": {
+    "message": ": permite edição avançada compatível, atualmente limitada a alterações de índice de favoritos."
+  },
+  "helpOptionOptimisationsDescription": {
+    "message": "Estas opções são principalmente para benchmark e solução de problemas. Deixe-as ativadas, a menos que esteja comparando desempenho ou diagnosticando um problema de renderização."
+  },
+  "helpOptionDomRenderingDescription": {
+    "message": ": reduz mudanças selecionadas no DOM em caminhos de renderização."
+  },
+  "helpOptionTempTreeMapsDescription": {
+    "message": ": cria mapas de consulta temporários durante algumas operações de árvore e depois os descarta."
+  },
+  "helpOptionDebugSettingsBefore": {
+    "message": "As configurações de depuração aparecem somente quando"
+  },
+  "helpOptionDebugSettingsAfter": {
+    "message": "está ativado. O registro de avisos/erros é temporário e não é salvo nas configurações da extensão."
+  },
   "hideDetailsPaneTooltip": {
     "message": "Ocultar o painel Detalhes"
   },
@@ -385,6 +682,33 @@
   },
   "multipleInstancesAllowedHelp": {
     "message": "Quando desativado, clicar no botão da extensão foca a guia existente do Simple Bookmarks Manager em vez de abrir outra."
+  },
+  "startupBehavior": {
+    "message": "Comportamento de inicialização"
+  },
+  "startupBehaviorHelp": {
+    "message": "Escolha onde o Simple Bookmarks Manager abre ao iniciar."
+  },
+  "startAtConfiguredBookmarkFolder": {
+    "message": "Iniciar na pasta escolhida"
+  },
+  "startAtConfiguredBookmarkFolderHelp": {
+    "message": "Quando ativado, o SBM abre na pasta de favoritos selecionada. Se a pasta não existir mais, essa configuração é limpa e o SBM usa sua pasta inicial normal."
+  },
+  "startupBookmarkFolder": {
+    "message": "Pasta inicial"
+  },
+  "startupBookmarkFolderHelp": {
+    "message": "Selecione a pasta de favoritos existente a ser mostrada quando o SBM iniciar."
+  },
+  "startupBookmarkFolderNone": {
+    "message": "Nenhuma pasta inicial selecionada"
+  },
+  "startupBookmarkFolderMissing": {
+    "message": "A pasta selecionada anteriormente está ausente"
+  },
+  "startupBookmarkFolderLoadFailed": {
+    "message": "Não foi possível carregar as pastas de favoritos."
   },
   "mutationCreateBookmark": {
     "message": "criar favorito"
@@ -572,6 +896,12 @@
   "rightDetailsWidthHelp": {
     "message": "Largura em pixels do painel Detalhes à direita."
   },
+  "bottomDetailsHeight": {
+    "message": "Altura do painel Detalhes inferior"
+  },
+  "bottomDetailsHeightHelp": {
+    "message": "Altura em pixels usada quando a posição do painel Detalhes está definida como Inferior."
+  },
   "rootFallback": {
     "message": "(raiz)"
   },
@@ -619,6 +949,18 @@
   },
   "showErrorsWarningsHelp": {
     "message": "Avançado. Mostra um log temporário em memória para esta sessão do SBM. As entradas do log não são salvas nas configurações da extensão."
+  },
+  "showAtLaunch": {
+    "message": "Mostrar ao iniciar"
+  },
+  "showHelpOnLaunch": {
+    "message": "Mostrar Ajuda na próxima inicialização"
+  },
+  "showHelpOnLaunchHelp": {
+    "message": "Quando ativado, o SBM mostra o diálogo de Ajuda uma vez na próxima vez que abrir e depois desativa esta configuração novamente."
+  },
+  "helpOptionShowHelpOnLaunchDescription": {
+    "message": ": mostra o diálogo de Ajuda uma vez na próxima vez que o SBM abrir e depois se desativa automaticamente."
   },
   "showSortWarning": {
     "message": "Mostrar confirmação de ordenação permanente"
@@ -754,6 +1096,18 @@
   },
   "themeHelp": {
     "message": "Defina o tema usado pelo Simple Bookmarks Manager."
+  },
+  "detailsPanePosition": {
+    "message": "Posição do painel Detalhes"
+  },
+  "detailsPanePositionHelp": {
+    "message": "Escolha se o painel Detalhes aparece no lado direito ou abaixo do painel Conteúdo da pasta."
+  },
+  "detailsPanePositionRight": {
+    "message": "Lado direito"
+  },
+  "detailsPanePositionBottom": {
+    "message": "Inferior"
   },
   "themeSystem": {
     "message": "Sistema"

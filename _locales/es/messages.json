@@ -128,6 +128,9 @@
   "copy": {
     "message": "Copiar"
   },
+  "copyUrlToClipboard": {
+    "message": "Copiar URL al portapapeles"
+  },
   "couldNotMoveBookmark": {
     "message": "No se pudo mover el elemento de marcador: {error}"
   },
@@ -305,6 +308,300 @@
   "help": {
     "message": "Ayuda"
   },
+  "clickLabel": {
+    "message": "Haz clic"
+  },
+  "selectLabel": {
+    "message": "Selecciona"
+  },
+  "helpDocumentTitle": {
+    "message": "Ayuda de Simple Bookmarks Manager"
+  },
+  "helpTagline": {
+    "message": "Una guía práctica para usar SBM al navegar, editar, ordenar y organizar marcadores de forma local."
+  },
+  "helpQuickStartHeading": {
+    "message": "Inicio rápido"
+  },
+  "helpQuickStartIntro": {
+    "message": "Abre SBM desde el botón de la barra de herramientas del navegador. El administrador se abre como una página normal de la extensión y trabaja directamente con el árbol de marcadores existente de Chromium."
+  },
+  "helpLibraryPaneLabel": {
+    "message": "Panel Biblioteca:"
+  },
+  "helpLibraryPaneDescription": {
+    "message": "explora carpetas de marcadores y expande o contrae subcarpetas."
+  },
+  "helpFolderContentsPaneLabel": {
+    "message": "Panel de contenido de carpeta:"
+  },
+  "helpFolderContentsPaneDescription": {
+    "message": "ve, selecciona, ordena, abre, arrastra y administra elementos de la carpeta seleccionada."
+  },
+  "helpDetailsPaneLabel": {
+    "message": "Panel Detalles:"
+  },
+  "helpDetailsPaneDescription": {
+    "message": "revisa y edita el marcador o la carpeta seleccionada."
+  },
+  "helpBasicBookmarkManagementHeading": {
+    "message": "Administración básica de marcadores"
+  },
+  "helpBasicUseNewButtonsBefore": {
+    "message": "Usa"
+  },
+  "helpBasicUseNewButtonsMiddle": {
+    "message": "y"
+  },
+  "helpBasicUseNewButtonsAfter": {
+    "message": "para agregar elementos a la carpeta actual."
+  },
+  "helpBasicRightClickActions": {
+    "message": "Haz clic derecho en carpetas o marcadores para acciones como renombrar, editar, eliminar, cortar, copiar, pegar, ordenar y abrir."
+  },
+  "helpBasicDragDrop": {
+    "message": "Usa arrastrar y soltar para reordenar elementos o mover marcadores y carpetas a otra carpeta."
+  },
+  "helpBasicDetailsPaneEdits": {
+    "message": "Usa el panel Detalles para cambiar nombres de marcadores, URL, carpetas principales y campos avanzados admitidos."
+  },
+  "helpBasicF2Before": {
+    "message": "Usa"
+  },
+  "helpBasicF2After": {
+    "message": "para renombrar la carpeta activa o editar el marcador activo."
+  },
+  "helpBasicMiddleClick": {
+    "message": "Haz clic con el botón central en un marcador del panel de contenido de carpeta para abrirlo en una pestaña nueva."
+  },
+  "helpSearchSortingHeading": {
+    "message": "Búsqueda y ordenación"
+  },
+  "helpSearchBox": {
+    "message": "Usa el cuadro de búsqueda para buscar marcadores por nombre o URL."
+  },
+  "helpSearchLimitBefore": {
+    "message": "Activa"
+  },
+  "helpSearchLimitAfter": {
+    "message": "para buscar solo dentro del árbol de la carpeta actual."
+  },
+  "helpVisualSort": {
+    "message": "Usa el desplegable de ordenación visual o los encabezados de columna para ordenar temporalmente el panel de contenido de carpeta."
+  },
+  "helpPermanentSort": {
+    "message": "Usa la ordenación permanente del menú contextual cuando quieras cambiar el orden de marcadores guardado en Chromium."
+  },
+  "helpSeparatorsBeforeTitle": {
+    "message": "SBM admite una convención de separadores compatible con Chromium. Un separador se guarda como un marcador con el título"
+  },
+  "helpSeparatorsBetweenTitleUrl": {
+    "message": "y la URL"
+  },
+  "helpSeparatorsAfterUrl": {
+    "message": "SBM muestra esa convención como un divisor visual."
+  },
+  "helpKeyboardShortcutsHeading": {
+    "message": "Atajos de teclado"
+  },
+  "helpShortcutArrowKeysLabel": {
+    "message": "Flechas:"
+  },
+  "helpShortcutArrowKeysDescription": {
+    "message": "moverse por el panel activo."
+  },
+  "helpShortcutEnterLabel": {
+    "message": "Enter:"
+  },
+  "helpShortcutEnterDescription": {
+    "message": "abrir un marcador o entrar en una carpeta."
+  },
+  "helpShortcutBackspaceLabel": {
+    "message": "Backspace:"
+  },
+  "helpShortcutBackspaceDescription": {
+    "message": "subir un nivel de carpeta cuando sea posible."
+  },
+  "helpShortcutCtrlFLabel": {
+    "message": "Ctrl+F:"
+  },
+  "helpShortcutCtrlFDescription": {
+    "message": "enfocar el cuadro de búsqueda."
+  },
+  "helpShortcutF2Label": {
+    "message": "F2:"
+  },
+  "helpShortcutF2Description": {
+    "message": "renombrar la carpeta activa o editar el marcador activo."
+  },
+  "helpShortcutDeleteLabel": {
+    "message": "Delete:"
+  },
+  "helpShortcutDeleteDescription": {
+    "message": "eliminar el elemento seleccionado cuando la eliminación con teclado está activada."
+  },
+  "helpShortcutEscapeLabel": {
+    "message": "Escape:"
+  },
+  "helpShortcutEscapeDescription": {
+    "message": "cerrar diálogos o menús abiertos de SBM."
+  },
+  "helpPinningHeading": {
+    "message": "Fijar Simple Bookmarks Manager para acceder fácilmente"
+  },
+  "helpPinningIntro": {
+    "message": "Fijar Simple Bookmarks Manager (SBM) a la barra de herramientas permite acceder a la extensión más rápido y con más facilidad."
+  },
+  "helpPinningIntro2": {
+    "message": "Una vez instalado SBM en tu navegador basado en Chromium, puedes fijarlo a la barra de herramientas de una de estas formas:"
+  },
+  "helpPinViaExtensionsMenuHeading": {
+    "message": "1. Fijar desde el menú Extensiones"
+  },
+  "helpPinViaExtensionsMenuStep1": {
+    "message": "Haz clic en el botón Extensiones, normalmente ubicado a la derecha de la barra de direcciones."
+  },
+  "helpFindSbmBefore": {
+    "message": "Busca"
+  },
+  "helpFindSbmAfter": {
+    "message": "en la lista."
+  },
+  "helpPinIconBefore": {
+    "message": "Haz clic en el icono de fijar junto a"
+  },
+  "helpPinToggleExplanation": {
+    "message": "Esto fijará SBM a la barra de herramientas. Si SBM ya está fijado, hacer clic en el icono lo desfijará."
+  },
+  "helpPinViaManageExtensionsHeading": {
+    "message": "2. Fijar desde la página Administrar extensiones"
+  },
+  "helpPinViaManageExtensionsStep1": {
+    "message": "Haz clic en el botón Extensiones, normalmente ubicado a la derecha de la barra de direcciones."
+  },
+  "helpManageExtensions": {
+    "message": "Administrar extensiones"
+  },
+  "helpAlternatively": {
+    "message": "Alternativamente:"
+  },
+  "helpChromiumMenuStep": {
+    "message": "Haz clic en el botón de menú de Chromium."
+  },
+  "helpExtensions": {
+    "message": "Extensiones"
+  },
+  "helpOnceExtensionsPageOpen": {
+    "message": "Cuando se abra la página de Extensiones:"
+  },
+  "helpScrollDownToBefore": {
+    "message": "Desplázate hasta"
+  },
+  "helpPinToToolbar": {
+    "message": "Fijar a la barra de herramientas"
+  },
+  "helpToggleOptionOn": {
+    "message": "Activa la opción."
+  },
+  "helpOptionsReferenceHeading": {
+    "message": "Referencia de opciones"
+  },
+  "helpOptionsReferenceBeforeStorage": {
+    "message": "La página Opciones guarda la configuración persistente en"
+  },
+  "helpOptionsReferenceAfterStorage": {
+    "message": "Estos ajustes permanecen locales en el perfil del navegador."
+  },
+  "helpOptionUserInterfaceLanguageDescription": {
+    "message": ": elige detección automática del idioma o un idioma específico para la interfaz de SBM."
+  },
+  "helpOptionThemeDescription": {
+    "message": ": elige el tema visual usado por SBM."
+  },
+  "helpOptionDetailsPanePositionDescription": {
+    "message": ": coloca el panel Detalles a la derecha o debajo del panel de contenido de carpeta."
+  },
+  "helpOptionFontDescription": {
+    "message": ": elige una de las familias de fuentes admitidas."
+  },
+  "helpOptionFontSizeDescription": {
+    "message": ": ajusta el tamaño base del texto de la interfaz."
+  },
+  "helpOptionFontSpacingDescription": {
+    "message": ": ajusta el espaciado de línea usado por etiquetas y filas."
+  },
+  "helpOptionLimitSearchDescription": {
+    "message": "cambia el cuadro de búsqueda principal de buscar en todos los marcadores a buscar solo dentro del árbol de la carpeta actual."
+  },
+  "helpOptionShowDeleteWarningDescription": {
+    "message": ": pide confirmación antes de eliminar elementos de marcadores o carpetas."
+  },
+  "helpOptionShowSortWarningDescription": {
+    "message": ": pide confirmación antes de aplicar ordenaciones permanentes del menú contextual."
+  },
+  "helpOptionAllowKeyboardDeleteDescription": {
+    "message": ": controla si la tecla Delete puede quitar elementos seleccionados."
+  },
+  "helpOptionNaturalSortDescription": {
+    "message": "controla el orden usado por las ordenaciones permanentes por nombre. Cuando está activado, se colocan primero las carpetas, luego separadores y después marcadores."
+  },
+  "helpOptionMultipleInstancesDescription": {
+    "message": ": cuando está desactivado, hacer clic en el botón de la extensión enfoca la pestaña existente de SBM en lugar de abrir una nueva."
+  },
+  "helpOptionStartAtFolderDescription": {
+    "message": ": abre SBM en una carpeta de marcadores seleccionada al iniciar."
+  },
+  "helpOptionStartupFolderDescription": {
+    "message": ": selecciona la carpeta usada por la opción de inicio en carpeta elegida."
+  },
+  "helpOptionUrlProtectionsDescription": {
+    "message": "Estas opciones controlan protecciones para esquemas de URL de marcadores de mayor riesgo cuando SBM abre marcadores mediante acciones de pestaña o ventana de la extensión. No impiden guardar marcadores."
+  },
+  "helpOptionLibraryPaneWidthDescription": {
+    "message": ": ancho en píxeles del panel Biblioteca izquierdo."
+  },
+  "helpOptionDetailsPaneWidthDescription": {
+    "message": ": ancho en píxeles del panel Detalles derecho."
+  },
+  "helpOptionBottomDetailsHeightDescription": {
+    "message": ": alto en píxeles del panel Detalles inferior."
+  },
+  "helpOptionPaneResizeBars": {
+    "message": "También puedes cambiar el tamaño de los paneles arrastrando las barras visibles de redimensionamiento."
+  },
+  "helpOptionFolderContentsDescription": {
+    "message": "Estas opciones configuran las columnas opcionales y los anchos guardados en el panel central de contenido de carpeta. Nombre y URL siempre se muestran."
+  },
+  "helpOptionDateAddedColumnDescription": {
+    "message": ": columna opcional que muestra cuándo se agregó un elemento."
+  },
+  "helpOptionIdColumnDescription": {
+    "message": ": columna opcional que muestra los ID de marcadores de Chromium."
+  },
+  "helpOptionOrderColumnDescription": {
+    "message": ": columna opcional que muestra valores de orden/índice de carpeta de Chromium."
+  },
+  "helpOptionAdvancedDetailsViewDescription": {
+    "message": ": muestra metadatos avanzados de marcadores de solo lectura en el panel Detalles."
+  },
+  "helpOptionAdvancedDetailsEditDescription": {
+    "message": ": permite edición avanzada admitida, actualmente limitada a cambios de índice de marcadores."
+  },
+  "helpOptionOptimisationsDescription": {
+    "message": "Estas opciones son principalmente para pruebas de rendimiento y solución de problemas. Déjalas activadas salvo que estés comparando rendimiento o diagnosticando un problema de renderizado."
+  },
+  "helpOptionDomRenderingDescription": {
+    "message": ": reduce cambios seleccionados del DOM en rutas de renderizado."
+  },
+  "helpOptionTempTreeMapsDescription": {
+    "message": ": crea mapas de búsqueda temporales durante algunas operaciones de árbol y luego los descarta."
+  },
+  "helpOptionDebugSettingsBefore": {
+    "message": "Los ajustes de depuración aparecen solo cuando"
+  },
+  "helpOptionDebugSettingsAfter": {
+    "message": "está activado. El registro de advertencias/errores es temporal y no se guarda en la configuración de la extensión."
+  },
   "hideDetailsPaneTooltip": {
     "message": "Ocultar el panel Detalles"
   },
@@ -385,6 +682,33 @@
   },
   "multipleInstancesAllowedHelp": {
     "message": "Cuando está desactivado, al hacer clic en el botón de la extensión se enfoca la pestaña existente de Simple Bookmarks Manager en lugar de abrir otra."
+  },
+  "startupBehavior": {
+    "message": "Comportamiento de inicio"
+  },
+  "startupBehaviorHelp": {
+    "message": "Elige dónde se abre Simple Bookmarks Manager al iniciarse."
+  },
+  "startAtConfiguredBookmarkFolder": {
+    "message": "Iniciar en la carpeta elegida"
+  },
+  "startAtConfiguredBookmarkFolderHelp": {
+    "message": "Cuando está activado, SBM se abre en la carpeta de marcadores seleccionada. Si la carpeta ya no existe, este ajuste se borra y SBM usa su carpeta de inicio normal."
+  },
+  "startupBookmarkFolder": {
+    "message": "Carpeta de inicio"
+  },
+  "startupBookmarkFolderHelp": {
+    "message": "Selecciona la carpeta de marcadores existente que se mostrará al iniciar SBM."
+  },
+  "startupBookmarkFolderNone": {
+    "message": "No se seleccionó carpeta de inicio"
+  },
+  "startupBookmarkFolderMissing": {
+    "message": "La carpeta seleccionada anteriormente falta"
+  },
+  "startupBookmarkFolderLoadFailed": {
+    "message": "No se pudieron cargar las carpetas de marcadores."
   },
   "mutationCreateBookmark": {
     "message": "crear marcador"
@@ -572,6 +896,12 @@
   "rightDetailsWidthHelp": {
     "message": "Ancho en píxeles del panel Detalles derecho."
   },
+  "bottomDetailsHeight": {
+    "message": "Alto del panel Detalles inferior"
+  },
+  "bottomDetailsHeightHelp": {
+    "message": "Alto en píxeles usado cuando la posición del panel Detalles está configurada como Inferior."
+  },
   "rootFallback": {
     "message": "(raíz)"
   },
@@ -619,6 +949,18 @@
   },
   "showErrorsWarningsHelp": {
     "message": "Avanzado. Muestra un registro transitorio en memoria para esta sesión de SBM. Las entradas del registro no se guardan en la configuración de la extensión."
+  },
+  "showAtLaunch": {
+    "message": "Mostrar al iniciar"
+  },
+  "showHelpOnLaunch": {
+    "message": "Mostrar Ayuda en el próximo inicio"
+  },
+  "showHelpOnLaunchHelp": {
+    "message": "Cuando está activado, SBM muestra el diálogo de Ayuda una vez la próxima vez que se abre y luego vuelve a desactivar este ajuste."
+  },
+  "helpOptionShowHelpOnLaunchDescription": {
+    "message": ": muestra el diálogo de Ayuda una vez la próxima vez que se abre SBM y luego se desactiva automáticamente."
   },
   "showSortWarning": {
     "message": "Mostrar confirmación de ordenación permanente"
@@ -754,6 +1096,18 @@
   },
   "themeHelp": {
     "message": "Establece el tema usado por Simple Bookmarks Manager."
+  },
+  "detailsPanePosition": {
+    "message": "Posición del panel Detalles"
+  },
+  "detailsPanePositionHelp": {
+    "message": "Elige si el panel Detalles aparece a la derecha o debajo del panel de contenido de carpeta."
+  },
+  "detailsPanePositionRight": {
+    "message": "Lado derecho"
+  },
+  "detailsPanePositionBottom": {
+    "message": "Inferior"
   },
   "themeSystem": {
     "message": "Sistema"
