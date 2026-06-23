@@ -1,5 +1,12 @@
 # Changelog
 
+## 0.8.28
+
+- Added first-launch Help behavior controlled by the new `ShowHelpOnLaunch` setting.
+- Added a non-scrolling Help dialog footer toggle for `Show at launch`.
+- Added a Debug option to show Help once on the next SBM launch.
+- Updated Help documentation for the new launch-help option.
+
 ## 0.8.27
 
 - Updated the Help page to support localization through the shared i18n system.

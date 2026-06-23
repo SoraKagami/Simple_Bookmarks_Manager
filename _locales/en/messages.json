@@ -950,6 +950,18 @@
   "showErrorsWarningsHelp": {
     "message": "Advanced. Shows a transient in-memory log for this SBM session. Log entries are not saved to extension settings."
   },
+  "showAtLaunch": {
+    "message": "Show at launch"
+  },
+  "showHelpOnLaunch": {
+    "message": "Show Help on next launch"
+  },
+  "showHelpOnLaunchHelp": {
+    "message": "When enabled, SBM shows the Help dialog once the next time it opens, then turns this setting off again."
+  },
+  "helpOptionShowHelpOnLaunchDescription": {
+    "message": ": shows the Help dialog once the next time SBM opens, then turns itself off again."
+  },
   "showSortWarning": {
     "message": "Show permanent sort confirmation warning"
   },

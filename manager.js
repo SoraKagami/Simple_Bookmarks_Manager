@@ -79,6 +79,7 @@ let Optimisation_TempBookmarkTreeMaps = DEFAULT_SETTINGS.Optimisation_TempBookma
 let Optimisation_DOMrendering = DEFAULT_SETTINGS.Optimisation_DOMrendering;
 let Show_ErrorsWarnings = DEFAULT_SETTINGS.Show_ErrorsWarnings;
 let DebugOptions = DEFAULT_SETTINGS.DebugOptions;
+let ShowHelpOnLaunch = DEFAULT_SETTINGS.ShowHelpOnLaunch;
 let cachedChangelogMarkdown = null;
 let mid_FC_Width_Name = DEFAULT_SETTINGS.mid_FC_Width_Name;
 let mid_FC_Width_URL = DEFAULT_SETTINGS.mid_FC_Width_URL;
@@ -172,6 +173,7 @@ function applySettings(settings, { render = false } = {}) {
     else if (key === "Optimisation_DOMrendering") Optimisation_DOMrendering = value;
     else if (key === "Show_ErrorsWarnings") Show_ErrorsWarnings = value;
     else if (key === "DebugOptions") DebugOptions = value;
+    else if (key === "ShowHelpOnLaunch") ShowHelpOnLaunch = value;
     else if (key === "mid_FC_Width_Name") mid_FC_Width_Name = value;
     else if (key === "mid_FC_Width_URL") mid_FC_Width_URL = value;
     else if (key === "mid_FC_Width_DateAdded") mid_FC_Width_DateAdded = value;
@@ -2629,17 +2631,20 @@ function openOptionsPage() {
   showOptionsDialog();
 }
 
-/** Close and clear the reusable About/Changelog dialog. */
+/** Close and clear the reusable About/Help/Changelog dialog. */
 function hideInfoDialog({ restoreFocus = true } = {}) {
   const modal = $("info-modal");
   if (modal.hidden) return;
   modal.hidden = true;
   $("info-content-host").replaceChildren();
+  const footer = $("info-footer");
+  footer.replaceChildren();
+  footer.hidden = true;
   if (restoreFocus) $("app-menu-button")?.focus();
 }
 
-/** Show the reusable About/Changelog dialog with an already-built content node. */
-function showInfoDialog(title, contentNode) {
+/** Show the reusable About/Help/Changelog dialog with already-built content. */
+function showInfoDialog(title, contentNode, { footerNode = null } = {}) {
   hideOptionsDialog({ restoreFocus: false });
   hideContextMenu();
   hideAppMenu();
@@ -2647,8 +2652,12 @@ function showInfoDialog(title, contentNode) {
   const modal = $("info-modal");
   const titleNode = $("info-modal-title");
   const host = $("info-content-host");
+  const footer = $("info-footer");
   titleNode.textContent = title;
   host.replaceChildren(contentNode);
+  footer.replaceChildren();
+  footer.hidden = !footerNode;
+  if (footerNode) footer.append(footerNode);
   modal.hidden = false;
   $("info-close").focus();
 }
@@ -2668,9 +2677,49 @@ function showAboutDialog() {
   showInfoDialog(t("about"), makeInfoPageFrame(t("about"), "about.html"));
 }
 
+/** Persist the launch-help setting from the Help dialog footer without console noise. */
+async function setShowHelpOnLaunch(value) {
+  ShowHelpOnLaunch = Boolean(value);
+  try {
+    await api.storage.local.set({ ShowHelpOnLaunch });
+  } catch (err) {
+    addSessionLogRecord("error", ["Unable to update ShowHelpOnLaunch.", err?.message || err], "SBM Manager");
+  }
+}
+
+/** Build the non-scrolling Help dialog footer toggle. */
+function makeHelpLaunchFooter() {
+  const label = document.createElement("label");
+  label.className = "info-footer-toggle";
+  const input = document.createElement("input");
+  input.type = "checkbox";
+  input.checked = Boolean(ShowHelpOnLaunch);
+  input.addEventListener("change", () => {
+    setShowHelpOnLaunch(input.checked).catch(() => {
+      // setShowHelpOnLaunch records failures in the transient diagnostics log.
+    });
+  });
+  const text = document.createElement("span");
+  text.textContent = t("showAtLaunch");
+  label.append(input, text);
+  return label;
+}
+
 /** Open the packaged Help page in an in-manager iframe. */
 function showHelpDialog() {
-  showInfoDialog(t("help"), makeInfoPageFrame(t("help"), "help.html"));
+  showInfoDialog(t("help"), makeInfoPageFrame(t("help"), "help.html"), { footerNode: makeHelpLaunchFooter() });
+}
+
+/** Show Help once on launch, then immediately clear the flag for future launches. */
+async function showLaunchHelpIfNeeded() {
+  if (!ShowHelpOnLaunch) return;
+  ShowHelpOnLaunch = false;
+  try {
+    await api.storage.local.set({ ShowHelpOnLaunch: false });
+  } catch (err) {
+    addSessionLogRecord("error", ["Unable to clear ShowHelpOnLaunch after showing Help.", err?.message || err], "SBM Manager");
+  }
+  showHelpDialog();
 }
 
 /** Append inline markdown text with minimal safe formatting to a parent node. */
@@ -4515,6 +4564,7 @@ async function init() {
   await loadTree({ renderNow: false });
   await applyInitialFolderPreference();
   render();
+  await showLaunchHelpIfNeeded();
 }
 
 init().catch((err) => {

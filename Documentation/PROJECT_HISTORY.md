@@ -33,9 +33,9 @@ As development continued and the extension was "dogfood(ed)" (daily driven by th
 
 It ended up taking over 110 commits to get the extension to a state that was deemed good enough for publishing this extension to the Chromium Web Store. More hours than the author would like to admit and endless frustrations when ChatGPT got the context wrong. Sometimes the author did not explain things right or well enough to ChatGPT too. Just the conversation logs with ChatGPT took around half the size of a PhD thesis.
 
-### Vibe coding approach
+### GenAI coding approach
 Everyone codes things differently, so this method may not be applicable to others.
-Ideas were conceptualised then converted to human-readable sentences with a focus on being explicit about designs, sometimes as pseudo-code, then fed to ChatGPT. On occasion where it seemed interesting to do so, more leeway was given or in some cases, decisions left completely to ChatGPT. Most of the time the author had full directional control.
+Ideas were conceptualised then converted to human-readable sentences with a focus on being explicit about designs, sometimes as pseudo-code, then fed to ChatGPT. On occasion where it seemed interesting to do so, more leeway was given or in some cases, decisions left completely to ChatGPT. Most of the time the author had full directional control. This ended up being something closer to what is called `Agentic Engineering` than `Vibe Coding`.
 
 Once a build was returned, all code changes were manually vetted. Logic checked, functions checked. Things HAD to make sense to be accepted, as GenAI, at least as of 2026, still hallucinates too often to be relied upon.
 

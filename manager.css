@@ -427,6 +427,27 @@ body.column-resizing { cursor: col-resize; user-select: none; }
   background: var(--sbm-color-surface);
   color: var(--sbm-color-text);
 }
+.info-footer {
+  flex: 0 0 auto;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 14px;
+  border-top: 1px solid var(--sbm-color-border-header);
+  background: var(--sbm-color-surface-muted);
+}
+.info-footer[hidden] {
+  display: none;
+}
+.info-footer-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  user-select: none;
+}
+.info-footer-toggle input {
+  margin: 0;
+}
 .markdown-view {
   box-sizing: border-box;
   height: 100%;

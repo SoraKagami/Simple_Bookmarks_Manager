@@ -59,6 +59,7 @@ export const DEFAULT_SETTINGS = Object.freeze({
   Optimisation_DOMrendering: true,
   Show_ErrorsWarnings: false,
   DebugOptions: false,
+  ShowHelpOnLaunch: true,
   mid_FC_Width_Name: 240,
   mid_FC_Width_URL: 360,
   mid_FC_Width_DateAdded: 110,
