@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.8.31
+
+- Added an `en_US` UI locale option and matching English (US) locale file.
+- Updated the language selector so English (US) appears after English while en_Netspeak remains at the bottom.
+- Reworked the en_Netspeak strings added in v0.8.30, especially the Help section, with stronger Netspeak styling and safe debugging humor.
+
 ## 0.8.30
 
 - Updated non-Asian locale translations using the English locale as the base.

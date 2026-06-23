@@ -1,0 +1,1184 @@
+{
+  "about": {
+    "message": "About"
+  },
+  "aboutPageTitle": {
+    "message": "About Simple Bookmarks Manager"
+  },
+  "aboutProjectHeading": {
+    "message": "Project"
+  },
+  "aboutProjectDescription": {
+    "message": "Simple Bookmarks Manager focuses on local bookmark organization, efficient folder browsing, and a familiar desktop-style management workflow inside Chromium-based browsers."
+  },
+  "aboutGithubLabel": {
+    "message": "GitHub:"
+  },
+  "aboutDesignGoalsHeading": {
+    "message": "Design goals"
+  },
+  "aboutDesignGoalFastLocal": {
+    "message": "Fast local bookmark browsing and editing."
+  },
+  "aboutDesignGoalNoRemote": {
+    "message": "Clear controls without remote services or accounts."
+  },
+  "aboutDesignGoalChromiumCompatibility": {
+    "message": "Practical compatibility across Chromium-based browsers."
+  },
+  "aboutPrivacyHeading": {
+    "message": "Privacy"
+  },
+  "aboutPrivacyDescription": {
+    "message": "SBM is designed to run purely locally. It does not send bookmark data, telemetry, pings, or any other usage data to remote services."
+  },
+  "actionFailed": {
+    "message": "Action failed: {error}"
+  },
+  "addNewBookmark": {
+    "message": "Add New Bookmark"
+  },
+  "addNewFolder": {
+    "message": "Add New Folder"
+  },
+  "addSeparator": {
+    "message": "Add Separator"
+  },
+  "advanced": {
+    "message": "Advanced"
+  },
+  "advancedBookmarkDetails": {
+    "message": "Advanced bookmark details"
+  },
+  "advancedDetails": {
+    "message": "Advanced Details"
+  },
+  "advancedDetailsHelp": {
+    "message": "Configure advanced metadata viewing and supported advanced editing in the Details pane."
+  },
+  "allowKeyboardDelete": {
+    "message": "Allow Delete key to delete selected items"
+  },
+  "allowKeyboardDeleteHelp": {
+    "message": "When disabled, the Delete key no longer deletes selected bookmark entries."
+  },
+  "appDescription": {
+    "message": "A simple local bookmarks manager for Chromium browsers, inspired by Firefox Places, Firefox’s bookmark management system."
+  },
+  "appName": {
+    "message": "Simple Bookmarks Manager"
+  },
+  "back": {
+    "message": "Back"
+  },
+  "bookmarkAlt": {
+    "message": "Bookmark"
+  },
+  "bookmarkFallback": {
+    "message": "(bookmark)"
+  },
+  "bookmarkListColumns": {
+    "message": "Bookmark list columns"
+  },
+  "bookmarkMutationFailed": {
+    "message": "Bookmark operation failed ({action}): {error}"
+  },
+  "bookmarkNamePrompt": {
+    "message": "Bookmark name"
+  },
+  "bookmarkUrlPrompt": {
+    "message": "Bookmark URL"
+  },
+  "bookmarks": {
+    "message": "Bookmarks:"
+  },
+  "bookmarksAria": {
+    "message": "Bookmarks"
+  },
+  "bookmarksPathFallback": {
+    "message": "Bookmarks"
+  },
+  "browserRoot": {
+    "message": "Browser root"
+  },
+  "cancel": {
+    "message": "Cancel"
+  },
+  "chooseSortModeTitle": {
+    "message": "Choose the middle-pane sort mode. Default uses Chromium’s folder order."
+  },
+  "clearLog": {
+    "message": "Clear Log"
+  },
+  "clickHideDetails": {
+    "message": "Click to Hide Details"
+  },
+  "clickShowDetails": {
+    "message": "Click to Show Details"
+  },
+  "closeOptions": {
+    "message": "Close options"
+  },
+  "collapseAll": {
+    "message": "Collapse All"
+  },
+  "collapseFolderTitle": {
+    "message": "Collapse folder"
+  },
+  "copy": {
+    "message": "Copy"
+  },
+  "copyUrlToClipboard": {
+    "message": "Copy URL to Clipboard"
+  },
+  "couldNotMoveBookmark": {
+    "message": "Could not move bookmark item: {error}"
+  },
+  "couldNotOpenBookmark": {
+    "message": "Could not open bookmark: {error}"
+  },
+  "couldNotOpenTabGroup": {
+    "message": "Could not open tab group: {error}"
+  },
+  "couldNotOpenWindow": {
+    "message": "Could not open {windowType} window: {error}"
+  },
+  "couldNotSaveChanges": {
+    "message": "Could not save changes: {error}"
+  },
+  "create": {
+    "message": "Create"
+  },
+  "currentFolderAndSubfolders": {
+    "message": "Current Folder & Subfolders"
+  },
+  "cut": {
+    "message": "Cut"
+  },
+  "dateAdded": {
+    "message": "Date Added"
+  },
+  "dateLastUsed": {
+    "message": "Date Last Used"
+  },
+  "debugFailedBookmarkOperation": {
+    "message": "Debug: cause failed bookmark operation"
+  },
+  "debugFailedBookmarkOperationAction": {
+    "message": "debug failed bookmark operation"
+  },
+  "debugFailureUnexpectedSuccess": {
+    "message": "Debug failure unexpectedly succeeded"
+  },
+  "debugOptions": {
+    "message": "Debug options"
+  },
+  "debugOptionsHelp": {
+    "message": "Advanced. Shows debug-only test controls. Leave disabled during normal use."
+  },
+  "debugSettings": {
+    "message": "Debug Settings"
+  },
+  "debugSettingsHelp": {
+    "message": "Controls shown only when Debug options is enabled."
+  },
+  "defaultsRestored": {
+    "message": "Defaults restored"
+  },
+  "delete": {
+    "message": "Delete"
+  },
+  "deleteBookmark": {
+    "message": "Delete Bookmark"
+  },
+  "deleteFolder": {
+    "message": "Delete Folder"
+  },
+  "deleteMultipleConfirm": {
+    "message": "Delete {count} selected item(s)?"
+  },
+  "deleteSingleConfirm": {
+    "message": "Delete \"{label}\"?"
+  },
+  "details": {
+    "message": "Details"
+  },
+  "detailsItems": {
+    "message": "Details Items"
+  },
+  "detailsMultiselect": {
+    "message": "Details Multiselect"
+  },
+  "discard": {
+    "message": "Discard"
+  },
+  "discardChanges": {
+    "message": "Discard Changes"
+  },
+  "doubleClickExpandCollapseTitle": {
+    "message": "Double-click to expand or collapse this folder"
+  },
+  "dragFolderTitle": {
+    "message": "Drag to reorder this folder"
+  },
+  "dragItemTitle": {
+    "message": "Drag to move or reorder this item"
+  },
+  "edit": {
+    "message": "Edit"
+  },
+  "editBookmark": {
+    "message": "Edit Bookmark"
+  },
+  "emptyDetails": {
+    "message": "Select one item, or select a folder to show its contents."
+  },
+  "enableAdvancedEditing": {
+    "message": "Enable advanced details editing"
+  },
+  "enableAdvancedEditingHelp": {
+    "message": "Allow supported advanced editing, currently limited to bookmark index changes."
+  },
+  "enableAdvancedViewing": {
+    "message": "Enable advanced details viewing"
+  },
+  "enableAdvancedViewingHelp": {
+    "message": "Show read-only advanced bookmark metadata in the Details pane."
+  },
+  "expandAll": {
+    "message": "Expand All"
+  },
+  "expandFolderTitle": {
+    "message": "Expand folder"
+  },
+  "folderAlt": {
+    "message": "Folder"
+  },
+  "folderContentsView": {
+    "message": "Folder Contents view"
+  },
+  "folderContentsViewHelp": {
+    "message": "Configure middle-pane column widths and optional columns. Name and URL are always shown."
+  },
+  "folderFallback": {
+    "message": "(folder)"
+  },
+  "folderNamePrompt": {
+    "message": "Folder name"
+  },
+  "folders": {
+    "message": "Folders:"
+  },
+  "font": {
+    "message": "Font"
+  },
+  "fontHelp": {
+    "message": "Controls the main font family used by the bookmark manager UI."
+  },
+  "fontMono": {
+    "message": "Consolas / monospace"
+  },
+  "fontSans": {
+    "message": "Arial / Helvetica"
+  },
+  "fontSerif": {
+    "message": "Georgia / Times"
+  },
+  "fontSize": {
+    "message": "Font size"
+  },
+  "fontSizeHelp": {
+    "message": "Base text size. Headings and column labels scale relative to this value."
+  },
+  "fontSpacing": {
+    "message": "Font spacing"
+  },
+  "fontSpacingHelp": {
+    "message": "Line spacing multiplier for denser or more readable rows and labels."
+  },
+  "fontSystem": {
+    "message": "System default"
+  },
+  "forward": {
+    "message": "Forward"
+  },
+  "guidUuid": {
+    "message": "GUID / UUID"
+  },
+  "help": {
+    "message": "Help"
+  },
+  "clickLabel": {
+    "message": "Click"
+  },
+  "selectLabel": {
+    "message": "Select"
+  },
+  "helpDocumentTitle": {
+    "message": "Simple Bookmarks Manager Help"
+  },
+  "helpTagline": {
+    "message": "A practical guide to using SBM for local bookmark browsing, editing, sorting, and organization."
+  },
+  "helpQuickStartHeading": {
+    "message": "Quick start"
+  },
+  "helpQuickStartIntro": {
+    "message": "Open SBM from the browser toolbar button. The manager opens as a normal extension page and works directly with Chromium's existing bookmark tree."
+  },
+  "helpLibraryPaneLabel": {
+    "message": "Library pane:"
+  },
+  "helpLibraryPaneDescription": {
+    "message": "browse bookmark folders and expand or collapse subfolders."
+  },
+  "helpFolderContentsPaneLabel": {
+    "message": "Folder Contents pane:"
+  },
+  "helpFolderContentsPaneDescription": {
+    "message": "view, select, sort, open, drag, and manage items in the selected folder."
+  },
+  "helpDetailsPaneLabel": {
+    "message": "Details pane:"
+  },
+  "helpDetailsPaneDescription": {
+    "message": "inspect and edit the selected bookmark or folder."
+  },
+  "helpBasicBookmarkManagementHeading": {
+    "message": "Basic bookmark management"
+  },
+  "helpBasicUseNewButtonsBefore": {
+    "message": "Use"
+  },
+  "helpBasicUseNewButtonsMiddle": {
+    "message": "and"
+  },
+  "helpBasicUseNewButtonsAfter": {
+    "message": "to add items to the current folder."
+  },
+  "helpBasicRightClickActions": {
+    "message": "Right-click folders or bookmarks for actions such as rename, edit, delete, cut, copy, paste, sort, and open."
+  },
+  "helpBasicDragDrop": {
+    "message": "Use drag-and-drop to reorder items or move bookmarks and folders into another folder."
+  },
+  "helpBasicDetailsPaneEdits": {
+    "message": "Use the Details pane to change bookmark names, URLs, parent folders, and supported advanced fields."
+  },
+  "helpBasicF2Before": {
+    "message": "Use"
+  },
+  "helpBasicF2After": {
+    "message": "to rename the active folder or edit the active bookmark."
+  },
+  "helpBasicMiddleClick": {
+    "message": "Middle-click a bookmark in the Folder Contents pane to open it in a new tab."
+  },
+  "helpSearchSortingHeading": {
+    "message": "Search and sorting"
+  },
+  "helpSearchBox": {
+    "message": "Use the search box to search bookmarks by name or URL."
+  },
+  "helpSearchLimitBefore": {
+    "message": "Enable"
+  },
+  "helpSearchLimitAfter": {
+    "message": "to search only inside the current folder tree."
+  },
+  "helpVisualSort": {
+    "message": "Use the visual sort dropdown or column headers for temporary sorting in the Folder Contents pane."
+  },
+  "helpPermanentSort": {
+    "message": "Use right-click permanent sorting when you want Chromium's saved bookmark order changed."
+  },
+  "helpSeparatorsBeforeTitle": {
+    "message": "SBM supports a Chromium-compatible separator convention. A separator is stored as a bookmark with the title"
+  },
+  "helpSeparatorsBetweenTitleUrl": {
+    "message": "and URL"
+  },
+  "helpSeparatorsAfterUrl": {
+    "message": "SBM renders that convention as a visual divider."
+  },
+  "helpKeyboardShortcutsHeading": {
+    "message": "Keyboard shortcuts"
+  },
+  "helpShortcutArrowKeysLabel": {
+    "message": "Arrow keys:"
+  },
+  "helpShortcutArrowKeysDescription": {
+    "message": "move through the active pane."
+  },
+  "helpShortcutEnterLabel": {
+    "message": "Enter:"
+  },
+  "helpShortcutEnterDescription": {
+    "message": "open a bookmark or navigate into a folder."
+  },
+  "helpShortcutBackspaceLabel": {
+    "message": "Backspace:"
+  },
+  "helpShortcutBackspaceDescription": {
+    "message": "move up one folder level when available."
+  },
+  "helpShortcutCtrlFLabel": {
+    "message": "Ctrl+F:"
+  },
+  "helpShortcutCtrlFDescription": {
+    "message": "focus the search box."
+  },
+  "helpShortcutF2Label": {
+    "message": "F2:"
+  },
+  "helpShortcutF2Description": {
+    "message": "rename the active folder or edit the active bookmark."
+  },
+  "helpShortcutDeleteLabel": {
+    "message": "Delete:"
+  },
+  "helpShortcutDeleteDescription": {
+    "message": "delete the selected item when keyboard deletion is enabled."
+  },
+  "helpShortcutEscapeLabel": {
+    "message": "Escape:"
+  },
+  "helpShortcutEscapeDescription": {
+    "message": "close open SBM dialogs or menus."
+  },
+  "helpPinningHeading": {
+    "message": "Pinning Simple Bookmarks Manager for easy access"
+  },
+  "helpPinningIntro": {
+    "message": "Pinning Simple Bookmarks Manager (SBM) to the toolbar allows faster and easier access to the extension."
+  },
+  "helpPinningIntro2": {
+    "message": "Once SBM is installed in your Chromium-based browser, you can pin it to the toolbar in one of the following ways:"
+  },
+  "helpPinViaExtensionsMenuHeading": {
+    "message": "1. Pin via the Extensions menu"
+  },
+  "helpPinViaExtensionsMenuStep1": {
+    "message": "Click the Extensions button, usually located to the right of the address bar."
+  },
+  "helpFindSbmBefore": {
+    "message": "Find"
+  },
+  "helpFindSbmAfter": {
+    "message": "in the list."
+  },
+  "helpPinIconBefore": {
+    "message": "Click the pin icon next to"
+  },
+  "helpPinToggleExplanation": {
+    "message": "This will pin SBM to the toolbar. If SBM is already pinned, clicking the pin icon will unpin it."
+  },
+  "helpPinViaManageExtensionsHeading": {
+    "message": "2. Pin via the Manage Extensions page"
+  },
+  "helpPinViaManageExtensionsStep1": {
+    "message": "Click the Extensions button, usually located to the right of the address bar."
+  },
+  "helpManageExtensions": {
+    "message": "Manage Extensions"
+  },
+  "helpAlternatively": {
+    "message": "Alternatively:"
+  },
+  "helpChromiumMenuStep": {
+    "message": "Click the Chromium menu button."
+  },
+  "helpExtensions": {
+    "message": "Extensions"
+  },
+  "helpOnceExtensionsPageOpen": {
+    "message": "Once the Extensions page is open:"
+  },
+  "helpScrollDownToBefore": {
+    "message": "Scroll down to"
+  },
+  "helpPinToToolbar": {
+    "message": "Pin to toolbar"
+  },
+  "helpToggleOptionOn": {
+    "message": "Toggle the option on."
+  },
+  "helpOptionsReferenceHeading": {
+    "message": "Options reference"
+  },
+  "helpOptionsReferenceBeforeStorage": {
+    "message": "The Options page stores persistent settings in"
+  },
+  "helpOptionsReferenceAfterStorage": {
+    "message": "These settings stay local to the browser profile."
+  },
+  "helpOptionUserInterfaceLanguageDescription": {
+    "message": ": choose automatic language detection or a specific SBM UI language."
+  },
+  "helpOptionThemeDescription": {
+    "message": ": choose the visual theme used by SBM."
+  },
+  "helpOptionDetailsPanePositionDescription": {
+    "message": ": place the Details pane on the right side or below the Folder Contents pane."
+  },
+  "helpOptionFontDescription": {
+    "message": ": choose one of the supported font families."
+  },
+  "helpOptionFontSizeDescription": {
+    "message": ": adjust the base UI text size."
+  },
+  "helpOptionFontSpacingDescription": {
+    "message": ": adjust the line spacing used by labels and rows."
+  },
+  "helpOptionLimitSearchDescription": {
+    "message": "changes the main search box from searching all bookmarks to searching only within the current folder tree."
+  },
+  "helpOptionShowDeleteWarningDescription": {
+    "message": ": asks before deleting bookmark items or folders."
+  },
+  "helpOptionShowSortWarningDescription": {
+    "message": ": asks before applying permanent context-menu sorting."
+  },
+  "helpOptionAllowKeyboardDeleteDescription": {
+    "message": ": controls whether the keyboard Delete key can remove selected items."
+  },
+  "helpOptionNaturalSortDescription": {
+    "message": "controls the order used by permanent Sort by Name operations. When enabled, folders are placed first, separators next, then bookmarks."
+  },
+  "helpOptionMultipleInstancesDescription": {
+    "message": ": when disabled, clicking the extension button focuses the existing SBM tab instead of opening a new one."
+  },
+  "helpOptionStartAtFolderDescription": {
+    "message": ": opens SBM at a selected bookmark folder when launched."
+  },
+  "helpOptionStartupFolderDescription": {
+    "message": ": selects the folder used by the chosen-folder startup option."
+  },
+  "helpOptionUrlProtectionsDescription": {
+    "message": "These options control protections for higher-risk bookmark URL schemes when SBM opens bookmarks through extension tab or window actions. They do not prevent saving bookmarks."
+  },
+  "helpOptionLibraryPaneWidthDescription": {
+    "message": ": width in pixels for the left Library pane."
+  },
+  "helpOptionDetailsPaneWidthDescription": {
+    "message": ": width in pixels for the right-side Details pane."
+  },
+  "helpOptionBottomDetailsHeightDescription": {
+    "message": ": height in pixels for the bottom Details pane."
+  },
+  "helpOptionPaneResizeBars": {
+    "message": "Pane sizes can also be changed by dragging the visible pane resize bars."
+  },
+  "helpOptionFolderContentsDescription": {
+    "message": "These options configure the optional columns and saved column widths in the middle Folder Contents pane. Name and URL are always shown."
+  },
+  "helpOptionDateAddedColumnDescription": {
+    "message": ": optional column showing when an item was added."
+  },
+  "helpOptionIdColumnDescription": {
+    "message": ": optional column showing Chromium bookmark IDs."
+  },
+  "helpOptionOrderColumnDescription": {
+    "message": ": optional column showing Chromium folder order/index values."
+  },
+  "helpOptionAdvancedDetailsViewDescription": {
+    "message": ": shows read-only advanced bookmark metadata in the Details pane."
+  },
+  "helpOptionAdvancedDetailsEditDescription": {
+    "message": ": allows supported advanced editing, currently limited to bookmark index changes."
+  },
+  "helpOptionOptimisationsDescription": {
+    "message": "These options are mainly for benchmarking and troubleshooting. Leave them enabled unless you are comparing performance or diagnosing a rendering issue."
+  },
+  "helpOptionDomRenderingDescription": {
+    "message": ": reduces selected DOM churn in rendering paths."
+  },
+  "helpOptionTempTreeMapsDescription": {
+    "message": ": builds short-lived lookup maps during some tree operations, then discards them."
+  },
+  "helpOptionDebugSettingsBefore": {
+    "message": "Debug settings appear only when"
+  },
+  "helpOptionDebugSettingsAfter": {
+    "message": "is enabled. The warnings/errors log is transient and is not saved to extension settings."
+  },
+  "hideDetailsPaneTooltip": {
+    "message": "Hide the Details pane"
+  },
+  "keepEditing": {
+    "message": "Keep Editing"
+  },
+  "languageAuto": {
+    "message": "Automatic / Browser Default"
+  },
+  "leftLibWidth": {
+    "message": "Library pane width"
+  },
+  "leftLibWidthHelp": {
+    "message": "Width in pixels for the left Library pane."
+  },
+  "library": {
+    "message": "Library"
+  },
+  "limitSearchTo": {
+    "message": "Limit Search to"
+  },
+  "loadFailed": {
+    "message": "Load failed: {error}"
+  },
+  "managerFailed": {
+    "message": "Bookmark manager failed: {error}"
+  },
+  "midFcShowDateAdded": {
+    "message": "Show Date Added column"
+  },
+  "midFcShowDateAddedHelp": {
+    "message": "Show or hide the Date Added column in the Folder Contents pane."
+  },
+  "midFcShowId": {
+    "message": "Show ID column"
+  },
+  "midFcShowIdHelp": {
+    "message": "Show or hide the Chromium bookmark ID column."
+  },
+  "midFcShowOrder": {
+    "message": "Show Order column"
+  },
+  "midFcShowOrderHelp": {
+    "message": "Show or hide the Chromium folder order/index column."
+  },
+  "midFcWidthDateAdded": {
+    "message": "Date Added column width"
+  },
+  "midFcWidthDateAddedHelp": {
+    "message": "Width in pixels for the optional Date Added column."
+  },
+  "midFcWidthId": {
+    "message": "ID column width"
+  },
+  "midFcWidthIdHelp": {
+    "message": "Width in pixels for the optional ID column."
+  },
+  "midFcWidthName": {
+    "message": "Name column width"
+  },
+  "midFcWidthNameHelp": {
+    "message": "Width in pixels for the Folder Contents Name column."
+  },
+  "midFcWidthOrder": {
+    "message": "Order column width"
+  },
+  "midFcWidthOrderHelp": {
+    "message": "Width in pixels for the optional Chromium order/index column."
+  },
+  "midFcWidthUrl": {
+    "message": "URL column width"
+  },
+  "midFcWidthUrlHelp": {
+    "message": "Width in pixels for the Folder Contents URL column."
+  },
+  "multipleInstancesAllowed": {
+    "message": "Allow multiple SBM instances"
+  },
+  "multipleInstancesAllowedHelp": {
+    "message": "When disabled, clicking the extension button focuses the existing Simple Bookmarks Manager tab instead of opening another one."
+  },
+  "startupBehavior": {
+    "message": "Startup behavior"
+  },
+  "startupBehaviorHelp": {
+    "message": "Choose where Simple Bookmarks Manager opens when launched."
+  },
+  "startAtConfiguredBookmarkFolder": {
+    "message": "Start at chosen folder"
+  },
+  "startAtConfiguredBookmarkFolderHelp": {
+    "message": "When enabled, SBM opens at the selected bookmark folder. If the folder no longer exists, this setting is cleared and SBM uses its normal startup folder."
+  },
+  "startupBookmarkFolder": {
+    "message": "Startup folder"
+  },
+  "startupBookmarkFolderHelp": {
+    "message": "Select the existing bookmark folder to show when SBM starts."
+  },
+  "startupBookmarkFolderNone": {
+    "message": "No startup folder selected"
+  },
+  "startupBookmarkFolderMissing": {
+    "message": "Previously selected folder is missing"
+  },
+  "startupBookmarkFolderLoadFailed": {
+    "message": "Could not load bookmark folders."
+  },
+  "mutationCreateBookmark": {
+    "message": "create bookmark"
+  },
+  "mutationCreateFolder": {
+    "message": "create folder"
+  },
+  "mutationCreateFromClipboardSnapshot": {
+    "message": "create from clipboard snapshot"
+  },
+  "mutationCreateSeparator": {
+    "message": "create separator"
+  },
+  "mutationDeleteBookmark": {
+    "message": "delete bookmark"
+  },
+  "mutationDeleteFolder": {
+    "message": "delete folder"
+  },
+  "mutationDeleteSelectedBookmark": {
+    "message": "delete selected bookmark"
+  },
+  "mutationDeleteSelectedFolder": {
+    "message": "delete selected folder"
+  },
+  "mutationDragDropMove": {
+    "message": "drag/drop move"
+  },
+  "mutationEditBookmark": {
+    "message": "edit bookmark"
+  },
+  "mutationMoveSelectedItem": {
+    "message": "move selected item"
+  },
+  "mutationPasteCutItem": {
+    "message": "paste cut item"
+  },
+  "mutationRenameFolder": {
+    "message": "rename folder"
+  },
+  "mutationReorderSelectedItems": {
+    "message": "reorder selected items"
+  },
+  "mutationSaveDetailsMove": {
+    "message": "save details move"
+  },
+  "mutationSaveDetailsUpdate": {
+    "message": "save details update"
+  },
+  "mutationSortFolderChild": {
+    "message": "sort folder child"
+  },
+  "naturalSort": {
+    "message": "Use natural folder/bookmark sort order"
+  },
+  "naturalSortHelp": {
+    "message": "Permanent Sort by Name places folders first, separators next, then bookmarks."
+  },
+  "newBookmark": {
+    "message": "New Bookmark"
+  },
+  "newFolder": {
+    "message": "New Folder"
+  },
+  "newFolderDefaultName": {
+    "message": "New Folder"
+  },
+  "newFolderNamePrompt": {
+    "message": "New folder name"
+  },
+  "newWindowType": {
+    "message": "new"
+  },
+  "notAvailable": {
+    "message": "Not available"
+  },
+  "openAllBookmarks": {
+    "message": "Open All Bookmarks"
+  },
+  "openAllInNewTab": {
+    "message": "Open All in New Tab"
+  },
+  "openAllInNewTabGroup": {
+    "message": "Open All in New Tab Group"
+  },
+  "openAllInNewWindow": {
+    "message": "Open All in New Window"
+  },
+  "openAllInPrivateWindow": {
+    "message": "Open All in Private Window"
+  },
+  "openAllInSplitView": {
+    "message": "Open All in Split View"
+  },
+  "openBookmark": {
+    "message": "Open Bookmark"
+  },
+  "openContainingFolder": {
+    "message": "Open Folder containing the Bookmark."
+  },
+  "openDefaultBookmarksManager": {
+    "message": "Open Default Bookmarks Manager"
+  },
+  "openInNewTab": {
+    "message": "Open in New Tab"
+  },
+  "openInNewTabGroup": {
+    "message": "Open in New Tab Group"
+  },
+  "openInNewWindow": {
+    "message": "Open in New Window"
+  },
+  "openInPrivateWindow": {
+    "message": "Open in Private Window"
+  },
+  "openInSplitView": {
+    "message": "Open in Split View"
+  },
+  "openMenu": {
+    "message": "Open menu"
+  },
+  "openSbmMenu": {
+    "message": "Open Simple Bookmarks Manager menu"
+  },
+  "optimisationDOMrendering": {
+    "message": "Optimisation: DOM rendering pass"
+  },
+  "optimisationDOMrenderingHelp": {
+    "message": "Experimental. Enables reduced DOM churn for selected rendering, drag/drop indicators, and row icon handling. Disable only when comparing performance or troubleshooting UI behavior."
+  },
+  "optimisationTempBookmarkTreeMaps": {
+    "message": "Optimisation: temporary bookmark tree maps"
+  },
+  "optimisationTempBookmarkTreeMapsHelp": {
+    "message": "Experimental. Builds short-lived lookup maps during some render/search/tree operations, then discards them to avoid a persistent stale cache."
+  },
+  "optimisations": {
+    "message": "Optimisations"
+  },
+  "optimisationsHelp": {
+    "message": "Experimental performance options for benchmarking and troubleshooting."
+  },
+  "optionSaved": {
+    "message": "Saved"
+  },
+  "options": {
+    "message": "Options"
+  },
+  "optionsTitle": {
+    "message": "Simple Bookmarks Manager Options"
+  },
+  "paneWidths": {
+    "message": "Pane widths"
+  },
+  "paneWidthsHelp": {
+    "message": "Configure the Library and Details pane widths. These are also updated when panes are resized in the manager UI."
+  },
+  "parentFolder": {
+    "message": "Parent folder"
+  },
+  "paste": {
+    "message": "Paste"
+  },
+  "privateWindowType": {
+    "message": "private"
+  },
+  "renameFolder": {
+    "message": "Rename Folder"
+  },
+  "resetDefaults": {
+    "message": "Reset to Defaults"
+  },
+  "resizeColumn": {
+    "message": "Drag to resize column"
+  },
+  "resizeDetailsPane": {
+    "message": "Resize Details pane"
+  },
+  "resizeLibraryPane": {
+    "message": "Resize Library pane"
+  },
+  "rightDetailsWidth": {
+    "message": "Details pane width"
+  },
+  "rightDetailsWidthHelp": {
+    "message": "Width in pixels for the right Details pane."
+  },
+  "bottomDetailsHeight": {
+    "message": "Bottom Details pane height"
+  },
+  "bottomDetailsHeightHelp": {
+    "message": "Height in pixels used when the Details pane position is set to Bottom."
+  },
+  "rootFallback": {
+    "message": "(root)"
+  },
+  "safety": {
+    "message": "Safety"
+  },
+  "save": {
+    "message": "Save"
+  },
+  "saveFailed": {
+    "message": "Save failed: {error}"
+  },
+  "search": {
+    "message": "Search"
+  },
+  "searchBookmarks": {
+    "message": "Search bookmarks"
+  },
+  "searchLimitFull": {
+    "message": "Limit Search to Current Folder & Subfolders"
+  },
+  "searchLimitOptionHelp": {
+    "message": "When enabled, the main search box searches only inside the current visible folder tree."
+  },
+  "searchLimitTitle": {
+    "message": "When enabled, search only the current folder and its subfolders. When disabled, search all bookmarks."
+  },
+  "separator": {
+    "message": "Separator"
+  },
+  "separators": {
+    "message": "Separators:"
+  },
+  "showDeleteWarning": {
+    "message": "Show delete confirmation warning"
+  },
+  "showDeleteWarningHelp": {
+    "message": "Ask before deleting bookmark items or folders."
+  },
+  "showDetailsPaneTooltip": {
+    "message": "Show the Details pane"
+  },
+  "showErrorsWarnings": {
+    "message": "Show warnings/errors log"
+  },
+  "showErrorsWarningsHelp": {
+    "message": "Advanced. Shows a transient in-memory log for this SBM session. Log entries are not saved to extension settings."
+  },
+  "showAtLaunch": {
+    "message": "Show at launch"
+  },
+  "showHelpOnLaunch": {
+    "message": "Show Help on next launch"
+  },
+  "showHelpOnLaunchHelp": {
+    "message": "When enabled, SBM shows the Help dialog once the next time it opens, then turns this setting off again."
+  },
+  "helpOptionShowHelpOnLaunchDescription": {
+    "message": ": shows the Help dialog once the next time SBM opens, then turns itself off again."
+  },
+  "showSortWarning": {
+    "message": "Show permanent sort confirmation warning"
+  },
+  "showSortWarningHelp": {
+    "message": "Ask before applying context-menu sorts that permanently reorder a bookmark folder."
+  },
+  "sortBookmarks": {
+    "message": "Sort bookmarks"
+  },
+  "sortByDate": {
+    "message": "Sort by Date"
+  },
+  "sortByName": {
+    "message": "Sort by Name"
+  },
+  "sortDate": {
+    "message": "date"
+  },
+  "sortDateAdded": {
+    "message": "Date added"
+  },
+  "sortDateAddedHeader": {
+    "message": "Date Added"
+  },
+  "sortDateAscTooltip": {
+    "message": "Sort by date added: oldest first"
+  },
+  "sortDateDescTooltip": {
+    "message": "Sort by date added: newest first"
+  },
+  "sortDefault": {
+    "message": "Default"
+  },
+  "sortDefaultTooltip": {
+    "message": "Default Chromium folder order. Click to return to Default sorting; this column does not reverse-sort."
+  },
+  "sortFolderConfirm": {
+    "message": "Sort \"{folderName}\" by {sortName}?\n\nThis permanently changes the saved bookmark order in Chromium. It is different from the temporary Visual sort dropdown."
+  },
+  "sortId": {
+    "message": "ID"
+  },
+  "sortIdAscTooltip": {
+    "message": "Sort by ID: lowest first"
+  },
+  "sortIdDescTooltip": {
+    "message": "Sort by ID: highest first"
+  },
+  "sortName": {
+    "message": "Name"
+  },
+  "sortNameAscTooltip": {
+    "message": "Sort by name: A to Z"
+  },
+  "sortNameDescTooltip": {
+    "message": "Sort by name: Z to A"
+  },
+  "sortNameLower": {
+    "message": "name"
+  },
+  "sortOrder": {
+    "message": "Order"
+  },
+  "sortSelectDateAddedTitle": {
+    "message": "Date added sort. Ascending is oldest first; descending is newest first."
+  },
+  "sortSelectDefaultTitle": {
+    "message": "Default Chromium folder order."
+  },
+  "sortSelectIdTitle": {
+    "message": "ID sort. Ascending is lowest first; descending is highest first."
+  },
+  "sortSelectTitleTitle": {
+    "message": "Name sort. Ascending is A to Z; descending is Z to A."
+  },
+  "sortSelectUrlTitle": {
+    "message": "URL sort. Ascending is A to Z; descending is Z to A."
+  },
+  "sortUrl": {
+    "message": "URL"
+  },
+  "sortUrlAscTooltip": {
+    "message": "Sort by URL: A to Z"
+  },
+  "sortUrlDescTooltip": {
+    "message": "Sort by URL: Z to A"
+  },
+  "sorting": {
+    "message": "Sorting"
+  },
+  "thisItem": {
+    "message": "this item"
+  },
+  "totalSelected": {
+    "message": "Total selected:"
+  },
+  "unsavedChanges": {
+    "message": "Unsaved changes"
+  },
+  "unsavedChangesMessage": {
+    "message": "The Details pane has unsaved changes. What would you like to do?"
+  },
+  "url": {
+    "message": "URL"
+  },
+  "urlWarningControlCharacters": {
+    "message": "URL contained hidden control characters; they will be removed before saving."
+  },
+  "urlWarningEmpty": {
+    "message": "URL is empty. Chrome may reject this bookmark until a URL is provided."
+  },
+  "urlWarningInvalidBlocked": {
+    "message": "This URL is not valid enough to save as a bookmark. Fix the URL before saving."
+  },
+  "urlWarningInvalidButAllowed": {
+    "message": "This URL is not valid enough to save as a bookmark. Fix the URL before saving."
+  },
+  "urlWarningWhitespace": {
+    "message": "URL contains whitespace. It will be saved if Chrome accepts it, but it may not open as expected."
+  },
+  "userInterface": {
+    "message": "User Interface"
+  },
+  "userInterfaceLanguage": {
+    "message": "User Interface Language"
+  },
+  "userInterfaceLanguageHelp": {
+    "message": "Automatic follows the browser UI language. Manual choices affect the manager and options pages."
+  },
+  "theme": {
+    "message": "Theme"
+  },
+  "themeHelp": {
+    "message": "Set the theme used by Simple Bookmarks Manager."
+  },
+  "detailsPanePosition": {
+    "message": "Details pane position"
+  },
+  "detailsPanePositionHelp": {
+    "message": "Choose whether the Details pane appears on the right side or below the Folder Contents pane."
+  },
+  "detailsPanePositionRight": {
+    "message": "Right side"
+  },
+  "detailsPanePositionBottom": {
+    "message": "Bottom"
+  },
+  "themeSystem": {
+    "message": "System"
+  },
+  "themeLight": {
+    "message": "Light"
+  },
+  "themeSoftBlue": {
+    "message": "Soft Blue"
+  },
+  "themeSoftPink": {
+    "message": "Soft Pink"
+  },
+  "themeSoftPurple": {
+    "message": "Soft Purple"
+  },
+  "themeSoftGold": {
+    "message": "Soft Gold"
+  },
+  "themeSoftOrange": {
+    "message": "Soft Orange"
+  },
+  "themeSoftGreen": {
+    "message": "Soft Green"
+  },
+  "themeDark": {
+    "message": "Dark"
+  },
+  "visualSort": {
+    "message": "Visual sort:"
+  },
+  "warningsErrorsLog": {
+    "message": "Warnings / Errors Log"
+  },
+  "warningsErrorsLogEmpty": {
+    "message": "No warnings or errors recorded for this session."
+  },
+  "warningsErrorsLogHelp": {
+    "message": "Transient warnings/errors for this current SBM session. This is not saved to settings."
+  },
+  "bookmarkUrlProtections": {
+    "message": "Bookmark URL protections"
+  },
+  "bookmarkUrlProtectionsHelp": {
+    "message": "Control protections for higher-risk bookmark URL schemes. These protections affect opening bookmarks only, not saving them."
+  },
+  "blockJavascriptBookmarkOpens": {
+    "message": "Block opening javascript: bookmarks"
+  },
+  "blockJavascriptBookmarkOpensHelp": {
+    "message": "Recommended. Prevents SBM from opening bookmarklets or other javascript: URLs through extension tab/window actions."
+  },
+  "blockDataBookmarkOpens": {
+    "message": "Block opening data: bookmarks"
+  },
+  "blockDataBookmarkOpensHelp": {
+    "message": "Recommended. Prevents SBM from opening inline data: documents through extension tab/window actions."
+  },
+  "blockBlobBookmarkOpens": {
+    "message": "Block opening blob: bookmarks"
+  },
+  "blockBlobBookmarkOpensHelp": {
+    "message": "Recommended. Prevents SBM from opening blob: URLs through extension tab/window actions."
+  },
+  "urlOpenBlockedByProtection": {
+    "message": "This bookmark URL is blocked by an advanced URL-opening protection. You can review the protection toggles in Options > Advanced."
+  },
+  "changelog": {
+    "message": "Changelog"
+  },
+  "closeDialog": {
+    "message": "Close dialog"
+  }
+}

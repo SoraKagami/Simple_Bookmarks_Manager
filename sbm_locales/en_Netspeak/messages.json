@@ -309,112 +309,112 @@
     "message": "H4lp"
   },
   "clickLabel": {
-    "message": "Click"
+    "message": "Cl1ck"
   },
   "selectLabel": {
-    "message": "Select"
+    "message": "S3l3ct"
   },
   "helpDocumentTitle": {
     "message": "Simple B00km4rks M4n4g3r H3lp"
   },
   "helpTagline": {
-    "message": "A tiny b00km4rk goblin guide for l0c4l browsing, editing, s0rt1ng, and f0ld3r wrangling."
+    "message": "A tiny b00km4rk goblin guide for l0c4l browsing, 3d1t1ng, s0rt1ng, and f0ld3r wrangling. 🧭✨"
   },
   "helpQuickStartHeading": {
-    "message": "Qu1ck st4rt, speedrunner mode"
+    "message": "Qu1ck st4rt, speedrunner mode 🚀"
   },
   "helpQuickStartIntro": {
-    "message": "0p3n SBM from the browser toolbar button. The m4n4g3r 0p3ns as a normal 3xt3ns10n page and works directly with Chromium's existing b00km4rk tree."
+    "message": "0p3n SBM from the br0ws3r toolbar button. The m4n4g3r 0p3ns as a normal 3xt3ns10n page and talks directly to Chr0m1um's existing b00km4rk tr33."
   },
   "helpLibraryPaneLabel": {
-    "message": "Library pane:"
+    "message": "L1br4ry p4n3:"
   },
   "helpLibraryPaneDescription": {
-    "message": "browse b00km4rk f0ld3rs and expand or collapse subf0ld3rs."
+    "message": "browse b00km4rk f0ld3rs and expand/collapse subf0ld3rs like a tiny tr33 wizard. 🗂️"
   },
   "helpFolderContentsPaneLabel": {
-    "message": "F0ld3r Contents pane:"
+    "message": "F0ld3r C0nt3nts p4n3:"
   },
   "helpFolderContentsPaneDescription": {
-    "message": "view, select, s0rt, 0p3n, drag, and manage items in the selected f0ld3r."
+    "message": "v13w, s3l3ct, s0rt, 0p3n, dr4g, and m4n4g3 items in the s3l3ct3d f0ld3r."
   },
   "helpDetailsPaneLabel": {
-    "message": "D3t41ls pane:"
+    "message": "D3t41ls p4n3:"
   },
   "helpDetailsPaneDescription": {
-    "message": "inspect and edit the selected b00km4rk or f0ld3r."
+    "message": "insp3ct and 3d1t the s3l3ct3d b00km4rk or f0ld3r."
   },
   "helpBasicBookmarkManagementHeading": {
-    "message": "Basic b00km4rk wrangling"
+    "message": "B4s1c b00km4rk wrangling 🛠️"
   },
   "helpBasicUseNewButtonsBefore": {
-    "message": "Use"
+    "message": "Us3"
   },
   "helpBasicUseNewButtonsMiddle": {
-    "message": "and"
+    "message": "4nd"
   },
   "helpBasicUseNewButtonsAfter": {
-    "message": "to add items to the current f0ld3r."
+    "message": "to add shiny new items to the curr3nt f0ld3r."
   },
   "helpBasicRightClickActions": {
-    "message": "Right-click f0ld3rs or b00km4rks for actions such as rename, edit, delete, cut, c0py, paste, s0rt, and 0p3n."
+    "message": "R1ght-cl1ck f0ld3rs or b00km4rks for rename, 3d1t, d3l3t3, cut, c0py, p4st3, s0rt, and 0p3n spells."
   },
   "helpBasicDragDrop": {
-    "message": "Use drag-and-drop to reorder items or move b00km4rks and f0ld3rs into another f0ld3r."
+    "message": "Us3 dr4g-n-dr0p to r30rd3r items or yeet b00km4rks and f0ld3rs into another f0ld3r. 🐹"
   },
   "helpBasicDetailsPaneEdits": {
-    "message": "Use the D3t41ls pane to change b00km4rk names, URLs, parent f0ld3rs, and supported advanced fields."
+    "message": "Us3 the D3t41ls p4n3 to ch4ng3 b00km4rk names, URLs, parent f0ld3rs, and supported adv4nc3d fields."
   },
   "helpBasicF2Before": {
-    "message": "Use"
+    "message": "Pr3ss"
   },
   "helpBasicF2After": {
-    "message": "to rename the active f0ld3r or edit the active b00km4rk."
+    "message": "to rename the active f0ld3r or 3d1t the active b00km4rk. Tiny keyboard magic. ✨"
   },
   "helpBasicMiddleClick": {
-    "message": "Middle-click a b00km4rk in the F0ld3r Contents pane to 0p3n it in a new tab."
+    "message": "M1ddl3-cl1ck a b00km4rk in the F0ld3r C0nt3nts p4n3 to 0p3n it in a new tab."
   },
   "helpSearchSortingHeading": {
-    "message": "S34rch & s0rt1ng magic"
+    "message": "S34rch & s0rt1ng magic 🔎"
   },
   "helpSearchBox": {
-    "message": "Use the s34rch box to s34rch b00km4rks by name or URL."
+    "message": "Us3 the s34rch b0x to hunt b00km4rks by name or URL."
   },
   "helpSearchLimitBefore": {
-    "message": "Enable"
+    "message": "3n4bl3"
   },
   "helpSearchLimitAfter": {
-    "message": "to s34rch only inside the current f0ld3r tree."
+    "message": "to s34rch only inside the curr3nt f0ld3r tr33."
   },
   "helpVisualSort": {
-    "message": "Use the visual s0rt dropdown or column headers for temporary s0rting in the F0ld3r Contents pane."
+    "message": "Us3 the v1su4l s0rt dropdown or c0lumn h34d3rs for temporary s0rt1ng in the F0ld3r C0nt3nts p4n3."
   },
   "helpPermanentSort": {
-    "message": "Use right-click permanent s0rting when you want Chromium's saved b00km4rk order changed."
+    "message": "Us3 r1ght-cl1ck permanent s0rt1ng only when you want Chr0m1um's saved b00km4rk order actually ch4ng3d. No take-backsies without undo-work. 🧪"
   },
   "helpSeparatorsBeforeTitle": {
-    "message": "SBM supports a Chromium-compatible separator convention. A separator is stored as a b00km4rk with the title"
+    "message": "SBM supports a Chr0m1um-compatible separator convention. A separator is stored as a b00km4rk with the t1tl3"
   },
   "helpSeparatorsBetweenTitleUrl": {
-    "message": "and URL"
+    "message": "4nd URL"
   },
   "helpSeparatorsAfterUrl": {
-    "message": "SBM renders that convention as a visual divider."
+    "message": "SBM renders that convention as a v1su4l divider, not a mysterious b00km4rk noodle."
   },
   "helpKeyboardShortcutsHeading": {
-    "message": "Keyboard spells"
+    "message": "K3yb04rd spells ⌨️"
   },
   "helpShortcutArrowKeysLabel": {
-    "message": "Arrow keys:"
+    "message": "Arrow k3ys:"
   },
   "helpShortcutArrowKeysDescription": {
-    "message": "move through the active pane."
+    "message": "move through the active p4n3."
   },
   "helpShortcutEnterLabel": {
     "message": "Enter:"
   },
   "helpShortcutEnterDescription": {
-    "message": "0p3n a b00km4rk or navigate into a f0ld3r."
+    "message": "0p3n a b00km4rk or navig4t3 into a f0ld3r."
   },
   "helpShortcutBackspaceLabel": {
     "message": "Backspace:"
@@ -426,67 +426,67 @@
     "message": "Ctrl+F:"
   },
   "helpShortcutCtrlFDescription": {
-    "message": "focus the s34rch box."
+    "message": "focus the s34rch b0x."
   },
   "helpShortcutF2Label": {
     "message": "F2:"
   },
   "helpShortcutF2Description": {
-    "message": "rename the active f0ld3r or edit the active b00km4rk."
+    "message": "rename the active f0ld3r or 3d1t the active b00km4rk."
   },
   "helpShortcutDeleteLabel": {
     "message": "Delete:"
   },
   "helpShortcutDeleteDescription": {
-    "message": "delete the selected item when keyboard deletion is enabled."
+    "message": "d3l3t3 the s3l3ct3d item when k3yb04rd deletion is 3n4bl3d. Handle with tiny tongs. 🧯"
   },
   "helpShortcutEscapeLabel": {
     "message": "Escape:"
   },
   "helpShortcutEscapeDescription": {
-    "message": "close 0p3n SBM dialogs or menus."
+    "message": "cl0s3 0p3n SBM d14l0gs or menus."
   },
   "helpPinningHeading": {
-    "message": "Pin SBM for ez toolbar access"
+    "message": "Pin SBM for ez toolbar access 📌"
   },
   "helpPinningIntro": {
-    "message": "Pinning Simple B00km4rks M4n4g3r (SBM) to the toolbar allows faster and easier access to the 3xt3ns10n."
+    "message": "Pinning Simple B00km4rks M4n4g3r (SBM) to the toolbar makes the b00km4rk portal faster to summon."
   },
   "helpPinningIntro2": {
-    "message": "Once SBM is installed in your Chromium-based browser, you can pin it to the toolbar in one of the following ways:"
+    "message": "Once SBM is installed in your Chr0m1um-based br0ws3r, you can pin it to the toolbar in one of these ways:"
   },
   "helpPinViaExtensionsMenuHeading": {
     "message": "1. Pin via the 3xt3ns10ns menu"
   },
   "helpPinViaExtensionsMenuStep1": {
-    "message": "Click the 3xt3ns10ns button, usually located to the right of the address bar."
+    "message": "Cl1ck the 3xt3ns10ns button, usually parked to the right of the address bar."
   },
   "helpFindSbmBefore": {
-    "message": "Find"
+    "message": "F1nd"
   },
   "helpFindSbmAfter": {
     "message": "in the list."
   },
   "helpPinIconBefore": {
-    "message": "Click the pin icon next to"
+    "message": "Cl1ck the pin icon next to"
   },
   "helpPinToggleExplanation": {
-    "message": "This will pin SBM to the toolbar. If SBM is already pinned, clicking the pin icon will unpin it."
+    "message": "This pins SBM to the toolbar. If SBM is already pinned, cl1ck1ng the pin icon unpins it. Tiny toggle goblin behavior. 📌"
   },
   "helpPinViaManageExtensionsHeading": {
-    "message": "2. Pin via the Manage 3xt3ns10ns page"
+    "message": "2. Pin via the M4n4g3 3xt3ns10ns page"
   },
   "helpPinViaManageExtensionsStep1": {
-    "message": "Click the 3xt3ns10ns button, usually located to the right of the address bar."
+    "message": "Cl1ck the 3xt3ns10ns button, usually parked to the right of the address bar."
   },
   "helpManageExtensions": {
-    "message": "Manage 3xt3ns10ns"
+    "message": "M4n4g3 3xt3ns10ns"
   },
   "helpAlternatively": {
-    "message": "Alternatively:"
+    "message": "Alt3rn4t1v3ly:"
   },
   "helpChromiumMenuStep": {
-    "message": "Click the Chromium menu button."
+    "message": "Cl1ck the Chr0m1um menu button."
   },
   "helpExtensions": {
     "message": "3xt3ns10ns"
@@ -495,34 +495,34 @@
     "message": "Once the 3xt3ns10ns page is 0p3n:"
   },
   "helpScrollDownToBefore": {
-    "message": "Scroll down to"
+    "message": "Scr0ll down to"
   },
   "helpPinToToolbar": {
     "message": "Pin to toolbar"
   },
   "helpToggleOptionOn": {
-    "message": "Toggle the option on."
+    "message": "T0ggl3 the option on."
   },
   "helpOptionsReferenceHeading": {
-    "message": "Options spellbook"
+    "message": "0pt10nz spellbook 🧙"
   },
   "helpOptionsReferenceBeforeStorage": {
-    "message": "The Options page stores persistent s3tt1ngs in"
+    "message": "The 0pt10nz page stores persistent s3tt1ngz in"
   },
   "helpOptionsReferenceAfterStorage": {
-    "message": "These s3tt1ngs stay l0c4l to the browser profile."
+    "message": "These s3tt1ngz stay l0c4l to the br0ws3r profile. No cloud gremlins here."
   },
   "helpOptionUserInterfaceLanguageDescription": {
-    "message": ": choose automatic language detection or a specific SBM UI language."
+    "message": ": choose aut0m4t1c language detection or a specific SBM UI language."
   },
   "helpOptionThemeDescription": {
-    "message": ": choose the visual theme used by SBM."
+    "message": ": choose the v1su4l theme used by SBM."
   },
   "helpOptionDetailsPanePositionDescription": {
-    "message": ": place the D3t41ls pane on the right side or below the F0ld3r Contents pane."
+    "message": ": place the D3t41ls p4n3 on the right side or below the F0ld3r C0nt3nts p4n3."
   },
   "helpOptionFontDescription": {
-    "message": ": choose one of the supported font families."
+    "message": ": choose one of the supported f0nt families."
   },
   "helpOptionFontSizeDescription": {
     "message": ": adjust the base UI text size."
@@ -531,76 +531,76 @@
     "message": ": adjust the line spacing used by labels and rows."
   },
   "helpOptionLimitSearchDescription": {
-    "message": "changes the main s34rch box from s34rching all b00km4rks to s34rching only within the current f0ld3r tree."
+    "message": "changes the main s34rch b0x from searching all b00km4rks to searching only within the curr3nt f0ld3r tr33."
   },
   "helpOptionShowDeleteWarningDescription": {
-    "message": ": asks before deleting b00km4rk items or f0ld3rs."
+    "message": ": asks before d3l3t1ng b00km4rk items or f0ld3rs."
   },
   "helpOptionShowSortWarningDescription": {
-    "message": ": asks before applying permanent context-menu s0rting."
+    "message": ": asks before applying permanent context-menu s0rt1ng."
   },
   "helpOptionAllowKeyboardDeleteDescription": {
-    "message": ": controls whether the keyboard Delete key can remove selected items."
+    "message": ": controls whether the k3yb04rd Delete key can remove s3l3ct3d items."
   },
   "helpOptionNaturalSortDescription": {
-    "message": "controls the order used by permanent S0rt by Name operations. When enabled, f0ld3rs are placed first, separators next, then b00km4rks."
+    "message": "controls the order used by permanent S0rt by Name operations. When 3n4bl3d, f0ld3rs go first, separators next, then b00km4rks queue up politely."
   },
   "helpOptionMultipleInstancesDescription": {
-    "message": ": when disabled, clicking the 3xt3ns10n button focuses the existing SBM tab instead of 0p3ning a new one."
+    "message": ": when disabled, cl1ck1ng the 3xt3ns10n button focuses the existing SBM tab instead of opening a new one."
   },
   "helpOptionStartAtFolderDescription": {
-    "message": ": 0p3ns SBM at a selected b00km4rk f0ld3r when l4unched."
+    "message": ": opens SBM at a s3l3ct3d b00km4rk f0ld3r when l4unch3d."
   },
   "helpOptionStartupFolderDescription": {
-    "message": ": selects the f0ld3r used by the chosen-f0ld3r startup option."
+    "message": ": s3l3cts the f0ld3r used by the chosen-f0ld3r startup option."
   },
   "helpOptionUrlProtectionsDescription": {
-    "message": "These options control protections for higher-risk b00km4rk URL schemes when SBM 0p3ns b00km4rks through 3xt3ns10n tab or window actions. They do not prevent saving b00km4rks."
+    "message": "These options control protections for spicy higher-risk b00km4rk URL schemes when SBM opens b00km4rks through 3xt3ns10n tab or window actions. They do not stop saving b00km4rks."
   },
   "helpOptionLibraryPaneWidthDescription": {
-    "message": ": width in pixels for the left Library pane."
+    "message": ": width in pixels for the left L1br4ry p4n3."
   },
   "helpOptionDetailsPaneWidthDescription": {
-    "message": ": width in pixels for the right-side D3t41ls pane."
+    "message": ": width in pixels for the right-side D3t41ls p4n3."
   },
   "helpOptionBottomDetailsHeightDescription": {
-    "message": ": height in pixels for the bottom D3t41ls pane."
+    "message": ": height in pixels for the bottom D3t41ls p4n3."
   },
   "helpOptionPaneResizeBars": {
-    "message": "Pane sizes can also be changed by dragging the visible pane resize bars."
+    "message": "P4n3 sizes can also be ch4ng3d by dragging the visible p4n3 resize bars. Grab the tiny line; it has one job."
   },
   "helpOptionFolderContentsDescription": {
-    "message": "These options configure the optional columns and saved column widths in the middle F0ld3r Contents pane. Name and URL are always shown."
+    "message": "These options configure optional c0lumns and saved c0lumn widths in the middle F0ld3r C0nt3nts p4n3. Name and URL always show up for duty."
   },
   "helpOptionDateAddedColumnDescription": {
-    "message": ": optional column showing when an item was added."
+    "message": ": optional c0lumn showing when an item was added."
   },
   "helpOptionIdColumnDescription": {
-    "message": ": optional column showing Chromium b00km4rk IDs."
+    "message": ": optional c0lumn showing Chr0m1um b00km4rk IDs."
   },
   "helpOptionOrderColumnDescription": {
-    "message": ": optional column showing Chromium f0ld3r order/index values."
+    "message": ": optional c0lumn showing Chr0m1um f0ld3r order/index values."
   },
   "helpOptionAdvancedDetailsViewDescription": {
-    "message": ": shows read-only advanced b00km4rk metad474 in the D3t41ls pane."
+    "message": ": shows read-only adv4nc3d b00km4rk metadata in the D3t41ls p4n3."
   },
   "helpOptionAdvancedDetailsEditDescription": {
-    "message": ": allows supported advanced editing, currently limited to b00km4rk index changes."
+    "message": ": allows supported adv4nc3d 3d1t1ng, currently limited to b00km4rk index ch4ng3s."
   },
   "helpOptionOptimisationsDescription": {
-    "message": "These options are mainly for benchmarking and troubleshooting. Leave them enabled unless you are comparing performance or diagnosing a rendering issue."
+    "message": "These options are mainly for b3nchm4rk1ng and troubleshooting. Leave them 3n4bl3d unless you are comparing p3rf0rm4nc3 or diagnosing a rendering gremlin. 🧪"
   },
   "helpOptionDomRenderingDescription": {
     "message": ": reduces selected DOM churn in rendering paths."
   },
   "helpOptionTempTreeMapsDescription": {
-    "message": ": builds short-lived lookup maps during some tree operations, then discards them."
+    "message": ": builds short-lived lookup maps during some tr33 operations, then discards them like responsible tiny confetti."
   },
   "helpOptionDebugSettingsBefore": {
-    "message": "Debug s3tt1ngs appear only when"
+    "message": "D3bug s3tt1ngz appear only when"
   },
   "helpOptionDebugSettingsAfter": {
-    "message": "is enabled. The warnings/errors log is transient and is not saved to 3xt3ns10n s3tt1ngs."
+    "message": "is 3n4bl3d. The warnings/errors log is transient and isn't saved to 3xt3ns10n s3tt1ngz. 🐛"
   },
   "hideDetailsPaneTooltip": {
     "message": "H1d3 7h3 D3741lz p4n3"
@@ -684,28 +684,28 @@
     "message": "Wh3n 0ff, cl1ck1ng 7h3 3x73nz10n bu770n f0cuz3z 7h3 3x1z71ng SBM 74b 1nz734d 0f zp4wn1ng 4n07h3r."
   },
   "startupBehavior": {
-    "message": "Startup behavior"
+    "message": "St4rtup behavior"
   },
   "startupBehaviorHelp": {
-    "message": "Choose where Simple B00km4rks M4n4g3r 0p3ns when l4unched."
+    "message": "Choose where Simple B00km4rks M4n4g3r 0p3ns when l4unch3d."
   },
   "startAtConfiguredBookmarkFolder": {
-    "message": "Start at chosen f0ld3r"
+    "message": "St4rt at chosen f0ld3r"
   },
   "startAtConfiguredBookmarkFolderHelp": {
-    "message": "When enabled, SBM 0p3ns at the selected b00km4rk f0ld3r. If the f0ld3r no longer exists, this setting is cleared and SBM uses its normal startup f0ld3r."
+    "message": "When 3n4bl3d, SBM 0p3ns at the s3l3ct3d b00km4rk f0ld3r. If the f0ld3r vanishes, this s3tt1ng is cleared and SBM uses its normal st4rtup f0ld3r."
   },
   "startupBookmarkFolder": {
-    "message": "Startup f0ld3r"
+    "message": "St4rtup f0ld3r"
   },
   "startupBookmarkFolderHelp": {
-    "message": "Select the existing b00km4rk f0ld3r to show when SBM starts."
+    "message": "S3l3ct the existing b00km4rk f0ld3r to show when SBM st4rts."
   },
   "startupBookmarkFolderNone": {
-    "message": "No startup f0ld3r selected"
+    "message": "No st4rtup f0ld3r s3l3ct3d"
   },
   "startupBookmarkFolderMissing": {
-    "message": "Previously selected f0ld3r is missing"
+    "message": "Pr3v10usly s3l3ct3d f0ld3r is missing"
   },
   "startupBookmarkFolderLoadFailed": {
     "message": "Could not load b00km4rk f0ld3rs."
@@ -897,10 +897,10 @@
     "message": "W1d7h 1n p1x3lz f0r 7h3 r1gh7 D3741lz p4n3."
   },
   "bottomDetailsHeight": {
-    "message": "Bottom D3t41ls pane height"
+    "message": "Bottom D3t41ls p4n3 height"
   },
   "bottomDetailsHeightHelp": {
-    "message": "Height in pixels used when the D3t41ls pane position is set to Bottom."
+    "message": "Height in pixels used when the D3t41ls p4n3 position is set to Bottom."
   },
   "rootFallback": {
     "message": "(r007)"
@@ -957,10 +957,10 @@
     "message": "Show H3lp on next l4unch"
   },
   "showHelpOnLaunchHelp": {
-    "message": "When enabled, SBM shows the H3lp dialog once on next 0p3n, then flips this switch off like a polite goblin."
+    "message": "When 3n4bl3d, SBM shows the H3lp d14l0g once the next time it 0p3ns, then flips this s3tt1ng off again. Polite goblin mode. 🧙"
   },
   "helpOptionShowHelpOnLaunchDescription": {
-    "message": ": shows the H3lp dialog once the next time SBM 0p3ns, then turns itself off again."
+    "message": ": shows the H3lp d14l0g once the next time SBM 0p3ns, then turns itself off again like a tiny well-behaved popup."
   },
   "showSortWarning": {
     "message": "Zh0w p3rm4n3n7 z0r7 c0nf1rm4710n w4rn1ng"
@@ -1098,13 +1098,13 @@
     "message": "Pick teh vibe Simple Bookmarks Manager wears."
   },
   "detailsPanePosition": {
-    "message": "D3t41ls pane position"
+    "message": "D3t41ls p4n3 position"
   },
   "detailsPanePositionHelp": {
-    "message": "Choose whether the D3t41ls pane appears on the right side or below the F0ld3r Contents pane."
+    "message": "Choose whether the D3t41ls p4n3 appears on the right side or below the F0ld3r C0nt3nts p4n3."
   },
   "detailsPanePositionRight": {
-    "message": "Right side"
+    "message": "R1ght side"
   },
   "detailsPanePositionBottom": {
     "message": "Bottom"

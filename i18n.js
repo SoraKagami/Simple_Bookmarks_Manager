@@ -13,6 +13,7 @@ const api = chrome;
 export const LANGUAGE_OPTIONS = Object.freeze([
   { value: "auto", labelKey: "languageAuto" },
   { value: "en", label: "English" },
+  { value: "en_US", label: "English (US)" },
   { value: "zh_TW", label: "繁體中文" },
   { value: "zh_CN", label: "简体中文" },
   { value: "ja", label: "日本語" },
