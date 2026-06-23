@@ -602,6 +602,12 @@
   "rightDetailsWidthHelp": {
     "message": "Width in pixels for the right Details pane."
   },
+  "bottomDetailsHeight": {
+    "message": "Bottom Details pane height"
+  },
+  "bottomDetailsHeightHelp": {
+    "message": "Height in pixels used when the Details pane position is set to Bottom."
+  },
   "rootFallback": {
     "message": "(root)"
   },

@@ -55,6 +55,7 @@ const SEPARATOR_TITLE = "———";
 const SEPARATOR_URL = "about:blank";
 let left_Lib_Width = DEFAULT_SETTINGS.left_Lib_Width;
 let right_Details_Width = DEFAULT_SETTINGS.right_Details_Width;
+let bottom_Details_Height = DEFAULT_SETTINGS.bottom_Details_Height;
 let UserInterfaceLanguage = DEFAULT_SETTINGS.UserInterfaceLanguage;
 let ThemeMode = DEFAULT_SETTINGS.ThemeMode;
 let DetailsPanePosition = DEFAULT_SETTINGS.DetailsPanePosition;
@@ -132,6 +133,7 @@ function applyUserInterfaceSettings() {
   document.documentElement.style.setProperty("--sbm-ui-line-height", String(UserInterfaceLineSpacing));
   document.documentElement.style.setProperty("--left-lib-width", `${left_Lib_Width}px`);
   document.documentElement.style.setProperty("--right-details-width", `${right_Details_Width}px`);
+  document.documentElement.style.setProperty("--bottom-details-height", `${bottom_Details_Height}px`);
   applyFolderContentsColumnSettings();
 }
 
@@ -146,6 +148,7 @@ function applySettings(settings, { render = false } = {}) {
     const value = normalizeSettingValue(key, settings[key]);
     if (key === "left_Lib_Width") left_Lib_Width = value;
     else if (key === "right_Details_Width") right_Details_Width = value;
+    else if (key === "bottom_Details_Height") bottom_Details_Height = value;
     else if (key === "UserInterfaceLanguage") UserInterfaceLanguage = value;
     else if (key === "ThemeMode") ThemeMode = value;
     else if (key === "DetailsPanePosition") DetailsPanePosition = value;
@@ -203,36 +206,38 @@ function applyDetailsPanePosition() {
 }
 
 
-/** Start a left/right pane resize drag and persist the final width setting. */
+/** Start a pane resize drag and persist the final width/height setting. */
 function beginPaneResize(e, pane) {
-  if (pane === "right" && DetailsPanePosition !== "right") return false;
   const isLeft = pane === "left";
-  const settingKey = isLeft ? "left_Lib_Width" : "right_Details_Width";
-  const minWidth = isLeft ? 180 : 220;
-  const maxWidth = isLeft ? 800 : 900;
+  const isBottomDetails = pane === "right" && DetailsPanePosition === "bottom";
+  const settingKey = isLeft ? "left_Lib_Width" : isBottomDetails ? "bottom_Details_Height" : "right_Details_Width";
+  const minSize = isLeft ? 180 : isBottomDetails ? 160 : 220;
+  const maxSize = isLeft ? 800 : isBottomDetails ? 800 : 900;
   const startX = e.clientX;
-  const startWidth = isLeft ? left_Lib_Width : right_Details_Width;
-  let latestWidth = startWidth;
+  const startY = e.clientY;
+  const startSize = isLeft ? left_Lib_Width : isBottomDetails ? bottom_Details_Height : right_Details_Width;
+  let latestSize = startSize;
 
   e.preventDefault();
   e.stopPropagation();
-  document.body.classList.add("pane-resizing");
+  document.body.classList.add("pane-resizing", isBottomDetails ? "pane-resizing-bottom" : "pane-resizing-side");
 
   const onMove = (moveEvent) => {
-    const delta = moveEvent.clientX - startX;
-    const rawWidth = isLeft ? startWidth + delta : startWidth - delta;
-    const nextWidth = normalizeSettingValue(settingKey, Math.min(maxWidth, Math.max(minWidth, rawWidth)));
-    if (nextWidth === latestWidth) return;
-    latestWidth = nextWidth;
-    applySettings({ [settingKey]: latestWidth }, { render: false });
+    const deltaX = moveEvent.clientX - startX;
+    const deltaY = moveEvent.clientY - startY;
+    const rawSize = isBottomDetails ? startSize - deltaY : isLeft ? startSize + deltaX : startSize - deltaX;
+    const nextSize = normalizeSettingValue(settingKey, Math.min(maxSize, Math.max(minSize, rawSize)));
+    if (nextSize === latestSize) return;
+    latestSize = nextSize;
+    applySettings({ [settingKey]: latestSize }, { render: false });
   };
 
   const onUp = async () => {
-    document.body.classList.remove("pane-resizing");
+    document.body.classList.remove("pane-resizing", "pane-resizing-bottom", "pane-resizing-side");
     window.removeEventListener("mousemove", onMove, true);
     window.removeEventListener("mouseup", onUp, true);
     try {
-      await saveSetting(settingKey, latestWidth);
+      await saveSetting(settingKey, latestSize);
     } catch (err) {
       console.error(err);
       alert(t("actionFailed", { error: err.message || err }));
@@ -244,12 +249,12 @@ function beginPaneResize(e, pane) {
   return true;
 }
 
-/** Resize a pane by a keyboard-friendly delta while respecting configured bounds. */
+/** Resize a pane dimension by a keyboard-friendly delta while respecting configured bounds. */
 function nudgePaneWidth(pane, delta) {
-  if (pane === "right" && DetailsPanePosition !== "right") return;
   const isLeft = pane === "left";
-  const key = isLeft ? "left_Lib_Width" : "right_Details_Width";
-  const current = isLeft ? left_Lib_Width : right_Details_Width;
+  const isBottomDetails = pane === "right" && DetailsPanePosition === "bottom";
+  const key = isLeft ? "left_Lib_Width" : isBottomDetails ? "bottom_Details_Height" : "right_Details_Width";
+  const current = isLeft ? left_Lib_Width : isBottomDetails ? bottom_Details_Height : right_Details_Width;
   saveSetting(key, current + delta).catch((err) => {
     console.error(err);
     alert(t("actionFailed", { error: err.message || err }));
@@ -4390,9 +4395,12 @@ $("left-pane-resizer").addEventListener("keydown", (e) => {
   nudgePaneWidth("left", e.key === "ArrowRight" ? 10 : -10);
 });
 $("right-pane-resizer").addEventListener("keydown", (e) => {
-  if (e.key !== "ArrowLeft" && e.key !== "ArrowRight") return;
+  const isBottomDetails = DetailsPanePosition === "bottom";
+  const growKey = isBottomDetails ? "ArrowUp" : "ArrowLeft";
+  const shrinkKey = isBottomDetails ? "ArrowDown" : "ArrowRight";
+  if (e.key !== growKey && e.key !== shrinkKey) return;
   e.preventDefault();
-  nudgePaneWidth("right", e.key === "ArrowLeft" ? 10 : -10);
+  nudgePaneWidth("right", e.key === growKey ? 10 : -10);
 });
 
 $("table-scroll").addEventListener("mousedown", (e) => {

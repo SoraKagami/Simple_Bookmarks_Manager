@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.8.25
+
+- Added bottom Details pane resizing with a persisted `bottom_Details_Height` setting.
+- Added an Advanced pane-width option for the bottom Details pane height.
+- Reduced the Folder Contents minimum/default widths for Date Added and Order columns to better fit the default UI font size.
+
 ## 0.8.24
 
 - Added a `DetailsPanePosition` setting with a User Interface option for showing the Details pane on the right side or below the middle pane.
