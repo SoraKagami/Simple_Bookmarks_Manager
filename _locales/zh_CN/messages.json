@@ -128,6 +128,9 @@
   "copy": {
     "message": "复制"
   },
+  "copyUrlToClipboard": {
+    "message": "复制 URL 到剪贴板"
+  },
   "couldNotMoveBookmark": {
     "message": "无法移动书签项目：{error}"
   },
@@ -305,6 +308,300 @@
   "help": {
     "message": "帮助"
   },
+  "clickLabel": {
+    "message": "点击"
+  },
+  "selectLabel": {
+    "message": "选择"
+  },
+  "helpDocumentTitle": {
+    "message": "Simple Bookmarks Manager 帮助"
+  },
+  "helpTagline": {
+    "message": "使用 SBM 进行本地书签浏览、编辑、排序和整理的实用指南。"
+  },
+  "helpQuickStartHeading": {
+    "message": "快速开始"
+  },
+  "helpQuickStartIntro": {
+    "message": "从浏览器工具栏按钮打开 SBM。管理器会作为普通扩展页面打开，并直接使用 Chromium 现有的书签树。"
+  },
+  "helpLibraryPaneLabel": {
+    "message": "库窗格："
+  },
+  "helpLibraryPaneDescription": {
+    "message": "浏览书签文件夹，并展开或折叠子文件夹。"
+  },
+  "helpFolderContentsPaneLabel": {
+    "message": "文件夹内容窗格："
+  },
+  "helpFolderContentsPaneDescription": {
+    "message": "查看、选择、排序、打开、拖动和管理所选文件夹中的项目。"
+  },
+  "helpDetailsPaneLabel": {
+    "message": "详细信息窗格："
+  },
+  "helpDetailsPaneDescription": {
+    "message": "查看并编辑所选书签或文件夹。"
+  },
+  "helpBasicBookmarkManagementHeading": {
+    "message": "基本书签管理"
+  },
+  "helpBasicUseNewButtonsBefore": {
+    "message": "使用"
+  },
+  "helpBasicUseNewButtonsMiddle": {
+    "message": "和"
+  },
+  "helpBasicUseNewButtonsAfter": {
+    "message": "向当前文件夹添加项目。"
+  },
+  "helpBasicRightClickActions": {
+    "message": "右键点击文件夹或书签，可执行重命名、编辑、删除、剪切、复制、粘贴、排序和打开等操作。"
+  },
+  "helpBasicDragDrop": {
+    "message": "使用拖放来重新排序项目，或将书签和文件夹移动到其他文件夹。"
+  },
+  "helpBasicDetailsPaneEdits": {
+    "message": "使用详细信息窗格更改书签名称、URL、父文件夹和受支持的高级字段。"
+  },
+  "helpBasicF2Before": {
+    "message": "使用"
+  },
+  "helpBasicF2After": {
+    "message": "重命名当前文件夹或编辑当前书签。"
+  },
+  "helpBasicMiddleClick": {
+    "message": "在文件夹内容窗格中用鼠标中键点击书签，可在新标签页中打开。"
+  },
+  "helpSearchSortingHeading": {
+    "message": "搜索和排序"
+  },
+  "helpSearchBox": {
+    "message": "使用搜索框按名称或 URL 搜索书签。"
+  },
+  "helpSearchLimitBefore": {
+    "message": "启用"
+  },
+  "helpSearchLimitAfter": {
+    "message": "仅在当前文件夹树内搜索。"
+  },
+  "helpVisualSort": {
+    "message": "使用可视排序下拉菜单或列标题，在文件夹内容窗格中进行临时排序。"
+  },
+  "helpPermanentSort": {
+    "message": "如果想更改 Chromium 保存的书签顺序，请使用右键菜单中的永久排序。"
+  },
+  "helpSeparatorsBeforeTitle": {
+    "message": "SBM 支持与 Chromium 兼容的分隔线约定。分隔线会保存为标题为"
+  },
+  "helpSeparatorsBetweenTitleUrl": {
+    "message": "且 URL 为"
+  },
+  "helpSeparatorsAfterUrl": {
+    "message": "的书签。SBM 会将该约定渲染为可视分隔线。"
+  },
+  "helpKeyboardShortcutsHeading": {
+    "message": "键盘快捷键"
+  },
+  "helpShortcutArrowKeysLabel": {
+    "message": "方向键："
+  },
+  "helpShortcutArrowKeysDescription": {
+    "message": "在当前活动窗格中移动。"
+  },
+  "helpShortcutEnterLabel": {
+    "message": "Enter 键："
+  },
+  "helpShortcutEnterDescription": {
+    "message": "打开书签或进入文件夹。"
+  },
+  "helpShortcutBackspaceLabel": {
+    "message": "Backspace 键："
+  },
+  "helpShortcutBackspaceDescription": {
+    "message": "可用时返回上一级文件夹。"
+  },
+  "helpShortcutCtrlFLabel": {
+    "message": "Ctrl+F："
+  },
+  "helpShortcutCtrlFDescription": {
+    "message": "聚焦搜索框。"
+  },
+  "helpShortcutF2Label": {
+    "message": "F2："
+  },
+  "helpShortcutF2Description": {
+    "message": "重命名当前文件夹或编辑当前书签。"
+  },
+  "helpShortcutDeleteLabel": {
+    "message": "Delete 键："
+  },
+  "helpShortcutDeleteDescription": {
+    "message": "启用键盘删除时，删除所选项目。"
+  },
+  "helpShortcutEscapeLabel": {
+    "message": "Escape 键："
+  },
+  "helpShortcutEscapeDescription": {
+    "message": "关闭已打开的 SBM 对话框或菜单。"
+  },
+  "helpPinningHeading": {
+    "message": "固定 Simple Bookmarks Manager 以便快速访问"
+  },
+  "helpPinningIntro": {
+    "message": "将 Simple Bookmarks Manager（SBM）固定到工具栏，可以更快、更方便地访问该扩展。"
+  },
+  "helpPinningIntro2": {
+    "message": "在基于 Chromium 的浏览器中安装 SBM 后，可以通过以下方式之一将其固定到工具栏："
+  },
+  "helpPinViaExtensionsMenuHeading": {
+    "message": "1. 通过扩展程序菜单固定"
+  },
+  "helpPinViaExtensionsMenuStep1": {
+    "message": "点击扩展程序按钮，通常位于地址栏右侧。"
+  },
+  "helpFindSbmBefore": {
+    "message": "在列表中找到"
+  },
+  "helpFindSbmAfter": {
+    "message": "。"
+  },
+  "helpPinIconBefore": {
+    "message": "点击旁边的固定图标："
+  },
+  "helpPinToggleExplanation": {
+    "message": "这会将 SBM 固定到工具栏。如果 SBM 已经固定，点击固定图标会取消固定。"
+  },
+  "helpPinViaManageExtensionsHeading": {
+    "message": "2. 通过管理扩展程序页面固定"
+  },
+  "helpPinViaManageExtensionsStep1": {
+    "message": "点击扩展程序按钮，通常位于地址栏右侧。"
+  },
+  "helpManageExtensions": {
+    "message": "管理扩展程序"
+  },
+  "helpAlternatively": {
+    "message": "或者："
+  },
+  "helpChromiumMenuStep": {
+    "message": "点击 Chromium 菜单按钮。"
+  },
+  "helpExtensions": {
+    "message": "扩展程序"
+  },
+  "helpOnceExtensionsPageOpen": {
+    "message": "扩展程序页面打开后："
+  },
+  "helpScrollDownToBefore": {
+    "message": "向下滚动到"
+  },
+  "helpPinToToolbar": {
+    "message": "固定到工具栏"
+  },
+  "helpToggleOptionOn": {
+    "message": "打开该选项。"
+  },
+  "helpOptionsReferenceHeading": {
+    "message": "选项参考"
+  },
+  "helpOptionsReferenceBeforeStorage": {
+    "message": "选项页面会将持久设置存储在"
+  },
+  "helpOptionsReferenceAfterStorage": {
+    "message": "中。这些设置会保留在浏览器配置文件本地。"
+  },
+  "helpOptionUserInterfaceLanguageDescription": {
+    "message": "：选择自动语言检测或指定 SBM 界面语言。"
+  },
+  "helpOptionThemeDescription": {
+    "message": "：选择 SBM 使用的视觉主题。"
+  },
+  "helpOptionDetailsPanePositionDescription": {
+    "message": "：将详细信息窗格放在右侧，或放在文件夹内容窗格下方。"
+  },
+  "helpOptionFontDescription": {
+    "message": "：选择一种受支持的字体系列。"
+  },
+  "helpOptionFontSizeDescription": {
+    "message": "：调整界面基础文字大小。"
+  },
+  "helpOptionFontSpacingDescription": {
+    "message": "：调整标签和行使用的行距。"
+  },
+  "helpOptionLimitSearchDescription": {
+    "message": "将主搜索框从搜索所有书签改为仅搜索当前文件夹树。"
+  },
+  "helpOptionShowDeleteWarningDescription": {
+    "message": "：删除书签项目或文件夹前进行确认。"
+  },
+  "helpOptionShowSortWarningDescription": {
+    "message": "：应用右键菜单中的永久排序前进行确认。"
+  },
+  "helpOptionAllowKeyboardDeleteDescription": {
+    "message": "：控制 Delete 键是否可以删除所选项目。"
+  },
+  "helpOptionNaturalSortDescription": {
+    "message": "控制永久按名称排序使用的顺序。启用时，会先放文件夹，其次是分隔线，然后是书签。"
+  },
+  "helpOptionMultipleInstancesDescription": {
+    "message": "：禁用时，点击扩展按钮会聚焦现有 SBM 标签页，而不是打开新的标签页。"
+  },
+  "helpOptionStartAtFolderDescription": {
+    "message": "：启动时在所选书签文件夹中打开 SBM。"
+  },
+  "helpOptionStartupFolderDescription": {
+    "message": "：选择“选定文件夹启动”选项使用的文件夹。"
+  },
+  "helpOptionUrlProtectionsDescription": {
+    "message": "这些选项控制 SBM 通过扩展标签页或窗口操作打开书签时，对较高风险 URL 方案的保护。它们不会阻止保存书签。"
+  },
+  "helpOptionLibraryPaneWidthDescription": {
+    "message": "：左侧库窗格的宽度（像素）。"
+  },
+  "helpOptionDetailsPaneWidthDescription": {
+    "message": "：右侧详细信息窗格的宽度（像素）。"
+  },
+  "helpOptionBottomDetailsHeightDescription": {
+    "message": "：底部详细信息窗格的高度（像素）。"
+  },
+  "helpOptionPaneResizeBars": {
+    "message": "也可以拖动可见的窗格调整条来更改窗格大小。"
+  },
+  "helpOptionFolderContentsDescription": {
+    "message": "这些选项配置中间文件夹内容窗格的可选列和保存的列宽。名称和 URL 始终显示。"
+  },
+  "helpOptionDateAddedColumnDescription": {
+    "message": "：显示项目添加时间的可选列。"
+  },
+  "helpOptionIdColumnDescription": {
+    "message": "：显示 Chromium 书签 ID 的可选列。"
+  },
+  "helpOptionOrderColumnDescription": {
+    "message": "：显示 Chromium 文件夹顺序/索引值的可选列。"
+  },
+  "helpOptionAdvancedDetailsViewDescription": {
+    "message": "：在详细信息窗格中显示只读高级书签元数据。"
+  },
+  "helpOptionAdvancedDetailsEditDescription": {
+    "message": "：允许受支持的高级编辑，目前仅限更改书签索引。"
+  },
+  "helpOptionOptimisationsDescription": {
+    "message": "这些选项主要用于基准测试和故障排查。除非正在比较性能或诊断渲染问题，否则建议保持启用。"
+  },
+  "helpOptionDomRenderingDescription": {
+    "message": "：减少部分渲染路径中的 DOM 变动。"
+  },
+  "helpOptionTempTreeMapsDescription": {
+    "message": "：在某些树操作期间构建短生命周期查找映射，然后将其丢弃。"
+  },
+  "helpOptionDebugSettingsBefore": {
+    "message": "调试设置仅在"
+  },
+  "helpOptionDebugSettingsAfter": {
+    "message": "启用时显示。警告/错误日志是临时的，不会保存到扩展设置。"
+  },
   "hideDetailsPaneTooltip": {
     "message": "隐藏详细信息窗格"
   },
@@ -385,6 +682,33 @@
   },
   "multipleInstancesAllowedHelp": {
     "message": "禁用时，点击扩展程序按钮会聚焦现有的 Simple Bookmarks Manager 标签页，而不是再打开一个标签页。"
+  },
+  "startupBehavior": {
+    "message": "启动行为"
+  },
+  "startupBehaviorHelp": {
+    "message": "选择 Simple Bookmarks Manager 启动时打开的位置。"
+  },
+  "startAtConfiguredBookmarkFolder": {
+    "message": "从选定文件夹开始"
+  },
+  "startAtConfiguredBookmarkFolderHelp": {
+    "message": "启用后，SBM 会在选定的书签文件夹中打开。如果该文件夹不再存在，此设置会被清除，SBM 会使用默认启动文件夹。"
+  },
+  "startupBookmarkFolder": {
+    "message": "启动文件夹"
+  },
+  "startupBookmarkFolderHelp": {
+    "message": "选择 SBM 启动时要显示的现有书签文件夹。"
+  },
+  "startupBookmarkFolderNone": {
+    "message": "未选择启动文件夹"
+  },
+  "startupBookmarkFolderMissing": {
+    "message": "之前选择的文件夹缺失"
+  },
+  "startupBookmarkFolderLoadFailed": {
+    "message": "无法加载书签文件夹。"
   },
   "mutationCreateBookmark": {
     "message": "创建书签"
@@ -572,6 +896,12 @@
   "rightDetailsWidthHelp": {
     "message": "右侧“详细信息”窗格的宽度，以像素为单位。"
   },
+  "bottomDetailsHeight": {
+    "message": "底部详细信息窗格高度"
+  },
+  "bottomDetailsHeightHelp": {
+    "message": "详细信息窗格位置设置为底部时使用的像素高度。"
+  },
   "rootFallback": {
     "message": "（根）"
   },
@@ -619,6 +949,18 @@
   },
   "showErrorsWarningsHelp": {
     "message": "高级。显示此 SBM 会话的临时内存日志。日志条目不会保存到扩展程序设置。"
+  },
+  "showAtLaunch": {
+    "message": "启动时显示"
+  },
+  "showHelpOnLaunch": {
+    "message": "下次启动时显示帮助"
+  },
+  "showHelpOnLaunchHelp": {
+    "message": "启用后，SBM 下次打开时会显示一次帮助对话框，然后再次关闭此设置。"
+  },
+  "helpOptionShowHelpOnLaunchDescription": {
+    "message": "：SBM 下次打开时显示一次帮助对话框，然后自动关闭。"
   },
   "showSortWarning": {
     "message": "显示永久排序确认警告"
@@ -754,6 +1096,18 @@
   },
   "themeHelp": {
     "message": "设置 Simple Bookmarks Manager 使用的主题。"
+  },
+  "detailsPanePosition": {
+    "message": "详细信息窗格位置"
+  },
+  "detailsPanePositionHelp": {
+    "message": "选择详细信息窗格显示在右侧，还是显示在文件夹内容窗格下方。"
+  },
+  "detailsPanePositionRight": {
+    "message": "右侧"
+  },
+  "detailsPanePositionBottom": {
+    "message": "底部"
   },
   "themeSystem": {
     "message": "系统"

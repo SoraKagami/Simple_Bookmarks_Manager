@@ -128,6 +128,9 @@
   "copy": {
     "message": "複製"
   },
+  "copyUrlToClipboard": {
+    "message": "複製 URL 到剪貼簿"
+  },
   "couldNotMoveBookmark": {
     "message": "無法移動書籤項目：{error}"
   },
@@ -305,6 +308,300 @@
   "help": {
     "message": "說明"
   },
+  "clickLabel": {
+    "message": "點擊"
+  },
+  "selectLabel": {
+    "message": "選取"
+  },
+  "helpDocumentTitle": {
+    "message": "Simple Bookmarks Manager 說明"
+  },
+  "helpTagline": {
+    "message": "使用 SBM 進行本機書籤瀏覽、編輯、排序與整理的實用指南。"
+  },
+  "helpQuickStartHeading": {
+    "message": "快速開始"
+  },
+  "helpQuickStartIntro": {
+    "message": "從瀏覽器工具列按鈕開啟 SBM。管理器會以一般擴充功能頁面開啟，並直接使用 Chromium 既有的書籤樹。"
+  },
+  "helpLibraryPaneLabel": {
+    "message": "收藏庫窗格："
+  },
+  "helpLibraryPaneDescription": {
+    "message": "瀏覽書籤資料夾，並展開或收合子資料夾。"
+  },
+  "helpFolderContentsPaneLabel": {
+    "message": "資料夾內容窗格："
+  },
+  "helpFolderContentsPaneDescription": {
+    "message": "檢視、選取、排序、開啟、拖曳與管理所選資料夾中的項目。"
+  },
+  "helpDetailsPaneLabel": {
+    "message": "詳細資料窗格："
+  },
+  "helpDetailsPaneDescription": {
+    "message": "檢視並編輯所選書籤或資料夾。"
+  },
+  "helpBasicBookmarkManagementHeading": {
+    "message": "基本書籤管理"
+  },
+  "helpBasicUseNewButtonsBefore": {
+    "message": "使用"
+  },
+  "helpBasicUseNewButtonsMiddle": {
+    "message": "和"
+  },
+  "helpBasicUseNewButtonsAfter": {
+    "message": "將項目新增到目前資料夾。"
+  },
+  "helpBasicRightClickActions": {
+    "message": "在資料夾或書籤上按右鍵，可執行重新命名、編輯、刪除、剪下、複製、貼上、排序和開啟等操作。"
+  },
+  "helpBasicDragDrop": {
+    "message": "使用拖放來重新排序項目，或將書籤與資料夾移到其他資料夾。"
+  },
+  "helpBasicDetailsPaneEdits": {
+    "message": "使用詳細資料窗格變更書籤名稱、URL、父資料夾與支援的進階欄位。"
+  },
+  "helpBasicF2Before": {
+    "message": "使用"
+  },
+  "helpBasicF2After": {
+    "message": "重新命名目前資料夾或編輯目前書籤。"
+  },
+  "helpBasicMiddleClick": {
+    "message": "在資料夾內容窗格中以滑鼠中鍵點擊書籤，即可在新分頁中開啟。"
+  },
+  "helpSearchSortingHeading": {
+    "message": "搜尋與排序"
+  },
+  "helpSearchBox": {
+    "message": "使用搜尋框依名稱或 URL 搜尋書籤。"
+  },
+  "helpSearchLimitBefore": {
+    "message": "啟用"
+  },
+  "helpSearchLimitAfter": {
+    "message": "只在目前資料夾樹內搜尋。"
+  },
+  "helpVisualSort": {
+    "message": "使用視覺排序下拉選單或欄位標題，在資料夾內容窗格中進行暫時排序。"
+  },
+  "helpPermanentSort": {
+    "message": "如果想變更 Chromium 儲存的書籤順序，請使用右鍵選單中的永久排序。"
+  },
+  "helpSeparatorsBeforeTitle": {
+    "message": "SBM 支援與 Chromium 相容的分隔線慣例。分隔線會儲存為標題為"
+  },
+  "helpSeparatorsBetweenTitleUrl": {
+    "message": "且 URL 為"
+  },
+  "helpSeparatorsAfterUrl": {
+    "message": "的書籤。SBM 會將這個慣例呈現為視覺分隔線。"
+  },
+  "helpKeyboardShortcutsHeading": {
+    "message": "鍵盤快捷鍵"
+  },
+  "helpShortcutArrowKeysLabel": {
+    "message": "方向鍵："
+  },
+  "helpShortcutArrowKeysDescription": {
+    "message": "在目前作用中的窗格內移動。"
+  },
+  "helpShortcutEnterLabel": {
+    "message": "Enter 鍵："
+  },
+  "helpShortcutEnterDescription": {
+    "message": "開啟書籤或進入資料夾。"
+  },
+  "helpShortcutBackspaceLabel": {
+    "message": "Backspace 鍵："
+  },
+  "helpShortcutBackspaceDescription": {
+    "message": "可用時返回上一層資料夾。"
+  },
+  "helpShortcutCtrlFLabel": {
+    "message": "Ctrl+F："
+  },
+  "helpShortcutCtrlFDescription": {
+    "message": "將焦點移到搜尋框。"
+  },
+  "helpShortcutF2Label": {
+    "message": "F2："
+  },
+  "helpShortcutF2Description": {
+    "message": "重新命名目前資料夾或編輯目前書籤。"
+  },
+  "helpShortcutDeleteLabel": {
+    "message": "Delete 鍵："
+  },
+  "helpShortcutDeleteDescription": {
+    "message": "啟用鍵盤刪除時，刪除所選項目。"
+  },
+  "helpShortcutEscapeLabel": {
+    "message": "Escape 鍵："
+  },
+  "helpShortcutEscapeDescription": {
+    "message": "關閉已開啟的 SBM 對話框或選單。"
+  },
+  "helpPinningHeading": {
+    "message": "釘選 Simple Bookmarks Manager 以便快速存取"
+  },
+  "helpPinningIntro": {
+    "message": "將 Simple Bookmarks Manager（SBM）釘選到工具列，可以更快速且更方便地存取此擴充功能。"
+  },
+  "helpPinningIntro2": {
+    "message": "在 Chromium 系瀏覽器中安裝 SBM 後，可以透過以下其中一種方式將它釘選到工具列："
+  },
+  "helpPinViaExtensionsMenuHeading": {
+    "message": "1. 透過擴充功能選單釘選"
+  },
+  "helpPinViaExtensionsMenuStep1": {
+    "message": "點擊擴充功能按鈕，通常位於網址列右側。"
+  },
+  "helpFindSbmBefore": {
+    "message": "在清單中找到"
+  },
+  "helpFindSbmAfter": {
+    "message": "。"
+  },
+  "helpPinIconBefore": {
+    "message": "點擊旁邊的釘選圖示："
+  },
+  "helpPinToggleExplanation": {
+    "message": "這會將 SBM 釘選到工具列。如果 SBM 已經釘選，點擊釘選圖示會取消釘選。"
+  },
+  "helpPinViaManageExtensionsHeading": {
+    "message": "2. 透過管理擴充功能頁面釘選"
+  },
+  "helpPinViaManageExtensionsStep1": {
+    "message": "點擊擴充功能按鈕，通常位於網址列右側。"
+  },
+  "helpManageExtensions": {
+    "message": "管理擴充功能"
+  },
+  "helpAlternatively": {
+    "message": "或者："
+  },
+  "helpChromiumMenuStep": {
+    "message": "點擊 Chromium 選單按鈕。"
+  },
+  "helpExtensions": {
+    "message": "擴充功能"
+  },
+  "helpOnceExtensionsPageOpen": {
+    "message": "擴充功能頁面開啟後："
+  },
+  "helpScrollDownToBefore": {
+    "message": "向下捲動到"
+  },
+  "helpPinToToolbar": {
+    "message": "釘選到工具列"
+  },
+  "helpToggleOptionOn": {
+    "message": "開啟該選項。"
+  },
+  "helpOptionsReferenceHeading": {
+    "message": "選項參考"
+  },
+  "helpOptionsReferenceBeforeStorage": {
+    "message": "選項頁面會將永久設定儲存在"
+  },
+  "helpOptionsReferenceAfterStorage": {
+    "message": "中。這些設定會保留在瀏覽器設定檔本機。"
+  },
+  "helpOptionUserInterfaceLanguageDescription": {
+    "message": "：選擇自動語言偵測，或指定 SBM UI 語言。"
+  },
+  "helpOptionThemeDescription": {
+    "message": "：選擇 SBM 使用的視覺主題。"
+  },
+  "helpOptionDetailsPanePositionDescription": {
+    "message": "：將詳細資料窗格放在右側，或放在資料夾內容窗格下方。"
+  },
+  "helpOptionFontDescription": {
+    "message": "：選擇一種支援的字型系列。"
+  },
+  "helpOptionFontSizeDescription": {
+    "message": "：調整 UI 基本文字大小。"
+  },
+  "helpOptionFontSpacingDescription": {
+    "message": "：調整標籤與列使用的行距。"
+  },
+  "helpOptionLimitSearchDescription": {
+    "message": "將主要搜尋框從搜尋所有書籤改為只搜尋目前資料夾樹。"
+  },
+  "helpOptionShowDeleteWarningDescription": {
+    "message": "：刪除書籤項目或資料夾前進行確認。"
+  },
+  "helpOptionShowSortWarningDescription": {
+    "message": "：套用右鍵選單中的永久排序前進行確認。"
+  },
+  "helpOptionAllowKeyboardDeleteDescription": {
+    "message": "：控制 Delete 鍵是否可以移除所選項目。"
+  },
+  "helpOptionNaturalSortDescription": {
+    "message": "控制永久依名稱排序時使用的順序。啟用時，會先放資料夾，其次是分隔線，然後是書籤。"
+  },
+  "helpOptionMultipleInstancesDescription": {
+    "message": "：停用時，點擊擴充功能按鈕會聚焦現有 SBM 分頁，而不是開啟新的分頁。"
+  },
+  "helpOptionStartAtFolderDescription": {
+    "message": "：啟動時在所選書籤資料夾中開啟 SBM。"
+  },
+  "helpOptionStartupFolderDescription": {
+    "message": "：選取「選定資料夾啟動」選項使用的資料夾。"
+  },
+  "helpOptionUrlProtectionsDescription": {
+    "message": "這些選項控制 SBM 透過擴充功能分頁或視窗操作開啟書籤時，對較高風險 URL 配置的保護。它們不會阻止儲存書籤。"
+  },
+  "helpOptionLibraryPaneWidthDescription": {
+    "message": "：左側收藏庫窗格的寬度（像素）。"
+  },
+  "helpOptionDetailsPaneWidthDescription": {
+    "message": "：右側詳細資料窗格的寬度（像素）。"
+  },
+  "helpOptionBottomDetailsHeightDescription": {
+    "message": "：底部詳細資料窗格的高度（像素）。"
+  },
+  "helpOptionPaneResizeBars": {
+    "message": "也可以拖曳可見的窗格調整列來變更窗格大小。"
+  },
+  "helpOptionFolderContentsDescription": {
+    "message": "這些選項設定中間資料夾內容窗格的可選欄位與已儲存欄寬。名稱和 URL 一律顯示。"
+  },
+  "helpOptionDateAddedColumnDescription": {
+    "message": "：顯示項目加入時間的可選欄位。"
+  },
+  "helpOptionIdColumnDescription": {
+    "message": "：顯示 Chromium 書籤 ID 的可選欄位。"
+  },
+  "helpOptionOrderColumnDescription": {
+    "message": "：顯示 Chromium 資料夾順序/索引值的可選欄位。"
+  },
+  "helpOptionAdvancedDetailsViewDescription": {
+    "message": "：在詳細資料窗格中顯示唯讀進階書籤中繼資料。"
+  },
+  "helpOptionAdvancedDetailsEditDescription": {
+    "message": "：允許支援的進階編輯，目前僅限變更書籤索引。"
+  },
+  "helpOptionOptimisationsDescription": {
+    "message": "這些選項主要用於基準測試與疑難排解。除非正在比較效能或診斷渲染問題，否則建議保持啟用。"
+  },
+  "helpOptionDomRenderingDescription": {
+    "message": "：減少部分渲染路徑中的 DOM 變動。"
+  },
+  "helpOptionTempTreeMapsDescription": {
+    "message": "：在部分樹狀操作期間建立短生命週期查找映射，之後將其捨棄。"
+  },
+  "helpOptionDebugSettingsBefore": {
+    "message": "偵錯設定只會在"
+  },
+  "helpOptionDebugSettingsAfter": {
+    "message": "啟用時顯示。警告/錯誤記錄是暫時的，不會儲存到擴充功能設定。"
+  },
   "hideDetailsPaneTooltip": {
     "message": "隱藏詳細資料窗格"
   },
@@ -385,6 +682,33 @@
   },
   "multipleInstancesAllowedHelp": {
     "message": "停用時，點擊擴充功能按鈕會聚焦現有的 Simple Bookmarks Manager 分頁，而不是另開一個分頁。"
+  },
+  "startupBehavior": {
+    "message": "啟動行為"
+  },
+  "startupBehaviorHelp": {
+    "message": "選擇 Simple Bookmarks Manager 啟動時開啟的位置。"
+  },
+  "startAtConfiguredBookmarkFolder": {
+    "message": "從選定資料夾開始"
+  },
+  "startAtConfiguredBookmarkFolderHelp": {
+    "message": "啟用後，SBM 會在選定的書籤資料夾中開啟。如果該資料夾不再存在，此設定會被清除，SBM 會使用一般啟動資料夾。"
+  },
+  "startupBookmarkFolder": {
+    "message": "啟動資料夾"
+  },
+  "startupBookmarkFolderHelp": {
+    "message": "選擇 SBM 啟動時要顯示的既有書籤資料夾。"
+  },
+  "startupBookmarkFolderNone": {
+    "message": "未選取啟動資料夾"
+  },
+  "startupBookmarkFolderMissing": {
+    "message": "先前選取的資料夾遺失"
+  },
+  "startupBookmarkFolderLoadFailed": {
+    "message": "無法載入書籤資料夾。"
   },
   "mutationCreateBookmark": {
     "message": "建立書籤"
@@ -572,6 +896,12 @@
   "rightDetailsWidthHelp": {
     "message": "右側「詳細資料」窗格的寬度，以像素為單位。"
   },
+  "bottomDetailsHeight": {
+    "message": "底部詳細資料窗格高度"
+  },
+  "bottomDetailsHeightHelp": {
+    "message": "詳細資料窗格位置設定為底部時使用的像素高度。"
+  },
   "rootFallback": {
     "message": "（根目錄）"
   },
@@ -619,6 +949,18 @@
   },
   "showErrorsWarningsHelp": {
     "message": "進階。顯示此 SBM 工作階段的暫時記憶體內記錄。記錄項目不會儲存到擴充功能設定。"
+  },
+  "showAtLaunch": {
+    "message": "啟動時顯示"
+  },
+  "showHelpOnLaunch": {
+    "message": "下次啟動時顯示說明"
+  },
+  "showHelpOnLaunchHelp": {
+    "message": "啟用後，SBM 下次開啟時會顯示一次說明對話框，然後再次關閉此設定。"
+  },
+  "helpOptionShowHelpOnLaunchDescription": {
+    "message": "：SBM 下次開啟時顯示一次說明對話框，然後自動關閉。"
   },
   "showSortWarning": {
     "message": "顯示永久排序確認警告"
@@ -754,6 +1096,18 @@
   },
   "themeHelp": {
     "message": "設定 Simple Bookmarks Manager 使用的主題。"
+  },
+  "detailsPanePosition": {
+    "message": "詳細資料窗格位置"
+  },
+  "detailsPanePositionHelp": {
+    "message": "選擇詳細資料窗格顯示在右側，或顯示在資料夾內容窗格下方。"
+  },
+  "detailsPanePositionRight": {
+    "message": "右側"
+  },
+  "detailsPanePositionBottom": {
+    "message": "底部"
   },
   "themeSystem": {
     "message": "系統"

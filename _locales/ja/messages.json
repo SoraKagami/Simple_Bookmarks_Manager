@@ -128,6 +128,9 @@
   "copy": {
     "message": "コピー"
   },
+  "copyUrlToClipboard": {
+    "message": "URLをクリップボードにコピー"
+  },
   "couldNotMoveBookmark": {
     "message": "ブックマーク項目を移動できませんでした: {error}"
   },
@@ -305,6 +308,300 @@
   "help": {
     "message": "ヘルプ"
   },
+  "clickLabel": {
+    "message": "クリック"
+  },
+  "selectLabel": {
+    "message": "選択"
+  },
+  "helpDocumentTitle": {
+    "message": "Simple Bookmarks Manager ヘルプ"
+  },
+  "helpTagline": {
+    "message": "ローカルのブックマーク閲覧、編集、並べ替え、整理に SBM を使うための実用ガイドです。"
+  },
+  "helpQuickStartHeading": {
+    "message": "クイックスタート"
+  },
+  "helpQuickStartIntro": {
+    "message": "ブラウザのツールバーボタンから SBM を開きます。マネージャーは通常の拡張機能ページとして開き、Chromium の既存のブックマークツリーを直接操作します。"
+  },
+  "helpLibraryPaneLabel": {
+    "message": "ライブラリペイン:"
+  },
+  "helpLibraryPaneDescription": {
+    "message": "ブックマークフォルダーを参照し、サブフォルダーを展開または折りたたみます。"
+  },
+  "helpFolderContentsPaneLabel": {
+    "message": "フォルダー内容ペイン:"
+  },
+  "helpFolderContentsPaneDescription": {
+    "message": "選択したフォルダー内の項目を表示、選択、並べ替え、開く、ドラッグ、管理します。"
+  },
+  "helpDetailsPaneLabel": {
+    "message": "詳細ペイン:"
+  },
+  "helpDetailsPaneDescription": {
+    "message": "選択したブックマークまたはフォルダーを確認して編集します。"
+  },
+  "helpBasicBookmarkManagementHeading": {
+    "message": "基本的なブックマーク管理"
+  },
+  "helpBasicUseNewButtonsBefore": {
+    "message": "使用:"
+  },
+  "helpBasicUseNewButtonsMiddle": {
+    "message": "および"
+  },
+  "helpBasicUseNewButtonsAfter": {
+    "message": "現在のフォルダーに項目を追加します。"
+  },
+  "helpBasicRightClickActions": {
+    "message": "フォルダーまたはブックマークを右クリックすると、名前変更、編集、削除、切り取り、コピー、貼り付け、並べ替え、開くなどの操作を実行できます。"
+  },
+  "helpBasicDragDrop": {
+    "message": "ドラッグ＆ドロップで項目の順序を変更したり、ブックマークやフォルダーを別のフォルダーへ移動したりできます。"
+  },
+  "helpBasicDetailsPaneEdits": {
+    "message": "詳細ペインでは、ブックマーク名、URL、親フォルダー、対応している高度な項目を変更できます。"
+  },
+  "helpBasicF2Before": {
+    "message": ""
+  },
+  "helpBasicF2After": {
+    "message": "を押すと、アクティブなフォルダーの名前変更またはアクティブなブックマークの編集ができます。"
+  },
+  "helpBasicMiddleClick": {
+    "message": "フォルダー内容ペインでブックマークを中クリックすると、新しいタブで開きます。"
+  },
+  "helpSearchSortingHeading": {
+    "message": "検索と並べ替え"
+  },
+  "helpSearchBox": {
+    "message": "検索ボックスを使って、名前または URL でブックマークを検索できます。"
+  },
+  "helpSearchLimitBefore": {
+    "message": "有効化:"
+  },
+  "helpSearchLimitAfter": {
+    "message": "現在のフォルダーツリー内だけを検索します。"
+  },
+  "helpVisualSort": {
+    "message": "表示用並べ替えドロップダウンまたは列ヘッダーを使って、フォルダー内容ペインを一時的に並べ替えます。"
+  },
+  "helpPermanentSort": {
+    "message": "Chromium に保存されているブックマーク順を変更したい場合は、右クリックの恒久的な並べ替えを使用します。"
+  },
+  "helpSeparatorsBeforeTitle": {
+    "message": "SBM は Chromium と互換性のある区切り線の規則に対応しています。区切り線は、タイトルが"
+  },
+  "helpSeparatorsBetweenTitleUrl": {
+    "message": "で URL が"
+  },
+  "helpSeparatorsAfterUrl": {
+    "message": "のブックマークとして保存されます。SBM はこの規則を視覚的な区切り線として表示します。"
+  },
+  "helpKeyboardShortcutsHeading": {
+    "message": "キーボードショートカット"
+  },
+  "helpShortcutArrowKeysLabel": {
+    "message": "矢印キー:"
+  },
+  "helpShortcutArrowKeysDescription": {
+    "message": "アクティブなペイン内を移動します。"
+  },
+  "helpShortcutEnterLabel": {
+    "message": "Enter:"
+  },
+  "helpShortcutEnterDescription": {
+    "message": "ブックマークを開く、またはフォルダーに移動します。"
+  },
+  "helpShortcutBackspaceLabel": {
+    "message": "Backspace:"
+  },
+  "helpShortcutBackspaceDescription": {
+    "message": "可能な場合、1 つ上のフォルダー階層へ移動します。"
+  },
+  "helpShortcutCtrlFLabel": {
+    "message": "Ctrl+F:"
+  },
+  "helpShortcutCtrlFDescription": {
+    "message": "検索ボックスにフォーカスします。"
+  },
+  "helpShortcutF2Label": {
+    "message": "F2:"
+  },
+  "helpShortcutF2Description": {
+    "message": "アクティブなフォルダーの名前変更またはアクティブなブックマークの編集を行います。"
+  },
+  "helpShortcutDeleteLabel": {
+    "message": "Delete:"
+  },
+  "helpShortcutDeleteDescription": {
+    "message": "キーボード削除が有効な場合、選択した項目を削除します。"
+  },
+  "helpShortcutEscapeLabel": {
+    "message": "Escape:"
+  },
+  "helpShortcutEscapeDescription": {
+    "message": "開いている SBM のダイアログまたはメニューを閉じます。"
+  },
+  "helpPinningHeading": {
+    "message": "すばやくアクセスするために Simple Bookmarks Manager をピン留めする"
+  },
+  "helpPinningIntro": {
+    "message": "Simple Bookmarks Manager（SBM）をツールバーにピン留めすると、拡張機能へより速く簡単にアクセスできます。"
+  },
+  "helpPinningIntro2": {
+    "message": "SBM を Chromium ベースのブラウザにインストールしたら、次のいずれかの方法でツールバーにピン留めできます。"
+  },
+  "helpPinViaExtensionsMenuHeading": {
+    "message": "1. 拡張機能メニューからピン留めする"
+  },
+  "helpPinViaExtensionsMenuStep1": {
+    "message": "通常はアドレスバーの右側にある拡張機能ボタンをクリックします。"
+  },
+  "helpFindSbmBefore": {
+    "message": "一覧で"
+  },
+  "helpFindSbmAfter": {
+    "message": "を探します。"
+  },
+  "helpPinIconBefore": {
+    "message": "ピンアイコンをクリック:"
+  },
+  "helpPinToggleExplanation": {
+    "message": "これで SBM がツールバーにピン留めされます。すでにピン留めされている場合は、ピンアイコンをクリックするとピン留めが解除されます。"
+  },
+  "helpPinViaManageExtensionsHeading": {
+    "message": "2. 拡張機能の管理ページからピン留めする"
+  },
+  "helpPinViaManageExtensionsStep1": {
+    "message": "通常はアドレスバーの右側にある拡張機能ボタンをクリックします。"
+  },
+  "helpManageExtensions": {
+    "message": "拡張機能を管理"
+  },
+  "helpAlternatively": {
+    "message": "または:"
+  },
+  "helpChromiumMenuStep": {
+    "message": "Chromium のメニューボタンをクリックします。"
+  },
+  "helpExtensions": {
+    "message": "拡張機能"
+  },
+  "helpOnceExtensionsPageOpen": {
+    "message": "拡張機能ページが開いたら:"
+  },
+  "helpScrollDownToBefore": {
+    "message": "下にスクロールして"
+  },
+  "helpPinToToolbar": {
+    "message": "ツールバーにピン留め"
+  },
+  "helpToggleOptionOn": {
+    "message": "オプションをオンにします。"
+  },
+  "helpOptionsReferenceHeading": {
+    "message": "オプションのリファレンス"
+  },
+  "helpOptionsReferenceBeforeStorage": {
+    "message": "オプションページは永続設定を"
+  },
+  "helpOptionsReferenceAfterStorage": {
+    "message": "に保存します。これらの設定はブラウザープロファイル内にローカルで保持されます。"
+  },
+  "helpOptionUserInterfaceLanguageDescription": {
+    "message": "：自動言語検出、または特定の SBM UI 言語を選択します。"
+  },
+  "helpOptionThemeDescription": {
+    "message": "：SBM で使用する外観テーマを選択します。"
+  },
+  "helpOptionDetailsPanePositionDescription": {
+    "message": "：詳細ペインを右側またはフォルダー内容ペインの下に配置します。"
+  },
+  "helpOptionFontDescription": {
+    "message": "：対応しているフォントファミリーのいずれかを選択します。"
+  },
+  "helpOptionFontSizeDescription": {
+    "message": "：UI の基本テキストサイズを調整します。"
+  },
+  "helpOptionFontSpacingDescription": {
+    "message": "：ラベルと行で使用する行間を調整します。"
+  },
+  "helpOptionLimitSearchDescription": {
+    "message": "メイン検索ボックスの対象を、すべてのブックマークではなく現在のフォルダーツリー内だけに変更します。"
+  },
+  "helpOptionShowDeleteWarningDescription": {
+    "message": "：ブックマーク項目またはフォルダーを削除する前に確認します。"
+  },
+  "helpOptionShowSortWarningDescription": {
+    "message": "：コンテキストメニューの恒久的な並べ替えを適用する前に確認します。"
+  },
+  "helpOptionAllowKeyboardDeleteDescription": {
+    "message": "：Delete キーで選択項目を削除できるかどうかを制御します。"
+  },
+  "helpOptionNaturalSortDescription": {
+    "message": "恒久的な名前順並べ替えで使用する順序を制御します。有効な場合、フォルダー、区切り線、ブックマークの順に配置されます。"
+  },
+  "helpOptionMultipleInstancesDescription": {
+    "message": "：無効な場合、拡張機能ボタンをクリックすると新しいタブを開かずに既存の SBM タブにフォーカスします。"
+  },
+  "helpOptionStartAtFolderDescription": {
+    "message": "：起動時に選択したブックマークフォルダーで SBM を開きます。"
+  },
+  "helpOptionStartupFolderDescription": {
+    "message": "：選択フォルダー起動オプションで使用するフォルダーを選択します。"
+  },
+  "helpOptionUrlProtectionsDescription": {
+    "message": "これらのオプションは、SBM が拡張機能のタブまたはウィンドウ操作でブックマークを開くとき、リスクの高い URL スキームに対する保護を制御します。ブックマークの保存は妨げません。"
+  },
+  "helpOptionLibraryPaneWidthDescription": {
+    "message": "：左側のライブラリペインの幅（ピクセル）です。"
+  },
+  "helpOptionDetailsPaneWidthDescription": {
+    "message": "：右側の詳細ペインの幅（ピクセル）です。"
+  },
+  "helpOptionBottomDetailsHeightDescription": {
+    "message": "：下部の詳細ペインの高さ（ピクセル）です。"
+  },
+  "helpOptionPaneResizeBars": {
+    "message": "表示されているペインのリサイズバーをドラッグして、ペインサイズを変更することもできます。"
+  },
+  "helpOptionFolderContentsDescription": {
+    "message": "これらのオプションは、中央のフォルダー内容ペインの任意列と保存された列幅を設定します。名前と URL は常に表示されます。"
+  },
+  "helpOptionDateAddedColumnDescription": {
+    "message": "：項目が追加された日時を表示する任意列です。"
+  },
+  "helpOptionIdColumnDescription": {
+    "message": "：Chromium のブックマーク ID を表示する任意列です。"
+  },
+  "helpOptionOrderColumnDescription": {
+    "message": "：Chromium のフォルダー内順序/インデックス値を表示する任意列です。"
+  },
+  "helpOptionAdvancedDetailsViewDescription": {
+    "message": "：詳細ペインに読み取り専用の高度なブックマークメタデータを表示します。"
+  },
+  "helpOptionAdvancedDetailsEditDescription": {
+    "message": "：対応している高度な編集を許可します。現在はブックマークのインデックス変更に限定されています。"
+  },
+  "helpOptionOptimisationsDescription": {
+    "message": "これらのオプションは主にベンチマークとトラブルシューティング用です。性能比較や描画問題の診断を行う場合を除き、有効のままにしてください。"
+  },
+  "helpOptionDomRenderingDescription": {
+    "message": "：一部の描画処理で DOM の変更量を減らします。"
+  },
+  "helpOptionTempTreeMapsDescription": {
+    "message": "：一部のツリー操作中に短命の検索マップを作成し、その後破棄します。"
+  },
+  "helpOptionDebugSettingsBefore": {
+    "message": "デバッグ設定は"
+  },
+  "helpOptionDebugSettingsAfter": {
+    "message": "が有効な場合にのみ表示されます。警告/エラーログは一時的なもので、拡張機能設定には保存されません。"
+  },
   "hideDetailsPaneTooltip": {
     "message": "詳細ペインを隠す"
   },
@@ -385,6 +682,33 @@
   },
   "multipleInstancesAllowedHelp": {
     "message": "無効にすると、拡張機能ボタンをクリックしたときに別のタブを開かず、既存の Simple Bookmarks Manager タブにフォーカスします。"
+  },
+  "startupBehavior": {
+    "message": "起動時の動作"
+  },
+  "startupBehaviorHelp": {
+    "message": "Simple Bookmarks Manager を起動したときに開く場所を選択します。"
+  },
+  "startAtConfiguredBookmarkFolder": {
+    "message": "選択したフォルダーで開始"
+  },
+  "startAtConfiguredBookmarkFolderHelp": {
+    "message": "有効にすると、SBM は選択したブックマークフォルダーで開きます。フォルダーが存在しなくなった場合、この設定は解除され、SBM は通常の起動フォルダーを使用します。"
+  },
+  "startupBookmarkFolder": {
+    "message": "起動フォルダー"
+  },
+  "startupBookmarkFolderHelp": {
+    "message": "SBM の起動時に表示する既存のブックマークフォルダーを選択します。"
+  },
+  "startupBookmarkFolderNone": {
+    "message": "起動フォルダーが選択されていません"
+  },
+  "startupBookmarkFolderMissing": {
+    "message": "以前選択したフォルダーが見つかりません"
+  },
+  "startupBookmarkFolderLoadFailed": {
+    "message": "ブックマークフォルダーを読み込めませんでした。"
   },
   "mutationCreateBookmark": {
     "message": "ブックマークを作成"
@@ -572,6 +896,12 @@
   "rightDetailsWidthHelp": {
     "message": "右側の詳細ペインの幅（ピクセル単位）。"
   },
+  "bottomDetailsHeight": {
+    "message": "下部詳細ペインの高さ"
+  },
+  "bottomDetailsHeightHelp": {
+    "message": "詳細ペインの位置が下部に設定されている場合に使用する高さ（ピクセル）です。"
+  },
   "rootFallback": {
     "message": "(ルート)"
   },
@@ -619,6 +949,18 @@
   },
   "showErrorsWarningsHelp": {
     "message": "詳細設定。この SBM セッション用の一時的なメモリ内ログを表示します。ログ項目は拡張機能の設定には保存されません。"
+  },
+  "showAtLaunch": {
+    "message": "起動時に表示"
+  },
+  "showHelpOnLaunch": {
+    "message": "次回起動時にヘルプを表示"
+  },
+  "showHelpOnLaunchHelp": {
+    "message": "有効にすると、次回 SBM を開いたときにヘルプダイアログを一度だけ表示し、その後この設定を再びオフにします。"
+  },
+  "helpOptionShowHelpOnLaunchDescription": {
+    "message": "：次回 SBM を開いたときにヘルプダイアログを一度だけ表示し、その後自動的にオフになります。"
   },
   "showSortWarning": {
     "message": "恒久的な並べ替えの確認を表示"
@@ -754,6 +1096,18 @@
   },
   "themeHelp": {
     "message": "Simple Bookmarks Manager で使用するテーマを設定します。"
+  },
+  "detailsPanePosition": {
+    "message": "詳細ペインの位置"
+  },
+  "detailsPanePositionHelp": {
+    "message": "詳細ペインを右側に表示するか、フォルダー内容ペインの下に表示するかを選択します。"
+  },
+  "detailsPanePositionRight": {
+    "message": "右側"
+  },
+  "detailsPanePositionBottom": {
+    "message": "下部"
   },
   "themeSystem": {
     "message": "システム"

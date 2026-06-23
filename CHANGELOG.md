@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.8.29
+
+- Updated Asian locale translations using the English locale as the base.
+- Added missing Help, startup Help, Details pane position, bottom Details height, and recent context-menu text for Japanese, Korean, Simplified Chinese, and Traditional Chinese.
+
 ## 0.8.28
 
 - Added first-launch Help behavior controlled by the new `ShowHelpOnLaunch` setting.
