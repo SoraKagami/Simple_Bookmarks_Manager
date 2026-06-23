@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.8.26
+
+- Added the Help hamburger-menu entry and connected it to a packaged `help.html` page shown in the in-SBM info dialog.
+- Added `help.html` and `help.css` with basic SBM usage guidance, pinning instructions, and collapsible Options reference sections.
+- Updated `README.md` from the manually supplied documentation file.
+
 ## 0.8.25
 
 - Added bottom Details pane resizing with a persisted `bottom_Details_Height` setting.

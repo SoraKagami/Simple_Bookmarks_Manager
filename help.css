@@ -1,0 +1,62 @@
+.help-page {
+  max-width: 860px;
+  overflow-wrap: anywhere;
+}
+.help-page .card h3 {
+  margin: 16px 0 8px;
+  color: var(--sbm-color-heading-muted);
+  font-size: 1rem;
+}
+.help-page ol,
+.help-page ul {
+  margin: 0 0 0 1.25rem;
+  padding: 0;
+}
+.help-page li {
+  margin: 6px 0;
+}
+.help-page code {
+  padding: .1em .35em;
+  border: 1px solid var(--sbm-color-border-muted);
+  border-radius: 5px;
+  background: var(--sbm-color-code-bg);
+  font-family: Consolas, 'Cascadia Mono', 'Courier New', monospace;
+  font-size: .92em;
+}
+.help-details {
+  padding: 0;
+  overflow: hidden;
+}
+.help-details summary {
+  cursor: pointer;
+  padding: 18px 20px;
+  color: var(--sbm-color-heading-muted);
+  font-size: 1.1rem;
+  font-weight: 700;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+.help-details summary:hover,
+.help-details summary:focus-visible {
+  background: var(--sbm-color-accent-soft);
+  outline: none;
+}
+.help-details > p,
+.help-details > ul,
+.help-details > ol {
+  margin: 0 20px 18px;
+}
+.help-details[open] summary {
+  border-bottom: 1px solid var(--sbm-color-border-muted);
+  margin-bottom: 14px;
+}
+@media (max-width: 560px) {
+  .help-details summary {
+    padding: 16px 18px;
+  }
+  .help-details > p,
+  .help-details > ul,
+  .help-details > ol {
+    margin-inline: 18px;
+  }
+}

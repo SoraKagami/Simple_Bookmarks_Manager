@@ -55,6 +55,38 @@ The latest stable release of Simple Bookmarks Manager is available on the [Chrom
 
 **Please note:** languages other than English are translations made using GenAI.
 
+## Pinning Simple Bookmarks Manager for easy access
+
+Pinning Simple Bookmarks Manager (SBM) to the toolbar allows faster and easier access to the extension.
+
+Once SBM is installed in your Chromium-based browser, you can pin it to the toolbar in one of the following ways:
+
+### 1. Pin via the Extensions menu
+
+1. Click the Extensions button, usually located to the right of the address bar.
+2. Find `Simple Bookmarks Manager` in the list.
+3. Click the pin icon next to `Simple Bookmarks Manager`.
+
+This will pin SBM to the toolbar. If SBM is already pinned, clicking the pin icon will unpin it.
+
+### 2. Pin via the Manage Extensions page
+
+1. Click the Extensions button, usually located to the right of the address bar.
+2. Click `Manage Extensions`.
+
+Alternatively:
+
+1. Click the Chromium menu button.
+2. Select `Extensions`.
+3. Click `Manage Extensions`.
+
+Once the Extensions page is open:
+
+1. Find `Simple Bookmarks Manager` in the list.
+2. Click `Details`.
+3. Scroll down to `Pin to toolbar`.
+4. Toggle the option on.
+
 ## Privacy and Permissions
 
 ### Permissions

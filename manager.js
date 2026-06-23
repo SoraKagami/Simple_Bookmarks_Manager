@@ -2653,14 +2653,24 @@ function showInfoDialog(title, contentNode) {
   $("info-close").focus();
 }
 
-/** Open the packaged About page in an in-manager iframe. */
-function showAboutDialog() {
+/** Build a packaged extension-page iframe for the reusable info dialog. */
+function makeInfoPageFrame(title, pagePath) {
   const frame = document.createElement("iframe");
   frame.className = "info-frame";
-  frame.title = t("about");
+  frame.title = title;
   frame.referrerPolicy = "no-referrer";
-  frame.src = api.runtime.getURL("about.html");
-  showInfoDialog(t("about"), frame);
+  frame.src = api.runtime.getURL(pagePath);
+  return frame;
+}
+
+/** Open the packaged About page in an in-manager iframe. */
+function showAboutDialog() {
+  showInfoDialog(t("about"), makeInfoPageFrame(t("about"), "about.html"));
+}
+
+/** Open the packaged Help page in an in-manager iframe. */
+function showHelpDialog() {
+  showInfoDialog(t("help"), makeInfoPageFrame(t("help"), "help.html"));
 }
 
 /** Append inline markdown text with minimal safe formatting to a parent node. */
@@ -2808,7 +2818,7 @@ function buildAppMenu() {
     makeAppMenuItem(t("openDefaultBookmarksManager"), openDefaultBookmarksManager),
     makeAppMenuSeparator(),
     makeAppMenuItem(t("options"), openOptionsPage),
-    makeAppMenuItem(t("help"), () => {}, { disabled: true }),
+    makeAppMenuItem(t("help"), showHelpDialog),
     makeAppMenuItem(t("about"), showAboutDialog),
     makeAppMenuItem(t("changelog"), showChangelogDialog)
   ];
