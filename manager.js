@@ -726,6 +726,82 @@ function showBookmarkEditorDialog({ heading, title = "", url = "https://", submi
   });
 }
 
+
+/**
+ * Show an in-page folder rename editor using the same modal behavior as the
+ * bookmark editor.  Backdrop clicks are ignored so partially typed names are
+ * not lost accidentally; the dialog resolves only through Save, Cancel, or Esc.
+ */
+function showFolderRenameDialog({ heading = t("renameFolder"), title = "", submitLabel = t("save") } = {}) {
+  return new Promise((resolve) => {
+    hideContextMenu();
+
+    const backdrop = document.createElement("div");
+    backdrop.className = "unsaved-modal-backdrop";
+    backdrop.setAttribute("role", "presentation");
+
+    const modal = document.createElement("section");
+    modal.className = "unsaved-modal bookmark-editor-modal";
+    modal.setAttribute("role", "dialog");
+    modal.setAttribute("aria-modal", "true");
+    modal.setAttribute("aria-labelledby", "folder-rename-title");
+
+    const headingEl = document.createElement("h3");
+    headingEl.id = "folder-rename-title";
+    headingEl.textContent = heading;
+
+    const form = document.createElement("form");
+    form.className = "bookmark-editor-form";
+
+    const nameLabel = document.createElement("label");
+    nameLabel.textContent = t("folderNamePrompt");
+    const nameInput = document.createElement("input");
+    nameInput.type = "text";
+    nameInput.value = title || "";
+    nameInput.autocomplete = "off";
+    nameLabel.append(nameInput);
+
+    const actions = document.createElement("div");
+    actions.className = "unsaved-modal-actions";
+
+    const finish = (value) => {
+      backdrop.remove();
+      resolve(value);
+    };
+
+    const submit = document.createElement("button");
+    submit.type = "submit";
+    submit.textContent = submitLabel;
+
+    const cancel = document.createElement("button");
+    cancel.type = "button";
+    cancel.textContent = t("cancel");
+    cancel.onclick = () => finish(null);
+
+    form.addEventListener("submit", (e) => {
+      e.preventDefault();
+      finish({ title: sanitizeBookmarkTitle(nameInput.value, title || t("newFolderDefaultName")) });
+    });
+    backdrop.addEventListener("mousedown", (e) => {
+      if (e.target === backdrop) e.preventDefault();
+    });
+    modal.addEventListener("keydown", (e) => {
+      if (e.key === "Escape") {
+        e.preventDefault();
+        finish(null);
+      }
+    });
+
+    actions.append(submit, cancel);
+    form.append(nameLabel, actions);
+    modal.append(headingEl, form);
+    backdrop.append(modal);
+    document.body.append(backdrop);
+    nameInput.focus();
+    nameInput.select();
+  });
+}
+
 /** Return whether an ID points to a known bookmark-tree node. */
 function validNodeId(id) {
   return typeof id === "string" && nodes.has(id);
@@ -1614,6 +1690,41 @@ function isSplitViewSupported() {
   return false;
 }
 
+
+/** Write text to the clipboard from a user-triggered menu command. */
+async function writeTextToClipboard(text) {
+  let clipboardError = null;
+  if (navigator.clipboard?.writeText) {
+    try {
+      await navigator.clipboard.writeText(text);
+      return;
+    } catch (err) {
+      clipboardError = err;
+    }
+  }
+
+  const textarea = document.createElement("textarea");
+  textarea.value = text;
+  textarea.setAttribute("readonly", "");
+  textarea.style.position = "fixed";
+  textarea.style.opacity = "0";
+  textarea.style.pointerEvents = "none";
+  document.body.append(textarea);
+  textarea.focus();
+  textarea.select();
+  try {
+    if (!document.execCommand("copy")) throw clipboardError || new Error("Clipboard copy command was rejected.");
+  } finally {
+    textarea.remove();
+  }
+}
+
+/** Copy a direct bookmark URL without exposing folder or separator entries. */
+async function copyBookmarkUrlToClipboard(bookmark) {
+  if (!bookmark || isFolder(bookmark) || isSeparator(bookmark) || !bookmark.url) return;
+  await writeTextToClipboard(bookmark.url);
+}
+
 /** Resolve all bookmark URLs affected by a context-menu open-all action. */
 function contextUrls(context) {
   const item = nodes.get(context?.id);
@@ -1671,22 +1782,26 @@ async function openContainingFolderForBookmark(bookmark) {
   });
 }
 
-/** Prompt for a folder name and apply it to a mutable folder node. */
-async function renameFolder(folder) {
-  if (!isMutable(folder)) return;
-  const title = prompt(t("newFolderNamePrompt"), folder.title || "");
-  if (title === null) return;
-  const cleanTitle = sanitizeBookmarkTitle(title, folder.title || t("newFolderDefaultName"));
-  const updated = await tryBookmarkMutation(t("mutationRenameFolder"), "update", folder.id, { title: cleanTitle });
+/** Open the Rename Folder dialog and apply the saved title to a mutable folder node. */
+async function renameFolder(folder, sourcePane = "tree") {
+  if (!folder || !isFolder(folder) || !isMutable(folder)) return;
+  const renamed = await showFolderRenameDialog({
+    heading: t("renameFolder"),
+    title: folder.title || "",
+    submitLabel: t("save")
+  });
+  if (!renamed) return;
+  const updated = await tryBookmarkMutation(t("mutationRenameFolder"), "update", folder.id, renamed);
   if (!updated) {
     await loadTree();
     return;
   }
   await loadTree();
-  performSelect(folder.id);
+  const targetPane = sourcePane === "list" && nodes.get(folder.id)?.parentId === state.folderId ? "list" : "tree";
+  performSelect(folder.id, targetPane);
 }
 
-/** Prompt for bookmark changes and update a mutable bookmark node. */
+/** Open the Edit Bookmark dialog and update a mutable bookmark node. */
 async function editBookmark(bookmark) {
   if (!bookmark || isFolder(bookmark) || !isMutable(bookmark)) return;
   const edited = await showBookmarkEditorDialog({
@@ -2727,7 +2842,7 @@ function buildFolderMenu(context) {
   const copyAllowed = !!folder && folder.id !== "0" && !isRootFolder(folder);
 
   return [
-    makeMenuItem(t("renameFolder"), () => renameFolder(folder), { disabled: !mutable }),
+    makeMenuItem(t("renameFolder"), (context) => renameFolder(folder, context?.pane || "tree"), { disabled: !mutable }),
     makeMenuItem(t("deleteFolder"), (context) => deleteNode(folder, context?.pane || "tree"), { disabled: !mutable }),
     makeSeparator(),
     makeMenuItem(t("cut"), () => cutNode(folder), { disabled: !mutable }),
@@ -2768,6 +2883,8 @@ function buildBookmarkMenu(context) {
     makeMenuItem(t("cut"), () => cutNode(bookmark), { disabled: !isMutable(bookmark) }),
     makeMenuItem(t("copy"), () => copyNode(bookmark), { disabled: !bookmark }),
     makeMenuItem(t("paste"), () => pasteClipboard(context), { disabled: pasteDisabled }),
+    makeSeparator(),
+    makeMenuItem(t("copyUrlToClipboard"), () => copyBookmarkUrlToClipboard(bookmark), { disabled: !bookmark?.url || isSeparator(bookmark) }),
     makeSeparator(),
     makeMenuItem(t("addNewBookmark"), () => createBookmarkAtTarget(context), { disabled: !canAddToParent }),
     makeMenuItem(t("addNewFolder"), () => createFolderAtTarget(context), { disabled: !canAddToParent }),
@@ -4054,6 +4171,20 @@ async function moveListSelection(delta) {
   return true;
 }
 
+
+/** Open the correct editor for the currently selected folder or bookmark. */
+async function editSelectedItemWithKeyboard() {
+  const item = state.activePane === "tree" ? nodes.get(paneSelectionId("tree")) : nodes.get(state.selectedId);
+  if (!item || !isMutable(item)) return false;
+  if (isFolder(item)) {
+    await renameFolder(item, state.activePane === "list" ? "list" : "tree");
+    return true;
+  }
+  if (isSeparator(item) || !item.url) return false;
+  await editBookmark(item);
+  return true;
+}
+
 /** Open or navigate the current keyboard selection. */
 async function openKeyboardSelection() {
   if (state.activePane === "tree") {
@@ -4084,7 +4215,7 @@ async function handleKeyboardNavigation(e) {
   }
 
   if (isEditingTextField(e.target)) return false;
-  if (!["ArrowLeft", "ArrowRight", "ArrowUp", "ArrowDown", "Home", "End", "Enter", "Backspace"].includes(e.key)) return false;
+  if (!["F2", "ArrowLeft", "ArrowRight", "ArrowUp", "ArrowDown", "Home", "End", "Enter", "Backspace"].includes(e.key)) return false;
 
   if (isMultiSelectActive(state.activePane)) {
     const pane = state.activePane;
@@ -4094,6 +4225,7 @@ async function handleKeyboardNavigation(e) {
   }
 
   let handled = false;
+  if (e.key === "F2") handled = await editSelectedItemWithKeyboard();
   if (e.key === "ArrowLeft") handled = await handleTreeHorizontalNavigation("left");
   if (e.key === "ArrowRight") handled = await handleTreeHorizontalNavigation("right");
   if (e.key === "ArrowUp") handled = state.activePane === "tree" ? await moveTreeSelection(-1) : state.activePane === "list" ? await moveListSelection(-1) : false;

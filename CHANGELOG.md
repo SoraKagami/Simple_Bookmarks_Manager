@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.8.23
+
+- Added a bookmark context-menu action to copy a bookmark URL to the clipboard.
+- Replaced the native folder rename prompt with an in-SBM Rename Folder dialog that requires Save or Cancel and does not close on backdrop clicks.
+- Added F2 keyboard editing for the active selected bookmark or folder.
+
 ## 0.8.22
 
 - Changed the expected stale startup-folder reset diagnostic so it is recorded only in SBM's transient warnings/errors log instead of emitting a browser-console warning.
