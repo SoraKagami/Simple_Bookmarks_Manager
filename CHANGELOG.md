@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.8.32
+
+Manual update: Added the public key to `manifest.json`.
+
 ## 0.8.31
 
 - Added an `en_US` UI locale option and matching English (US) locale file.

@@ -27,6 +27,7 @@
     "48": "icons/icon-48.png",
     "128": "icons/icon-128.png"
   },
+  "key": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAp0l7bMzmUT5W9/sHZ0zN8K/GDvvPRG3B5oAiyQgXDW3NAqgQVyh0kXjsxbqX5ohPIAj2Z04FzNmzSX3/AcPuLPNnBJtuCgch6H4rEsULxtjnI9KlCqcmoZbbv1vqGejeuyotIHeVR3bVUTn10E7e0C250JVeSGYhuSrUdwEC7LUvu3qi/IavqFHqNI3fLvPPIZFnwS3HZgwjXBBoabo8+928QVxH+Tt2Ik38XT2gVpW5+ryJtGSvhpwx9gMEEJnWw2awNexldbEVqSbUJPKE+pOk6xrdMDRNSr/SMMH3sR4GPw+rsvP4gdrVegqftidcjPjGbjqh/DqxyjhflMQQgQIDAQAB",
   "options_ui": {
     "page": "options.html",
     "open_in_tab": true
