@@ -36,6 +36,7 @@ const state = {
   back: [],
   forward: [],
   expandedFolders: new Set(),
+  showTreeBookmarks: new Set(),
   detailsVisible: true,
   detailsOriginal: null,
   drag: null,
@@ -62,6 +63,8 @@ let DetailsPanePosition = DEFAULT_SETTINGS.DetailsPanePosition;
 let UserInterfaceFontFamily = DEFAULT_SETTINGS.UserInterfaceFontFamily;
 let UserInterfaceFontSize = DEFAULT_SETTINGS.UserInterfaceFontSize;
 let UserInterfaceLineSpacing = DEFAULT_SETTINGS.UserInterfaceLineSpacing;
+let SidebarMode = DEFAULT_SETTINGS.SidebarMode;
+let LibraryFullView = false;
 let EnableAdvancedDetailsViewing = DEFAULT_SETTINGS.EnableAdvancedDetailsViewing;
 let EnableAdvancedDetailsEditing = DEFAULT_SETTINGS.EnableAdvancedDetailsEditing;
 let SortByNameNatural = DEFAULT_SETTINGS.SortByNameNatural;
@@ -138,6 +141,27 @@ function applyUserInterfaceSettings() {
   applyFolderContentsColumnSettings();
 }
 
+const SIDEBAR_LAYOUT_MEDIA_QUERY = "(max-width: 900px)";
+
+/**
+ * Enable the compact Library-only layout only when Sidebar Mode is enabled and
+ * the manager viewport is narrow. Leaving the layout clears per-folder bookmark
+ * visibility so the next sidebar session starts with every eye toggle closed.
+ */
+function updateLibraryFullView() {
+  const enabled = SidebarMode && window.matchMedia(SIDEBAR_LAYOUT_MEDIA_QUERY).matches;
+  if (enabled === LibraryFullView) return false;
+
+  LibraryFullView = enabled;
+  document.documentElement.classList.toggle("library-full-view", enabled);
+  if (!enabled) {
+    state.showTreeBookmarks.clear();
+    if (state.multiSelect.pane === "tree") clearMultiSelect();
+    if (!isFolder(nodes.get(state.treeSelectedId))) state.treeSelectedId = state.folderId;
+  }
+  return true;
+}
+
 /**
  * Apply one or more validated settings to runtime globals and optionally
  * refresh affected UI areas.
@@ -156,6 +180,7 @@ function applySettings(settings, { render = false } = {}) {
     else if (key === "UserInterfaceFontFamily") UserInterfaceFontFamily = value;
     else if (key === "UserInterfaceFontSize") UserInterfaceFontSize = value;
     else if (key === "UserInterfaceLineSpacing") UserInterfaceLineSpacing = value;
+    else if (key === "SidebarMode") SidebarMode = value;
     else if (key === "EnableAdvancedDetailsViewing") EnableAdvancedDetailsViewing = value;
     else if (key === "EnableAdvancedDetailsEditing") EnableAdvancedDetailsEditing = value;
     else if (key === "SortByNameNatural") SortByNameNatural = value;
@@ -185,12 +210,14 @@ function applySettings(settings, { render = false } = {}) {
   }
 
   applyUserInterfaceSettings();
+  const libraryLayoutChanged = updateLibraryFullView();
 
   if (!EnableAdvancedDetailsViewing) EnableAdvancedDetailsEditing = false;
   const searchLimit = $("search-limit");
   if (searchLimit) searchLimit.checked = SearchLimitToFolderAndSub;
 
   if (render && state.tree) {
+    if (libraryLayoutChanged) renderRoots();
     renderList();
     renderDetails();
   }
@@ -964,9 +991,17 @@ function canDragListItem(node) {
   return isReorderable(node);
 }
 
-/** Return whether a Library tree folder can start a drag operation. */
+/** Return whether a normal Library tree folder can start a drag operation. */
 function canDragTreeFolder(node) {
   return isFolder(node) && isReorderable(node);
+}
+
+/**
+ * Return whether a Library row can start a drag operation.
+ * LibraryFullView extends tree dragging to bookmarks and separators.
+ */
+function canDragTreeItem(node) {
+  return LibraryFullView ? canDragListItem(node) : canDragTreeFolder(node);
 }
 
 /** Return whether the current list sort preserves Chromium child order for reordering. */
@@ -1046,6 +1081,9 @@ async function loadTree(options = {}) {
   const [root] = await bookmarks("getTree");
   state.tree = root;
   indexTree(root);
+  for (const id of state.showTreeBookmarks) {
+    if (!isFolder(nodes.get(id))) state.showTreeBookmarks.delete(id);
+  }
   if (state.expandedFolders.size === 0) {
     for (const folder of rootFolders()) state.expandedFolders.add(folder.id);
   }
@@ -1127,17 +1165,76 @@ function descendantFolders(folder) {
   return out;
 }
 
-/** Flatten the currently expanded left tree into visible rows. */
-function visibleTreeFolders() {
+/**
+ * Return the IDs needed to display Sidebar Mode search results as a hierarchy.
+ * Matching rows and their ancestors are included; eye-toggle state is left
+ * untouched so clearing the search restores the previous LibraryFullView view.
+ */
+function librarySearchVisibleIds() {
+  const needle = LibraryFullView ? state.search.trim().toLocaleLowerCase() : "";
+  if (!needle) return null;
+
+  const scopeRoot = SearchLimitToFolderAndSub ? nodes.get(state.folderId) : state.tree;
+  if (!scopeRoot) return new Set();
+
+  const visibleIds = new Set();
+  const visit = (node) => {
+    let include = node.id !== scopeRoot.id
+      && [node.title, node.url].some((value) => (value || "").toLocaleLowerCase().includes(needle));
+
+    for (const child of node.children || []) {
+      if (visit(child)) include = true;
+    }
+    if (include && node.id !== "0") visibleIds.add(node.id);
+    return include;
+  };
+
+  const hasResults = visit(scopeRoot);
+  if (hasResults) {
+    for (let node = scopeRoot; node && node.id !== "0"; node = node.parentNode) {
+      visibleIds.add(node.id);
+    }
+  }
+  return visibleIds;
+}
+
+/**
+ * Return children represented in the Library tree.
+ * Normal mode contains folders only; LibraryFullView additionally includes
+ * direct bookmarks for folders whose independent eye toggle is enabled.
+ * During Sidebar Mode search, matching rows and their ancestors are returned.
+ */
+function libraryTreeChildren(folder, searchVisibleIds = null) {
+  if (!LibraryFullView) return childFolders(folder);
+  if (searchVisibleIds) {
+    return (folder.children || []).filter((child) => searchVisibleIds.has(child.id));
+  }
+  const showBookmarks = state.showTreeBookmarks.has(folder.id);
+  return (folder.children || []).filter((child) => isFolder(child) || showBookmarks);
+}
+
+/** Return children that make the Library collapse control meaningful. */
+function expandableLibraryChildren(folder, searchVisibleIds = null) {
+  if (searchVisibleIds) return libraryTreeChildren(folder, searchVisibleIds);
+  return LibraryFullView ? (folder.children || []) : childFolders(folder);
+}
+
+/** Flatten the currently rendered Library tree into visible row order. */
+function visibleTreeItems() {
   const out = [];
-  const maps = tempBookmarkTreeMaps();
+  const searchVisibleIds = librarySearchVisibleIds();
   const visit = (folder) => {
     out.push(folder);
-    if (state.expandedFolders.has(folder.id)) {
-      for (const child of childFolders(folder, maps)) visit(child);
+    if (!searchVisibleIds && !state.expandedFolders.has(folder.id)) return;
+    for (const child of libraryTreeChildren(folder, searchVisibleIds)) {
+      if (isFolder(child)) visit(child);
+      else out.push(child);
     }
   };
-  for (const folder of (maps ? maps.rootFolders : rootFolders())) visit(folder);
+  const roots = searchVisibleIds
+    ? rootFolders().filter((folder) => searchVisibleIds.has(folder.id))
+    : rootFolders();
+  for (const folder of roots) visit(folder);
   return out;
 }
 
@@ -1161,7 +1258,7 @@ function resetFolderViewState() {
 
 /** Toggle a tree folder while keeping active selection safe if a selected child collapses. */
 async function toggleTreeFolderFromClick(folder) {
-  const children = childFolders(folder);
+  const children = expandableLibraryChildren(folder);
   if (!children.length) return;
 
   const isExpanded = state.expandedFolders.has(folder.id);
@@ -1250,7 +1347,7 @@ async function collapseAllTreeFolders(folder) {
 
 /** Return selectable row nodes for a pane in their visible order. */
 function paneItems(pane) {
-  return pane === "tree" ? visibleTreeFolders() : pane === "list" ? visibleItems() : [];
+  return pane === "tree" ? visibleTreeItems() : pane === "list" ? visibleItems() : [];
 }
 
 /** Return the selected node ID for the requested pane. */
@@ -1299,7 +1396,8 @@ function topLevelIds(ids) {
 function normalizeTreeMultiCandidate(ids, focusId) {
   const clean = orderedIdsForPane(ids, "tree").filter((id) => {
     const node = nodes.get(id);
-    return node && isFolder(node) && !isRootFolder(node) && isMutable(node);
+    if (!node || isRootFolder(node) || !isMutable(node)) return false;
+    return LibraryFullView || isFolder(node);
   });
   if (clean.length <= 1) return clean;
 
@@ -1363,8 +1461,8 @@ async function handlePaneClick(e, pane, item) {
 
   if (!isMultiGesture) {
     clearMultiSelect();
-    if (pane === "tree") await navigate(item.id, true, "tree");
-    else await select(item.id, "list");
+    if (pane === "tree" && isFolder(item)) await navigate(item.id, true, "tree");
+    else await select(item.id, pane);
     return;
   }
 
@@ -1787,16 +1885,20 @@ async function openContainingFolderForBookmark(bookmark) {
 
   clearMultiSelect();
   state.folderId = parentId;
-  state.treeSelectedId = parentId;
+  state.treeSelectedId = LibraryFullView ? bookmarkId : parentId;
   state.selectedId = bookmarkId;
-  state.activePane = "list";
+  state.activePane = LibraryFullView ? "tree" : "list";
   ensureExpandedPath(parentId);
+  if (LibraryFullView) {
+    state.expandedFolders.add(parentId);
+    state.showTreeBookmarks.add(parentId);
+  }
   resetFolderViewState();
   render();
 
   requestAnimationFrame(() => {
-    const list = $("list");
-    for (const row of list?.children || []) {
+    const container = LibraryFullView ? $("roots") : $("list");
+    for (const row of container?.querySelectorAll?.("[data-id]") || []) {
       if (row.dataset.id === bookmarkId) {
         row.scrollIntoView({ block: "nearest", inline: "nearest" });
         break;
@@ -1825,7 +1927,7 @@ async function renameFolder(folder, sourcePane = "tree") {
 }
 
 /** Open the Edit Bookmark dialog and update a mutable bookmark node. */
-async function editBookmark(bookmark, { initialFocus = "url" } = {}) {
+async function editBookmark(bookmark, { initialFocus = "url", sourcePane = state.activePane } = {}) {
   if (!bookmark || isFolder(bookmark) || !isMutable(bookmark)) return;
   const edited = await showBookmarkEditorDialog({
     heading: t("editBookmark"),
@@ -1843,7 +1945,7 @@ async function editBookmark(bookmark, { initialFocus = "url" } = {}) {
     alert(t("couldNotSaveChanges", { error: err.message || err }));
   }
   await loadTree();
-  performSelect(bookmark.id, "list");
+  performSelect(bookmark.id, sourcePane === "tree" && LibraryFullView ? "tree" : "list");
 }
 
 /** Choose the next Folder Contents selection after deleting an item. */
@@ -1853,12 +1955,19 @@ function listSelectionAfterDelete(item) {
   return { index: index >= 0 ? index : null };
 }
 
-/** Choose the next Library tree selection after deleting a folder. */
+/** Choose the next Library tree selection after deleting a visible row. */
 function treeSelectionAfterDelete(item) {
   const parent = nodes.get(item?.parentId);
-  const siblings = parent ? childFolders(parent) : rootFolders();
+  const includeBookmarks = LibraryFullView && !isFolder(item);
+  const siblings = parent
+    ? (includeBookmarks ? (parent.children || []) : childFolders(parent))
+    : rootFolders();
   const index = siblings.findIndex((node) => node.id === item?.id);
-  return { parentId: parent?.id || null, index: index >= 0 ? index : null };
+  return {
+    parentId: parent?.id || null,
+    includeBookmarks,
+    index: index >= 0 ? index : null
+  };
 }
 
 /** Return a stable list selection target after deleting one or more rows. */
@@ -1868,11 +1977,13 @@ function chooseListSelectionAfterDelete(snapshot) {
   return items[snapshot.index]?.id || items[snapshot.index - 1]?.id || null;
 }
 
-/** Return a stable tree selection target after deleting one or more folders. */
+/** Return a stable tree selection target after deleting one visible row. */
 function chooseTreeSelectionAfterDelete(snapshot) {
   if (!snapshot || snapshot.index === null) return null;
   const parent = snapshot.parentId ? nodes.get(snapshot.parentId) : null;
-  const siblings = parent ? childFolders(parent) : rootFolders();
+  const siblings = parent
+    ? (snapshot.includeBookmarks ? (parent.children || []) : childFolders(parent))
+    : rootFolders();
   return siblings[snapshot.index]?.id || siblings[snapshot.index - 1]?.id || null;
 }
 
@@ -1908,15 +2019,22 @@ async function deleteNode(item, sourcePane = state.activePane) {
     state.activePane = "list";
     state.selectedId = chooseListSelectionAfterDelete(selectionSnapshot);
   } else if (sourcePane === "tree") {
-    const nextFolderId = chooseTreeSelectionAfterDelete(selectionSnapshot);
+    const nextTreeId = chooseTreeSelectionAfterDelete(selectionSnapshot);
     state.activePane = "tree";
-    // Never jump to the parent, root, or another branch after deleting from the
-    // Library tree.  Only select a same-parent sibling at the same depth; if no
-    // sibling exists, leave the Library selection empty so repeated Delete/
-    // Backspace cannot climb the tree and remove the wrong folder.
-    state.folderId = nextFolderId || null;
-    state.selectedId = nextFolderId || null;
-    if (state.folderId && nodes.has(state.folderId)) ensureExpandedPath(state.folderId);
+    state.treeSelectedId = nextTreeId || null;
+
+    if (LibraryFullView && !isFolder(item)) {
+      // Bookmark deletion must not navigate the Library to a sibling bookmark.
+      state.selectedId = nextTreeId || null;
+      if (!state.folderId || !nodes.has(state.folderId)) {
+        state.folderId = nodes.has(selectionSnapshot?.parentId) ? selectionSnapshot.parentId : defaultFolderId();
+      }
+    } else {
+      // Preserve normal Library behavior for folder deletion.
+      state.folderId = nextTreeId || null;
+      state.selectedId = nextTreeId || null;
+      if (state.folderId && nodes.has(state.folderId)) ensureExpandedPath(state.folderId);
+    }
   } else {
     state.activePane = "details";
     state.selectedId = null;
@@ -2188,6 +2306,7 @@ function validDrop(dragged, target, intent, context) {
   }
 
   if (context === "list" && !canReorderList()) return false;
+  if (context === "tree" && LibraryFullView && state.search.trim()) return false;
   if (!isReorderable(dragged) || !isReorderable(target)) return false;
   if (isFolder(dragged) && isDescendantOf(target, dragged)) return false;
   return !!target.parentId && target.parentId !== "0";
@@ -2211,10 +2330,10 @@ function normalizeMoveIndex(parentId, requestedIndex) {
 }
 
 /** Move one bookmark node above, into, or below a target node. */
-async function moveWithIntent(draggedId, targetId, intent) {
+async function moveWithIntent(draggedId, targetId, intent, context = "any") {
   const dragged = nodes.get(draggedId);
   const target = nodes.get(targetId);
-  if (!validDrop(dragged, target, intent, "any")) return;
+  if (!validDrop(dragged, target, intent, context)) return;
 
   if (intent === "into") {
     const previousFolderId = state.folderId && nodes.has(state.folderId) ? state.folderId : null;
@@ -2227,6 +2346,8 @@ async function moveWithIntent(draggedId, targetId, intent) {
     // is unavailable after refresh, loadTree() falls back to the root folder.
     state.folderId = previousFolderId || target.id || null;
     state.selectedId = dragged.id;
+    state.activePane = context === "tree" ? "tree" : "list";
+    if (context === "tree") state.treeSelectedId = dragged.id;
     state.expandedFolders.add(target.id);
     if (isFolder(dragged)) ensureExpandedPath(dragged.id);
     await loadTree();
@@ -2240,6 +2361,8 @@ async function moveWithIntent(draggedId, targetId, intent) {
   if (!moveDetails) return;
   await tryBookmarkMutation(t("mutationDragDropMove"), "move", dragged.id, moveDetails);
   state.selectedId = dragged.id;
+  state.activePane = context === "tree" ? "tree" : "list";
+  if (context === "tree") state.treeSelectedId = dragged.id;
   if (isFolder(dragged)) ensureExpandedPath(dragged.id);
   await loadTree();
 }
@@ -2256,7 +2379,7 @@ function draggableIdsForPane(ids, pane) {
   const ordered = topLevelIds(orderedIdsForPane(ids || [], pane));
   return ordered.filter((id) => {
     const item = nodes.get(id);
-    return pane === "tree" ? canDragTreeFolder(item) : canDragListItem(item);
+    return pane === "tree" ? canDragTreeItem(item) : canDragListItem(item);
   });
 }
 
@@ -2289,8 +2412,8 @@ function canMoveSelectedListItemsToTarget(target, intent, context, ids = null) {
   return context === "tree";
 }
 
-/** Return whether selected Library folders can move to a target folder safely. */
-function canMoveSelectedTreeFoldersToTarget(target, intent, context, ids = null) {
+/** Return whether selected Library rows can move to a target safely. */
+function canMoveSelectedTreeItemsToTarget(target, intent, context, ids = null) {
   const sourceIds = ids || (isMultiSelectActive("tree") ? [...state.multiSelect.ids] : []);
   const selectedIds = draggableIdsForPane(sourceIds, "tree");
   if (context !== "tree" || !selectedIds.length || !target) return false;
@@ -2299,11 +2422,12 @@ function canMoveSelectedTreeFoldersToTarget(target, intent, context, ids = null)
 
   for (const id of selectedIds) {
     const item = nodes.get(id);
-    if (!canDragTreeFolder(item)) return false;
+    if (!canDragTreeItem(item)) return false;
     if (isDescendantOf(target, item)) return false;
   }
 
   if (intent === "into") return canContainChildren(target);
+  if (LibraryFullView && state.search.trim()) return false;
   return isReorderable(target) && !!target.parentId && target.parentId !== "0";
 }
 
@@ -2374,11 +2498,11 @@ async function moveSelectedListItems(targetId, intent, context = "list", ids = n
   await loadTree();
 }
 
-/** Move all selected Library folders while preserving relative order. */
-async function moveSelectedTreeFolders(targetId, intent, context = "tree", ids = null) {
+/** Move all selected Library rows while preserving relative order. */
+async function moveSelectedTreeItems(targetId, intent, context = "tree", ids = null) {
   const target = nodes.get(targetId);
   const selectedIds = draggableIdsForPane(ids || (isMultiSelectActive("tree") ? [...state.multiSelect.ids] : []), "tree");
-  if (!selectedIds.length || !canMoveSelectedTreeFoldersToTarget(target, intent, context, selectedIds)) return;
+  if (!selectedIds.length || !canMoveSelectedTreeItemsToTarget(target, intent, context, selectedIds)) return;
 
   let lastId = null;
   state.suppressBookmarkEvents = true;
@@ -2386,7 +2510,7 @@ async function moveSelectedTreeFolders(targetId, intent, context = "tree", ids =
     if (intent === "into") {
       for (const id of selectedIds) {
         const item = nodes.get(id);
-        if (!canDragTreeFolder(item) || isDescendantOf(target, item)) continue;
+        if (!canDragTreeItem(item) || isDescendantOf(target, item)) continue;
         const moveDetails = safeMoveDetails(target.id);
         if (!moveDetails) continue;
         await tryBookmarkMutation(t("mutationMoveSelectedItem"), "move", item.id, moveDetails);
@@ -2403,7 +2527,7 @@ async function moveSelectedTreeFolders(targetId, intent, context = "tree", ids =
 
       for (let i = 0; i < selectedIds.length; i += 1) {
         const item = nodes.get(selectedIds[i]);
-        if (!canDragTreeFolder(item)) continue;
+        if (!canDragTreeItem(item)) continue;
         const moveDetails = safeMoveDetails(target.parentId, insertIndex + i);
         if (!moveDetails) continue;
         await tryBookmarkMutation(t("mutationMoveSelectedItem"), "move", item.id, moveDetails);
@@ -2434,7 +2558,7 @@ function currentDragIntent(event, row, target, context) {
 function canMoveCurrentDragToTarget(target, intent, context) {
   if (!(state.drag?.multi)) return false;
   if (state.drag.source === "list") return canMoveSelectedListItemsToTarget(target, intent, context, state.drag.ids || []);
-  if (state.drag.source === "tree") return canMoveSelectedTreeFoldersToTarget(target, intent, context, state.drag.ids || []);
+  if (state.drag.source === "tree") return canMoveSelectedTreeItemsToTarget(target, intent, context, state.drag.ids || []);
   return false;
 }
 
@@ -2443,7 +2567,7 @@ async function moveCurrentDragToTarget(targetId, intent, context) {
   const drag = state.drag;
   state.drag = null;
   if (drag?.source === "list") return await moveSelectedListItems(targetId, intent, context, drag.ids || []);
-  if (drag?.source === "tree") return await moveSelectedTreeFolders(targetId, intent, context, drag.ids || []);
+  if (drag?.source === "tree") return await moveSelectedTreeItems(targetId, intent, context, drag.ids || []);
 }
 
 /** Attach drag-over/drop handlers to a rendered row. */
@@ -2487,7 +2611,7 @@ function attachDropTarget(row, target, context) {
       } else {
         const draggedId = state.drag?.id || e.dataTransfer.getData("text/plain");
         state.drag = null;
-        await moveWithIntent(draggedId, target.id, intent);
+        await moveWithIntent(draggedId, target.id, intent, context);
       }
     } catch (err) {
       console.error(err);
@@ -2958,7 +3082,7 @@ function buildBookmarkMenu(context) {
   const showContainingFolderAction = canOpenContainingFolderContext(context, bookmark);
 
   const items = [
-    makeMenuItem(t("edit"), () => editBookmark(bookmark), { disabled: !isMutable(bookmark) }),
+    makeMenuItem(t("edit"), () => editBookmark(bookmark, { sourcePane: context.pane }), { disabled: !isMutable(bookmark) }),
     makeMenuItem(t("delete"), (context) => deleteNode(bookmark, context?.pane || "list"), { disabled: !isMutable(bookmark) }),
     makeSeparator(),
     makeMenuItem(t("cut"), () => cutNode(bookmark), { disabled: !isMutable(bookmark) }),
@@ -3087,10 +3211,145 @@ function showContextMenu(e) {
 // Rendering
 // ---------------------------------------------------------------------------
 
-/** Render one visible Library tree row. */
-function renderFolderTreeNode(folder, depth = 0, cutIds = Optimisation_DOMrendering ? clipboardCutIdSet() : null) {
-  const children = childFolders(folder);
-  const isExpanded = state.expandedFolders.has(folder.id);
+/** Attach Library-tree drag state to a mutable folder, bookmark, or separator row. */
+function attachTreeDragSource(row, item) {
+  if (!canDragTreeItem(item)) return;
+
+  row.draggable = true;
+  row.title = isFolder(item) ? t("dragFolderTitle") : t("dragItemTitle");
+  row.ondragstart = (e) => {
+    const multi = isMultiSelectActive("tree") && state.multiSelect.ids.has(item.id);
+    state.drag = multi ? { ids: [...state.multiSelect.ids], source: "tree", multi: true } : { id: item.id, source: "tree" };
+    e.dataTransfer.effectAllowed = "move";
+    e.dataTransfer.setData("text/plain", item.id);
+    row.classList.add("dragging");
+  };
+  row.ondragend = () => {
+    state.drag = null;
+    clearDropIndicators();
+  };
+}
+
+/** Toggle direct bookmark rows for one folder in LibraryFullView. */
+function toggleTreeBookmarks(folder) {
+  if (!LibraryFullView || !folder?.id) return;
+  if (state.showTreeBookmarks.has(folder.id)) state.showTreeBookmarks.delete(folder.id);
+  else state.showTreeBookmarks.add(folder.id);
+  renderRoots();
+
+  requestAnimationFrame(() => {
+    const selector = `.show-treebookmarks[data-folder-id="${CSS.escape(folder.id)}"]`;
+    document.querySelector(selector)?.focus?.({ preventScroll: true });
+  });
+}
+
+/** Create the per-folder eye toggle used only by LibraryFullView. */
+function makeTreeBookmarksToggle(folder) {
+  const showBookmarks = state.showTreeBookmarks.has(folder.id);
+  const button = document.createElement("button");
+  button.className = "show-treebookmarks";
+  button.type = "button";
+  button.dataset.folderId = folder.id;
+  button.setAttribute("aria-pressed", String(showBookmarks));
+  button.title = showBookmarks ? t("hideTreeBookmarksTitle") : t("showTreeBookmarksTitle");
+  button.setAttribute("aria-label", button.title);
+  button.disabled = Boolean(state.search.trim());
+  button.draggable = false;
+  button.ondragstart = (e) => e.preventDefault();
+
+  const icon = document.createElement("img");
+  icon.className = "show-treebookmarks-icon";
+  icon.src = extensionIconPath(showBookmarks ? "EyeOpen.png" : "EyeClosed.png");
+  icon.alt = "";
+  icon.width = 12;
+  icon.height = 12;
+  icon.draggable = false;
+  button.append(icon);
+
+  button.onclick = (e) => {
+    e.preventDefault();
+    e.stopPropagation();
+    toggleTreeBookmarks(folder);
+  };
+  button.ondblclick = (e) => {
+    e.preventDefault();
+    e.stopPropagation();
+  };
+  return button;
+}
+
+/** Render one bookmark or separator inside the LibraryFullView tree. */
+function renderBookmarkTreeNode(item, depth, cutIds) {
+  const container = document.createElement("div");
+  container.className = "tree-node tree-bookmark-node";
+
+  const row = document.createElement("div");
+  row.className = "tree-row tree-bookmark-row";
+  row.dataset.id = item.id;
+  row.style.setProperty("--depth", depth);
+  row.setAttribute("role", "treeitem");
+  const selected = isMultiSelectActive("tree")
+    ? state.multiSelect.ids.has(item.id)
+    : item.id === state.treeSelectedId;
+  row.setAttribute("aria-selected", String(selected));
+  applySelectionState(row, selected, state.activePane === "tree");
+
+  const isCut = Optimisation_DOMrendering
+    ? cutIds?.has(item.id)
+    : state.clipboard?.mode === "cut" && clipboardItems().some((entry) => entry.id === item.id);
+  if (isCut) row.classList.add("clipboard-cut");
+
+  attachTreeDragSource(row, item);
+  attachDropTarget(row, item, "tree");
+
+  const twistySpacer = document.createElement("span");
+  twistySpacer.className = "twisty-spacer";
+  twistySpacer.setAttribute("aria-hidden", "true");
+
+  const toggleSpacer = document.createElement("span");
+  toggleSpacer.className = "show-treebookmarks-spacer";
+  toggleSpacer.setAttribute("aria-hidden", "true");
+
+  const label = document.createElement("button");
+  label.className = "tree-label tree-bookmark-label";
+  label.type = "button";
+  label.onclick = (e) => handlePaneClick(e, "tree", item);
+  label.onauxclick = (e) => handleListAuxClick(e, item, "tree");
+  label.ondblclick = () => openOrNavigate(item);
+
+  if (isSeparator(item)) {
+    label.title = t("separator");
+    label.setAttribute("aria-label", t("separator"));
+    const line = document.createElement("hr");
+    line.className = "tree-separator-line";
+    line.setAttribute("aria-hidden", "true");
+    label.append(line);
+  } else {
+    label.title = item.url || item.title || "";
+    const content = document.createElement("span");
+    content.className = "tree-label-content";
+    const text = document.createElement("span");
+    text.className = "tree-label-text";
+    text.textContent = item.title || item.url || t("bookmarkFallback");
+    content.append(makeIcon(bookmarkFaviconUrl(item.url, 16), t("bookmarkAlt")), text);
+    label.append(content);
+  }
+
+  row.append(twistySpacer, toggleSpacer, label);
+  container.append(row);
+  return container;
+}
+
+/** Render one visible Library folder row and its expanded descendants. */
+function renderFolderTreeNode(
+  folder,
+  depth = 0,
+  cutIds = Optimisation_DOMrendering ? clipboardCutIdSet() : null,
+  searchVisibleIds = null
+) {
+  const expandableChildren = expandableLibraryChildren(folder, searchVisibleIds);
+  const renderedChildren = libraryTreeChildren(folder, searchVisibleIds);
+  const isExpanded = Boolean(searchVisibleIds) || state.expandedFolders.has(folder.id);
   const container = document.createElement("div");
   container.className = "tree-node";
 
@@ -3106,39 +3365,24 @@ function renderFolderTreeNode(folder, depth = 0, cutIds = Optimisation_DOMrender
     ? cutIds?.has(folder.id)
     : state.clipboard?.mode === "cut" && clipboardItems().some((entry) => entry.id === folder.id);
   if (isCut) row.classList.add("clipboard-cut");
-  if (children.length) row.setAttribute("aria-expanded", String(isExpanded));
+  if (expandableChildren.length) row.setAttribute("aria-expanded", String(isExpanded));
 
-  if (canDragTreeFolder(folder)) {
-    row.draggable = true;
-    row.title = t("dragFolderTitle");
-    row.ondragstart = (e) => {
-      const multi = isMultiSelectActive("tree") && state.multiSelect.ids.has(folder.id);
-      state.drag = multi ? { ids: [...state.multiSelect.ids], source: "tree", multi: true } : { id: folder.id, source: "tree" };
-      e.dataTransfer.effectAllowed = "move";
-      e.dataTransfer.setData("text/plain", folder.id);
-      row.classList.add("dragging");
-    };
-    row.ondragend = () => {
-      state.drag = null;
-      clearDropIndicators();
-    };
-  }
-
+  attachTreeDragSource(row, folder);
   attachDropTarget(row, folder, "tree");
 
   const twisty = document.createElement("button");
   twisty.className = "twisty";
   twisty.type = "button";
-  twisty.disabled = children.length === 0;
-  twisty.textContent = children.length ? (isExpanded ? "▾" : "▸") : "";
-  twisty.title = isExpanded ? t("collapseFolderTitle") : t("expandFolderTitle");
+  twisty.disabled = Boolean(searchVisibleIds) || expandableChildren.length === 0;
+  twisty.textContent = expandableChildren.length ? (isExpanded ? "▾" : "▸") : "";
+  twisty.title = searchVisibleIds ? "" : (isExpanded ? t("collapseFolderTitle") : t("expandFolderTitle"));
   twisty.onclick = async (e) => {
     e.stopPropagation();
-    await toggleTreeFolderFromClick(folder);
+    if (!searchVisibleIds) await toggleTreeFolderFromClick(folder);
   };
 
   const toggleFolderOnDoubleClick = async (e) => {
-    if (!children.length) return;
+    if (searchVisibleIds || !expandableChildren.length) return;
     e.preventDefault();
     e.stopPropagation();
     await toggleTreeFolderFromClick(folder);
@@ -3148,7 +3392,7 @@ function renderFolderTreeNode(folder, depth = 0, cutIds = Optimisation_DOMrender
   label.className = "tree-label";
   label.type = "button";
   label.setAttribute("aria-current", String(folder.id === state.folderId));
-  label.title = children.length ? t("doubleClickExpandCollapseTitle") : "";
+  label.title = expandableChildren.length ? t("doubleClickExpandCollapseTitle") : "";
   label.onclick = (e) => handlePaneClick(e, "tree", folder);
   label.ondblclick = toggleFolderOnDoubleClick;
   row.ondblclick = toggleFolderOnDoubleClick;
@@ -3161,14 +3405,17 @@ function renderFolderTreeNode(folder, depth = 0, cutIds = Optimisation_DOMrender
   labelContent.append(makeIcon(extensionIconPath("folder-16.png"), t("folderAlt")), labelText);
   label.append(labelContent);
 
-  row.append(twisty, label);
+  if (LibraryFullView) row.append(twisty, makeTreeBookmarksToggle(folder), label);
+  else row.append(twisty, label);
   container.append(row);
 
-  if (children.length && isExpanded) {
+  if (renderedChildren.length && isExpanded) {
     const group = document.createElement("div");
     group.className = "tree-children";
     group.setAttribute("role", "group");
-    const childRows = children.map((child) => renderFolderTreeNode(child, depth + 1, cutIds));
+    const childRows = renderedChildren.map((child) => isFolder(child)
+      ? renderFolderTreeNode(child, depth + 1, cutIds, searchVisibleIds)
+      : renderBookmarkTreeNode(child, depth + 1, cutIds));
     if (Optimisation_DOMrendering) replaceChildrenWithFragment(group, childRows);
     else group.append(...childRows);
     container.append(group);
@@ -3182,9 +3429,13 @@ function renderRoots() {
   ensureExpandedPath(state.folderId);
   const roots = $("roots");
   const cutIds = Optimisation_DOMrendering ? clipboardCutIdSet() : null;
+  const searchVisibleIds = librarySearchVisibleIds();
   roots.setAttribute("role", "tree");
   roots.tabIndex = 0;
-  const rows = rootFolders().map((folder) => renderFolderTreeNode(folder, 0, cutIds));
+  const visibleRoots = searchVisibleIds
+    ? rootFolders().filter((folder) => searchVisibleIds.has(folder.id))
+    : rootFolders();
+  const rows = visibleRoots.map((folder) => renderFolderTreeNode(folder, 0, cutIds, searchVisibleIds));
   if (Optimisation_DOMrendering) replaceChildrenWithFragment(roots, rows);
   else roots.replaceChildren(...rows);
 }
@@ -3811,13 +4062,15 @@ function toggleDetailsPane() {
   renderDetails();
 }
 
-/** Render all major panes. */
+/** Render all visible major panes for the active layout. */
 function render() {
   renderRoots();
-  renderCrumbs();
-  renderList();
-  renderColumnHeaders();
-  renderDetails();
+  if (!LibraryFullView) {
+    renderCrumbs();
+    renderList();
+    renderColumnHeaders();
+    renderDetails();
+  }
   renderNavButtons();
 }
 
@@ -3869,26 +4122,26 @@ async function select(id, activePane = "list") {
   performSelect(id, activePane);
 }
 
-/** Return row IDs that a middle-click should open from the middle pane. */
-function middleClickBookmarkOpenIds(item) {
+/** Return row IDs that a middle-click should open from the requested pane. */
+function middleClickBookmarkOpenIds(item, pane = "list") {
   if (!item?.id) return [];
-  if (state.multiSelect.pane === "list" && state.multiSelect.ids.has(item.id)) {
-    return orderedIdsForPane([...state.multiSelect.ids], "list");
+  if (state.multiSelect.pane === pane && state.multiSelect.ids.has(item.id)) {
+    return orderedIdsForPane([...state.multiSelect.ids], pane);
   }
   return [item.id];
 }
 
 /**
- * Open direct bookmark URLs on middle-click in the middle pane.  Folders and
+ * Open direct bookmark URLs on middle-click in a bookmark row. Folders and
  * separators are ignored so the gesture matches normal bookmark-list behavior.
  */
-function handleListAuxClick(e, item) {
+function handleListAuxClick(e, item, pane = "list") {
   if (e.button !== 1) return;
   e.preventDefault();
   e.stopPropagation();
 
   if (!item || isFolder(item) || isSeparator(item) || !item.url) return;
-  const urls = directBookmarkUrlsForIds(middleClickBookmarkOpenIds(item));
+  const urls = directBookmarkUrlsForIds(middleClickBookmarkOpenIds(item, pane));
   if (urls.length) openUrlsInCurrentWindow(urls);
 }
 
@@ -4059,30 +4312,51 @@ function focusActivePane() {
 /** Scroll the focused selection into view after keyboard navigation. */
 function scrollActiveSelectionIntoView() {
   const selector = state.activePane === "tree"
-    ? `.tree-row[data-id="${CSS.escape(state.folderId || "")}"]`
+    ? `.tree-row[data-id="${CSS.escape(paneSelectionId("tree") || "")}"]`
     : `.item[data-id="${CSS.escape(state.selectedId || "")}"]`;
   const element = document.querySelector(selector);
   element?.scrollIntoView?.({ block: "nearest", inline: "nearest" });
 }
 
+/** Activate a visible Library row using folder navigation or bookmark selection. */
+async function activateTreeItem(item) {
+  if (!item) return false;
+  if (isFolder(item)) await navigate(item.id, true, "tree");
+  else await select(item.id, "tree");
+  return true;
+}
+
 /** Handle Library tree left/right arrow behavior. */
 async function handleTreeHorizontalNavigation(direction) {
   if (state.activePane !== "tree") return false;
-  const folder = nodes.get(paneSelectionId("tree"));
-  if (!folder) return false;
-  const children = childFolders(folder);
+  const item = nodes.get(paneSelectionId("tree"));
+  if (!item) return false;
+
+  if (!isFolder(item)) {
+    if (direction !== "left") return false;
+    const parent = item.parentNode;
+    if (!parent || parent.id === "0") return false;
+    await navigate(parent.id, true, "tree");
+    focusActivePane();
+    scrollActiveSelectionIntoView();
+    return true;
+  }
+
+  const searchVisibleIds = librarySearchVisibleIds();
+  const expandableChildren = expandableLibraryChildren(item, searchVisibleIds);
+  const visibleChildren = libraryTreeChildren(item, searchVisibleIds);
 
   if (direction === "left") {
-    if (children.length && state.expandedFolders.has(folder.id)) {
-      state.expandedFolders.delete(folder.id);
+    if (!searchVisibleIds && expandableChildren.length && state.expandedFolders.has(item.id)) {
+      state.expandedFolders.delete(item.id);
       renderRoots();
       focusActivePane();
       scrollActiveSelectionIntoView();
       return true;
     }
 
-    if (folder.parentNode && folder.parentNode.id !== "0") {
-      await navigate(folder.parentNode.id, true, "tree");
+    if (item.parentNode && item.parentNode.id !== "0") {
+      await navigate(item.parentNode.id, true, "tree");
       focusActivePane();
       scrollActiveSelectionIntoView();
       return true;
@@ -4091,16 +4365,18 @@ async function handleTreeHorizontalNavigation(direction) {
   }
 
   if (direction === "right") {
-    if (!children.length) return false;
-    if (!state.expandedFolders.has(folder.id)) {
-      state.expandedFolders.add(folder.id);
+    if (!expandableChildren.length) return false;
+    if (!searchVisibleIds && !state.expandedFolders.has(item.id)) {
+      state.expandedFolders.add(item.id);
       renderRoots();
       focusActivePane();
       scrollActiveSelectionIntoView();
       return true;
     }
 
-    await navigate(children[0].id, true, "tree");
+    const firstChild = visibleChildren[0];
+    if (!firstChild) return false;
+    await activateTreeItem(firstChild);
     focusActivePane();
     scrollActiveSelectionIntoView();
     return true;
@@ -4109,14 +4385,15 @@ async function handleTreeHorizontalNavigation(direction) {
   return false;
 }
 
-/** Return visible folders under a root, respecting expanded/collapsed state. */
-function visibleTreeFoldersForRoot(rootFolder) {
+/** Return visible Library rows under one root in their rendered order. */
+function visibleTreeItemsForRoot(rootFolder) {
   const out = [];
-  const maps = tempBookmarkTreeMaps();
   const visit = (folder) => {
     out.push(folder);
-    if (state.expandedFolders.has(folder.id)) {
-      for (const child of childFolders(folder, maps)) visit(child);
+    if (!state.expandedFolders.has(folder.id)) return;
+    for (const child of libraryTreeChildren(folder)) {
+      if (isFolder(child)) visit(child);
+      else out.push(child);
     }
   };
   if (rootFolder) visit(rootFolder);
@@ -4139,10 +4416,10 @@ async function moveTreeSelectionToBoundary(position) {
 
   const current = nodes.get(paneSelectionId("tree"));
   if (!current) {
-    const folders = visibleTreeFolders();
-    const next = position === "end" ? folders[folders.length - 1] : folders[0];
+    const items = visibleTreeItems();
+    const next = position === "end" ? items[items.length - 1] : items[0];
     if (!next) return false;
-    await navigate(next.id, true, "tree");
+    await activateTreeItem(next);
     focusActivePane();
     scrollActiveSelectionIntoView();
     return true;
@@ -4160,19 +4437,19 @@ async function moveTreeSelectionToBoundary(position) {
       next = currentRoot;
     }
   } else {
-    const currentRootVisible = visibleTreeFoldersForRoot(currentRoot);
+    const currentRootVisible = visibleTreeItemsForRoot(currentRoot);
     const currentRootLast = currentRootVisible[currentRootVisible.length - 1] || null;
     if (currentRootLast && current.id !== currentRootLast.id) {
       next = currentRootLast;
     } else {
       const nextRoot = roots[currentRootIndex + 1] || null;
-      const nextRootVisible = visibleTreeFoldersForRoot(nextRoot);
+      const nextRootVisible = visibleTreeItemsForRoot(nextRoot);
       next = nextRootVisible[nextRootVisible.length - 1] || nextRoot;
     }
   }
 
   if (!next || next.id === paneSelectionId("tree")) return false;
-  await navigate(next.id, true, "tree");
+  await activateTreeItem(next);
   focusActivePane();
   scrollActiveSelectionIntoView();
   return true;
@@ -4221,16 +4498,16 @@ function focusSearchField() {
   search.select?.();
 }
 
-/** Move Library tree selection by one visible folder. */
+/** Move Library tree selection by one visible row. */
 async function moveTreeSelection(delta) {
-  const folders = visibleTreeFolders();
-  if (!folders.length) return false;
-  let currentIndex = folders.findIndex((folder) => folder.id === paneSelectionId("tree"));
-  if (currentIndex < 0) currentIndex = delta > 0 ? -1 : folders.length;
-  const nextIndex = Math.max(0, Math.min(folders.length - 1, currentIndex + delta));
-  const next = folders[nextIndex];
+  const items = visibleTreeItems();
+  if (!items.length) return false;
+  let currentIndex = items.findIndex((item) => item.id === paneSelectionId("tree"));
+  if (currentIndex < 0) currentIndex = delta > 0 ? -1 : items.length;
+  const nextIndex = Math.max(0, Math.min(items.length - 1, currentIndex + delta));
+  const next = items[nextIndex];
   if (!next || next.id === paneSelectionId("tree")) return false;
-  await navigate(next.id, true, "tree");
+  await activateTreeItem(next);
   focusActivePane();
   scrollActiveSelectionIntoView();
   return true;
@@ -4263,16 +4540,17 @@ async function editSelectedItemWithKeyboard() {
     return true;
   }
   if (isSeparator(item) || !item.url) return false;
-  await editBookmark(item, { initialFocus: "title" });
+  await editBookmark(item, { initialFocus: "title", sourcePane: state.activePane });
   return true;
 }
 
 /** Open or navigate the current keyboard selection. */
 async function openKeyboardSelection() {
   if (state.activePane === "tree") {
-    const folder = nodes.get(paneSelectionId("tree"));
-    if (!folder) return false;
-    await navigate(folder.id, true, "tree");
+    const item = nodes.get(paneSelectionId("tree"));
+    if (!item) return false;
+    if (isFolder(item)) await navigate(item.id, true, "tree");
+    else openOrNavigate(item);
     focusActivePane();
     return true;
   }
@@ -4372,7 +4650,8 @@ $("back").onclick = goBack;
 $("forward").onclick = goForward;
 $("search").oninput = (e) => {
   state.search = e.target.value;
-  renderList();
+  if (LibraryFullView) renderRoots();
+  else renderList();
 };
 
 $("search-limit").checked = SearchLimitToFolderAndSub;
@@ -4510,7 +4789,11 @@ window.addEventListener("click", (e) => {
   if (!e.target.closest?.(".context-menu")) hideContextMenu();
   if (!e.target.closest?.(".app-menu") && !e.target.closest?.("#app-menu-button")) hideAppMenu();
 });
-window.addEventListener("resize", () => { hideContextMenu(); hideAppMenu(); });
+window.addEventListener("resize", () => {
+  hideContextMenu();
+  hideAppMenu();
+  if (updateLibraryFullView() && state.tree) render();
+});
 window.addEventListener("pagehide", () => { clearManagerInstanceIfCurrent(); });
 window.addEventListener("scroll", () => { hideContextMenu(); hideAppMenu(); }, true);
 window.addEventListener("keydown", async (e) => {

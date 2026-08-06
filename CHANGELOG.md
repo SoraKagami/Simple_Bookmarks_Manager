@@ -1,5 +1,14 @@
 # Changelog
 
+## 0.9.3
+
+- Added a responsive Sidebar Mode layout that reuses `manager.html` and shows only the Library pane at narrow widths.
+- Added the runtime `LibraryFullView` layout state, which automatically disables and resets its per-folder controls when Sidebar Mode is inactive.
+- Added independent per-folder eye toggles for showing direct bookmarks in Chromium bookmark order.
+- Added LibraryFullView bookmark selection, context-menu actions, keyboard handling, and drag-and-drop support.
+- Added horizontal scrolling and compact Sidebar Mode toolbar controls.
+- Updated Sidebar Mode search to filter matching Library rows while preserving their folder hierarchy.
+
 ## 0.9.2
 
 - Documented the required `sidePanel` permission in README.md.

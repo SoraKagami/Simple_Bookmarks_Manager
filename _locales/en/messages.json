@@ -1189,5 +1189,11 @@
   },
   "sidebarModeHelp": {
     "message": "When enabled, SBM opens in the browser's Sidebar instead of a tab (Chromium sidebar support required)."
+  },
+  "showTreeBookmarksTitle": {
+    "message": "Show bookmarks in this folder"
+  },
+  "hideTreeBookmarksTitle": {
+    "message": "Hide bookmarks in this folder"
   }
 }
