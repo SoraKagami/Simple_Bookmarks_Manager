@@ -530,6 +530,9 @@
   "helpOptionFontSpacingDescription": {
     "message": ": adjust the line spacing used by labels and rows."
   },
+  "helpOptionSidebarModeDescription": {
+    "message": ": open SBM in the browser's side panel instead of a tab. Chromium side-panel support is required."
+  },
   "helpOptionLimitSearchDescription": {
     "message": "changes the main search box from searching all bookmarks to searching only within the current folder tree."
   },
@@ -1185,6 +1188,6 @@
     "message": "Sidebar Mode"
   },
   "sidebarModeHelp": {
-    "message": "When enabled, SBM opens in the browser's Sidebar instead of a tab (Chromium sidebar support required). Requires Chromium's sidePanel extension permission, which is included with SBM."
+    "message": "When enabled, SBM opens in the browser's Sidebar instead of a tab (Chromium sidebar support required)."
   }
 }

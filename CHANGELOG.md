@@ -1,5 +1,12 @@
 # Changelog
 
+## 0.9.2
+
+- Documented the required `sidePanel` permission in README.md.
+- Simplified the Sidebar Mode description now that the permission is included with SBM.
+- Left-aligned the Sidebar Mode checkbox with the controls column used by the dropdown menus.
+- Added Sidebar Mode guidance to the Help page's User Interface section.
+
 ## 0.9.1
 
 - Changed `sidePanel` from an optional permission to a required manifest permission because runtime optional granting is not reliable across supported Chromium-based browsers.

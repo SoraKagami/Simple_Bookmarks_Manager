@@ -94,6 +94,7 @@ Once the Extensions page is open:
 - **Bookmarks**: Required to read, modify and write bookmarks
 - **Favicon**: Required to display the bookmark icons
 - **Storage**: Required to store extension settings
+- **SidePanel**: Required for the optional `SideBar Mode`
 
 ### Privacy
 
