@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.9.1
+
+- Changed `sidePanel` from an optional permission to a required manifest permission because runtime optional granting is not reliable across supported Chromium-based browsers.
+- Removed the Sidebar Mode runtime permission request, permission check, and permission-removal handling.
+- Updated the Sidebar Mode description while preserving its default-disabled state and existing tab-mode fallback.
+
 ## 0.9.0
 
 - Added the `SidebarMode` User Interface option, disabled by default and aligned with the existing right-side controls.

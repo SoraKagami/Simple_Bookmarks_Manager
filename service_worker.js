@@ -2,7 +2,6 @@ const MANAGER_PAGE = "manager.html";
 const MANAGER_URL = chrome.runtime.getURL(MANAGER_PAGE);
 const MANAGER_TAB_IDS_KEY = "managerTabIds";
 const LEGACY_MANAGER_TAB_ID_KEY = "managerTabId";
-const SIDE_PANEL_PERMISSION = "sidePanel";
 
 /** Normalize storage values that are expected to be booleans. */
 function asBoolean(value, fallback = false) {
@@ -78,11 +77,6 @@ async function focusKnownManagerTab() {
   return false;
 }
 
-/** Return whether the optional sidePanel permission is currently granted. */
-async function hasSidePanelPermission() {
-  return chrome.permissions.contains({ permissions: [SIDE_PANEL_PERMISSION] });
-}
-
 /** Apply the persisted Sidebar Mode behavior to Chromium's extension action. */
 async function configureSidebarMode(enabled) {
   if (!chrome.sidePanel) return false;
@@ -98,28 +92,20 @@ async function configureSidebarMode(enabled) {
 }
 
 /**
- * Reconcile Sidebar Mode with API availability and its optional permission.
- * Missing permission is never requested here because background execution has
- * no user gesture; Options owns the permission prompt.
+ * Reconcile Sidebar Mode with Chromium's Side Panel API availability.
+ * Unsupported browsers fall back to normal tab mode and reset the setting.
  */
 async function syncSidebarMode() {
   const { SidebarMode = false } = await chrome.storage.local.get({ SidebarMode: false });
   const enabled = asBoolean(SidebarMode, false);
 
-  if (!enabled) {
-    if (chrome.sidePanel && await hasSidePanelPermission()) {
-      await configureSidebarMode(false);
-    }
+  if (!chrome.sidePanel) {
+    if (enabled) await chrome.storage.local.set({ SidebarMode: false });
     return false;
   }
 
-  if (!chrome.sidePanel || !(await hasSidePanelPermission())) {
-    await chrome.storage.local.set({ SidebarMode: false });
-    return false;
-  }
-
-  await configureSidebarMode(true);
-  return true;
+  await configureSidebarMode(enabled);
+  return enabled;
 }
 
 chrome.action.onClicked.addListener(async () => {
@@ -149,11 +135,6 @@ chrome.storage.onChanged.addListener((changes, areaName) => {
   syncSidebarMode().catch(() => {
     chrome.storage.local.set({ SidebarMode: false });
   });
-});
-
-chrome.permissions.onRemoved.addListener((permissions) => {
-  if (!permissions.permissions?.includes(SIDE_PANEL_PERMISSION)) return;
-  chrome.storage.local.set({ SidebarMode: false });
 });
 
 chrome.runtime.onInstalled.addListener(() => {

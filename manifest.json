@@ -1,13 +1,14 @@
 {
   "manifest_version": 3,
   "name": "__MSG_appName__",
-  "version": "0.9.0",
+  "version": "0.9.1",
   "description": "__MSG_appDescription__",
   "minimum_chrome_version": "114",
   "permissions": [
     "bookmarks",
     "favicon",
-    "storage"
+    "storage",
+    "sidePanel"
   ],
   "action": {
     "default_title": "__MSG_appName__",
@@ -35,8 +36,5 @@
   "default_locale": "en",
   "content_security_policy": {
     "extension_pages": "script-src 'self'; object-src 'none'; frame-src 'self'; connect-src 'self'; img-src 'self' data:;"
-  },
-  "optional_permissions": [
-    "sidePanel"
-  ]
+  }
 }

@@ -13,7 +13,6 @@ import { applyThemePreference, installThemePreferenceListener } from "./theme.js
 installConsoleCapture("SBM Options");
 
 const api = chrome;
-const SIDE_PANEL_PERMISSION = "sidePanel";
 
 if (new URLSearchParams(location.search).has("embedded")) {
   document.body.classList.add("embedded");
@@ -207,22 +206,10 @@ function setControlState(settings) {
   setWarningsErrorsLogVisible(Boolean(settings.DebugOptions && settings.Show_ErrorsWarnings));
 }
 
-/** Disable a stale Sidebar Mode setting when its optional permission is missing. */
-async function reconcileSidebarModePermission(settings) {
-  if (!settings.SidebarMode) return settings;
-
-  const granted = await api.permissions.contains({ permissions: [SIDE_PANEL_PERMISSION] });
-  if (granted) return settings;
-
-  const correctedSettings = { ...settings, SidebarMode: false };
-  await api.storage.local.set({ SidebarMode: false });
-  return correctedSettings;
-}
-
 /** Load settings, language strings, and initial control state. */
 async function loadOptions() {
   const stored = await api.storage.local.get(Object.keys(DEFAULT_SETTINGS));
-  const settings = await reconcileSidebarModePermission({ ...DEFAULT_SETTINGS, ...stored });
+  const settings = { ...DEFAULT_SETTINGS, ...stored };
   await setI18nLanguage(settings.UserInterfaceLanguage);
   applyI18n(document);
   applyFontOptionStyles();
@@ -250,38 +237,6 @@ async function saveOption(key, value) {
   showStatus(t("optionSaved"));
 }
 
-/**
- * Save Sidebar Mode after requesting its optional permission from the toggle's
- * user gesture. permissions.request() returns true without prompting when the
- * permission is already granted.
- */
-async function saveSidebarModeOption(enabled) {
-  if (!enabled) {
-    await saveOption("SidebarMode", false);
-    return;
-  }
-
-  let granted = false;
-  try {
-    granted = await api.permissions.request({ permissions: [SIDE_PANEL_PERMISSION] });
-    if (granted) {
-      granted = await api.permissions.contains({ permissions: [SIDE_PANEL_PERMISSION] });
-    }
-  } catch {
-    granted = false;
-  }
-
-  if (!granted) {
-    await api.storage.local.set({ SidebarMode: false });
-    const settings = { ...DEFAULT_SETTINGS, ...(await api.storage.local.get(Object.keys(DEFAULT_SETTINGS))) };
-    setControlState(settings);
-    showStatus(t("sidebarModePermissionDenied"));
-    return;
-  }
-
-  await saveOption("SidebarMode", true);
-}
-
 applyFontOptionStyles();
 
 for (const key of Object.keys(DEFAULT_SETTINGS)) {
@@ -292,9 +247,7 @@ for (const key of Object.keys(DEFAULT_SETTINGS)) {
   });
   $(key).addEventListener("change", () => {
     const value = readControlValue(key);
-    const savePromise = key === "SidebarMode"
-      ? saveSidebarModeOption(value)
-      : saveOption(key, value);
+    const savePromise = saveOption(key, value);
     savePromise.catch((err) => {
       console.error(err);
       showStatus(t("saveFailed", { error: err.message || err }));
