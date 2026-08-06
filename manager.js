@@ -125,35 +125,6 @@ async function clearManagerInstanceIfCurrent() {
   }
 }
 
-/**
- * Close the active SBM manager tab after a non-tab manager instance opens in
- * Sidebar Mode. Matching against SBM's session registry prevents unrelated
- * active tabs from ever being closed.
- */
-async function closeActiveManagerTabForSidebar() {
-  if (!SidebarMode || document.visibilityState === "hidden") return;
-
-  try {
-    // Side-panel extension pages are not hosted in a browser tab.
-    const ownTab = await api.tabs.getCurrent();
-    if (ownTab?.id != null) return;
-
-    const { managerTabId, managerTabIds } = await api.storage.session.get(["managerTabId", "managerTabIds"]);
-    const knownManagerTabIds = new Set(
-      Array.isArray(managerTabIds) ? managerTabIds.filter(Number.isInteger) : []
-    );
-    if (Number.isInteger(managerTabId)) knownManagerTabIds.add(managerTabId);
-    if (!knownManagerTabIds.size) return;
-
-    const [activeTab] = await api.tabs.query({ active: true, lastFocusedWindow: true });
-    if (!Number.isInteger(activeTab?.id) || !knownManagerTabIds.has(activeTab.id)) return;
-
-    await api.tabs.remove(activeTab.id);
-  } catch {
-    // Best-effort handoff only: never block Sidebar Mode startup.
-  }
-}
-
 // ---------------------------------------------------------------------------
 // Settings and localization
 // ---------------------------------------------------------------------------
@@ -172,17 +143,33 @@ function applyUserInterfaceSettings() {
 
 const SIDEBAR_LAYOUT_MEDIA_QUERY = "(max-width: 900px)";
 
+/** Return whether Sidebar Mode is currently showing middle-pane search results. */
+function isSidebarSearchView() {
+  return LibraryFullView && isSearchResultsActive();
+}
+
+/** Reflect the active narrow Sidebar Mode pane into a root layout class. */
+function updateSidebarSearchView() {
+  const enabled = isSidebarSearchView();
+  document.documentElement.classList.toggle("sidebar-search-view", enabled);
+  return enabled;
+}
+
 /**
- * Enable the compact Library-only layout only when Sidebar Mode is enabled and
+ * Enable the compact responsive layout only when Sidebar Mode is enabled and
  * the manager viewport is narrow. Leaving the layout clears per-folder bookmark
  * visibility so the next sidebar session starts with every eye toggle closed.
  */
 function updateLibraryFullView() {
   const enabled = SidebarMode && window.matchMedia(SIDEBAR_LAYOUT_MEDIA_QUERY).matches;
-  if (enabled === LibraryFullView) return false;
+  if (enabled === LibraryFullView) {
+    updateSidebarSearchView();
+    return false;
+  }
 
   LibraryFullView = enabled;
   document.documentElement.classList.toggle("library-full-view", enabled);
+  updateSidebarSearchView();
   if (!enabled) {
     state.showTreeBookmarks.clear();
     if (state.multiSelect.pane === "tree") clearMultiSelect();
@@ -1195,9 +1182,9 @@ function descendantFolders(folder) {
 }
 
 /**
- * Return the IDs needed to display Sidebar Mode search results as a hierarchy.
- * Matching rows and their ancestors are included; eye-toggle state is left
- * untouched so clearing the search restores the previous LibraryFullView view.
+ * Return IDs for a defensive filtered Library render while sidebar search is
+ * active. The responsive layout normally presents these results in the middle
+ * pane, while preserving eye-toggle state for the restored Library view.
  */
 function librarySearchVisibleIds() {
   const needle = LibraryFullView ? state.search.trim().toLocaleLowerCase() : "";
@@ -3490,8 +3477,14 @@ function detailsToggleTooltip() {
 
 /** Render the breadcrumb path for the current folder. */
 function renderCrumbs() {
-  const path = [];
-  for (let n = nodes.get(state.folderId); n && n.id !== "0"; n = n.parentNode) path.unshift(n.title || t("rootFallback"));
+  const pathNodes = [];
+  for (let n = nodes.get(state.folderId); n && n.id !== "0"; n = n.parentNode) pathNodes.unshift(n);
+  // Use SBM's generic label for Chromium's default Bookmarks bar root only.
+  const defaultRootId = defaultFolderId();
+  const path = pathNodes.map((node, index) =>
+    index === 0 && node.id === defaultRootId
+      ? t("bookmarksPathFallback")
+      : (node.title || t("rootFallback")));
 
   const pathText = document.createElement("span");
   pathText.className = "path-text";
@@ -4107,12 +4100,18 @@ function toggleDetailsPane() {
 
 /** Render all visible major panes for the active layout. */
 function render() {
-  renderRoots();
+  const sidebarSearchView = updateSidebarSearchView();
+  if (!sidebarSearchView) renderRoots();
+
   if (!LibraryFullView) {
     renderCrumbs();
     renderList();
     renderColumnHeaders();
     renderDetails();
+  } else if (sidebarSearchView) {
+    renderCrumbs();
+    renderList();
+    renderColumnHeaders();
   }
   renderNavButtons();
 }
@@ -4692,9 +4691,25 @@ function setSortSelectTooltips() {
 $("back").onclick = goBack;
 $("forward").onclick = goForward;
 $("search").oninput = (e) => {
+  const wasSidebarSearchView = isSidebarSearchView();
   state.search = e.target.value;
-  if (LibraryFullView) renderRoots();
-  else renderList();
+  const sidebarSearchView = updateSidebarSearchView();
+  if (!LibraryFullView) {
+    renderList();
+    return;
+  }
+  if (sidebarSearchView) {
+    renderCrumbs();
+    renderList();
+    renderColumnHeaders();
+  } else {
+    if (wasSidebarSearchView) {
+      if (state.multiSelect.pane === "list") clearMultiSelect();
+      state.activePane = "tree";
+      state.selectedId = state.treeSelectedId || state.folderId;
+    }
+    renderRoots();
+  }
 };
 
 $("search-limit").checked = SearchLimitToFolderAndSub;
@@ -4838,9 +4853,6 @@ window.addEventListener("resize", () => {
   if (updateLibraryFullView() && state.tree) render();
 });
 window.addEventListener("pagehide", () => { clearManagerInstanceIfCurrent(); });
-document.addEventListener("visibilitychange", () => {
-  if (document.visibilityState === "visible") closeActiveManagerTabForSidebar();
-});
 window.addEventListener("scroll", () => { hideContextMenu(); hideAppMenu(); }, true);
 window.addEventListener("keydown", async (e) => {
   if (e.key === "Escape") {
@@ -4890,7 +4902,6 @@ for (const eventName of ["onCreated", "onRemoved", "onChanged", "onMoved", "onCh
 async function init() {
   await registerManagerInstance();
   await loadSettings();
-  await closeActiveManagerTabForSidebar();
   await loadTree({ renderNow: false });
   await applyInitialFolderPreference();
   render();

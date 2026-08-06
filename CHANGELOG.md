@@ -1,5 +1,12 @@
 # Changelog
 
+## 0.9.5
+
+- Removed the unreliable best-effort manager-tab closing behavior from Sidebar Mode.
+- Renamed the default middle-pane root label from `Bookmarks bar` to `Bookmarks`.
+- Changed narrow Sidebar Mode searches to show the middle bookmarks pane while text is entered, restoring the Library pane when search is cleared.
+- Hid the middle-pane breadcrumb label and Details toggle during Sidebar Mode search, with Visual sort controls aligned to the left.
+
 ## 0.9.4
 
 - Restored the original supplied `EyeOpen.png` and `EyeClosed.png` assets.
