@@ -1,5 +1,12 @@
 # Changelog
 
+## 0.9.0
+
+- Added the `SidebarMode` User Interface option, disabled by default and aligned with the existing right-side controls.
+- Added the optional `sidePanel` permission, requested only when Sidebar Mode is enabled.
+- Added permission-denial and permission-removal handling that restores `SidebarMode` to `false`.
+- Configured `manager.html` as the Chromium side-panel page and switched toolbar/action launches between the side panel and the existing tab behavior.
+
 ## 0.8.32
 
 Manual update: Added the public key to `manifest.json`.

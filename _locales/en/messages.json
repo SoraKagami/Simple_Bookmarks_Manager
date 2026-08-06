@@ -1180,5 +1180,14 @@
   },
   "closeDialog": {
     "message": "Close dialog"
+  },
+  "sidebarMode": {
+    "message": "Sidebar Mode"
+  },
+  "sidebarModeHelp": {
+    "message": "When enabled, SBM opens in the browser's Sidebar instead of a tab (Chromium sidebar support required). Additional Optional Extension Permission Required: sidePanel."
+  },
+  "sidebarModePermissionDenied": {
+    "message": "Sidebar Mode was disabled because the optional sidePanel permission was not granted."
   }
 }
