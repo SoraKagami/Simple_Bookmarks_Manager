@@ -1,5 +1,12 @@
 # Changelog
 
+## 0.9.4
+
+- Restored the original supplied `EyeOpen.png` and `EyeClosed.png` assets.
+- Changed Options to open in a focused browser tab while Sidebar Mode is enabled.
+- Added best-effort closing of the active SBM manager tab after the sidebar manager opens.
+- Preserved the embedded Options dialog and existing About, Help, and Changelog behavior when Sidebar Mode is disabled.
+
 ## 0.9.3
 
 - Added a responsive Sidebar Mode layout that reuses `manager.html` and shows only the Library pane at narrow widths.

@@ -125,6 +125,35 @@ async function clearManagerInstanceIfCurrent() {
   }
 }
 
+/**
+ * Close the active SBM manager tab after a non-tab manager instance opens in
+ * Sidebar Mode. Matching against SBM's session registry prevents unrelated
+ * active tabs from ever being closed.
+ */
+async function closeActiveManagerTabForSidebar() {
+  if (!SidebarMode || document.visibilityState === "hidden") return;
+
+  try {
+    // Side-panel extension pages are not hosted in a browser tab.
+    const ownTab = await api.tabs.getCurrent();
+    if (ownTab?.id != null) return;
+
+    const { managerTabId, managerTabIds } = await api.storage.session.get(["managerTabId", "managerTabIds"]);
+    const knownManagerTabIds = new Set(
+      Array.isArray(managerTabIds) ? managerTabIds.filter(Number.isInteger) : []
+    );
+    if (Number.isInteger(managerTabId)) knownManagerTabIds.add(managerTabId);
+    if (!knownManagerTabIds.size) return;
+
+    const [activeTab] = await api.tabs.query({ active: true, lastFocusedWindow: true });
+    if (!Number.isInteger(activeTab?.id) || !knownManagerTabIds.has(activeTab.id)) return;
+
+    await api.tabs.remove(activeTab.id);
+  } catch {
+    // Best-effort handoff only: never block Sidebar Mode startup.
+  }
+}
+
 // ---------------------------------------------------------------------------
 // Settings and localization
 // ---------------------------------------------------------------------------
@@ -2750,9 +2779,23 @@ function hideOptionsDialog({ restoreFocus = true } = {}) {
   if (restoreFocus) $('app-menu-button')?.focus();
 }
 
-/** Open the extension Options page in the in-manager dialog. */
-function openOptionsPage() {
-  showOptionsDialog();
+/**
+ * Open Options in a focused browser tab for Sidebar Mode, otherwise preserve
+ * the existing embedded manager dialog.
+ */
+async function openOptionsPage() {
+  if (!SidebarMode) {
+    showOptionsDialog();
+    return;
+  }
+
+  hideInfoDialog({ restoreFocus: false });
+  hideContextMenu();
+  hideAppMenu();
+  await api.tabs.create({
+    url: api.runtime.getURL("options.html"),
+    active: true
+  });
 }
 
 /** Close and clear the reusable About/Help/Changelog dialog. */
@@ -4795,6 +4838,9 @@ window.addEventListener("resize", () => {
   if (updateLibraryFullView() && state.tree) render();
 });
 window.addEventListener("pagehide", () => { clearManagerInstanceIfCurrent(); });
+document.addEventListener("visibilitychange", () => {
+  if (document.visibilityState === "visible") closeActiveManagerTabForSidebar();
+});
 window.addEventListener("scroll", () => { hideContextMenu(); hideAppMenu(); }, true);
 window.addEventListener("keydown", async (e) => {
   if (e.key === "Escape") {
@@ -4844,6 +4890,7 @@ for (const eventName of ["onCreated", "onRemoved", "onChanged", "onMoved", "onCh
 async function init() {
   await registerManagerInstance();
   await loadSettings();
+  await closeActiveManagerTabForSidebar();
   await loadTree({ renderNow: false });
   await applyInitialFolderPreference();
   render();
