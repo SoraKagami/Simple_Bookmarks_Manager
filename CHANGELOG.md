@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.9.14
+
+- Added translations for the 20 recent Sidebar Mode and Advanced folder-interaction strings in Hebrew, Indonesian, Japanese, Korean, Vietnamese, Simplified Chinese, and Traditional Chinese.
+
 ## 0.9.13
 
 - Added translations for the 20 recent Sidebar Mode and Advanced folder-interaction strings in German, English (United States), Spanish, French, Italian, Dutch, Polish, Brazilian Portuguese, Russian, Turkish, Ukrainian, and Māori.

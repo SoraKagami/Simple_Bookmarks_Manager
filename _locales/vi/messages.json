@@ -1180,5 +1180,65 @@
   },
   "closeDialog": {
     "message": "Đóng hộp thoại"
+  },
+  "helpOptionSidebarModeDescription": {
+    "message": ": mở SBM trong thanh bên của trình duyệt thay vì trong thẻ. Cần trình duyệt Chromium hỗ trợ thanh bên."
+  },
+  "sidebarMode": {
+    "message": "Chế độ thanh bên"
+  },
+  "sidebarModeHelp": {
+    "message": "Khi bật, SBM sẽ mở trong thanh bên của trình duyệt thay vì trong thẻ (cần trình duyệt Chromium hỗ trợ thanh bên)."
+  },
+  "showTreeBookmarksTitle": {
+    "message": "Hiển thị dấu trang trong thư mục này"
+  },
+  "hideTreeBookmarksTitle": {
+    "message": "Ẩn dấu trang trong thư mục này"
+  },
+  "sidebarModeOptions": {
+    "message": "Tùy chọn Chế độ thanh bên"
+  },
+  "sidebarModeOptionsHelp": {
+    "message": "Cấu hình cách Thư viện hoạt động trong Chế độ thanh bên."
+  },
+  "sidebarModeAutoShowOnExpand": {
+    "message": "Tự động hiển thị dấu trang khi mở rộng thư mục"
+  },
+  "sidebarModeAutoShowOnExpandHelp": {
+    "message": "Khi bật, việc mở rộng một thư mục Thư viện trong Chế độ thanh bên sẽ tự động bật công tắc hiển thị dấu trang của thư mục đó. Tắt tùy chọn này sẽ ngừng tự động hiển thị về sau mà không ẩn các dấu trang đã được hiển thị."
+  },
+  "helpOptionSidebarModeAutoShowOnExpandDescription": {
+    "message": ": trong Chế độ thanh bên, tự động bật hiển thị dấu trang của thư mục khi thư mục đó được mở rộng. Tắt tùy chọn này sẽ ngừng tự động hiển thị về sau mà không ẩn các dấu trang đã được hiển thị bằng công tắc hình con mắt."
+  },
+  "folderSingleClickInteract": {
+    "message": "Mở rộng/thu gọn thư mục bằng một lần nhấp"
+  },
+  "folderSingleClickInteractHelp": {
+    "message": "Khi bật, một lần nhấp chuột trái sẽ mở rộng hoặc thu gọn các thư mục Thư viện và mở các thư mục trong khung Nội dung thư mục. Khi tắt, các thao tác thư mục này cần nhấp đúp."
+  },
+  "helpOptionFolderSingleClickInteractDescription": {
+    "message": ": khi bật, một lần nhấp chuột trái sẽ mở rộng hoặc thu gọn các thư mục trong khung Thư viện và mở các thư mục trong khung Nội dung thư mục. Khi tắt, các thao tác thư mục này cần nhấp đúp."
+  },
+  "singleClickExpandCollapseTitle": {
+    "message": "Nhấp để mở rộng hoặc thu gọn thư mục"
+  },
+  "folderAutoExpandOnDrag": {
+    "message": "Tự động mở rộng thư mục khi kéo"
+  },
+  "folderAutoExpandOnDragHelp": {
+    "message": "Khi bật, việc giữ dấu trang, dấu phân cách hoặc thư mục đang kéo trên một thư mục đích sẽ tự động mở rộng hoặc mở thư mục đó sau khoảng trễ đã cấu hình."
+  },
+  "folderAutoExpandAfterWait": {
+    "message": "Độ trễ tự động mở rộng (giây)"
+  },
+  "folderAutoExpandAfterWaitHelp": {
+    "message": "Chọn khoảng thời gian mục đang kéo phải nằm trên một thư mục trước khi SBM mở rộng hoặc mở thư mục đó. Phạm vi: 0.1–3.0 giây. Mặc định: 1.2 giây."
+  },
+  "helpOptionFolderAutoExpandOnDragDescription": {
+    "message": ": khi bật, việc giữ dấu trang, dấu phân cách hoặc thư mục đang kéo trên một thư mục đích sẽ tự động mở rộng các thư mục Thư viện hoặc mở các thư mục trong khung Nội dung thư mục sau khoảng trễ đã cấu hình."
+  },
+  "helpOptionFolderAutoExpandAfterWaitDescription": {
+    "message": ": dùng thanh trượt để đặt khoảng thời gian mục đang kéo phải nằm trên một thư mục trước khi thao tác tự động mở rộng/mở diễn ra. Phạm vi: 0.1–3.0 giây; mặc định: 1.2 giây."
   }
 }

@@ -1180,5 +1180,65 @@
   },
   "closeDialog": {
     "message": "Tutup dialog"
+  },
+  "helpOptionSidebarModeDescription": {
+    "message": ": buka SBM di bilah samping browser alih-alih di tab. Dukungan bilah samping Chromium diperlukan."
+  },
+  "sidebarMode": {
+    "message": "Mode Bilah Samping"
+  },
+  "sidebarModeHelp": {
+    "message": "Saat diaktifkan, SBM terbuka di bilah samping browser alih-alih di tab (dukungan bilah samping Chromium diperlukan)."
+  },
+  "showTreeBookmarksTitle": {
+    "message": "Tampilkan bookmark di folder ini"
+  },
+  "hideTreeBookmarksTitle": {
+    "message": "Sembunyikan bookmark di folder ini"
+  },
+  "sidebarModeOptions": {
+    "message": "Opsi Mode Bilah Samping"
+  },
+  "sidebarModeOptionsHelp": {
+    "message": "Atur perilaku Pustaka yang digunakan oleh Mode Bilah Samping."
+  },
+  "sidebarModeAutoShowOnExpand": {
+    "message": "Tampilkan bookmark otomatis saat folder diperluas"
+  },
+  "sidebarModeAutoShowOnExpandHelp": {
+    "message": "Saat diaktifkan, memperluas folder Pustaka dalam Mode Bilah Samping secara otomatis mengaktifkan tombol visibilitas bookmark folder tersebut. Menonaktifkan opsi ini menghentikan penayangan otomatis berikutnya tanpa menyembunyikan bookmark yang sudah ditampilkan."
+  },
+  "helpOptionSidebarModeAutoShowOnExpandDescription": {
+    "message": ": dalam Mode Bilah Samping, secara otomatis mengaktifkan visibilitas bookmark folder saat folder tersebut diperluas. Menonaktifkan opsi ini menghentikan penayangan otomatis berikutnya tanpa menyembunyikan bookmark yang sudah ditampilkan dengan tombol mata."
+  },
+  "folderSingleClickInteract": {
+    "message": "Perluas/Ciutkan Folder dengan Satu Klik"
+  },
+  "folderSingleClickInteractHelp": {
+    "message": "Saat diaktifkan, satu klik kiri memperluas atau menciutkan folder Pustaka dan membuka folder di panel Isi Folder. Saat dinonaktifkan, tindakan folder ini memerlukan klik dua kali."
+  },
+  "helpOptionFolderSingleClickInteractDescription": {
+    "message": ": saat diaktifkan, satu klik kiri memperluas atau menciutkan folder di panel Pustaka dan membuka folder di panel Isi Folder. Saat dinonaktifkan, tindakan folder ini memerlukan klik dua kali."
+  },
+  "singleClickExpandCollapseTitle": {
+    "message": "Klik untuk memperluas atau menciutkan folder"
+  },
+  "folderAutoExpandOnDrag": {
+    "message": "Perluas folder otomatis saat menyeret"
+  },
+  "folderAutoExpandOnDragHelp": {
+    "message": "Saat diaktifkan, mengarahkan bookmark, pemisah, atau folder yang sedang diseret ke atas folder tujuan akan secara otomatis memperluas atau membuka folder tersebut setelah jeda yang dikonfigurasi."
+  },
+  "folderAutoExpandAfterWait": {
+    "message": "Jeda perluas otomatis (detik)"
+  },
+  "folderAutoExpandAfterWaitHelp": {
+    "message": "Pilih berapa lama pilihan yang diseret harus tetap berada di atas folder sebelum SBM memperluas atau membukanya. Rentang: 0.1–3.0 detik. Default: 1.2 detik."
+  },
+  "helpOptionFolderAutoExpandOnDragDescription": {
+    "message": ": saat diaktifkan, mengarahkan bookmark, pemisah, atau folder yang sedang diseret ke atas folder tujuan akan secara otomatis memperluas folder Pustaka atau membuka folder Isi Folder setelah jeda yang dikonfigurasi."
+  },
+  "helpOptionFolderAutoExpandAfterWaitDescription": {
+    "message": ": gunakan penggeser untuk mengatur berapa lama pilihan yang diseret harus tetap berada di atas folder sebelum tindakan perluas/buka otomatis terjadi. Rentang: 0.1–3.0 detik; default: 1.2 detik."
   }
 }

@@ -1180,5 +1180,65 @@
   },
   "closeDialog": {
     "message": "關閉對話方塊"
+  },
+  "helpOptionSidebarModeDescription": {
+    "message": "：在瀏覽器側邊欄中開啟 SBM，而不是在分頁中開啟。需要 Chromium 側邊欄支援。"
+  },
+  "sidebarMode": {
+    "message": "側邊欄模式"
+  },
+  "sidebarModeHelp": {
+    "message": "啟用後，SBM 將在瀏覽器側邊欄中開啟，而不是在分頁中開啟（需要 Chromium 側邊欄支援）。"
+  },
+  "showTreeBookmarksTitle": {
+    "message": "顯示此資料夾中的書籤"
+  },
+  "hideTreeBookmarksTitle": {
+    "message": "隱藏此資料夾中的書籤"
+  },
+  "sidebarModeOptions": {
+    "message": "側邊欄模式選項"
+  },
+  "sidebarModeOptionsHelp": {
+    "message": "設定側邊欄模式使用的收藏庫行為。"
+  },
+  "sidebarModeAutoShowOnExpand": {
+    "message": "展開資料夾時自動顯示書籤"
+  },
+  "sidebarModeAutoShowOnExpandHelp": {
+    "message": "啟用後，在側邊欄模式中展開收藏庫資料夾時，會自動啟用該資料夾的書籤可見性切換開關。關閉此選項只會停止之後的自動顯示，不會隱藏已顯示的書籤。"
+  },
+  "helpOptionSidebarModeAutoShowOnExpandDescription": {
+    "message": "：在側邊欄模式下，展開資料夾時會自動啟用該資料夾的書籤可見性。關閉此選項只會停止之後的自動顯示，不會隱藏已透過眼睛切換按鈕顯示的書籤。"
+  },
+  "folderSingleClickInteract": {
+    "message": "單按一下展開/收合資料夾"
+  },
+  "folderSingleClickInteractHelp": {
+    "message": "啟用後，按一下滑鼠左鍵即可展開或收合收藏庫資料夾，並開啟資料夾內容窗格中的資料夾。停用後，這些資料夾操作需要按兩下。"
+  },
+  "helpOptionFolderSingleClickInteractDescription": {
+    "message": "：啟用後，按一下滑鼠左鍵即可展開或收合收藏庫窗格中的資料夾，並開啟資料夾內容窗格中的資料夾。停用後，這些資料夾操作需要按兩下。"
+  },
+  "singleClickExpandCollapseTitle": {
+    "message": "點擊以展開或收合資料夾"
+  },
+  "folderAutoExpandOnDrag": {
+    "message": "拖曳時自動展開資料夾"
+  },
+  "folderAutoExpandOnDragHelp": {
+    "message": "啟用後，將拖曳中的書籤、分隔線或資料夾停留在目標資料夾上方，經過設定的延遲時間後會自動展開或開啟該資料夾。"
+  },
+  "folderAutoExpandAfterWait": {
+    "message": "自動展開延遲（秒）"
+  },
+  "folderAutoExpandAfterWaitHelp": {
+    "message": "選擇拖曳中的選取項目必須在資料夾上方停留多久，SBM 才會展開或開啟它。範圍：0.1–3.0 秒。預設：1.2 秒。"
+  },
+  "helpOptionFolderAutoExpandOnDragDescription": {
+    "message": "：啟用後，將拖曳中的書籤、分隔線或資料夾停留在目標資料夾上方，經過設定的延遲時間後會自動展開收藏庫資料夾或開啟資料夾內容窗格中的資料夾。"
+  },
+  "helpOptionFolderAutoExpandAfterWaitDescription": {
+    "message": "：使用滑桿設定拖曳中的選取項目必須在資料夾上方停留多久，之後才會執行自動展開/開啟操作。範圍：0.1–3.0 秒；預設：1.2 秒。"
   }
 }

@@ -1180,5 +1180,65 @@
   },
   "closeDialog": {
     "message": "סגירת תיבת הדו־שיח"
+  },
+  "helpOptionSidebarModeDescription": {
+    "message": ": פתח את SBM בסרגל הצד של הדפדפן במקום בכרטיסייה. נדרשת תמיכה בסרגל הצד של Chromium."
+  },
+  "sidebarMode": {
+    "message": "מצב סרגל צד"
+  },
+  "sidebarModeHelp": {
+    "message": "כאשר האפשרות מופעלת, SBM נפתח בסרגל הצד של הדפדפן במקום בכרטיסייה (נדרשת תמיכה בסרגל הצד של Chromium)."
+  },
+  "showTreeBookmarksTitle": {
+    "message": "הצג סימניות בתיקייה זו"
+  },
+  "hideTreeBookmarksTitle": {
+    "message": "הסתר סימניות בתיקייה זו"
+  },
+  "sidebarModeOptions": {
+    "message": "אפשרויות מצב סרגל צד"
+  },
+  "sidebarModeOptionsHelp": {
+    "message": "הגדר את התנהגות הספרייה שבה משתמש מצב סרגל צד."
+  },
+  "sidebarModeAutoShowOnExpand": {
+    "message": "הצג סימניות אוטומטית בעת הרחבת תיקיות"
+  },
+  "sidebarModeAutoShowOnExpandHelp": {
+    "message": "כאשר האפשרות מופעלת, הרחבת תיקייה בספרייה במצב סרגל צד מפעילה אוטומטית את מתג נראות הסימניות שלה. כיבוי האפשרות מפסיק הצגה אוטומטית בעתיד מבלי להסתיר סימניות שכבר מוצגות."
+  },
+  "helpOptionSidebarModeAutoShowOnExpandDescription": {
+    "message": ": במצב סרגל צד, מפעיל אוטומטית את נראות הסימניות של תיקייה כאשר היא מורחבת. כיבוי האפשרות מפסיק הצגה אוטומטית בעתיד מבלי להסתיר סימניות שכבר מוצגות באמצעות מתג העין."
+  },
+  "folderSingleClickInteract": {
+    "message": "הרחבה/כיווץ תיקייה בלחיצה אחת"
+  },
+  "folderSingleClickInteractHelp": {
+    "message": "כאשר האפשרות מופעלת, לחיצה שמאלית אחת מרחיבה או מכווצת תיקיות בספרייה ופותחת תיקיות בחלונית תוכן התיקייה. כאשר היא כבויה, פעולות תיקייה אלה דורשות לחיצה כפולה."
+  },
+  "helpOptionFolderSingleClickInteractDescription": {
+    "message": ": כאשר האפשרות מופעלת, לחיצה שמאלית אחת מרחיבה או מכווצת תיקיות בחלונית הספרייה ופותחת תיקיות בחלונית תוכן התיקייה. כאשר היא כבויה, פעולות תיקייה אלה דורשות לחיצה כפולה."
+  },
+  "singleClickExpandCollapseTitle": {
+    "message": "לחץ כדי להרחיב או לכווץ תיקייה"
+  },
+  "folderAutoExpandOnDrag": {
+    "message": "הרחב תיקיות אוטומטית במהלך גרירה"
+  },
+  "folderAutoExpandOnDragHelp": {
+    "message": "כאשר האפשרות מופעלת, ריחוף של סימנייה, מפריד או תיקייה שנגררו מעל תיקיית יעד מרחיב או פותח אותה אוטומטית לאחר ההשהיה שהוגדרה."
+  },
+  "folderAutoExpandAfterWait": {
+    "message": "השהיית הרחבה אוטומטית (שניות)"
+  },
+  "folderAutoExpandAfterWaitHelp": {
+    "message": "בחר כמה זמן בחירה שנגררת חייבת להישאר מעל תיקייה לפני ש-SBM מרחיב או פותח אותה. טווח: 0.1–3.0 שניות. ברירת מחדל: 1.2 שניות."
+  },
+  "helpOptionFolderAutoExpandOnDragDescription": {
+    "message": ": כאשר האפשרות מופעלת, ריחוף של סימנייה, מפריד או תיקייה שנגררו מעל תיקיית יעד מרחיב אוטומטית תיקיות בספרייה או פותח תיקיות בחלונית תוכן התיקייה לאחר ההשהיה שהוגדרה."
+  },
+  "helpOptionFolderAutoExpandAfterWaitDescription": {
+    "message": ": השתמש במחוון כדי להגדיר כמה זמן בחירה שנגררת חייבת להישאר מעל תיקייה לפני שמתבצעת פעולת ההרחבה/פתיחה האוטומטית. טווח: 0.1–3.0 שניות; ברירת מחדל: 1.2 שניות."
   }
 }
