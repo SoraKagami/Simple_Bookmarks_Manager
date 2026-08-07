@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.9.10
+
+- Synchronized drag-hover folder navigation between the Library and Folder Contents panes when `Folder_AutoExpandOnDrag` is enabled.
+- In normal (non-Sidebar) mode, auto-expanding a hovered Library folder now changes Folder Contents to that folder.
+- Auto-opening a hovered Folder Contents folder now selects and reveals the same folder in the Library, expanding collapsed ancestors as needed.
+
 ## 0.9.9
 
 - Added external text/URL drag-and-drop bookmark creation with existing row drop indicators and the New Bookmark editor prefilled from the dropped value.
