@@ -41,6 +41,10 @@ const state = {
   detailsOriginal: null,
   drag: null,
   dropIndicator: null,
+  dragAutoExpandTimer: null,
+  dragAutoExpandKey: null,
+  dragAutoExpandRow: null,
+  dragAutoOpenedListFolder: false,
   clipboard: null,
   contextMenu: null,
   multiSelect: { pane: null, ids: new Set(), anchorId: null, focusId: null },
@@ -75,6 +79,8 @@ let DeleteShowWarning = DEFAULT_SETTINGS.DeleteShowWarning;
 let SearchLimitToFolderAndSub = DEFAULT_SETTINGS.SearchLimitToFolderAndSub;
 let MultipleInstancesAllowed = DEFAULT_SETTINGS.MultipleInstancesAllowed;
 let Folder_SingleClickInteract = DEFAULT_SETTINGS.Folder_SingleClickInteract;
+let Folder_AutoExpandOnDrag = DEFAULT_SETTINGS.Folder_AutoExpandOnDrag;
+let Folder_AutoExpandAfterWait = DEFAULT_SETTINGS.Folder_AutoExpandAfterWait;
 let StartAtConfiguredBookmarkFolder = DEFAULT_SETTINGS.StartAtConfiguredBookmarkFolder;
 let StartupBookmarkFolderId = DEFAULT_SETTINGS.StartupBookmarkFolderId;
 let BlockJavascriptBookmarkOpens = DEFAULT_SETTINGS.BlockJavascriptBookmarkOpens;
@@ -188,6 +194,7 @@ function updateLibraryFullView() {
  */
 function applySettings(settings, { render = false } = {}) {
   const autoShowWasEnabled = SidebarMode_AutoShowOnExpand;
+  const autoExpandWaitBeforeUpdate = Folder_AutoExpandAfterWait;
   const keys = Object.keys(DEFAULT_SETTINGS);
   for (const key of keys) {
     if (!(key in settings)) continue;
@@ -212,6 +219,8 @@ function applySettings(settings, { render = false } = {}) {
     else if (key === "SearchLimitToFolderAndSub") SearchLimitToFolderAndSub = value;
     else if (key === "MultipleInstancesAllowed") MultipleInstancesAllowed = value;
     else if (key === "Folder_SingleClickInteract") Folder_SingleClickInteract = value;
+    else if (key === "Folder_AutoExpandOnDrag") Folder_AutoExpandOnDrag = value;
+    else if (key === "Folder_AutoExpandAfterWait") Folder_AutoExpandAfterWait = value;
     else if (key === "StartAtConfiguredBookmarkFolder") StartAtConfiguredBookmarkFolder = value;
     else if (key === "StartupBookmarkFolderId") StartupBookmarkFolderId = value;
     else if (key === "BlockJavascriptBookmarkOpens") BlockJavascriptBookmarkOpens = value;
@@ -232,6 +241,9 @@ function applySettings(settings, { render = false } = {}) {
     else if (key === "mid_FC_Show_Order") mid_FC_Show_Order = value;
   }
 
+  if (!Folder_AutoExpandOnDrag || Folder_AutoExpandAfterWait !== autoExpandWaitBeforeUpdate) {
+    clearDragAutoExpandTimer();
+  }
   applyUserInterfaceSettings();
   const libraryLayoutChanged = updateLibraryFullView();
   if (!autoShowWasEnabled && SidebarMode_AutoShowOnExpand) {
@@ -2363,6 +2375,7 @@ function clearDropRow(row) {
 
 /** Clear all drag/drop visual indicators. */
 function clearDropIndicators() {
+  clearDragAutoExpandTimer();
   clearDropRow(state.dropIndicator?.row);
   state.dropIndicator = null;
   document.querySelectorAll(".drop-before,.drop-after,.drop-into,.dragging").forEach((el) => {
@@ -2662,9 +2675,138 @@ async function moveCurrentDragToTarget(targetId, intent, context) {
   if (drag?.source === "tree") return await moveSelectedTreeItems(targetId, intent, context, drag.ids || []);
 }
 
+/** Cancel any pending drag-hover folder expansion timer. */
+function clearDragAutoExpandTimer() {
+  if (state.dragAutoExpandTimer !== null) clearTimeout(state.dragAutoExpandTimer);
+  state.dragAutoExpandTimer = null;
+  state.dragAutoExpandKey = null;
+  state.dragAutoExpandRow = null;
+}
+
+/** Return whether the current drag selection can safely move into a folder. */
+function canAutoExpandDragTarget(target, context) {
+  if (!Folder_AutoExpandOnDrag || !state.drag || !isFolder(target)) return false;
+  if (state.drag.multi) return canMoveCurrentDragToTarget(target, "into", context);
+  const dragged = nodes.get(state.drag.id);
+  return validDrop(dragged, target, "into", context);
+}
+
+/**
+ * Expand one Library folder without replacing the whole tree DOM. Keeping the
+ * drag source node attached avoids disrupting Chromium's native drag session.
+ */
+function renderTreeFolderExpansionDuringDrag(row, folder) {
+  const container = row?.parentElement;
+  if (!container?.classList.contains("tree-node")) {
+    renderRoots();
+    return;
+  }
+
+  const expandableChildren = expandableLibraryChildren(folder);
+  if (expandableChildren.length) {
+    row.setAttribute("aria-expanded", "true");
+    const twisty = row.querySelector(".twisty");
+    if (twisty) {
+      twisty.disabled = false;
+      twisty.textContent = "▾";
+      twisty.title = t("collapseFolderTitle");
+    }
+  }
+
+  const previousGroup = [...container.children].find((child) => child.classList?.contains("tree-children"));
+  previousGroup?.remove();
+
+  const renderedChildren = libraryTreeChildren(folder);
+  if (!renderedChildren.length) return;
+
+  const depth = Number.parseInt(row.style.getPropertyValue("--depth"), 10) || 0;
+  const cutIds = Optimisation_DOMrendering ? clipboardCutIdSet() : null;
+  const group = document.createElement("div");
+  group.className = "tree-children";
+  group.setAttribute("role", "group");
+  const childRows = renderedChildren.map((child) => isFolder(child)
+    ? renderFolderTreeNode(child, depth + 1, cutIds)
+    : renderBookmarkTreeNode(child, depth + 1, cutIds));
+
+  if (Optimisation_DOMrendering) replaceChildrenWithFragment(group, childRows);
+  else group.append(...childRows);
+  container.append(group);
+}
+
+/**
+ * Open a Folder Contents folder during an active drag without clearing the drag
+ * selection. The normal full render is deferred until drop/drag-end so a tree
+ * drag source remains attached to the DOM.
+ */
+function openListFolderDuringDrag(folder) {
+  if (!folder?.id || folder.id === state.folderId || hasUnsavedDetails()) return;
+
+  if (state.folderId) {
+    state.back.unshift(state.folderId);
+    state.forward = [];
+  }
+  state.folderId = folder.id;
+  state.treeSelectedId = folder.id;
+  state.activePane = "list";
+  state.resetMiddleScrollOnNextRender = true;
+  expandTreeFolderState(folder.id);
+  ensureExpandedPath(folder.id);
+  state.dragAutoOpenedListFolder = true;
+
+  renderCrumbs();
+  renderList();
+  renderColumnHeaders();
+  renderNavButtons();
+}
+
+/** Perform the delayed folder expansion/open action for the active drag. */
+function autoExpandDragTarget(row, target, context) {
+  if (!row?.isConnected || !canAutoExpandDragTarget(target, context)) return;
+
+  if (context === "tree") {
+    if (state.expandedFolders.has(target.id)) return;
+    if (!expandableLibraryChildren(target).length) return;
+    if (expandTreeFolderState(target.id)) renderTreeFolderExpansionDuringDrag(row, target);
+    return;
+  }
+
+  if (context === "list") openListFolderDuringDrag(target);
+}
+
+/** Start or retain the timer for a valid folder currently hovered by a drag. */
+function scheduleDragAutoExpand(row, target, context) {
+  const key = `${context}:${target?.id || ""}`;
+  const alreadyExpanded = context === "tree" && state.expandedFolders.has(target?.id);
+  const emptyTreeFolder = context === "tree" && !expandableLibraryChildren(target || {}).length;
+  if (!canAutoExpandDragTarget(target, context) || alreadyExpanded || emptyTreeFolder) {
+    if (state.dragAutoExpandKey !== key) clearDragAutoExpandTimer();
+    return;
+  }
+
+  if (state.dragAutoExpandTimer !== null && state.dragAutoExpandKey === key) return;
+  clearDragAutoExpandTimer();
+
+  state.dragAutoExpandKey = key;
+  state.dragAutoExpandRow = row;
+  const delayMs = Math.max(100, Number(Folder_AutoExpandAfterWait) * 1000);
+  state.dragAutoExpandTimer = setTimeout(() => {
+    const sameTarget = state.dragAutoExpandKey === key;
+    state.dragAutoExpandTimer = null;
+    state.dragAutoExpandKey = null;
+    state.dragAutoExpandRow = null;
+    if (sameTarget) autoExpandDragTarget(row, target, context);
+  }, delayMs);
+}
+
+/** Cancel a drag-hover timer only when it belongs to the row being left. */
+function cancelDragAutoExpandForRow(row) {
+  if (state.dragAutoExpandRow === row) clearDragAutoExpandTimer();
+}
+
 /** Attach drag-over/drop handlers to a rendered row. */
 function attachDropTarget(row, target, context) {
   row.ondragover = (e) => {
+    scheduleDragAutoExpand(row, target, context);
     const multiDrag = !!state.drag?.multi;
     const intent = multiDrag ? currentDragIntent(e, row, target, context) : dropIntent(e, row, target);
     if (multiDrag) {
@@ -2679,7 +2821,9 @@ function attachDropTarget(row, target, context) {
     setDropIndicator(row, intent);
   };
 
-  row.ondragleave = () => {
+  row.ondragleave = (e) => {
+    if (e.relatedTarget instanceof Node && row.contains(e.relatedTarget)) return;
+    cancelDragAutoExpandForRow(row);
     if (state.dropIndicator?.row === row) state.dropIndicator = null;
     clearDropRow(row);
   };
@@ -3324,6 +3468,8 @@ function attachTreeDragSource(row, item) {
   row.draggable = true;
   row.title = isFolder(item) ? t("dragFolderTitle") : t("dragItemTitle");
   row.ondragstart = (e) => {
+    clearDragAutoExpandTimer();
+    state.dragAutoOpenedListFolder = false;
     const multi = isMultiSelectActive("tree") && state.multiSelect.ids.has(item.id);
     state.drag = multi ? { ids: [...state.multiSelect.ids], source: "tree", multi: true } : { id: item.id, source: "tree" };
     e.dataTransfer.effectAllowed = "move";
@@ -3331,8 +3477,11 @@ function attachTreeDragSource(row, item) {
     row.classList.add("dragging");
   };
   row.ondragend = () => {
+    const syncTree = state.dragAutoOpenedListFolder;
     state.drag = null;
+    state.dragAutoOpenedListFolder = false;
     clearDropIndicators();
+    if (syncTree && state.tree) renderRoots();
   };
 }
 
@@ -3637,6 +3786,8 @@ function renderList() {
       row.draggable = true;
       row.title = t("dragItemTitle");
       row.ondragstart = (e) => {
+        clearDragAutoExpandTimer();
+        state.dragAutoOpenedListFolder = false;
         const multi = isMultiSelectActive("list") && state.multiSelect.ids.has(item.id);
         state.drag = multi ? { ids: [...state.multiSelect.ids], source: "list", multi: true } : { id: item.id, source: "list" };
         e.dataTransfer.effectAllowed = "move";
@@ -3644,8 +3795,11 @@ function renderList() {
         row.classList.add("dragging");
       };
       row.ondragend = () => {
+        const syncTree = state.dragAutoOpenedListFolder;
         state.drag = null;
+        state.dragAutoOpenedListFolder = false;
         clearDropIndicators();
+        if (syncTree && state.tree) renderRoots();
       };
 
     }

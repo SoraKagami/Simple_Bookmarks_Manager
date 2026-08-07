@@ -1,5 +1,12 @@
 # Changelog
 
+## 0.9.8
+
+- Added `Folder_AutoExpandOnDrag`, disabled by default, to automatically expand/open destination folders while dragging bookmark items.
+- Added `Folder_AutoExpandAfterWait`, defaulting to 1.2 seconds, to configure the drag-hover delay.
+- Disabled and visually muted the delay control while drag-hover auto-expand is turned off.
+- Added Help documentation for both new Advanced options.
+
 ## 0.9.7
 
 - Changed `SidebarMode_AutoShowOnExpand` to default to enabled.

@@ -1222,5 +1222,23 @@
   },
   "singleClickExpandCollapseTitle": {
     "message": "Click to expand or collapse folder"
+  },
+  "folderAutoExpandOnDrag": {
+    "message": "Auto-expand folders during drag"
+  },
+  "folderAutoExpandOnDragHelp": {
+    "message": "When enabled, hovering a dragged bookmark, separator, or folder over a destination folder automatically expands or opens that folder after the configured delay."
+  },
+  "folderAutoExpandAfterWait": {
+    "message": "Auto-expand delay (seconds)"
+  },
+  "folderAutoExpandAfterWaitHelp": {
+    "message": "How long a dragged selection must remain over a folder before SBM expands or opens it. Default: 1.2 seconds."
+  },
+  "helpOptionFolderAutoExpandOnDragDescription": {
+    "message": ": when enabled, hovering a dragged bookmark, separator, or folder over a destination folder automatically expands Library folders or opens Folder Contents folders after the configured delay."
+  },
+  "helpOptionFolderAutoExpandAfterWaitDescription": {
+    "message": ": sets how long a dragged selection must remain over a folder before the automatic expansion/open action occurs. The default is 1.2 seconds."
   }
 }

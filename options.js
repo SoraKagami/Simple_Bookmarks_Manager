@@ -197,6 +197,15 @@ function setControlState(settings) {
   const startupFolderSelect = $("StartupBookmarkFolderId");
   if (startupFolderSelect) startupFolderSelect.disabled = !$("StartAtConfiguredBookmarkFolder").checked;
 
+  const autoExpandDelay = $("Folder_AutoExpandAfterWait");
+  const autoExpandDelayRow = $("folder-auto-expand-wait-row");
+  const autoExpandEnabled = $("Folder_AutoExpandOnDrag").checked;
+  if (autoExpandDelay) autoExpandDelay.disabled = !autoExpandEnabled;
+  if (autoExpandDelayRow) {
+    autoExpandDelayRow.classList.toggle("option-row-disabled", !autoExpandEnabled);
+    autoExpandDelayRow.setAttribute("aria-disabled", String(!autoExpandEnabled));
+  }
+
   if (!$("EnableAdvancedDetailsViewing").checked) {
     $("EnableAdvancedDetailsEditing").checked = false;
   }
