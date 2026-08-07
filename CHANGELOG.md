@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.9.15
+
+- Added playful `en_Netspeak` translations for the 20 recent Sidebar Mode and Advanced folder-interaction strings, bringing the debug locale to full English-base key coverage.
+
 ## 0.9.14
 
 - Added translations for the 20 recent Sidebar Mode and Advanced folder-interaction strings in Hebrew, Indonesian, Japanese, Korean, Vietnamese, Simplified Chinese, and Traditional Chinese.

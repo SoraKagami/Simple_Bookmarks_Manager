@@ -530,6 +530,9 @@
   "helpOptionFontSpacingDescription": {
     "message": ": adjust the line spacing used by labels and rows."
   },
+  "helpOptionSidebarModeDescription": {
+    "message": ": 0p3n SBM 1n 7h3 br0wz3r’z z1d3 p4n3l 1nz734d 0f 4 74b. Chr0m1um z1d3-p4n3l zupp0r7 r3qu1r3d. 🧭"
+  },
   "helpOptionLimitSearchDescription": {
     "message": "changes the main s34rch b0x from searching all b00km4rks to searching only within the curr3nt f0ld3r tr33."
   },
@@ -1180,5 +1183,62 @@
   },
   "closeDialog": {
     "message": "Cl0z3 d14l0g"
+  },
+  "sidebarMode": {
+    "message": "Z1d3b4r M0d3 🧭"
+  },
+  "sidebarModeHelp": {
+    "message": "Wh3n 0n, SBM z00mz 1n70 7h3 br0wz3r’z Z1d3b4r 1nz734d 0f 4 74b. Chr0m1um z1d3b4r m4g1c r3qu1r3d. ✨"
+  },
+  "showTreeBookmarksTitle": {
+    "message": "Zh0w b00km4rkz 1n 7h1z f0ld3r 👁️"
+  },
+  "hideTreeBookmarksTitle": {
+    "message": "H1d3 b00km4rkz 1n 7h1z f0ld3r 🙈"
+  },
+  "sidebarModeOptions": {
+    "message": "Z1d3b4r M0d3 0p710nz 🛠️"
+  },
+  "sidebarModeOptionsHelp": {
+    "message": "7un3 L1br4ry b3h4v10r f0r Z1d3b4r M0d3. 🧰"
+  },
+  "sidebarModeAutoShowOnExpand": {
+    "message": "4u70-zh0w b00km4rkz wh3n f0ld3rz 3xp4nd 👀"
+  },
+  "sidebarModeAutoShowOnExpandHelp": {
+    "message": "Wh3n 0n, 3xp4nd1ng 4 L1br4ry f0ld3r 1n Z1d3b4r M0d3 4u70m471c4lly fl1pz 0n 17z b00km4rk-v1z1b1l17y 3y3. 7urn1ng 17 0ff z70pz fu7ur3 4u70-zh0w1ng bu7 l34v3z 4lr34dy-v1z1bl3 b00km4rkz 4l0n3. 👁️✨"
+  },
+  "helpOptionSidebarModeAutoShowOnExpandDescription": {
+    "message": ": 1n Z1d3b4r M0d3, 4u70m471c4lly fl1pz 0n 4 f0ld3r’z b00km4rk v1z1b1l17y wh3n 7h47 f0ld3r 3xp4ndz. 7urn1ng 17 0ff z70pz fu7ur3 4u70-zh0w1ng w17h0u7 h1d1ng b00km4rkz 4lr34dy zh0wn by 7h3 3y3 70ggl3. 👀"
+  },
+  "folderSingleClickInteract": {
+    "message": "Z1ngl3-Cl1ck F0ld3r 3xp4nd/C0ll4pz3 ⚡"
+  },
+  "folderSingleClickInteractHelp": {
+    "message": "Wh3n 0n, 0n3 l3f7 cl1ck 3xp4ndz 0r c0ll4pz3z L1br4ry f0ld3rz 4nd 0p3nz f0ld3rz 1n F0ld3r C0n73n7z. Wh3n 0ff, 7h0z3 f0ld3r 4c710nz n33d 4 d0ubl3-cl1ck. 🖱️✨"
+  },
+  "helpOptionFolderSingleClickInteractDescription": {
+    "message": ": wh3n 0n, 0n3 l3f7 cl1ck 3xp4ndz/c0ll4pz3z f0ld3rz 1n 7h3 L1br4ry 4nd 0p3nz f0ld3rz 1n F0ld3r C0n73n7z. Wh3n 0ff, d0ubl3-cl1ck 70 pr0c33d. 🖱️"
+  },
+  "singleClickExpandCollapseTitle": {
+    "message": "1 cl1ck = 3xp4nd/c0ll4pz3 f0ld3r ⚡"
+  },
+  "folderAutoExpandOnDrag": {
+    "message": "4u70-3xp4nd f0ld3rz dur1ng dr4g 🧲"
+  },
+  "folderAutoExpandOnDragHelp": {
+    "message": "Wh3n 0n, h0v3r1ng 4 dr4gg3d b00km4rk, z3p4r470r, 0r f0ld3r 0v3r 4 d3z71n4710n f0ld3r 4u70m471c4lly 3xp4ndz 0r 0p3nz 17 4f73r 7h3 z37 d3l4y. 🧲📂"
+  },
+  "folderAutoExpandAfterWait": {
+    "message": "4u70-3xp4nd d3l4y (z3c0ndz) ⏱️"
+  },
+  "folderAutoExpandAfterWaitHelp": {
+    "message": "Ch00z3 h0w l0ng 4 dr4gg3d z3l3c710n muz7 h0v3r 0v3r 4 f0ld3r b3f0r3 SBM 3xp4ndz 0r 0p3nz 17. R4ng3: 0.1–3.0 z3c0ndz. D3f4ul7: 1.2 z3c0ndz. ⏱️"
+  },
+  "helpOptionFolderAutoExpandOnDragDescription": {
+    "message": ": wh3n 0n, h0v3r1ng 4 dr4gg3d b00km4rk, z3p4r470r, 0r f0ld3r 0v3r 4 d3z71n4710n f0ld3r 4u70m471c4lly 3xp4ndz L1br4ry f0ld3rz 0r 0p3nz F0ld3r C0n73n7z f0ld3rz 4f73r 7h3 z37 d3l4y. 🧲"
+  },
+  "helpOptionFolderAutoExpandAfterWaitDescription": {
+    "message": ": uz3 7h3 zl1d3r 70 z37 h0w l0ng 4 dr4gg3d z3l3c710n muz7 h0v3r 0v3r 4 f0ld3r b3f0r3 7h3 4u70 3xp4nd/0p3n 4c710n f1r3z. R4ng3: 0.1–3.0 z3c0ndz; d3f4ul7: 1.2 z3c0ndz. ⏱️"
   }
 }
