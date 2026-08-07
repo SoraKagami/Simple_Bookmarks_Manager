@@ -1,5 +1,12 @@
 # Changelog
 
+## 0.9.7
+
+- Changed `SidebarMode_AutoShowOnExpand` to default to enabled.
+- Kept the About and Help page icons beside their headings in narrow Sidebar Mode layouts.
+- Added `Folder_SingleClickInteract`, disabled by default, under Advanced to allow one-click Library folder expansion/collapse and Folder Contents folder navigation.
+- Added Help documentation for Single Click Folder Expansion/Collapse.
+
 ## 0.9.6
 
 - Added a collapsible **Sidebar Mode Options** subsection under User Interface.

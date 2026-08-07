@@ -96,12 +96,17 @@ ul {
   .about-page {
     padding: 24px 18px 28px;
   }
-  .hero,
+  .hero {
+    grid-template-columns: 64px minmax(0, 1fr);
+    gap: 12px;
+    align-items: start;
+  }
   .two-column {
     grid-template-columns: 1fr;
   }
   .app-icon {
-    width: 80px;
-    height: 80px;
+    width: 64px;
+    height: 64px;
+    border-radius: 14px;
   }
 }

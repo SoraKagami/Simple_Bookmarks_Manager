@@ -74,6 +74,7 @@ let KeyboardDeleteAllow = DEFAULT_SETTINGS.KeyboardDeleteAllow;
 let DeleteShowWarning = DEFAULT_SETTINGS.DeleteShowWarning;
 let SearchLimitToFolderAndSub = DEFAULT_SETTINGS.SearchLimitToFolderAndSub;
 let MultipleInstancesAllowed = DEFAULT_SETTINGS.MultipleInstancesAllowed;
+let Folder_SingleClickInteract = DEFAULT_SETTINGS.Folder_SingleClickInteract;
 let StartAtConfiguredBookmarkFolder = DEFAULT_SETTINGS.StartAtConfiguredBookmarkFolder;
 let StartupBookmarkFolderId = DEFAULT_SETTINGS.StartupBookmarkFolderId;
 let BlockJavascriptBookmarkOpens = DEFAULT_SETTINGS.BlockJavascriptBookmarkOpens;
@@ -210,6 +211,7 @@ function applySettings(settings, { render = false } = {}) {
     else if (key === "DeleteShowWarning") DeleteShowWarning = value;
     else if (key === "SearchLimitToFolderAndSub") SearchLimitToFolderAndSub = value;
     else if (key === "MultipleInstancesAllowed") MultipleInstancesAllowed = value;
+    else if (key === "Folder_SingleClickInteract") Folder_SingleClickInteract = value;
     else if (key === "StartAtConfiguredBookmarkFolder") StartAtConfiguredBookmarkFolder = value;
     else if (key === "StartupBookmarkFolderId") StartupBookmarkFolderId = value;
     else if (key === "BlockJavascriptBookmarkOpens") BlockJavascriptBookmarkOpens = value;
@@ -1540,6 +1542,41 @@ async function handlePaneClick(e, pane, item) {
   setMultiSelection(pane, nextIds, anchorId, item.id);
   state.detailsOriginal = null;
   render();
+}
+
+/**
+ * Handle a row click and optionally promote the existing folder double-click
+ * action to one primary click. Modifier clicks retain multi-selection behavior.
+ */
+async function handlePaneRowClick(e, pane, item) {
+  const singleClickFolderAction =
+    Folder_SingleClickInteract &&
+    isFolder(item) &&
+    e.button === 0 &&
+    !e.ctrlKey &&
+    !e.shiftKey;
+
+  // Ignore the second click of a physical double-click when single-click folder
+  // interaction is enabled, otherwise Library folders could toggle twice.
+  if (singleClickFolderAction && e.detail > 1) {
+    e.preventDefault();
+    e.stopPropagation();
+    return;
+  }
+
+  await handlePaneClick(e, pane, item);
+  if (!singleClickFolderAction) return;
+
+  if (pane === "tree") {
+    // A cancelled unsaved-details navigation leaves another folder active.
+    if (state.folderId === item.id) await toggleTreeFolderFromClick(item);
+    return;
+  }
+
+  // Selection may have been cancelled by the unsaved-details guard.
+  if (pane === "list" && state.selectedId === item.id) {
+    await navigate(item.id, true, "list");
+  }
 }
 
 /** Collapse a multi-selection to one focused item without navigating away. */
@@ -3451,7 +3488,7 @@ function renderFolderTreeNode(
   };
 
   const toggleFolderOnDoubleClick = async (e) => {
-    if (searchVisibleIds || !expandableChildren.length) return;
+    if (Folder_SingleClickInteract || searchVisibleIds || !expandableChildren.length) return;
     e.preventDefault();
     e.stopPropagation();
     await toggleTreeFolderFromClick(folder);
@@ -3461,8 +3498,8 @@ function renderFolderTreeNode(
   label.className = "tree-label";
   label.type = "button";
   label.setAttribute("aria-current", String(folder.id === state.folderId));
-  label.title = expandableChildren.length ? t("doubleClickExpandCollapseTitle") : "";
-  label.onclick = (e) => handlePaneClick(e, "tree", folder);
+  label.title = expandableChildren.length ? t(Folder_SingleClickInteract ? "singleClickExpandCollapseTitle" : "doubleClickExpandCollapseTitle") : "";
+  label.onclick = (e) => { handlePaneRowClick(e, "tree", folder); };
   label.ondblclick = toggleFolderOnDoubleClick;
   row.ondblclick = toggleFolderOnDoubleClick;
 
@@ -3625,9 +3662,16 @@ function renderList() {
     } else {
       row.append(...visibleMidFcColumns().map((column) => cellForColumn(item, column.id)));
     }
-    row.onclick = (e) => { handlePaneClick(e, "list", item); };
+    row.onclick = (e) => { handlePaneRowClick(e, "list", item); };
     row.onauxclick = (e) => { handleListAuxClick(e, item); };
-    row.ondblclick = () => openOrNavigate(item);
+    row.ondblclick = (e) => {
+      if (Folder_SingleClickInteract && isFolder(item)) {
+        e.preventDefault();
+        e.stopPropagation();
+        return;
+      }
+      openOrNavigate(item);
+    };
     return row;
   });
   const list = $("list");
