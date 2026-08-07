@@ -226,7 +226,7 @@ body.column-resizing { cursor: col-resize; user-select: none; }
 .tree-row[draggable="true"], .item[draggable="true"] { cursor: grab; }
 .tree-row.dragging, .item.dragging { opacity: .45; }
 .tree-row.drop-before, .item.drop-before { box-shadow: inset 0 2px 0 var(--sbm-color-accent); }
-.tree-row.drop-after, .item.drop-after { box-shadow: inset 0 -2px 0 var(--sbm-color-accent); }
+.tree-row.drop-after, .item.drop-after, .table-scroll.drop-after { box-shadow: inset 0 -2px 0 var(--sbm-color-accent); }
 .tree-row.drop-into .tree-label, .item.drop-into {
   outline: 2px solid var(--sbm-color-accent);
   background: var(--sbm-color-accent-drop);

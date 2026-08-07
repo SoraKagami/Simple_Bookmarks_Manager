@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.9.9
+
+- Added external text/URL drag-and-drop bookmark creation with existing row drop indicators and the New Bookmark editor prefilled from the dropped value.
+- Replaced the native Add New Folder prompt with SBM's in-page folder editor for toolbar and context-menu creation paths.
+- Changed `Folder_AutoExpandAfterWait` to a 0.1–3.0 second slider while retaining the 1.2 second default.
+
 ## 0.9.8
 
 - Added `Folder_AutoExpandOnDrag`, disabled by default, to automatically expand/open destination folders while dragging bookmark items.

@@ -58,6 +58,7 @@ const $ = (id) => document.getElementById(id);
 const nodes = new Map();
 const SEPARATOR_TITLE = "———";
 const SEPARATOR_URL = "about:blank";
+const SBM_DRAG_MIME = "application/x-sbm-bookmark-node";
 let left_Lib_Width = DEFAULT_SETTINGS.left_Lib_Width;
 let right_Details_Width = DEFAULT_SETTINGS.right_Details_Width;
 let bottom_Details_Height = DEFAULT_SETTINGS.bottom_Details_Height;
@@ -816,11 +817,11 @@ function showBookmarkEditorDialog({ heading, title = "", url = "https://", submi
 
 
 /**
- * Show an in-page folder rename editor using the same modal behavior as the
- * bookmark editor.  Backdrop clicks are ignored so partially typed names are
- * not lost accidentally; the dialog resolves only through Save, Cancel, or Esc.
+ * Show an in-page folder editor using the same modal style as bookmark creation.
+ * Backdrop clicks are ignored so partially typed names are not lost accidentally;
+ * the dialog resolves only through its submit button, Cancel, or Esc.
  */
-function showFolderRenameDialog({ heading = t("renameFolder"), title = "", submitLabel = t("save") } = {}) {
+function showFolderEditorDialog({ heading = t("renameFolder"), title = "", submitLabel = t("save") } = {}) {
   return new Promise((resolve) => {
     hideContextMenu();
 
@@ -832,10 +833,10 @@ function showFolderRenameDialog({ heading = t("renameFolder"), title = "", submi
     modal.className = "unsaved-modal bookmark-editor-modal";
     modal.setAttribute("role", "dialog");
     modal.setAttribute("aria-modal", "true");
-    modal.setAttribute("aria-labelledby", "folder-rename-title");
+    modal.setAttribute("aria-labelledby", "folder-editor-title");
 
     const headingEl = document.createElement("h3");
-    headingEl.id = "folder-rename-title";
+    headingEl.id = "folder-editor-title";
     headingEl.textContent = heading;
 
     const form = document.createElement("form");
@@ -2014,7 +2015,7 @@ async function openContainingFolderForBookmark(bookmark) {
 /** Open the Rename Folder dialog and apply the saved title to a mutable folder node. */
 async function renameFolder(folder, sourcePane = "tree") {
   if (!folder || !isFolder(folder) || !isMutable(folder)) return;
-  const renamed = await showFolderRenameDialog({
+  const renamed = await showFolderEditorDialog({
     heading: t("renameFolder"),
     title: folder.title || "",
     submitLabel: t("save")
@@ -2218,13 +2219,17 @@ function insertionTargetForContext(context = null) {
   return { parentId: state.folderId, index: null };
 }
 
-/** Create a folder under the requested parent with a localized default name. */
+/** Create a folder under the requested parent after collecting its name in SBM's modal editor. */
 async function createFolderIn(parentId, index = null) {
   const target = safeMoveDetails(parentId, index);
   if (!target) return;
-  const title = prompt(t("folderNamePrompt"), t("newFolderDefaultName"));
-  if (title === null) return;
-  const details = { ...target, title: sanitizeBookmarkTitle(title, t("newFolderDefaultName")) };
+  const folderDetails = await showFolderEditorDialog({
+    heading: t("newFolder"),
+    title: t("newFolderDefaultName"),
+    submitLabel: t("create")
+  });
+  if (!folderDetails) return;
+  const details = { ...target, title: sanitizeBookmarkTitle(folderDetails.title, t("newFolderDefaultName")) };
   const node = await tryBookmarkMutation(t("mutationCreateFolder"), "create", details);
   if (!node) {
     await loadTree();
@@ -2235,13 +2240,13 @@ async function createFolderIn(parentId, index = null) {
 }
 
 /** Create a bookmark under the requested parent after collecting dialog input. */
-async function createBookmarkIn(parentId, index = null) {
+async function createBookmarkIn(parentId, index = null, { title = "", url = "https://" } = {}) {
   const target = safeMoveDetails(parentId, index);
   if (!target) return;
   const bookmarkDetails = await showBookmarkEditorDialog({
     heading: t("newBookmark"),
-    title: "",
-    url: "https://",
+    title,
+    url,
     submitLabel: t("create"),
   });
   if (!bookmarkDetails) return;
@@ -2361,6 +2366,58 @@ function dropIntent(event, element, target) {
   }
 
   return y < rect.height / 2 ? "before" : "after";
+}
+
+/** Return whether a drag entering SBM contains browser text/URL data rather than an SBM row. */
+function isExternalBookmarkDrag(dataTransfer) {
+  if (state.drag || !dataTransfer) return false;
+  const types = new Set(Array.from(dataTransfer.types || []));
+  if (types.has(SBM_DRAG_MIME)) return false;
+  return types.has("text/uri-list") || types.has("text/plain") || types.has("text");
+}
+
+/** Extract one URL/text value from an external browser drag without interpreting it as HTML. */
+function externalBookmarkDropValue(dataTransfer) {
+  if (!dataTransfer) return "";
+
+  const uriList = dataTransfer.getData("text/uri-list");
+  const firstUri = uriList
+    .split(/\r?\n/u)
+    .map((line) => line.trim())
+    .find((line) => line && !line.startsWith("#"));
+  if (firstUri) return sanitizeBookmarkUrl(firstUri);
+
+  return sanitizeBookmarkUrl(dataTransfer.getData("text/plain") || dataTransfer.getData("text"));
+}
+
+/**
+ * Resolve a safe bookmark-create destination for an external text/URL drop.
+ * Folder centers mean "inside"; row edges mean before/after in native order.
+ */
+function externalBookmarkInsertionTarget(target, intent, context) {
+  if (!target) return null;
+  if (intent === "into") return canContainChildren(target) ? safeMoveDetails(target.id) : null;
+
+  // A visually sorted/searched Folder Contents pane cannot promise that a
+  // before/after indicator maps to Chromium's native child order.
+  if (context === "list" && !canReorderList()) return null;
+  if (!target.parentId || target.parentId === "0") return null;
+
+  const requestedIndex = (Number.isInteger(target.index) ? target.index : 0) + (intent === "after" ? 1 : 0);
+  return safeMoveDetails(target.parentId, requestedIndex);
+}
+
+/** Open the existing New Bookmark editor for an external text/URL drop destination. */
+async function createBookmarkFromExternalDrop(target, rawValue) {
+  if (!target || !rawValue) return;
+  if (await blockAddIfUnsavedDetails()) return;
+  await createBookmarkIn(target.parentId, target.index ?? null, { url: rawValue });
+}
+
+/** Return a safe append destination for the current Folder Contents pane. */
+function externalBookmarkListAppendTarget() {
+  if (!canReorderList() || !validFolderId(state.folderId)) return null;
+  return safeMoveDetails(state.folderId, childCount(state.folderId));
 }
 
 /** Return the CSS class that represents a drag/drop intent. */
@@ -2803,12 +2860,22 @@ function cancelDragAutoExpandForRow(row) {
   if (state.dragAutoExpandRow === row) clearDragAutoExpandTimer();
 }
 
-/** Attach drag-over/drop handlers to a rendered row. */
+/** Attach internal move and external text/URL-create drop handlers to a rendered row. */
 function attachDropTarget(row, target, context) {
   row.ondragover = (e) => {
-    scheduleDragAutoExpand(row, target, context);
+    const externalDrag = isExternalBookmarkDrag(e.dataTransfer);
     const multiDrag = !!state.drag?.multi;
     const intent = multiDrag ? currentDragIntent(e, row, target, context) : dropIntent(e, row, target);
+
+    if (externalDrag) {
+      if (!externalBookmarkInsertionTarget(target, intent, context)) return;
+      e.preventDefault();
+      e.dataTransfer.dropEffect = "copy";
+      setDropIndicator(row, intent);
+      return;
+    }
+
+    scheduleDragAutoExpand(row, target, context);
     if (multiDrag) {
       if (!canMoveCurrentDragToTarget(target, intent, context)) return;
     } else {
@@ -2829,8 +2896,20 @@ function attachDropTarget(row, target, context) {
   };
 
   row.ondrop = async (e) => {
+    const externalDrag = isExternalBookmarkDrag(e.dataTransfer);
     const multiDrag = !!state.drag?.multi;
     const intent = multiDrag ? currentDragIntent(e, row, target, context) : dropIntent(e, row, target);
+
+    if (externalDrag) {
+      const createTarget = externalBookmarkInsertionTarget(target, intent, context);
+      if (!createTarget) return;
+      const rawValue = externalBookmarkDropValue(e.dataTransfer);
+      e.preventDefault();
+      clearDropIndicators();
+      await createBookmarkFromExternalDrop(createTarget, rawValue);
+      return;
+    }
+
     if (multiDrag) {
       if (!canMoveCurrentDragToTarget(target, intent, context)) return;
     } else {
@@ -3473,6 +3552,7 @@ function attachTreeDragSource(row, item) {
     const multi = isMultiSelectActive("tree") && state.multiSelect.ids.has(item.id);
     state.drag = multi ? { ids: [...state.multiSelect.ids], source: "tree", multi: true } : { id: item.id, source: "tree" };
     e.dataTransfer.effectAllowed = "move";
+    e.dataTransfer.setData(SBM_DRAG_MIME, item.id);
     e.dataTransfer.setData("text/plain", item.id);
     row.classList.add("dragging");
   };
@@ -3791,6 +3871,7 @@ function renderList() {
         const multi = isMultiSelectActive("list") && state.multiSelect.ids.has(item.id);
         state.drag = multi ? { ids: [...state.multiSelect.ids], source: "list", multi: true } : { id: item.id, source: "list" };
         e.dataTransfer.effectAllowed = "move";
+        e.dataTransfer.setData(SBM_DRAG_MIME, item.id);
         e.dataTransfer.setData("text/plain", item.id);
         row.classList.add("dragging");
       };
@@ -5073,10 +5154,37 @@ $("url").addEventListener("input", updateUrlWarning);
 $("url").addEventListener("change", updateUrlWarning);
 $("new-folder").onclick = createFolder;
 $("new-bookmark").onclick = createBookmark;
-document.addEventListener("dragover", (e) => {
-  if (state.drag) e.preventDefault();
+$("table-scroll").addEventListener("dragover", (e) => {
+  if (e.target.closest?.(".item, .columns") || !isExternalBookmarkDrag(e.dataTransfer)) return;
+  const target = externalBookmarkListAppendTarget();
+  if (!target) return;
+  e.preventDefault();
+  e.dataTransfer.dropEffect = "copy";
+  setDropIndicator($("table-scroll"), "after");
 });
-document.addEventListener("drop", clearDropIndicators);
+
+$("table-scroll").addEventListener("dragleave", (e) => {
+  if (e.relatedTarget instanceof Node && $("table-scroll").contains(e.relatedTarget)) return;
+  if (state.dropIndicator?.row === $("table-scroll")) clearDropIndicators();
+});
+
+$("table-scroll").addEventListener("drop", async (e) => {
+  if (e.target.closest?.(".item, .columns") || !isExternalBookmarkDrag(e.dataTransfer)) return;
+  const target = externalBookmarkListAppendTarget();
+  if (!target) return;
+  const rawValue = externalBookmarkDropValue(e.dataTransfer);
+  e.preventDefault();
+  clearDropIndicators();
+  await createBookmarkFromExternalDrop(target, rawValue);
+});
+
+document.addEventListener("dragover", (e) => {
+  if (state.drag || isExternalBookmarkDrag(e.dataTransfer)) e.preventDefault();
+});
+document.addEventListener("drop", (e) => {
+  if (isExternalBookmarkDrag(e.dataTransfer)) e.preventDefault();
+  clearDropIndicators();
+});
 window.addEventListener("mousedown", handleMouseHistoryButton, { capture: true });
 window.addEventListener("auxclick", handleMouseHistoryButton, { capture: true });
 window.addEventListener("contextmenu", showContextMenu, { capture: true });

@@ -183,6 +183,16 @@ async function populateStartupFolderSelect(selectedId = "") {
   }
 }
 
+/** Reflect the drag-hover delay slider value beside the control. */
+function updateAutoExpandDelayOutput() {
+  const control = $("Folder_AutoExpandAfterWait");
+  const output = $("Folder_AutoExpandAfterWait-value");
+  if (!control || !output) return;
+  const value = normalizeSettingValue("Folder_AutoExpandAfterWait", control.value);
+  output.value = value.toFixed(1);
+  output.textContent = value.toFixed(1);
+}
+
 /** Reflect persisted settings into form controls and dependent disabled states. */
 function setControlState(settings) {
   populateLanguageSelect($("UserInterfaceLanguage"), settings.UserInterfaceLanguage);
@@ -193,6 +203,7 @@ function setControlState(settings) {
     if (control.type === "checkbox") control.checked = value;
     else control.value = String(value);
   }
+  updateAutoExpandDelayOutput();
 
   const startupFolderSelect = $("StartupBookmarkFolderId");
   if (startupFolderSelect) startupFolderSelect.disabled = !$("StartAtConfiguredBookmarkFolder").checked;
@@ -250,6 +261,7 @@ applyFontOptionStyles();
 
 for (const key of Object.keys(DEFAULT_SETTINGS)) {
   $(key).addEventListener("input", () => {
+    if (key === "Folder_AutoExpandAfterWait") updateAutoExpandDelayOutput();
     if (key === "UserInterfaceFontFamily" || key === "UserInterfaceFontSize" || key === "UserInterfaceLineSpacing") {
       applyUserInterfaceSettings({ ...DEFAULT_SETTINGS, ...readAllControlValues() });
     }

@@ -18,6 +18,9 @@ header { display: flex; align-items: baseline; justify-content: space-between; g
 .option-row-control select:disabled { opacity: .68; cursor: not-allowed; }
 .option-row.option-row-disabled > span { color: var(--sbm-color-text-muted); }
 .option-row.option-row-disabled input:disabled { opacity: .68; cursor: not-allowed; }
+.range-control { display: grid; grid-template-columns: minmax(110px, 1fr) 3.2em; gap: 8px; align-items: center; }
+.option-row-control .range-control input[type="range"] { width: 100%; padding: 0; }
+.range-control output { text-align: right; font-variant-numeric: tabular-nums; }
 .actions { margin-top: 20px; }
 button, select, input { font-family: var(--sbm-ui-font-family); font-size: inherit; line-height: inherit; }
 button { padding: 7px 12px; }

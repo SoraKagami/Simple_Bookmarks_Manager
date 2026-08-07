@@ -97,7 +97,7 @@ export function normalizeSettingValue(key, value) {
   }
   if (key === "UserInterfaceFontSize") return clampNumber(value, 11, 20, DEFAULT_SETTINGS[key]);
   if (key === "UserInterfaceLineSpacing") return clampNumber(value, 1.0, 1.8, DEFAULT_SETTINGS[key]);
-  if (key === "Folder_AutoExpandAfterWait") return clampNumber(value, 0.1, 30, DEFAULT_SETTINGS[key]);
+  if (key === "Folder_AutoExpandAfterWait") return clampNumber(value, 0.1, 3, DEFAULT_SETTINGS[key]);
   if (key === "left_Lib_Width") return Math.round(clampNumber(value, 180, 800, DEFAULT_SETTINGS[key]));
   if (key === "right_Details_Width") return Math.round(clampNumber(value, 220, 900, DEFAULT_SETTINGS[key]));
   if (key === "bottom_Details_Height") return Math.round(clampNumber(value, 160, 800, DEFAULT_SETTINGS[key]));
