@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.9.11
+
+- Fixed `Folder_AutoExpandOnDrag` in normal mode so a Library drag-hover target switches Folder Contents after the configured delay even when the target folder has no child folders to expand.
+- Restored the middle-pane breadcrumb to display Chromium's actual `Bookmarks bar` folder name instead of replacing it with `Bookmarks`.
+
 ## 0.9.10
 
 - Synchronized drag-hover folder navigation between the Library and Folder Contents panes when `Folder_AutoExpandOnDrag` is enabled.

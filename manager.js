@@ -2851,8 +2851,14 @@ function autoExpandDragTarget(row, target, context) {
   if (!row?.isConnected || !canAutoExpandDragTarget(target, context)) return;
 
   if (context === "tree") {
+    const hasExpandableChildren = expandableLibraryChildren(target).length > 0;
+    if (!hasExpandableChildren) {
+      // In normal mode the delayed hover also navigates Folder Contents, even
+      // when the Library target is a leaf folder with nothing to expand.
+      if (!SidebarMode) navigateFolderDuringDrag(target, "tree");
+      return;
+    }
     if (state.expandedFolders.has(target.id)) return;
-    if (!expandableLibraryChildren(target).length) return;
     if (expandTreeFolderState(target.id)) {
       renderTreeFolderExpansionDuringDrag(row, target);
       if (!SidebarMode) navigateFolderDuringDrag(target, "tree");
@@ -2868,7 +2874,11 @@ function scheduleDragAutoExpand(row, target, context) {
   const key = `${context}:${target?.id || ""}`;
   const alreadyExpanded = context === "tree" && state.expandedFolders.has(target?.id);
   const emptyTreeFolder = context === "tree" && !expandableLibraryChildren(target || {}).length;
-  if (!canAutoExpandDragTarget(target, context) || alreadyExpanded || emptyTreeFolder) {
+  if (
+    !canAutoExpandDragTarget(target, context) ||
+    alreadyExpanded ||
+    (emptyTreeFolder && SidebarMode)
+  ) {
     if (state.dragAutoExpandKey !== key) clearDragAutoExpandTimer();
     return;
   }
@@ -3815,14 +3825,10 @@ function detailsToggleTooltip() {
 
 /** Render the breadcrumb path for the current folder. */
 function renderCrumbs() {
-  const pathNodes = [];
-  for (let n = nodes.get(state.folderId); n && n.id !== "0"; n = n.parentNode) pathNodes.unshift(n);
-  // Use SBM's generic label for Chromium's default Bookmarks bar root only.
-  const defaultRootId = defaultFolderId();
-  const path = pathNodes.map((node, index) =>
-    index === 0 && node.id === defaultRootId
-      ? t("bookmarksPathFallback")
-      : (node.title || t("rootFallback")));
+  const path = [];
+  for (let n = nodes.get(state.folderId); n && n.id !== "0"; n = n.parentNode) {
+    path.unshift(n.title || t("rootFallback"));
+  }
 
   const pathText = document.createElement("span");
   pathText.className = "path-text";
