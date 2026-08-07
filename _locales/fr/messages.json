@@ -1180,5 +1180,65 @@
   },
   "closeDialog": {
     "message": "Fermer la boîte de dialogue"
+  },
+  "helpOptionSidebarModeDescription": {
+    "message": ": ouvrir SBM dans la barre latérale du navigateur au lieu d'un onglet. La prise en charge de la barre latérale Chromium est requise."
+  },
+  "sidebarMode": {
+    "message": "Mode barre latérale"
+  },
+  "sidebarModeHelp": {
+    "message": "Lorsqu'il est activé, SBM s'ouvre dans la barre latérale du navigateur au lieu d'un onglet (prise en charge de la barre latérale Chromium requise)."
+  },
+  "showTreeBookmarksTitle": {
+    "message": "Afficher les favoris de ce dossier"
+  },
+  "hideTreeBookmarksTitle": {
+    "message": "Masquer les favoris de ce dossier"
+  },
+  "sidebarModeOptions": {
+    "message": "Options du mode barre latérale"
+  },
+  "sidebarModeOptionsHelp": {
+    "message": "Configure le comportement de la Bibliothèque utilisé par le mode barre latérale."
+  },
+  "sidebarModeAutoShowOnExpand": {
+    "message": "Afficher automatiquement les favoris lorsque les dossiers sont développés"
+  },
+  "sidebarModeAutoShowOnExpandHelp": {
+    "message": "Lorsqu'elle est activée, cette option affiche automatiquement les favoris d'un dossier de la Bibliothèque quand il est développé en mode barre latérale. La désactiver empêche les futurs affichages automatiques sans masquer les favoris déjà affichés."
+  },
+  "helpOptionSidebarModeAutoShowOnExpandDescription": {
+    "message": ": en mode barre latérale, affiche automatiquement les favoris d'un dossier lorsque celui-ci est développé. Désactiver l'option empêche les futurs affichages automatiques sans masquer les favoris déjà affichés avec le bouton en forme d'œil."
+  },
+  "folderSingleClickInteract": {
+    "message": "Développer/replier les dossiers d'un seul clic"
+  },
+  "folderSingleClickInteractHelp": {
+    "message": "Lorsqu'elle est activée, cette option permet à un simple clic gauche de développer ou replier les dossiers de la Bibliothèque et d'ouvrir les dossiers dans le volet Contenu du dossier. Lorsqu'elle est désactivée, ces actions nécessitent un double clic."
+  },
+  "helpOptionFolderSingleClickInteractDescription": {
+    "message": ": lorsqu'elle est activée, un simple clic gauche développe ou replie les dossiers dans le volet Bibliothèque et ouvre les dossiers dans le volet Contenu du dossier. Lorsqu'elle est désactivée, ces actions nécessitent un double clic."
+  },
+  "singleClickExpandCollapseTitle": {
+    "message": "Cliquer pour développer ou replier le dossier"
+  },
+  "folderAutoExpandOnDrag": {
+    "message": "Développer automatiquement les dossiers pendant le glisser-déposer"
+  },
+  "folderAutoExpandOnDragHelp": {
+    "message": "Lorsqu'elle est activée, cette option développe ou ouvre automatiquement un dossier cible après qu'un favori, un séparateur ou un dossier glissé est resté dessus pendant le délai configuré."
+  },
+  "folderAutoExpandAfterWait": {
+    "message": "Délai de développement automatique (secondes)"
+  },
+  "folderAutoExpandAfterWaitHelp": {
+    "message": "Choisissez combien de temps une sélection glissée doit rester sur un dossier avant que SBM le développe ou l'ouvre. Plage : 0,1–3,0 secondes. Valeur par défaut : 1,2 seconde."
+  },
+  "helpOptionFolderAutoExpandOnDragDescription": {
+    "message": ": lorsqu'elle est activée, le survol d'un dossier cible avec un favori, un séparateur ou un dossier glissé développe automatiquement les dossiers de la Bibliothèque ou ouvre les dossiers du volet Contenu du dossier après le délai configuré."
+  },
+  "helpOptionFolderAutoExpandAfterWaitDescription": {
+    "message": ": utilisez le curseur pour définir combien de temps une sélection glissée doit rester sur un dossier avant le développement/l'ouverture automatique. Plage : 0,1–3,0 secondes ; valeur par défaut : 1,2 seconde."
   }
 }

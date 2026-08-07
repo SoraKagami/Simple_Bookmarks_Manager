@@ -1180,5 +1180,65 @@
   },
   "closeDialog": {
     "message": "Dialoog sluiten"
+  },
+  "helpOptionSidebarModeDescription": {
+    "message": ": open SBM in de zijbalk van de browser in plaats van in een tabblad. Chromium-ondersteuning voor de zijbalk is vereist."
+  },
+  "sidebarMode": {
+    "message": "Zijbalkmodus"
+  },
+  "sidebarModeHelp": {
+    "message": "Als dit is ingeschakeld, wordt SBM in de zijbalk van de browser geopend in plaats van in een tabblad (Chromium-ondersteuning voor de zijbalk is vereist)."
+  },
+  "showTreeBookmarksTitle": {
+    "message": "Bladwijzers in deze map tonen"
+  },
+  "hideTreeBookmarksTitle": {
+    "message": "Bladwijzers in deze map verbergen"
+  },
+  "sidebarModeOptions": {
+    "message": "Opties voor zijbalkmodus"
+  },
+  "sidebarModeOptionsHelp": {
+    "message": "Configureer het Bibliotheekgedrag voor de zijbalkmodus."
+  },
+  "sidebarModeAutoShowOnExpand": {
+    "message": "Bladwijzers automatisch tonen wanneer mappen worden uitgevouwen"
+  },
+  "sidebarModeAutoShowOnExpandHelp": {
+    "message": "Als dit is ingeschakeld, schakelt het uitvouwen van een map in Bibliotheek in de zijbalkmodus automatisch de zichtbaarheid van de bladwijzers in die map in. Als u deze optie uitschakelt, worden toekomstige automatische weergaven gestopt zonder bladwijzers te verbergen die al worden getoond."
+  },
+  "helpOptionSidebarModeAutoShowOnExpandDescription": {
+    "message": ": schakelt in de zijbalkmodus automatisch de zichtbaarheid van de bladwijzers van een map in wanneer die map wordt uitgevouwen. Als u de optie uitschakelt, worden toekomstige automatische weergaven gestopt zonder bladwijzers te verbergen die al via de oogknop worden getoond."
+  },
+  "folderSingleClickInteract": {
+    "message": "Mappen met één klik uit-/invouwen"
+  },
+  "folderSingleClickInteractHelp": {
+    "message": "Als dit is ingeschakeld, vouwt één klik met de linkermuisknop mappen in Bibliotheek uit of in en opent die mappen in het paneel Mapinhoud. Als dit is uitgeschakeld, is voor deze mapacties een dubbele klik vereist."
+  },
+  "helpOptionFolderSingleClickInteractDescription": {
+    "message": ": als dit is ingeschakeld, vouwt één klik met de linkermuisknop mappen in het Bibliotheekpaneel uit of in en opent mappen in het paneel Mapinhoud. Als dit is uitgeschakeld, is voor deze mapacties een dubbele klik vereist."
+  },
+  "singleClickExpandCollapseTitle": {
+    "message": "Klik om de map uit of in te vouwen"
+  },
+  "folderAutoExpandOnDrag": {
+    "message": "Mappen automatisch uitvouwen tijdens slepen"
+  },
+  "folderAutoExpandOnDragHelp": {
+    "message": "Als dit is ingeschakeld, wordt een doelmap automatisch uitgevouwen of geopend nadat een gesleepte bladwijzer, scheidingsteken of map er gedurende de ingestelde vertraging boven blijft."
+  },
+  "folderAutoExpandAfterWait": {
+    "message": "Vertraging voor automatisch uitvouwen (seconden)"
+  },
+  "folderAutoExpandAfterWaitHelp": {
+    "message": "Kies hoe lang een gesleepte selectie boven een map moet blijven voordat SBM deze uitvouwt of opent. Bereik: 0,1–3,0 seconden. Standaard: 1,2 seconden."
+  },
+  "helpOptionFolderAutoExpandOnDragDescription": {
+    "message": ": als dit is ingeschakeld, worden mappen in Bibliotheek automatisch uitgevouwen of mappen in het paneel Mapinhoud geopend nadat een gesleepte bladwijzer, scheidingsteken of map gedurende de ingestelde vertraging boven een doelmap blijft."
+  },
+  "helpOptionFolderAutoExpandAfterWaitDescription": {
+    "message": ": gebruik de schuifregelaar om in te stellen hoe lang een gesleepte selectie boven een map moet blijven voordat automatisch uitvouwen/openen plaatsvindt. Bereik: 0,1–3,0 seconden; standaard: 1,2 seconden."
   }
 }

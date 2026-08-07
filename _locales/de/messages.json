@@ -1180,5 +1180,65 @@
   },
   "closeDialog": {
     "message": "Dialog schließen"
+  },
+  "helpOptionSidebarModeDescription": {
+    "message": ": SBM in der Seitenleiste des Browsers statt in einem Tab öffnen. Chromium-Unterstützung für Seitenleisten ist erforderlich."
+  },
+  "sidebarMode": {
+    "message": "Seitenleistenmodus"
+  },
+  "sidebarModeHelp": {
+    "message": "Wenn aktiviert, wird SBM in der Seitenleiste des Browsers statt in einem Tab geöffnet (Chromium-Unterstützung für Seitenleisten erforderlich)."
+  },
+  "showTreeBookmarksTitle": {
+    "message": "Lesezeichen in diesem Ordner anzeigen"
+  },
+  "hideTreeBookmarksTitle": {
+    "message": "Lesezeichen in diesem Ordner ausblenden"
+  },
+  "sidebarModeOptions": {
+    "message": "Optionen für den Seitenleistenmodus"
+  },
+  "sidebarModeOptionsHelp": {
+    "message": "Verhalten der Bibliothek im Seitenleistenmodus konfigurieren."
+  },
+  "sidebarModeAutoShowOnExpand": {
+    "message": "Lesezeichen beim Erweitern von Ordnern automatisch anzeigen"
+  },
+  "sidebarModeAutoShowOnExpandHelp": {
+    "message": "Wenn aktiviert, schaltet das Erweitern eines Bibliotheksordners im Seitenleistenmodus automatisch die Anzeige seiner Lesezeichen ein. Das Deaktivieren dieser Option verhindert zukünftiges automatisches Anzeigen, ohne bereits angezeigte Lesezeichen auszublenden."
+  },
+  "helpOptionSidebarModeAutoShowOnExpandDescription": {
+    "message": ": Im Seitenleistenmodus wird beim Erweitern eines Ordners automatisch die Anzeige seiner Lesezeichen aktiviert. Das Deaktivieren der Option verhindert zukünftiges automatisches Anzeigen, ohne Lesezeichen auszublenden, die bereits über den Augen-Schalter angezeigt werden."
+  },
+  "folderSingleClickInteract": {
+    "message": "Ordner mit einem Klick erweitern/einklappen"
+  },
+  "folderSingleClickInteractHelp": {
+    "message": "Wenn aktiviert, erweitert oder klappt ein einzelner Linksklick Bibliotheksordner ein und öffnet Ordner im Ordnerinhaltsbereich. Wenn deaktiviert, erfordern diese Ordneraktionen einen Doppelklick."
+  },
+  "helpOptionFolderSingleClickInteractDescription": {
+    "message": ": Wenn aktiviert, erweitert oder klappt ein einzelner Linksklick Ordner im Bibliotheksbereich ein und öffnet Ordner im Ordnerinhaltsbereich. Wenn deaktiviert, erfordern diese Ordneraktionen einen Doppelklick."
+  },
+  "singleClickExpandCollapseTitle": {
+    "message": "Zum Erweitern oder Einklappen des Ordners klicken"
+  },
+  "folderAutoExpandOnDrag": {
+    "message": "Ordner beim Ziehen automatisch erweitern"
+  },
+  "folderAutoExpandOnDragHelp": {
+    "message": "Wenn aktiviert, wird ein Zielordner automatisch erweitert oder geöffnet, nachdem ein gezogenes Lesezeichen, eine Trennlinie oder ein Ordner für die konfigurierte Verzögerung darüber gehalten wurde."
+  },
+  "folderAutoExpandAfterWait": {
+    "message": "Verzögerung für automatisches Erweitern (Sekunden)"
+  },
+  "folderAutoExpandAfterWaitHelp": {
+    "message": "Wählen Sie, wie lange eine gezogene Auswahl über einem Ordner bleiben muss, bevor SBM ihn erweitert oder öffnet. Bereich: 0,1–3,0 Sekunden. Standard: 1,2 Sekunden."
+  },
+  "helpOptionFolderAutoExpandOnDragDescription": {
+    "message": ": Wenn aktiviert, werden Bibliotheksordner automatisch erweitert oder Ordner im Ordnerinhaltsbereich geöffnet, nachdem ein gezogenes Lesezeichen, eine Trennlinie oder ein Ordner für die konfigurierte Verzögerung über einem Zielordner gehalten wurde."
+  },
+  "helpOptionFolderAutoExpandAfterWaitDescription": {
+    "message": ": Mit dem Schieberegler legen Sie fest, wie lange eine gezogene Auswahl über einem Ordner bleiben muss, bevor das automatische Erweitern/Öffnen erfolgt. Bereich: 0,1–3,0 Sekunden; Standard: 1,2 Sekunden."
   }
 }

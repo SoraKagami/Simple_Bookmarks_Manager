@@ -1180,5 +1180,65 @@
   },
   "closeDialog": {
     "message": "Cerrar diálogo"
+  },
+  "helpOptionSidebarModeDescription": {
+    "message": ": abrir SBM en la barra lateral del navegador en lugar de una pestaña. Se requiere compatibilidad con la barra lateral de Chromium."
+  },
+  "sidebarMode": {
+    "message": "Modo de barra lateral"
+  },
+  "sidebarModeHelp": {
+    "message": "Cuando está activado, SBM se abre en la barra lateral del navegador en lugar de una pestaña (se requiere compatibilidad con la barra lateral de Chromium)."
+  },
+  "showTreeBookmarksTitle": {
+    "message": "Mostrar los marcadores de esta carpeta"
+  },
+  "hideTreeBookmarksTitle": {
+    "message": "Ocultar los marcadores de esta carpeta"
+  },
+  "sidebarModeOptions": {
+    "message": "Opciones del modo de barra lateral"
+  },
+  "sidebarModeOptionsHelp": {
+    "message": "Configura el comportamiento de Biblioteca usado por el modo de barra lateral."
+  },
+  "sidebarModeAutoShowOnExpand": {
+    "message": "Mostrar automáticamente los marcadores al expandir carpetas"
+  },
+  "sidebarModeAutoShowOnExpandHelp": {
+    "message": "Cuando está activado, al expandir una carpeta de Biblioteca en el modo de barra lateral se activa automáticamente la visibilidad de sus marcadores. Desactivar esta opción detiene futuras visualizaciones automáticas sin ocultar los marcadores que ya se muestran."
+  },
+  "helpOptionSidebarModeAutoShowOnExpandDescription": {
+    "message": ": en el modo de barra lateral, activa automáticamente la visibilidad de los marcadores de una carpeta cuando se expande. Desactivar la opción detiene futuras visualizaciones automáticas sin ocultar los marcadores que ya se muestran mediante el botón del ojo."
+  },
+  "folderSingleClickInteract": {
+    "message": "Expandir/contraer carpetas con un solo clic"
+  },
+  "folderSingleClickInteractHelp": {
+    "message": "Cuando está activado, un solo clic izquierdo expande o contrae las carpetas de Biblioteca y abre las carpetas en el panel de contenido de carpeta. Cuando está desactivado, estas acciones de carpeta requieren un doble clic."
+  },
+  "helpOptionFolderSingleClickInteractDescription": {
+    "message": ": cuando está activado, un solo clic izquierdo expande o contrae carpetas en el panel Biblioteca y abre carpetas en el panel de contenido de carpeta. Cuando está desactivado, estas acciones de carpeta requieren un doble clic."
+  },
+  "singleClickExpandCollapseTitle": {
+    "message": "Haz clic para expandir o contraer la carpeta"
+  },
+  "folderAutoExpandOnDrag": {
+    "message": "Expandir carpetas automáticamente al arrastrar"
+  },
+  "folderAutoExpandOnDragHelp": {
+    "message": "Cuando está activado, al mantener un marcador, separador o carpeta arrastrado sobre una carpeta de destino, esta se expande o abre automáticamente después del retardo configurado."
+  },
+  "folderAutoExpandAfterWait": {
+    "message": "Retardo de expansión automática (segundos)"
+  },
+  "folderAutoExpandAfterWaitHelp": {
+    "message": "Elige cuánto tiempo debe permanecer una selección arrastrada sobre una carpeta antes de que SBM la expanda o abra. Intervalo: 0,1–3,0 segundos. Predeterminado: 1,2 segundos."
+  },
+  "helpOptionFolderAutoExpandOnDragDescription": {
+    "message": ": cuando está activado, al mantener un marcador, separador o carpeta arrastrado sobre una carpeta de destino, las carpetas de Biblioteca se expanden o las del panel de contenido de carpeta se abren automáticamente después del retardo configurado."
+  },
+  "helpOptionFolderAutoExpandAfterWaitDescription": {
+    "message": ": usa el control deslizante para definir cuánto tiempo debe permanecer una selección arrastrada sobre una carpeta antes de que se produzca la expansión/apertura automática. Intervalo: 0,1–3,0 segundos; predeterminado: 1,2 segundos."
   }
 }

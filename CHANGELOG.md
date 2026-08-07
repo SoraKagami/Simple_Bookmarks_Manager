@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.9.13
+
+- Added translations for the 20 recent Sidebar Mode and Advanced folder-interaction strings in German, English (United States), Spanish, French, Italian, Dutch, Polish, Brazilian Portuguese, Russian, Turkish, Ukrainian, and Māori.
+
 ## 0.9.12
 
 - Fixed repeated `Folder_AutoExpandOnDrag` navigation from the Library pane so a folder that was expanded by an earlier drag still switches Folder Contents after the configured hover delay on later drags.

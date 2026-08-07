@@ -1180,5 +1180,65 @@
   },
   "closeDialog": {
     "message": "Fechar diálogo"
+  },
+  "helpOptionSidebarModeDescription": {
+    "message": ": abrir o SBM na barra lateral do navegador em vez de em uma guia. É necessário que o Chromium ofereça suporte à barra lateral."
+  },
+  "sidebarMode": {
+    "message": "Modo de barra lateral"
+  },
+  "sidebarModeHelp": {
+    "message": "Quando ativado, o SBM abre na barra lateral do navegador em vez de em uma guia (é necessário suporte à barra lateral do Chromium)."
+  },
+  "showTreeBookmarksTitle": {
+    "message": "Mostrar favoritos nesta pasta"
+  },
+  "hideTreeBookmarksTitle": {
+    "message": "Ocultar favoritos nesta pasta"
+  },
+  "sidebarModeOptions": {
+    "message": "Opções do Modo de barra lateral"
+  },
+  "sidebarModeOptionsHelp": {
+    "message": "Configure o comportamento da Biblioteca usado pelo Modo de barra lateral."
+  },
+  "sidebarModeAutoShowOnExpand": {
+    "message": "Mostrar favoritos automaticamente ao expandir pastas"
+  },
+  "sidebarModeAutoShowOnExpandHelp": {
+    "message": "Quando ativado, expandir uma pasta da Biblioteca no Modo de barra lateral ativa automaticamente a visibilidade dos favoritos dessa pasta. Desativar esta opção interrompe futuras exibições automáticas sem ocultar os favoritos que já estão visíveis."
+  },
+  "helpOptionSidebarModeAutoShowOnExpandDescription": {
+    "message": ": no Modo de barra lateral, ativa automaticamente a visibilidade dos favoritos de uma pasta quando ela é expandida. Desativar a opção interrompe futuras exibições automáticas sem ocultar os favoritos que já estão visíveis pelo botão de olho."
+  },
+  "folderSingleClickInteract": {
+    "message": "Expandir/recolher pastas com um clique"
+  },
+  "folderSingleClickInteractHelp": {
+    "message": "Quando ativado, um único clique com o botão esquerdo expande ou recolhe pastas da Biblioteca e abre pastas no painel Conteúdo da pasta. Quando desativado, essas ações exigem um clique duplo."
+  },
+  "helpOptionFolderSingleClickInteractDescription": {
+    "message": ": quando ativado, um único clique com o botão esquerdo expande ou recolhe pastas no painel Biblioteca e abre pastas no painel Conteúdo da pasta. Quando desativado, essas ações exigem um clique duplo."
+  },
+  "singleClickExpandCollapseTitle": {
+    "message": "Clique para expandir ou recolher a pasta"
+  },
+  "folderAutoExpandOnDrag": {
+    "message": "Expandir pastas automaticamente ao arrastar"
+  },
+  "folderAutoExpandOnDragHelp": {
+    "message": "Quando ativado, manter um favorito, separador ou pasta arrastado sobre uma pasta de destino faz com que ela seja expandida ou aberta automaticamente após o atraso configurado."
+  },
+  "folderAutoExpandAfterWait": {
+    "message": "Atraso para expansão automática (segundos)"
+  },
+  "folderAutoExpandAfterWaitHelp": {
+    "message": "Escolha por quanto tempo uma seleção arrastada deve permanecer sobre uma pasta antes de o SBM expandi-la ou abri-la. Intervalo: 0,1–3,0 segundos. Padrão: 1,2 segundos."
+  },
+  "helpOptionFolderAutoExpandOnDragDescription": {
+    "message": ": quando ativado, manter um favorito, separador ou pasta arrastado sobre uma pasta de destino expande automaticamente pastas da Biblioteca ou abre pastas no painel Conteúdo da pasta após o atraso configurado."
+  },
+  "helpOptionFolderAutoExpandAfterWaitDescription": {
+    "message": ": use o controle deslizante para definir por quanto tempo uma seleção arrastada deve permanecer sobre uma pasta antes da expansão/abertura automática. Intervalo: 0,1–3,0 segundos; padrão: 1,2 segundos."
   }
 }

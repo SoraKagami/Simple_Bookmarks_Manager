@@ -1180,5 +1180,65 @@
   },
   "closeDialog": {
     "message": "Chiudi finestra di dialogo"
+  },
+  "helpOptionSidebarModeDescription": {
+    "message": ": apre SBM nella barra laterale del browser invece che in una scheda. È richiesto il supporto della barra laterale di Chromium."
+  },
+  "sidebarMode": {
+    "message": "Modalità barra laterale"
+  },
+  "sidebarModeHelp": {
+    "message": "Quando è attiva, SBM si apre nella barra laterale del browser invece che in una scheda (è richiesto il supporto della barra laterale di Chromium)."
+  },
+  "showTreeBookmarksTitle": {
+    "message": "Mostra i segnalibri in questa cartella"
+  },
+  "hideTreeBookmarksTitle": {
+    "message": "Nascondi i segnalibri in questa cartella"
+  },
+  "sidebarModeOptions": {
+    "message": "Opzioni Modalità barra laterale"
+  },
+  "sidebarModeOptionsHelp": {
+    "message": "Configura il comportamento della Libreria usato dalla Modalità barra laterale."
+  },
+  "sidebarModeAutoShowOnExpand": {
+    "message": "Mostra automaticamente i segnalibri quando si espandono le cartelle"
+  },
+  "sidebarModeAutoShowOnExpandHelp": {
+    "message": "Quando è attiva, l'espansione di una cartella della Libreria in Modalità barra laterale attiva automaticamente la visibilità dei relativi segnalibri. Disattivando questa opzione si interrompe la visualizzazione automatica futura senza nascondere i segnalibri già mostrati."
+  },
+  "helpOptionSidebarModeAutoShowOnExpandDescription": {
+    "message": ": in Modalità barra laterale, attiva automaticamente la visibilità dei segnalibri di una cartella quando questa viene espansa. Disattivando l'opzione si interrompe la visualizzazione automatica futura senza nascondere i segnalibri già mostrati con il pulsante a forma di occhio."
+  },
+  "folderSingleClickInteract": {
+    "message": "Espandi/comprimi cartelle con un solo clic"
+  },
+  "folderSingleClickInteractHelp": {
+    "message": "Quando è attiva, un singolo clic sinistro espande o comprime le cartelle della Libreria e apre le cartelle nel riquadro Contenuto cartella. Quando è disattivata, queste azioni richiedono un doppio clic."
+  },
+  "helpOptionFolderSingleClickInteractDescription": {
+    "message": ": quando è attiva, un singolo clic sinistro espande o comprime le cartelle nel riquadro Libreria e apre le cartelle nel riquadro Contenuto cartella. Quando è disattivata, queste azioni richiedono un doppio clic."
+  },
+  "singleClickExpandCollapseTitle": {
+    "message": "Fai clic per espandere o comprimere la cartella"
+  },
+  "folderAutoExpandOnDrag": {
+    "message": "Espandi automaticamente le cartelle durante il trascinamento"
+  },
+  "folderAutoExpandOnDragHelp": {
+    "message": "Quando è attiva, mantenere un segnalibro, un separatore o una cartella trascinati sopra una cartella di destinazione la espande o la apre automaticamente dopo il ritardo configurato."
+  },
+  "folderAutoExpandAfterWait": {
+    "message": "Ritardo espansione automatica (secondi)"
+  },
+  "folderAutoExpandAfterWaitHelp": {
+    "message": "Scegli per quanto tempo una selezione trascinata deve rimanere sopra una cartella prima che SBM la espanda o la apra. Intervallo: 0,1–3,0 secondi. Predefinito: 1,2 secondi."
+  },
+  "helpOptionFolderAutoExpandOnDragDescription": {
+    "message": ": quando è attiva, mantenere un segnalibro, un separatore o una cartella trascinati sopra una cartella di destinazione espande automaticamente le cartelle della Libreria o apre quelle del riquadro Contenuto cartella dopo il ritardo configurato."
+  },
+  "helpOptionFolderAutoExpandAfterWaitDescription": {
+    "message": ": usa il cursore per impostare per quanto tempo una selezione trascinata deve rimanere sopra una cartella prima dell'espansione/apertura automatica. Intervallo: 0,1–3,0 secondi; predefinito: 1,2 secondi."
   }
 }

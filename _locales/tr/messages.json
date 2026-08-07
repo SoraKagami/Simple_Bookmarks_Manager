@@ -1180,5 +1180,65 @@
   },
   "closeDialog": {
     "message": "İletişim kutusunu kapat"
+  },
+  "helpOptionSidebarModeDescription": {
+    "message": ": SBM'yi sekme yerine tarayıcının kenar çubuğunda açın. Chromium kenar çubuğu desteği gereklidir."
+  },
+  "sidebarMode": {
+    "message": "Kenar Çubuğu Modu"
+  },
+  "sidebarModeHelp": {
+    "message": "Etkinleştirildiğinde SBM sekme yerine tarayıcının kenar çubuğunda açılır (Chromium kenar çubuğu desteği gereklidir)."
+  },
+  "showTreeBookmarksTitle": {
+    "message": "Bu klasördeki yer imlerini göster"
+  },
+  "hideTreeBookmarksTitle": {
+    "message": "Bu klasördeki yer imlerini gizle"
+  },
+  "sidebarModeOptions": {
+    "message": "Kenar Çubuğu Modu Seçenekleri"
+  },
+  "sidebarModeOptionsHelp": {
+    "message": "Kenar Çubuğu Modu için Kitaplık davranışını yapılandırın."
+  },
+  "sidebarModeAutoShowOnExpand": {
+    "message": "Klasörler genişletildiğinde yer imlerini otomatik göster"
+  },
+  "sidebarModeAutoShowOnExpandHelp": {
+    "message": "Etkinleştirildiğinde, Kenar Çubuğu Modunda bir Kitaplık klasörünü genişletmek o klasördeki yer imlerinin görünürlüğünü otomatik olarak açar. Bu seçeneği kapatmak, zaten gösterilen yer imlerini gizlemeden gelecekteki otomatik gösterimleri durdurur."
+  },
+  "helpOptionSidebarModeAutoShowOnExpandDescription": {
+    "message": ": Kenar Çubuğu Modunda bir klasör genişletildiğinde o klasördeki yer imlerinin görünürlüğünü otomatik olarak açar. Seçeneği kapatmak, göz düğmesiyle zaten gösterilen yer imlerini gizlemeden gelecekteki otomatik gösterimleri durdurur."
+  },
+  "folderSingleClickInteract": {
+    "message": "Tek Tıklamayla Klasör Genişletme/Daraltma"
+  },
+  "folderSingleClickInteractHelp": {
+    "message": "Etkinleştirildiğinde, tek bir sol tıklama Kitaplık klasörlerini genişletir veya daraltır ve Klasör İçeriği bölmesindeki klasörleri açar. Devre dışı bırakıldığında bu klasör işlemleri çift tıklama gerektirir."
+  },
+  "helpOptionFolderSingleClickInteractDescription": {
+    "message": ": etkinleştirildiğinde, tek bir sol tıklama Kitaplık bölmesindeki klasörleri genişletir veya daraltır ve Klasör İçeriği bölmesindeki klasörleri açar. Devre dışı bırakıldığında bu klasör işlemleri çift tıklama gerektirir."
+  },
+  "singleClickExpandCollapseTitle": {
+    "message": "Klasörü genişletmek veya daraltmak için tıklayın"
+  },
+  "folderAutoExpandOnDrag": {
+    "message": "Sürükleme sırasında klasörleri otomatik genişlet"
+  },
+  "folderAutoExpandOnDragHelp": {
+    "message": "Etkinleştirildiğinde, sürüklenen bir yer imi, ayırıcı veya klasör hedef klasörün üzerinde yapılandırılan gecikme boyunca tutulduğunda hedef klasör otomatik olarak genişletilir veya açılır."
+  },
+  "folderAutoExpandAfterWait": {
+    "message": "Otomatik genişletme gecikmesi (saniye)"
+  },
+  "folderAutoExpandAfterWaitHelp": {
+    "message": "SBM'nin bir klasörü genişletmesi veya açması için sürüklenen seçimin klasör üzerinde ne kadar süre kalması gerektiğini seçin. Aralık: 0,1–3,0 saniye. Varsayılan: 1,2 saniye."
+  },
+  "helpOptionFolderAutoExpandOnDragDescription": {
+    "message": ": etkinleştirildiğinde, sürüklenen bir yer imi, ayırıcı veya klasör hedef klasörün üzerinde yapılandırılan gecikme boyunca tutulduğunda Kitaplık klasörlerini otomatik olarak genişletir veya Klasör İçeriği klasörlerini açar."
+  },
+  "helpOptionFolderAutoExpandAfterWaitDescription": {
+    "message": ": otomatik genişletme/açma işlemi gerçekleşmeden önce sürüklenen seçimin klasör üzerinde ne kadar süre kalması gerektiğini ayarlamak için kaydırıcıyı kullanın. Aralık: 0,1–3,0 saniye; varsayılan: 1,2 saniye."
   }
 }

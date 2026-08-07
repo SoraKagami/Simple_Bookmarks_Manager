@@ -1180,5 +1180,65 @@
   },
   "closeDialog": {
     "message": "Close dialog"
+  },
+  "helpOptionSidebarModeDescription": {
+    "message": ": open SBM in the browser's side panel instead of a tab. Chromium side-panel support is required."
+  },
+  "sidebarMode": {
+    "message": "Sidebar Mode"
+  },
+  "sidebarModeHelp": {
+    "message": "When enabled, SBM opens in the browser's Sidebar instead of a tab (Chromium sidebar support required)."
+  },
+  "showTreeBookmarksTitle": {
+    "message": "Show bookmarks in this folder"
+  },
+  "hideTreeBookmarksTitle": {
+    "message": "Hide bookmarks in this folder"
+  },
+  "sidebarModeOptions": {
+    "message": "Sidebar Mode Options"
+  },
+  "sidebarModeOptionsHelp": {
+    "message": "Configure Library behavior used by Sidebar Mode."
+  },
+  "sidebarModeAutoShowOnExpand": {
+    "message": "Auto show bookmarks when folders expanded"
+  },
+  "sidebarModeAutoShowOnExpandHelp": {
+    "message": "When enabled, expanding a Library folder in Sidebar Mode automatically enables its bookmark visibility toggle. Turning this option off stops future automatic showing without hiding bookmarks already shown."
+  },
+  "helpOptionSidebarModeAutoShowOnExpandDescription": {
+    "message": ": in Sidebar Mode, automatically enables a folder's bookmark visibility when that folder is expanded. Turning the option off stops future automatic showing without hiding bookmarks already shown with the eye toggle."
+  },
+  "folderSingleClickInteract": {
+    "message": "Single Click Folder Expansion/Collapse"
+  },
+  "folderSingleClickInteractHelp": {
+    "message": "When enabled, a single left click expands or collapses Library folders and opens folders in the Folder Contents pane. When disabled, these folder actions require a double click."
+  },
+  "helpOptionFolderSingleClickInteractDescription": {
+    "message": ": when enabled, a single left click expands or collapses folders in the Library pane and opens folders in the Folder Contents pane. When disabled, these folder actions require a double click."
+  },
+  "singleClickExpandCollapseTitle": {
+    "message": "Click to expand or collapse folder"
+  },
+  "folderAutoExpandOnDrag": {
+    "message": "Auto-expand folders during drag"
+  },
+  "folderAutoExpandOnDragHelp": {
+    "message": "When enabled, hovering a dragged bookmark, separator, or folder over a destination folder automatically expands or opens that folder after the configured delay."
+  },
+  "folderAutoExpandAfterWait": {
+    "message": "Auto-expand delay (seconds)"
+  },
+  "folderAutoExpandAfterWaitHelp": {
+    "message": "Choose how long a dragged selection must remain over a folder before SBM expands or opens it. Range: 0.1–3.0 seconds. Default: 1.2 seconds."
+  },
+  "helpOptionFolderAutoExpandOnDragDescription": {
+    "message": ": when enabled, hovering a dragged bookmark, separator, or folder over a destination folder automatically expands Library folders or opens Folder Contents folders after the configured delay."
+  },
+  "helpOptionFolderAutoExpandAfterWaitDescription": {
+    "message": ": use the slider to set how long a dragged selection must remain over a folder before the automatic expansion/open action occurs. Range: 0.1–3.0 seconds; default: 1.2 seconds."
   }
 }

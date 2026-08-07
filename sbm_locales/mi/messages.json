@@ -1180,5 +1180,65 @@
   },
   "closeDialog": {
     "message": "Katia te kōrero"
+  },
+  "helpOptionSidebarModeDescription": {
+    "message": ": huakina SBM ki te paetaha o te pūtirotiro, kaua ki tētahi ripa. Me tautoko a Chromium i te paetaha."
+  },
+  "sidebarMode": {
+    "message": "Aratau Paetaha"
+  },
+  "sidebarModeHelp": {
+    "message": "Ina whakahohea, ka huaki a SBM ki te paetaha o te pūtirotiro, kaua ki tētahi ripa (me tautoko a Chromium i te paetaha)."
+  },
+  "showTreeBookmarksTitle": {
+    "message": "Whakaaturia ngā tohuwāhi i tēnei kōpaki"
+  },
+  "hideTreeBookmarksTitle": {
+    "message": "Hunaia ngā tohuwāhi i tēnei kōpaki"
+  },
+  "sidebarModeOptions": {
+    "message": "Kōwhiringa Aratau Paetaha"
+  },
+  "sidebarModeOptionsHelp": {
+    "message": "Whirihorahia te whanonga Pātaka mō te Aratau Paetaha."
+  },
+  "sidebarModeAutoShowOnExpand": {
+    "message": "Whakaatu aunoa i ngā tohuwāhi ina whakawhānuihia ngā kōpaki"
+  },
+  "sidebarModeAutoShowOnExpandHelp": {
+    "message": "Ina whakahohea, mā te whakawhānui i tētahi kōpaki Pātaka i te Aratau Paetaha ka whakahohe aunoa i te kitea o ōna tohuwāhi. Mā te whakaweto i tēnei kōwhiringa ka mutu ngā whakaaturanga aunoa ā muri ake, engari kāore e huna ngā tohuwāhi kua whakaaturia kē."
+  },
+  "helpOptionSidebarModeAutoShowOnExpandDescription": {
+    "message": ": i te Aratau Paetaha, ka whakahohe aunoa i te kitea o ngā tohuwāhi o tētahi kōpaki ina whakawhānuihia taua kōpaki. Mā te whakaweto i te kōwhiringa ka mutu ngā whakaaturanga aunoa ā muri ake, engari kāore e huna ngā tohuwāhi kua whakaaturia kē mā te pātene karu."
+  },
+  "folderSingleClickInteract": {
+    "message": "Whakawhānui/whakakopa kōpaki mā te pāwhiri kotahi"
+  },
+  "folderSingleClickInteractHelp": {
+    "message": "Ina whakahohea, mā te pāwhiri-mauī kotahi e whakawhānui, e whakakopa rānei ngā kōpaki Pātaka, ā, ka huaki ngā kōpaki i te pihanga Ihirangi Kōpaki. Ina monokia, me pāwhiri-rua mō ēnei mahi kōpaki."
+  },
+  "helpOptionFolderSingleClickInteractDescription": {
+    "message": ": ina whakahohea, mā te pāwhiri-mauī kotahi e whakawhānui, e whakakopa rānei ngā kōpaki i te pihanga Pātaka, ā, ka huaki ngā kōpaki i te pihanga Ihirangi Kōpaki. Ina monokia, me pāwhiri-rua mō ēnei mahi kōpaki."
+  },
+  "singleClickExpandCollapseTitle": {
+    "message": "Pāwhiri kia whakawhānui, kia whakakopa rānei i te kōpaki"
+  },
+  "folderAutoExpandOnDrag": {
+    "message": "Whakawhānui aunoa i ngā kōpaki i te tō"
+  },
+  "folderAutoExpandOnDragHelp": {
+    "message": "Ina whakahohea, ka whakawhānui, ka huaki aunoa rānei te kōpaki ūnga i muri i te noho o tētahi tohuwāhi, whakawehe, kōpaki rānei e tōia ana ki runga mō te wā whakaroa kua whakaritea."
+  },
+  "folderAutoExpandAfterWait": {
+    "message": "Wā whakaroa whakawhānui aunoa (hēkona)"
+  },
+  "folderAutoExpandAfterWaitHelp": {
+    "message": "Kōwhiria te roa me noho te tīpakonga e tōia ana ki runga i tētahi kōpaki i mua i te whakawhānui, i te huaki rānei a SBM. Awhe: 0.1–3.0 hēkona. Taunoa: 1.2 hēkona."
+  },
+  "helpOptionFolderAutoExpandOnDragDescription": {
+    "message": ": ina whakahohea, mā te noho o tētahi tohuwāhi, whakawehe, kōpaki rānei e tōia ana ki runga i tētahi kōpaki ūnga mō te wā whakaroa kua whakaritea ka whakawhānui aunoa i ngā kōpaki Pātaka, ka huaki rānei i ngā kōpaki Ihirangi Kōpaki."
+  },
+  "helpOptionFolderAutoExpandAfterWaitDescription": {
+    "message": ": whakamahia te slider hei tautuhi i te roa me noho te tīpakonga e tōia ana ki runga i tētahi kōpaki i mua i te whakawhānui/huaki aunoa. Awhe: 0.1–3.0 hēkona; taunoa: 1.2 hēkona."
   }
 }

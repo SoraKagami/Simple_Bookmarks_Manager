@@ -1180,5 +1180,65 @@
   },
   "closeDialog": {
     "message": "Zamknij okno dialogowe"
+  },
+  "helpOptionSidebarModeDescription": {
+    "message": ": otwieraj SBM na pasku bocznym przeglądarki zamiast w karcie. Wymagana jest obsługa paska bocznego Chromium."
+  },
+  "sidebarMode": {
+    "message": "Tryb paska bocznego"
+  },
+  "sidebarModeHelp": {
+    "message": "Po włączeniu SBM otwiera się na pasku bocznym przeglądarki zamiast w karcie (wymagana jest obsługa paska bocznego Chromium)."
+  },
+  "showTreeBookmarksTitle": {
+    "message": "Pokaż zakładki w tym folderze"
+  },
+  "hideTreeBookmarksTitle": {
+    "message": "Ukryj zakładki w tym folderze"
+  },
+  "sidebarModeOptions": {
+    "message": "Opcje trybu paska bocznego"
+  },
+  "sidebarModeOptionsHelp": {
+    "message": "Skonfiguruj zachowanie Biblioteki używane w trybie paska bocznego."
+  },
+  "sidebarModeAutoShowOnExpand": {
+    "message": "Automatycznie pokazuj zakładki po rozwinięciu folderów"
+  },
+  "sidebarModeAutoShowOnExpandHelp": {
+    "message": "Po włączeniu rozwinięcie folderu Biblioteki w trybie paska bocznego automatycznie włącza widoczność jego zakładek. Wyłączenie tej opcji zatrzymuje przyszłe automatyczne wyświetlanie bez ukrywania już widocznych zakładek."
+  },
+  "helpOptionSidebarModeAutoShowOnExpandDescription": {
+    "message": ": w trybie paska bocznego automatycznie włącza widoczność zakładek folderu po jego rozwinięciu. Wyłączenie opcji zatrzymuje przyszłe automatyczne wyświetlanie bez ukrywania zakładek już pokazanych za pomocą przycisku z okiem."
+  },
+  "folderSingleClickInteract": {
+    "message": "Rozwijanie/zwijanie folderów jednym kliknięciem"
+  },
+  "folderSingleClickInteractHelp": {
+    "message": "Po włączeniu pojedyncze kliknięcie lewym przyciskiem myszy rozwija lub zwija foldery Biblioteki i otwiera foldery w panelu Zawartość folderu. Po wyłączeniu te działania wymagają podwójnego kliknięcia."
+  },
+  "helpOptionFolderSingleClickInteractDescription": {
+    "message": ": po włączeniu pojedyncze kliknięcie lewym przyciskiem myszy rozwija lub zwija foldery w panelu Biblioteka i otwiera foldery w panelu Zawartość folderu. Po wyłączeniu te działania wymagają podwójnego kliknięcia."
+  },
+  "singleClickExpandCollapseTitle": {
+    "message": "Kliknij, aby rozwinąć lub zwinąć folder"
+  },
+  "folderAutoExpandOnDrag": {
+    "message": "Automatycznie rozwijaj foldery podczas przeciągania"
+  },
+  "folderAutoExpandOnDragHelp": {
+    "message": "Po włączeniu folder docelowy automatycznie rozwija się lub otwiera, gdy przeciągana zakładka, separator lub folder pozostaje nad nim przez skonfigurowany czas."
+  },
+  "folderAutoExpandAfterWait": {
+    "message": "Opóźnienie automatycznego rozwijania (sekundy)"
+  },
+  "folderAutoExpandAfterWaitHelp": {
+    "message": "Wybierz, jak długo przeciągane zaznaczenie musi pozostać nad folderem, zanim SBM go rozwinie lub otworzy. Zakres: 0,1–3,0 sekundy. Domyślnie: 1,2 sekundy."
+  },
+  "helpOptionFolderAutoExpandOnDragDescription": {
+    "message": ": po włączeniu przeciągnięcie zakładki, separatora lub folderu nad folder docelowy automatycznie rozwija foldery Biblioteki lub otwiera foldery w panelu Zawartość folderu po skonfigurowanym czasie."
+  },
+  "helpOptionFolderAutoExpandAfterWaitDescription": {
+    "message": ": użyj suwaka, aby ustawić, jak długo przeciągane zaznaczenie musi pozostać nad folderem przed automatycznym rozwinięciem/otwarciem. Zakres: 0,1–3,0 sekundy; domyślnie: 1,2 sekundy."
   }
 }
