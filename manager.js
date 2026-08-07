@@ -2852,17 +2852,15 @@ function autoExpandDragTarget(row, target, context) {
 
   if (context === "tree") {
     const hasExpandableChildren = expandableLibraryChildren(target).length > 0;
-    if (!hasExpandableChildren) {
-      // In normal mode the delayed hover also navigates Folder Contents, even
-      // when the Library target is a leaf folder with nothing to expand.
-      if (!SidebarMode) navigateFolderDuringDrag(target, "tree");
-      return;
+    if (hasExpandableChildren && !state.expandedFolders.has(target.id)) {
+      if (expandTreeFolderState(target.id)) {
+        renderTreeFolderExpansionDuringDrag(row, target);
+      }
     }
-    if (state.expandedFolders.has(target.id)) return;
-    if (expandTreeFolderState(target.id)) {
-      renderTreeFolderExpansionDuringDrag(row, target);
-      if (!SidebarMode) navigateFolderDuringDrag(target, "tree");
-    }
+
+    // Normal mode also uses the hover delay as folder navigation. This must run
+    // for leaf folders and folders that were expanded by an earlier drag.
+    if (!SidebarMode) navigateFolderDuringDrag(target, "tree");
     return;
   }
 
@@ -2874,9 +2872,14 @@ function scheduleDragAutoExpand(row, target, context) {
   const key = `${context}:${target?.id || ""}`;
   const alreadyExpanded = context === "tree" && state.expandedFolders.has(target?.id);
   const emptyTreeFolder = context === "tree" && !expandableLibraryChildren(target || {}).length;
+  const needsTreeNavigation = (
+    context === "tree" &&
+    !SidebarMode &&
+    target?.id !== state.folderId
+  );
   if (
     !canAutoExpandDragTarget(target, context) ||
-    alreadyExpanded ||
+    (alreadyExpanded && !needsTreeNavigation) ||
     (emptyTreeFolder && SidebarMode)
   ) {
     if (state.dragAutoExpandKey !== key) clearDragAutoExpandTimer();

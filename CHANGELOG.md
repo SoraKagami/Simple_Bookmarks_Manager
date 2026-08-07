@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.9.12
+
+- Fixed repeated `Folder_AutoExpandOnDrag` navigation from the Library pane so a folder that was expanded by an earlier drag still switches Folder Contents after the configured hover delay on later drags.
+
 ## 0.9.11
 
 - Fixed `Folder_AutoExpandOnDrag` in normal mode so a Library drag-hover target switches Folder Contents after the configured delay even when the target folder has no child folders to expand.
