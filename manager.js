@@ -64,6 +64,7 @@ let UserInterfaceFontFamily = DEFAULT_SETTINGS.UserInterfaceFontFamily;
 let UserInterfaceFontSize = DEFAULT_SETTINGS.UserInterfaceFontSize;
 let UserInterfaceLineSpacing = DEFAULT_SETTINGS.UserInterfaceLineSpacing;
 let SidebarMode = DEFAULT_SETTINGS.SidebarMode;
+let SidebarMode_AutoShowOnExpand = DEFAULT_SETTINGS.SidebarMode_AutoShowOnExpand;
 let LibraryFullView = false;
 let EnableAdvancedDetailsViewing = DEFAULT_SETTINGS.EnableAdvancedDetailsViewing;
 let EnableAdvancedDetailsEditing = DEFAULT_SETTINGS.EnableAdvancedDetailsEditing;
@@ -170,7 +171,9 @@ function updateLibraryFullView() {
   LibraryFullView = enabled;
   document.documentElement.classList.toggle("library-full-view", enabled);
   updateSidebarSearchView();
-  if (!enabled) {
+  if (enabled) {
+    autoShowBookmarksForExpandedFolders();
+  } else {
     state.showTreeBookmarks.clear();
     if (state.multiSelect.pane === "tree") clearMultiSelect();
     if (!isFolder(nodes.get(state.treeSelectedId))) state.treeSelectedId = state.folderId;
@@ -183,6 +186,7 @@ function updateLibraryFullView() {
  * refresh affected UI areas.
  */
 function applySettings(settings, { render = false } = {}) {
+  const autoShowWasEnabled = SidebarMode_AutoShowOnExpand;
   const keys = Object.keys(DEFAULT_SETTINGS);
   for (const key of keys) {
     if (!(key in settings)) continue;
@@ -197,6 +201,7 @@ function applySettings(settings, { render = false } = {}) {
     else if (key === "UserInterfaceFontSize") UserInterfaceFontSize = value;
     else if (key === "UserInterfaceLineSpacing") UserInterfaceLineSpacing = value;
     else if (key === "SidebarMode") SidebarMode = value;
+    else if (key === "SidebarMode_AutoShowOnExpand") SidebarMode_AutoShowOnExpand = value;
     else if (key === "EnableAdvancedDetailsViewing") EnableAdvancedDetailsViewing = value;
     else if (key === "EnableAdvancedDetailsEditing") EnableAdvancedDetailsEditing = value;
     else if (key === "SortByNameNatural") SortByNameNatural = value;
@@ -227,6 +232,9 @@ function applySettings(settings, { render = false } = {}) {
 
   applyUserInterfaceSettings();
   const libraryLayoutChanged = updateLibraryFullView();
+  if (!autoShowWasEnabled && SidebarMode_AutoShowOnExpand) {
+    autoShowBookmarksForExpandedFolders();
+  }
 
   if (!EnableAdvancedDetailsViewing) EnableAdvancedDetailsEditing = false;
   const searchLimit = $("search-limit");
@@ -1101,7 +1109,7 @@ async function loadTree(options = {}) {
     if (!isFolder(nodes.get(id))) state.showTreeBookmarks.delete(id);
   }
   if (state.expandedFolders.size === 0) {
-    for (const folder of rootFolders()) state.expandedFolders.add(folder.id);
+    for (const folder of rootFolders()) expandTreeFolderState(folder.id);
   }
   if (!state.folderId || !nodes.has(state.folderId)) {
     // Chrome root's first children are normally Bookmarks Bar / Other / Mobile.
@@ -1159,7 +1167,12 @@ async function applyInitialFolderPreference() {
   state.treeSelectedId = initialFolderId;
   state.selectedId = initialFolderId;
   state.activePane = "tree";
-  if (initialFolderId) ensureExpandedPath(initialFolderId);
+  if (initialFolderId) {
+    ensureExpandedPath(initialFolderId);
+    const isConfiguredStartupFolder = StartAtConfiguredBookmarkFolder
+      && StartupBookmarkFolderId === initialFolderId;
+    if (SidebarMode && isConfiguredStartupFolder) expandTreeFolderState(initialFolderId);
+  }
 }
 
 /** Return direct folder children, optionally using precomputed tree maps. */
@@ -1254,10 +1267,36 @@ function visibleTreeItems() {
   return out;
 }
 
+/**
+ * Mark one Library folder expanded. In LibraryFullView, the optional Sidebar
+ * behavior auto-enables bookmark rows only when the folder transitions from
+ * collapsed to expanded, preserving later manual eye-toggle choices.
+ */
+function expandTreeFolderState(folderId) {
+  if (!folderId) return false;
+  const wasExpanded = state.expandedFolders.has(folderId);
+  state.expandedFolders.add(folderId);
+  if (!wasExpanded && LibraryFullView && SidebarMode_AutoShowOnExpand) {
+    state.showTreeBookmarks.add(folderId);
+  }
+  return !wasExpanded;
+}
+
+/**
+ * Enable bookmark rows for folders that are already expanded when the Sidebar
+ * auto-show option is turned on or LibraryFullView is entered.
+ */
+function autoShowBookmarksForExpandedFolders() {
+  if (!LibraryFullView || !SidebarMode_AutoShowOnExpand) return;
+  for (const folderId of state.expandedFolders) {
+    if (isFolder(nodes.get(folderId))) state.showTreeBookmarks.add(folderId);
+  }
+}
+
 /** Expand all ancestor folders so a target folder is visible in the Library tree. */
 function ensureExpandedPath(folderId) {
   for (let n = nodes.get(folderId)?.parentNode; n && n.id !== "0"; n = n.parentNode) {
-    state.expandedFolders.add(n.id);
+    expandTreeFolderState(n.id);
   }
 }
 
@@ -1279,7 +1318,7 @@ async function toggleTreeFolderFromClick(folder) {
 
   const isExpanded = state.expandedFolders.has(folder.id);
   if (!isExpanded) {
-    state.expandedFolders.add(folder.id);
+    expandTreeFolderState(folder.id);
     renderRoots();
     return;
   }
@@ -1318,8 +1357,8 @@ function isDescendantOf(node, possibleAncestor) {
 /** Expand a folder and every descendant folder in the visible Library tree. */
 async function expandAllTreeFolders(folder) {
   if (!isFolder(folder)) return;
-  state.expandedFolders.add(folder.id);
-  for (const child of descendantFolders(folder)) state.expandedFolders.add(child.id);
+  expandTreeFolderState(folder.id);
+  for (const child of descendantFolders(folder)) expandTreeFolderState(child.id);
   renderRoots();
   focusActivePane();
 }
@@ -1906,7 +1945,7 @@ async function openContainingFolderForBookmark(bookmark) {
   state.activePane = LibraryFullView ? "tree" : "list";
   ensureExpandedPath(parentId);
   if (LibraryFullView) {
-    state.expandedFolders.add(parentId);
+    expandTreeFolderState(parentId);
     state.showTreeBookmarks.add(parentId);
   }
   resetFolderViewState();
@@ -2364,7 +2403,7 @@ async function moveWithIntent(draggedId, targetId, intent, context = "any") {
     state.selectedId = dragged.id;
     state.activePane = context === "tree" ? "tree" : "list";
     if (context === "tree") state.treeSelectedId = dragged.id;
-    state.expandedFolders.add(target.id);
+    expandTreeFolderState(target.id);
     if (isFolder(dragged)) ensureExpandedPath(dragged.id);
     await loadTree();
     return;
@@ -2472,7 +2511,7 @@ async function moveSelectedListItems(targetId, intent, context = "list", ids = n
     clearMultiSelect();
     state.selectedId = lastId;
     state.activePane = "list";
-    state.expandedFolders.add(target.id);
+    expandTreeFolderState(target.id);
     await loadTree();
     return;
   }
@@ -2509,7 +2548,7 @@ async function moveSelectedListItems(targetId, intent, context = "list", ids = n
   state.activePane = context === "tree" ? "tree" : "list";
   if (context === "tree") {
     state.treeSelectedId = target.id;
-    if (targetParentId) state.expandedFolders.add(targetParentId);
+    if (targetParentId) expandTreeFolderState(targetParentId);
   }
   await loadTree();
 }
@@ -2558,7 +2597,7 @@ async function moveSelectedTreeItems(targetId, intent, context = "tree", ids = n
   state.activePane = "tree";
   state.treeSelectedId = lastId;
   state.selectedId = lastId;
-  if (intent === "into") state.expandedFolders.add(target.id);
+  if (intent === "into") expandTreeFolderState(target.id);
   if (lastId && isFolder(nodes.get(lastId))) ensureExpandedPath(lastId);
   await loadTree();
 }
@@ -4409,7 +4448,7 @@ async function handleTreeHorizontalNavigation(direction) {
   if (direction === "right") {
     if (!expandableChildren.length) return false;
     if (!searchVisibleIds && !state.expandedFolders.has(item.id)) {
-      state.expandedFolders.add(item.id);
+      expandTreeFolderState(item.id);
       renderRoots();
       focusActivePane();
       scrollActiveSelectionIntoView();

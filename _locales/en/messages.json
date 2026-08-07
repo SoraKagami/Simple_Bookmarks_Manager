@@ -1195,5 +1195,20 @@
   },
   "hideTreeBookmarksTitle": {
     "message": "Hide bookmarks in this folder"
+  },
+  "sidebarModeOptions": {
+    "message": "Sidebar Mode Options"
+  },
+  "sidebarModeOptionsHelp": {
+    "message": "Configure Library behavior used by Sidebar Mode."
+  },
+  "sidebarModeAutoShowOnExpand": {
+    "message": "Auto show bookmarks when folders expanded"
+  },
+  "sidebarModeAutoShowOnExpandHelp": {
+    "message": "When enabled, expanding a Library folder in Sidebar Mode automatically enables its bookmark visibility toggle. Turning this option off stops future automatic showing without hiding bookmarks already shown."
+  },
+  "helpOptionSidebarModeAutoShowOnExpandDescription": {
+    "message": ": in Sidebar Mode, automatically enables a folder's bookmark visibility when that folder is expanded. Turning the option off stops future automatic showing without hiding bookmarks already shown with the eye toggle."
   }
 }

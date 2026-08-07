@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.9.6
+
+- Added a collapsible **Sidebar Mode Options** subsection under User Interface.
+- Added `SidebarMode_AutoShowOnExpand`, disabled by default, to automatically show direct bookmarks when Library folders are expanded in Sidebar Mode.
+- Preserved manually enabled folder bookmark visibility when automatic showing is disabled.
+- When Sidebar Mode uses a valid configured startup folder, that folder is now expanded automatically on launch.
+- Added Help documentation for the Sidebar Mode auto-show option.
+
 ## 0.9.5
 
 - Removed the unreliable best-effort manager-tab closing behavior from Sidebar Mode.
