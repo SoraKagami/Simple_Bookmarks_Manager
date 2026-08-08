@@ -78,6 +78,7 @@ let SortShowWarning = DEFAULT_SETTINGS.SortShowWarning;
 let KeyboardDeleteAllow = DEFAULT_SETTINGS.KeyboardDeleteAllow;
 let DeleteShowWarning = DEFAULT_SETTINGS.DeleteShowWarning;
 let SearchLimitToFolderAndSub = DEFAULT_SETTINGS.SearchLimitToFolderAndSub;
+let Launch_SearchFocused = DEFAULT_SETTINGS.Launch_SearchFocused;
 let MultipleInstancesAllowed = DEFAULT_SETTINGS.MultipleInstancesAllowed;
 let Folder_SingleClickInteract = DEFAULT_SETTINGS.Folder_SingleClickInteract;
 let Bookmarks_SingleClickOpen = DEFAULT_SETTINGS.Bookmarks_SingleClickOpen;
@@ -219,6 +220,7 @@ function applySettings(settings, { render = false } = {}) {
     else if (key === "KeyboardDeleteAllow") KeyboardDeleteAllow = value;
     else if (key === "DeleteShowWarning") DeleteShowWarning = value;
     else if (key === "SearchLimitToFolderAndSub") SearchLimitToFolderAndSub = value;
+    else if (key === "Launch_SearchFocused") Launch_SearchFocused = value;
     else if (key === "MultipleInstancesAllowed") MultipleInstancesAllowed = value;
     else if (key === "Folder_SingleClickInteract") Folder_SingleClickInteract = value;
     else if (key === "Bookmarks_SingleClickOpen") Bookmarks_SingleClickOpen = value;
@@ -5330,6 +5332,7 @@ async function init() {
   await loadTree({ renderNow: false });
   await applyInitialFolderPreference();
   render();
+  if (Launch_SearchFocused) focusSearchField();
   await showLaunchHelpIfNeeded();
 }
 

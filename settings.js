@@ -51,6 +51,7 @@ export const DEFAULT_SETTINGS = Object.freeze({
   KeyboardDeleteAllow: true,
   DeleteShowWarning: true,
   SearchLimitToFolderAndSub: false,
+  Launch_SearchFocused: true,
   MultipleInstancesAllowed: false,
   Folder_SingleClickInteract: false,
   Bookmarks_SingleClickOpen: 0,

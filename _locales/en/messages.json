@@ -1248,7 +1248,7 @@
     "message": "Choose whether a single left click opens bookmarks instead of SBM's existing double-click behavior. Modifier clicks used for multi-selection are not changed."
   },
   "bookmarksSingleClickOpenDisabled": {
-    "message": "Disabled (default OS behavior)"
+    "message": "Disabled (Double Click to open Bookmarks)"
   },
   "bookmarksSingleClickOpenAll": {
     "message": "Enabled for all"
@@ -1261,5 +1261,14 @@
   },
   "helpOptionBookmarksSingleClickOpenDescription": {
     "message": ": controls whether a single left click opens bookmarks in all SBM layouts, Sidebar Mode only, Tab Mode only, or remains disabled. When disabled, SBM keeps its existing double-click bookmark-opening behavior. Ctrl/Shift modifier clicks remain available for multi-selection."
+  },
+  "launchSearchFocused": {
+    "message": "Launch SBM with focus in Search"
+  },
+  "launchSearchFocusedHelp": {
+    "message": "When enabled, SBM places keyboard focus in the Search bookmarks field when it opens, so you can start typing immediately."
+  },
+  "helpOptionLaunchSearchFocusedDescription": {
+    "message": ": when enabled, SBM places keyboard focus in the Search bookmarks field when the manager opens, allowing you to start typing a search immediately."
   }
 }

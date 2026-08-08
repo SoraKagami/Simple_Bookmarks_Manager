@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.9.18
+
+- Updated the disabled `Bookmarks_SingleClickOpen` option text to clarify that bookmarks use double-click opening when single-click opening is disabled.
+- Added `Launch_SearchFocused` under Search, defaulting to `true`, to place keyboard focus in the Search bookmarks field when SBM launches.
+- Added Help documentation for Launch SBM with focus in Search.
+
 ## 0.9.17
 
 - Added `Bookmarks_SingleClickOpen`, an Advanced four-mode dropdown controlling single-click bookmark opening for all SBM modes, Sidebar Mode only, Tab Mode only, or disabled.
