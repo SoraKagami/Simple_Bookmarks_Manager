@@ -37,7 +37,7 @@ const state = {
   forward: [],
   expandedFolders: new Set(),
   showTreeBookmarks: new Set(),
-  detailsVisible: true,
+  detailsVisible: DEFAULT_SETTINGS.UI_DetailsPane_Show,
   detailsOriginal: null,
   drag: null,
   dropIndicator: null,
@@ -68,6 +68,7 @@ let DetailsPanePosition = DEFAULT_SETTINGS.DetailsPanePosition;
 let UserInterfaceFontFamily = DEFAULT_SETTINGS.UserInterfaceFontFamily;
 let UserInterfaceFontSize = DEFAULT_SETTINGS.UserInterfaceFontSize;
 let UserInterfaceLineSpacing = DEFAULT_SETTINGS.UserInterfaceLineSpacing;
+let UI_DetailsPane_Show = DEFAULT_SETTINGS.UI_DetailsPane_Show;
 let SidebarMode = DEFAULT_SETTINGS.SidebarMode;
 let SidebarMode_AutoShowOnExpand = DEFAULT_SETTINGS.SidebarMode_AutoShowOnExpand;
 let LibraryFullView = false;
@@ -211,6 +212,10 @@ function applySettings(settings, { render = false } = {}) {
     else if (key === "UserInterfaceFontFamily") UserInterfaceFontFamily = value;
     else if (key === "UserInterfaceFontSize") UserInterfaceFontSize = value;
     else if (key === "UserInterfaceLineSpacing") UserInterfaceLineSpacing = value;
+    else if (key === "UI_DetailsPane_Show") {
+      UI_DetailsPane_Show = value;
+      state.detailsVisible = value;
+    }
     else if (key === "SidebarMode") SidebarMode = value;
     else if (key === "SidebarMode_AutoShowOnExpand") SidebarMode_AutoShowOnExpand = value;
     else if (key === "EnableAdvancedDetailsViewing") EnableAdvancedDetailsViewing = value;
@@ -4491,11 +4496,16 @@ function renderNavButtons() {
   $("forward").disabled = state.forward.length === 0;
 }
 
-/** Toggle Details visibility and re-render dependent layout and controls. */
-function toggleDetailsPane() {
-  state.detailsVisible = !state.detailsVisible;
-  renderCrumbs();
-  renderDetails();
+/** Toggle Details visibility, persist the setting, and refresh dependent layout and controls. */
+async function toggleDetailsPane() {
+  const nextVisible = !state.detailsVisible;
+  try {
+    await saveSetting("UI_DetailsPane_Show", nextVisible);
+    renderCrumbs();
+  } catch (err) {
+    console.error(err);
+    alert(t("saveFailed", { error: err.message || err }));
+  }
 }
 
 /** Render all visible major panes for the active layout. */

@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.9.19
+
+- Added the Simple Bookmarks Manager Chrome Web Store link to the About page Project section.
+- Added `UI_DetailsPane_Show` under User Interface, defaulting to `true`, to persist whether the Details pane is shown in the normal manager layout.
+- Synchronized the in-manager Show/Hide Details button with `UI_DetailsPane_Show` so Options and the manager remain in sync.
+- Added Help documentation for Show Details Pane.
+- Updated `en_Netspeak` with all English locale entries added since its previous update, including the new v0.9.19 strings.
+
 ## 0.9.18
 
 - Updated the disabled `Bookmarks_SingleClickOpen` option text to clarify that bookmarks use double-click opening when single-click opening is disabled.

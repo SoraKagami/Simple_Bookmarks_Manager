@@ -1270,5 +1270,17 @@
   },
   "helpOptionLaunchSearchFocusedDescription": {
     "message": ": when enabled, SBM places keyboard focus in the Search bookmarks field when the manager opens, allowing you to start typing a search immediately."
+  },
+  "aboutChromeWebStoreLabel": {
+    "message": "Chrome Web Store:"
+  },
+  "uiDetailsPaneShow": {
+    "message": "Show Details Pane"
+  },
+  "uiDetailsPaneShowHelp": {
+    "message": "Show or hide the Details pane in the normal manager layout. The in-manager Show/Hide Details button updates this setting. Sidebar Mode keeps the Details pane hidden."
+  },
+  "helpOptionUiDetailsPaneShowDescription": {
+    "message": ": show or hide the Details pane in the normal manager layout. The manager's Show/Hide Details button updates the same setting. Sidebar Mode continues to hide the Details pane."
   }
 }

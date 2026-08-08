@@ -42,6 +42,7 @@ export const DEFAULT_SETTINGS = Object.freeze({
   UserInterfaceFontFamily: "system",
   UserInterfaceFontSize: 12.5,
   UserInterfaceLineSpacing: 1.4,
+  UI_DetailsPane_Show: true,
   SidebarMode: false,
   SidebarMode_AutoShowOnExpand: true,
   EnableAdvancedDetailsViewing: false,

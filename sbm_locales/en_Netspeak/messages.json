@@ -1240,5 +1240,47 @@
   },
   "helpOptionFolderAutoExpandAfterWaitDescription": {
     "message": ": uz3 7h3 zl1d3r 70 z37 h0w l0ng 4 dr4gg3d z3l3c710n muz7 h0v3r 0v3r 4 f0ld3r b3f0r3 7h3 4u70 3xp4nd/0p3n 4c710n f1r3z. R4ng3: 0.1–3.0 z3c0ndz; d3f4ul7: 1.2 z3c0ndz. ⏱️"
+  },
+  "bookmarksSingleClickOpen": {
+    "message": "Z1ngl3-Cl1ck B00km4rk 0p3n1ng ⚡🔖"
+  },
+  "bookmarksSingleClickOpenHelp": {
+    "message": "Ch00z3 wh37h3r 1 l3f7 cl1ck 0p3nz b00km4rkz 1nz734d 0f SBM’z d0ubl3-cl1ck r0u71n3. C7rl/Zh1f7 mul71-z3l3c7 cl1ckz k33p d01ng 7h31r 7h1ng. 🖱️✨"
+  },
+  "bookmarksSingleClickOpenDisabled": {
+    "message": "D1z4bl3d (D0ubl3 Cl1ck 70 0p3n B00km4rkz) 🐢"
+  },
+  "bookmarksSingleClickOpenAll": {
+    "message": "3n4bl3d f0r 4ll ⚡"
+  },
+  "bookmarksSingleClickOpenSidebar": {
+    "message": "3n4bl3d 0nly f0r Z1d3b4r M0d3 🧭⚡"
+  },
+  "bookmarksSingleClickOpenTab": {
+    "message": "3n4bl3d 0nly f0r 74b M0d3 🗂️⚡"
+  },
+  "helpOptionBookmarksSingleClickOpenDescription": {
+    "message": ": c0n7r0lz wh37h3r 1 l3f7 cl1ck 0p3nz b00km4rkz 3v3rywh3r3, 0nly 1n Z1d3b4r M0d3, 0nly 1n 74b M0d3, 0r n07 47 4ll. Wh3n 0ff, d0ubl3-cl1ck 0p3nz b00km4rkz. C7rl/Zh1f7 mul71-z3l3c7 z74yz 1n74c7. 🔖"
+  },
+  "launchSearchFocused": {
+    "message": "L4unch SBM w17h Z34rch r34dy 70 g0 🔎🚀"
+  },
+  "launchSearchFocusedHelp": {
+    "message": "Wh3n 0n, SBM p4rkz 7h3 k3yb04rd f0cuz 1n Z34rch 47 l4unch, z0 y0u c4n 574r7 7yp1ng 1mm3d1473ly. N0 m0uz3 h1k3 r3qu1r3d. ⌨️🔎"
+  },
+  "helpOptionLaunchSearchFocusedDescription": {
+    "message": ": wh3n 0n, SBM dr0pz k3yb04rd f0cuz 1n70 Z34rch wh3n 7h3 m4n4g3r 0p3nz, z0 7yp1ng c4n b3g1n 1mm3d1473ly. 🚀🔎"
+  },
+  "aboutChromeWebStoreLabel": {
+    "message": "Chr0m3 W3b Z70r3: 🛍️"
+  },
+  "uiDetailsPaneShow": {
+    "message": "Zh0w D3741lz P4n3 👀📋"
+  },
+  "uiDetailsPaneShowHelp": {
+    "message": "Zh0w 0r h1d3 7h3 D3741lz p4n3 1n 7h3 n0rm4l m4n4g3r l4y0u7. 7h3 1n-m4n4g3r Zh0w/H1d3 D3741lz bu770n upd473z 7h1z z3771ng 700. Z1d3b4r M0d3 k33pz D3741lz h1dd3n—17’z 0n 4 zp4c3 d137. 🥪"
+  },
+  "helpOptionUiDetailsPaneShowDescription": {
+    "message": ": zh0w 0r h1d3 7h3 D3741lz p4n3 1n 7h3 n0rm4l m4n4g3r l4y0u7. 7h3 m4n4g3r’z Zh0w/H1d3 D3741lz bu770n upd473z 7h3 z4m3 z3771ng. Z1d3b4r M0d3 z71ll h1d3z D3741lz 70 z4v3 pr3c10uz p1x3lz. 📐✨"
   }
 }
