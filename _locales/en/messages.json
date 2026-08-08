@@ -1240,5 +1240,26 @@
   },
   "helpOptionFolderAutoExpandAfterWaitDescription": {
     "message": ": use the slider to set how long a dragged selection must remain over a folder before the automatic expansion/open action occurs. Range: 0.1–3.0 seconds; default: 1.2 seconds."
+  },
+  "bookmarksSingleClickOpen": {
+    "message": "Single Click Bookmark Opening"
+  },
+  "bookmarksSingleClickOpenHelp": {
+    "message": "Choose whether a single left click opens bookmarks instead of SBM's existing double-click behavior. Modifier clicks used for multi-selection are not changed."
+  },
+  "bookmarksSingleClickOpenDisabled": {
+    "message": "Disabled (default OS behavior)"
+  },
+  "bookmarksSingleClickOpenAll": {
+    "message": "Enabled for all"
+  },
+  "bookmarksSingleClickOpenSidebar": {
+    "message": "Enabled Only for Sidebar Mode"
+  },
+  "bookmarksSingleClickOpenTab": {
+    "message": "Enabled Only for Tab Mode"
+  },
+  "helpOptionBookmarksSingleClickOpenDescription": {
+    "message": ": controls whether a single left click opens bookmarks in all SBM layouts, Sidebar Mode only, Tab Mode only, or remains disabled. When disabled, SBM keeps its existing double-click bookmark-opening behavior. Ctrl/Shift modifier clicks remain available for multi-selection."
   }
 }

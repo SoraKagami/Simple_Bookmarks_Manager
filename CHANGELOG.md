@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.9.17
+
+- Added `Bookmarks_SingleClickOpen`, an Advanced four-mode dropdown controlling single-click bookmark opening for all SBM modes, Sidebar Mode only, Tab Mode only, or disabled.
+- Added single-click bookmark opening to both Folder Contents and Sidebar Library bookmark rows while preserving Ctrl/Shift multi-selection behavior and existing middle-click behavior.
+- Added Help documentation for Single Click Bookmark Opening.
+
 ## 0.9.16
 
 Manual Update: Created a new VARIABLES_DOCUMENTATION.md file under Docs.

@@ -53,6 +53,7 @@ export const DEFAULT_SETTINGS = Object.freeze({
   SearchLimitToFolderAndSub: false,
   MultipleInstancesAllowed: false,
   Folder_SingleClickInteract: false,
+  Bookmarks_SingleClickOpen: 0,
   Folder_AutoExpandOnDrag: false,
   Folder_AutoExpandAfterWait: 1.2,
   StartAtConfiguredBookmarkFolder: false,
@@ -97,6 +98,10 @@ export function normalizeSettingValue(key, value) {
   }
   if (key === "UserInterfaceFontSize") return clampNumber(value, 11, 20, DEFAULT_SETTINGS[key]);
   if (key === "UserInterfaceLineSpacing") return clampNumber(value, 1.0, 1.8, DEFAULT_SETTINGS[key]);
+  if (key === "Bookmarks_SingleClickOpen") {
+    const mode = Number(value);
+    return Number.isInteger(mode) && mode >= 0 && mode <= 3 ? mode : DEFAULT_SETTINGS[key];
+  }
   if (key === "Folder_AutoExpandAfterWait") return clampNumber(value, 0.1, 3, DEFAULT_SETTINGS[key]);
   if (key === "left_Lib_Width") return Math.round(clampNumber(value, 180, 800, DEFAULT_SETTINGS[key]));
   if (key === "right_Details_Width") return Math.round(clampNumber(value, 220, 900, DEFAULT_SETTINGS[key]));

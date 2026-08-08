@@ -80,6 +80,7 @@ let DeleteShowWarning = DEFAULT_SETTINGS.DeleteShowWarning;
 let SearchLimitToFolderAndSub = DEFAULT_SETTINGS.SearchLimitToFolderAndSub;
 let MultipleInstancesAllowed = DEFAULT_SETTINGS.MultipleInstancesAllowed;
 let Folder_SingleClickInteract = DEFAULT_SETTINGS.Folder_SingleClickInteract;
+let Bookmarks_SingleClickOpen = DEFAULT_SETTINGS.Bookmarks_SingleClickOpen;
 let Folder_AutoExpandOnDrag = DEFAULT_SETTINGS.Folder_AutoExpandOnDrag;
 let Folder_AutoExpandAfterWait = DEFAULT_SETTINGS.Folder_AutoExpandAfterWait;
 let StartAtConfiguredBookmarkFolder = DEFAULT_SETTINGS.StartAtConfiguredBookmarkFolder;
@@ -220,6 +221,7 @@ function applySettings(settings, { render = false } = {}) {
     else if (key === "SearchLimitToFolderAndSub") SearchLimitToFolderAndSub = value;
     else if (key === "MultipleInstancesAllowed") MultipleInstancesAllowed = value;
     else if (key === "Folder_SingleClickInteract") Folder_SingleClickInteract = value;
+    else if (key === "Bookmarks_SingleClickOpen") Bookmarks_SingleClickOpen = value;
     else if (key === "Folder_AutoExpandOnDrag") Folder_AutoExpandOnDrag = value;
     else if (key === "Folder_AutoExpandAfterWait") Folder_AutoExpandAfterWait = value;
     else if (key === "StartAtConfiguredBookmarkFolder") StartAtConfiguredBookmarkFolder = value;
@@ -1557,9 +1559,28 @@ async function handlePaneClick(e, pane, item) {
   render();
 }
 
+/** Return whether the configured bookmark single-click mode is active for the current SBM mode. */
+function bookmarkSingleClickOpenEnabled() {
+  if (Bookmarks_SingleClickOpen === 1) return true;
+  if (Bookmarks_SingleClickOpen === 2) return SidebarMode;
+  if (Bookmarks_SingleClickOpen === 3) return !SidebarMode;
+  return false;
+}
+
+/** Return whether this primary click should immediately open a direct bookmark URL. */
+function shouldSingleClickOpenBookmark(e, item) {
+  return bookmarkSingleClickOpenEnabled() &&
+    !isFolder(item) &&
+    !isSeparator(item) &&
+    Boolean(item?.url) &&
+    e.button === 0 &&
+    !e.ctrlKey &&
+    !e.shiftKey;
+}
+
 /**
- * Handle a row click and optionally promote the existing folder double-click
- * action to one primary click. Modifier clicks retain multi-selection behavior.
+ * Handle a row click and optionally promote existing folder/bookmark double-click
+ * actions to one primary click. Modifier clicks retain multi-selection behavior.
  */
 async function handlePaneRowClick(e, pane, item) {
   const singleClickFolderAction =
@@ -1568,16 +1589,24 @@ async function handlePaneRowClick(e, pane, item) {
     e.button === 0 &&
     !e.ctrlKey &&
     !e.shiftKey;
+  const singleClickBookmarkAction = shouldSingleClickOpenBookmark(e, item);
 
-  // Ignore the second click of a physical double-click when single-click folder
-  // interaction is enabled, otherwise Library folders could toggle twice.
-  if (singleClickFolderAction && e.detail > 1) {
+  // Ignore the second click of a physical double-click when a single-click action
+  // is enabled, otherwise folders could toggle twice or bookmarks could open twice.
+  if ((singleClickFolderAction || singleClickBookmarkAction) && e.detail > 1) {
     e.preventDefault();
     e.stopPropagation();
     return;
   }
 
   await handlePaneClick(e, pane, item);
+
+  if (singleClickBookmarkAction) {
+    // Do not open if the Details unsaved-changes guard prevented this selection.
+    if (paneSelectionId(pane) === item.id) openOrNavigate(item);
+    return;
+  }
+
   if (!singleClickFolderAction) return;
 
   if (pane === "tree") {
@@ -3694,9 +3723,16 @@ function renderBookmarkTreeNode(item, depth, cutIds) {
   const label = document.createElement("button");
   label.className = "tree-label tree-bookmark-label";
   label.type = "button";
-  label.onclick = (e) => handlePaneClick(e, "tree", item);
+  label.onclick = (e) => handlePaneRowClick(e, "tree", item);
   label.onauxclick = (e) => handleListAuxClick(e, item, "tree");
-  label.ondblclick = () => openOrNavigate(item);
+  label.ondblclick = (e) => {
+    if (bookmarkSingleClickOpenEnabled()) {
+      e.preventDefault();
+      e.stopPropagation();
+      return;
+    }
+    openOrNavigate(item);
+  };
 
   if (isSeparator(item)) {
     label.title = t("separator");
@@ -3942,7 +3978,9 @@ function renderList() {
     row.onclick = (e) => { handlePaneRowClick(e, "list", item); };
     row.onauxclick = (e) => { handleListAuxClick(e, item); };
     row.ondblclick = (e) => {
-      if (Folder_SingleClickInteract && isFolder(item)) {
+      const folderHandledBySingleClick = Folder_SingleClickInteract && isFolder(item);
+      const bookmarkHandledBySingleClick = bookmarkSingleClickOpenEnabled() && !isFolder(item) && !isSeparator(item) && Boolean(item.url);
+      if (folderHandledBySingleClick || bookmarkHandledBySingleClick) {
         e.preventDefault();
         e.stopPropagation();
         return;
