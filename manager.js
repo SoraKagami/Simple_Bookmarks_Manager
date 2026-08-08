@@ -3179,12 +3179,13 @@ function hideInfoDialog({ restoreFocus = true } = {}) {
 }
 
 /** Show the reusable About/Help/Changelog dialog with already-built content. */
-function showInfoDialog(title, contentNode, { footerNode = null } = {}) {
+function showInfoDialog(title, contentNode, { footerNode = null, layout = "default" } = {}) {
   hideOptionsDialog({ restoreFocus: false });
   hideContextMenu();
   hideAppMenu();
 
   const modal = $("info-modal");
+  modal.classList.toggle("info-modal-about", layout === "about");
   const titleNode = $("info-modal-title");
   const host = $("info-content-host");
   const footer = $("info-footer");
@@ -3209,7 +3210,7 @@ function makeInfoPageFrame(title, pagePath) {
 
 /** Open the packaged About page in an in-manager iframe. */
 function showAboutDialog() {
-  showInfoDialog(t("about"), makeInfoPageFrame(t("about"), "about.html"));
+  showInfoDialog(t("about"), makeInfoPageFrame(t("about"), "about.html"), { layout: "about" });
 }
 
 /** Persist the launch-help setting from the Help dialog footer without console noise. */

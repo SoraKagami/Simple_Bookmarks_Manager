@@ -395,6 +395,9 @@ body.column-resizing { cursor: col-resize; user-select: none; }
   color: var(--sbm-color-text);
   box-shadow: 0 16px 48px var(--sbm-color-shadow-strong);
 }
+.info-modal-about .info-dialog {
+  height: min(675px, calc(100vh - 48px));
+}
 .info-dialog-header {
   flex: 0 0 auto;
   display: flex;

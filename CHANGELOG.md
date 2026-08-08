@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.9.20
+
+- Converted the GitHub and Chrome Web Store URLs on the About page from clickable hyperlinks to plain text so SBM does not provide direct external navigation links.
+
+Additional Manual update to the about dialogue's height. ChatGPT set it to 760 which was too high, so manually adjusted it to 675.
+
 ## 0.9.19
 
 - Added the Simple Bookmarks Manager Chrome Web Store link to the About page Project section.
