@@ -691,11 +691,12 @@ body.column-resizing { cursor: col-resize; user-select: none; }
   border-top: 1px solid var(--sbm-color-border-emphasis);
 }
 
-/* Hover/click-only bookmark text effects. The active element is constrained
+/* Hover-only bookmark text effects. The active element is constrained
    to the portion actually visible in its pane, including LibraryFullView where
    tree rows intentionally use max-content for horizontal scrolling. */
 .sbm-text-effect-active {
   box-sizing: border-box;
+  display: block;
   width: var(--sbm-text-effect-width);
   max-width: var(--sbm-text-effect-width);
   min-width: 0;

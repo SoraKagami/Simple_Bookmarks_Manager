@@ -1,5 +1,12 @@
 # Changelog
 
+## 0.9.23
+
+- Reworked Bookmarks Truncation/Shortening hover handling so mode `0` no longer calls the text-effect refresh path during selection/highlight updates, resize handling, or normal render refreshes.
+- Replaced the previous requestAnimationFrame-first hover pipeline with immediate delegated `mouseover`/`mouseout` handling that only exists while Auto Scroll or Truncate is enabled.
+- Fixed Auto Scroll and Truncate targeting for Sidebar Mode Library rows, normal Library rows, and Folder Contents Name/URL columns by applying effects directly to the row under the mouse cursor.
+- Simplified active text effects to the hover row only, removing clicked-row persistence to reduce state, memory use, and unexpected refresh work.
+
 ## 0.9.22
 
 - Removed bookmark text-effect hover listeners and animation-frame work entirely while Bookmarks Truncation/Shortening is disabled, restoring the normal mode-0 interaction fast path.

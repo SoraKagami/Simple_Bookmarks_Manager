@@ -115,7 +115,6 @@ const bookmarkTextOriginals = new WeakMap();
 const bookmarkTextAnimations = new WeakMap();
 let bookmarkTextRefreshFrame = null;
 let bookmarkTextMeasureContext = null;
-let bookmarkTextClickedTarget = null;
 let bookmarkTextHoveredTarget = null;
 let bookmarkTextEffectListenersActive = false;
 let bookmarkTextReducedMotionListenerActive = false;
@@ -168,6 +167,11 @@ function applyUserInterfaceSettings() {
   applyFolderContentsColumnSettings();
 }
 
+/** Return whether bookmark hover text effects should be active at all. */
+function bookmarkTextEffectsEnabled() {
+  return Bookmark_TextTruncation === 1 || Bookmark_TextTruncation === 2;
+}
+
 /** Return a string shortened in the middle without modifying the underlying bookmark data. */
 function truncateMiddle(text, maxLength) {
   const chars = Array.from(String(text ?? ""));
@@ -180,76 +184,64 @@ function truncateMiddle(text, maxLength) {
   return `${chars.slice(0, startLength).join("")}…${endLength ? chars.slice(-endLength).join("") : ""}`;
 }
 
-/** Lazily create the single canvas context used for text-width measurements. */
+/** Lazily create the single canvas context used for hover-only text-width measurements. */
 function textMeasureContext() {
   if (bookmarkTextMeasureContext) return bookmarkTextMeasureContext;
   bookmarkTextMeasureContext = document.createElement("canvas").getContext("2d");
   return bookmarkTextMeasureContext;
 }
 
-/** Measure text using the target element's computed font without adding DOM measurement nodes. */
+/** Measure text using the target element's computed font without inserting measurement nodes. */
 function measuredTextWidth(element, text) {
   const context = textMeasureContext();
   if (!context) return Number.POSITIVE_INFINITY;
   const style = getComputedStyle(element);
   context.font = `${style.fontStyle} ${style.fontWeight} ${style.fontSize} ${style.fontFamily}`;
   const spacing = Number.parseFloat(style.letterSpacing);
-  const chars = Array.from(text);
-  return context.measureText(text).width + (Number.isFinite(spacing) ? Math.max(0, chars.length - 1) * spacing : 0);
+  const chars = Array.from(String(text ?? ""));
+  return context.measureText(chars.join("")).width +
+    (Number.isFinite(spacing) ? Math.max(0, chars.length - 1) * spacing : 0);
 }
 
-/** Return the visible width available to one Library or Folder Contents text element. */
-function bookmarkTextVisibleWidth(element) {
+/** Return the active visible clipping width for one hover text target. */
+function bookmarkTextAvailableWidth(element) {
   if (!element?.isConnected) return 0;
-  const elementRect = element.getBoundingClientRect();
-  if (elementRect.width <= 0 || elementRect.height <= 0) return 0;
 
-  // LibraryFullView deliberately makes tree rows max-content so horizontal
-  // scrolling remains available. Intersect with the pane viewport instead of
-  // relying on clientWidth/scrollWidth, which therefore report the full text.
-  const clipContainer = element.closest("#roots") ? document.querySelector(".left") :
-    (element.closest("#list") ? $("table-scroll") : null);
-  if (!clipContainer) return Math.max(0, Math.floor(elementRect.width));
-
-  const clipRect = clipContainer.getBoundingClientRect();
-  const left = Math.max(elementRect.left, clipRect.left);
-  const right = Math.min(elementRect.right, clipRect.right);
-  return Math.max(0, Math.floor(right - left));
-}
-
-/** Find the longest middle-truncated representation that fits a known visible width. */
-function truncateMiddleToVisibleWidth(element, fullText, availableWidth, maxLength = 0) {
-  const chars = Array.from(fullText);
-  if (!chars.length) return fullText;
-  if (availableWidth <= 1) return "";
-
-  const candidateForLength = (length) => {
-    const limit = Math.max(1, Math.min(chars.length, Math.floor(length)));
-    if (chars.length <= limit) return fullText;
-    return truncateMiddle(fullText, limit);
-  };
-
-  const upper = maxLength > 0 ? Math.min(chars.length, maxLength) : chars.length;
-  const cappedText = candidateForLength(upper);
-  if (measuredTextWidth(element, cappedText) <= availableWidth) return cappedText;
-
-  let low = 1;
-  let high = Math.max(1, upper);
-  let best = "…";
-  while (low <= high) {
-    const mid = Math.floor((low + high) / 2);
-    const candidate = candidateForLength(mid);
-    if (measuredTextWidth(element, candidate) <= availableWidth) {
-      best = candidate;
-      low = mid + 1;
-    } else {
-      high = mid - 1;
-    }
+  // Middle-pane Name and URL columns are grid cells. Their own box is the
+  // intended clipping width and avoids unnecessary viewport math.
+  if (element.closest("#list")) {
+    return Math.max(0, Math.floor(element.getBoundingClientRect().width || element.clientWidth || 0));
   }
-  return best;
+
+  // Library labels are normally clipped by the label button; in Sidebar
+  // LibraryFullView, labels intentionally use max-content for horizontal
+  // scrolling, so intersect the text with the visible Library pane instead.
+  if (element.closest("#roots")) {
+    const leftPane = document.querySelector(".left");
+    const label = element.closest(".tree-label") || element;
+    const clip = LibraryFullView && leftPane ? leftPane : label;
+    const elementRect = element.getBoundingClientRect();
+    const clipRect = clip.getBoundingClientRect();
+    const left = Math.max(elementRect.left, clipRect.left);
+    const right = Math.min(elementRect.right, clipRect.right);
+    return Math.max(0, Math.floor(right - left));
+  }
+
+  return Math.max(0, Math.floor(element.getBoundingClientRect().width || element.clientWidth || 0));
 }
 
-/** Remember the original text and constrain an active effect to its visible area. */
+/** Return full/available widths for an element, or null when no effect is needed. */
+function bookmarkTextOverflowMetrics(element) {
+  const fullText = bookmarkTextOriginals.get(element) || element?.textContent || "";
+  if (!fullText) return null;
+  const availableWidth = bookmarkTextAvailableWidth(element);
+  if (availableWidth <= 1) return null;
+  const fullWidth = measuredTextWidth(element, fullText);
+  if (!Number.isFinite(fullWidth) || fullWidth <= availableWidth + 1) return null;
+  return { fullText, availableWidth, fullWidth };
+}
+
+/** Prepare one text element for a temporary hover-only display effect. */
 function prepareBookmarkTextElement(element, fullText, availableWidth) {
   if (!bookmarkTextOriginals.has(element)) bookmarkTextOriginals.set(element, fullText);
   element.style.setProperty("--sbm-text-effect-width", `${Math.max(1, Math.floor(availableWidth))}px`);
@@ -257,7 +249,7 @@ function prepareBookmarkTextElement(element, fullText, availableWidth) {
   activeBookmarkTextElements.add(element);
 }
 
-/** Restore one text element after a hover/selection display effect. */
+/** Restore one text element after a hover display effect. */
 function clearBookmarkTextElement(element) {
   if (!element) return;
   const animation = bookmarkTextAnimations.get(element);
@@ -281,18 +273,38 @@ function clearBookmarkTextEffects(container = null) {
   }
 }
 
-/** Return the full text width and visible clipping width for an effect candidate. */
-function bookmarkTextOverflowMetrics(element) {
-  const fullText = element?.textContent || "";
-  if (!fullText) return null;
-  const availableWidth = bookmarkTextVisibleWidth(element);
-  if (availableWidth <= 1) return null;
-  const fullWidth = measuredTextWidth(element, fullText);
-  if (!Number.isFinite(fullWidth) || fullWidth <= availableWidth + 1) return null;
-  return { fullText, availableWidth, fullWidth };
+/** Find the longest middle-truncated representation that fits the visible width. */
+function truncateMiddleToVisibleWidth(element, fullText, availableWidth, maxLength = 0) {
+  const chars = Array.from(fullText);
+  if (!chars.length) return fullText;
+  if (availableWidth <= 1) return "";
+
+  const candidateForLength = (length) => {
+    const limit = Math.max(1, Math.min(chars.length, Math.floor(length)));
+    return chars.length <= limit ? fullText : truncateMiddle(fullText, limit);
+  };
+
+  const upper = maxLength > 0 ? Math.min(chars.length, maxLength) : chars.length;
+  const cappedText = candidateForLength(upper);
+  if (measuredTextWidth(element, cappedText) <= availableWidth) return cappedText;
+
+  let low = 1;
+  let high = Math.max(1, upper);
+  let best = "…";
+  while (low <= high) {
+    const mid = Math.floor((low + high) / 2);
+    const candidate = candidateForLength(mid);
+    if (measuredTextWidth(element, candidate) <= availableWidth) {
+      best = candidate;
+      low = mid + 1;
+    } else {
+      high = mid - 1;
+    }
+  }
+  return best;
 }
 
-/** Apply middle truncation to one text element only when its full value overflows. */
+/** Apply middle truncation to one hover target only when its full value overflows. */
 function applyBookmarkTextTruncation(element) {
   const metrics = bookmarkTextOverflowMetrics(element);
   if (!metrics) return;
@@ -307,7 +319,7 @@ function applyBookmarkTextTruncation(element) {
   element.textContent = shortened;
 }
 
-/** Apply a compositor-friendly left/right transform animation to one overflowing text element. */
+/** Apply a compositor-friendly left/right transform animation to one overflowing hover target. */
 function applyBookmarkTextAutoScroll(element) {
   if (reducedMotionQuery.matches) return;
   const metrics = bookmarkTextOverflowMetrics(element);
@@ -349,82 +361,83 @@ function applyBookmarkTextAutoScroll(element) {
   bookmarkTextAnimations.set(element, animation);
 }
 
-/** Resolve one saved tree/list target to its current rendered row. */
-function bookmarkTextEffectRow(target) {
-  if (!target?.id || (target.pane !== "tree" && target.pane !== "list")) return null;
-  const container = target.pane === "tree" ? $("roots") : $("list");
-  const rowSelector = target.pane === "tree" ? ".tree-row" : ".item";
-  if (!container || container.getClientRects().length === 0) return null;
-  return container.querySelector(`${rowSelector}[data-id="${CSS.escape(String(target.id))}"]`);
+/** Return the exact fields that may receive hover text effects for one row. */
+function bookmarkTextTargetsForRow(row, pane) {
+  if (!row) return [];
+  return pane === "tree"
+    ? [...row.querySelectorAll(".tree-label-text")]
+    : [...row.querySelectorAll(".title-text, .url")];
 }
 
-/** Reapply the configured effect to the active hovered row and optional clicked row. */
+/** Apply the configured effect immediately to the row under the pointer. */
+function applyBookmarkTextEffectsToRow(row, pane) {
+  if (!bookmarkTextEffectsEnabled() || !row) return;
+  clearBookmarkTextEffects();
+  for (const element of bookmarkTextTargetsForRow(row, pane)) {
+    if (Bookmark_TextTruncation === 1) applyBookmarkTextAutoScroll(element);
+    else if (Bookmark_TextTruncation === 2) applyBookmarkTextTruncation(element);
+  }
+}
+
+/** Resolve delegated hover events to Library rows or Folder Contents rows. */
+function bookmarkTextRowFromEvent(e, pane) {
+  const rowSelector = pane === "tree" ? ".tree-row" : ".item";
+  const row = e.target?.closest?.(rowSelector) || null;
+  return row && e.currentTarget.contains(row) ? row : null;
+}
+
+/** Apply effects only to the row under the mouse cursor. */
+function handleBookmarkTextPointerOver(e) {
+  if (!bookmarkTextEffectsEnabled()) return;
+  const container = e.currentTarget;
+  const pane = container === $("roots") ? "tree" : "list";
+  const row = bookmarkTextRowFromEvent(e, pane);
+  if (!row) return;
+  if (bookmarkTextHoveredTarget?.pane === pane && bookmarkTextHoveredTarget.row === row) return;
+  bookmarkTextHoveredTarget = { pane, row };
+  applyBookmarkTextEffectsToRow(row, pane);
+}
+
+/** Clear hover effects after the pointer leaves the active row. */
+function handleBookmarkTextPointerOut(e) {
+  if (!bookmarkTextEffectsEnabled()) return;
+  const pane = e.currentTarget === $("roots") ? "tree" : "list";
+  const row = bookmarkTextRowFromEvent(e, pane);
+  if (!row) return;
+  const relatedRow = e.relatedTarget?.closest?.(pane === "tree" ? ".tree-row" : ".item") || null;
+  if (relatedRow === row) return;
+  if (bookmarkTextHoveredTarget?.row === row) bookmarkTextHoveredTarget = null;
+  clearBookmarkTextEffects(row);
+}
+
+/** Reapply the current hover effect after resize or live option changes. */
 function refreshBookmarkTextEffects() {
   bookmarkTextRefreshFrame = null;
-  clearBookmarkTextEffects();
-  if (Bookmark_TextTruncation === 0) return;
-  if (Bookmark_TextTruncation === 1 && reducedMotionQuery.matches) return;
-
-  const targets = [];
-  if (bookmarkTextHoveredTarget) targets.push(bookmarkTextHoveredTarget);
-  if (bookmarkTextClickedTarget &&
-      (!bookmarkTextHoveredTarget ||
-       bookmarkTextClickedTarget.pane !== bookmarkTextHoveredTarget.pane ||
-       bookmarkTextClickedTarget.id !== bookmarkTextHoveredTarget.id)) {
-    targets.push(bookmarkTextClickedTarget);
+  if (!bookmarkTextEffectsEnabled()) return;
+  const target = bookmarkTextHoveredTarget;
+  if (!target?.row?.isConnected) {
+    bookmarkTextHoveredTarget = null;
+    clearBookmarkTextEffects();
+    return;
   }
-
-  for (const target of targets) {
-    const row = bookmarkTextEffectRow(target);
-    if (!row) continue;
-    // Limit work to the fields requested for this feature: Library labels plus
-    // Folder Contents Title and URL. This keeps each hover refresh very small.
-    for (const element of row.querySelectorAll(".tree-label-text, .title-text, .url")) {
-      if (Bookmark_TextTruncation === 1) applyBookmarkTextAutoScroll(element);
-      else if (Bookmark_TextTruncation === 2) applyBookmarkTextTruncation(element);
-    }
-  }
+  applyBookmarkTextEffectsToRow(target.row, target.pane);
 }
 
-/** Coalesce effect refreshes; mode 0 has a strict zero-animation-frame fast path. */
+/** Coalesce rare refreshes; disabled mode schedules no animation frame. */
 function queueBookmarkTextEffectRefresh() {
-  if (Bookmark_TextTruncation === 0 || bookmarkTextRefreshFrame !== null) return;
+  if (!bookmarkTextEffectsEnabled() || !bookmarkTextHoveredTarget || bookmarkTextRefreshFrame !== null) return;
   bookmarkTextRefreshFrame = requestAnimationFrame(refreshBookmarkTextEffects);
 }
 
-/** Track the row actually under the pointer without querying the DOM's :hover state. */
-function handleBookmarkTextPointerTransition(e) {
-  if (Bookmark_TextTruncation === 0) return;
-  const container = e.currentTarget;
-  const pane = container === $("roots") ? "tree" : "list";
-  const rowSelector = pane === "tree" ? ".tree-row" : ".item";
-  const currentRow = e.target?.closest?.(rowSelector) || null;
-  if (!currentRow || !container.contains(currentRow)) return;
-
-  if (e.type === "pointerover") {
-    if (bookmarkTextHoveredTarget?.pane === pane && bookmarkTextHoveredTarget.id === currentRow.dataset.id) return;
-    bookmarkTextHoveredTarget = { pane, id: currentRow.dataset.id };
-    queueBookmarkTextEffectRefresh();
-    return;
-  }
-
-  const relatedRow = e.relatedTarget?.closest?.(rowSelector) || null;
-  if (relatedRow === currentRow) return;
-  bookmarkTextHoveredTarget = relatedRow && container.contains(relatedRow)
-    ? { pane, id: relatedRow.dataset.id }
-    : null;
-  queueBookmarkTextEffectRefresh();
-}
-
-/** Enable expensive hover listeners only while a text effect mode is active. */
+/** Enable hover listeners only while an actual text effect mode is active. */
 function syncBookmarkTextEffectListeners() {
-  const shouldListen = Bookmark_TextTruncation !== 0;
+  const shouldListen = bookmarkTextEffectsEnabled();
   if (shouldListen !== bookmarkTextEffectListenersActive) {
     for (const container of [$("roots"), $("list")]) {
       if (!container) continue;
       const method = shouldListen ? "addEventListener" : "removeEventListener";
-      container[method]("pointerover", handleBookmarkTextPointerTransition);
-      container[method]("pointerout", handleBookmarkTextPointerTransition);
+      container[method]("mouseover", handleBookmarkTextPointerOver);
+      container[method]("mouseout", handleBookmarkTextPointerOut);
     }
     bookmarkTextEffectListenersActive = shouldListen;
   }
@@ -440,7 +453,6 @@ function syncBookmarkTextEffectListeners() {
     if (bookmarkTextRefreshFrame !== null) cancelAnimationFrame(bookmarkTextRefreshFrame);
     bookmarkTextRefreshFrame = null;
     bookmarkTextHoveredTarget = null;
-    bookmarkTextClickedTarget = null;
     clearBookmarkTextEffects();
   }
 }
@@ -552,7 +564,7 @@ function applySettings(settings, { render = false } = {}) {
   }
   applyUserInterfaceSettings();
   syncBookmarkTextEffectListeners();
-  queueBookmarkTextEffectRefresh();
+  if (bookmarkTextEffectsEnabled()) queueBookmarkTextEffectRefresh();
   const libraryLayoutChanged = updateLibraryFullView();
   if (!autoShowWasEnabled && SidebarMode_AutoShowOnExpand) {
     autoShowBookmarksForExpandedFolders();
@@ -1909,16 +1921,6 @@ async function handlePaneRowClick(e, pane, item) {
 
   await handlePaneClick(e, pane, item);
 
-  // Mode 0 deliberately skips all text-effect bookkeeping. When enabled,
-  // persist the effect only for a row the user actually clicked and selected.
-  if (Bookmark_TextTruncation !== 0) {
-    if (selectionIdsForPane(pane).includes(item.id)) {
-      bookmarkTextClickedTarget = { pane, id: item.id };
-    } else if (bookmarkTextClickedTarget?.pane === pane && bookmarkTextClickedTarget.id === item.id) {
-      bookmarkTextClickedTarget = null;
-    }
-    queueBookmarkTextEffectRefresh();
-  }
 
   if (singleClickBookmarkAction) {
     // Do not open if the Details unsaved-changes guard prevented this selection.
@@ -4330,7 +4332,7 @@ function updateSelectionHighlights() {
     const selected = isMultiSelectActive("list") ? state.multiSelect.ids.has(row.dataset.id) : row.dataset.id === state.selectedId;
     applySelectionState(row, selected, state.activePane === "list");
   });
-  queueBookmarkTextEffectRefresh();
+  if (bookmarkTextEffectsEnabled()) queueBookmarkTextEffectRefresh();
 }
 
 
@@ -4840,7 +4842,7 @@ function render() {
     renderColumnHeaders();
   }
   renderNavButtons();
-  queueBookmarkTextEffectRefresh();
+  if (bookmarkTextEffectsEnabled()) queueBookmarkTextEffectRefresh();
 }
 
 // ---------------------------------------------------------------------------
@@ -5606,7 +5608,7 @@ window.addEventListener("resize", () => {
   hideContextMenu();
   hideAppMenu();
   if (updateLibraryFullView() && state.tree) render();
-  else queueBookmarkTextEffectRefresh();
+  else if (bookmarkTextEffectsEnabled()) queueBookmarkTextEffectRefresh();
 });
 window.addEventListener("pagehide", () => {
   clearBookmarkTextEffects();
