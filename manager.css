@@ -690,3 +690,18 @@ body.column-resizing { cursor: col-resize; user-select: none; }
   border: 0;
   border-top: 1px solid var(--sbm-color-border-emphasis);
 }
+
+/* Hover/click-only bookmark text effects. Auto Scroll creates its inner
+   span lazily, so normal rows keep the same DOM footprint. */
+.sbm-display-text.sbm-text-effect-active {
+  text-overflow: clip;
+}
+.sbm-display-text.sbm-text-scroll-active {
+  overflow: hidden;
+}
+.sbm-scroll-content {
+  display: inline-block;
+  min-width: max-content;
+  white-space: nowrap;
+  will-change: transform;
+}

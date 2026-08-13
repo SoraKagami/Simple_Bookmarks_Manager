@@ -1,5 +1,14 @@
 # Changelog
 
+## 0.9.21
+
+- Added the packaged SBM version number to the Options page title using `chrome.runtime.getManifest().version`.
+- Added an unbound Chromium `_execute_action` launch shortcut and a User Interface entry that shows the current assignment and opens Chromium's Keyboard Shortcuts page for user-managed changes.
+- Added `Bookmark_TextTruncation` with No Truncation/Shortening, Auto Scroll, and middle Truncate modes for overflowing Library and Folder Contents row text.
+- Added `Bookmark_AutoScrollSpeed` and `Bookmark_AutoScrollPause` controls for the hover/click Auto Scroll mode.
+- Added `Bookmark_TruncateLength`, including `0` Auto width fitting, for the hover/click middle-truncation mode.
+- Kept the new text effects display-only, limited to active hovered/clicked rows, and disabled Auto Scroll when the system requests reduced motion.
+
 ## 0.9.20
 
 - Converted the GitHub and Chrome Web Store URLs on the About page from clickable hyperlinks to plain text so SBM does not provide direct external navigation links.

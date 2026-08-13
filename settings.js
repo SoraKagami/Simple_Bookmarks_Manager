@@ -45,6 +45,10 @@ export const DEFAULT_SETTINGS = Object.freeze({
   UI_DetailsPane_Show: true,
   SidebarMode: false,
   SidebarMode_AutoShowOnExpand: true,
+  Bookmark_TextTruncation: 0,
+  Bookmark_AutoScrollSpeed: 30,
+  Bookmark_AutoScrollPause: 1.0,
+  Bookmark_TruncateLength: 0,
   EnableAdvancedDetailsViewing: false,
   EnableAdvancedDetailsEditing: false,
   SortByNameNatural: true,
@@ -100,6 +104,13 @@ export function normalizeSettingValue(key, value) {
   }
   if (key === "UserInterfaceFontSize") return clampNumber(value, 11, 20, DEFAULT_SETTINGS[key]);
   if (key === "UserInterfaceLineSpacing") return clampNumber(value, 1.0, 1.8, DEFAULT_SETTINGS[key]);
+  if (key === "Bookmark_TextTruncation") {
+    const mode = Number(value);
+    return Number.isInteger(mode) && mode >= 0 && mode <= 2 ? mode : DEFAULT_SETTINGS[key];
+  }
+  if (key === "Bookmark_AutoScrollSpeed") return Math.round(clampNumber(value, 10, 120, DEFAULT_SETTINGS[key]));
+  if (key === "Bookmark_AutoScrollPause") return clampNumber(value, 0, 5, DEFAULT_SETTINGS[key]);
+  if (key === "Bookmark_TruncateLength") return Math.round(clampNumber(value, 0, 500, DEFAULT_SETTINGS[key]));
   if (key === "Bookmarks_SingleClickOpen") {
     const mode = Number(value);
     return Number.isInteger(mode) && mode >= 0 && mode <= 3 ? mode : DEFAULT_SETTINGS[key];

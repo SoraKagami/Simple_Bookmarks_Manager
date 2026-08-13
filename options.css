@@ -70,3 +70,42 @@ body.embedded header h1 {
 .option-subsection-summary-help { display: block; margin-top: 4px; margin-left: 1.2em; opacity: .78; font-size: .929rem; }
 .option-subsection-body { padding: 0 12px 12px; }
 .option-subsection-body .option-row:first-child { border-top: 1px solid var(--sbm-color-border-subtle); }
+
+.shortcut-control {
+  display: grid;
+  gap: 6px;
+  align-items: center;
+}
+.shortcut-current {
+  box-sizing: border-box;
+  width: 100%;
+  min-height: 2.1em;
+  padding: 6px 8px;
+  border: 1px solid var(--sbm-color-border);
+  border-radius: 6px;
+  background: var(--sbm-color-surface);
+  overflow-wrap: anywhere;
+}
+.shortcut-current output {
+  font-family: Consolas, 'Cascadia Mono', 'Courier New', monospace;
+  font-weight: 700;
+}
+.shortcut-link {
+  display: block;
+  box-sizing: border-box;
+  width: 100%;
+  padding: 7px 12px;
+  border: 1px solid var(--sbm-color-border);
+  border-radius: 6px;
+  text-align: center;
+  color: inherit;
+  text-decoration: none;
+  background: var(--sbm-color-surface);
+}
+.shortcut-link:hover,
+.shortcut-link:focus-visible {
+  text-decoration: underline;
+}
+.option-row code {
+  user-select: text;
+}

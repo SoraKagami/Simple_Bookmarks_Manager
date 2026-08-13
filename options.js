@@ -102,6 +102,47 @@ function setHidden(element, hidden) {
   element.style.display = hidden ? "none" : "";
 }
 
+/** Add the packaged manifest version to the visible Options heading and document title. */
+function applyOptionsPageTitle() {
+  const version = api.runtime.getManifest().version;
+  const title = `${t("appName").toLocaleUpperCase()} (v${version}) ${t("options").toLocaleUpperCase()}`;
+  const heading = $("options-page-title");
+  if (heading) heading.textContent = title;
+  document.title = title;
+}
+
+/** Read Chromium's currently assigned shortcut for SBM's action command. */
+async function refreshLaunchShortcut() {
+  const output = $("launch-shortcut-current");
+  if (!output || !api.commands?.getAll) return;
+  try {
+    const commands = await api.commands.getAll();
+    const launchCommand = commands.find((command) => command.name === "_execute_action");
+    output.textContent = launchCommand?.shortcut || t("shortcutNotAssigned");
+  } catch (err) {
+    console.warn("[SBM] Could not read the current launch shortcut.", err);
+    output.textContent = t("shortcutNotAssigned");
+  }
+}
+
+/** Reflect Bookmark text mode into its conditional speed/pause/length controls. */
+function updateBookmarkTextOptionRows() {
+  const mode = normalizeSettingValue("Bookmark_TextTruncation", $("Bookmark_TextTruncation").value);
+  setHidden($("bookmark-auto-scroll-speed-row"), mode !== 1);
+  setHidden($("bookmark-auto-scroll-pause-row"), mode !== 1);
+  setHidden($("bookmark-truncate-length-row"), mode !== 2);
+}
+
+/** Refresh the numeric readouts beside the Auto Scroll sliders. */
+function updateBookmarkTextOutputs() {
+  const speed = normalizeSettingValue("Bookmark_AutoScrollSpeed", $("Bookmark_AutoScrollSpeed").value);
+  const pause = normalizeSettingValue("Bookmark_AutoScrollPause", $("Bookmark_AutoScrollPause").value);
+  $("Bookmark_AutoScrollSpeed-value").value = String(speed);
+  $("Bookmark_AutoScrollSpeed-value").textContent = String(speed);
+  $("Bookmark_AutoScrollPause-value").value = pause.toFixed(1);
+  $("Bookmark_AutoScrollPause-value").textContent = pause.toFixed(1);
+}
+
 /** Toggle debug-only options and their dependent diagnostics log state. */
 function setDebugOptionsVisible(visible) {
   setHidden($("debug-failed-bookmark-operation"), !visible);
@@ -204,6 +245,8 @@ function setControlState(settings) {
     else control.value = String(value);
   }
   updateAutoExpandDelayOutput();
+  updateBookmarkTextOutputs();
+  updateBookmarkTextOptionRows();
 
   const startupFolderSelect = $("StartupBookmarkFolderId");
   if (startupFolderSelect) startupFolderSelect.disabled = !$("StartAtConfiguredBookmarkFolder").checked;
@@ -232,9 +275,11 @@ async function loadOptions() {
   const settings = { ...DEFAULT_SETTINGS, ...stored };
   await setI18nLanguage(settings.UserInterfaceLanguage);
   applyI18n(document);
+  applyOptionsPageTitle();
   applyFontOptionStyles();
   await populateStartupFolderSelect(settings.StartupBookmarkFolderId);
   setControlState(settings);
+  await refreshLaunchShortcut();
 }
 
 /** Save one changed option and refresh controls that depend on it. */
@@ -250,6 +295,7 @@ async function saveOption(key, value) {
   if (key === "UserInterfaceLanguage") {
     await setI18nLanguage(settings.UserInterfaceLanguage);
     applyI18n(document);
+    applyOptionsPageTitle();
     applyFontOptionStyles();
     await populateStartupFolderSelect(settings.StartupBookmarkFolderId);
   }
@@ -262,11 +308,14 @@ applyFontOptionStyles();
 for (const key of Object.keys(DEFAULT_SETTINGS)) {
   $(key).addEventListener("input", () => {
     if (key === "Folder_AutoExpandAfterWait") updateAutoExpandDelayOutput();
+    if (key === "Bookmark_AutoScrollSpeed" || key === "Bookmark_AutoScrollPause") updateBookmarkTextOutputs();
+    if (key === "Bookmark_TextTruncation") updateBookmarkTextOptionRows();
     if (key === "UserInterfaceFontFamily" || key === "UserInterfaceFontSize" || key === "UserInterfaceLineSpacing") {
       applyUserInterfaceSettings({ ...DEFAULT_SETTINGS, ...readAllControlValues() });
     }
   });
   $(key).addEventListener("change", () => {
+    if (key === "Bookmark_TextTruncation") updateBookmarkTextOptionRows();
     const value = readControlValue(key);
     const savePromise = saveOption(key, value);
     savePromise.catch((err) => {
@@ -280,11 +329,27 @@ $("reset").addEventListener("click", async () => {
   await api.storage.local.set({ ...DEFAULT_SETTINGS });
   await setI18nLanguage(DEFAULT_SETTINGS.UserInterfaceLanguage);
   applyI18n(document);
+  applyOptionsPageTitle();
   await populateStartupFolderSelect(DEFAULT_SETTINGS.StartupBookmarkFolderId);
   setControlState(DEFAULT_SETTINGS);
   populateLanguageSelect($("UserInterfaceLanguage"), DEFAULT_SETTINGS.UserInterfaceLanguage);
   applyFontOptionStyles();
   showStatus(t("defaultsRestored"));
+});
+
+$("open-keyboard-shortcuts").addEventListener("click", async (e) => {
+  e.preventDefault();
+  try {
+    await api.tabs.create({ url: "chrome://extensions/shortcuts" });
+  } catch (err) {
+    console.warn("[SBM] Could not open Chromium's Keyboard Shortcuts page.", err);
+    showStatus(t("shortcutOpenFailed"));
+  }
+});
+
+window.addEventListener("focus", () => { refreshLaunchShortcut(); });
+document.addEventListener("visibilitychange", () => {
+  if (!document.hidden) refreshLaunchShortcut();
 });
 
 $("clear-warnings-errors-log").addEventListener("click", () => {
