@@ -1,5 +1,12 @@
 # Changelog
 
+## 0.9.22
+
+- Removed bookmark text-effect hover listeners and animation-frame work entirely while Bookmarks Truncation/Shortening is disabled, restoring the normal mode-0 interaction fast path.
+- Fixed Auto Scroll and middle truncation overflow detection by measuring rendered text against the actually visible pane width instead of relying on `scrollWidth`/`clientWidth`, including Sidebar Mode LibraryFullView rows.
+- Fixed hover targeting by tracking the delegated Library/Folder Contents row directly instead of re-querying CSS `:hover` state.
+- Limited active text-effect work to Library labels and Folder Contents Title/URL fields, with effects still created only for hovered/clicked rows.
+
 ## 0.9.21
 
 - Added the packaged SBM version number to the Options page title using `chrome.runtime.getManifest().version`.

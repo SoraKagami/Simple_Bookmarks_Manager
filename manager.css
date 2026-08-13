@@ -691,13 +691,20 @@ body.column-resizing { cursor: col-resize; user-select: none; }
   border-top: 1px solid var(--sbm-color-border-emphasis);
 }
 
-/* Hover/click-only bookmark text effects. Auto Scroll creates its inner
-   span lazily, so normal rows keep the same DOM footprint. */
-.sbm-display-text.sbm-text-effect-active {
+/* Hover/click-only bookmark text effects. The active element is constrained
+   to the portion actually visible in its pane, including LibraryFullView where
+   tree rows intentionally use max-content for horizontal scrolling. */
+.sbm-text-effect-active {
+  box-sizing: border-box;
+  width: var(--sbm-text-effect-width);
+  max-width: var(--sbm-text-effect-width);
+  min-width: 0;
+  overflow: hidden;
   text-overflow: clip;
 }
-.sbm-display-text.sbm-text-scroll-active {
-  overflow: hidden;
+.tree-label-text.sbm-text-effect-active,
+.title-text.sbm-text-effect-active {
+  flex: 0 1 var(--sbm-text-effect-width);
 }
 .sbm-scroll-content {
   display: inline-block;
