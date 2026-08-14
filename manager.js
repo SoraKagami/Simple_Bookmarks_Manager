@@ -16,6 +16,7 @@ globalThis.SBM_getSessionLogRecords = getSessionLogRecords;
 globalThis.SBM_clearSessionLogRecords = clearSessionLogRecords;
 
 const api = chrome;
+const ALLOWED_EXTENSION_FRAME_PAGES = Object.freeze(new Set(["about.html", "help.html", "options.html"]));
 
 // Chrome extension APIs are exposed through this alias so calls are easier to
 // scan and can be wrapped by small helpers where useful.
@@ -94,6 +95,7 @@ let StartupBookmarkFolderId = DEFAULT_SETTINGS.StartupBookmarkFolderId;
 let BlockJavascriptBookmarkOpens = DEFAULT_SETTINGS.BlockJavascriptBookmarkOpens;
 let BlockDataBookmarkOpens = DEFAULT_SETTINGS.BlockDataBookmarkOpens;
 let BlockBlobBookmarkOpens = DEFAULT_SETTINGS.BlockBlobBookmarkOpens;
+let StrictBookmarkUrlProtections = DEFAULT_SETTINGS.StrictBookmarkUrlProtections;
 let Optimisation_TempBookmarkTreeMaps = DEFAULT_SETTINGS.Optimisation_TempBookmarkTreeMaps;
 let Optimisation_DOMrendering = DEFAULT_SETTINGS.Optimisation_DOMrendering;
 let Optimisation_SearchInputDebounce = DEFAULT_SETTINGS.Optimisation_SearchInputDebounce;
@@ -596,6 +598,7 @@ function applySettings(settings, { render = false } = {}) {
     else if (key === "BlockJavascriptBookmarkOpens") BlockJavascriptBookmarkOpens = value;
     else if (key === "BlockDataBookmarkOpens") BlockDataBookmarkOpens = value;
     else if (key === "BlockBlobBookmarkOpens") BlockBlobBookmarkOpens = value;
+    else if (key === "StrictBookmarkUrlProtections") StrictBookmarkUrlProtections = value;
     else if (key === "Optimisation_TempBookmarkTreeMaps") Optimisation_TempBookmarkTreeMaps = value;
     else if (key === "Optimisation_DOMrendering") Optimisation_DOMrendering = value;
     else if (key === "Optimisation_SearchInputDebounce") Optimisation_SearchInputDebounce = value;
@@ -954,18 +957,39 @@ function sanitizeBookmarkUrl(value) {
   return stripControlChars(value).trim();
 }
 
+const STRICT_BOOKMARK_OPEN_PROTOCOLS = Object.freeze(new Set([
+  "http:",
+  "https:",
+  "ftp:",
+  "about:",
+  "chrome:",
+  "brave:",
+  "edge:",
+  "opera:",
+  "vivaldi:"
+]));
+
 /**
- * Extension-initiated tab/window opens are intentionally conservative only for
- * high-risk active/document-producing schemes.  Other schemes are passed through
- * after URL parsing so Chromium-family browser pages (chrome://, brave://,
- * edge://, opera://), about: pages, mailto:, file:, and other user-bookmarked
- * schemes remain usable without maintaining a browser-specific allowlist.
+ * Return whether strict URL protections would block the parsed protocol.
+ *
+ * The strict mode is intentionally optional because it blocks useful local or
+ * app-launching bookmark schemes such as file:, mailto:, tel:, webcal:, and
+ * app-specific protocols.
+ */
+function strictBookmarkOpenProtocolBlocked(protocol) {
+  return StrictBookmarkUrlProtections && !STRICT_BOOKMARK_OPEN_PROTOCOLS.has(protocol);
+}
+
+/**
+ * Extension-initiated tab/window opens are conservative for high-risk active or
+ * document-producing schemes.  Optional strict protections additionally block
+ * local-file and custom/external-app schemes before SBM calls Chromium open APIs.
  */
 function bookmarkOpenProtocolBlocked(protocol) {
   if (protocol === "javascript:") return BlockJavascriptBookmarkOpens;
   if (protocol === "data:") return BlockDataBookmarkOpens;
   if (protocol === "blob:") return BlockBlobBookmarkOpens;
-  return false;
+  return strictBookmarkOpenProtocolBlocked(protocol);
 }
 
 /** Validate a user-controlled bookmark URL before passing it to Chromium open APIs. */
@@ -3588,6 +3612,18 @@ function isOptionsDialogOpen() {
   return !$('options-modal').hidden;
 }
 
+/** Build an allowlisted packaged extension-page URL for manager-owned iframes. */
+function extensionFrameUrl(pagePath, params = {}) {
+  if (!ALLOWED_EXTENSION_FRAME_PAGES.has(pagePath)) {
+    throw new Error(`Blocked non-allowlisted extension iframe page: ${pagePath}`);
+  }
+  const url = new URL(api.runtime.getURL(pagePath));
+  for (const [key, value] of Object.entries(params)) {
+    url.searchParams.set(key, String(value));
+  }
+  return url.href;
+}
+
 /** Open the Options page inside the manager modal iframe. */
 function showOptionsDialog() {
   hideInfoDialog();
@@ -3603,7 +3639,7 @@ function showOptionsDialog() {
     // Do not add a sandbox here: Options needs normal extension-page privileges
     // for chrome.storage and same-origin manager log access, and Chromium warns
     // that allow-scripts + allow-same-origin makes a sandbox ineffective.
-    frame.src = api.runtime.getURL('options.html?embedded=1');
+    frame.src = extensionFrameUrl("options.html", { embedded: "1" });
     host.append(frame);
   }
   modal.hidden = false;
@@ -3676,7 +3712,7 @@ function makeInfoPageFrame(title, pagePath) {
   frame.className = "info-frame";
   frame.title = title;
   frame.referrerPolicy = "no-referrer";
-  frame.src = api.runtime.getURL(pagePath);
+  frame.src = extensionFrameUrl(pagePath);
   return frame;
 }
 

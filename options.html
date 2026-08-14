@@ -304,6 +304,13 @@ chrome://extensions/shortcuts</small>
         </summary>
         <div class="option-subsection-body">
           <label class="option-row">
+            <input id="StrictBookmarkUrlProtections" type="checkbox">
+            <span>
+              <strong data-i18n="strictBookmarkUrlProtections">Block local file and external app URL schemes</strong>
+              <small data-i18n="strictBookmarkUrlProtectionsHelp">Optional. Opens only regular web and Chromium-family internal bookmark URLs, blocking file:, mailto:, tel:, and custom app schemes. Leave off if you use bookmarks for local files or apps.</small>
+            </span>
+          </label>
+          <label class="option-row">
             <input id="BlockJavascriptBookmarkOpens" type="checkbox">
             <span>
               <strong data-i18n="blockJavascriptBookmarkOpens">Block opening javascript: bookmarks</strong>

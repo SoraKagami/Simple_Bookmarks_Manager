@@ -560,6 +560,9 @@
   "helpOptionUrlProtectionsDescription": {
     "message": "These options control protections for higher-risk bookmark URL schemes when SBM opens bookmarks through extension tab or window actions. They do not prevent saving bookmarks."
   },
+  "helpOptionStrictUrlProtectionsDescription": {
+    "message": ": optional stricter mode that blocks local file, mail, phone, calendar, and custom app URL schemes when SBM opens bookmarks. Leave it off if you use bookmarks to open files or apps."
+  },
   "helpOptionLibraryPaneWidthDescription": {
     "message": ": width in pixels for the left Library pane."
   },
@@ -1184,6 +1187,12 @@
   "bookmarkUrlProtectionsHelp": {
     "message": "Control protections for higher-risk bookmark URL schemes. These protections affect opening bookmarks only, not saving them."
   },
+  "strictBookmarkUrlProtections": {
+    "message": "Block local file and external app URL schemes"
+  },
+  "strictBookmarkUrlProtectionsHelp": {
+    "message": "Optional. Opens only regular web and Chromium-family internal bookmark URLs, blocking file:, mailto:, tel:, and custom app schemes. Leave off if you use bookmarks for local files or apps."
+  },
   "blockJavascriptBookmarkOpens": {
     "message": "Block opening javascript: bookmarks"
   },
@@ -1203,7 +1212,7 @@
     "message": "Recommended. Prevents SBM from opening blob: URLs through extension tab/window actions."
   },
   "urlOpenBlockedByProtection": {
-    "message": "This bookmark URL is blocked by an advanced URL-opening protection. You can review the protection toggles in Options > Advanced."
+    "message": "This bookmark URL is blocked by an advanced URL-opening protection. You can review the protection toggles in Options > Advanced > Bookmark URL protections."
   },
   "changelog": {
     "message": "Changelog"

@@ -1,5 +1,12 @@
 # Changelog
 
+## 0.10.12
+
+- Tightened the extension page CSP by removing `data:` from `img-src`; rollback note: restore `data:` in `manifest.json` if packaged UI images regress in testing.
+- Added an allowlist helper for manager-owned extension iframes so only `about.html`, `help.html`, and `options.html` can be embedded.
+- Added an off-by-default Advanced > Bookmark URL protections option to block local file and external app/custom URL schemes when SBM opens bookmarks.
+- Added Help and English locale text for the stricter URL protection option.
+
 ## 0.10.11
 
 - Converted Advanced > Single Click Folder Expansion/Collapse from a boolean checkbox to a four-mode dropdown: disabled, enabled for all, enabled only for Sidebar Mode, or enabled only for Tab Mode.

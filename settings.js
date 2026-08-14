@@ -67,6 +67,7 @@ export const DEFAULT_SETTINGS = Object.freeze({
   BlockJavascriptBookmarkOpens: true,
   BlockDataBookmarkOpens: true,
   BlockBlobBookmarkOpens: true,
+  StrictBookmarkUrlProtections: false,
   Optimisation_TempBookmarkTreeMaps: true,
   Optimisation_DOMrendering: true,
   Optimisation_SearchInputDebounce: true,
