@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.10.2
+
+- Reduced duplicate Options-page work by suppressing full `loadOptions()` reloads for storage changes written by the same Options page.
+- Kept external `chrome.storage.local` changes from other SBM pages/tabs able to refresh Options normally.
+
 ## 0.10.1
 
 - Reworked the existing temporary bookmark tree maps optimization so maps are built once per high-level UI pass and passed through Library rendering, search, drag expansion, and keyboard navigation paths.

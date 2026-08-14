@@ -22,6 +22,8 @@ const $ = (id) => document.getElementById(id);
 let statusTimer = null;
 let logRefreshTimer = null;
 let currentThemeMode = DEFAULT_SETTINGS.ThemeMode;
+const EXPECTED_STORAGE_CHANGE_TTL_MS = 5000;
+const expectedLocalSettingChanges = new Map();
 
 installThemePreferenceListener(() => currentThemeMode);
 
@@ -30,6 +32,41 @@ function showStatus(message) {
   $("status").textContent = message;
   clearTimeout(statusTimer);
   statusTimer = setTimeout(() => { $("status").textContent = ""; }, 1600);
+}
+
+/** Track settings this Options page wrote so storage events do not reload it. */
+function rememberExpectedLocalSettingChanges(update) {
+  const expiresAt = Date.now() + EXPECTED_STORAGE_CHANGE_TTL_MS;
+  for (const [key, value] of Object.entries(update)) {
+    if (Object.prototype.hasOwnProperty.call(DEFAULT_SETTINGS, key)) {
+      expectedLocalSettingChanges.set(key, { value, expiresAt });
+    }
+  }
+}
+
+/** Stop suppressing storage events for a write that failed before reaching storage. */
+function forgetExpectedLocalSettingChanges(update) {
+  for (const key of Object.keys(update)) {
+    expectedLocalSettingChanges.delete(key);
+  }
+}
+
+/** Remove stale expected-write records left behind by no-op storage writes. */
+function pruneExpectedLocalSettingChanges() {
+  const now = Date.now();
+  for (const [key, expected] of expectedLocalSettingChanges) {
+    if (expected.expiresAt <= now) expectedLocalSettingChanges.delete(key);
+  }
+}
+
+/** Return true when a storage change matches a recent write from this page. */
+function consumeExpectedLocalSettingChange(key, change) {
+  const expected = expectedLocalSettingChanges.get(key);
+  if (!expected || expected.expiresAt <= Date.now() || !Object.is(change.newValue, expected.value)) {
+    return false;
+  }
+  expectedLocalSettingChanges.delete(key);
+  return true;
 }
 
 /** Apply normalized visual settings to the options page itself. */
@@ -290,7 +327,13 @@ async function saveOption(key, value) {
     update.EnableAdvancedDetailsEditing = false;
   }
 
-  await api.storage.local.set(update);
+  rememberExpectedLocalSettingChanges(update);
+  try {
+    await api.storage.local.set(update);
+  } catch (err) {
+    forgetExpectedLocalSettingChanges(update);
+    throw err;
+  }
   const settings = { ...DEFAULT_SETTINGS, ...(await api.storage.local.get(Object.keys(DEFAULT_SETTINGS))) };
   if (key === "UserInterfaceLanguage") {
     await setI18nLanguage(settings.UserInterfaceLanguage);
@@ -326,7 +369,14 @@ for (const key of Object.keys(DEFAULT_SETTINGS)) {
 }
 
 $("reset").addEventListener("click", async () => {
-  await api.storage.local.set({ ...DEFAULT_SETTINGS });
+  const update = { ...DEFAULT_SETTINGS };
+  rememberExpectedLocalSettingChanges(update);
+  try {
+    await api.storage.local.set(update);
+  } catch (err) {
+    forgetExpectedLocalSettingChanges(update);
+    throw err;
+  }
   await setI18nLanguage(DEFAULT_SETTINGS.UserInterfaceLanguage);
   applyI18n(document);
   applyOptionsPageTitle();
@@ -380,11 +430,15 @@ subscribeSessionLog(refreshWarningsErrorsLog);
 
 api.storage.onChanged.addListener((changes, areaName) => {
   if (areaName !== "local") return;
-  const updated = {};
+  pruneExpectedLocalSettingChanges();
+
+  let hasExternalSettingChange = false;
   for (const key of Object.keys(DEFAULT_SETTINGS)) {
-    if (Object.prototype.hasOwnProperty.call(changes, key)) updated[key] = changes[key].newValue;
+    if (!Object.prototype.hasOwnProperty.call(changes, key)) continue;
+    if (!consumeExpectedLocalSettingChange(key, changes[key])) hasExternalSettingChange = true;
   }
-  if (Object.keys(updated).length) loadOptions().catch(console.error);
+
+  if (hasExternalSettingChange) loadOptions().catch(console.error);
 });
 
 loadOptions().catch((err) => {
