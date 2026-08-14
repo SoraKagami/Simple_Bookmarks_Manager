@@ -560,6 +560,9 @@
   "helpOptionUrlProtectionsDescription": {
     "message": "这些选项控制 SBM 通过扩展标签页或窗口操作打开书签时，对较高风险 URL 方案的保护。它们不会阻止保存书签。"
   },
+  "helpOptionStrictUrlProtectionsDescription": {
+    "message": "：可选的更严格模式，当 SBM 打开书签时，阻止本地文件、邮件、电话、日历和自定义应用 URL 方案。被阻止的打开操作会使用 SBM 风格警告和临时诊断日志条目，而不是浏览器级警告。如果你使用书签打开文件或应用，请保持关闭。"
+  },
   "helpOptionLibraryPaneWidthDescription": {
     "message": "：左侧库窗格的宽度（像素）。"
   },
@@ -1184,6 +1187,12 @@
   "bookmarkUrlProtectionsHelp": {
     "message": "控制对风险较高的书签 URL 协议的保护。这些保护只影响打开书签，不影响保存书签。"
   },
+  "strictBookmarkUrlProtections": {
+    "message": "阻止本地文件和外部应用 URL 方案"
+  },
+  "strictBookmarkUrlProtectionsHelp": {
+    "message": "可选。只打开普通网页和 Chromium 系内部书签 URL，阻止 file:、mailto:、tel: 和自定义应用方案。被阻止时，SBM 会显示应用内警告并记录临时诊断警告，而不是创建浏览器级警告。如果你使用书签打开本地文件或应用，请保持关闭。"
+  },
   "blockJavascriptBookmarkOpens": {
     "message": "阻止打开 javascript: 书签"
   },
@@ -1246,6 +1255,18 @@
   },
   "helpOptionFolderSingleClickInteractDescription": {
     "message": "：启用后，单击鼠标左键即可展开或折叠库窗格中的文件夹，并打开文件夹内容窗格中的文件夹。禁用后，这些文件夹操作需要双击。"
+  },
+  "folderSingleClickInteractDisabled": {
+    "message": "已禁用（双击打开/展开文件夹）"
+  },
+  "folderSingleClickInteractAll": {
+    "message": "全部启用"
+  },
+  "folderSingleClickInteractSidebar": {
+    "message": "仅在侧边栏模式启用"
+  },
+  "folderSingleClickInteractTab": {
+    "message": "仅在标签页模式启用"
   },
   "singleClickExpandCollapseTitle": {
     "message": "单击以展开或折叠文件夹"
@@ -1375,5 +1396,14 @@
   },
   "helpOptionBookmarkTruncateLengthDescription": {
     "message": "：选择“截断”时，控制带中间省略号文本的最大长度。0 = 自动适配宽度。"
+  },
+  "ok": {
+    "message": "确定"
+  },
+  "bookmarkUrlBlockedTitle": {
+    "message": "书签 URL 已被阻止"
+  },
+  "bookmarkUrlBlockedLog": {
+    "message": "由于已启用 URL 打开保护，已阻止 {count} 个书签 URL。"
   }
 }

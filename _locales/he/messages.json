@@ -560,6 +560,9 @@
   "helpOptionUrlProtectionsDescription": {
     "message": "אפשרויות אלה שולטות בהגנות עבור סכמות URL מסוכנות יותר של סימניות כאשר SBM פותח סימניות דרך פעולות כרטיסייה או חלון של ההרחבה. הן אינן מונעות שמירת סימניות."
   },
+  "helpOptionStrictUrlProtectionsDescription": {
+    "message": ": מצב מחמיר אופציונלי שחוסם סכמות URL של קבצים מקומיים, דוא״ל, טלפון, לוח שנה ואפליקציות מותאמות כאשר SBM פותח סימניות. פתיחות שנחסמו מציגות אזהרה בסגנון SBM ורושמות רשומת אבחון זמנית במקום אזהרה ברמת הדפדפן. השאר כבוי אם אתה משתמש בסימניות לפתיחת קבצים או אפליקציות."
+  },
   "helpOptionLibraryPaneWidthDescription": {
     "message": ": רוחב בפיקסלים של חלונית הספרייה השמאלית."
   },
@@ -1184,6 +1187,12 @@
   "bookmarkUrlProtectionsHelp": {
     "message": "שליטה בהגנות עבור סכמות URL של סימניות בעלות סיכון גבוה יותר. ההגנות האלה משפיעות רק על פתיחת סימניות, לא על שמירתן."
   },
+  "strictBookmarkUrlProtections": {
+    "message": "חסום קבצים מקומיים וסכמות URL של אפליקציות חיצוניות"
+  },
+  "strictBookmarkUrlProtectionsHelp": {
+    "message": "אופציונלי. פותח רק כתובות URL רגילות לאינטרנט וכתובות פנימיות ממשפחת Chromium, וחוסם file:, mailto:, tel: וסכמות אפליקציות מותאמות. כאשר משהו נחסם, SBM מציג אזהרה בתוך האפליקציה ורושם אזהרת אבחון זמנית במקום ליצור אזהרה ברמת הדפדפן. השאר כבוי אם אתה משתמש בסימניות לקבצים מקומיים או לאפליקציות."
+  },
   "blockJavascriptBookmarkOpens": {
     "message": "חסום פתיחת סימניות javascript:"
   },
@@ -1246,6 +1255,18 @@
   },
   "helpOptionFolderSingleClickInteractDescription": {
     "message": ": כאשר האפשרות מופעלת, לחיצה שמאלית אחת מרחיבה או מכווצת תיקיות בחלונית הספרייה ופותחת תיקיות בחלונית תוכן התיקייה. כאשר היא כבויה, פעולות תיקייה אלה דורשות לחיצה כפולה."
+  },
+  "folderSingleClickInteractDisabled": {
+    "message": "מושבת (לחיצה כפולה לפתיחה/הרחבה של תיקיות)"
+  },
+  "folderSingleClickInteractAll": {
+    "message": "מופעל עבור הכול"
+  },
+  "folderSingleClickInteractSidebar": {
+    "message": "מופעל רק עבור מצב סרגל צד"
+  },
+  "folderSingleClickInteractTab": {
+    "message": "מופעל רק עבור מצב כרטיסייה"
   },
   "singleClickExpandCollapseTitle": {
     "message": "לחץ כדי להרחיב או לכווץ תיקייה"
@@ -1375,5 +1396,14 @@
   },
   "helpOptionBookmarkTruncateLengthDescription": {
     "message": ": כאשר נבחר קיטום, קובע את אורך הטקסט המרבי עם שלוש נקודות באמצע. 0 = התאמת רוחב אוטומטית."
+  },
+  "ok": {
+    "message": "אישור"
+  },
+  "bookmarkUrlBlockedTitle": {
+    "message": "כתובת URL של סימנייה נחסמה"
+  },
+  "bookmarkUrlBlockedLog": {
+    "message": "נחסמו {count} כתובות URL של סימניות כי הגנות פתיחת URL מופעלות."
   }
 }

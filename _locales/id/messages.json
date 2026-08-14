@@ -560,6 +560,9 @@
   "helpOptionUrlProtectionsDescription": {
     "message": "Opsi ini mengontrol perlindungan untuk skema URL bookmark berisiko lebih tinggi saat SBM membuka bookmark melalui tindakan tab atau jendela ekstensi. Opsi ini tidak mencegah penyimpanan bookmark."
   },
+  "helpOptionStrictUrlProtectionsDescription": {
+    "message": ": mode lebih ketat opsional yang memblokir skema URL file lokal, email, telepon, kalender, dan aplikasi khusus saat SBM membuka bookmark. Pembukaan yang diblokir memakai peringatan bergaya SBM dan entri log diagnostik sementara, bukan peringatan tingkat browser. Biarkan nonaktif jika Anda memakai bookmark untuk membuka file atau aplikasi."
+  },
   "helpOptionLibraryPaneWidthDescription": {
     "message": ": lebar dalam piksel untuk panel Pustaka kiri."
   },
@@ -1184,6 +1187,12 @@
   "bookmarkUrlProtectionsHelp": {
     "message": "Mengontrol perlindungan untuk skema URL markah yang berisiko lebih tinggi. Perlindungan ini hanya memengaruhi pembukaan markah, bukan penyimpanannya."
   },
+  "strictBookmarkUrlProtections": {
+    "message": "Blokir file lokal dan skema URL aplikasi eksternal"
+  },
+  "strictBookmarkUrlProtectionsHelp": {
+    "message": "Opsional. Hanya membuka URL bookmark web biasa dan internal keluarga Chromium, serta memblokir file:, mailto:, tel:, dan skema aplikasi khusus. Saat diblokir, SBM menampilkan peringatan dalam aplikasi dan mencatat peringatan diagnostik sementara, bukan membuat peringatan tingkat browser. Biarkan nonaktif jika Anda menggunakan bookmark untuk file lokal atau aplikasi."
+  },
   "blockJavascriptBookmarkOpens": {
     "message": "Blokir pembukaan markah javascript:"
   },
@@ -1246,6 +1255,18 @@
   },
   "helpOptionFolderSingleClickInteractDescription": {
     "message": ": saat diaktifkan, satu klik kiri memperluas atau menciutkan folder di panel Pustaka dan membuka folder di panel Isi Folder. Saat dinonaktifkan, tindakan folder ini memerlukan klik dua kali."
+  },
+  "folderSingleClickInteractDisabled": {
+    "message": "Dinonaktifkan (Klik ganda untuk membuka/memperluas folder)"
+  },
+  "folderSingleClickInteractAll": {
+    "message": "Diaktifkan untuk semua"
+  },
+  "folderSingleClickInteractSidebar": {
+    "message": "Diaktifkan hanya untuk Mode Sidebar"
+  },
+  "folderSingleClickInteractTab": {
+    "message": "Diaktifkan hanya untuk Mode Tab"
   },
   "singleClickExpandCollapseTitle": {
     "message": "Klik untuk memperluas atau menciutkan folder"
@@ -1375,5 +1396,14 @@
   },
   "helpOptionBookmarkTruncateLengthDescription": {
     "message": ": saat Potong dipilih, mengontrol panjang maksimum teks elipsis tengah. 0 = penyesuaian lebar otomatis."
+  },
+  "ok": {
+    "message": "OK"
+  },
+  "bookmarkUrlBlockedTitle": {
+    "message": "URL bookmark diblokir"
+  },
+  "bookmarkUrlBlockedLog": {
+    "message": "{count} URL bookmark diblokir karena perlindungan pembukaan URL diaktifkan."
   }
 }

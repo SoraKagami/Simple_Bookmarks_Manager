@@ -560,6 +560,9 @@
   "helpOptionUrlProtectionsDescription": {
     "message": "Bu seçenekler, SBM yer imlerini uzantı sekme veya pencere işlemleriyle açarken daha riskli yer imi URL şemaları için korumaları denetler. Yer imlerini kaydetmeyi engellemez."
   },
+  "helpOptionStrictUrlProtectionsDescription": {
+    "message": ": SBM yer imlerini açarken yerel dosya, posta, telefon, takvim ve özel uygulama URL şemalarını engelleyen isteğe bağlı daha katı mod. Engellenen açma işlemleri, tarayıcı düzeyi uyarı yerine SBM tarzında bir uyarı ve geçici tanılama günlüğü kaydı kullanır. Yer imlerini dosya veya uygulama açmak için kullanıyorsanız kapalı bırakın."
+  },
   "helpOptionLibraryPaneWidthDescription": {
     "message": ": sol Kitaplık bölmesinin piksel cinsinden genişliği."
   },
@@ -1184,6 +1187,12 @@
   "bookmarkUrlProtectionsHelp": {
     "message": "Daha yüksek riskli yer imi URL şemaları için korumaları denetler. Bu korumalar yalnızca yer imlerini açmayı etkiler, kaydetmeyi etkilemez."
   },
+  "strictBookmarkUrlProtections": {
+    "message": "Yerel dosya ve harici uygulama URL şemalarını engelle"
+  },
+  "strictBookmarkUrlProtectionsHelp": {
+    "message": "İsteğe bağlı. Yalnızca normal web ve Chromium ailesi iç URL yer imlerini açar; file:, mailto:, tel: ve özel uygulama şemalarını engeller. Engellendiğinde SBM, tarayıcı düzeyi uyarı oluşturmak yerine uygulama içinde bir uyarı gösterir ve geçici tanılama uyarısı kaydeder. Yer imlerini yerel dosyalar veya uygulamalar için kullanıyorsanız kapalı bırakın."
+  },
   "blockJavascriptBookmarkOpens": {
     "message": "javascript: yer imlerinin açılmasını engelle"
   },
@@ -1246,6 +1255,18 @@
   },
   "helpOptionFolderSingleClickInteractDescription": {
     "message": ": etkinleştirildiğinde, tek bir sol tıklama Kitaplık bölmesindeki klasörleri genişletir veya daraltır ve Klasör İçeriği bölmesindeki klasörleri açar. Devre dışı bırakıldığında bu klasör işlemleri çift tıklama gerektirir."
+  },
+  "folderSingleClickInteractDisabled": {
+    "message": "Devre dışı (Klasörleri açmak/genişletmek için çift tıklayın)"
+  },
+  "folderSingleClickInteractAll": {
+    "message": "Tümü için etkin"
+  },
+  "folderSingleClickInteractSidebar": {
+    "message": "Yalnızca Kenar Çubuğu Modu için etkin"
+  },
+  "folderSingleClickInteractTab": {
+    "message": "Yalnızca Sekme Modu için etkin"
   },
   "singleClickExpandCollapseTitle": {
     "message": "Klasörü genişletmek veya daraltmak için tıklayın"
@@ -1375,5 +1396,14 @@
   },
   "helpOptionBookmarkTruncateLengthDescription": {
     "message": ": Kes seçildiğinde, ortasında üç nokta bulunan metnin en büyük uzunluğunu denetler. 0 = otomatik genişliğe sığdırma."
+  },
+  "ok": {
+    "message": "Tamam"
+  },
+  "bookmarkUrlBlockedTitle": {
+    "message": "Yer imi URL’si engellendi"
+  },
+  "bookmarkUrlBlockedLog": {
+    "message": "URL açma korumaları etkin olduğu için {count} yer imi URL’si engellendi."
   }
 }

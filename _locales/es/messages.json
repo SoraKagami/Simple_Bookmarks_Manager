@@ -560,6 +560,9 @@
   "helpOptionUrlProtectionsDescription": {
     "message": "Estas opciones controlan protecciones para esquemas de URL de marcadores de mayor riesgo cuando SBM abre marcadores mediante acciones de pestaña o ventana de la extensión. No impiden guardar marcadores."
   },
+  "helpOptionStrictUrlProtectionsDescription": {
+    "message": ": modo estricto opcional que bloquea esquemas de URL de archivos locales, correo, teléfono, calendario y apps personalizadas cuando SBM abre marcadores. Las aperturas bloqueadas usan una advertencia con estilo de SBM y una entrada temporal en el registro de diagnóstico, en lugar de una advertencia del navegador. Déjalo desactivado si usas marcadores para abrir archivos o apps."
+  },
   "helpOptionLibraryPaneWidthDescription": {
     "message": ": ancho en píxeles del panel Biblioteca izquierdo."
   },
@@ -1184,6 +1187,12 @@
   "bookmarkUrlProtectionsHelp": {
     "message": "Controla las protecciones para esquemas de URL de marcadores de mayor riesgo. Estas protecciones solo afectan a la apertura de marcadores, no a su guardado."
   },
+  "strictBookmarkUrlProtections": {
+    "message": "Bloquear archivos locales y esquemas de URL de apps externas"
+  },
+  "strictBookmarkUrlProtectionsHelp": {
+    "message": "Opcional. Abre solo URL de marcadores web normales e internas de la familia Chromium, bloqueando file:, mailto:, tel: y esquemas de apps personalizadas. Cuando se bloquea, SBM muestra una advertencia dentro de la app y registra una advertencia de diagnóstico temporal en lugar de crear una advertencia del navegador. Déjalo desactivado si usas marcadores para archivos locales o apps."
+  },
   "blockJavascriptBookmarkOpens": {
     "message": "Bloquear la apertura de marcadores javascript:"
   },
@@ -1246,6 +1255,18 @@
   },
   "helpOptionFolderSingleClickInteractDescription": {
     "message": ": cuando está activado, un solo clic izquierdo expande o contrae carpetas en el panel Biblioteca y abre carpetas en el panel de contenido de carpeta. Cuando está desactivado, estas acciones de carpeta requieren un doble clic."
+  },
+  "folderSingleClickInteractDisabled": {
+    "message": "Desactivado (Doble clic para abrir/expandir carpetas)"
+  },
+  "folderSingleClickInteractAll": {
+    "message": "Activado para todo"
+  },
+  "folderSingleClickInteractSidebar": {
+    "message": "Activado solo para modo Barra lateral"
+  },
+  "folderSingleClickInteractTab": {
+    "message": "Activado solo para modo Pestaña"
   },
   "singleClickExpandCollapseTitle": {
     "message": "Haz clic para expandir o contraer la carpeta"
@@ -1375,5 +1396,14 @@
   },
   "helpOptionBookmarkTruncateLengthDescription": {
     "message": ": cuando se selecciona Truncar, controla la longitud máxima del texto con puntos suspensivos centrales. 0 = ajuste automático al ancho."
+  },
+  "ok": {
+    "message": "Aceptar"
+  },
+  "bookmarkUrlBlockedTitle": {
+    "message": "URL del marcador bloqueada"
+  },
+  "bookmarkUrlBlockedLog": {
+    "message": "Se bloquearon {count} URL de marcador porque las protecciones de apertura de URL están activadas."
   }
 }

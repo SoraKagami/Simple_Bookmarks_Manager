@@ -560,6 +560,9 @@
   "helpOptionUrlProtectionsDescription": {
     "message": "These options control protections for higher-risk bookmark URL schemes when SBM opens bookmarks through extension tab or window actions. They do not prevent saving bookmarks."
   },
+  "helpOptionStrictUrlProtectionsDescription": {
+    "message": ": optional stricter mode that blocks local file, mail, phone, calendar, and custom app URL schemes when SBM opens bookmarks. Blocked opens use an SBM-styled warning and transient diagnostic log entry instead of a browser-level warning. Leave it off if you use bookmarks to open files or apps."
+  },
   "helpOptionLibraryPaneWidthDescription": {
     "message": ": width in pixels for the left Library pane."
   },
@@ -1184,6 +1187,12 @@
   "bookmarkUrlProtectionsHelp": {
     "message": "Control protections for higher-risk bookmark URL schemes. These protections affect opening bookmarks only, not saving them."
   },
+  "strictBookmarkUrlProtections": {
+    "message": "Block local file and external app URL schemes"
+  },
+  "strictBookmarkUrlProtectionsHelp": {
+    "message": "Optional. Opens only regular web and Chromium-family internal bookmark URLs, blocking file:, mailto:, tel:, and custom app schemes. When blocked, SBM shows an in-app warning and records a transient diagnostic warning instead of creating a browser-level warning. Leave off if you use bookmarks for local files or apps."
+  },
   "blockJavascriptBookmarkOpens": {
     "message": "Block opening javascript: bookmarks"
   },
@@ -1246,6 +1255,18 @@
   },
   "helpOptionFolderSingleClickInteractDescription": {
     "message": ": when enabled, a single left click expands or collapses folders in the Library pane and opens folders in the Folder Contents pane. When disabled, these folder actions require a double click."
+  },
+  "folderSingleClickInteractDisabled": {
+    "message": "Disabled (Double Click to open/expand folders)"
+  },
+  "folderSingleClickInteractAll": {
+    "message": "Enabled for all"
+  },
+  "folderSingleClickInteractSidebar": {
+    "message": "Enabled Only for Sidebar Mode"
+  },
+  "folderSingleClickInteractTab": {
+    "message": "Enabled Only for Tab Mode"
   },
   "singleClickExpandCollapseTitle": {
     "message": "Click to expand or collapse folder"
@@ -1375,5 +1396,14 @@
   },
   "helpOptionBookmarkTruncateLengthDescription": {
     "message": ": when Truncate is selected, controls the maximum middle-ellipsis text length. 0 = Auto width fitting."
+  },
+  "ok": {
+    "message": "OK"
+  },
+  "bookmarkUrlBlockedTitle": {
+    "message": "Bookmark URL blocked"
+  },
+  "bookmarkUrlBlockedLog": {
+    "message": "Blocked {count} bookmark URL(s) because URL-opening protections are enabled."
   }
 }

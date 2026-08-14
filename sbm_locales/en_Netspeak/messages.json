@@ -560,6 +560,9 @@
   "helpOptionUrlProtectionsDescription": {
     "message": "These options control protections for spicy higher-risk b00km4rk URL schemes when SBM opens b00km4rks through 3xt3ns10n tab or window actions. They do not stop saving b00km4rks."
   },
+  "helpOptionStrictUrlProtectionsDescription": {
+    "message": ": 0p710n4l b055-m0d3 7h47 bl0ckz l0c4l f1l3, m41l, ph0n3, c4l3nd4r, 4nd cu570m 4pp URL zch3m3z wh3n SBM 0p3nz b00km4rkz. Bl0ck3d 0p3nz g37 4 zh1ny SBM p0pup + 73mp d14gn0571c l0g, n07 4 br0wz3r y3ll. L34v3 17 0ff 1f ur b00km4rkz launch f1l3z 0r 4ppz. 🛡️"
+  },
   "helpOptionLibraryPaneWidthDescription": {
     "message": ": width in pixels for the left L1br4ry p4n3."
   },
@@ -1184,6 +1187,12 @@
   "bookmarkUrlProtectionsHelp": {
     "message": "Control shieldz for riskier bookmark URL schemez. These shieldz affect opening bookmarkz only, not saving them."
   },
+  "strictBookmarkUrlProtections": {
+    "message": "Bl0ck l0c4l f1l3 + 4pp URL zch3m3z"
+  },
+  "strictBookmarkUrlProtectionsHelp": {
+    "message": "0p710n4l. 0p3nz 0nly n0rm4l w3b + Chr0m1um-f4m 1n73rn4l b00km4rk URLz, bl0ck1ng file:, mailto:, tel:, 4nd cu570m 4pp zch3m3z. Wh3n bl0ck3d, SBM sh0wz 4n 1n-4pp w4rn1ng 4nd wr173z 4 73mp d14gn0571c w4rn1ng, n0 br0wz3r gr0wl. L34v3 0ff f0r l0c4l f1l3z 0r 4ppz. 🚧"
+  },
   "blockJavascriptBookmarkOpens": {
     "message": "Block opening javascript: bookmarkz"
   },
@@ -1246,6 +1255,18 @@
   },
   "helpOptionFolderSingleClickInteractDescription": {
     "message": ": wh3n 0n, 0n3 l3f7 cl1ck 3xp4ndz/c0ll4pz3z f0ld3rz 1n 7h3 L1br4ry 4nd 0p3nz f0ld3rz 1n F0ld3r C0n73n7z. Wh3n 0ff, d0ubl3-cl1ck 70 pr0c33d. 🖱️"
+  },
+  "folderSingleClickInteractDisabled": {
+    "message": "D1z4bl3d (d0ubl3-cl1ck 70 0p3n/3xp4nd f0ld3rz)"
+  },
+  "folderSingleClickInteractAll": {
+    "message": "3n4bl3d 3v3ryw3r3 ✨"
+  },
+  "folderSingleClickInteractSidebar": {
+    "message": "3n4bl3d 0nly 1n Z1d3b4r M0d3"
+  },
+  "folderSingleClickInteractTab": {
+    "message": "3n4bl3d 0nly 1n 74b M0d3"
   },
   "singleClickExpandCollapseTitle": {
     "message": "1 cl1ck = 3xp4nd/c0ll4pz3 f0ld3r ⚡"
@@ -1375,5 +1396,14 @@
   },
   "helpOptionBookmarkTruncateLengthDescription": {
     "message": ": wh3n 7runc473 1z z3l3c73d, c0n7r0lz 7h3 m4x1mum m1ddl3-3ll1pz1z 73x7 l3ng7h. 0 = 4u70 w1d7h f1771ng. ✂️"
+  },
+  "ok": {
+    "message": "0K 👍"
+  },
+  "bookmarkUrlBlockedTitle": {
+    "message": "B00km4rk URL bl0ck3d"
+  },
+  "bookmarkUrlBlockedLog": {
+    "message": "Bl0ck3d {count} b00km4rk URL(s) b3c4uz3 URL-0p3n1ng pr073c710nz 4r3 0n. 🛑"
   }
 }

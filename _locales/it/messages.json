@@ -560,6 +560,9 @@
   "helpOptionUrlProtectionsDescription": {
     "message": "Queste opzioni controllano le protezioni per schemi URL di segnalibri più rischiosi quando SBM apre segnalibri tramite azioni di scheda o finestra dell’estensione. Non impediscono il salvataggio dei segnalibri."
   },
+  "helpOptionStrictUrlProtectionsDescription": {
+    "message": ": modalità più rigida opzionale che blocca gli schemi URL di file locali, posta, telefono, calendario e app personalizzate quando SBM apre i segnalibri. Le aperture bloccate usano un avviso in stile SBM e una voce temporanea nel registro diagnostico invece di un avviso a livello browser. Lasciala disattivata se usi i segnalibri per aprire file o app."
+  },
   "helpOptionLibraryPaneWidthDescription": {
     "message": ": larghezza in pixel del riquadro Libreria sinistro."
   },
@@ -1184,6 +1187,12 @@
   "bookmarkUrlProtectionsHelp": {
     "message": "Controlla le protezioni per gli schemi URL dei segnalibri a rischio più elevato. Queste protezioni influiscono solo sull’apertura dei segnalibri, non sul loro salvataggio."
   },
+  "strictBookmarkUrlProtections": {
+    "message": "Blocca file locali e schemi URL di app esterne"
+  },
+  "strictBookmarkUrlProtectionsHelp": {
+    "message": "Opzionale. Apre solo URL di segnalibri web normali e interni della famiglia Chromium, bloccando file:, mailto:, tel: e schemi di app personalizzate. Quando viene bloccato, SBM mostra un avviso nell’app e registra un avviso diagnostico temporaneo invece di creare un avviso del browser. Lascia disattivato se usi i segnalibri per file locali o app."
+  },
   "blockJavascriptBookmarkOpens": {
     "message": "Blocca l’apertura dei segnalibri javascript:"
   },
@@ -1246,6 +1255,18 @@
   },
   "helpOptionFolderSingleClickInteractDescription": {
     "message": ": quando è attiva, un singolo clic sinistro espande o comprime le cartelle nel riquadro Libreria e apre le cartelle nel riquadro Contenuto cartella. Quando è disattivata, queste azioni richiedono un doppio clic."
+  },
+  "folderSingleClickInteractDisabled": {
+    "message": "Disattivato (Doppio clic per aprire/espandere le cartelle)"
+  },
+  "folderSingleClickInteractAll": {
+    "message": "Attivato per tutto"
+  },
+  "folderSingleClickInteractSidebar": {
+    "message": "Attivato solo per la modalità Barra laterale"
+  },
+  "folderSingleClickInteractTab": {
+    "message": "Attivato solo per la modalità Scheda"
   },
   "singleClickExpandCollapseTitle": {
     "message": "Fai clic per espandere o comprimere la cartella"
@@ -1375,5 +1396,14 @@
   },
   "helpOptionBookmarkTruncateLengthDescription": {
     "message": ": quando è selezionato Tronca, controlla la lunghezza massima del testo con ellissi centrale. 0 = adattamento automatico alla larghezza."
+  },
+  "ok": {
+    "message": "OK"
+  },
+  "bookmarkUrlBlockedTitle": {
+    "message": "URL del segnalibro bloccato"
+  },
+  "bookmarkUrlBlockedLog": {
+    "message": "Bloccati {count} URL di segnalibro perché le protezioni di apertura URL sono attive."
   }
 }

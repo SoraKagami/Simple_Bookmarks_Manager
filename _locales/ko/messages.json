@@ -560,6 +560,9 @@
   "helpOptionUrlProtectionsDescription": {
     "message": "이 옵션은 SBM이 확장 프로그램 탭 또는 창 동작으로 북마크를 열 때 더 위험한 북마크 URL 스킴에 대한 보호를 제어합니다. 북마크 저장을 막지는 않습니다."
   },
+  "helpOptionStrictUrlProtectionsDescription": {
+    "message": ": SBM이 북마크를 열 때 로컬 파일, 메일, 전화, 캘린더 및 사용자 지정 앱 URL 스킴을 차단하는 선택적 강화 모드입니다. 차단된 열기는 브라우저 수준 경고 대신 SBM 스타일 경고와 임시 진단 로그 항목을 사용합니다. 파일이나 앱을 열기 위해 북마크를 사용한다면 꺼 두세요."
+  },
   "helpOptionLibraryPaneWidthDescription": {
     "message": ": 왼쪽 라이브러리 창의 픽셀 단위 너비입니다."
   },
@@ -1184,6 +1187,12 @@
   "bookmarkUrlProtectionsHelp": {
     "message": "위험도가 더 높은 북마크 URL 스킴에 대한 보호를 제어합니다. 이 보호는 북마크 열기에만 영향을 주며 저장에는 영향을 주지 않습니다."
   },
+  "strictBookmarkUrlProtections": {
+    "message": "로컬 파일 및 외부 앱 URL 스킴 차단"
+  },
+  "strictBookmarkUrlProtectionsHelp": {
+    "message": "선택 사항입니다. 일반 웹 및 Chromium 계열 내부 북마크 URL만 열고 file:, mailto:, tel:, 사용자 지정 앱 스킴을 차단합니다. 차단되면 SBM은 브라우저 수준 경고를 만들지 않고 앱 내 경고를 표시하며 임시 진단 경고를 기록합니다. 로컬 파일이나 앱에 북마크를 사용하는 경우 꺼 두세요."
+  },
   "blockJavascriptBookmarkOpens": {
     "message": "javascript: 북마크 열기 차단"
   },
@@ -1246,6 +1255,18 @@
   },
   "helpOptionFolderSingleClickInteractDescription": {
     "message": ": 활성화하면 마우스 왼쪽 버튼을 한 번 클릭하여 라이브러리 창의 폴더를 펼치거나 접고 폴더 내용 창의 폴더를 엽니다. 비활성화하면 이러한 폴더 작업에는 두 번 클릭이 필요합니다."
+  },
+  "folderSingleClickInteractDisabled": {
+    "message": "사용 안 함(폴더를 열거나 펼치려면 두 번 클릭)"
+  },
+  "folderSingleClickInteractAll": {
+    "message": "모두에 사용"
+  },
+  "folderSingleClickInteractSidebar": {
+    "message": "사이드바 모드에서만 사용"
+  },
+  "folderSingleClickInteractTab": {
+    "message": "탭 모드에서만 사용"
   },
   "singleClickExpandCollapseTitle": {
     "message": "클릭하여 폴더 펼치기 또는 접기"
@@ -1375,5 +1396,14 @@
   },
   "helpOptionBookmarkTruncateLengthDescription": {
     "message": ": 줄임을 선택한 경우 가운데 말줄임표 텍스트의 최대 길이를 제어합니다. 0 = 자동 너비 맞춤."
+  },
+  "ok": {
+    "message": "확인"
+  },
+  "bookmarkUrlBlockedTitle": {
+    "message": "북마크 URL 차단됨"
+  },
+  "bookmarkUrlBlockedLog": {
+    "message": "URL 열기 보호가 활성화되어 {count}개의 북마크 URL이 차단되었습니다."
   }
 }

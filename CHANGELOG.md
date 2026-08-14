@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.10.15 - 2026-08-14
+
+- Updated all non-base locales with the newest base English locale entries.
+- Synced locale key coverage across `_locales` and `sbm_locales`, including separate Simplified Chinese (`zh_CN`) and Traditional Chinese (`zh_TW`) wording.
+- Kept permissions unchanged.
+
 ## 0.10.14 - 2026-08-14
 
 - Fixed bookmark URL protection block paths that still used native browser alerts or browser console warnings.

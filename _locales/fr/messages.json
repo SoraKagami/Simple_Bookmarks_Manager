@@ -560,6 +560,9 @@
   "helpOptionUrlProtectionsDescription": {
     "message": "Ces options contrôlent les protections pour les schémas d’URL de favoris plus risqués lorsque SBM ouvre des favoris via des actions d’onglet ou de fenêtre de l’extension. Elles n’empêchent pas l’enregistrement des favoris."
   },
+  "helpOptionStrictUrlProtectionsDescription": {
+    "message": ": mode strict optionnel qui bloque les schémas d’URL de fichiers locaux, de courriel, de téléphone, de calendrier et d’applications personnalisées lorsque SBM ouvre des favoris. Les ouvertures bloquées utilisent un avertissement au style SBM et une entrée temporaire dans le journal de diagnostic au lieu d’un avertissement du navigateur. Laissez cette option désactivée si vous utilisez des favoris pour ouvrir des fichiers ou des applications."
+  },
   "helpOptionLibraryPaneWidthDescription": {
     "message": ": largeur en pixels du volet Bibliothèque gauche."
   },
@@ -1184,6 +1187,12 @@
   "bookmarkUrlProtectionsHelp": {
     "message": "Contrôle les protections pour les schémas d’URL de favoris à risque plus élevé. Ces protections concernent uniquement l’ouverture des favoris, pas leur enregistrement."
   },
+  "strictBookmarkUrlProtections": {
+    "message": "Bloquer les fichiers locaux et les schémas d’URL d’applications externes"
+  },
+  "strictBookmarkUrlProtectionsHelp": {
+    "message": "Optionnel. Ouvre uniquement les URL de favoris web ordinaires et internes à la famille Chromium, en bloquant file:, mailto:, tel: et les schémas d’applications personnalisées. En cas de blocage, SBM affiche un avertissement intégré à l’application et enregistre un avertissement de diagnostic temporaire au lieu de créer un avertissement du navigateur. Laissez désactivé si vous utilisez des favoris pour des fichiers locaux ou des applications."
+  },
   "blockJavascriptBookmarkOpens": {
     "message": "Bloquer l’ouverture des favoris javascript:"
   },
@@ -1246,6 +1255,18 @@
   },
   "helpOptionFolderSingleClickInteractDescription": {
     "message": ": lorsqu'elle est activée, un simple clic gauche développe ou replie les dossiers dans le volet Bibliothèque et ouvre les dossiers dans le volet Contenu du dossier. Lorsqu'elle est désactivée, ces actions nécessitent un double clic."
+  },
+  "folderSingleClickInteractDisabled": {
+    "message": "Désactivé (Double-clic pour ouvrir/développer les dossiers)"
+  },
+  "folderSingleClickInteractAll": {
+    "message": "Activé pour tout"
+  },
+  "folderSingleClickInteractSidebar": {
+    "message": "Activé uniquement en mode Barre latérale"
+  },
+  "folderSingleClickInteractTab": {
+    "message": "Activé uniquement en mode Onglet"
   },
   "singleClickExpandCollapseTitle": {
     "message": "Cliquer pour développer ou replier le dossier"
@@ -1375,5 +1396,14 @@
   },
   "helpOptionBookmarkTruncateLengthDescription": {
     "message": ": lorsque Tronquer est sélectionné, contrôle la longueur maximale du texte avec points de suspension au milieu. 0 = ajustement automatique à la largeur."
+  },
+  "ok": {
+    "message": "OK"
+  },
+  "bookmarkUrlBlockedTitle": {
+    "message": "URL du favori bloquée"
+  },
+  "bookmarkUrlBlockedLog": {
+    "message": "{count} URL de favori bloquée(s), car les protections d’ouverture d’URL sont activées."
   }
 }

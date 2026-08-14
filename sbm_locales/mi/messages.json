@@ -560,6 +560,9 @@
   "helpOptionUrlProtectionsDescription": {
     "message": "These options control protections for higher-risk bookmark URL schemes when SBM opens bookmarks through extension tab or window actions. They do not prevent saving bookmarks."
   },
+  "helpOptionStrictUrlProtectionsDescription": {
+    "message": ": he aratau haumaru kōwhiri e aukati ana i ngā URL scheme mō ngā kōnae paetata, mēra, waea, maramataka, me ngā taupānga ritenga ina whakatuwhera a SBM i ngā tohuwāhi. Ka whakamahia e ngā whakatuwheratanga kua aukatihia tētahi whakatūpato ā-SBM me tētahi tāurunga rangitaki tātaritanga rangitahi, kaua ko tētahi whakatūpato taumata pūtirotiro. Waiho kia weto mēnā ka whakamahi koe i ngā tohuwāhi hei whakatuwhera kōnae, taupānga rānei."
+  },
   "helpOptionLibraryPaneWidthDescription": {
     "message": ": width in pixels for the left Library pane."
   },
@@ -1184,6 +1187,12 @@
   "bookmarkUrlProtectionsHelp": {
     "message": "Whakahaerehia ngā whakamarutanga mō ngā kaupapa URL tohuwāhi mōrearea ake. Ka pā ēnei whakamarutanga ki te whakatuwhera tohuwāhi anake, kāore ki te tiaki."
   },
+  "strictBookmarkUrlProtections": {
+    "message": "Aukati i ngā kōnae paetata me ngā URL scheme taupānga o waho"
+  },
+  "strictBookmarkUrlProtectionsHelp": {
+    "message": "Kōwhiri. Ka whakatuwhera anake i ngā URL tohuwāhi tukutuku noa me ngā URL ā-roto o te whānau Chromium, ā, ka aukati i te file:, mailto:, tel:, me ngā URL scheme taupānga ritenga. Ina aukatihia, ka whakaatu a SBM i tētahi whakatūpato ā-taupānga, ā, ka tuhi i tētahi whakatūpato tātaritanga rangitahi, kaua ko tētahi whakatūpato taumata pūtirotiro. Waiho kia weto mēnā ka whakamahi koe i ngā tohuwāhi mō ngā kōnae paetata, taupānga rānei."
+  },
   "blockJavascriptBookmarkOpens": {
     "message": "Ārai i te whakatuwhera tohuwāhi javascript:"
   },
@@ -1246,6 +1255,18 @@
   },
   "helpOptionFolderSingleClickInteractDescription": {
     "message": ": ina whakahohea, mā te pāwhiri-mauī kotahi e whakawhānui, e whakakopa rānei ngā kōpaki i te pihanga Pātaka, ā, ka huaki ngā kōpaki i te pihanga Ihirangi Kōpaki. Ina monokia, me pāwhiri-rua mō ēnei mahi kōpaki."
+  },
+  "folderSingleClickInteractDisabled": {
+    "message": "Kua monokia (Pāwhiri-rua hei whakatuwhera/whakaroha kōpaki)"
+  },
+  "folderSingleClickInteractAll": {
+    "message": "Kua whakahohea mō te katoa"
+  },
+  "folderSingleClickInteractSidebar": {
+    "message": "Kua whakahohea anake mō te Aratau Paetaha"
+  },
+  "folderSingleClickInteractTab": {
+    "message": "Kua whakahohea anake mō te Aratau Ripa"
   },
   "singleClickExpandCollapseTitle": {
     "message": "Pāwhiri kia whakawhānui, kia whakakopa rānei i te kōpaki"
@@ -1375,5 +1396,14 @@
   },
   "helpOptionBookmarkTruncateLengthDescription": {
     "message": ": ina tīpakohia te Whakapoto, ka whakahaere i te roa mōrahi o te kuputuhi me te ellipsis waenganui. 0 = whakauru whānui aunoa."
+  },
+  "ok": {
+    "message": "OK"
+  },
+  "bookmarkUrlBlockedTitle": {
+    "message": "Kua aukatihia te URL tohuwāhi"
+  },
+  "bookmarkUrlBlockedLog": {
+    "message": "Kua aukatihia ngā URL tohuwāhi {count} nā te mea kua whakahohea ngā pare whakatuwhera URL."
   }
 }

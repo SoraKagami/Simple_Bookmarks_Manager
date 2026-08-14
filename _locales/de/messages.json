@@ -560,6 +560,9 @@
   "helpOptionUrlProtectionsDescription": {
     "message": "Diese Optionen steuern Schutzmaßnahmen für risikoreichere Lesezeichen-URL-Schemata, wenn SBM Lesezeichen über Erweiterungs-Tab- oder Fensteraktionen öffnet. Sie verhindern nicht das Speichern von Lesezeichen."
   },
+  "helpOptionStrictUrlProtectionsDescription": {
+    "message": ": optionaler strengerer Modus, der lokale Datei-, Mail-, Telefon-, Kalender- und benutzerdefinierte App-URL-Schemata blockiert, wenn SBM Lesezeichen öffnet. Blockierte Öffnungen zeigen eine SBM-eigene Warnung und einen temporären Diagnoseprotokolleintrag statt einer browserseitigen Warnung. Lasse diese Option aus, wenn du Lesezeichen zum Öffnen von Dateien oder Apps verwendest."
+  },
   "helpOptionLibraryPaneWidthDescription": {
     "message": ": Breite des linken Bibliotheksbereichs in Pixeln."
   },
@@ -1184,6 +1187,12 @@
   "bookmarkUrlProtectionsHelp": {
     "message": "Steuern Sie Schutzmaßnahmen für risikoreichere Lesezeichen-URL-Schemata. Diese Schutzmaßnahmen betreffen nur das Öffnen von Lesezeichen, nicht das Speichern."
   },
+  "strictBookmarkUrlProtections": {
+    "message": "Lokale Datei- und externe App-URL-Schemata blockieren"
+  },
+  "strictBookmarkUrlProtectionsHelp": {
+    "message": "Optional. Öffnet nur normale Web- und interne Chromium-Familien-Lesezeichen-URLs und blockiert file:, mailto:, tel: sowie benutzerdefinierte App-Schemata. Wenn etwas blockiert wird, zeigt SBM eine In-App-Warnung und zeichnet eine temporäre Diagnosewarnung auf, statt eine browserseitige Warnung zu erzeugen. Lasse dies aus, wenn du Lesezeichen für lokale Dateien oder Apps verwendest."
+  },
   "blockJavascriptBookmarkOpens": {
     "message": "Öffnen von javascript:-Lesezeichen blockieren"
   },
@@ -1246,6 +1255,18 @@
   },
   "helpOptionFolderSingleClickInteractDescription": {
     "message": ": Wenn aktiviert, erweitert oder klappt ein einzelner Linksklick Ordner im Bibliotheksbereich ein und öffnet Ordner im Ordnerinhaltsbereich. Wenn deaktiviert, erfordern diese Ordneraktionen einen Doppelklick."
+  },
+  "folderSingleClickInteractDisabled": {
+    "message": "Deaktiviert (Doppelklick zum Öffnen/Erweitern von Ordnern)"
+  },
+  "folderSingleClickInteractAll": {
+    "message": "Für alle aktiviert"
+  },
+  "folderSingleClickInteractSidebar": {
+    "message": "Nur für Seitenleistenmodus aktiviert"
+  },
+  "folderSingleClickInteractTab": {
+    "message": "Nur für Tab-Modus aktiviert"
   },
   "singleClickExpandCollapseTitle": {
     "message": "Zum Erweitern oder Einklappen des Ordners klicken"
@@ -1375,5 +1396,14 @@
   },
   "helpOptionBookmarkTruncateLengthDescription": {
     "message": ": wenn „Kürzen“ ausgewählt ist, steuert dies die maximale Textlänge mit mittlerer Ellipse. 0 = automatische Breitenanpassung."
+  },
+  "ok": {
+    "message": "OK"
+  },
+  "bookmarkUrlBlockedTitle": {
+    "message": "Lesezeichen-URL blockiert"
+  },
+  "bookmarkUrlBlockedLog": {
+    "message": "{count} Lesezeichen-URL(s) blockiert, weil URL-Öffnungsschutz aktiviert ist."
   }
 }

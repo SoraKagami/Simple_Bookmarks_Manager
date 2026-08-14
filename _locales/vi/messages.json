@@ -560,6 +560,9 @@
   "helpOptionUrlProtectionsDescription": {
     "message": "Các tùy chọn này điều khiển bảo vệ cho các lược đồ URL dấu trang có rủi ro cao hơn khi SBM mở dấu trang qua hành động thẻ hoặc cửa sổ của tiện ích. Chúng không ngăn lưu dấu trang."
   },
+  "helpOptionStrictUrlProtectionsDescription": {
+    "message": ": chế độ nghiêm ngặt tùy chọn chặn các lược đồ URL của tệp cục bộ, thư, điện thoại, lịch và ứng dụng tùy chỉnh khi SBM mở dấu trang. Các lần mở bị chặn dùng cảnh báo theo kiểu SBM và một mục nhật ký chẩn đoán tạm thời thay vì cảnh báo cấp trình duyệt. Hãy để tắt nếu bạn dùng dấu trang để mở tệp hoặc ứng dụng."
+  },
   "helpOptionLibraryPaneWidthDescription": {
     "message": ": chiều rộng tính bằng pixel của khung Thư viện bên trái."
   },
@@ -1184,6 +1187,12 @@
   "bookmarkUrlProtectionsHelp": {
     "message": "Kiểm soát các biện pháp bảo vệ cho các lược đồ URL dấu trang có rủi ro cao hơn. Các bảo vệ này chỉ ảnh hưởng đến việc mở dấu trang, không ảnh hưởng đến việc lưu."
   },
+  "strictBookmarkUrlProtections": {
+    "message": "Chặn tệp cục bộ và lược đồ URL ứng dụng bên ngoài"
+  },
+  "strictBookmarkUrlProtectionsHelp": {
+    "message": "Tùy chọn. Chỉ mở các URL dấu trang web thông thường và URL nội bộ thuộc họ Chromium, chặn file:, mailto:, tel: và các lược đồ ứng dụng tùy chỉnh. Khi bị chặn, SBM hiển thị cảnh báo trong ứng dụng và ghi cảnh báo chẩn đoán tạm thời thay vì tạo cảnh báo cấp trình duyệt. Hãy để tắt nếu bạn dùng dấu trang cho tệp cục bộ hoặc ứng dụng."
+  },
   "blockJavascriptBookmarkOpens": {
     "message": "Chặn mở dấu trang javascript:"
   },
@@ -1246,6 +1255,18 @@
   },
   "helpOptionFolderSingleClickInteractDescription": {
     "message": ": khi bật, một lần nhấp chuột trái sẽ mở rộng hoặc thu gọn các thư mục trong khung Thư viện và mở các thư mục trong khung Nội dung thư mục. Khi tắt, các thao tác thư mục này cần nhấp đúp."
+  },
+  "folderSingleClickInteractDisabled": {
+    "message": "Đã tắt (Nhấp đúp để mở/mở rộng thư mục)"
+  },
+  "folderSingleClickInteractAll": {
+    "message": "Bật cho tất cả"
+  },
+  "folderSingleClickInteractSidebar": {
+    "message": "Chỉ bật cho Chế độ Sidebar"
+  },
+  "folderSingleClickInteractTab": {
+    "message": "Chỉ bật cho Chế độ Tab"
   },
   "singleClickExpandCollapseTitle": {
     "message": "Nhấp để mở rộng hoặc thu gọn thư mục"
@@ -1375,5 +1396,14 @@
   },
   "helpOptionBookmarkTruncateLengthDescription": {
     "message": ": khi chọn Cắt ngắn, kiểm soát độ dài tối đa của văn bản có dấu ba chấm ở giữa. 0 = tự động điều chỉnh theo chiều rộng."
+  },
+  "ok": {
+    "message": "OK"
+  },
+  "bookmarkUrlBlockedTitle": {
+    "message": "URL dấu trang đã bị chặn"
+  },
+  "bookmarkUrlBlockedLog": {
+    "message": "Đã chặn {count} URL dấu trang vì các biện pháp bảo vệ mở URL đang bật."
   }
 }

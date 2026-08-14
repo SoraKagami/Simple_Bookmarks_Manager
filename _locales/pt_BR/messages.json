@@ -560,6 +560,9 @@
   "helpOptionUrlProtectionsDescription": {
     "message": "Estas opções controlam proteções para esquemas de URL de favoritos de maior risco quando o SBM abre favoritos por ações de guia ou janela da extensão. Elas não impedem salvar favoritos."
   },
+  "helpOptionStrictUrlProtectionsDescription": {
+    "message": ": modo mais rigoroso opcional que bloqueia esquemas de URL de arquivo local, e-mail, telefone, calendário e apps personalizados quando o SBM abre favoritos. Aberturas bloqueadas usam um aviso com estilo do SBM e uma entrada temporária no registro de diagnóstico em vez de um aviso no nível do navegador. Deixe desativado se você usa favoritos para abrir arquivos ou apps."
+  },
   "helpOptionLibraryPaneWidthDescription": {
     "message": ": largura em pixels do painel Biblioteca esquerdo."
   },
@@ -1184,6 +1187,12 @@
   "bookmarkUrlProtectionsHelp": {
     "message": "Controla as proteções para esquemas de URL de favoritos de maior risco. Essas proteções afetam apenas a abertura de favoritos, não o salvamento."
   },
+  "strictBookmarkUrlProtections": {
+    "message": "Bloquear arquivos locais e esquemas de URL de apps externos"
+  },
+  "strictBookmarkUrlProtectionsHelp": {
+    "message": "Opcional. Abre apenas URLs de favoritos web comuns e internos da família Chromium, bloqueando file:, mailto:, tel: e esquemas de apps personalizados. Quando bloqueado, o SBM mostra um aviso dentro do app e registra um aviso diagnóstico temporário em vez de criar um aviso no navegador. Deixe desativado se você usa favoritos para arquivos locais ou apps."
+  },
   "blockJavascriptBookmarkOpens": {
     "message": "Bloquear abertura de favoritos javascript:"
   },
@@ -1246,6 +1255,18 @@
   },
   "helpOptionFolderSingleClickInteractDescription": {
     "message": ": quando ativado, um único clique com o botão esquerdo expande ou recolhe pastas no painel Biblioteca e abre pastas no painel Conteúdo da pasta. Quando desativado, essas ações exigem um clique duplo."
+  },
+  "folderSingleClickInteractDisabled": {
+    "message": "Desativado (Clique duplo para abrir/expandir pastas)"
+  },
+  "folderSingleClickInteractAll": {
+    "message": "Ativado para tudo"
+  },
+  "folderSingleClickInteractSidebar": {
+    "message": "Ativado somente no modo Barra lateral"
+  },
+  "folderSingleClickInteractTab": {
+    "message": "Ativado somente no modo Aba"
   },
   "singleClickExpandCollapseTitle": {
     "message": "Clique para expandir ou recolher a pasta"
@@ -1375,5 +1396,14 @@
   },
   "helpOptionBookmarkTruncateLengthDescription": {
     "message": ": quando Truncar está selecionado, controla o comprimento máximo do texto com reticências no meio. 0 = ajuste automático à largura."
+  },
+  "ok": {
+    "message": "OK"
+  },
+  "bookmarkUrlBlockedTitle": {
+    "message": "URL do favorito bloqueado"
+  },
+  "bookmarkUrlBlockedLog": {
+    "message": "{count} URL(s) de favorito bloqueada(s) porque as proteções de abertura de URL estão ativadas."
   }
 }

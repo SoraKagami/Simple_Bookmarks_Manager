@@ -560,6 +560,9 @@
   "helpOptionUrlProtectionsDescription": {
     "message": "Deze opties beheren bescherming voor risicovollere bladwijzer-URL-schema’s wanneer SBM bladwijzers opent via extensieacties voor tabbladen of vensters. Ze verhinderen niet dat bladwijzers worden opgeslagen."
   },
+  "helpOptionStrictUrlProtectionsDescription": {
+    "message": ": optionele strengere modus die lokale bestands-, mail-, telefoon-, agenda- en aangepaste app-URL-schema’s blokkeert wanneer SBM bladwijzers opent. Geblokkeerde openacties gebruiken een SBM-waarschuwing en een tijdelijke diagnostische logvermelding in plaats van een browserwaarschuwing. Laat dit uit als je bladwijzers gebruikt om bestanden of apps te openen."
+  },
   "helpOptionLibraryPaneWidthDescription": {
     "message": ": breedte in pixels van het linker bibliotheekpaneel."
   },
@@ -1184,6 +1187,12 @@
   "bookmarkUrlProtectionsHelp": {
     "message": "Beheer beveiliging voor bladwijzer-URL-schema’s met een hoger risico. Deze beveiliging geldt alleen voor het openen van bladwijzers, niet voor het opslaan ervan."
   },
+  "strictBookmarkUrlProtections": {
+    "message": "Lokale bestanden en externe app-URL-schema’s blokkeren"
+  },
+  "strictBookmarkUrlProtectionsHelp": {
+    "message": "Optioneel. Opent alleen normale web- en interne Chromium-familie-bladwijzer-URL’s en blokkeert file:, mailto:, tel: en aangepaste app-schema’s. Wanneer iets wordt geblokkeerd, toont SBM een waarschuwing in de app en registreert een tijdelijke diagnostische waarschuwing in plaats van een browserwaarschuwing te maken. Laat dit uit als je bladwijzers gebruikt voor lokale bestanden of apps."
+  },
   "blockJavascriptBookmarkOpens": {
     "message": "Openen van javascript:-bladwijzers blokkeren"
   },
@@ -1246,6 +1255,18 @@
   },
   "helpOptionFolderSingleClickInteractDescription": {
     "message": ": als dit is ingeschakeld, vouwt één klik met de linkermuisknop mappen in het Bibliotheekpaneel uit of in en opent mappen in het paneel Mapinhoud. Als dit is uitgeschakeld, is voor deze mapacties een dubbele klik vereist."
+  },
+  "folderSingleClickInteractDisabled": {
+    "message": "Uitgeschakeld (Dubbelklikken om mappen te openen/uit te vouwen)"
+  },
+  "folderSingleClickInteractAll": {
+    "message": "Ingeschakeld voor alles"
+  },
+  "folderSingleClickInteractSidebar": {
+    "message": "Alleen ingeschakeld voor zijbalkmodus"
+  },
+  "folderSingleClickInteractTab": {
+    "message": "Alleen ingeschakeld voor tabbladmodus"
   },
   "singleClickExpandCollapseTitle": {
     "message": "Klik om de map uit of in te vouwen"
@@ -1375,5 +1396,14 @@
   },
   "helpOptionBookmarkTruncateLengthDescription": {
     "message": ": wanneer Inkorten is geselecteerd, bepaalt dit de maximale tekstlengte met een ellips in het midden. 0 = automatisch passend maken aan de breedte."
+  },
+  "ok": {
+    "message": "OK"
+  },
+  "bookmarkUrlBlockedTitle": {
+    "message": "Bladwijzer-URL geblokkeerd"
+  },
+  "bookmarkUrlBlockedLog": {
+    "message": "{count} bladwijzer-URL(s) geblokkeerd omdat URL-openbeveiliging is ingeschakeld."
   }
 }

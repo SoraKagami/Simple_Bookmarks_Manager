@@ -560,6 +560,9 @@
   "helpOptionUrlProtectionsDescription": {
     "message": "Te opcje kontrolują zabezpieczenia dla bardziej ryzykownych schematów URL zakładek, gdy SBM otwiera zakładki przez działania kart lub okien rozszerzenia. Nie blokują zapisywania zakładek."
   },
+  "helpOptionStrictUrlProtectionsDescription": {
+    "message": ": opcjonalny tryb bardziej rygorystyczny, który blokuje lokalne pliki, pocztę, telefon, kalendarz i niestandardowe schematy URL aplikacji, gdy SBM otwiera zakładki. Zablokowane otwarcia używają ostrzeżenia w stylu SBM i tymczasowego wpisu dziennika diagnostycznego zamiast ostrzeżenia na poziomie przeglądarki. Pozostaw wyłączone, jeśli używasz zakładek do otwierania plików lub aplikacji."
+  },
   "helpOptionLibraryPaneWidthDescription": {
     "message": ": szerokość lewego panelu Biblioteka w pikselach."
   },
@@ -1184,6 +1187,12 @@
   "bookmarkUrlProtectionsHelp": {
     "message": "Steruje ochroną dla bardziej ryzykownych schematów URL zakładek. Ta ochrona wpływa tylko na otwieranie zakładek, nie na ich zapisywanie."
   },
+  "strictBookmarkUrlProtections": {
+    "message": "Blokuj lokalne pliki i schematy URL aplikacji zewnętrznych"
+  },
+  "strictBookmarkUrlProtectionsHelp": {
+    "message": "Opcjonalne. Otwiera tylko zwykłe internetowe i wewnętrzne dla rodziny Chromium adresy URL zakładek, blokując file:, mailto:, tel: oraz niestandardowe schematy aplikacji. Po zablokowaniu SBM pokazuje ostrzeżenie w aplikacji i zapisuje tymczasowe ostrzeżenie diagnostyczne zamiast tworzyć ostrzeżenie przeglądarki. Pozostaw wyłączone, jeśli używasz zakładek do lokalnych plików lub aplikacji."
+  },
   "blockJavascriptBookmarkOpens": {
     "message": "Blokuj otwieranie zakładek javascript:"
   },
@@ -1246,6 +1255,18 @@
   },
   "helpOptionFolderSingleClickInteractDescription": {
     "message": ": po włączeniu pojedyncze kliknięcie lewym przyciskiem myszy rozwija lub zwija foldery w panelu Biblioteka i otwiera foldery w panelu Zawartość folderu. Po wyłączeniu te działania wymagają podwójnego kliknięcia."
+  },
+  "folderSingleClickInteractDisabled": {
+    "message": "Wyłączone (Dwuklik, aby otwierać/rozwijać foldery)"
+  },
+  "folderSingleClickInteractAll": {
+    "message": "Włączone dla wszystkich"
+  },
+  "folderSingleClickInteractSidebar": {
+    "message": "Włączone tylko w trybie paska bocznego"
+  },
+  "folderSingleClickInteractTab": {
+    "message": "Włączone tylko w trybie karty"
   },
   "singleClickExpandCollapseTitle": {
     "message": "Kliknij, aby rozwinąć lub zwinąć folder"
@@ -1375,5 +1396,14 @@
   },
   "helpOptionBookmarkTruncateLengthDescription": {
     "message": ": gdy wybrano Przytnij, określa maksymalną długość tekstu ze środkowym wielokropkiem. 0 = automatyczne dopasowanie szerokości."
+  },
+  "ok": {
+    "message": "OK"
+  },
+  "bookmarkUrlBlockedTitle": {
+    "message": "Adres URL zakładki zablokowany"
+  },
+  "bookmarkUrlBlockedLog": {
+    "message": "Zablokowano {count} adres(y) URL zakładek, ponieważ ochrona otwierania URL jest włączona."
   }
 }
