@@ -1999,7 +1999,6 @@ async function handlePaneClick(e, pane, item) {
   if (pane === "tree" && isMultiGesture && isRootFolder(item)) return;
 
   if (!isMultiGesture) {
-    clearMultiSelect();
     if (pane === "tree" && isFolder(item)) await navigate(item.id, true, "tree");
     else await select(item.id, pane);
     return;
@@ -5012,6 +5011,7 @@ function performNavigate(folderId, pushHistory = true, activePane = "tree") {
 /** Navigate to a folder after protecting unsaved Details edits. */
 async function navigate(folderId, pushHistory = true, activePane = "tree") {
   if (folderId === state.folderId) {
+    clearMultiSelect();
     state.activePane = activePane;
     render();
     return;

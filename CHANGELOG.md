@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.10.10
+
+- Fixed non-modifier left-click selection after an active multi-selection so previously selected rows are visually and logically cleared in normal and Sidebar modes.
+- Preserved Ctrl/Shift multi-selection behavior while ensuring regular clicks can cleanly collapse multi-select state.
+
 ## 0.10.9
 
 - Added translations for the Search input debounce and Auto Scroll animation optimisation strings in he, id, ja, ko, vi, zh_CN, and zh_TW.
