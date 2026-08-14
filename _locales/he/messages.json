@@ -530,6 +530,9 @@
   "helpOptionFontSpacingDescription": {
     "message": ": התאם את מרווח השורות המשמש תוויות ושורות."
   },
+  "helpOptionSidebarModeDescription": {
+    "message": ": פתח את SBM בסרגל הצד של הדפדפן במקום בכרטיסייה. נדרשת תמיכה בסרגל הצד של Chromium."
+  },
   "helpOptionLimitSearchDescription": {
     "message": "משנה את תיבת החיפוש הראשית מחיפוש בכל הסימניות לחיפוש רק בתוך עץ התיקייה הנוכחי."
   },
@@ -1181,9 +1184,6 @@
   "closeDialog": {
     "message": "סגירת תיבת הדו־שיח"
   },
-  "helpOptionSidebarModeDescription": {
-    "message": ": פתח את SBM בסרגל הצד של הדפדפן במקום בכרטיסייה. נדרשת תמיכה בסרגל הצד של Chromium."
-  },
   "sidebarMode": {
     "message": "מצב סרגל צד"
   },
@@ -1240,5 +1240,113 @@
   },
   "helpOptionFolderAutoExpandAfterWaitDescription": {
     "message": ": השתמש במחוון כדי להגדיר כמה זמן בחירה שנגררת חייבת להישאר מעל תיקייה לפני שמתבצעת פעולת ההרחבה/פתיחה האוטומטית. טווח: 0.1–3.0 שניות; ברירת מחדל: 1.2 שניות."
+  },
+  "bookmarksSingleClickOpen": {
+    "message": "פתיחת סימניות בלחיצה אחת"
+  },
+  "bookmarksSingleClickOpenHelp": {
+    "message": "בחר אם לחיצה שמאלית אחת פותחת סימניות במקום התנהגות הלחיצה הכפולה הקיימת של SBM. לחיצות עם מקשי שינוי המשמשות לבחירה מרובה אינן משתנות."
+  },
+  "bookmarksSingleClickOpenDisabled": {
+    "message": "מושבת (לחיצה כפולה לפתיחת סימניות)"
+  },
+  "bookmarksSingleClickOpenAll": {
+    "message": "מופעל לכל המצבים"
+  },
+  "bookmarksSingleClickOpenSidebar": {
+    "message": "מופעל רק במצב סרגל צד"
+  },
+  "bookmarksSingleClickOpenTab": {
+    "message": "מופעל רק במצב כרטיסייה"
+  },
+  "helpOptionBookmarksSingleClickOpenDescription": {
+    "message": ": קובע אם לחיצה שמאלית אחת פותחת סימניות בכל פריסות SBM, רק במצב סרגל צד, רק במצב כרטיסייה, או נשארת מושבתת. כאשר האפשרות מושבתת, SBM שומר על התנהגות פתיחת הסימניות הקיימת בלחיצה כפולה. לחיצות עם Ctrl/Shift נשארות זמינות לבחירה מרובה."
+  },
+  "launchSearchFocused": {
+    "message": "הפעל את SBM עם מיקוד בחיפוש"
+  },
+  "launchSearchFocusedHelp": {
+    "message": "כאשר האפשרות מופעלת, SBM מעביר את מיקוד המקלדת לשדה חיפוש הסימניות כשהוא נפתח, כך שניתן להתחיל להקליד מיד."
+  },
+  "helpOptionLaunchSearchFocusedDescription": {
+    "message": ": כאשר האפשרות מופעלת, SBM מעביר את מיקוד המקלדת לשדה חיפוש הסימניות כשהמנהל נפתח, כדי לאפשר התחלת חיפוש מידית."
+  },
+  "aboutChromeWebStoreLabel": {
+    "message": "חנות האינטרנט של Chrome:"
+  },
+  "uiDetailsPaneShow": {
+    "message": "הצג חלונית פרטים"
+  },
+  "uiDetailsPaneShowHelp": {
+    "message": "הצג או הסתר את חלונית הפרטים בפריסת המנהל הרגילה. כפתור הצג/הסתר פרטים בתוך המנהל מעדכן הגדרה זו. מצב סרגל צד משאיר את חלונית הפרטים מוסתרת."
+  },
+  "helpOptionUiDetailsPaneShowDescription": {
+    "message": ": הצג או הסתר את חלונית הפרטים בפריסת המנהל הרגילה. כפתור הצג/הסתר פרטים של המנהל מעדכן את אותה הגדרה. מצב סרגל צד ממשיך להסתיר את חלונית הפרטים."
+  },
+  "shortcutLaunchSbm": {
+    "message": "קיצור מקשים להפעלת SBM"
+  },
+  "shortcutLaunchSbmHelp": {
+    "message": "יש להקצות קיצורי דרך של תוספים בהגדרות Chromium. השתמש בדף קיצורי המקלדת של התוספים בדפדפן כדי להגדיר או לעדכן אותו.\nchrome://extensions/shortcuts"
+  },
+  "shortcutNotAssigned": {
+    "message": "לא הוקצה"
+  },
+  "openKeyboardShortcuts": {
+    "message": "פתח קיצורי מקלדת"
+  },
+  "shortcutOpenFailed": {
+    "message": "לא ניתן היה לפתוח את דף קיצורי המקלדת של Chromium. העתק את chrome://extensions/shortcuts לשורת הכתובת במקום זאת."
+  },
+  "bookmarkTextTruncation": {
+    "message": "קיטום/קיצור טקסט סימניות"
+  },
+  "bookmarkTextTruncationHelp": {
+    "message": "בחר כיצד טקסט חורג בספרייה ובתוכן התיקייה מתנהג כאשר מרחפים מעל השורה שלו או לוחצים עליה. הפרטים ושדות העריכה אינם מושפעים.\nהערה: הפעלת אפשרות זו עשויה להשפיע מעט על הביצועים."
+  },
+  "bookmarkTextTruncationNone": {
+    "message": "ללא קיטום/קיצור (ברירת מחדל)"
+  },
+  "bookmarkTextTruncationAutoScroll": {
+    "message": "גלילה אוטומטית"
+  },
+  "bookmarkTextTruncationTruncate": {
+    "message": "קיטום"
+  },
+  "bookmarkAutoScrollSpeed": {
+    "message": "מהירות גלילה אוטומטית"
+  },
+  "bookmarkAutoScrollSpeedHelp": {
+    "message": "הגדר את מהירות התנועה האופקית של טקסט חורג, בפיקסלים לשנייה."
+  },
+  "bookmarkAutoScrollPause": {
+    "message": "השהיית גלילה אוטומטית"
+  },
+  "bookmarkAutoScrollPauseHelp": {
+    "message": "הגדר לכמה זמן טקסט חורג יושהה לאחר שהגיע לנקודה השמאלית ביותר, לפני האיפוס הריק הקצר, בשניות."
+  },
+  "bookmarkTruncateLength": {
+    "message": "אורך טקסט מקוטם"
+  },
+  "bookmarkTruncateLengthHelp": {
+    "message": "0 = אוטומטי, שמתאים את הטקסט המקוצר עם שלוש נקודות באמצע לרוחב הנראה הזמין. ערך גבוה יותר מגביל את מספר התווים המרבי המוצג לפני התאמת הרוחב."
+  },
+  "shortcutCurrent": {
+    "message": "קיצור נוכחי:"
+  },
+  "helpOptionKeyboardShortcutDescription": {
+    "message": ": מציג את קיצור ההפעלה הנוכחי של התוסף. הקצה או עדכן את הקיצור מדף קיצורי המקלדת של התוספים ב-Chromium: chrome://extensions/shortcuts."
+  },
+  "helpOptionBookmarkTextTruncationDescription": {
+    "message": ": בחר כיצד טקסט חורג בספרייה ובתוכן התיקייה מתנהג כאשר מרחפים מעל השורה שלו או לוחצים עליה. הפרטים ושדות העריכה אינם מושפעים. הפעלת אפשרות זו עשויה להשפיע מעט על הביצועים."
+  },
+  "helpOptionBookmarkAutoScrollSpeedDescription": {
+    "message": ": כאשר נבחרת גלילה אוטומטית, קובע כמה מהר טקסט חורג נע שמאלה."
+  },
+  "helpOptionBookmarkAutoScrollPauseDescription": {
+    "message": ": כאשר נבחרת גלילה אוטומטית, קובע כמה זמן הטקסט מושהה לאחר שהגיע לנקודה השמאלית ביותר, לפני האיפוס הריק הקצר."
+  },
+  "helpOptionBookmarkTruncateLengthDescription": {
+    "message": ": כאשר נבחר קיטום, קובע את אורך הטקסט המרבי עם שלוש נקודות באמצע. 0 = התאמת רוחב אוטומטית."
   }
 }

@@ -530,6 +530,9 @@
   "helpOptionFontSpacingDescription": {
     "message": ": sesuaikan jarak baris untuk label dan baris."
   },
+  "helpOptionSidebarModeDescription": {
+    "message": ": buka SBM di bilah samping browser alih-alih di tab. Dukungan bilah samping Chromium diperlukan."
+  },
   "helpOptionLimitSearchDescription": {
     "message": "mengubah kotak pencarian utama dari mencari semua bookmark menjadi hanya di pohon folder saat ini."
   },
@@ -1181,9 +1184,6 @@
   "closeDialog": {
     "message": "Tutup dialog"
   },
-  "helpOptionSidebarModeDescription": {
-    "message": ": buka SBM di bilah samping browser alih-alih di tab. Dukungan bilah samping Chromium diperlukan."
-  },
   "sidebarMode": {
     "message": "Mode Bilah Samping"
   },
@@ -1240,5 +1240,113 @@
   },
   "helpOptionFolderAutoExpandAfterWaitDescription": {
     "message": ": gunakan penggeser untuk mengatur berapa lama pilihan yang diseret harus tetap berada di atas folder sebelum tindakan perluas/buka otomatis terjadi. Rentang: 0.1–3.0 detik; default: 1.2 detik."
+  },
+  "bookmarksSingleClickOpen": {
+    "message": "Membuka Bookmark dengan Satu Klik"
+  },
+  "bookmarksSingleClickOpenHelp": {
+    "message": "Pilih apakah satu klik kiri membuka bookmark alih-alih perilaku klik dua kali SBM yang ada. Klik dengan tombol modifier yang digunakan untuk pemilihan banyak tidak berubah."
+  },
+  "bookmarksSingleClickOpenDisabled": {
+    "message": "Dinonaktifkan (Klik dua kali untuk membuka Bookmark)"
+  },
+  "bookmarksSingleClickOpenAll": {
+    "message": "Diaktifkan untuk semua"
+  },
+  "bookmarksSingleClickOpenSidebar": {
+    "message": "Diaktifkan hanya untuk Mode Bilah Samping"
+  },
+  "bookmarksSingleClickOpenTab": {
+    "message": "Diaktifkan hanya untuk Mode Tab"
+  },
+  "helpOptionBookmarksSingleClickOpenDescription": {
+    "message": ": mengontrol apakah satu klik kiri membuka bookmark di semua tata letak SBM, hanya Mode Bilah Samping, hanya Mode Tab, atau tetap dinonaktifkan. Saat dinonaktifkan, SBM mempertahankan perilaku buka bookmark dengan klik dua kali yang ada. Klik modifier Ctrl/Shift tetap tersedia untuk pemilihan banyak."
+  },
+  "launchSearchFocused": {
+    "message": "Jalankan SBM dengan fokus di Pencarian"
+  },
+  "launchSearchFocusedHelp": {
+    "message": "Saat diaktifkan, SBM menempatkan fokus keyboard di kolom Cari bookmark saat terbuka, sehingga Anda dapat langsung mulai mengetik."
+  },
+  "helpOptionLaunchSearchFocusedDescription": {
+    "message": ": saat diaktifkan, SBM menempatkan fokus keyboard di kolom Cari bookmark saat manajer terbuka, sehingga Anda dapat langsung mulai mengetik pencarian."
+  },
+  "aboutChromeWebStoreLabel": {
+    "message": "Chrome Web Store:"
+  },
+  "uiDetailsPaneShow": {
+    "message": "Tampilkan Panel Detail"
+  },
+  "uiDetailsPaneShowHelp": {
+    "message": "Tampilkan atau sembunyikan panel Detail dalam tata letak manajer normal. Tombol Tampilkan/Sembunyikan Detail di manajer memperbarui pengaturan ini. Mode Bilah Samping tetap menyembunyikan panel Detail."
+  },
+  "helpOptionUiDetailsPaneShowDescription": {
+    "message": ": tampilkan atau sembunyikan panel Detail dalam tata letak manajer normal. Tombol Tampilkan/Sembunyikan Detail di manajer memperbarui pengaturan yang sama. Mode Bilah Samping tetap menyembunyikan panel Detail."
+  },
+  "shortcutLaunchSbm": {
+    "message": "Pintasan Keyboard untuk menjalankan SBM"
+  },
+  "shortcutLaunchSbmHelp": {
+    "message": "Pintasan ekstensi harus ditetapkan di pengaturan Chromium. Gunakan halaman Pintasan Keyboard Ekstensi browser untuk mengatur atau memperbaruinya.\nchrome://extensions/shortcuts"
+  },
+  "shortcutNotAssigned": {
+    "message": "Belum ditetapkan"
+  },
+  "openKeyboardShortcuts": {
+    "message": "Buka Pintasan Keyboard"
+  },
+  "shortcutOpenFailed": {
+    "message": "Tidak dapat membuka halaman Pintasan Keyboard Chromium. Salin chrome://extensions/shortcuts ke bilah alamat sebagai gantinya."
+  },
+  "bookmarkTextTruncation": {
+    "message": "Pemotongan/Pemendekan Bookmark"
+  },
+  "bookmarkTextTruncationHelp": {
+    "message": "Pilih bagaimana teks yang meluap di Pustaka dan Isi Folder berperilaku saat barisnya diarahkan kursor atau diklik. Detail dan kolom editor tidak terpengaruh.\nCatatan: Mengaktifkan opsi ini dapat sedikit memengaruhi performa."
+  },
+  "bookmarkTextTruncationNone": {
+    "message": "Tanpa Pemotongan/Pemendekan (Default)"
+  },
+  "bookmarkTextTruncationAutoScroll": {
+    "message": "Gulir Otomatis"
+  },
+  "bookmarkTextTruncationTruncate": {
+    "message": "Potong"
+  },
+  "bookmarkAutoScrollSpeed": {
+    "message": "Kecepatan Gulir Otomatis"
+  },
+  "bookmarkAutoScrollSpeedHelp": {
+    "message": "Atur kecepatan gerak horizontal untuk teks yang meluap, dalam piksel per detik."
+  },
+  "bookmarkAutoScrollPause": {
+    "message": "Jeda Gulir Otomatis"
+  },
+  "bookmarkAutoScrollPauseHelp": {
+    "message": "Atur berapa lama teks yang meluap berhenti setelah mencapai titik paling kiri sebelum reset kosong singkat, dalam detik."
+  },
+  "bookmarkTruncateLength": {
+    "message": "Panjang teks yang dipotong"
+  },
+  "bookmarkTruncateLengthHelp": {
+    "message": "0 = Otomatis, yang menyesuaikan teks elipsis tengah yang dipendekkan dengan lebar terlihat yang tersedia. Nilai yang lebih tinggi membatasi jumlah karakter maksimum yang ditampilkan sebelum penyesuaian lebar diterapkan."
+  },
+  "shortcutCurrent": {
+    "message": "Pintasan saat ini:"
+  },
+  "helpOptionKeyboardShortcutDescription": {
+    "message": ": menampilkan pintasan peluncuran ekstensi saat ini. Tetapkan atau perbarui pintasan dari halaman Pintasan Keyboard Ekstensi Chromium: chrome://extensions/shortcuts."
+  },
+  "helpOptionBookmarkTextTruncationDescription": {
+    "message": ": pilih bagaimana teks yang meluap di Pustaka dan Isi Folder berperilaku saat barisnya diarahkan kursor atau diklik. Detail dan kolom editor tidak terpengaruh. Mengaktifkan opsi ini dapat sedikit memengaruhi performa."
+  },
+  "helpOptionBookmarkAutoScrollSpeedDescription": {
+    "message": ": saat Gulir Otomatis dipilih, mengontrol seberapa cepat teks yang meluap bergerak ke kiri."
+  },
+  "helpOptionBookmarkAutoScrollPauseDescription": {
+    "message": ": saat Gulir Otomatis dipilih, mengontrol berapa lama teks berhenti setelah mencapai titik paling kiri sebelum reset kosong singkat."
+  },
+  "helpOptionBookmarkTruncateLengthDescription": {
+    "message": ": saat Potong dipilih, mengontrol panjang maksimum teks elipsis tengah. 0 = penyesuaian lebar otomatis."
   }
 }

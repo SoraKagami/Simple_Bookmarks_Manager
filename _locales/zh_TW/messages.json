@@ -530,6 +530,9 @@
   "helpOptionFontSpacingDescription": {
     "message": "：調整標籤與列使用的行距。"
   },
+  "helpOptionSidebarModeDescription": {
+    "message": "：在瀏覽器側邊欄中開啟 SBM，而不是在分頁中開啟。需要 Chromium 側邊欄支援。"
+  },
   "helpOptionLimitSearchDescription": {
     "message": "將主要搜尋框從搜尋所有書籤改為只搜尋目前資料夾樹。"
   },
@@ -1181,9 +1184,6 @@
   "closeDialog": {
     "message": "關閉對話方塊"
   },
-  "helpOptionSidebarModeDescription": {
-    "message": "：在瀏覽器側邊欄中開啟 SBM，而不是在分頁中開啟。需要 Chromium 側邊欄支援。"
-  },
   "sidebarMode": {
     "message": "側邊欄模式"
   },
@@ -1240,5 +1240,113 @@
   },
   "helpOptionFolderAutoExpandAfterWaitDescription": {
     "message": "：使用滑桿設定拖曳中的選取項目必須在資料夾上方停留多久，之後才會執行自動展開/開啟操作。範圍：0.1–3.0 秒；預設：1.2 秒。"
+  },
+  "bookmarksSingleClickOpen": {
+    "message": "單按一下開啟書籤"
+  },
+  "bookmarksSingleClickOpenHelp": {
+    "message": "選擇按一下滑鼠左鍵是否開啟書籤，以取代 SBM 現有的按兩下行為。用於多選的輔助鍵點擊不會變更。"
+  },
+  "bookmarksSingleClickOpenDisabled": {
+    "message": "停用（按兩下以開啟書籤）"
+  },
+  "bookmarksSingleClickOpenAll": {
+    "message": "全部啟用"
+  },
+  "bookmarksSingleClickOpenSidebar": {
+    "message": "僅在側邊欄模式啟用"
+  },
+  "bookmarksSingleClickOpenTab": {
+    "message": "僅在分頁模式啟用"
+  },
+  "helpOptionBookmarksSingleClickOpenDescription": {
+    "message": "：控制按一下滑鼠左鍵是否在所有 SBM 版面、僅側邊欄模式、僅分頁模式中開啟書籤，或保持停用。停用時，SBM 會保留現有的按兩下開啟書籤行為。Ctrl/Shift 輔助鍵點擊仍可用於多選。"
+  },
+  "launchSearchFocused": {
+    "message": "啟動 SBM 時聚焦搜尋"
+  },
+  "launchSearchFocusedHelp": {
+    "message": "啟用後，SBM 開啟時會將鍵盤焦點放在「搜尋書籤」欄位中，讓你可以立即開始輸入。"
+  },
+  "helpOptionLaunchSearchFocusedDescription": {
+    "message": "：啟用後，SBM 會在管理員開啟時將鍵盤焦點放在「搜尋書籤」欄位中，讓你可以立即開始輸入搜尋內容。"
+  },
+  "aboutChromeWebStoreLabel": {
+    "message": "Chrome 線上應用程式商店:"
+  },
+  "uiDetailsPaneShow": {
+    "message": "顯示詳細資料窗格"
+  },
+  "uiDetailsPaneShowHelp": {
+    "message": "在一般管理員版面中顯示或隱藏詳細資料窗格。管理員內的「顯示/隱藏詳細資料」按鈕會更新此設定。側邊欄模式會保持詳細資料窗格隱藏。"
+  },
+  "helpOptionUiDetailsPaneShowDescription": {
+    "message": "：在一般管理員版面中顯示或隱藏詳細資料窗格。管理員的「顯示/隱藏詳細資料」按鈕會更新同一設定。側邊欄模式會繼續隱藏詳細資料窗格。"
+  },
+  "shortcutLaunchSbm": {
+    "message": "啟動 SBM 的鍵盤快捷鍵"
+  },
+  "shortcutLaunchSbmHelp": {
+    "message": "擴充功能快捷鍵必須在 Chromium 設定中指派。請使用瀏覽器的「擴充功能鍵盤快捷鍵」頁面進行設定或更新。\nchrome://extensions/shortcuts"
+  },
+  "shortcutNotAssigned": {
+    "message": "未指派"
+  },
+  "openKeyboardShortcuts": {
+    "message": "開啟鍵盤快捷鍵"
+  },
+  "shortcutOpenFailed": {
+    "message": "無法開啟 Chromium 的鍵盤快捷鍵頁面。請改為將 chrome://extensions/shortcuts 複製到網址列。"
+  },
+  "bookmarkTextTruncation": {
+    "message": "書籤文字截斷/縮短"
+  },
+  "bookmarkTextTruncationHelp": {
+    "message": "選擇收藏庫和資料夾內容中的溢出文字，在其列被停留游標或點擊時如何呈現。詳細資料和編輯器欄位不受影響。\n注意：啟用此選項可能會輕微影響效能。"
+  },
+  "bookmarkTextTruncationNone": {
+    "message": "不截斷/縮短（預設）"
+  },
+  "bookmarkTextTruncationAutoScroll": {
+    "message": "自動捲動"
+  },
+  "bookmarkTextTruncationTruncate": {
+    "message": "截斷"
+  },
+  "bookmarkAutoScrollSpeed": {
+    "message": "自動捲動速度"
+  },
+  "bookmarkAutoScrollSpeedHelp": {
+    "message": "設定溢出文字的水平移動速度，單位為像素/秒。"
+  },
+  "bookmarkAutoScrollPause": {
+    "message": "自動捲動暫停"
+  },
+  "bookmarkAutoScrollPauseHelp": {
+    "message": "設定溢出文字到達最左側位置後，在短暫空白重設前暫停多久，單位為秒。"
+  },
+  "bookmarkTruncateLength": {
+    "message": "截斷文字長度"
+  },
+  "bookmarkTruncateLengthHelp": {
+    "message": "0 = 自動，會將帶有中間省略號的縮短文字配合可用的可見寬度。較高的值會在套用寬度配合前限制最大顯示字元數。"
+  },
+  "shortcutCurrent": {
+    "message": "目前快捷鍵："
+  },
+  "helpOptionKeyboardShortcutDescription": {
+    "message": "：顯示目前的擴充功能啟動快捷鍵。可在 Chromium 的擴充功能鍵盤快捷鍵頁面指派或更新快捷鍵：chrome://extensions/shortcuts。"
+  },
+  "helpOptionBookmarkTextTruncationDescription": {
+    "message": "：選擇收藏庫和資料夾內容中的溢出文字，在其列被停留游標或點擊時如何呈現。詳細資料和編輯器欄位不受影響。啟用此選項可能會輕微影響效能。"
+  },
+  "helpOptionBookmarkAutoScrollSpeedDescription": {
+    "message": "：選取「自動捲動」時，控制溢出文字向左移動的速度。"
+  },
+  "helpOptionBookmarkAutoScrollPauseDescription": {
+    "message": "：選取「自動捲動」時，控制文字到達最左側位置後，在短暫空白重設前暫停多久。"
+  },
+  "helpOptionBookmarkTruncateLengthDescription": {
+    "message": "：選取「截斷」時，控制帶有中間省略號文字的最大長度。0 = 自動配合寬度。"
   }
 }

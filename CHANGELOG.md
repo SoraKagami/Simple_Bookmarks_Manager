@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.9.28
+
+- Added translations for the post-v0.9.20.2 locale strings in he, id, ja, ko, vi, zh_CN, and zh_TW.
+- Synced the remaining requested Chromium locale files with the base English locale key coverage, with separate Simplified Chinese and Traditional Chinese wording.
+
 ## 0.9.27
 
 - Added translations for the post-v0.9.20.2 locale strings in en_US, de, es, fr, it, nl, pl, pt_BR, ru, tr, uk, and mi.

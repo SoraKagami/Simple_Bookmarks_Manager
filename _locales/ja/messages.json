@@ -530,6 +530,9 @@
   "helpOptionFontSpacingDescription": {
     "message": "：ラベルと行で使用する行間を調整します。"
   },
+  "helpOptionSidebarModeDescription": {
+    "message": "：SBM をタブではなくブラウザーのサイドバーで開きます。Chromium のサイドバーサポートが必要です。"
+  },
   "helpOptionLimitSearchDescription": {
     "message": "メイン検索ボックスの対象を、すべてのブックマークではなく現在のフォルダーツリー内だけに変更します。"
   },
@@ -1181,9 +1184,6 @@
   "closeDialog": {
     "message": "ダイアログを閉じる"
   },
-  "helpOptionSidebarModeDescription": {
-    "message": "：SBM をタブではなくブラウザーのサイドバーで開きます。Chromium のサイドバーサポートが必要です。"
-  },
   "sidebarMode": {
     "message": "サイドバーモード"
   },
@@ -1240,5 +1240,113 @@
   },
   "helpOptionFolderAutoExpandAfterWaitDescription": {
     "message": "：スライダーを使って、ドラッグ中の選択項目をフォルダー上にどれだけ留めると自動展開/開く操作を実行するかを設定します。範囲：0.1～3.0 秒。既定値：1.2 秒。"
+  },
+  "bookmarksSingleClickOpen": {
+    "message": "シングルクリックでブックマークを開く"
+  },
+  "bookmarksSingleClickOpenHelp": {
+    "message": "左クリック1回でブックマークを開くか、SBM の既存のダブルクリック動作を使うかを選択します。複数選択に使う修飾キー付きクリックは変更されません。"
+  },
+  "bookmarksSingleClickOpenDisabled": {
+    "message": "無効（ブックマークを開くにはダブルクリック）"
+  },
+  "bookmarksSingleClickOpenAll": {
+    "message": "すべてで有効"
+  },
+  "bookmarksSingleClickOpenSidebar": {
+    "message": "サイドバーモードのみ有効"
+  },
+  "bookmarksSingleClickOpenTab": {
+    "message": "タブモードのみ有効"
+  },
+  "helpOptionBookmarksSingleClickOpenDescription": {
+    "message": "：左クリック1回でブックマークを開く動作を、すべての SBM レイアウト、サイドバーモードのみ、タブモードのみ、または無効のままにするかを制御します。無効の場合、SBM は既存のダブルクリックでブックマークを開く動作を維持します。Ctrl/Shift 修飾キー付きクリックは複数選択に引き続き使用できます。"
+  },
+  "launchSearchFocused": {
+    "message": "検索にフォーカスして SBM を起動"
+  },
+  "launchSearchFocusedHelp": {
+    "message": "有効にすると、SBM を開いたときにキーボードフォーカスをブックマーク検索フィールドに置くため、すぐに入力を開始できます。"
+  },
+  "helpOptionLaunchSearchFocusedDescription": {
+    "message": "：有効にすると、マネージャーを開いたときに SBM がキーボードフォーカスをブックマーク検索フィールドに置き、すぐに検索を入力できるようにします。"
+  },
+  "aboutChromeWebStoreLabel": {
+    "message": "Chrome ウェブストア:"
+  },
+  "uiDetailsPaneShow": {
+    "message": "詳細ペインを表示"
+  },
+  "uiDetailsPaneShowHelp": {
+    "message": "通常のマネージャーレイアウトで詳細ペインを表示または非表示にします。マネージャー内の詳細の表示/非表示ボタンはこの設定を更新します。サイドバーモードでは詳細ペインは非表示のままです。"
+  },
+  "helpOptionUiDetailsPaneShowDescription": {
+    "message": "：通常のマネージャーレイアウトで詳細ペインを表示または非表示にします。マネージャーの詳細の表示/非表示ボタンは同じ設定を更新します。サイドバーモードでは引き続き詳細ペインを非表示にします。"
+  },
+  "shortcutLaunchSbm": {
+    "message": "SBM 起動用キーボードショートカット"
+  },
+  "shortcutLaunchSbmHelp": {
+    "message": "拡張機能のショートカットは Chromium の設定で割り当てる必要があります。設定または更新するには、ブラウザーの拡張機能キーボード ショートカットページを使用してください。\nchrome://extensions/shortcuts"
+  },
+  "shortcutNotAssigned": {
+    "message": "未割り当て"
+  },
+  "openKeyboardShortcuts": {
+    "message": "キーボードショートカットを開く"
+  },
+  "shortcutOpenFailed": {
+    "message": "Chromium のキーボードショートカットページを開けませんでした。代わりに chrome://extensions/shortcuts をアドレスバーにコピーしてください。"
+  },
+  "bookmarkTextTruncation": {
+    "message": "ブックマークの切り詰め/短縮"
+  },
+  "bookmarkTextTruncationHelp": {
+    "message": "ライブラリとフォルダー内容で、行にホバーまたはクリックしたときに、はみ出したテキストがどのように動作するかを選択します。詳細とエディターフィールドには影響しません。\n注: このオプションをオンにすると、パフォーマンスにわずかに影響する場合があります。"
+  },
+  "bookmarkTextTruncationNone": {
+    "message": "切り詰め/短縮なし（既定）"
+  },
+  "bookmarkTextTruncationAutoScroll": {
+    "message": "自動スクロール"
+  },
+  "bookmarkTextTruncationTruncate": {
+    "message": "切り詰め"
+  },
+  "bookmarkAutoScrollSpeed": {
+    "message": "自動スクロール速度"
+  },
+  "bookmarkAutoScrollSpeedHelp": {
+    "message": "はみ出したテキストの水平方向の移動速度を、1秒あたりのピクセル数で設定します。"
+  },
+  "bookmarkAutoScrollPause": {
+    "message": "自動スクロールの一時停止"
+  },
+  "bookmarkAutoScrollPauseHelp": {
+    "message": "はみ出したテキストが最も左の位置に達した後、短い空白リセットの前に停止する時間を秒単位で設定します。"
+  },
+  "bookmarkTruncateLength": {
+    "message": "切り詰めテキスト長"
+  },
+  "bookmarkTruncateLengthHelp": {
+    "message": "0 = 自動。中央省略記号付きの短縮テキストを、利用可能な表示幅に合わせます。より大きい値を指定すると、幅合わせを適用する前の最大表示文字数が制限されます。"
+  },
+  "shortcutCurrent": {
+    "message": "現在のショートカット:"
+  },
+  "helpOptionKeyboardShortcutDescription": {
+    "message": "：現在の拡張機能起動ショートカットを表示します。Chromium の拡張機能キーボード ショートカットページでショートカットを割り当てまたは更新してください: chrome://extensions/shortcuts。"
+  },
+  "helpOptionBookmarkTextTruncationDescription": {
+    "message": "：ライブラリとフォルダー内容で、行にホバーまたはクリックしたときに、はみ出したテキストがどのように動作するかを選択します。詳細とエディターフィールドには影響しません。このオプションをオンにすると、パフォーマンスにわずかに影響する場合があります。"
+  },
+  "helpOptionBookmarkAutoScrollSpeedDescription": {
+    "message": "：自動スクロールが選択されている場合、はみ出したテキストが左へ移動する速さを制御します。"
+  },
+  "helpOptionBookmarkAutoScrollPauseDescription": {
+    "message": "：自動スクロールが選択されている場合、テキストが最も左の位置に達した後、短い空白リセットの前に停止する時間を制御します。"
+  },
+  "helpOptionBookmarkTruncateLengthDescription": {
+    "message": "：切り詰めが選択されている場合、中央省略記号付きテキストの最大長を制御します。0 = 自動幅合わせ。"
   }
 }

@@ -530,6 +530,9 @@
   "helpOptionFontSpacingDescription": {
     "message": ": điều chỉnh giãn dòng dùng cho nhãn và hàng."
   },
+  "helpOptionSidebarModeDescription": {
+    "message": ": mở SBM trong thanh bên của trình duyệt thay vì trong thẻ. Cần trình duyệt Chromium hỗ trợ thanh bên."
+  },
   "helpOptionLimitSearchDescription": {
     "message": "đổi ô tìm kiếm chính từ tìm tất cả dấu trang sang chỉ tìm trong cây thư mục hiện tại."
   },
@@ -1181,9 +1184,6 @@
   "closeDialog": {
     "message": "Đóng hộp thoại"
   },
-  "helpOptionSidebarModeDescription": {
-    "message": ": mở SBM trong thanh bên của trình duyệt thay vì trong thẻ. Cần trình duyệt Chromium hỗ trợ thanh bên."
-  },
   "sidebarMode": {
     "message": "Chế độ thanh bên"
   },
@@ -1240,5 +1240,113 @@
   },
   "helpOptionFolderAutoExpandAfterWaitDescription": {
     "message": ": dùng thanh trượt để đặt khoảng thời gian mục đang kéo phải nằm trên một thư mục trước khi thao tác tự động mở rộng/mở diễn ra. Phạm vi: 0.1–3.0 giây; mặc định: 1.2 giây."
+  },
+  "bookmarksSingleClickOpen": {
+    "message": "Mở dấu trang bằng một lần nhấp"
+  },
+  "bookmarksSingleClickOpenHelp": {
+    "message": "Chọn một lần nhấp chuột trái có mở dấu trang thay cho hành vi nhấp đúp hiện có của SBM hay không. Các lần nhấp kèm phím bổ trợ dùng để chọn nhiều mục không thay đổi."
+  },
+  "bookmarksSingleClickOpenDisabled": {
+    "message": "Tắt (Nhấp đúp để mở dấu trang)"
+  },
+  "bookmarksSingleClickOpenAll": {
+    "message": "Bật cho tất cả"
+  },
+  "bookmarksSingleClickOpenSidebar": {
+    "message": "Chỉ bật cho Chế độ thanh bên"
+  },
+  "bookmarksSingleClickOpenTab": {
+    "message": "Chỉ bật cho Chế độ thẻ"
+  },
+  "helpOptionBookmarksSingleClickOpenDescription": {
+    "message": ": kiểm soát một lần nhấp chuột trái có mở dấu trang trong tất cả bố cục SBM, chỉ Chế độ thanh bên, chỉ Chế độ thẻ, hay vẫn tắt. Khi tắt, SBM giữ hành vi mở dấu trang bằng nhấp đúp hiện có. Các lần nhấp kèm Ctrl/Shift vẫn dùng được để chọn nhiều mục."
+  },
+  "launchSearchFocused": {
+    "message": "Khởi chạy SBM với tiêu điểm ở Tìm kiếm"
+  },
+  "launchSearchFocusedHelp": {
+    "message": "Khi bật, SBM đặt tiêu điểm bàn phím vào trường Tìm dấu trang khi mở, để bạn có thể bắt đầu nhập ngay."
+  },
+  "helpOptionLaunchSearchFocusedDescription": {
+    "message": ": khi bật, SBM đặt tiêu điểm bàn phím vào trường Tìm dấu trang khi trình quản lý mở, cho phép bạn bắt đầu nhập tìm kiếm ngay."
+  },
+  "aboutChromeWebStoreLabel": {
+    "message": "Chrome Web Store:"
+  },
+  "uiDetailsPaneShow": {
+    "message": "Hiển thị khung Chi tiết"
+  },
+  "uiDetailsPaneShowHelp": {
+    "message": "Hiện hoặc ẩn khung Chi tiết trong bố cục trình quản lý bình thường. Nút Hiện/Ẩn Chi tiết trong trình quản lý cập nhật thiết lập này. Chế độ thanh bên vẫn ẩn khung Chi tiết."
+  },
+  "helpOptionUiDetailsPaneShowDescription": {
+    "message": ": hiện hoặc ẩn khung Chi tiết trong bố cục trình quản lý bình thường. Nút Hiện/Ẩn Chi tiết của trình quản lý cập nhật cùng thiết lập đó. Chế độ thanh bên tiếp tục ẩn khung Chi tiết."
+  },
+  "shortcutLaunchSbm": {
+    "message": "Phím tắt bàn phím để khởi chạy SBM"
+  },
+  "shortcutLaunchSbmHelp": {
+    "message": "Phím tắt tiện ích phải được gán trong phần cài đặt của Chromium. Hãy dùng trang Phím tắt bàn phím của tiện ích trong trình duyệt để đặt hoặc cập nhật.\nchrome://extensions/shortcuts"
+  },
+  "shortcutNotAssigned": {
+    "message": "Chưa gán"
+  },
+  "openKeyboardShortcuts": {
+    "message": "Mở Phím tắt bàn phím"
+  },
+  "shortcutOpenFailed": {
+    "message": "Không thể mở trang Phím tắt bàn phím của Chromium. Thay vào đó, hãy sao chép chrome://extensions/shortcuts vào thanh địa chỉ."
+  },
+  "bookmarkTextTruncation": {
+    "message": "Cắt ngắn/Rút gọn dấu trang"
+  },
+  "bookmarkTextTruncationHelp": {
+    "message": "Chọn cách văn bản tràn trong Thư viện và Nội dung thư mục hoạt động khi hàng của nó được trỏ chuột hoặc nhấp vào. Chi tiết và các trường trình chỉnh sửa không bị ảnh hưởng.\nLưu ý: Bật tùy chọn này có thể ảnh hưởng nhẹ đến hiệu năng."
+  },
+  "bookmarkTextTruncationNone": {
+    "message": "Không cắt ngắn/rút gọn (Mặc định)"
+  },
+  "bookmarkTextTruncationAutoScroll": {
+    "message": "Tự động cuộn"
+  },
+  "bookmarkTextTruncationTruncate": {
+    "message": "Cắt ngắn"
+  },
+  "bookmarkAutoScrollSpeed": {
+    "message": "Tốc độ Tự động cuộn"
+  },
+  "bookmarkAutoScrollSpeedHelp": {
+    "message": "Đặt tốc độ di chuyển ngang cho văn bản tràn, tính bằng pixel mỗi giây."
+  },
+  "bookmarkAutoScrollPause": {
+    "message": "Tạm dừng Tự động cuộn"
+  },
+  "bookmarkAutoScrollPauseHelp": {
+    "message": "Đặt thời gian văn bản tràn tạm dừng sau khi đến điểm ngoài cùng bên trái trước khi đặt lại bằng khoảng trống ngắn, tính bằng giây."
+  },
+  "bookmarkTruncateLength": {
+    "message": "Độ dài văn bản cắt ngắn"
+  },
+  "bookmarkTruncateLengthHelp": {
+    "message": "0 = Tự động, điều chỉnh văn bản rút gọn bằng dấu ba chấm ở giữa cho vừa chiều rộng hiển thị có sẵn. Giá trị cao hơn giới hạn số ký tự tối đa được hiển thị trước khi áp dụng điều chỉnh theo chiều rộng."
+  },
+  "shortcutCurrent": {
+    "message": "Phím tắt hiện tại:"
+  },
+  "helpOptionKeyboardShortcutDescription": {
+    "message": ": hiển thị phím tắt khởi chạy tiện ích hiện tại. Gán hoặc cập nhật phím tắt từ trang Phím tắt bàn phím của tiện ích trong Chromium: chrome://extensions/shortcuts."
+  },
+  "helpOptionBookmarkTextTruncationDescription": {
+    "message": ": chọn cách văn bản tràn trong Thư viện và Nội dung thư mục hoạt động khi hàng của nó được trỏ chuột hoặc nhấp vào. Chi tiết và các trường trình chỉnh sửa không bị ảnh hưởng. Bật tùy chọn này có thể ảnh hưởng nhẹ đến hiệu năng."
+  },
+  "helpOptionBookmarkAutoScrollSpeedDescription": {
+    "message": ": khi chọn Tự động cuộn, kiểm soát tốc độ văn bản tràn di chuyển sang trái."
+  },
+  "helpOptionBookmarkAutoScrollPauseDescription": {
+    "message": ": khi chọn Tự động cuộn, kiểm soát thời gian văn bản tạm dừng sau khi đến điểm ngoài cùng bên trái trước khi đặt lại bằng khoảng trống ngắn."
+  },
+  "helpOptionBookmarkTruncateLengthDescription": {
+    "message": ": khi chọn Cắt ngắn, kiểm soát độ dài tối đa của văn bản có dấu ba chấm ở giữa. 0 = tự động điều chỉnh theo chiều rộng."
   }
 }
