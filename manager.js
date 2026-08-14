@@ -571,8 +571,9 @@ function applySettings(settings, { render = false } = {}) {
   if (searchLimit) searchLimit.checked = SearchLimitToFolderAndSub;
 
   if (render && state.tree) {
-    if (libraryLayoutChanged) renderRoots();
-    renderList();
+    const maps = tempBookmarkTreeMaps();
+    if (libraryLayoutChanged) renderRoots(maps);
+    renderList(maps);
     renderDetails();
   }
 }
@@ -836,9 +837,21 @@ function buildTempBookmarkTreeMaps(root = state.tree) {
   return map;
 }
 
-/** Return cached tree maps when enabled, otherwise rebuild maps for the current snapshot. */
+/** Build temporary tree maps for a single high-level UI pass when enabled. */
 function tempBookmarkTreeMaps() {
   return Optimisation_TempBookmarkTreeMaps && state.tree ? buildTempBookmarkTreeMaps(state.tree) : null;
+}
+
+/** Return a node's children from pass-scoped maps when available. */
+function treeChildren(node, maps = null) {
+  if (!node) return [];
+  return maps?.childrenById.get(node.id) || node.children || [];
+}
+
+/** Return a node's parent from pass-scoped maps when available. */
+function treeParent(node, maps = null) {
+  if (!node) return null;
+  return maps?.parentById.get(node.id) ?? node.parentNode ?? null;
 }
 
 /** Flatten a folder subtree using precomputed child lookup maps. */
@@ -846,7 +859,7 @@ function flattenBookmarksWithMaps(folder, maps) {
   if (!folder || !maps) return flattenBookmarks(folder);
   const out = [];
   const visitChildren = (parent) => {
-    for (const child of maps.childrenById.get(parent.id) || []) {
+    for (const child of treeChildren(parent, maps)) {
       out.push(child);
       if (isFolder(child)) visitChildren(child);
     }
@@ -1408,7 +1421,7 @@ function defaultSortDirection(key) {
  * Calculate the middle pane rows from current folder/search/sort state.  Search
  * can be global or limited to the active folder subtree.
  */
-function visibleItems() {
+function visibleItems(maps = null) {
   const folder = nodes.get(state.folderId);
   if (!folder) return [];
   const needle = state.search.toLocaleLowerCase();
@@ -1416,12 +1429,11 @@ function visibleItems() {
 
   if (needle) {
     const searchRoot = SearchLimitToFolderAndSub ? folder : state.tree;
-    const maps = tempBookmarkTreeMaps();
     items = searchRoot ? flattenBookmarksWithMaps(searchRoot, maps) : [];
     items = items.filter((n) =>
       [n.title, n.url].some((v) => (v || "").toLocaleLowerCase().includes(needle)));
   } else {
-    items = folder.children || [];
+    items = treeChildren(folder, maps);
   }
 
   if (state.sort !== "index") {
@@ -1455,10 +1467,9 @@ async function loadTree(options = {}) {
 }
 
 /** Return Chromium's visible top-level bookmark roots. */
-function rootFolders() {
-  const maps = tempBookmarkTreeMaps();
+function rootFolders(maps = null) {
   if (maps) return maps.rootFolders;
-  return (state.tree?.children || []).filter(isFolder);
+  return treeChildren(state.tree).filter(isFolder);
 }
 
 /** Choose the startup folder, preferring the bookmarks bar when available. */
@@ -1509,14 +1520,13 @@ async function applyInitialFolderPreference() {
 }
 
 /** Return direct folder children, optionally using precomputed tree maps. */
-function childFolders(folder) {
-  return (folder.children || []).filter(isFolder);
+function childFolders(folder, maps = null) {
+  return treeChildren(folder, maps).filter(isFolder);
 }
 
 /** Return all descendant folders for a folder, optionally using precomputed tree maps. */
-function descendantFolders(folder) {
+function descendantFolders(folder, maps = null) {
   const out = [];
-  const maps = tempBookmarkTreeMaps();
   const visit = (node) => {
     for (const child of childFolders(node, maps)) {
       out.push(child);
@@ -1532,7 +1542,7 @@ function descendantFolders(folder) {
  * active. The responsive layout normally presents these results in the middle
  * pane, while preserving eye-toggle state for the restored Library view.
  */
-function librarySearchVisibleIds() {
+function librarySearchVisibleIds(maps = null) {
   const needle = LibraryFullView ? state.search.trim().toLocaleLowerCase() : "";
   if (!needle) return null;
 
@@ -1544,7 +1554,7 @@ function librarySearchVisibleIds() {
     let include = node.id !== scopeRoot.id
       && [node.title, node.url].some((value) => (value || "").toLocaleLowerCase().includes(needle));
 
-    for (const child of node.children || []) {
+    for (const child of treeChildren(node, maps)) {
       if (visit(child)) include = true;
     }
     if (include && node.id !== "0") visibleIds.add(node.id);
@@ -1553,7 +1563,7 @@ function librarySearchVisibleIds() {
 
   const hasResults = visit(scopeRoot);
   if (hasResults) {
-    for (let node = scopeRoot; node && node.id !== "0"; node = node.parentNode) {
+    for (let node = scopeRoot; node && node.id !== "0"; node = treeParent(node, maps)) {
       visibleIds.add(node.id);
     }
   }
@@ -1566,36 +1576,37 @@ function librarySearchVisibleIds() {
  * direct bookmarks for folders whose independent eye toggle is enabled.
  * During Sidebar Mode search, matching rows and their ancestors are returned.
  */
-function libraryTreeChildren(folder, searchVisibleIds = null) {
-  if (!LibraryFullView) return childFolders(folder);
+function libraryTreeChildren(folder, searchVisibleIds = null, maps = null) {
+  if (!LibraryFullView) return childFolders(folder, maps);
+  const children = treeChildren(folder, maps);
   if (searchVisibleIds) {
-    return (folder.children || []).filter((child) => searchVisibleIds.has(child.id));
+    return children.filter((child) => searchVisibleIds.has(child.id));
   }
   const showBookmarks = state.showTreeBookmarks.has(folder.id);
-  return (folder.children || []).filter((child) => isFolder(child) || showBookmarks);
+  return children.filter((child) => isFolder(child) || showBookmarks);
 }
 
 /** Return children that make the Library collapse control meaningful. */
-function expandableLibraryChildren(folder, searchVisibleIds = null) {
-  if (searchVisibleIds) return libraryTreeChildren(folder, searchVisibleIds);
-  return LibraryFullView ? (folder.children || []) : childFolders(folder);
+function expandableLibraryChildren(folder, searchVisibleIds = null, maps = null) {
+  if (searchVisibleIds) return libraryTreeChildren(folder, searchVisibleIds, maps);
+  return LibraryFullView ? treeChildren(folder, maps) : childFolders(folder, maps);
 }
 
 /** Flatten the currently rendered Library tree into visible row order. */
-function visibleTreeItems() {
+function visibleTreeItems(maps = null) {
   const out = [];
-  const searchVisibleIds = librarySearchVisibleIds();
+  const searchVisibleIds = librarySearchVisibleIds(maps);
   const visit = (folder) => {
     out.push(folder);
     if (!searchVisibleIds && !state.expandedFolders.has(folder.id)) return;
-    for (const child of libraryTreeChildren(folder, searchVisibleIds)) {
+    for (const child of libraryTreeChildren(folder, searchVisibleIds, maps)) {
       if (isFolder(child)) visit(child);
       else out.push(child);
     }
   };
   const roots = searchVisibleIds
-    ? rootFolders().filter((folder) => searchVisibleIds.has(folder.id))
-    : rootFolders();
+    ? rootFolders(maps).filter((folder) => searchVisibleIds.has(folder.id))
+    : rootFolders(maps);
   for (const folder of roots) visit(folder);
   return out;
 }
@@ -1646,13 +1657,14 @@ function resetFolderViewState() {
 
 /** Toggle a tree folder while keeping active selection safe if a selected child collapses. */
 async function toggleTreeFolderFromClick(folder) {
-  const children = expandableLibraryChildren(folder);
+  const maps = tempBookmarkTreeMaps();
+  const children = expandableLibraryChildren(folder, null, maps);
   if (!children.length) return;
 
   const isExpanded = state.expandedFolders.has(folder.id);
   if (!isExpanded) {
     expandTreeFolderState(folder.id);
-    renderRoots();
+    renderRoots(maps);
     return;
   }
 
@@ -1690,9 +1702,10 @@ function isDescendantOf(node, possibleAncestor) {
 /** Expand a folder and every descendant folder in the visible Library tree. */
 async function expandAllTreeFolders(folder) {
   if (!isFolder(folder)) return;
+  const maps = tempBookmarkTreeMaps();
   expandTreeFolderState(folder.id);
-  for (const child of descendantFolders(folder)) expandTreeFolderState(child.id);
-  renderRoots();
+  for (const child of descendantFolders(folder, maps)) expandTreeFolderState(child.id);
+  renderRoots(maps);
   focusActivePane();
 }
 
@@ -1722,8 +1735,9 @@ async function collapseAllTreeFolders(folder) {
     resetFolderViewState();
   }
 
+  const maps = tempBookmarkTreeMaps();
   state.expandedFolders.delete(folder.id);
-  for (const child of descendantFolders(folder)) state.expandedFolders.delete(child.id);
+  for (const child of descendantFolders(folder, maps)) state.expandedFolders.delete(child.id);
   render();
   focusActivePane();
 }
@@ -1735,7 +1749,8 @@ async function collapseAllTreeFolders(folder) {
 
 /** Return selectable row nodes for a pane in their visible order. */
 function paneItems(pane) {
-  return pane === "tree" ? visibleTreeItems() : pane === "list" ? visibleItems() : [];
+  const maps = pane === "tree" || (pane === "list" && state.search) ? tempBookmarkTreeMaps() : null;
+  return pane === "tree" ? visibleTreeItems(maps) : pane === "list" ? visibleItems(maps) : [];
 }
 
 /** Return the selected node ID for the requested pane. */
@@ -2401,7 +2416,8 @@ async function editBookmark(bookmark, { initialFocus = "url", sourcePane = state
 
 /** Choose the next Folder Contents selection after deleting an item. */
 function listSelectionAfterDelete(item) {
-  const items = visibleItems();
+  const maps = state.search ? tempBookmarkTreeMaps() : null;
+  const items = visibleItems(maps);
   const index = items.findIndex((node) => node.id === item?.id);
   return { index: index >= 0 ? index : null };
 }
@@ -2424,7 +2440,8 @@ function treeSelectionAfterDelete(item) {
 /** Return a stable list selection target after deleting one or more rows. */
 function chooseListSelectionAfterDelete(snapshot) {
   if (!snapshot || snapshot.index === null) return null;
-  const items = visibleItems();
+  const maps = state.search ? tempBookmarkTreeMaps() : null;
+  const items = visibleItems(maps);
   return items[snapshot.index]?.id || items[snapshot.index - 1]?.id || null;
 }
 
@@ -3098,14 +3115,14 @@ function canAutoExpandDragTarget(target, context) {
  * Expand one Library folder without replacing the whole tree DOM. Keeping the
  * drag source node attached avoids disrupting Chromium's native drag session.
  */
-function renderTreeFolderExpansionDuringDrag(row, folder) {
+function renderTreeFolderExpansionDuringDrag(row, folder, maps = tempBookmarkTreeMaps()) {
   const container = row?.parentElement;
   if (!container?.classList.contains("tree-node")) {
-    renderRoots();
+    renderRoots(maps);
     return;
   }
 
-  const expandableChildren = expandableLibraryChildren(folder);
+  const expandableChildren = expandableLibraryChildren(folder, null, maps);
   if (expandableChildren.length) {
     row.setAttribute("aria-expanded", "true");
     const twisty = row.querySelector(".twisty");
@@ -3119,7 +3136,7 @@ function renderTreeFolderExpansionDuringDrag(row, folder) {
   const previousGroup = [...container.children].find((child) => child.classList?.contains("tree-children"));
   previousGroup?.remove();
 
-  const renderedChildren = libraryTreeChildren(folder);
+  const renderedChildren = libraryTreeChildren(folder, null, maps);
   if (!renderedChildren.length) return;
 
   const depth = Number.parseInt(row.style.getPropertyValue("--depth"), 10) || 0;
@@ -3128,7 +3145,7 @@ function renderTreeFolderExpansionDuringDrag(row, folder) {
   group.className = "tree-children";
   group.setAttribute("role", "group");
   const childRows = renderedChildren.map((child) => isFolder(child)
-    ? renderFolderTreeNode(child, depth + 1, cutIds)
+    ? renderFolderTreeNode(child, depth + 1, cutIds, null, maps)
     : renderBookmarkTreeNode(child, depth + 1, cutIds));
 
   if (Optimisation_DOMrendering) replaceChildrenWithFragment(group, childRows);
@@ -3140,7 +3157,7 @@ function renderTreeFolderExpansionDuringDrag(row, folder) {
  * Reveal a folder's expanded path and selection in the Library without replacing
  * the full tree DOM. This keeps an active tree drag source attached to the page.
  */
-function syncLibraryFolderDuringDrag(folder) {
+function syncLibraryFolderDuringDrag(folder, maps = tempBookmarkTreeMaps()) {
   if (!folder?.id) return;
 
   const path = [];
@@ -3160,7 +3177,7 @@ function syncLibraryFolderDuringDrag(folder) {
       state.expandedFolders.has(pathFolder.id) &&
       row.getAttribute("aria-expanded") === "false"
     ) {
-      renderTreeFolderExpansionDuringDrag(row, pathFolder);
+      renderTreeFolderExpansionDuringDrag(row, pathFolder, maps);
     }
   }
 
@@ -3172,7 +3189,7 @@ function syncLibraryFolderDuringDrag(folder) {
  * clearing the drag selection. Tree synchronization is done incrementally so a
  * Library drag source remains attached to the DOM until drop/drag-end.
  */
-function navigateFolderDuringDrag(folder, activePane = "list") {
+function navigateFolderDuringDrag(folder, activePane = "list", maps = tempBookmarkTreeMaps()) {
   if (!folder?.id || folder.id === state.folderId || hasUnsavedDetails()) return;
 
   if (state.folderId) {
@@ -3183,11 +3200,11 @@ function navigateFolderDuringDrag(folder, activePane = "list") {
   state.treeSelectedId = folder.id;
   state.activePane = activePane;
   state.resetMiddleScrollOnNextRender = true;
-  syncLibraryFolderDuringDrag(folder);
+  syncLibraryFolderDuringDrag(folder, maps);
   state.dragAutoNavigatedFolder = true;
 
   renderCrumbs();
-  renderList();
+  renderList(maps);
   renderColumnHeaders();
   renderNavButtons();
 }
@@ -3197,16 +3214,17 @@ function autoExpandDragTarget(row, target, context) {
   if (!row?.isConnected || !canAutoExpandDragTarget(target, context)) return;
 
   if (context === "tree") {
-    const hasExpandableChildren = expandableLibraryChildren(target).length > 0;
+    const maps = tempBookmarkTreeMaps();
+    const hasExpandableChildren = expandableLibraryChildren(target, null, maps).length > 0;
     if (hasExpandableChildren && !state.expandedFolders.has(target.id)) {
       if (expandTreeFolderState(target.id)) {
-        renderTreeFolderExpansionDuringDrag(row, target);
+        renderTreeFolderExpansionDuringDrag(row, target, maps);
       }
     }
 
     // Normal mode also uses the hover delay as folder navigation. This must run
     // for leaf folders and folders that were expanded by an earlier drag.
-    if (!SidebarMode) navigateFolderDuringDrag(target, "tree");
+    if (!SidebarMode) navigateFolderDuringDrag(target, "tree", maps);
     return;
   }
 
@@ -4080,10 +4098,11 @@ function renderFolderTreeNode(
   folder,
   depth = 0,
   cutIds = Optimisation_DOMrendering ? clipboardCutIdSet() : null,
-  searchVisibleIds = null
+  searchVisibleIds = null,
+  maps = null
 ) {
-  const expandableChildren = expandableLibraryChildren(folder, searchVisibleIds);
-  const renderedChildren = libraryTreeChildren(folder, searchVisibleIds);
+  const expandableChildren = expandableLibraryChildren(folder, searchVisibleIds, maps);
+  const renderedChildren = libraryTreeChildren(folder, searchVisibleIds, maps);
   const isExpanded = Boolean(searchVisibleIds) || state.expandedFolders.has(folder.id);
   const container = document.createElement("div");
   container.className = "tree-node";
@@ -4149,7 +4168,7 @@ function renderFolderTreeNode(
     group.className = "tree-children";
     group.setAttribute("role", "group");
     const childRows = renderedChildren.map((child) => isFolder(child)
-      ? renderFolderTreeNode(child, depth + 1, cutIds, searchVisibleIds)
+      ? renderFolderTreeNode(child, depth + 1, cutIds, searchVisibleIds, maps)
       : renderBookmarkTreeNode(child, depth + 1, cutIds));
     if (Optimisation_DOMrendering) replaceChildrenWithFragment(group, childRows);
     else group.append(...childRows);
@@ -4160,18 +4179,18 @@ function renderFolderTreeNode(
 }
 
 /** Render root folders in the left Library pane. */
-function renderRoots() {
+function renderRoots(maps = tempBookmarkTreeMaps()) {
   ensureExpandedPath(state.folderId);
   const roots = $("roots");
   clearBookmarkTextEffects(roots);
   const cutIds = Optimisation_DOMrendering ? clipboardCutIdSet() : null;
-  const searchVisibleIds = librarySearchVisibleIds();
+  const searchVisibleIds = librarySearchVisibleIds(maps);
   roots.setAttribute("role", "tree");
   roots.tabIndex = 0;
   const visibleRoots = searchVisibleIds
-    ? rootFolders().filter((folder) => searchVisibleIds.has(folder.id))
-    : rootFolders();
-  const rows = visibleRoots.map((folder) => renderFolderTreeNode(folder, 0, cutIds, searchVisibleIds));
+    ? rootFolders(maps).filter((folder) => searchVisibleIds.has(folder.id))
+    : rootFolders(maps);
+  const rows = visibleRoots.map((folder) => renderFolderTreeNode(folder, 0, cutIds, searchVisibleIds, maps));
   if (Optimisation_DOMrendering) replaceChildrenWithFragment(roots, rows);
   else roots.replaceChildren(...rows);
 }
@@ -4242,13 +4261,13 @@ function restoreMiddleScrollPosition(position) {
 }
 
 /** Render the middle bookmark/folder/separator list for the active folder. */
-function renderList() {
+function renderList(maps = state.search ? tempBookmarkTreeMaps() : null) {
   clearBookmarkTextEffects($("list"));
   const scrollPosition = state.resetMiddleScrollOnNextRender ? { top: 0, left: 0 } : getMiddleScrollPosition();
   state.resetMiddleScrollOnNextRender = false;
 
   const cutIds = Optimisation_DOMrendering ? clipboardCutIdSet() : null;
-  const rows = visibleItems().map((item) => {
+  const rows = visibleItems(maps).map((item) => {
     const row = document.createElement("div");
     row.className = "item";
     row.dataset.id = item.id;
@@ -4824,17 +4843,18 @@ async function toggleDetailsPane() {
 
 /** Render all visible major panes for the active layout. */
 function render() {
+  const maps = tempBookmarkTreeMaps();
   const sidebarSearchView = updateSidebarSearchView();
-  if (!sidebarSearchView) renderRoots();
+  if (!sidebarSearchView) renderRoots(maps);
 
   if (!LibraryFullView) {
     renderCrumbs();
-    renderList();
+    renderList(maps);
     renderColumnHeaders();
     renderDetails();
   } else if (sidebarSearchView) {
     renderCrumbs();
-    renderList();
+    renderList(maps);
     renderColumnHeaders();
   }
   renderNavButtons();
@@ -5109,14 +5129,15 @@ async function handleTreeHorizontalNavigation(direction) {
     return true;
   }
 
-  const searchVisibleIds = librarySearchVisibleIds();
-  const expandableChildren = expandableLibraryChildren(item, searchVisibleIds);
-  const visibleChildren = libraryTreeChildren(item, searchVisibleIds);
+  const maps = tempBookmarkTreeMaps();
+  const searchVisibleIds = librarySearchVisibleIds(maps);
+  const expandableChildren = expandableLibraryChildren(item, searchVisibleIds, maps);
+  const visibleChildren = libraryTreeChildren(item, searchVisibleIds, maps);
 
   if (direction === "left") {
     if (!searchVisibleIds && expandableChildren.length && state.expandedFolders.has(item.id)) {
       state.expandedFolders.delete(item.id);
-      renderRoots();
+      renderRoots(maps);
       focusActivePane();
       scrollActiveSelectionIntoView();
       return true;
@@ -5135,7 +5156,7 @@ async function handleTreeHorizontalNavigation(direction) {
     if (!expandableChildren.length) return false;
     if (!searchVisibleIds && !state.expandedFolders.has(item.id)) {
       expandTreeFolderState(item.id);
-      renderRoots();
+      renderRoots(maps);
       focusActivePane();
       scrollActiveSelectionIntoView();
       return true;
@@ -5153,12 +5174,12 @@ async function handleTreeHorizontalNavigation(direction) {
 }
 
 /** Return visible Library rows under one root in their rendered order. */
-function visibleTreeItemsForRoot(rootFolder) {
+function visibleTreeItemsForRoot(rootFolder, maps = null) {
   const out = [];
   const visit = (folder) => {
     out.push(folder);
     if (!state.expandedFolders.has(folder.id)) return;
-    for (const child of libraryTreeChildren(folder)) {
+    for (const child of libraryTreeChildren(folder, null, maps)) {
       if (isFolder(child)) visit(child);
       else out.push(child);
     }
@@ -5178,12 +5199,13 @@ function rootFolderFor(folder) {
 async function moveTreeSelectionToBoundary(position) {
   if (state.activePane !== "tree") return false;
 
-  const roots = rootFolders();
+  const maps = tempBookmarkTreeMaps();
+  const roots = rootFolders(maps);
   if (!roots.length) return false;
 
   const current = nodes.get(paneSelectionId("tree"));
   if (!current) {
-    const items = visibleTreeItems();
+    const items = visibleTreeItems(maps);
     const next = position === "end" ? items[items.length - 1] : items[0];
     if (!next) return false;
     await activateTreeItem(next);
@@ -5204,13 +5226,13 @@ async function moveTreeSelectionToBoundary(position) {
       next = currentRoot;
     }
   } else {
-    const currentRootVisible = visibleTreeItemsForRoot(currentRoot);
+    const currentRootVisible = visibleTreeItemsForRoot(currentRoot, maps);
     const currentRootLast = currentRootVisible[currentRootVisible.length - 1] || null;
     if (currentRootLast && current.id !== currentRootLast.id) {
       next = currentRootLast;
     } else {
       const nextRoot = roots[currentRootIndex + 1] || null;
-      const nextRootVisible = visibleTreeItemsForRoot(nextRoot);
+      const nextRootVisible = visibleTreeItemsForRoot(nextRoot, maps);
       next = nextRootVisible[nextRootVisible.length - 1] || nextRoot;
     }
   }
@@ -5225,7 +5247,8 @@ async function moveTreeSelectionToBoundary(position) {
 /** Move Folder Contents selection to first/last visible item. */
 async function moveListSelectionToBoundary(position) {
   if (state.activePane !== "list") return false;
-  const items = visibleItems();
+  const maps = state.search ? tempBookmarkTreeMaps() : null;
+  const items = visibleItems(maps);
   if (!items.length) return false;
   const next = position === "end" ? items[items.length - 1] : items[0];
   if (!next || (next.id === state.selectedId && state.activePane === "list")) return false;
@@ -5267,7 +5290,8 @@ function focusSearchField() {
 
 /** Move Library tree selection by one visible row. */
 async function moveTreeSelection(delta) {
-  const items = visibleTreeItems();
+  const maps = tempBookmarkTreeMaps();
+  const items = visibleTreeItems(maps);
   if (!items.length) return false;
   let currentIndex = items.findIndex((item) => item.id === paneSelectionId("tree"));
   if (currentIndex < 0) currentIndex = delta > 0 ? -1 : items.length;
@@ -5282,7 +5306,8 @@ async function moveTreeSelection(delta) {
 
 /** Move Folder Contents selection by one visible item. */
 async function moveListSelection(delta) {
-  const items = visibleItems();
+  const maps = state.search ? tempBookmarkTreeMaps() : null;
+  const items = visibleItems(maps);
   if (!items.length) return false;
   let currentIndex = items.findIndex((item) => item.id === state.selectedId);
   if (currentIndex < 0 || nodes.get(state.selectedId)?.parentId !== state.folderId) {

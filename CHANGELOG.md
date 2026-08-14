@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.10.1
+
+- Reworked the existing temporary bookmark tree maps optimization so maps are built once per high-level UI pass and passed through Library rendering, search, drag expansion, and keyboard navigation paths.
+- Updated folder child/root/search helpers to use pass-scoped tree maps when supplied, avoiding repeated full bookmark-tree map rebuilds during the same render or interaction.
+
 ## 0.9.28
 
 - Added translations for the post-v0.9.20.2 locale strings in he, id, ja, ko, vi, zh_CN, and zh_TW.
