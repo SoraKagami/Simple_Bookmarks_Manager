@@ -1,15 +1,16 @@
 # Changelog
 
+## 0.9.26
+
+- Added en_Netspeak translations for the keyboard shortcut and bookmark text truncation/auto-scroll option strings introduced after v0.9.20.2.
+- Synced en_Netspeak key coverage with the base English locale while preserving the playful visual-debug style.
+
 ## 0.9.25
 
 - Changed Auto Scroll mode to scroll overflowing bookmark text left once, pause, briefly blank the text, reset to the initial state, and repeat without reverse-scrolling.
 - Tightened Auto Scroll clipping for Sidebar Mode so animated bookmark/folder text stays inside its visible text box.
 - Updated Options text for keyboard shortcuts and bookmark truncation, moved the launch shortcut control to Advanced, and made the shortcut value follow the selected UI font.
 - Added Help entries for the keyboard shortcut setting, Bookmarks Truncation/Shortening, and the Auto Scroll/Truncate sub-options.
-
-Note:
-ChatGPT's session for SBM v0.9.0+ crashed and became unusable.
-A new instance was created using the same prompt used for v0.9.0.
 
 ## 0.9.24
 

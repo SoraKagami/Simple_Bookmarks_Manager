@@ -1282,5 +1282,71 @@
   },
   "helpOptionUiDetailsPaneShowDescription": {
     "message": ": zh0w 0r h1d3 7h3 D3741lz p4n3 1n 7h3 n0rm4l m4n4g3r l4y0u7. 7h3 m4n4g3r’z Zh0w/H1d3 D3741lz bu770n upd473z 7h3 z4m3 z3771ng. Z1d3b4r M0d3 z71ll h1d3z D3741lz 70 z4v3 pr3c10uz p1x3lz. 📐✨"
+  },
+  "shortcutLaunchSbm": {
+    "message": "K3yb04rd Zh0r7cu7 70 l4unch SBM ⌨️🚀"
+  },
+  "shortcutLaunchSbmHelp": {
+    "message": "3x73nz10n zh0r7cu7z h4v3 70 b3 4zz1gn3d 1n Chr0m1um’z z3771ngz. Plz uz3 7h3 br0wz3r’z 3x73nz10n K3yb04rd Zh0r7cu7z p4g3 70 z37 0r upd473 17.\nchrome://extensions/shortcuts"
+  },
+  "shortcutNotAssigned": {
+    "message": "N07 4zz1gn3d 💤"
+  },
+  "openKeyboardShortcuts": {
+    "message": "0p3n K3yb04rd Zh0r7cu7z ⌨️"
+  },
+  "shortcutOpenFailed": {
+    "message": "C0uld n07 0p3n Chr0m1um’z K3yb04rd Zh0r7cu7z p4g3. C0py chrome://extensions/shortcuts 1n70 7h3 4ddr3zz b4r 1nz734d. 🧭"
+  },
+  "bookmarkTextTruncation": {
+    "message": "B00km4rkz 7runc4710n/Zh0r73n1ng ✂️🔖"
+  },
+  "bookmarkTextTruncationHelp": {
+    "message": "Ch00z3 h0w 0v3rfl0w1ng 73x7 1n L1br4ry 4nd F0ld3r C0n73n7z b3h4v3z wh3n 17z r0w 1z h0v3r3d 0v3r 0r cl1ck3d. D3741lz 4nd 3d170r f13ldz 4r3 n07 4ff3c73d.\nN073: 7urn1ng 7h1z 0p710n 0n m4y zl1gh7ly 1mp4c7 p3rf0rm4nc3. 🐢✨"
+  },
+  "bookmarkTextTruncationNone": {
+    "message": "N0 7runc4710n/Zh0r73n1ng (D3f4ul7) 🧘"
+  },
+  "bookmarkTextTruncationAutoScroll": {
+    "message": "4u70 Zcr0ll 🐌➡️"
+  },
+  "bookmarkTextTruncationTruncate": {
+    "message": "7runc473 ✂️"
+  },
+  "bookmarkAutoScrollSpeed": {
+    "message": "4u70 Zcr0ll zp33d 🏎️"
+  },
+  "bookmarkAutoScrollSpeedHelp": {
+    "message": "Z37 7h3 h0r1z0n74l m0v3m3n7 zp33d f0r 0v3rfl0w1ng 73x7, 1n p1x3lz p3r z3c0nd. 🛞"
+  },
+  "bookmarkAutoScrollPause": {
+    "message": "4u70 Zcr0ll p4uz3 ☕"
+  },
+  "bookmarkAutoScrollPauseHelp": {
+    "message": "Z37 h0w l0ng 0v3rfl0w1ng 73x7 p4uz3z 4f73r r34ch1ng 17z l3f7m0z7 p01n7 b3f0r3 7h3 br13f bl4nk r3z37, 1n z3c0ndz. 😶‍🌫️"
+  },
+  "bookmarkTruncateLength": {
+    "message": "7runc473 73x7 l3ng7h ✂️📏"
+  },
+  "bookmarkTruncateLengthHelp": {
+    "message": "0 = 4u70, wh1ch f17z 7h3 zh0r73n3d m1ddl3-3ll1pz1z 73x7 70 7h3 4v41l4bl3 v1z1bl3 w1d7h. 4 h1gh3r v4lu3 l1m17z 7h3 m4x d1zpl4y3d ch4r4c73r c0un7 b3f0r3 7h3 w1d7h f17 1z 4ppl13d. 📐"
+  },
+  "shortcutCurrent": {
+    "message": "Curr3n7 zh0r7cu7:"
+  },
+  "helpOptionKeyboardShortcutDescription": {
+    "message": ": zh0wz 7h3 curr3n7 3x73nz10n l4unch zh0r7cu7. 4zz1gn 0r upd473 7h3 zh0r7cu7 fr0m Chr0m1um’z 3x73nz10n K3yb04rd Zh0r7cu7z p4g3: chrome://extensions/shortcuts. ⌨️"
+  },
+  "helpOptionBookmarkTextTruncationDescription": {
+    "message": ": ch00z3 h0w 0v3rfl0w1ng 73x7 1n L1br4ry 4nd F0ld3r C0n73n7z b3h4v3z wh3n 17z r0w 1z h0v3r3d 0v3r 0r cl1ck3d. D3741lz 4nd 3d170r f13ldz 4r3 n07 4ff3c73d. 7urn1ng 7h1z 0p710n 0n m4y zl1gh7ly 1mp4c7 p3rf0rm4nc3. 🐢"
+  },
+  "helpOptionBookmarkAutoScrollSpeedDescription": {
+    "message": ": wh3n 4u70 Zcr0ll 1z z3l3c73d, c0n7r0lz h0w qu1ckly 0v3rfl0w1ng 73x7 m0v3z l3f7. 🐌➡️"
+  },
+  "helpOptionBookmarkAutoScrollPauseDescription": {
+    "message": ": wh3n 4u70 Zcr0ll 1z z3l3c73d, c0n7r0lz h0w l0ng 73x7 p4uz3z 4f73r r34ch1ng 17z l3f7m0z7 p01n7 b3f0r3 7h3 br13f bl4nk r3z37. ☕"
+  },
+  "helpOptionBookmarkTruncateLengthDescription": {
+    "message": ": wh3n 7runc473 1z z3l3c73d, c0n7r0lz 7h3 m4x1mum m1ddl3-3ll1pz1z 73x7 l3ng7h. 0 = 4u70 w1d7h f1771ng. ✂️"
   }
 }
