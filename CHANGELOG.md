@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.10.18 - 2026-08-14
+
+- Updated `README.md` to document recent features, including Sidebar Mode, bookmark text truncation/Auto Scroll, URL opening protections, expanded UI/usability options, Help/About/Changelog dialogs, Details pane controls, and launch/startup options.
+- Added README guidance for switching from normal tab mode to Chromium Sidebar/Side Panel mode through Options > User Interface > Sidebar Mode and launching from the extension action or keyboard shortcut.
+- Kept permissions unchanged.
+
 ## 0.10.17 - 2026-08-14
 
 - Updated stale Bookmark URL protections locale text in all non-base locales to match the current Options > Safety location.
