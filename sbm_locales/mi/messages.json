@@ -1240,5 +1240,113 @@
   },
   "helpOptionFolderAutoExpandAfterWaitDescription": {
     "message": ": whakamahia te slider hei tautuhi i te roa me noho te tīpakonga e tōia ana ki runga i tētahi kōpaki i mua i te whakawhānui/huaki aunoa. Awhe: 0.1–3.0 hēkona; taunoa: 1.2 hēkona."
+  },
+  "bookmarksSingleClickOpen": {
+    "message": "Huaki tohuwāhi mā te pāwhiri kotahi"
+  },
+  "bookmarksSingleClickOpenHelp": {
+    "message": "Kōwhiria mēnā mā te pāwhiri-mauī kotahi e huaki ngā tohuwāhi, kaua ko te whanonga pāwhiri-rua o nāianei a SBM. Kāore e hurihia ngā pāwhiri kī āwhina mō te tīpakonga-maha."
+  },
+  "bookmarksSingleClickOpenDisabled": {
+    "message": "Kua monokia (pāwhiri-rua hei huaki tohuwāhi)"
+  },
+  "bookmarksSingleClickOpenAll": {
+    "message": "Kua whakahohea mō te katoa"
+  },
+  "bookmarksSingleClickOpenSidebar": {
+    "message": "Kua whakahohea mō te Aratau Paetaha anake"
+  },
+  "bookmarksSingleClickOpenTab": {
+    "message": "Kua whakahohea mō te Aratau Ripa anake"
+  },
+  "helpOptionBookmarksSingleClickOpenDescription": {
+    "message": ": ka whakahaere mēnā mā te pāwhiri-mauī kotahi e huaki ngā tohuwāhi i ngā tahora SBM katoa, i te Aratau Paetaha anake, i te Aratau Ripa anake, ka noho monokia rānei. Ina monokia, ka pupuri a SBM i tana whanonga pāwhiri-rua o nāianei mō te huaki tohuwāhi. Ka noho wātea tonu ngā pāwhiri Ctrl/Shift mō te tīpakonga-maha."
+  },
+  "launchSearchFocused": {
+    "message": "Whakarewahia a SBM me te arotahi ki te Rapu"
+  },
+  "launchSearchFocusedHelp": {
+    "message": "Ina whakahohea, ka tuku a SBM i te arotahi papapātuhi ki te āpure Rapu tohuwāhi ina huaki, kia taea ai te tīmata tonu ki te pato."
+  },
+  "helpOptionLaunchSearchFocusedDescription": {
+    "message": ": ina whakahohea, ka tuku a SBM i te arotahi papapātuhi ki te āpure Rapu tohuwāhi ina huaki te kaiwhakahaere, kia taea ai te tīmata tonu i tētahi rapunga."
+  },
+  "aboutChromeWebStoreLabel": {
+    "message": "Chrome Web Store:"
+  },
+  "uiDetailsPaneShow": {
+    "message": "Whakaatu pihanga Taipitopito"
+  },
+  "uiDetailsPaneShowHelp": {
+    "message": "Whakaaturia, hunahia rānei te pihanga Taipitopito i te tahora kaiwhakahaere noa. Ka whakahōu te pātene Whakaatu/Huna Taipitopito o te kaiwhakahaere i taua tautuhinga anō. Ka noho huna tonu te pihanga Taipitopito i te Aratau Paetaha."
+  },
+  "helpOptionUiDetailsPaneShowDescription": {
+    "message": ": whakaaturia, hunahia rānei te pihanga Taipitopito i te tahora kaiwhakahaere noa. Ka whakahōu te pātene Whakaatu/Huna Taipitopito o te kaiwhakahaere i taua tautuhinga anō. Ka noho huna tonu te pihanga Taipitopito i te Aratau Paetaha."
+  },
+  "shortcutLaunchSbm": {
+    "message": "Pokatata papapātuhi hei whakarewa i a SBM"
+  },
+  "shortcutLaunchSbmHelp": {
+    "message": "Me tautapa ngā pokatata toronga i ngā tautuhinga Chromium. Whakamahia te whārangi Extension Keyboard Shortcuts o te pūtirotiro hei tautuhi, hei whakahōu rānei.\nchrome://extensions/shortcuts"
+  },
+  "shortcutNotAssigned": {
+    "message": "Kāore anō kia tautapahia"
+  },
+  "openKeyboardShortcuts": {
+    "message": "Huakina ngā pokatata papapātuhi"
+  },
+  "shortcutOpenFailed": {
+    "message": "Kāore i taea te huaki i te whārangi Keyboard Shortcuts a Chromium. Tāruatia kē chrome://extensions/shortcuts ki te pae wāhitau."
+  },
+  "bookmarkTextTruncation": {
+    "message": "Whakapoto/Truncate tohuwāhi"
+  },
+  "bookmarkTextTruncationHelp": {
+    "message": "Kōwhiria te whanonga o te kuputuhi e puhake ana i te Pātaka me te Ihirangi Kōpaki ina noho te atatohu ki runga i tōna rārangi, ina pāwhiritia rānei. Kāore ngā Taipitopito me ngā āpure whakatika e pāngia.\nTuhipoka: Mā te whakakā i tēnei kōwhiringa ka pā paku pea ki te mahinga."
+  },
+  "bookmarkTextTruncationNone": {
+    "message": "Kāore he whakapoto/truncate (Taunoa)"
+  },
+  "bookmarkTextTruncationAutoScroll": {
+    "message": "Panuku aunoa"
+  },
+  "bookmarkTextTruncationTruncate": {
+    "message": "Whakapoto"
+  },
+  "bookmarkAutoScrollSpeed": {
+    "message": "Tere panuku aunoa"
+  },
+  "bookmarkAutoScrollSpeedHelp": {
+    "message": "Tautuhia te tere neke whakapae mō te kuputuhi e puhake ana, hei pika ia hēkona."
+  },
+  "bookmarkAutoScrollPause": {
+    "message": "Okiokinga panuku aunoa"
+  },
+  "bookmarkAutoScrollPauseHelp": {
+    "message": "Tautuhia te roa e okioki ai te kuputuhi e puhake ana i muri i te tae ki tōna pito mauī rawa, i mua i te tautuhi anō me tētahi wā poto kāore he kuputuhi, hei hēkona."
+  },
+  "bookmarkTruncateLength": {
+    "message": "Roa kuputuhi whakapoto"
+  },
+  "bookmarkTruncateLengthHelp": {
+    "message": "0 = Aunoa, ka whakauru i te kuputuhi kua whakapotoa me te ellipsis waenganui ki te whānui kitea e wātea ana. Mā tētahi uara teitei ake e whakawhāiti te maha pūāhua mōrahi ka whakaaturia i mua i te whakaurunga ki te whānui."
+  },
+  "shortcutCurrent": {
+    "message": "Pokatata o nāianei:"
+  },
+  "helpOptionKeyboardShortcutDescription": {
+    "message": ": ka whakaatu i te pokatata whakarewa toronga o nāianei. Tautapahia, whakahōutia rānei te pokatata i te whārangi Extension Keyboard Shortcuts a Chromium: chrome://extensions/shortcuts."
+  },
+  "helpOptionBookmarkTextTruncationDescription": {
+    "message": ": kōwhiria te whanonga o te kuputuhi e puhake ana i te Pātaka me te Ihirangi Kōpaki ina noho te atatohu ki runga i tōna rārangi, ina pāwhiritia rānei. Kāore ngā Taipitopito me ngā āpure whakatika e pāngia. Mā te whakakā i tēnei kōwhiringa ka pā paku pea ki te mahinga."
+  },
+  "helpOptionBookmarkAutoScrollSpeedDescription": {
+    "message": ": ina tīpakohia te Panuku aunoa, ka whakahaere i te tere neke mauī o te kuputuhi e puhake ana."
+  },
+  "helpOptionBookmarkAutoScrollPauseDescription": {
+    "message": ": ina tīpakohia te Panuku aunoa, ka whakahaere i te roa e okioki ai te kuputuhi i muri i te tae ki tōna pito mauī rawa, i mua i te tautuhi anō me tētahi wā poto kāore he kuputuhi."
+  },
+  "helpOptionBookmarkTruncateLengthDescription": {
+    "message": ": ina tīpakohia te Whakapoto, ka whakahaere i te roa mōrahi o te kuputuhi me te ellipsis waenganui. 0 = whakauru whānui aunoa."
   }
 }

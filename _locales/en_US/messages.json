@@ -1240,5 +1240,113 @@
   },
   "helpOptionFolderAutoExpandAfterWaitDescription": {
     "message": ": use the slider to set how long a dragged selection must remain over a folder before the automatic expansion/open action occurs. Range: 0.1–3.0 seconds; default: 1.2 seconds."
+  },
+  "bookmarksSingleClickOpen": {
+    "message": "Single Click Bookmark Opening"
+  },
+  "bookmarksSingleClickOpenHelp": {
+    "message": "Choose whether a single left click opens bookmarks instead of SBM's existing double-click behavior. Modifier clicks used for multi-selection are not changed."
+  },
+  "bookmarksSingleClickOpenDisabled": {
+    "message": "Disabled (Double Click to open Bookmarks)"
+  },
+  "bookmarksSingleClickOpenAll": {
+    "message": "Enabled for all"
+  },
+  "bookmarksSingleClickOpenSidebar": {
+    "message": "Enabled Only for Sidebar Mode"
+  },
+  "bookmarksSingleClickOpenTab": {
+    "message": "Enabled Only for Tab Mode"
+  },
+  "helpOptionBookmarksSingleClickOpenDescription": {
+    "message": ": controls whether a single left click opens bookmarks in all SBM layouts, Sidebar Mode only, Tab Mode only, or remains disabled. When disabled, SBM keeps its existing double-click bookmark-opening behavior. Ctrl/Shift modifier clicks remain available for multi-selection."
+  },
+  "launchSearchFocused": {
+    "message": "Launch SBM with focus in Search"
+  },
+  "launchSearchFocusedHelp": {
+    "message": "When enabled, SBM places keyboard focus in the Search bookmarks field when it opens, so you can start typing immediately."
+  },
+  "helpOptionLaunchSearchFocusedDescription": {
+    "message": ": when enabled, SBM places keyboard focus in the Search bookmarks field when the manager opens, allowing you to start typing a search immediately."
+  },
+  "aboutChromeWebStoreLabel": {
+    "message": "Chrome Web Store:"
+  },
+  "uiDetailsPaneShow": {
+    "message": "Show Details Pane"
+  },
+  "uiDetailsPaneShowHelp": {
+    "message": "Show or hide the Details pane in the normal manager layout. The in-manager Show/Hide Details button updates this setting. Sidebar Mode keeps the Details pane hidden."
+  },
+  "helpOptionUiDetailsPaneShowDescription": {
+    "message": ": show or hide the Details pane in the normal manager layout. The manager's Show/Hide Details button updates the same setting. Sidebar Mode continues to hide the Details pane."
+  },
+  "shortcutLaunchSbm": {
+    "message": "Keyboard Shortcut to launch SBM"
+  },
+  "shortcutLaunchSbmHelp": {
+    "message": "Extension shortcuts have to be assigned in Chromium's settings. Please use the browser's Extension Keyboard Shortcuts page to set or update it.\nchrome://extensions/shortcuts"
+  },
+  "shortcutNotAssigned": {
+    "message": "Not assigned"
+  },
+  "openKeyboardShortcuts": {
+    "message": "Open Keyboard Shortcuts"
+  },
+  "shortcutOpenFailed": {
+    "message": "Could not open Chromium's Keyboard Shortcuts page. Copy chrome://extensions/shortcuts into the address bar instead."
+  },
+  "bookmarkTextTruncation": {
+    "message": "Bookmarks Truncation/Shortening"
+  },
+  "bookmarkTextTruncationHelp": {
+    "message": "Choose how overflowing text in Library and Folder Contents behaves when its row is hovered over or clicked. Details and editor fields are not affected.\nNote: Turning this option on may slightly impact performance."
+  },
+  "bookmarkTextTruncationNone": {
+    "message": "No Truncation/Shortening (Default)"
+  },
+  "bookmarkTextTruncationAutoScroll": {
+    "message": "Auto Scroll"
+  },
+  "bookmarkTextTruncationTruncate": {
+    "message": "Truncate"
+  },
+  "bookmarkAutoScrollSpeed": {
+    "message": "Auto Scroll speed"
+  },
+  "bookmarkAutoScrollSpeedHelp": {
+    "message": "Set the horizontal movement speed for overflowing text, in pixels per second."
+  },
+  "bookmarkAutoScrollPause": {
+    "message": "Auto Scroll pause"
+  },
+  "bookmarkAutoScrollPauseHelp": {
+    "message": "Set how long overflowing text pauses after reaching its leftmost point before the brief blank reset, in seconds."
+  },
+  "bookmarkTruncateLength": {
+    "message": "Truncate text length"
+  },
+  "bookmarkTruncateLengthHelp": {
+    "message": "0 = Auto, which fits the shortened middle-ellipsis text to the available visible width. A higher value limits the maximum displayed character count before the width fit is applied."
+  },
+  "shortcutCurrent": {
+    "message": "Current shortcut:"
+  },
+  "helpOptionKeyboardShortcutDescription": {
+    "message": ": shows the current extension launch shortcut. Assign or update the shortcut from Chromium's Extension Keyboard Shortcuts page: chrome://extensions/shortcuts."
+  },
+  "helpOptionBookmarkTextTruncationDescription": {
+    "message": ": choose how overflowing text in Library and Folder Contents behaves when its row is hovered over or clicked. Details and editor fields are not affected. Turning this option on may slightly impact performance."
+  },
+  "helpOptionBookmarkAutoScrollSpeedDescription": {
+    "message": ": when Auto Scroll is selected, controls how quickly overflowing text moves left."
+  },
+  "helpOptionBookmarkAutoScrollPauseDescription": {
+    "message": ": when Auto Scroll is selected, controls how long text pauses after reaching its leftmost point before the brief blank reset."
+  },
+  "helpOptionBookmarkTruncateLengthDescription": {
+    "message": ": when Truncate is selected, controls the maximum middle-ellipsis text length. 0 = Auto width fitting."
   }
 }

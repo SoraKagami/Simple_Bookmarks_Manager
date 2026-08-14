@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.9.27
+
+- Added translations for the post-v0.9.20.2 locale strings in en_US, de, es, fr, it, nl, pl, pt_BR, ru, tr, uk, and mi.
+- Synced the requested locales with the base English locale key coverage while preserving existing locale files outside the requested scope.
+
 ## 0.9.26
 
 - Added en_Netspeak translations for the keyboard shortcut and bookmark text truncation/auto-scroll option strings introduced after v0.9.20.2.

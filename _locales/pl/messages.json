@@ -1240,5 +1240,113 @@
   },
   "helpOptionFolderAutoExpandAfterWaitDescription": {
     "message": ": użyj suwaka, aby ustawić, jak długo przeciągane zaznaczenie musi pozostać nad folderem przed automatycznym rozwinięciem/otwarciem. Zakres: 0,1–3,0 sekundy; domyślnie: 1,2 sekundy."
+  },
+  "bookmarksSingleClickOpen": {
+    "message": "Otwieranie zakładek jednym kliknięciem"
+  },
+  "bookmarksSingleClickOpenHelp": {
+    "message": "Wybierz, czy pojedyncze kliknięcie lewym przyciskiem myszy otwiera zakładki zamiast dotychczasowego zachowania SBM wymagającego dwukliku. Kliknięcia z modyfikatorami używane do wielokrotnego zaznaczania nie są zmieniane."
+  },
+  "bookmarksSingleClickOpenDisabled": {
+    "message": "Wyłączone (dwuklik, aby otworzyć zakładki)"
+  },
+  "bookmarksSingleClickOpenAll": {
+    "message": "Włączone dla wszystkich"
+  },
+  "bookmarksSingleClickOpenSidebar": {
+    "message": "Włączone tylko dla trybu paska bocznego"
+  },
+  "bookmarksSingleClickOpenTab": {
+    "message": "Włączone tylko dla trybu karty"
+  },
+  "helpOptionBookmarksSingleClickOpenDescription": {
+    "message": ": określa, czy pojedyncze kliknięcie lewym przyciskiem myszy otwiera zakładki we wszystkich układach SBM, tylko w trybie paska bocznego, tylko w trybie karty, czy pozostaje wyłączone. Gdy opcja jest wyłączona, SBM zachowuje dotychczasowe otwieranie zakładek dwuklikiem. Kliknięcia z Ctrl/Shift pozostają dostępne do wielokrotnego zaznaczania."
+  },
+  "launchSearchFocused": {
+    "message": "Uruchamiaj SBM z fokusem w wyszukiwaniu"
+  },
+  "launchSearchFocusedHelp": {
+    "message": "Gdy włączone, SBM po otwarciu ustawia fokus klawiatury w polu Szukaj zakładek, aby można było od razu zacząć pisać."
+  },
+  "helpOptionLaunchSearchFocusedDescription": {
+    "message": ": gdy włączone, SBM po otwarciu menedżera ustawia fokus klawiatury w polu Szukaj zakładek, co pozwala od razu rozpocząć wyszukiwanie."
+  },
+  "aboutChromeWebStoreLabel": {
+    "message": "Chrome Web Store:"
+  },
+  "uiDetailsPaneShow": {
+    "message": "Pokaż panel Szczegóły"
+  },
+  "uiDetailsPaneShowHelp": {
+    "message": "Pokaż lub ukryj panel Szczegóły w normalnym układzie menedżera. Przycisk Pokaż/Ukryj szczegóły w menedżerze aktualizuje to samo ustawienie. Tryb paska bocznego nadal ukrywa panel Szczegóły."
+  },
+  "helpOptionUiDetailsPaneShowDescription": {
+    "message": ": pokaż lub ukryj panel Szczegóły w normalnym układzie menedżera. Przycisk Pokaż/Ukryj szczegóły w menedżerze aktualizuje to samo ustawienie. Tryb paska bocznego nadal ukrywa panel Szczegóły."
+  },
+  "shortcutLaunchSbm": {
+    "message": "Skrót klawiaturowy do uruchamiania SBM"
+  },
+  "shortcutLaunchSbmHelp": {
+    "message": "Skróty rozszerzeń trzeba przypisać w ustawieniach Chromium. Użyj strony Skróty klawiaturowe rozszerzeń w przeglądarce, aby go ustawić lub zaktualizować.\nchrome://extensions/shortcuts"
+  },
+  "shortcutNotAssigned": {
+    "message": "Nie przypisano"
+  },
+  "openKeyboardShortcuts": {
+    "message": "Otwórz skróty klawiaturowe"
+  },
+  "shortcutOpenFailed": {
+    "message": "Nie można otworzyć strony skrótów klawiaturowych Chromium. Zamiast tego skopiuj chrome://extensions/shortcuts do paska adresu."
+  },
+  "bookmarkTextTruncation": {
+    "message": "Przycinanie/skracanie zakładek"
+  },
+  "bookmarkTextTruncationHelp": {
+    "message": "Wybierz, jak przepełniony tekst w Bibliotece i Zawartości folderu zachowuje się po najechaniu na jego wiersz lub kliknięciu go. Szczegóły i pola edytora nie są objęte zmianą.\nUwaga: włączenie tej opcji może nieznacznie wpłynąć na wydajność."
+  },
+  "bookmarkTextTruncationNone": {
+    "message": "Bez przycinania/skracania (domyślnie)"
+  },
+  "bookmarkTextTruncationAutoScroll": {
+    "message": "Automatyczne przewijanie"
+  },
+  "bookmarkTextTruncationTruncate": {
+    "message": "Przytnij"
+  },
+  "bookmarkAutoScrollSpeed": {
+    "message": "Szybkość automatycznego przewijania"
+  },
+  "bookmarkAutoScrollSpeedHelp": {
+    "message": "Ustawia szybkość poziomego ruchu przepełnionego tekstu w pikselach na sekundę."
+  },
+  "bookmarkAutoScrollPause": {
+    "message": "Pauza automatycznego przewijania"
+  },
+  "bookmarkAutoScrollPauseHelp": {
+    "message": "Ustawia, jak długo przepełniony tekst pauzuje po osiągnięciu najbardziej lewego punktu przed krótkim pustym resetem, w sekundach."
+  },
+  "bookmarkTruncateLength": {
+    "message": "Długość przyciętego tekstu"
+  },
+  "bookmarkTruncateLengthHelp": {
+    "message": "0 = Auto, co dopasowuje skrócony tekst ze środkowym wielokropkiem do dostępnej widocznej szerokości. Wyższa wartość ogranicza maksymalną liczbę wyświetlanych znaków przed zastosowaniem dopasowania szerokości."
+  },
+  "shortcutCurrent": {
+    "message": "Bieżący skrót:"
+  },
+  "helpOptionKeyboardShortcutDescription": {
+    "message": ": pokazuje bieżący skrót uruchamiania rozszerzenia. Przypisz lub zaktualizuj skrót na stronie Skróty klawiaturowe rozszerzeń Chromium: chrome://extensions/shortcuts."
+  },
+  "helpOptionBookmarkTextTruncationDescription": {
+    "message": ": wybierz, jak przepełniony tekst w Bibliotece i Zawartości folderu zachowuje się po najechaniu na jego wiersz lub kliknięciu go. Szczegóły i pola edytora nie są objęte zmianą. Włączenie tej opcji może nieznacznie wpłynąć na wydajność."
+  },
+  "helpOptionBookmarkAutoScrollSpeedDescription": {
+    "message": ": gdy wybrano Automatyczne przewijanie, określa, jak szybko przepełniony tekst przesuwa się w lewo."
+  },
+  "helpOptionBookmarkAutoScrollPauseDescription": {
+    "message": ": gdy wybrano Automatyczne przewijanie, określa, jak długo tekst pauzuje po osiągnięciu najbardziej lewego punktu przed krótkim pustym resetem."
+  },
+  "helpOptionBookmarkTruncateLengthDescription": {
+    "message": ": gdy wybrano Przytnij, określa maksymalną długość tekstu ze środkowym wielokropkiem. 0 = automatyczne dopasowanie szerokości."
   }
 }

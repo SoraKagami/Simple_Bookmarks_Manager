@@ -1240,5 +1240,113 @@
   },
   "helpOptionFolderAutoExpandAfterWaitDescription": {
     "message": ": gebruik de schuifregelaar om in te stellen hoe lang een gesleepte selectie boven een map moet blijven voordat automatisch uitvouwen/openen plaatsvindt. Bereik: 0,1–3,0 seconden; standaard: 1,2 seconden."
+  },
+  "bookmarksSingleClickOpen": {
+    "message": "Bladwijzers openen met één klik"
+  },
+  "bookmarksSingleClickOpenHelp": {
+    "message": "Kies of één linkermuisklik bladwijzers opent in plaats van het bestaande dubbelklikgedrag van SBM. Modifier-klikken voor meervoudige selectie worden niet gewijzigd."
+  },
+  "bookmarksSingleClickOpenDisabled": {
+    "message": "Uitgeschakeld (dubbelklik om bladwijzers te openen)"
+  },
+  "bookmarksSingleClickOpenAll": {
+    "message": "Ingeschakeld voor alles"
+  },
+  "bookmarksSingleClickOpenSidebar": {
+    "message": "Alleen ingeschakeld voor Zijbalkmodus"
+  },
+  "bookmarksSingleClickOpenTab": {
+    "message": "Alleen ingeschakeld voor Tabmodus"
+  },
+  "helpOptionBookmarksSingleClickOpenDescription": {
+    "message": ": bepaalt of één linkermuisklik bladwijzers opent in alle SBM-indelingen, alleen in Zijbalkmodus, alleen in Tabmodus, of uitgeschakeld blijft. Wanneer uitgeschakeld behoudt SBM het bestaande dubbelklikgedrag voor het openen van bladwijzers. Ctrl-/Shift-klikken blijven beschikbaar voor meervoudige selectie."
+  },
+  "launchSearchFocused": {
+    "message": "SBM starten met focus in Zoeken"
+  },
+  "launchSearchFocusedHelp": {
+    "message": "Wanneer ingeschakeld plaatst SBM bij het openen de toetsenbordfocus in het veld Bladwijzers zoeken, zodat je meteen kunt typen."
+  },
+  "helpOptionLaunchSearchFocusedDescription": {
+    "message": ": wanneer ingeschakeld plaatst SBM de toetsenbordfocus in het veld Bladwijzers zoeken wanneer de manager wordt geopend, zodat je meteen een zoekopdracht kunt typen."
+  },
+  "aboutChromeWebStoreLabel": {
+    "message": "Chrome Web Store:"
+  },
+  "uiDetailsPaneShow": {
+    "message": "Detailpaneel tonen"
+  },
+  "uiDetailsPaneShowHelp": {
+    "message": "Toon of verberg het Detailpaneel in de normale managerindeling. De knop Details tonen/verbergen in de manager werkt dezelfde instelling bij. Zijbalkmodus houdt het Detailpaneel verborgen."
+  },
+  "helpOptionUiDetailsPaneShowDescription": {
+    "message": ": toon of verberg het Detailpaneel in de normale managerindeling. De knop Details tonen/verbergen in de manager werkt dezelfde instelling bij. Zijbalkmodus houdt het Detailpaneel verborgen."
+  },
+  "shortcutLaunchSbm": {
+    "message": "Sneltoets om SBM te starten"
+  },
+  "shortcutLaunchSbmHelp": {
+    "message": "Sneltoetsen voor extensies moeten worden toegewezen in de instellingen van Chromium. Gebruik de pagina Sneltoetsen voor extensies van de browser om deze in te stellen of bij te werken.\nchrome://extensions/shortcuts"
+  },
+  "shortcutNotAssigned": {
+    "message": "Niet toegewezen"
+  },
+  "openKeyboardShortcuts": {
+    "message": "Sneltoetsen openen"
+  },
+  "shortcutOpenFailed": {
+    "message": "Kon de pagina Sneltoetsen van Chromium niet openen. Kopieer in plaats daarvan chrome://extensions/shortcuts naar de adresbalk."
+  },
+  "bookmarkTextTruncation": {
+    "message": "Bladwijzers inkorten/afkorten"
+  },
+  "bookmarkTextTruncationHelp": {
+    "message": "Kies hoe overlopende tekst in Bibliotheek en Mapinhoud zich gedraagt wanneer de rij wordt aangewezen of aangeklikt. Details en editorvelden worden niet beïnvloed.\nOpmerking: het inschakelen van deze optie kan de prestaties licht beïnvloeden."
+  },
+  "bookmarkTextTruncationNone": {
+    "message": "Geen inkorten/afkorten (standaard)"
+  },
+  "bookmarkTextTruncationAutoScroll": {
+    "message": "Automatisch scrollen"
+  },
+  "bookmarkTextTruncationTruncate": {
+    "message": "Inkorten"
+  },
+  "bookmarkAutoScrollSpeed": {
+    "message": "Snelheid automatisch scrollen"
+  },
+  "bookmarkAutoScrollSpeedHelp": {
+    "message": "Stel de horizontale bewegingssnelheid voor overlopende tekst in, in pixels per seconde."
+  },
+  "bookmarkAutoScrollPause": {
+    "message": "Pauze automatisch scrollen"
+  },
+  "bookmarkAutoScrollPauseHelp": {
+    "message": "Stel in hoelang overlopende tekst pauzeert nadat het meest linkse punt is bereikt vóór de korte lege reset, in seconden."
+  },
+  "bookmarkTruncateLength": {
+    "message": "Lengte van ingekorte tekst"
+  },
+  "bookmarkTruncateLengthHelp": {
+    "message": "0 = Auto, waarmee de ingekorte tekst met een ellips in het midden wordt aangepast aan de beschikbare zichtbare breedte. Een hogere waarde beperkt het maximale aantal weergegeven tekens voordat de breedtepassing wordt toegepast."
+  },
+  "shortcutCurrent": {
+    "message": "Huidige sneltoets:"
+  },
+  "helpOptionKeyboardShortcutDescription": {
+    "message": ": toont de huidige sneltoets voor het starten van de extensie. Wijs de sneltoets toe of werk deze bij via de Chromium-pagina Sneltoetsen voor extensies: chrome://extensions/shortcuts."
+  },
+  "helpOptionBookmarkTextTruncationDescription": {
+    "message": ": kies hoe overlopende tekst in Bibliotheek en Mapinhoud zich gedraagt wanneer de rij wordt aangewezen of aangeklikt. Details en editorvelden worden niet beïnvloed. Het inschakelen van deze optie kan de prestaties licht beïnvloeden."
+  },
+  "helpOptionBookmarkAutoScrollSpeedDescription": {
+    "message": ": wanneer Automatisch scrollen is geselecteerd, bepaalt dit hoe snel overlopende tekst naar links beweegt."
+  },
+  "helpOptionBookmarkAutoScrollPauseDescription": {
+    "message": ": wanneer Automatisch scrollen is geselecteerd, bepaalt dit hoelang tekst pauzeert nadat het meest linkse punt is bereikt vóór de korte lege reset."
+  },
+  "helpOptionBookmarkTruncateLengthDescription": {
+    "message": ": wanneer Inkorten is geselecteerd, bepaalt dit de maximale tekstlengte met een ellips in het midden. 0 = automatisch passend maken aan de breedte."
   }
 }

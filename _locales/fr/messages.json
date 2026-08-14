@@ -1240,5 +1240,113 @@
   },
   "helpOptionFolderAutoExpandAfterWaitDescription": {
     "message": ": utilisez le curseur pour définir combien de temps une sélection glissée doit rester sur un dossier avant le développement/l'ouverture automatique. Plage : 0,1–3,0 secondes ; valeur par défaut : 1,2 seconde."
+  },
+  "bookmarksSingleClickOpen": {
+    "message": "Ouverture des favoris en un seul clic"
+  },
+  "bookmarksSingleClickOpenHelp": {
+    "message": "Choisissez si un simple clic gauche ouvre les favoris au lieu du comportement actuel de SBM par double-clic. Les clics avec touches de modification utilisés pour la sélection multiple ne sont pas modifiés."
+  },
+  "bookmarksSingleClickOpenDisabled": {
+    "message": "Désactivé (double-clic pour ouvrir les favoris)"
+  },
+  "bookmarksSingleClickOpenAll": {
+    "message": "Activé pour tous"
+  },
+  "bookmarksSingleClickOpenSidebar": {
+    "message": "Activé uniquement en mode barre latérale"
+  },
+  "bookmarksSingleClickOpenTab": {
+    "message": "Activé uniquement en mode onglet"
+  },
+  "helpOptionBookmarksSingleClickOpenDescription": {
+    "message": ": contrôle si un simple clic gauche ouvre les favoris dans toutes les dispositions de SBM, uniquement en mode barre latérale, uniquement en mode onglet, ou reste désactivé. Lorsque cette option est désactivée, SBM conserve son comportement actuel d'ouverture des favoris par double-clic. Les clics avec Ctrl/Maj restent disponibles pour la sélection multiple."
+  },
+  "launchSearchFocused": {
+    "message": "Lancer SBM avec le focus sur Recherche"
+  },
+  "launchSearchFocusedHelp": {
+    "message": "Lorsque cette option est activée, SBM place le focus clavier dans le champ Rechercher des favoris à l’ouverture, afin que vous puissiez commencer à taper immédiatement."
+  },
+  "helpOptionLaunchSearchFocusedDescription": {
+    "message": ": lorsque cette option est activée, SBM place le focus clavier dans le champ Rechercher des favoris à l’ouverture du gestionnaire, ce qui permet de commencer une recherche immédiatement."
+  },
+  "aboutChromeWebStoreLabel": {
+    "message": "Chrome Web Store :"
+  },
+  "uiDetailsPaneShow": {
+    "message": "Afficher le volet Détails"
+  },
+  "uiDetailsPaneShowHelp": {
+    "message": "Affiche ou masque le volet Détails dans la disposition normale du gestionnaire. Le bouton Afficher/Masquer les détails du gestionnaire met à jour le même réglage. Le mode barre latérale garde le volet Détails masqué."
+  },
+  "helpOptionUiDetailsPaneShowDescription": {
+    "message": ": affiche ou masque le volet Détails dans la disposition normale du gestionnaire. Le bouton Afficher/Masquer les détails du gestionnaire met à jour le même réglage. Le mode barre latérale garde le volet Détails masqué."
+  },
+  "shortcutLaunchSbm": {
+    "message": "Raccourci clavier pour lancer SBM"
+  },
+  "shortcutLaunchSbmHelp": {
+    "message": "Les raccourcis des extensions doivent être attribués dans les paramètres de Chromium. Utilisez la page des raccourcis clavier des extensions du navigateur pour le définir ou le mettre à jour.\nchrome://extensions/shortcuts"
+  },
+  "shortcutNotAssigned": {
+    "message": "Non attribué"
+  },
+  "openKeyboardShortcuts": {
+    "message": "Ouvrir les raccourcis clavier"
+  },
+  "shortcutOpenFailed": {
+    "message": "Impossible d’ouvrir la page des raccourcis clavier de Chromium. Copiez plutôt chrome://extensions/shortcuts dans la barre d’adresse."
+  },
+  "bookmarkTextTruncation": {
+    "message": "Troncature/raccourcissement des favoris"
+  },
+  "bookmarkTextTruncationHelp": {
+    "message": "Choisissez comment le texte qui déborde dans Bibliothèque et Contenu du dossier se comporte lorsque sa ligne est survolée ou cliquée. Les détails et les champs de l’éditeur ne sont pas affectés.\nRemarque : activer cette option peut avoir un léger impact sur les performances."
+  },
+  "bookmarkTextTruncationNone": {
+    "message": "Aucune troncature/raccourcissement (par défaut)"
+  },
+  "bookmarkTextTruncationAutoScroll": {
+    "message": "Défilement automatique"
+  },
+  "bookmarkTextTruncationTruncate": {
+    "message": "Tronquer"
+  },
+  "bookmarkAutoScrollSpeed": {
+    "message": "Vitesse du défilement automatique"
+  },
+  "bookmarkAutoScrollSpeedHelp": {
+    "message": "Définit la vitesse de déplacement horizontal du texte qui déborde, en pixels par seconde."
+  },
+  "bookmarkAutoScrollPause": {
+    "message": "Pause du défilement automatique"
+  },
+  "bookmarkAutoScrollPauseHelp": {
+    "message": "Définit la durée pendant laquelle le texte qui déborde marque une pause après avoir atteint son point le plus à gauche avant la brève réinitialisation vide, en secondes."
+  },
+  "bookmarkTruncateLength": {
+    "message": "Longueur du texte tronqué"
+  },
+  "bookmarkTruncateLengthHelp": {
+    "message": "0 = Auto, ce qui ajuste le texte raccourci avec points de suspension au milieu à la largeur visible disponible. Une valeur plus élevée limite le nombre maximal de caractères affichés avant l’ajustement à la largeur."
+  },
+  "shortcutCurrent": {
+    "message": "Raccourci actuel :"
+  },
+  "helpOptionKeyboardShortcutDescription": {
+    "message": ": affiche le raccourci de lancement actuel de l’extension. Attribuez ou mettez à jour le raccourci depuis la page des raccourcis clavier des extensions de Chromium : chrome://extensions/shortcuts."
+  },
+  "helpOptionBookmarkTextTruncationDescription": {
+    "message": ": choisissez comment le texte qui déborde dans Bibliothèque et Contenu du dossier se comporte lorsque sa ligne est survolée ou cliquée. Les détails et les champs de l’éditeur ne sont pas affectés. Activer cette option peut avoir un léger impact sur les performances."
+  },
+  "helpOptionBookmarkAutoScrollSpeedDescription": {
+    "message": ": lorsque Défilement automatique est sélectionné, contrôle la vitesse à laquelle le texte qui déborde se déplace vers la gauche."
+  },
+  "helpOptionBookmarkAutoScrollPauseDescription": {
+    "message": ": lorsque Défilement automatique est sélectionné, contrôle la durée pendant laquelle le texte marque une pause après avoir atteint son point le plus à gauche avant la brève réinitialisation vide."
+  },
+  "helpOptionBookmarkTruncateLengthDescription": {
+    "message": ": lorsque Tronquer est sélectionné, contrôle la longueur maximale du texte avec points de suspension au milieu. 0 = ajustement automatique à la largeur."
   }
 }

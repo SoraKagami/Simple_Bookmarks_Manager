@@ -1240,5 +1240,113 @@
   },
   "helpOptionFolderAutoExpandAfterWaitDescription": {
     "message": ": otomatik genişletme/açma işlemi gerçekleşmeden önce sürüklenen seçimin klasör üzerinde ne kadar süre kalması gerektiğini ayarlamak için kaydırıcıyı kullanın. Aralık: 0,1–3,0 saniye; varsayılan: 1,2 saniye."
+  },
+  "bookmarksSingleClickOpen": {
+    "message": "Yer imlerini tek tıklamayla açma"
+  },
+  "bookmarksSingleClickOpenHelp": {
+    "message": "Tek bir sol tıklamanın, SBM’nin mevcut çift tıklama davranışı yerine yer imlerini açıp açmayacağını seçin. Çoklu seçim için kullanılan değiştirici tıklamalar değiştirilmez."
+  },
+  "bookmarksSingleClickOpenDisabled": {
+    "message": "Devre dışı (yer imlerini açmak için çift tıklayın)"
+  },
+  "bookmarksSingleClickOpenAll": {
+    "message": "Tümü için etkin"
+  },
+  "bookmarksSingleClickOpenSidebar": {
+    "message": "Yalnızca Kenar Çubuğu Modu için etkin"
+  },
+  "bookmarksSingleClickOpenTab": {
+    "message": "Yalnızca Sekme Modu için etkin"
+  },
+  "helpOptionBookmarksSingleClickOpenDescription": {
+    "message": ": tek bir sol tıklamanın yer imlerini tüm SBM düzenlerinde, yalnızca Kenar Çubuğu Modunda, yalnızca Sekme Modunda açıp açmayacağını veya devre dışı kalacağını denetler. Devre dışı olduğunda SBM, mevcut çift tıklamayla yer imi açma davranışını korur. Ctrl/Shift değiştirici tıklamaları çoklu seçim için kullanılmaya devam eder."
+  },
+  "launchSearchFocused": {
+    "message": "SBM’yi Arama odaklı başlat"
+  },
+  "launchSearchFocusedHelp": {
+    "message": "Etkinleştirildiğinde SBM açılırken klavye odağını Yer imlerinde ara alanına yerleştirir, böylece hemen yazmaya başlayabilirsiniz."
+  },
+  "helpOptionLaunchSearchFocusedDescription": {
+    "message": ": etkinleştirildiğinde SBM, yönetici açıldığında klavye odağını Yer imlerinde ara alanına yerleştirerek hemen arama yazmaya başlamanızı sağlar."
+  },
+  "aboutChromeWebStoreLabel": {
+    "message": "Chrome Web Store:"
+  },
+  "uiDetailsPaneShow": {
+    "message": "Ayrıntılar bölmesini göster"
+  },
+  "uiDetailsPaneShowHelp": {
+    "message": "Normal yönetici düzeninde Ayrıntılar bölmesini gösterir veya gizler. Yöneticideki Ayrıntıları Göster/Gizle düğmesi aynı ayarı günceller. Kenar Çubuğu Modu Ayrıntılar bölmesini gizli tutar."
+  },
+  "helpOptionUiDetailsPaneShowDescription": {
+    "message": ": normal yönetici düzeninde Ayrıntılar bölmesini gösterir veya gizler. Yöneticideki Ayrıntıları Göster/Gizle düğmesi aynı ayarı günceller. Kenar Çubuğu Modu Ayrıntılar bölmesini gizli tutar."
+  },
+  "shortcutLaunchSbm": {
+    "message": "SBM’yi başlatmak için klavye kısayolu"
+  },
+  "shortcutLaunchSbmHelp": {
+    "message": "Uzantı kısayollarının Chromium ayarlarında atanması gerekir. Ayarlamak veya güncellemek için tarayıcının Uzantı Klavye Kısayolları sayfasını kullanın.\nchrome://extensions/shortcuts"
+  },
+  "shortcutNotAssigned": {
+    "message": "Atanmamış"
+  },
+  "openKeyboardShortcuts": {
+    "message": "Klavye kısayollarını aç"
+  },
+  "shortcutOpenFailed": {
+    "message": "Chromium’un Klavye Kısayolları sayfası açılamadı. Bunun yerine chrome://extensions/shortcuts adresini adres çubuğuna kopyalayın."
+  },
+  "bookmarkTextTruncation": {
+    "message": "Yer imi metnini kesme/kısaltma"
+  },
+  "bookmarkTextTruncationHelp": {
+    "message": "Kitaplık ve Klasör İçeriği içinde taşan metnin, satırının üzerine gelindiğinde veya satıra tıklandığında nasıl davranacağını seçin. Ayrıntılar ve düzenleyici alanları etkilenmez.\nNot: Bu seçeneği açmak performansı biraz etkileyebilir."
+  },
+  "bookmarkTextTruncationNone": {
+    "message": "Kesme/kısaltma yok (varsayılan)"
+  },
+  "bookmarkTextTruncationAutoScroll": {
+    "message": "Otomatik kaydır"
+  },
+  "bookmarkTextTruncationTruncate": {
+    "message": "Kes"
+  },
+  "bookmarkAutoScrollSpeed": {
+    "message": "Otomatik kaydırma hızı"
+  },
+  "bookmarkAutoScrollSpeedHelp": {
+    "message": "Taşan metnin yatay hareket hızını piksel/saniye cinsinden ayarlayın."
+  },
+  "bookmarkAutoScrollPause": {
+    "message": "Otomatik kaydırma duraklaması"
+  },
+  "bookmarkAutoScrollPauseHelp": {
+    "message": "Taşan metnin en sol noktaya ulaştıktan sonra kısa boş sıfırlamadan önce kaç saniye duraklayacağını ayarlayın."
+  },
+  "bookmarkTruncateLength": {
+    "message": "Kesilmiş metin uzunluğu"
+  },
+  "bookmarkTruncateLengthHelp": {
+    "message": "0 = Otomatik; ortasında üç nokta bulunan kısaltılmış metni kullanılabilir görünür genişliğe sığdırır. Daha yüksek bir değer, genişliğe sığdırma uygulanmadan önce gösterilecek en fazla karakter sayısını sınırlar."
+  },
+  "shortcutCurrent": {
+    "message": "Geçerli kısayol:"
+  },
+  "helpOptionKeyboardShortcutDescription": {
+    "message": ": geçerli uzantı başlatma kısayolunu gösterir. Kısayolu Chromium’un Uzantı Klavye Kısayolları sayfasından atayın veya güncelleyin: chrome://extensions/shortcuts."
+  },
+  "helpOptionBookmarkTextTruncationDescription": {
+    "message": ": Kitaplık ve Klasör İçeriği içinde taşan metnin, satırının üzerine gelindiğinde veya satıra tıklandığında nasıl davranacağını seçin. Ayrıntılar ve düzenleyici alanları etkilenmez. Bu seçeneği açmak performansı biraz etkileyebilir."
+  },
+  "helpOptionBookmarkAutoScrollSpeedDescription": {
+    "message": ": Otomatik kaydır seçildiğinde, taşan metnin sola doğru ne kadar hızlı hareket edeceğini denetler."
+  },
+  "helpOptionBookmarkAutoScrollPauseDescription": {
+    "message": ": Otomatik kaydır seçildiğinde, metnin en sol noktaya ulaştıktan sonra kısa boş sıfırlamadan önce ne kadar duraklayacağını denetler."
+  },
+  "helpOptionBookmarkTruncateLengthDescription": {
+    "message": ": Kes seçildiğinde, ortasında üç nokta bulunan metnin en büyük uzunluğunu denetler. 0 = otomatik genişliğe sığdırma."
   }
 }

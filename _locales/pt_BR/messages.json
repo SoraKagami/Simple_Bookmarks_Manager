@@ -1240,5 +1240,113 @@
   },
   "helpOptionFolderAutoExpandAfterWaitDescription": {
     "message": ": use o controle deslizante para definir por quanto tempo uma seleção arrastada deve permanecer sobre uma pasta antes da expansão/abertura automática. Intervalo: 0,1–3,0 segundos; padrão: 1,2 segundos."
+  },
+  "bookmarksSingleClickOpen": {
+    "message": "Abertura de favoritos com um clique"
+  },
+  "bookmarksSingleClickOpenHelp": {
+    "message": "Escolha se um único clique esquerdo abre favoritos em vez do comportamento atual de duplo clique do SBM. Cliques com modificadores usados para seleção múltipla não são alterados."
+  },
+  "bookmarksSingleClickOpenDisabled": {
+    "message": "Desativado (duplo clique para abrir favoritos)"
+  },
+  "bookmarksSingleClickOpenAll": {
+    "message": "Ativado para todos"
+  },
+  "bookmarksSingleClickOpenSidebar": {
+    "message": "Ativado somente para o modo de barra lateral"
+  },
+  "bookmarksSingleClickOpenTab": {
+    "message": "Ativado somente para o modo de aba"
+  },
+  "helpOptionBookmarksSingleClickOpenDescription": {
+    "message": ": controla se um único clique esquerdo abre favoritos em todos os layouts do SBM, somente no modo de barra lateral, somente no modo de aba, ou permanece desativado. Quando desativado, o SBM mantém o comportamento atual de abrir favoritos com duplo clique. Cliques com Ctrl/Shift continuam disponíveis para seleção múltipla."
+  },
+  "launchSearchFocused": {
+    "message": "Iniciar o SBM com foco na pesquisa"
+  },
+  "launchSearchFocusedHelp": {
+    "message": "Quando ativado, o SBM coloca o foco do teclado no campo Pesquisar favoritos ao abrir, para que você possa começar a digitar imediatamente."
+  },
+  "helpOptionLaunchSearchFocusedDescription": {
+    "message": ": quando ativado, o SBM coloca o foco do teclado no campo Pesquisar favoritos quando o gerenciador abre, permitindo iniciar uma pesquisa imediatamente."
+  },
+  "aboutChromeWebStoreLabel": {
+    "message": "Chrome Web Store:"
+  },
+  "uiDetailsPaneShow": {
+    "message": "Mostrar painel de Detalhes"
+  },
+  "uiDetailsPaneShowHelp": {
+    "message": "Mostra ou oculta o painel de Detalhes no layout normal do gerenciador. O botão Mostrar/Ocultar detalhes do gerenciador atualiza a mesma configuração. O modo de barra lateral mantém o painel de Detalhes oculto."
+  },
+  "helpOptionUiDetailsPaneShowDescription": {
+    "message": ": mostra ou oculta o painel de Detalhes no layout normal do gerenciador. O botão Mostrar/Ocultar detalhes do gerenciador atualiza a mesma configuração. O modo de barra lateral mantém o painel de Detalhes oculto."
+  },
+  "shortcutLaunchSbm": {
+    "message": "Atalho de teclado para iniciar o SBM"
+  },
+  "shortcutLaunchSbmHelp": {
+    "message": "Os atalhos das extensões precisam ser atribuídos nas configurações do Chromium. Use a página Atalhos de teclado de extensões do navegador para definir ou atualizar o atalho.\nchrome://extensions/shortcuts"
+  },
+  "shortcutNotAssigned": {
+    "message": "Não atribuído"
+  },
+  "openKeyboardShortcuts": {
+    "message": "Abrir atalhos de teclado"
+  },
+  "shortcutOpenFailed": {
+    "message": "Não foi possível abrir a página de atalhos de teclado do Chromium. Em vez disso, copie chrome://extensions/shortcuts para a barra de endereços."
+  },
+  "bookmarkTextTruncation": {
+    "message": "Truncamento/encurtamento de favoritos"
+  },
+  "bookmarkTextTruncationHelp": {
+    "message": "Escolha como o texto excedente na Biblioteca e no Conteúdo da pasta se comporta quando a linha é apontada ou clicada. Detalhes e campos do editor não são afetados.\nObservação: ativar esta opção pode afetar levemente o desempenho."
+  },
+  "bookmarkTextTruncationNone": {
+    "message": "Sem truncamento/encurtamento (padrão)"
+  },
+  "bookmarkTextTruncationAutoScroll": {
+    "message": "Rolagem automática"
+  },
+  "bookmarkTextTruncationTruncate": {
+    "message": "Truncar"
+  },
+  "bookmarkAutoScrollSpeed": {
+    "message": "Velocidade da rolagem automática"
+  },
+  "bookmarkAutoScrollSpeedHelp": {
+    "message": "Define a velocidade de movimento horizontal do texto excedente, em pixels por segundo."
+  },
+  "bookmarkAutoScrollPause": {
+    "message": "Pausa da rolagem automática"
+  },
+  "bookmarkAutoScrollPauseHelp": {
+    "message": "Define por quanto tempo o texto excedente pausa após alcançar o ponto mais à esquerda antes do breve reset em branco, em segundos."
+  },
+  "bookmarkTruncateLength": {
+    "message": "Comprimento do texto truncado"
+  },
+  "bookmarkTruncateLengthHelp": {
+    "message": "0 = Automático, que ajusta o texto encurtado com reticências no meio à largura visível disponível. Um valor maior limita a contagem máxima de caracteres exibidos antes da adaptação à largura."
+  },
+  "shortcutCurrent": {
+    "message": "Atalho atual:"
+  },
+  "helpOptionKeyboardShortcutDescription": {
+    "message": ": mostra o atalho atual de inicialização da extensão. Atribua ou atualize o atalho na página Atalhos de teclado de extensões do Chromium: chrome://extensions/shortcuts."
+  },
+  "helpOptionBookmarkTextTruncationDescription": {
+    "message": ": escolha como o texto excedente na Biblioteca e no Conteúdo da pasta se comporta quando a linha é apontada ou clicada. Detalhes e campos do editor não são afetados. Ativar esta opção pode afetar levemente o desempenho."
+  },
+  "helpOptionBookmarkAutoScrollSpeedDescription": {
+    "message": ": quando Rolagem automática está selecionada, controla a rapidez com que o texto excedente se move para a esquerda."
+  },
+  "helpOptionBookmarkAutoScrollPauseDescription": {
+    "message": ": quando Rolagem automática está selecionada, controla por quanto tempo o texto pausa após alcançar o ponto mais à esquerda antes do breve reset em branco."
+  },
+  "helpOptionBookmarkTruncateLengthDescription": {
+    "message": ": quando Truncar está selecionado, controla o comprimento máximo do texto com reticências no meio. 0 = ajuste automático à largura."
   }
 }

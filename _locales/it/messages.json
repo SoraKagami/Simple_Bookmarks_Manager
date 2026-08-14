@@ -1240,5 +1240,113 @@
   },
   "helpOptionFolderAutoExpandAfterWaitDescription": {
     "message": ": usa il cursore per impostare per quanto tempo una selezione trascinata deve rimanere sopra una cartella prima dell'espansione/apertura automatica. Intervallo: 0,1–3,0 secondi; predefinito: 1,2 secondi."
+  },
+  "bookmarksSingleClickOpen": {
+    "message": "Apertura dei segnalibri con un solo clic"
+  },
+  "bookmarksSingleClickOpenHelp": {
+    "message": "Scegli se un singolo clic sinistro apre i segnalibri invece del comportamento esistente di SBM con doppio clic. I clic con modificatori usati per la selezione multipla non vengono modificati."
+  },
+  "bookmarksSingleClickOpenDisabled": {
+    "message": "Disattivato (doppio clic per aprire i segnalibri)"
+  },
+  "bookmarksSingleClickOpenAll": {
+    "message": "Attivato per tutti"
+  },
+  "bookmarksSingleClickOpenSidebar": {
+    "message": "Attivato solo per la modalità barra laterale"
+  },
+  "bookmarksSingleClickOpenTab": {
+    "message": "Attivato solo per la modalità scheda"
+  },
+  "helpOptionBookmarksSingleClickOpenDescription": {
+    "message": ": controlla se un singolo clic sinistro apre i segnalibri in tutti i layout di SBM, solo in modalità barra laterale, solo in modalità scheda, oppure resta disattivato. Quando è disattivato, SBM mantiene il comportamento esistente di apertura dei segnalibri con doppio clic. I clic con Ctrl/Maiusc restano disponibili per la selezione multipla."
+  },
+  "launchSearchFocused": {
+    "message": "Avvia SBM con il focus su Cerca"
+  },
+  "launchSearchFocusedHelp": {
+    "message": "Quando è attivato, SBM porta il focus della tastiera nel campo Cerca segnalibri all’apertura, così puoi iniziare subito a digitare."
+  },
+  "helpOptionLaunchSearchFocusedDescription": {
+    "message": ": quando è attivato, SBM porta il focus della tastiera nel campo Cerca segnalibri all’apertura del gestore, permettendo di iniziare subito una ricerca."
+  },
+  "aboutChromeWebStoreLabel": {
+    "message": "Chrome Web Store:"
+  },
+  "uiDetailsPaneShow": {
+    "message": "Mostra riquadro Dettagli"
+  },
+  "uiDetailsPaneShowHelp": {
+    "message": "Mostra o nasconde il riquadro Dettagli nel layout normale del gestore. Il pulsante Mostra/Nascondi Dettagli nel gestore aggiorna la stessa impostazione. La modalità barra laterale mantiene nascosto il riquadro Dettagli."
+  },
+  "helpOptionUiDetailsPaneShowDescription": {
+    "message": ": mostra o nasconde il riquadro Dettagli nel layout normale del gestore. Il pulsante Mostra/Nascondi Dettagli nel gestore aggiorna la stessa impostazione. La modalità barra laterale mantiene nascosto il riquadro Dettagli."
+  },
+  "shortcutLaunchSbm": {
+    "message": "Scorciatoia da tastiera per avviare SBM"
+  },
+  "shortcutLaunchSbmHelp": {
+    "message": "Le scorciatoie delle estensioni devono essere assegnate nelle impostazioni di Chromium. Usa la pagina delle scorciatoie da tastiera delle estensioni del browser per impostarla o aggiornarla.\nchrome://extensions/shortcuts"
+  },
+  "shortcutNotAssigned": {
+    "message": "Non assegnata"
+  },
+  "openKeyboardShortcuts": {
+    "message": "Apri scorciatoie da tastiera"
+  },
+  "shortcutOpenFailed": {
+    "message": "Impossibile aprire la pagina delle scorciatoie da tastiera di Chromium. Copia invece chrome://extensions/shortcuts nella barra degli indirizzi."
+  },
+  "bookmarkTextTruncation": {
+    "message": "Troncamento/abbreviazione dei segnalibri"
+  },
+  "bookmarkTextTruncationHelp": {
+    "message": "Scegli come si comporta il testo che trabocca in Libreria e Contenuto cartella quando la sua riga viene passata con il mouse o cliccata. I dettagli e i campi dell’editor non sono interessati.\nNota: l’attivazione di questa opzione può avere un leggero impatto sulle prestazioni."
+  },
+  "bookmarkTextTruncationNone": {
+    "message": "Nessun troncamento/abbreviazione (predefinito)"
+  },
+  "bookmarkTextTruncationAutoScroll": {
+    "message": "Scorrimento automatico"
+  },
+  "bookmarkTextTruncationTruncate": {
+    "message": "Tronca"
+  },
+  "bookmarkAutoScrollSpeed": {
+    "message": "Velocità scorrimento automatico"
+  },
+  "bookmarkAutoScrollSpeedHelp": {
+    "message": "Imposta la velocità di movimento orizzontale del testo che trabocca, in pixel al secondo."
+  },
+  "bookmarkAutoScrollPause": {
+    "message": "Pausa scorrimento automatico"
+  },
+  "bookmarkAutoScrollPauseHelp": {
+    "message": "Imposta per quanto tempo il testo che trabocca resta in pausa dopo aver raggiunto il punto più a sinistra prima del breve ripristino vuoto, in secondi."
+  },
+  "bookmarkTruncateLength": {
+    "message": "Lunghezza del testo troncato"
+  },
+  "bookmarkTruncateLengthHelp": {
+    "message": "0 = Auto, che adatta il testo abbreviato con ellissi centrale alla larghezza visibile disponibile. Un valore più alto limita il numero massimo di caratteri visualizzati prima dell’adattamento alla larghezza."
+  },
+  "shortcutCurrent": {
+    "message": "Scorciatoia attuale:"
+  },
+  "helpOptionKeyboardShortcutDescription": {
+    "message": ": mostra la scorciatoia attuale di avvio dell’estensione. Assegna o aggiorna la scorciatoia dalla pagina delle scorciatoie da tastiera delle estensioni di Chromium: chrome://extensions/shortcuts."
+  },
+  "helpOptionBookmarkTextTruncationDescription": {
+    "message": ": scegli come si comporta il testo che trabocca in Libreria e Contenuto cartella quando la sua riga viene passata con il mouse o cliccata. I dettagli e i campi dell’editor non sono interessati. L’attivazione di questa opzione può avere un leggero impatto sulle prestazioni."
+  },
+  "helpOptionBookmarkAutoScrollSpeedDescription": {
+    "message": ": quando è selezionato Scorrimento automatico, controlla la velocità con cui il testo che trabocca si muove verso sinistra."
+  },
+  "helpOptionBookmarkAutoScrollPauseDescription": {
+    "message": ": quando è selezionato Scorrimento automatico, controlla per quanto tempo il testo resta in pausa dopo aver raggiunto il punto più a sinistra prima del breve ripristino vuoto."
+  },
+  "helpOptionBookmarkTruncateLengthDescription": {
+    "message": ": quando è selezionato Tronca, controlla la lunghezza massima del testo con ellissi centrale. 0 = adattamento automatico alla larghezza."
   }
 }

@@ -1240,5 +1240,113 @@
   },
   "helpOptionFolderAutoExpandAfterWaitDescription": {
     "message": ": Mit dem Schieberegler legen Sie fest, wie lange eine gezogene Auswahl über einem Ordner bleiben muss, bevor das automatische Erweitern/Öffnen erfolgt. Bereich: 0,1–3,0 Sekunden; Standard: 1,2 Sekunden."
+  },
+  "bookmarksSingleClickOpen": {
+    "message": "Lesezeichen mit Einzelklick öffnen"
+  },
+  "bookmarksSingleClickOpenHelp": {
+    "message": "Wähle, ob ein einzelner Linksklick Lesezeichen anstelle des bisherigen Doppelklick-Verhaltens von SBM öffnet. Modifikatorklicks für die Mehrfachauswahl werden nicht geändert."
+  },
+  "bookmarksSingleClickOpenDisabled": {
+    "message": "Deaktiviert (Doppelklick zum Öffnen von Lesezeichen)"
+  },
+  "bookmarksSingleClickOpenAll": {
+    "message": "Für alle aktiviert"
+  },
+  "bookmarksSingleClickOpenSidebar": {
+    "message": "Nur für den Seitenleistenmodus aktiviert"
+  },
+  "bookmarksSingleClickOpenTab": {
+    "message": "Nur für den Tab-Modus aktiviert"
+  },
+  "helpOptionBookmarksSingleClickOpenDescription": {
+    "message": ": steuert, ob ein einzelner Linksklick Lesezeichen in allen SBM-Layouts, nur im Seitenleistenmodus, nur im Tab-Modus öffnet oder deaktiviert bleibt. Wenn deaktiviert, behält SBM das bisherige Doppelklick-Verhalten zum Öffnen von Lesezeichen bei. Strg-/Umschalt-Klicks bleiben für die Mehrfachauswahl verfügbar."
+  },
+  "launchSearchFocused": {
+    "message": "SBM mit Fokus in der Suche starten"
+  },
+  "launchSearchFocusedHelp": {
+    "message": "Wenn aktiviert, setzt SBM beim Öffnen den Tastaturfokus in das Feld „Lesezeichen suchen“, sodass du sofort mit der Eingabe beginnen kannst."
+  },
+  "helpOptionLaunchSearchFocusedDescription": {
+    "message": ": wenn aktiviert, setzt SBM beim Öffnen des Managers den Tastaturfokus in das Feld „Lesezeichen suchen“, sodass du sofort mit einer Suche beginnen kannst."
+  },
+  "aboutChromeWebStoreLabel": {
+    "message": "Chrome Web Store:"
+  },
+  "uiDetailsPaneShow": {
+    "message": "Detailbereich anzeigen"
+  },
+  "uiDetailsPaneShowHelp": {
+    "message": "Zeigt oder verbirgt den Detailbereich im normalen Manager-Layout. Die Schaltfläche „Details anzeigen/ausblenden“ im Manager aktualisiert dieselbe Einstellung. Im Seitenleistenmodus bleibt der Detailbereich verborgen."
+  },
+  "helpOptionUiDetailsPaneShowDescription": {
+    "message": ": zeigt oder verbirgt den Detailbereich im normalen Manager-Layout. Die Schaltfläche „Details anzeigen/ausblenden“ im Manager aktualisiert dieselbe Einstellung. Im Seitenleistenmodus bleibt der Detailbereich verborgen."
+  },
+  "shortcutLaunchSbm": {
+    "message": "Tastenkürzel zum Starten von SBM"
+  },
+  "shortcutLaunchSbmHelp": {
+    "message": "Erweiterungstastenkürzel müssen in den Chromium-Einstellungen zugewiesen werden. Bitte verwende die Seite „Tastenkürzel für Erweiterungen“ des Browsers, um es festzulegen oder zu ändern.\nchrome://extensions/shortcuts"
+  },
+  "shortcutNotAssigned": {
+    "message": "Nicht zugewiesen"
+  },
+  "openKeyboardShortcuts": {
+    "message": "Tastenkürzel öffnen"
+  },
+  "shortcutOpenFailed": {
+    "message": "Die Chromium-Seite für Tastenkürzel konnte nicht geöffnet werden. Kopiere stattdessen chrome://extensions/shortcuts in die Adressleiste."
+  },
+  "bookmarkTextTruncation": {
+    "message": "Lesezeichen-Text kürzen/verkürzen"
+  },
+  "bookmarkTextTruncationHelp": {
+    "message": "Wähle, wie überlaufender Text in Bibliothek und Ordnerinhalt reagiert, wenn die Zeile mit der Maus überfahren oder angeklickt wird. Details und Editorfelder sind nicht betroffen.\nHinweis: Das Aktivieren dieser Option kann die Leistung leicht beeinträchtigen."
+  },
+  "bookmarkTextTruncationNone": {
+    "message": "Keine Kürzung/Verkürzung (Standard)"
+  },
+  "bookmarkTextTruncationAutoScroll": {
+    "message": "Automatisch scrollen"
+  },
+  "bookmarkTextTruncationTruncate": {
+    "message": "Kürzen"
+  },
+  "bookmarkAutoScrollSpeed": {
+    "message": "Auto-Scroll-Geschwindigkeit"
+  },
+  "bookmarkAutoScrollSpeedHelp": {
+    "message": "Legt die horizontale Bewegungsgeschwindigkeit für überlaufenden Text in Pixeln pro Sekunde fest."
+  },
+  "bookmarkAutoScrollPause": {
+    "message": "Auto-Scroll-Pause"
+  },
+  "bookmarkAutoScrollPauseHelp": {
+    "message": "Legt fest, wie lange überlaufender Text nach Erreichen des linken Endpunkts pausiert, bevor die kurze leere Rücksetzung erfolgt, in Sekunden."
+  },
+  "bookmarkTruncateLength": {
+    "message": "Länge des gekürzten Textes"
+  },
+  "bookmarkTruncateLengthHelp": {
+    "message": "0 = Auto, wodurch der gekürzte Mittel-Ellipsen-Text an die verfügbare sichtbare Breite angepasst wird. Ein höherer Wert begrenzt die maximal angezeigte Zeichenanzahl, bevor die Breitenanpassung angewendet wird."
+  },
+  "shortcutCurrent": {
+    "message": "Aktuelles Tastenkürzel:"
+  },
+  "helpOptionKeyboardShortcutDescription": {
+    "message": ": zeigt das aktuelle Start-Tastenkürzel der Erweiterung. Weise das Tastenkürzel über die Chromium-Seite „Tastenkürzel für Erweiterungen“ zu oder ändere es: chrome://extensions/shortcuts."
+  },
+  "helpOptionBookmarkTextTruncationDescription": {
+    "message": ": wähle, wie überlaufender Text in Bibliothek und Ordnerinhalt reagiert, wenn die Zeile mit der Maus überfahren oder angeklickt wird. Details und Editorfelder sind nicht betroffen. Das Aktivieren dieser Option kann die Leistung leicht beeinträchtigen."
+  },
+  "helpOptionBookmarkAutoScrollSpeedDescription": {
+    "message": ": wenn „Automatisch scrollen“ ausgewählt ist, steuert dies, wie schnell überlaufender Text nach links läuft."
+  },
+  "helpOptionBookmarkAutoScrollPauseDescription": {
+    "message": ": wenn „Automatisch scrollen“ ausgewählt ist, steuert dies, wie lange Text nach Erreichen des linken Endpunkts pausiert, bevor die kurze leere Rücksetzung erfolgt."
+  },
+  "helpOptionBookmarkTruncateLengthDescription": {
+    "message": ": wenn „Kürzen“ ausgewählt ist, steuert dies die maximale Textlänge mit mittlerer Ellipse. 0 = automatische Breitenanpassung."
   }
 }

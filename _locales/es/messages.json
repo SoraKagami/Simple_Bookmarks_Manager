@@ -1240,5 +1240,113 @@
   },
   "helpOptionFolderAutoExpandAfterWaitDescription": {
     "message": ": usa el control deslizante para definir cuánto tiempo debe permanecer una selección arrastrada sobre una carpeta antes de que se produzca la expansión/apertura automática. Intervalo: 0,1–3,0 segundos; predeterminado: 1,2 segundos."
+  },
+  "bookmarksSingleClickOpen": {
+    "message": "Apertura de marcadores con un solo clic"
+  },
+  "bookmarksSingleClickOpenHelp": {
+    "message": "Elige si un solo clic izquierdo abre marcadores en lugar del comportamiento actual de doble clic de SBM. Los clics con modificadores usados para selección múltiple no cambian."
+  },
+  "bookmarksSingleClickOpenDisabled": {
+    "message": "Desactivado (doble clic para abrir marcadores)"
+  },
+  "bookmarksSingleClickOpenAll": {
+    "message": "Activado para todos"
+  },
+  "bookmarksSingleClickOpenSidebar": {
+    "message": "Activado solo para el modo de barra lateral"
+  },
+  "bookmarksSingleClickOpenTab": {
+    "message": "Activado solo para el modo de pestaña"
+  },
+  "helpOptionBookmarksSingleClickOpenDescription": {
+    "message": ": controla si un solo clic izquierdo abre marcadores en todos los diseños de SBM, solo en el modo de barra lateral, solo en el modo de pestaña, o permanece desactivado. Cuando está desactivado, SBM conserva su comportamiento actual de abrir marcadores con doble clic. Los clics con Ctrl/Mayús siguen disponibles para selección múltiple."
+  },
+  "launchSearchFocused": {
+    "message": "Iniciar SBM con el foco en Buscar"
+  },
+  "launchSearchFocusedHelp": {
+    "message": "Cuando está activado, SBM coloca el foco del teclado en el campo Buscar marcadores al abrirse, para que puedas empezar a escribir inmediatamente."
+  },
+  "helpOptionLaunchSearchFocusedDescription": {
+    "message": ": cuando está activado, SBM coloca el foco del teclado en el campo Buscar marcadores al abrir el administrador, lo que permite empezar a escribir una búsqueda inmediatamente."
+  },
+  "aboutChromeWebStoreLabel": {
+    "message": "Chrome Web Store:"
+  },
+  "uiDetailsPaneShow": {
+    "message": "Mostrar panel de detalles"
+  },
+  "uiDetailsPaneShowHelp": {
+    "message": "Muestra u oculta el panel de detalles en el diseño normal del administrador. El botón Mostrar/Ocultar detalles del administrador actualiza la misma opción. El modo de barra lateral mantiene oculto el panel de detalles."
+  },
+  "helpOptionUiDetailsPaneShowDescription": {
+    "message": ": muestra u oculta el panel de detalles en el diseño normal del administrador. El botón Mostrar/Ocultar detalles del administrador actualiza la misma opción. El modo de barra lateral mantiene oculto el panel de detalles."
+  },
+  "shortcutLaunchSbm": {
+    "message": "Atajo de teclado para iniciar SBM"
+  },
+  "shortcutLaunchSbmHelp": {
+    "message": "Los atajos de las extensiones deben asignarse en la configuración de Chromium. Usa la página de atajos de teclado de extensiones del navegador para configurarlo o actualizarlo.\nchrome://extensions/shortcuts"
+  },
+  "shortcutNotAssigned": {
+    "message": "No asignado"
+  },
+  "openKeyboardShortcuts": {
+    "message": "Abrir atajos de teclado"
+  },
+  "shortcutOpenFailed": {
+    "message": "No se pudo abrir la página de atajos de teclado de Chromium. Copia chrome://extensions/shortcuts en la barra de direcciones."
+  },
+  "bookmarkTextTruncation": {
+    "message": "Truncamiento/acortamiento de marcadores"
+  },
+  "bookmarkTextTruncationHelp": {
+    "message": "Elige cómo se comporta el texto desbordado en Biblioteca y Contenido de carpeta cuando se pasa el cursor sobre su fila o se hace clic en ella. Los detalles y los campos del editor no se ven afectados.\nNota: Activar esta opción puede afectar ligeramente al rendimiento."
+  },
+  "bookmarkTextTruncationNone": {
+    "message": "Sin truncamiento/acortamiento (predeterminado)"
+  },
+  "bookmarkTextTruncationAutoScroll": {
+    "message": "Desplazamiento automático"
+  },
+  "bookmarkTextTruncationTruncate": {
+    "message": "Truncar"
+  },
+  "bookmarkAutoScrollSpeed": {
+    "message": "Velocidad de desplazamiento automático"
+  },
+  "bookmarkAutoScrollSpeedHelp": {
+    "message": "Define la velocidad de movimiento horizontal del texto desbordado, en píxeles por segundo."
+  },
+  "bookmarkAutoScrollPause": {
+    "message": "Pausa del desplazamiento automático"
+  },
+  "bookmarkAutoScrollPauseHelp": {
+    "message": "Define cuánto tiempo se detiene el texto desbordado después de llegar a su punto más a la izquierda antes del breve reinicio en blanco, en segundos."
+  },
+  "bookmarkTruncateLength": {
+    "message": "Longitud del texto truncado"
+  },
+  "bookmarkTruncateLengthHelp": {
+    "message": "0 = automático, lo que ajusta el texto acortado con puntos suspensivos centrales al ancho visible disponible. Un valor mayor limita el número máximo de caracteres mostrados antes de aplicar el ajuste de ancho."
+  },
+  "shortcutCurrent": {
+    "message": "Atajo actual:"
+  },
+  "helpOptionKeyboardShortcutDescription": {
+    "message": ": muestra el atajo actual para iniciar la extensión. Asigna o actualiza el atajo desde la página de atajos de teclado de extensiones de Chromium: chrome://extensions/shortcuts."
+  },
+  "helpOptionBookmarkTextTruncationDescription": {
+    "message": ": elige cómo se comporta el texto desbordado en Biblioteca y Contenido de carpeta cuando se pasa el cursor sobre su fila o se hace clic en ella. Los detalles y los campos del editor no se ven afectados. Activar esta opción puede afectar ligeramente al rendimiento."
+  },
+  "helpOptionBookmarkAutoScrollSpeedDescription": {
+    "message": ": cuando se selecciona Desplazamiento automático, controla la rapidez con la que el texto desbordado se mueve hacia la izquierda."
+  },
+  "helpOptionBookmarkAutoScrollPauseDescription": {
+    "message": ": cuando se selecciona Desplazamiento automático, controla cuánto tiempo se detiene el texto después de llegar a su punto más a la izquierda antes del breve reinicio en blanco."
+  },
+  "helpOptionBookmarkTruncateLengthDescription": {
+    "message": ": cuando se selecciona Truncar, controla la longitud máxima del texto con puntos suspensivos centrales. 0 = ajuste automático al ancho."
   }
 }
