@@ -596,6 +596,15 @@
   "helpOptionDomRenderingDescription": {
     "message": ": giảm một số thay đổi DOM trong các đường dẫn kết xuất."
   },
+  "helpOptionSearchInputDebounceDescription": {
+    "message": ": chờ một chút sau các lần gõ tìm kiếm trước khi làm mới kết quả, giảm việc kết xuất tìm kiếm lặp lại khi nhập trong chế độ bình thường và Sidebar."
+  },
+  "helpOptionSearchInputDebounceWaitDescription": {
+    "message": ": kiểm soát thời gian SBM chờ sau lần gõ tìm kiếm mới nhất trước khi làm mới kết quả."
+  },
+  "helpOptionAutoScrollAnimDescription": {
+    "message": ": dùng hoạt ảnh keyframe CSS cho văn bản Tự động cuộn bị tràn khi được trỏ chuột, giảm công việc JavaScript theo từng khung hình. Tắt tùy chọn này nếu bạn đang so sánh hiệu năng hoặc khắc phục sự cố hành vi Tự động cuộn."
+  },
   "helpOptionTempTreeMapsDescription": {
     "message": ": tạo bản đồ tra cứu ngắn hạn trong một số thao tác cây, rồi loại bỏ chúng."
   },
@@ -841,6 +850,24 @@
   },
   "optimisationDOMrenderingHelp": {
     "message": "Thử nghiệm. Giảm thay đổi DOM cho kết xuất vùng chọn, chỉ báo kéo/thả và xử lý biểu tượng hàng. Chỉ tắt khi so sánh hiệu năng hoặc khắc phục sự cố hành vi giao diện."
+  },
+  "optimisationSearchInputDebounce": {
+    "message": "Trì hoãn nhập tìm kiếm"
+  },
+  "optimisationSearchInputDebounceHelp": {
+    "message": "Trì hoãn việc kết xuất tìm kiếm trong thời gian ngắn khi bạn đang nhập để SBM tránh dựng lại kết quả cho từng lần gõ phím. Tắt để cập nhật tìm kiếm ngay lập tức trên các hệ thống rất nhanh."
+  },
+  "optimisationSearchInputDebounceWait": {
+    "message": "Thời gian chờ trì hoãn nhập tìm kiếm"
+  },
+  "optimisationSearchInputDebounceWaitHelp": {
+    "message": "Thời gian SBM chờ sau lần gõ tìm kiếm mới nhất trước khi làm mới kết quả tìm kiếm."
+  },
+  "optimisationAutoScrollAnim": {
+    "message": "Tối ưu hóa hoạt ảnh Tự động cuộn"
+  },
+  "optimisationAutoScrollAnimHelp": {
+    "message": "Dùng hoạt ảnh keyframe CSS cho văn bản Tự động cuộn khi được trỏ chuột, để JavaScript không phải cập nhật vị trí văn bản ở từng khung hình. Tắt khi so sánh hành vi hoặc khắc phục sự cố Tự động cuộn."
   },
   "optimisationTempBookmarkTreeMaps": {
     "message": "Tối ưu hóa: bản đồ cây dấu trang tạm thời"

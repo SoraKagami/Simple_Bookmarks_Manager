@@ -596,6 +596,15 @@
   "helpOptionDomRenderingDescription": {
     "message": ": 선택된 렌더링 경로에서 DOM 변경을 줄입니다."
   },
+  "helpOptionSearchInputDebounceDescription": {
+    "message": ": 검색 키 입력 후 결과를 새로 고치기 전에 잠시 기다려, 일반 모드와 사이드바 모드에서 입력 중 반복되는 검색 렌더링을 줄입니다."
+  },
+  "helpOptionSearchInputDebounceWaitDescription": {
+    "message": ": 마지막 검색 키 입력 후 SBM이 결과를 새로 고치기까지 기다리는 시간을 조절합니다."
+  },
+  "helpOptionAutoScrollAnimDescription": {
+    "message": ": 마우스를 올린 넘치는 자동 스크롤 텍스트에 CSS 키프레임 애니메이션을 사용하여 프레임마다 수행되는 JavaScript 작업을 줄입니다. 성능을 비교하거나 자동 스크롤 동작을 문제 해결할 때는 끄세요."
+  },
   "helpOptionTempTreeMapsDescription": {
     "message": ": 일부 트리 작업 중 짧게 쓰는 조회 맵을 만들고 이후 폐기합니다."
   },
@@ -841,6 +850,24 @@
   },
   "optimisationDOMrenderingHelp": {
     "message": "실험적 기능입니다. 선택 렌더링, 드래그/드롭 표시기, 행 아이콘 처리에서 DOM 변경을 줄입니다. 성능 비교나 UI 동작 문제 해결 시에만 끄세요."
+  },
+  "optimisationSearchInputDebounce": {
+    "message": "검색 입력 디바운스"
+  },
+  "optimisationSearchInputDebounceHelp": {
+    "message": "입력 중 검색 렌더링을 잠시 지연하여 SBM이 모든 키 입력마다 결과를 다시 만들지 않도록 합니다. 매우 빠른 시스템에서 즉시 검색 업데이트를 원하면 비활성화하세요."
+  },
+  "optimisationSearchInputDebounceWait": {
+    "message": "검색 입력 디바운스 대기 시간"
+  },
+  "optimisationSearchInputDebounceWaitHelp": {
+    "message": "마지막 검색 키 입력 후 SBM이 검색 결과를 새로 고치기까지 기다리는 시간입니다."
+  },
+  "optimisationAutoScrollAnim": {
+    "message": "자동 스크롤 애니메이션 최적화"
+  },
+  "optimisationAutoScrollAnimHelp": {
+    "message": "마우스를 올린 자동 스크롤 텍스트에 CSS 키프레임 애니메이션을 사용하여 JavaScript가 매 프레임 텍스트 위치를 업데이트하지 않도록 합니다. 동작을 비교하거나 자동 스크롤을 문제 해결할 때 비활성화하세요."
   },
   "optimisationTempBookmarkTreeMaps": {
     "message": "최적화: 임시 북마크 트리 맵"

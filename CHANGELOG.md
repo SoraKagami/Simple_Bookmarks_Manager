@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.10.9
+
+- Added translations for the Search input debounce and Auto Scroll animation optimisation strings in he, id, ja, ko, vi, zh_CN, and zh_TW.
+- Synced the requested locale key coverage with the base English locale, keeping Simplified Chinese and Traditional Chinese wording separate.
+
 ## 0.10.8
 
 - Added locale translations for the Search input debounce and Auto Scroll animation optimisation strings in en_US, de, es, fr, it, nl, pl, pt_BR, ru, tr, uk, and mi.

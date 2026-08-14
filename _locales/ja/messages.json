@@ -596,6 +596,15 @@
   "helpOptionDomRenderingDescription": {
     "message": "：一部の描画処理で DOM の変更量を減らします。"
   },
+  "helpOptionSearchInputDebounceDescription": {
+    "message": "：検索のキー入力後、結果を更新する前に短く待機し、通常モードとサイドバーモードで入力中に検索結果の再描画が繰り返されるのを減らします。"
+  },
+  "helpOptionSearchInputDebounceWaitDescription": {
+    "message": "：最後の検索キー入力後、SBM が結果を更新するまで待機する時間を制御します。"
+  },
+  "helpOptionAutoScrollAnimDescription": {
+    "message": "：ホバー中のはみ出した自動スクロールテキストに CSS キーフレームアニメーションを使用し、フレームごとの JavaScript 処理を減らします。性能比較や自動スクロール動作のトラブルシューティングを行う場合はオフにしてください。"
+  },
   "helpOptionTempTreeMapsDescription": {
     "message": "：一部のツリー操作中に短命の検索マップを作成し、その後破棄します。"
   },
@@ -841,6 +850,24 @@
   },
   "optimisationDOMrenderingHelp": {
     "message": "実験的機能。選択項目のレンダリング、ドラッグ/ドロップ表示、行アイコン処理における DOM の変更を減らします。パフォーマンス比較や UI 動作のトラブルシューティング時のみ無効にしてください。"
+  },
+  "optimisationSearchInputDebounce": {
+    "message": "検索入力のデバウンス"
+  },
+  "optimisationSearchInputDebounceHelp": {
+    "message": "入力中の検索描画を短く遅らせ、SBM がキー入力ごとに結果を再構築しないようにします。非常に高速なシステムで即時の検索更新を使いたい場合は無効にしてください。"
+  },
+  "optimisationSearchInputDebounceWait": {
+    "message": "検索入力デバウンス待機時間"
+  },
+  "optimisationSearchInputDebounceWaitHelp": {
+    "message": "最後の検索キー入力後、SBM が検索結果を更新するまで待機する時間です。"
+  },
+  "optimisationAutoScrollAnim": {
+    "message": "自動スクロールアニメーション最適化"
+  },
+  "optimisationAutoScrollAnimHelp": {
+    "message": "ホバー中の自動スクロールテキストに CSS キーフレームアニメーションを使用し、JavaScript がフレームごとにテキスト位置を更新しないようにします。動作比較や自動スクロールのトラブルシューティングを行う場合は無効にしてください。"
   },
   "optimisationTempBookmarkTreeMaps": {
     "message": "最適化: 一時的なブックマークツリーマップ"

@@ -596,6 +596,15 @@
   "helpOptionDomRenderingDescription": {
     "message": "：减少部分渲染路径中的 DOM 变动。"
   },
+  "helpOptionSearchInputDebounceDescription": {
+    "message": "：在搜索按键输入后短暂等待再刷新结果，在普通模式和侧边栏模式中输入时减少重复搜索渲染。"
+  },
+  "helpOptionSearchInputDebounceWaitDescription": {
+    "message": "：控制 SBM 在最新一次搜索按键输入后等待多久再刷新结果。"
+  },
+  "helpOptionAutoScrollAnimDescription": {
+    "message": "：对悬停时溢出的自动滚动文本使用 CSS 关键帧动画，减少每帧 JavaScript 工作量。如果正在比较性能或排查自动滚动行为，请关闭它。"
+  },
   "helpOptionTempTreeMapsDescription": {
     "message": "：在某些树操作期间构建短生命周期查找映射，然后将其丢弃。"
   },
@@ -841,6 +850,24 @@
   },
   "optimisationDOMrenderingHelp": {
     "message": "实验性。减少所选内容渲染、拖放指示器和行图标处理中的 DOM 变动。仅在比较性能或排查界面行为问题时禁用。"
+  },
+  "optimisationSearchInputDebounce": {
+    "message": "搜索输入防抖"
+  },
+  "optimisationSearchInputDebounceHelp": {
+    "message": "在你输入时短暂延迟搜索渲染，让 SBM 避免为每次按键都重建结果。在非常快的系统上，如需即时搜索更新可禁用。"
+  },
+  "optimisationSearchInputDebounceWait": {
+    "message": "搜索输入防抖等待时间"
+  },
+  "optimisationSearchInputDebounceWaitHelp": {
+    "message": "SBM 在最新一次搜索按键输入后等待多久再刷新搜索结果。"
+  },
+  "optimisationAutoScrollAnim": {
+    "message": "自动滚动动画优化"
+  },
+  "optimisationAutoScrollAnimHelp": {
+    "message": "对悬停时的自动滚动文本使用 CSS 关键帧动画，因此 JavaScript 不需要每帧更新文本位置。比较行为或排查自动滚动问题时可禁用。"
   },
   "optimisationTempBookmarkTreeMaps": {
     "message": "优化：临时书签树映射"

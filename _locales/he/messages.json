@@ -596,6 +596,15 @@
   "helpOptionDomRenderingDescription": {
     "message": ": מפחית שינויי DOM נבחרים בנתיבי תצוגה."
   },
+  "helpOptionSearchInputDebounceDescription": {
+    "message": ": ממתין לזמן קצר לאחר הקשות בחיפוש לפני רענון התוצאות, כדי להפחית רינדורי חיפוש חוזרים בזמן הקלדה במצב רגיל ובמצב סרגל צד."
+  },
+  "helpOptionSearchInputDebounceWaitDescription": {
+    "message": ": קובע כמה זמן SBM ממתין לאחר ההקשה האחרונה בחיפוש לפני רענון התוצאות."
+  },
+  "helpOptionAutoScrollAnimDescription": {
+    "message": ": משתמש באנימציית keyframes של CSS עבור טקסט גלילה אוטומטית חורג שמרחפים מעליו, כדי להפחית עבודת JavaScript בכל פריים. השבת אם אתה משווה ביצועים או פותר בעיות בהתנהגות הגלילה האוטומטית."
+  },
   "helpOptionTempTreeMapsDescription": {
     "message": ": בונה מפות חיפוש קצרות-חיים במהלך חלק מפעולות העץ ואז משליך אותן."
   },
@@ -841,6 +850,24 @@
   },
   "optimisationDOMrenderingHelp": {
     "message": "ניסיוני. מפחית שינויי DOM עבור רינדור נבחר, מחווני גרירה ושחרור, וטיפול בסמלי שורות. השבת רק בעת השוואת ביצועים או פתרון בעיות בממשק."
+  },
+  "optimisationSearchInputDebounce": {
+    "message": "השהיית קלט חיפוש"
+  },
+  "optimisationSearchInputDebounceHelp": {
+    "message": "משהה לזמן קצר את רינדור החיפוש בזמן ההקלדה כדי ש-SBM יוכל להימנע מבנייה מחדש של התוצאות עבור כל הקשה. השבת לעדכוני חיפוש מיידיים במערכות מהירות מאוד."
+  },
+  "optimisationSearchInputDebounceWait": {
+    "message": "משך השהיית קלט החיפוש"
+  },
+  "optimisationSearchInputDebounceWaitHelp": {
+    "message": "כמה זמן SBM ממתין לאחר ההקשה האחרונה בחיפוש לפני רענון תוצאות החיפוש."
+  },
+  "optimisationAutoScrollAnim": {
+    "message": "אופטימיזציית הנפשת גלילה אוטומטית"
+  },
+  "optimisationAutoScrollAnimHelp": {
+    "message": "משתמש באנימציית keyframes של CSS עבור טקסט גלילה אוטומטית שמרחפים מעליו, כך ש-JavaScript אינו צריך לעדכן את מיקום הטקסט בכל פריים. השבת בעת השוואת התנהגות או פתרון בעיות בגלילה אוטומטית."
   },
   "optimisationTempBookmarkTreeMaps": {
     "message": "אופטימיזציה: מפות זמניות של עץ הסימניות"

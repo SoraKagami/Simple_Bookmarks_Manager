@@ -596,6 +596,15 @@
   "helpOptionDomRenderingDescription": {
     "message": ": mengurangi perubahan DOM tertentu pada jalur rendering."
   },
+  "helpOptionSearchInputDebounceDescription": {
+    "message": ": menunggu sebentar setelah penekanan tombol pencarian sebelum menyegarkan hasil, sehingga mengurangi render pencarian berulang saat mengetik di mode normal dan Sidebar."
+  },
+  "helpOptionSearchInputDebounceWaitDescription": {
+    "message": ": mengontrol berapa lama SBM menunggu setelah penekanan tombol pencarian terbaru sebelum menyegarkan hasil."
+  },
+  "helpOptionAutoScrollAnimDescription": {
+    "message": ": menggunakan animasi keyframe CSS untuk teks Auto Scroll yang meluap saat diarahkan kursor, sehingga mengurangi kerja JavaScript di setiap frame. Matikan jika Anda membandingkan performa atau memecahkan masalah perilaku Auto Scroll."
+  },
   "helpOptionTempTreeMapsDescription": {
     "message": ": membuat peta pencarian sementara selama beberapa operasi pohon, lalu membuangnya."
   },
@@ -841,6 +850,24 @@
   },
   "optimisationDOMrenderingHelp": {
     "message": "Eksperimental. Mengurangi perubahan DOM untuk rendering pilihan, indikator seret/lepas, dan penanganan ikon baris. Nonaktifkan hanya saat membandingkan performa atau memecahkan masalah perilaku UI."
+  },
+  "optimisationSearchInputDebounce": {
+    "message": "Debounce input pencarian"
+  },
+  "optimisationSearchInputDebounceHelp": {
+    "message": "Menunda render pencarian sebentar saat Anda mengetik agar SBM tidak perlu membangun ulang hasil untuk setiap penekanan tombol. Nonaktifkan untuk pembaruan pencarian langsung pada sistem yang sangat cepat."
+  },
+  "optimisationSearchInputDebounceWait": {
+    "message": "Waktu tunggu debounce input pencarian"
+  },
+  "optimisationSearchInputDebounceWaitHelp": {
+    "message": "Berapa lama SBM menunggu setelah penekanan tombol pencarian terbaru sebelum menyegarkan hasil pencarian."
+  },
+  "optimisationAutoScrollAnim": {
+    "message": "Optimasi animasi Auto Scroll"
+  },
+  "optimisationAutoScrollAnimHelp": {
+    "message": "Menggunakan animasi keyframe CSS untuk teks Auto Scroll yang diarahkan kursor, sehingga JavaScript tidak memperbarui posisi teks di setiap frame. Nonaktifkan saat membandingkan perilaku atau memecahkan masalah Auto Scroll."
   },
   "optimisationTempBookmarkTreeMaps": {
     "message": "Optimasi: peta sementara pohon markah"

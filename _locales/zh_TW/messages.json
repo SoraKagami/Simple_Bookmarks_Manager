@@ -596,6 +596,15 @@
   "helpOptionDomRenderingDescription": {
     "message": "：減少部分渲染路徑中的 DOM 變動。"
   },
+  "helpOptionSearchInputDebounceDescription": {
+    "message": "：在搜尋按鍵輸入後短暫等待再重新整理結果，在一般模式和側邊欄模式中輸入時減少重複的搜尋算繪。"
+  },
+  "helpOptionSearchInputDebounceWaitDescription": {
+    "message": "：控制 SBM 在最新一次搜尋按鍵輸入後，等待多久才重新整理結果。"
+  },
+  "helpOptionAutoScrollAnimDescription": {
+    "message": "：對游標停留時溢出的自動捲動文字使用 CSS 關鍵影格動畫，減少每一影格的 JavaScript 工作量。如果正在比較效能或排解自動捲動行為問題，請關閉此選項。"
+  },
   "helpOptionTempTreeMapsDescription": {
     "message": "：在部分樹狀操作期間建立短生命週期查找映射，之後將其捨棄。"
   },
@@ -841,6 +850,24 @@
   },
   "optimisationDOMrenderingHelp": {
     "message": "實驗性。針對選取項目的算繪、拖放指示器與列圖示處理，減少 DOM 變動。只有在比較效能或排解介面行為問題時才停用。"
+  },
+  "optimisationSearchInputDebounce": {
+    "message": "搜尋輸入防抖"
+  },
+  "optimisationSearchInputDebounceHelp": {
+    "message": "在你輸入時短暫延遲搜尋算繪，讓 SBM 避免每次按鍵都重建結果。在非常快的系統上，如果需要立即搜尋更新可停用。"
+  },
+  "optimisationSearchInputDebounceWait": {
+    "message": "搜尋輸入防抖等待時間"
+  },
+  "optimisationSearchInputDebounceWaitHelp": {
+    "message": "SBM 在最新一次搜尋按鍵輸入後，等待多久才重新整理搜尋結果。"
+  },
+  "optimisationAutoScrollAnim": {
+    "message": "自動捲動動畫最佳化"
+  },
+  "optimisationAutoScrollAnimHelp": {
+    "message": "對游標停留時的自動捲動文字使用 CSS 關鍵影格動畫，因此 JavaScript 不需要每一影格更新文字位置。比較行為或排解自動捲動問題時可停用。"
   },
   "optimisationTempBookmarkTreeMaps": {
     "message": "最佳化：暫存書籤樹狀對應表"
