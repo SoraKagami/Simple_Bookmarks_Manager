@@ -70,7 +70,8 @@ export const DEFAULT_SETTINGS = Object.freeze({
   Optimisation_TempBookmarkTreeMaps: true,
   Optimisation_DOMrendering: true,
   Optimisation_SearchInputDebounce: true,
-  Optimisation_SearchInputDebounceWait: 0.15,
+  Optimisation_SearchInputDebounceWait: 0.5,
+  Optimisation_AutoScrollAnim: true,
   Show_ErrorsWarnings: false,
   DebugOptions: false,
   ShowHelpOnLaunch: true,
@@ -118,7 +119,7 @@ export function normalizeSettingValue(key, value) {
     return Number.isInteger(mode) && mode >= 0 && mode <= 3 ? mode : DEFAULT_SETTINGS[key];
   }
   if (key === "Folder_AutoExpandAfterWait") return clampNumber(value, 0.1, 3, DEFAULT_SETTINGS[key]);
-  if (key === "Optimisation_SearchInputDebounceWait") return clampNumber(value, 0.05, 0.5, DEFAULT_SETTINGS[key]);
+  if (key === "Optimisation_SearchInputDebounceWait") return clampNumber(value, 0.05, 3, DEFAULT_SETTINGS[key]);
   if (key === "left_Lib_Width") return Math.round(clampNumber(value, 180, 800, DEFAULT_SETTINGS[key]));
   if (key === "right_Details_Width") return Math.round(clampNumber(value, 220, 900, DEFAULT_SETTINGS[key]));
   if (key === "bottom_Details_Height") return Math.round(clampNumber(value, 160, 800, DEFAULT_SETTINGS[key]));

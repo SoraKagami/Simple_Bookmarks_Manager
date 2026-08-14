@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.10.6
+
+- Added an Advanced > Optimisations toggle for Auto Scroll animation optimisation, enabled by default, using CSS keyframes for hovered Auto Scroll text with the existing requestAnimationFrame path kept as the off-state comparison path.
+- Increased the default Search input debounce wait to 0.5 seconds and extended the slider range up to 3 seconds.
+- Added Help and English locale text for the new Auto Scroll animation optimisation.
+
 ## 0.10.5
 
 - Fixed missing search debounce state variables that caused `ReferenceError` exceptions in Manager when typing or flushing search input.

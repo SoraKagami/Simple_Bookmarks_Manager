@@ -717,3 +717,8 @@ body.column-resizing { cursor: col-resize; user-select: none; }
   white-space: nowrap;
   will-change: transform;
 }
+.sbm-text-scroll-css-active .sbm-scroll-content {
+  animation-fill-mode: both;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+}

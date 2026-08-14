@@ -98,6 +98,7 @@ let Optimisation_TempBookmarkTreeMaps = DEFAULT_SETTINGS.Optimisation_TempBookma
 let Optimisation_DOMrendering = DEFAULT_SETTINGS.Optimisation_DOMrendering;
 let Optimisation_SearchInputDebounce = DEFAULT_SETTINGS.Optimisation_SearchInputDebounce;
 let Optimisation_SearchInputDebounceWait = DEFAULT_SETTINGS.Optimisation_SearchInputDebounceWait;
+let Optimisation_AutoScrollAnim = DEFAULT_SETTINGS.Optimisation_AutoScrollAnim;
 let Show_ErrorsWarnings = DEFAULT_SETTINGS.Show_ErrorsWarnings;
 let DebugOptions = DEFAULT_SETTINGS.DebugOptions;
 let ShowHelpOnLaunch = DEFAULT_SETTINGS.ShowHelpOnLaunch;
@@ -118,6 +119,7 @@ let bookmarkTextRefreshFrame = null;
 let bookmarkTextMeasureContext = null;
 let bookmarkTextHoveredTarget = null;
 let bookmarkTextEffectListenersActive = false;
+let bookmarkTextAnimationSerial = 0;
 
 /**
  * Search debounce state shared by normal and Sidebar Mode search inputs.
@@ -262,6 +264,7 @@ function clearBookmarkTextElement(element) {
   if (!element) return;
   const scrollState = bookmarkTextScrollStates.get(element);
   if (scrollState?.frameId != null) cancelAnimationFrame(scrollState.frameId);
+  if (scrollState?.styleElement?.isConnected) scrollState.styleElement.remove();
   bookmarkTextScrollStates.delete(element);
 
   if (bookmarkTextOriginals.has(element)) {
@@ -269,7 +272,7 @@ function clearBookmarkTextElement(element) {
     bookmarkTextOriginals.delete(element);
   }
   element.style.removeProperty("--sbm-text-effect-width");
-  element.classList.remove("sbm-text-effect-active", "sbm-text-scroll-active");
+  element.classList.remove("sbm-text-effect-active", "sbm-text-scroll-active", "sbm-text-scroll-css-active", "sbm-text-scroll-js-active");
   activeBookmarkTextElements.delete(element);
 }
 
@@ -327,25 +330,40 @@ function applyBookmarkTextTruncation(element) {
   element.textContent = shortened;
 }
 
-/** Apply a one-way left-scroll, pause, hidden reset loop to one overflowing hover target. */
-function applyBookmarkTextAutoScroll(element) {
-  const metrics = bookmarkTextOverflowMetrics(element);
-  if (!metrics) return;
+/** Create an isolated CSS keyframe rule for one hover-only auto-scroll loop. */
+function createBookmarkTextAutoScrollStyle(animationName, distance, travelMs, pauseMs, blankMs) {
+  const totalMs = Math.max(1, travelMs + pauseMs + blankMs);
+  const travelPct = Math.min(99.7, Math.max(0.1, (travelMs / totalMs) * 100));
+  const pauseEndPct = Math.min(99.8, Math.max(travelPct, ((travelMs + pauseMs) / totalMs) * 100));
+  const blankStartPct = Math.min(99.85, pauseEndPct + 0.01);
+  const blankResetPct = Math.min(99.95, blankStartPct + 0.01);
+  const offset = `translate3d(-${Math.max(0, Math.ceil(distance))}px, 0, 0)`;
+  const style = document.createElement("style");
+  style.textContent = `
+@keyframes ${animationName} {
+  0% { transform: translate3d(0, 0, 0); visibility: visible; }
+  ${travelPct.toFixed(4)}% { transform: ${offset}; visibility: visible; }
+  ${pauseEndPct.toFixed(4)}% { transform: ${offset}; visibility: visible; }
+  ${blankStartPct.toFixed(4)}% { transform: ${offset}; visibility: hidden; }
+  ${blankResetPct.toFixed(4)}% { transform: translate3d(0, 0, 0); visibility: hidden; }
+  100% { transform: translate3d(0, 0, 0); visibility: hidden; }
+}`;
+  document.head.append(style);
+  return { styleElement: style, totalMs };
+}
 
-  const distance = Math.max(0, Math.ceil(metrics.fullWidth - metrics.availableWidth));
-  if (distance <= 1) return;
+/** Run auto-scroll through CSS keyframes so JavaScript does no per-frame work. */
+function applyBookmarkTextCssAutoScroll(element, content, distance, travelMs, pauseMs, blankMs) {
+  const animationName = `sbmAutoScroll${++bookmarkTextAnimationSerial}`;
+  const { styleElement, totalMs } = createBookmarkTextAutoScrollStyle(animationName, distance, travelMs, pauseMs, blankMs);
+  element.classList.add("sbm-text-scroll-css-active");
+  content.style.animationName = animationName;
+  content.style.animationDuration = `${totalMs}ms`;
+  bookmarkTextScrollStates.set(element, { styleElement });
+}
 
-  prepareBookmarkTextElement(element, metrics.fullText, metrics.availableWidth);
-  const content = document.createElement("span");
-  content.className = "sbm-scroll-content";
-  content.textContent = metrics.fullText;
-  element.replaceChildren(content);
-  element.classList.add("sbm-text-scroll-active");
-
-  const speed = Math.max(1, Number(Bookmark_AutoScrollSpeed) || DEFAULT_SETTINGS.Bookmark_AutoScrollSpeed);
-  const pauseMs = Math.max(0, Number(Bookmark_AutoScrollPause) || 0) * 1000;
-  const blankMs = 180;
-  const travelMs = Math.max(1, (distance / speed) * 1000);
+/** Run auto-scroll with the legacy requestAnimationFrame loop for comparison/troubleshooting. */
+function applyBookmarkTextJsAutoScroll(element, content, distance, travelMs, pauseMs, blankMs) {
   const totalMs = Math.max(1, travelMs + pauseMs + blankMs);
   const startTime = performance.now();
 
@@ -371,7 +389,35 @@ function applyBookmarkTextAutoScroll(element) {
     if (scrollState) scrollState.frameId = requestAnimationFrame(step);
   };
 
+  element.classList.add("sbm-text-scroll-js-active");
   bookmarkTextScrollStates.set(element, { frameId: requestAnimationFrame(step) });
+}
+
+/** Apply a one-way left-scroll, pause, hidden reset loop to one overflowing hover target. */
+function applyBookmarkTextAutoScroll(element) {
+  const metrics = bookmarkTextOverflowMetrics(element);
+  if (!metrics) return;
+
+  const distance = Math.max(0, Math.ceil(metrics.fullWidth - metrics.availableWidth));
+  if (distance <= 1) return;
+
+  prepareBookmarkTextElement(element, metrics.fullText, metrics.availableWidth);
+  const content = document.createElement("span");
+  content.className = "sbm-scroll-content";
+  content.textContent = metrics.fullText;
+  element.replaceChildren(content);
+  element.classList.add("sbm-text-scroll-active");
+
+  const speed = Math.max(1, Number(Bookmark_AutoScrollSpeed) || DEFAULT_SETTINGS.Bookmark_AutoScrollSpeed);
+  const pauseMs = Math.max(0, Number(Bookmark_AutoScrollPause) || 0) * 1000;
+  const blankMs = 180;
+  const travelMs = Math.max(1, (distance / speed) * 1000);
+
+  if (Optimisation_AutoScrollAnim) {
+    applyBookmarkTextCssAutoScroll(element, content, distance, travelMs, pauseMs, blankMs);
+  } else {
+    applyBookmarkTextJsAutoScroll(element, content, distance, travelMs, pauseMs, blankMs);
+  }
 }
 
 /** Return the exact fields that may receive hover text effects for one row. */
@@ -554,6 +600,7 @@ function applySettings(settings, { render = false } = {}) {
     else if (key === "Optimisation_DOMrendering") Optimisation_DOMrendering = value;
     else if (key === "Optimisation_SearchInputDebounce") Optimisation_SearchInputDebounce = value;
     else if (key === "Optimisation_SearchInputDebounceWait") Optimisation_SearchInputDebounceWait = value;
+    else if (key === "Optimisation_AutoScrollAnim") Optimisation_AutoScrollAnim = value;
     else if (key === "Show_ErrorsWarnings") Show_ErrorsWarnings = value;
     else if (key === "DebugOptions") DebugOptions = value;
     else if (key === "ShowHelpOnLaunch") ShowHelpOnLaunch = value;

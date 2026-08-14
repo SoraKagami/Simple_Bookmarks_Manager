@@ -473,8 +473,15 @@ chrome://extensions/shortcuts</small>
               <small data-i18n="optimisationSearchInputDebounceWaitHelp">How long SBM waits after the latest search keystroke before refreshing search results.</small>
             </span>
             <span class="range-control">
-              <input id="Optimisation_SearchInputDebounceWait" type="range" min="0.05" max="0.5" step="0.05">
-              <output id="Optimisation_SearchInputDebounceWait-value" for="Optimisation_SearchInputDebounceWait">0.15</output>
+              <input id="Optimisation_SearchInputDebounceWait" type="range" min="0.05" max="3" step="0.05">
+              <output id="Optimisation_SearchInputDebounceWait-value" for="Optimisation_SearchInputDebounceWait">0.50</output>
+            </span>
+          </label>
+          <label class="option-row">
+            <input id="Optimisation_AutoScrollAnim" type="checkbox">
+            <span>
+              <strong data-i18n="optimisationAutoScrollAnim">Auto Scroll animation optimisation</strong>
+              <small data-i18n="optimisationAutoScrollAnimHelp">Uses CSS keyframe animation for hovered Auto Scroll text so JavaScript does not update the text position every frame. Disable when comparing behaviour or troubleshooting Auto Scroll.</small>
             </span>
           </label>
         </div>

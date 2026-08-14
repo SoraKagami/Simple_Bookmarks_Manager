@@ -602,6 +602,9 @@
   "helpOptionSearchInputDebounceWaitDescription": {
     "message": ": controls how long SBM waits after the latest search keystroke before refreshing results."
   },
+  "helpOptionAutoScrollAnimDescription": {
+    "message": ": uses CSS keyframe animation for hovered overflowing Auto Scroll text, reducing per-frame JavaScript work. Turn it off if you are comparing performance or troubleshooting Auto Scroll behavior."
+  },
   "helpOptionTempTreeMapsDescription": {
     "message": ": builds short-lived lookup maps during some tree operations, then discards them."
   },
@@ -859,6 +862,12 @@
   },
   "optimisationSearchInputDebounceWaitHelp": {
     "message": "How long SBM waits after the latest search keystroke before refreshing search results."
+  },
+  "optimisationAutoScrollAnim": {
+    "message": "Auto Scroll animation optimisation"
+  },
+  "optimisationAutoScrollAnimHelp": {
+    "message": "Uses CSS keyframe animation for hovered Auto Scroll text so JavaScript does not update the text position every frame. Disable when comparing behavior or troubleshooting Auto Scroll."
   },
   "optimisationTempBookmarkTreeMaps": {
     "message": "Optimisation: temporary bookmark tree maps"
