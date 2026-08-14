@@ -558,7 +558,7 @@
     "message": ": selects the folder used by the chosen-folder startup option."
   },
   "helpOptionUrlProtectionsDescription": {
-    "message": "These options control protections for higher-risk bookmark URL schemes when SBM opens bookmarks through extension tab or window actions. They do not prevent saving bookmarks."
+    "message": "Kei raro ēnei kōwhiringa i Options > Haumaru, ā, ka whakahaere i ngā whakamarutanga mō ngā URL scheme tohuwāhi mōrearea ake ina whakatuwhera a SBM i ngā tohuwāhi mā ngā mahi ripa, matapihi rānei o te toronga. Kāore ēnei e aukati i te tiaki tohuwāhi."
   },
   "helpOptionStrictUrlProtectionsDescription": {
     "message": ": he aratau haumaru kōwhiri e aukati ana i ngā URL scheme mō ngā kōnae paetata, mēra, waea, maramataka, me ngā taupānga ritenga ina whakatuwhera a SBM i ngā tohuwāhi. Ka whakamahia e ngā whakatuwheratanga kua aukatihia tētahi whakatūpato ā-SBM me tētahi tāurunga rangitaki tātaritanga rangitahi, kaua ko tētahi whakatūpato taumata pūtirotiro. Waiho kia weto mēnā ka whakamahi koe i ngā tohuwāhi hei whakatuwhera kōnae, taupānga rānei."
@@ -1212,7 +1212,7 @@
     "message": "E taunakitia ana. Ka aukati i a SBM kia kaua e whakatuwhera URL blob: mā ngā mahi ripa/matapihi o te toronga."
   },
   "urlOpenBlockedByProtection": {
-    "message": "Kua āraitia tēnei URL tohuwāhi e tētahi whakamarutanga whakatuwhera URL arā atu anō. Ka taea te arotake i ngā takahuri whakamarutanga i Options > Advanced."
+    "message": "Kua āraitia tēnei URL tohuwāhi e tētahi whakamarutanga whakatuwhera URL. Ka taea te arotake i ngā takahuri whakamarutanga i Options > Haumaru > Ngā whakamarutanga URL tohuwāhi."
   },
   "changelog": {
     "message": "Rangitaki panonitanga"

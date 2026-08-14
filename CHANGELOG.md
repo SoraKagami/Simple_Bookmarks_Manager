@@ -1,5 +1,12 @@
 # Changelog
 
+## 0.10.17 - 2026-08-14
+
+- Updated stale Bookmark URL protections locale text in all non-base locales to match the current Options > Safety location.
+- Updated blocked URL protection warning locale text to point users to Options > Safety > Bookmark URL protections.
+- Kept Simplified Chinese (`zh_CN`) and Traditional Chinese (`zh_TW`) wording separate.
+- Kept permissions unchanged.
+
 ## 0.10.16 - 2026-08-14
 
 - Updated the `en_US` locale to use US English spelling and current base-English wording.

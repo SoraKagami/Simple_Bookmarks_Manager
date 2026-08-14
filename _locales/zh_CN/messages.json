@@ -558,7 +558,7 @@
     "message": "：选择“选定文件夹启动”选项使用的文件夹。"
   },
   "helpOptionUrlProtectionsDescription": {
-    "message": "这些选项控制 SBM 通过扩展标签页或窗口操作打开书签时，对较高风险 URL 方案的保护。它们不会阻止保存书签。"
+    "message": "这些选项位于“选项 > 安全”下，用于控制 SBM 通过扩展标签页或窗口操作打开书签时，对较高风险书签 URL 方案的保护。它们不会阻止保存书签。"
   },
   "helpOptionStrictUrlProtectionsDescription": {
     "message": "：可选的更严格模式，当 SBM 打开书签时，阻止本地文件、邮件、电话、日历和自定义应用 URL 方案。被阻止的打开操作会使用 SBM 风格警告和临时诊断日志条目，而不是浏览器级警告。如果你使用书签打开文件或应用，请保持关闭。"
@@ -1212,7 +1212,7 @@
     "message": "推荐启用。防止 SBM 通过扩展的标签页/窗口操作打开 blob: URL。"
   },
   "urlOpenBlockedByProtection": {
-    "message": "此书签 URL 已被高级 URL 打开保护阻止。你可以在“选项 > 高级”中查看保护开关。"
+    "message": "此书签 URL 已被 URL 打开保护阻止。你可以在“选项 > 安全 > 书签 URL 保护”中查看保护开关。"
   },
   "changelog": {
     "message": "更新日志"

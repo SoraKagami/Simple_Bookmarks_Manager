@@ -558,7 +558,7 @@
     "message": ": selecciona la carpeta usada por la opción de inicio en carpeta elegida."
   },
   "helpOptionUrlProtectionsDescription": {
-    "message": "Estas opciones controlan protecciones para esquemas de URL de marcadores de mayor riesgo cuando SBM abre marcadores mediante acciones de pestaña o ventana de la extensión. No impiden guardar marcadores."
+    "message": "Estas opciones están en Opciones > Seguridad y controlan protecciones para esquemas de URL de marcadores de mayor riesgo cuando SBM abre marcadores mediante acciones de pestaña o ventana de la extensión. No impiden guardar marcadores."
   },
   "helpOptionStrictUrlProtectionsDescription": {
     "message": ": modo estricto opcional que bloquea esquemas de URL de archivos locales, correo, teléfono, calendario y apps personalizadas cuando SBM abre marcadores. Las aperturas bloqueadas usan una advertencia con estilo de SBM y una entrada temporal en el registro de diagnóstico, en lugar de una advertencia del navegador. Déjalo desactivado si usas marcadores para abrir archivos o apps."
@@ -1212,7 +1212,7 @@
     "message": "Recomendado. Evita que SBM abra URL blob: mediante acciones de pestañas/ventanas de la extensión."
   },
   "urlOpenBlockedByProtection": {
-    "message": "Esta URL de marcador está bloqueada por una protección avanzada de apertura de URL. Puedes revisar los interruptores de protección en Opciones > Avanzado."
+    "message": "Esta URL de marcador está bloqueada por una protección de apertura de URL. Puedes revisar los interruptores de protección en Opciones > Seguridad > Protecciones de URL de marcadores."
   },
   "changelog": {
     "message": "Registro de cambios"

@@ -558,7 +558,7 @@
     "message": ": memilih folder yang digunakan oleh opsi mulai di folder terpilih."
   },
   "helpOptionUrlProtectionsDescription": {
-    "message": "Opsi ini mengontrol perlindungan untuk skema URL bookmark berisiko lebih tinggi saat SBM membuka bookmark melalui tindakan tab atau jendela ekstensi. Opsi ini tidak mencegah penyimpanan bookmark."
+    "message": "Opsi ini berada di Opsi > Keamanan dan mengontrol perlindungan untuk skema URL bookmark berisiko lebih tinggi saat SBM membuka bookmark melalui tindakan tab atau jendela ekstensi. Opsi ini tidak mencegah penyimpanan bookmark."
   },
   "helpOptionStrictUrlProtectionsDescription": {
     "message": ": mode lebih ketat opsional yang memblokir skema URL file lokal, email, telepon, kalender, dan aplikasi khusus saat SBM membuka bookmark. Pembukaan yang diblokir memakai peringatan bergaya SBM dan entri log diagnostik sementara, bukan peringatan tingkat browser. Biarkan nonaktif jika Anda memakai bookmark untuk membuka file atau aplikasi."
@@ -1212,7 +1212,7 @@
     "message": "Disarankan. Mencegah SBM membuka URL blob: melalui tindakan tab/jendela ekstensi."
   },
   "urlOpenBlockedByProtection": {
-    "message": "URL markah ini diblokir oleh perlindungan pembukaan URL tingkat lanjut. Anda dapat meninjau sakelar perlindungan di Opsi > Lanjutan."
+    "message": "URL markah ini diblokir oleh perlindungan pembukaan URL. Anda dapat meninjau sakelar perlindungan di Opsi > Keamanan > Perlindungan URL markah."
   },
   "changelog": {
     "message": "Catatan perubahan"

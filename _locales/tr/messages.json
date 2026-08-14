@@ -558,7 +558,7 @@
     "message": ": seçili klasörde başlatma seçeneğinin kullanacağı klasörü seçer."
   },
   "helpOptionUrlProtectionsDescription": {
-    "message": "Bu seçenekler, SBM yer imlerini uzantı sekme veya pencere işlemleriyle açarken daha riskli yer imi URL şemaları için korumaları denetler. Yer imlerini kaydetmeyi engellemez."
+    "message": "Bu seçenekler Seçenekler > Güvenlik altında bulunur ve SBM yer imlerini uzantı sekme veya pencere işlemleriyle açarken daha riskli yer imi URL şemaları için korumaları denetler. Yer imlerini kaydetmeyi engellemez."
   },
   "helpOptionStrictUrlProtectionsDescription": {
     "message": ": SBM yer imlerini açarken yerel dosya, posta, telefon, takvim ve özel uygulama URL şemalarını engelleyen isteğe bağlı daha katı mod. Engellenen açma işlemleri, tarayıcı düzeyi uyarı yerine SBM tarzında bir uyarı ve geçici tanılama günlüğü kaydı kullanır. Yer imlerini dosya veya uygulama açmak için kullanıyorsanız kapalı bırakın."
@@ -1212,7 +1212,7 @@
     "message": "Önerilir. SBM’nin uzantı sekme/pencere işlemleriyle blob: URL’lerini açmasını önler."
   },
   "urlOpenBlockedByProtection": {
-    "message": "Bu yer imi URL’si gelişmiş bir URL açma koruması tarafından engellendi. Koruma anahtarlarını Seçenekler > Gelişmiş bölümünde gözden geçirebilirsiniz."
+    "message": "Bu yer imi URL’si bir URL açma koruması tarafından engellendi. Koruma anahtarlarını Seçenekler > Güvenlik > Yer imi URL korumaları bölümünde gözden geçirebilirsiniz."
   },
   "changelog": {
     "message": "Değişiklik günlüğü"

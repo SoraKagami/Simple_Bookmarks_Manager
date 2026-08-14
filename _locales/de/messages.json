@@ -558,7 +558,7 @@
     "message": ": wählt den Ordner aus, der für die Startoption mit ausgewähltem Ordner verwendet wird."
   },
   "helpOptionUrlProtectionsDescription": {
-    "message": "Diese Optionen steuern Schutzmaßnahmen für risikoreichere Lesezeichen-URL-Schemata, wenn SBM Lesezeichen über Erweiterungs-Tab- oder Fensteraktionen öffnet. Sie verhindern nicht das Speichern von Lesezeichen."
+    "message": "Diese Optionen befinden sich unter Optionen > Sicherheit und steuern Schutzmaßnahmen für risikoreichere Lesezeichen-URL-Schemata, wenn SBM Lesezeichen über Erweiterungs-Tab- oder Fensteraktionen öffnet. Sie verhindern nicht das Speichern von Lesezeichen."
   },
   "helpOptionStrictUrlProtectionsDescription": {
     "message": ": optionaler strengerer Modus, der lokale Datei-, Mail-, Telefon-, Kalender- und benutzerdefinierte App-URL-Schemata blockiert, wenn SBM Lesezeichen öffnet. Blockierte Öffnungen zeigen eine SBM-eigene Warnung und einen temporären Diagnoseprotokolleintrag statt einer browserseitigen Warnung. Lasse diese Option aus, wenn du Lesezeichen zum Öffnen von Dateien oder Apps verwendest."
@@ -1212,7 +1212,7 @@
     "message": "Empfohlen. Verhindert, dass SBM blob:-URLs über Erweiterungsaktionen für Tabs/Fenster öffnet."
   },
   "urlOpenBlockedByProtection": {
-    "message": "Diese Lesezeichen-URL wird durch einen erweiterten URL-Öffnungsschutz blockiert. Sie können die Schutzschalter unter Optionen > Erweitert prüfen."
+    "message": "Diese Lesezeichen-URL wird durch einen URL-Öffnungsschutz blockiert. Sie können die Schutzschalter unter Optionen > Sicherheit > Lesezeichen-URL-Schutzmaßnahmen prüfen."
   },
   "changelog": {
     "message": "Änderungsprotokoll"

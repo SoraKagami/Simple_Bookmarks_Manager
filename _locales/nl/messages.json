@@ -558,7 +558,7 @@
     "message": ": selecteert de map die wordt gebruikt door de startoptie met gekozen map."
   },
   "helpOptionUrlProtectionsDescription": {
-    "message": "Deze opties beheren bescherming voor risicovollere bladwijzer-URL-schema’s wanneer SBM bladwijzers opent via extensieacties voor tabbladen of vensters. Ze verhinderen niet dat bladwijzers worden opgeslagen."
+    "message": "Deze opties staan onder Opties > Veiligheid en beheren bescherming voor risicovollere bladwijzer-URL-schema’s wanneer SBM bladwijzers opent via extensieacties voor tabbladen of vensters. Ze verhinderen niet dat bladwijzers worden opgeslagen."
   },
   "helpOptionStrictUrlProtectionsDescription": {
     "message": ": optionele strengere modus die lokale bestands-, mail-, telefoon-, agenda- en aangepaste app-URL-schema’s blokkeert wanneer SBM bladwijzers opent. Geblokkeerde openacties gebruiken een SBM-waarschuwing en een tijdelijke diagnostische logvermelding in plaats van een browserwaarschuwing. Laat dit uit als je bladwijzers gebruikt om bestanden of apps te openen."
@@ -1212,7 +1212,7 @@
     "message": "Aanbevolen. Voorkomt dat SBM blob:-URL’s opent via tab-/vensteracties van de extensie."
   },
   "urlOpenBlockedByProtection": {
-    "message": "Deze bladwijzer-URL wordt geblokkeerd door een geavanceerde bescherming voor het openen van URL’s. Je kunt de beveiligingsschakelaars controleren in Opties > Geavanceerd."
+    "message": "Deze bladwijzer-URL wordt geblokkeerd door een bescherming voor het openen van URL’s. Je kunt de beveiligingsschakelaars controleren in Opties > Veiligheid > Beveiliging voor bladwijzer-URL’s."
   },
   "changelog": {
     "message": "Wijzigingslogboek"

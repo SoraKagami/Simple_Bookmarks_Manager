@@ -558,7 +558,7 @@
     "message": ": sélectionner le dossier utilisé par l’option de lancement dans un dossier choisi."
   },
   "helpOptionUrlProtectionsDescription": {
-    "message": "Ces options contrôlent les protections pour les schémas d’URL de favoris plus risqués lorsque SBM ouvre des favoris via des actions d’onglet ou de fenêtre de l’extension. Elles n’empêchent pas l’enregistrement des favoris."
+    "message": "Ces options se trouvent sous Options > Sécurité et contrôlent les protections pour les schémas d’URL de favoris plus risqués lorsque SBM ouvre des favoris via des actions d’onglet ou de fenêtre de l’extension. Elles n’empêchent pas l’enregistrement des favoris."
   },
   "helpOptionStrictUrlProtectionsDescription": {
     "message": ": mode strict optionnel qui bloque les schémas d’URL de fichiers locaux, de courriel, de téléphone, de calendrier et d’applications personnalisées lorsque SBM ouvre des favoris. Les ouvertures bloquées utilisent un avertissement au style SBM et une entrée temporaire dans le journal de diagnostic au lieu d’un avertissement du navigateur. Laissez cette option désactivée si vous utilisez des favoris pour ouvrir des fichiers ou des applications."
@@ -1212,7 +1212,7 @@
     "message": "Recommandé. Empêche SBM d’ouvrir des URL blob: via les actions d’onglet/fenêtre de l’extension."
   },
   "urlOpenBlockedByProtection": {
-    "message": "Cette URL de favori est bloquée par une protection avancée d’ouverture d’URL. Vous pouvez vérifier les interrupteurs de protection dans Options > Avancé."
+    "message": "Cette URL de favori est bloquée par une protection d’ouverture d’URL. Vous pouvez vérifier les interrupteurs de protection dans Options > Sécurité > Protections des URL de favoris."
   },
   "changelog": {
     "message": "Journal des modifications"

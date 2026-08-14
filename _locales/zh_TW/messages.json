@@ -558,7 +558,7 @@
     "message": "：選取「選定資料夾啟動」選項使用的資料夾。"
   },
   "helpOptionUrlProtectionsDescription": {
-    "message": "這些選項控制 SBM 透過擴充功能分頁或視窗操作開啟書籤時，對較高風險 URL 配置的保護。它們不會阻止儲存書籤。"
+    "message": "這些選項位於「選項 > 安全」下，用於控制 SBM 透過擴充功能分頁或視窗操作開啟書籤時，對較高風險書籤 URL 配置的保護。它們不會阻止儲存書籤。"
   },
   "helpOptionStrictUrlProtectionsDescription": {
     "message": "：可選的更嚴格模式，當 SBM 開啟書籤時，封鎖本機檔案、郵件、電話、行事曆和自訂應用程式 URL 配置。被封鎖的開啟操作會使用 SBM 風格警告和暫時性診斷記錄項目，而不是瀏覽器層級警告。如果你使用書籤開啟檔案或應用程式，請保持關閉。"
@@ -1212,7 +1212,7 @@
     "message": "建議啟用。防止 SBM 透過擴充功能的分頁/視窗操作開啟 blob: URL。"
   },
   "urlOpenBlockedByProtection": {
-    "message": "此書籤 URL 已被進階 URL 開啟保護阻止。你可以在「選項 > 進階」中檢視保護開關。"
+    "message": "此書籤 URL 已被 URL 開啟保護封鎖。你可以在「選項 > 安全 > 書籤 URL 保護」中檢視保護開關。"
   },
   "changelog": {
     "message": "變更記錄"

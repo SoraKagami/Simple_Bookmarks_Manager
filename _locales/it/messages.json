@@ -558,7 +558,7 @@
     "message": ": seleziona la cartella usata dall’opzione di avvio nella cartella scelta."
   },
   "helpOptionUrlProtectionsDescription": {
-    "message": "Queste opzioni controllano le protezioni per schemi URL di segnalibri più rischiosi quando SBM apre segnalibri tramite azioni di scheda o finestra dell’estensione. Non impediscono il salvataggio dei segnalibri."
+    "message": "Queste opzioni si trovano in Opzioni > Sicurezza e controllano le protezioni per schemi URL di segnalibri più rischiosi quando SBM apre segnalibri tramite azioni di scheda o finestra dell’estensione. Non impediscono il salvataggio dei segnalibri."
   },
   "helpOptionStrictUrlProtectionsDescription": {
     "message": ": modalità più rigida opzionale che blocca gli schemi URL di file locali, posta, telefono, calendario e app personalizzate quando SBM apre i segnalibri. Le aperture bloccate usano un avviso in stile SBM e una voce temporanea nel registro diagnostico invece di un avviso a livello browser. Lasciala disattivata se usi i segnalibri per aprire file o app."
@@ -1212,7 +1212,7 @@
     "message": "Consigliato. Impedisce a SBM di aprire URL blob: tramite azioni di schede/finestre dell’estensione."
   },
   "urlOpenBlockedByProtection": {
-    "message": "Questo URL del segnalibro è bloccato da una protezione avanzata per l’apertura degli URL. Puoi controllare gli interruttori di protezione in Opzioni > Avanzate."
+    "message": "Questo URL del segnalibro è bloccato da una protezione per l’apertura degli URL. Puoi controllare gli interruttori di protezione in Opzioni > Sicurezza > Protezioni URL dei segnalibri."
   },
   "changelog": {
     "message": "Registro delle modifiche"

@@ -558,7 +558,7 @@
     "message": ": 선택 폴더 시작 옵션에 사용할 폴더를 선택합니다."
   },
   "helpOptionUrlProtectionsDescription": {
-    "message": "이 옵션은 SBM이 확장 프로그램 탭 또는 창 동작으로 북마크를 열 때 더 위험한 북마크 URL 스킴에 대한 보호를 제어합니다. 북마크 저장을 막지는 않습니다."
+    "message": "이 옵션은 옵션 > 안전 아래에 있으며, SBM이 확장 프로그램 탭 또는 창 동작으로 북마크를 열 때 더 위험한 북마크 URL 스킴에 대한 보호를 제어합니다. 북마크 저장을 막지는 않습니다."
   },
   "helpOptionStrictUrlProtectionsDescription": {
     "message": ": SBM이 북마크를 열 때 로컬 파일, 메일, 전화, 캘린더 및 사용자 지정 앱 URL 스킴을 차단하는 선택적 강화 모드입니다. 차단된 열기는 브라우저 수준 경고 대신 SBM 스타일 경고와 임시 진단 로그 항목을 사용합니다. 파일이나 앱을 열기 위해 북마크를 사용한다면 꺼 두세요."
@@ -1212,7 +1212,7 @@
     "message": "권장. SBM이 확장 프로그램의 탭/창 동작을 통해 blob: URL을 여는 것을 방지합니다."
   },
   "urlOpenBlockedByProtection": {
-    "message": "이 북마크 URL은 고급 URL 열기 보호에 의해 차단되었습니다. 옵션 > 고급에서 보호 토글을 검토할 수 있습니다."
+    "message": "이 북마크 URL은 URL 열기 보호에 의해 차단되었습니다. 옵션 > 안전 > 북마크 URL 보호에서 보호 토글을 검토할 수 있습니다."
   },
   "changelog": {
     "message": "변경 로그"

@@ -558,7 +558,7 @@
     "message": ": seleciona a pasta usada pela opção de iniciar em uma pasta escolhida."
   },
   "helpOptionUrlProtectionsDescription": {
-    "message": "Estas opções controlam proteções para esquemas de URL de favoritos de maior risco quando o SBM abre favoritos por ações de guia ou janela da extensão. Elas não impedem salvar favoritos."
+    "message": "Estas opções ficam em Opções > Segurança e controlam proteções para esquemas de URL de favoritos de maior risco quando o SBM abre favoritos por ações de guia ou janela da extensão. Elas não impedem salvar favoritos."
   },
   "helpOptionStrictUrlProtectionsDescription": {
     "message": ": modo mais rigoroso opcional que bloqueia esquemas de URL de arquivo local, e-mail, telefone, calendário e apps personalizados quando o SBM abre favoritos. Aberturas bloqueadas usam um aviso com estilo do SBM e uma entrada temporária no registro de diagnóstico em vez de um aviso no nível do navegador. Deixe desativado se você usa favoritos para abrir arquivos ou apps."
@@ -1212,7 +1212,7 @@
     "message": "Recomendado. Impede que o SBM abra URLs blob: por ações de abas/janelas da extensão."
   },
   "urlOpenBlockedByProtection": {
-    "message": "Este URL de favorito está bloqueado por uma proteção avançada de abertura de URL. Você pode revisar os seletores de proteção em Opções > Avançado."
+    "message": "Este URL de favorito está bloqueado por uma proteção de abertura de URL. Você pode revisar os seletores de proteção em Opções > Segurança > Proteções de URL de favoritos."
   },
   "changelog": {
     "message": "Registro de alterações"

@@ -558,7 +558,7 @@
     "message": ": chọn thư mục dùng cho tùy chọn khởi động tại thư mục đã chọn."
   },
   "helpOptionUrlProtectionsDescription": {
-    "message": "Các tùy chọn này điều khiển bảo vệ cho các lược đồ URL dấu trang có rủi ro cao hơn khi SBM mở dấu trang qua hành động thẻ hoặc cửa sổ của tiện ích. Chúng không ngăn lưu dấu trang."
+    "message": "Các tùy chọn này nằm trong Tùy chọn > An toàn và điều khiển bảo vệ cho các lược đồ URL dấu trang có rủi ro cao hơn khi SBM mở dấu trang qua hành động thẻ hoặc cửa sổ của tiện ích. Chúng không ngăn lưu dấu trang."
   },
   "helpOptionStrictUrlProtectionsDescription": {
     "message": ": chế độ nghiêm ngặt tùy chọn chặn các lược đồ URL của tệp cục bộ, thư, điện thoại, lịch và ứng dụng tùy chỉnh khi SBM mở dấu trang. Các lần mở bị chặn dùng cảnh báo theo kiểu SBM và một mục nhật ký chẩn đoán tạm thời thay vì cảnh báo cấp trình duyệt. Hãy để tắt nếu bạn dùng dấu trang để mở tệp hoặc ứng dụng."
@@ -1212,7 +1212,7 @@
     "message": "Khuyến nghị. Ngăn SBM mở URL blob: thông qua thao tác tab/cửa sổ của tiện ích."
   },
   "urlOpenBlockedByProtection": {
-    "message": "URL dấu trang này bị chặn bởi một biện pháp bảo vệ mở URL nâng cao. Bạn có thể xem lại các công tắc bảo vệ trong Tùy chọn > Nâng cao."
+    "message": "URL dấu trang này bị chặn bởi một biện pháp bảo vệ mở URL. Bạn có thể xem lại các công tắc bảo vệ trong Tùy chọn > An toàn > Bảo vệ URL dấu trang."
   },
   "changelog": {
     "message": "Nhật ký thay đổi"

@@ -558,7 +558,7 @@
     "message": ": wybiera folder używany przez opcję startu w wybranym folderze."
   },
   "helpOptionUrlProtectionsDescription": {
-    "message": "Te opcje kontrolują zabezpieczenia dla bardziej ryzykownych schematów URL zakładek, gdy SBM otwiera zakładki przez działania kart lub okien rozszerzenia. Nie blokują zapisywania zakładek."
+    "message": "Te opcje znajdują się w Opcje > Bezpieczeństwo i kontrolują zabezpieczenia dla bardziej ryzykownych schematów URL zakładek, gdy SBM otwiera zakładki przez działania kart lub okien rozszerzenia. Nie blokują zapisywania zakładek."
   },
   "helpOptionStrictUrlProtectionsDescription": {
     "message": ": opcjonalny tryb bardziej rygorystyczny, który blokuje lokalne pliki, pocztę, telefon, kalendarz i niestandardowe schematy URL aplikacji, gdy SBM otwiera zakładki. Zablokowane otwarcia używają ostrzeżenia w stylu SBM i tymczasowego wpisu dziennika diagnostycznego zamiast ostrzeżenia na poziomie przeglądarki. Pozostaw wyłączone, jeśli używasz zakładek do otwierania plików lub aplikacji."
@@ -1212,7 +1212,7 @@
     "message": "Zalecane. Uniemożliwia SBM otwieranie adresów blob: przez działania kart/okien rozszerzenia."
   },
   "urlOpenBlockedByProtection": {
-    "message": "Ten adres URL zakładki jest blokowany przez zaawansowaną ochronę otwierania URL. Przełączniki ochrony możesz sprawdzić w Opcje > Zaawansowane."
+    "message": "Ten adres URL zakładki jest blokowany przez ochronę otwierania URL. Przełączniki ochrony możesz sprawdzić w Opcje > Bezpieczeństwo > Ochrona adresów URL zakładek."
   },
   "changelog": {
     "message": "Dziennik zmian"
