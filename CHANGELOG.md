@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.10.16 - 2026-08-14
+
+- Updated the `en_US` locale to use US English spelling and current base-English wording.
+- Corrected visible optimisation/optimisations labels to optimization/optimizations for US English.
+- Kept permissions unchanged.
+
 ## 0.10.15 - 2026-08-14
 
 - Updated all non-base locales with the newest base English locale entries.

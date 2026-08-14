@@ -558,7 +558,7 @@
     "message": ": selects the folder used by the chosen-folder startup option."
   },
   "helpOptionUrlProtectionsDescription": {
-    "message": "These options control protections for higher-risk bookmark URL schemes when SBM opens bookmarks through extension tab or window actions. They do not prevent saving bookmarks."
+    "message": "These options live under Options > Safety and control protections for higher-risk bookmark URL schemes when SBM opens bookmarks through extension tab or window actions. They do not prevent saving bookmarks."
   },
   "helpOptionStrictUrlProtectionsDescription": {
     "message": ": optional stricter mode that blocks local file, mail, phone, calendar, and custom app URL schemes when SBM opens bookmarks. Blocked opens use an SBM-styled warning and transient diagnostic log entry instead of a browser-level warning. Leave it off if you use bookmarks to open files or apps."
@@ -849,7 +849,7 @@
     "message": "Open Simple Bookmarks Manager menu"
   },
   "optimisationDOMrendering": {
-    "message": "Optimisation: DOM rendering pass"
+    "message": "Optimization: DOM rendering pass"
   },
   "optimisationDOMrenderingHelp": {
     "message": "Experimental. Enables reduced DOM churn for selected rendering, drag/drop indicators, and row icon handling. Disable only when comparing performance or troubleshooting UI behavior."
@@ -873,13 +873,13 @@
     "message": "Uses CSS keyframe animation for hovered Auto Scroll text so JavaScript does not update the text position every frame. Disable when comparing behavior or troubleshooting Auto Scroll."
   },
   "optimisationTempBookmarkTreeMaps": {
-    "message": "Optimisation: temporary bookmark tree maps"
+    "message": "Optimization: temporary bookmark tree maps"
   },
   "optimisationTempBookmarkTreeMapsHelp": {
     "message": "Experimental. Builds short-lived lookup maps during some render/search/tree operations, then discards them to avoid a persistent stale cache."
   },
   "optimisations": {
-    "message": "Optimisations"
+    "message": "Optimizations"
   },
   "optimisationsHelp": {
     "message": "Experimental performance options for benchmarking and troubleshooting."
@@ -1212,7 +1212,7 @@
     "message": "Recommended. Prevents SBM from opening blob: URLs through extension tab/window actions."
   },
   "urlOpenBlockedByProtection": {
-    "message": "This bookmark URL is blocked by an advanced URL-opening protection. You can review the protection toggles in Options > Advanced."
+    "message": "This bookmark URL is blocked by a URL-opening protection. You can review the protection toggles in Options > Safety > Bookmark URL protections."
   },
   "changelog": {
     "message": "Changelog"
@@ -1251,10 +1251,10 @@
     "message": "Single Click Folder Expansion/Collapse"
   },
   "folderSingleClickInteractHelp": {
-    "message": "When enabled, a single left click expands or collapses Library folders and opens folders in the Folder Contents pane. When disabled, these folder actions require a double click."
+    "message": "Choose whether a single left click expands/collapses Library folders and opens folders in Folder Contents in all SBM layouts, Sidebar Mode only, Tab Mode only, or remains disabled. Modifier clicks used for multi-selection are not changed."
   },
   "helpOptionFolderSingleClickInteractDescription": {
-    "message": ": when enabled, a single left click expands or collapses folders in the Library pane and opens folders in the Folder Contents pane. When disabled, these folder actions require a double click."
+    "message": ": controls whether a single left click expands/collapses folders in the Library pane and opens folders in the Folder Contents pane in all SBM layouts, Sidebar Mode only, Tab Mode only, or remains disabled. When disabled, SBM keeps its existing double-click folder behavior. Ctrl/Shift modifier clicks remain available for multi-selection."
   },
   "folderSingleClickInteractDisabled": {
     "message": "Disabled (Double Click to open/expand folders)"
