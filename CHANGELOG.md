@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.10.3
+
+- Optimized simple selection changes so SBM refreshes only affected Library/Folder Contents rows and Details instead of rebuilding all visible pane DOM.
+- Kept full renders for navigation, search, sorting, bookmark-tree mutations, and other structural UI changes so external bookmark updates remain safe.
+
 ## 0.10.2
 
 - Reduced duplicate Options-page work by suppressing full `loadOptions()` reloads for storage changes written by the same Options page.

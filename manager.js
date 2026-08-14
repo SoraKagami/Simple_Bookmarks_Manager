@@ -1309,6 +1309,81 @@ function applySelectionState(row, selected, active) {
   row.classList.toggle("selected-inactive", selected && !active);
 }
 
+/** Snapshot the single-selection state before a small incremental UI refresh. */
+function selectionRenderSnapshot() {
+  return {
+    selectedId: state.selectedId || null,
+    treeSelectionId: state.treeSelectedId || state.folderId || null,
+    activePane: state.activePane,
+    multiActive: state.multiSelect.ids.size > 1,
+    multiIds: new Set(state.multiSelect.ids)
+  };
+}
+
+/** Collect row IDs that can change when selection or active pane changes. */
+function selectionAffectedIds(previous) {
+  const ids = new Set();
+  const addId = (id) => { if (id) ids.add(id); };
+  addId(previous?.selectedId);
+  addId(previous?.treeSelectionId);
+  addId(state.selectedId);
+  addId(state.treeSelectedId || state.folderId);
+  for (const id of previous?.multiIds || []) addId(id);
+  for (const id of state.multiSelect.ids || []) addId(id);
+  return ids;
+}
+
+/** Refresh one Library row's selection state from current global selection state. */
+function refreshTreeSelectionRow(row) {
+  if (!row) return;
+  const selected = isMultiSelectActive("tree")
+    ? state.multiSelect.ids.has(row.dataset.id)
+    : row.dataset.id === (state.treeSelectedId || state.folderId);
+  row.setAttribute("aria-selected", String(selected));
+  applySelectionState(row, selected, state.activePane === "tree");
+}
+
+/** Refresh one Folder Contents row's selection state from current global selection state. */
+function refreshListSelectionRow(row) {
+  if (!row) return;
+  const selected = isMultiSelectActive("list")
+    ? state.multiSelect.ids.has(row.dataset.id)
+    : row.dataset.id === state.selectedId;
+  applySelectionState(row, selected, state.activePane === "list");
+}
+
+/** Refresh only known affected selection rows instead of rebuilding pane DOM. */
+function refreshSelectionRows(ids) {
+  const roots = $("roots");
+  const list = $("list");
+  for (const id of ids || []) {
+    const escapedId = CSS.escape(String(id));
+    roots?.querySelectorAll?.(`.tree-row[data-id="${escapedId}"]`).forEach(refreshTreeSelectionRow);
+    list?.querySelectorAll?.(`.item[data-id="${escapedId}"]`).forEach(refreshListSelectionRow);
+  }
+  if (bookmarkTextEffectsEnabled()) queueBookmarkTextEffectRefresh();
+}
+
+/**
+ * Refresh a selection-only state change.
+ *
+ * Bookmark-tree mutations and navigation still use full renders; this path is
+ * limited to state changes that do not add, remove, move, sort, or filter rows.
+ */
+function refreshSelectionAfterStateChange(previous, { renderDetailsPane = true } = {}) {
+  if (previous?.multiActive || state.multiSelect.ids.size > 1) updateSelectionHighlights();
+  else refreshSelectionRows(selectionAffectedIds(previous));
+  if (renderDetailsPane) renderDetails();
+}
+
+/** Change the active pane and update only active/inactive selection styling. */
+function setActivePaneFromFocus(pane) {
+  if (state.activePane === pane) return;
+  const previous = selectionRenderSnapshot();
+  state.activePane = pane;
+  refreshSelectionAfterStateChange(previous, { renderDetailsPane: false });
+}
+
 /** Replace children through a DocumentFragment for benchmarkable batched DOM rendering. */
 function replaceChildrenWithFragment(element, children) {
   const fragment = document.createDocumentFragment();
@@ -1956,11 +2031,12 @@ async function handlePaneRowClick(e, pane, item) {
 /** Collapse a multi-selection to one focused item without navigating away. */
 function cancelMultiSelectToFocus() {
   if (!state.multiSelect.pane) return false;
+  const previous = selectionRenderSnapshot();
   const pane = state.multiSelect.pane;
   const focusId = state.multiSelect.focusId || selectionIdsForPane(pane)[0] || null;
   clearMultiSelect();
   setPaneSelection(pane, focusId, { navigate: false });
-  render();
+  refreshSelectionAfterStateChange(previous, { renderDetailsPane: !LibraryFullView });
   return true;
 }
 
@@ -3917,10 +3993,10 @@ function showContextMenu(e) {
 
   const context = contextFromEvent(e);
   if (context.kind !== "multi") {
+    const previous = selectionRenderSnapshot();
     clearMultiSelect();
     if (context.id && context.kind !== "empty") setPaneSelection(context.pane, context.id, { navigate: false });
-    updateSelectionHighlights();
-    renderDetails();
+    refreshSelectionAfterStateChange(previous);
   }
   state.contextMenu = context;
   const menu = document.createElement("div");
@@ -4335,18 +4411,10 @@ function renderList(maps = state.search ? tempBookmarkTreeMaps() : null) {
   restoreMiddleScrollPosition(scrollPosition);
 }
 
-/** Refresh active/inactive selection styling without rebuilding the full panes. */
+/** Refresh all visible active/inactive selection styling without rebuilding pane DOM. */
 function updateSelectionHighlights() {
-  $("roots").querySelectorAll(".tree-row").forEach((row) => {
-    const selected = isMultiSelectActive("tree") ? state.multiSelect.ids.has(row.dataset.id) : row.dataset.id === (state.treeSelectedId || state.folderId);
-    row.setAttribute("aria-selected", String(selected));
-    applySelectionState(row, selected, state.activePane === "tree");
-  });
-
-  $("list").querySelectorAll(".item").forEach((row) => {
-    const selected = isMultiSelectActive("list") ? state.multiSelect.ids.has(row.dataset.id) : row.dataset.id === state.selectedId;
-    applySelectionState(row, selected, state.activePane === "list");
-  });
+  $("roots").querySelectorAll(".tree-row").forEach(refreshTreeSelectionRow);
+  $("list").querySelectorAll(".item").forEach(refreshListSelectionRow);
   if (bookmarkTextEffectsEnabled()) queueBookmarkTextEffectRefresh();
 }
 
@@ -4893,13 +4961,14 @@ async function navigate(folderId, pushHistory = true, activePane = "tree") {
 
 /** Change selection immediately without asynchronous unsaved-change checks. */
 function performSelect(id, activePane = "list") {
+  const previous = selectionRenderSnapshot();
   clearMultiSelect();
   if (activePane === "tree") {
     state.treeSelectedId = id;
     state.selectedId = id;
   } else state.selectedId = id;
   state.activePane = activePane;
-  render();
+  refreshSelectionAfterStateChange(previous, { renderDetailsPane: !LibraryFullView });
 }
 
 /** Select an item after protecting unsaved Details edits. */
@@ -5572,9 +5641,9 @@ $("info-modal").addEventListener("mousedown", (e) => {
   if (e.target === $("info-modal")) hideInfoDialog();
 });
 
-$("roots").addEventListener("focusin", () => { state.activePane = "tree"; updateSelectionHighlights(); });
-$("list").addEventListener("focusin", () => { state.activePane = "list"; updateSelectionHighlights(); });
-$("details-form").addEventListener("focusin", () => { state.activePane = "details"; updateSelectionHighlights(); });
+$("roots").addEventListener("focusin", () => setActivePaneFromFocus("tree"));
+$("list").addEventListener("focusin", () => setActivePaneFromFocus("list"));
+$("details-form").addEventListener("focusin", () => setActivePaneFromFocus("details"));
 $("details-form").onsubmit = saveSelected;
 $("discard").onclick = discardDetailsChanges;
 $("delete").onclick = removeSelected;
