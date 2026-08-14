@@ -109,15 +109,13 @@ let mid_FC_Show_DateAdded = DEFAULT_SETTINGS.mid_FC_Show_DateAdded;
 let mid_FC_Show_ID = DEFAULT_SETTINGS.mid_FC_Show_ID;
 let mid_FC_Show_Order = DEFAULT_SETTINGS.mid_FC_Show_Order;
 
-const reducedMotionQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
 const activeBookmarkTextElements = new Set();
 const bookmarkTextOriginals = new WeakMap();
-const bookmarkTextAnimations = new WeakMap();
+const bookmarkTextScrollStates = new WeakMap();
 let bookmarkTextRefreshFrame = null;
 let bookmarkTextMeasureContext = null;
 let bookmarkTextHoveredTarget = null;
 let bookmarkTextEffectListenersActive = false;
-let bookmarkTextReducedMotionListenerActive = false;
 
 installThemePreferenceListener(() => ThemeMode);
 
@@ -252,9 +250,9 @@ function prepareBookmarkTextElement(element, fullText, availableWidth) {
 /** Restore one text element after a hover display effect. */
 function clearBookmarkTextElement(element) {
   if (!element) return;
-  const animation = bookmarkTextAnimations.get(element);
-  if (animation) animation.cancel();
-  bookmarkTextAnimations.delete(element);
+  const scrollState = bookmarkTextScrollStates.get(element);
+  if (scrollState?.frameId != null) cancelAnimationFrame(scrollState.frameId);
+  bookmarkTextScrollStates.delete(element);
 
   if (bookmarkTextOriginals.has(element)) {
     element.textContent = bookmarkTextOriginals.get(element);
@@ -321,9 +319,11 @@ function applyBookmarkTextTruncation(element) {
 
 /** Apply a compositor-friendly left/right transform animation to one overflowing hover target. */
 function applyBookmarkTextAutoScroll(element) {
-  if (reducedMotionQuery.matches) return;
   const metrics = bookmarkTextOverflowMetrics(element);
   if (!metrics) return;
+
+  const distance = Math.max(0, Math.ceil(metrics.fullWidth - metrics.availableWidth));
+  if (distance <= 1) return;
 
   prepareBookmarkTextElement(element, metrics.fullText, metrics.availableWidth);
   const content = document.createElement("span");
@@ -332,33 +332,34 @@ function applyBookmarkTextAutoScroll(element) {
   element.replaceChildren(content);
   element.classList.add("sbm-text-scroll-active");
 
-  const distance = Math.max(0, Math.ceil(metrics.fullWidth - metrics.availableWidth));
-  if (distance <= 1) {
-    clearBookmarkTextElement(element);
-    return;
-  }
-
-  const speed = Math.max(1, Bookmark_AutoScrollSpeed);
-  const pauseMs = Math.max(0, Bookmark_AutoScrollPause) * 1000;
-  const travelMs = (distance / speed) * 1000;
+  const speed = Math.max(1, Number(Bookmark_AutoScrollSpeed) || DEFAULT_SETTINGS.Bookmark_AutoScrollSpeed);
+  const pauseMs = Math.max(0, Number(Bookmark_AutoScrollPause) || 0) * 1000;
+  const travelMs = Math.max(1, (distance / speed) * 1000);
   const totalMs = Math.max(1, (travelMs * 2) + (pauseMs * 2));
-  const frames = [{ transform: "translateX(0)", offset: 0 }];
-  if (pauseMs > 0) frames.push({ transform: "translateX(0)", offset: pauseMs / totalMs });
-  frames.push({ transform: `translateX(-${distance}px)`, offset: (pauseMs + travelMs) / totalMs });
-  if (pauseMs > 0) {
-    frames.push({
-      transform: `translateX(-${distance}px)`,
-      offset: (pauseMs + travelMs + pauseMs) / totalMs
-    });
-  }
-  frames.push({ transform: "translateX(0)", offset: 1 });
+  const startTime = performance.now();
 
-  const animation = content.animate(frames, {
-    duration: totalMs,
-    iterations: Infinity,
-    easing: "linear"
-  });
-  bookmarkTextAnimations.set(element, animation);
+  const step = (now) => {
+    if (!bookmarkTextScrollStates.has(element) || !element.isConnected) return;
+
+    const elapsed = (now - startTime) % totalMs;
+    let offset = 0;
+
+    if (elapsed < pauseMs) {
+      offset = 0;
+    } else if (elapsed < pauseMs + travelMs) {
+      offset = -distance * ((elapsed - pauseMs) / travelMs);
+    } else if (elapsed < pauseMs + travelMs + pauseMs) {
+      offset = -distance;
+    } else {
+      offset = -distance * (1 - ((elapsed - pauseMs - travelMs - pauseMs) / travelMs));
+    }
+
+    content.style.transform = `translate3d(${offset}px, 0, 0)`;
+    const scrollState = bookmarkTextScrollStates.get(element);
+    if (scrollState) scrollState.frameId = requestAnimationFrame(step);
+  };
+
+  bookmarkTextScrollStates.set(element, { frameId: requestAnimationFrame(step) });
 }
 
 /** Return the exact fields that may receive hover text effects for one row. */
@@ -440,13 +441,6 @@ function syncBookmarkTextEffectListeners() {
       container[method]("mouseout", handleBookmarkTextPointerOut);
     }
     bookmarkTextEffectListenersActive = shouldListen;
-  }
-
-  const shouldListenForReducedMotion = Bookmark_TextTruncation === 1;
-  if (shouldListenForReducedMotion !== bookmarkTextReducedMotionListenerActive) {
-    const method = shouldListenForReducedMotion ? "addEventListener" : "removeEventListener";
-    reducedMotionQuery[method]("change", queueBookmarkTextEffectRefresh);
-    bookmarkTextReducedMotionListenerActive = shouldListenForReducedMotion;
   }
 
   if (!shouldListen) {

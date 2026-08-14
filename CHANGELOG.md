@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.9.24
+
+- Fixed Auto Scroll mode for Bookmarks Truncation/Shortening by replacing the previous Web Animations API-based text movement with a direct hover-only requestAnimationFrame transform loop.
+- Removed the forced `prefers-reduced-motion` suppression from the explicit Auto Scroll option so that enabling Auto Scroll in SBM consistently starts the scrolling effect.
+- Preserved the v0.9.23 immediate hover targeting and disabled-mode fast path; Auto Scroll still creates animation work only for the currently hovered overflowing Library or Folder Contents Name/URL text.
+
 ## 0.9.23
 
 - Reworked Bookmarks Truncation/Shortening hover handling so mode `0` no longer calls the text-effect refresh path during selection/highlight updates, resize handling, or normal render refreshes.
