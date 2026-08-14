@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.10.5
+
+- Fixed missing search debounce state variables that caused `ReferenceError` exceptions in Manager when typing or flushing search input.
+- Kept the v0.10.4 search debounce behaviour and settings unchanged.
+
 ## 0.10.4
 
 - Added an Advanced > Optimisations toggle for Search input debounce, enabled by default, with a configurable debounce wait slider.

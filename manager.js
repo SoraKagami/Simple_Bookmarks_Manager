@@ -119,6 +119,14 @@ let bookmarkTextMeasureContext = null;
 let bookmarkTextHoveredTarget = null;
 let bookmarkTextEffectListenersActive = false;
 
+/**
+ * Search debounce state shared by normal and Sidebar Mode search inputs.
+ * These live at module scope so setting changes, form change events, and
+ * explicit flushes can cancel or apply the same pending update safely.
+ */
+let searchInputDebounceTimer = null;
+let pendingSearchInputValue = null;
+
 installThemePreferenceListener(() => ThemeMode);
 
 /** Record this manager tab so the toolbar button can focus it when single-instance mode is enabled. */
