@@ -530,6 +530,9 @@
   "helpOptionFontSpacingDescription": {
     "message": ": den Zeilenabstand für Beschriftungen und Zeilen anpassen."
   },
+  "helpOptionSidebarModeDescription": {
+    "message": ": SBM in der Seitenleiste des Browsers statt in einem Tab öffnen. Chromium-Unterstützung für Seitenleisten ist erforderlich."
+  },
   "helpOptionLimitSearchDescription": {
     "message": "ändert das Hauptsuchfeld so, dass statt aller Lesezeichen nur die aktuelle Ordnerstruktur durchsucht wird."
   },
@@ -592,6 +595,15 @@
   },
   "helpOptionDomRenderingDescription": {
     "message": ": reduziert ausgewählte DOM-Änderungen in Renderpfaden."
+  },
+  "helpOptionSearchInputDebounceDescription": {
+    "message": ": wartet nach Sucheingaben kurz, bevor die Ergebnisse aktualisiert werden, und reduziert so wiederholte Such-Renderings beim Tippen im normalen Modus und im Seitenleistenmodus."
+  },
+  "helpOptionSearchInputDebounceWaitDescription": {
+    "message": ": steuert, wie lange SBM nach der letzten Sucheingabe wartet, bevor die Ergebnisse aktualisiert werden."
+  },
+  "helpOptionAutoScrollAnimDescription": {
+    "message": ": verwendet CSS-Keyframe-Animationen für überlaufenden Text mit Auto-Scroll beim Überfahren mit der Maus und reduziert so JavaScript-Arbeit pro Frame. Schalte dies aus, wenn du die Leistung vergleichst oder Auto-Scroll-Verhalten untersuchst."
   },
   "helpOptionTempTreeMapsDescription": {
     "message": ": erstellt während einiger Baumoperationen kurzlebige Nachschlagetabellen und verwirft sie anschließend."
@@ -838,6 +850,24 @@
   },
   "optimisationDOMrenderingHelp": {
     "message": "Experimentell. Reduziert DOM-Änderungen bei ausgewähltem Rendering, Drag-and-drop-Indikatoren und Zeilensymbolen. Nur zum Leistungsvergleich oder zur Fehlerbehebung der UI deaktivieren."
+  },
+  "optimisationSearchInputDebounce": {
+    "message": "Such-Eingabeverzögerung"
+  },
+  "optimisationSearchInputDebounceHelp": {
+    "message": "Verzögert das Rendern der Suche beim Tippen kurz, damit SBM die Ergebnisse nicht bei jedem Tastendruck neu aufbauen muss. Deaktiviere dies für sofortige Suchaktualisierungen auf sehr schnellen Systemen."
+  },
+  "optimisationSearchInputDebounceWait": {
+    "message": "Wartezeit der Such-Eingabeverzögerung"
+  },
+  "optimisationSearchInputDebounceWaitHelp": {
+    "message": "Wie lange SBM nach der letzten Sucheingabe wartet, bevor die Suchergebnisse aktualisiert werden."
+  },
+  "optimisationAutoScrollAnim": {
+    "message": "Optimierung der Auto-Scroll-Animation"
+  },
+  "optimisationAutoScrollAnimHelp": {
+    "message": "Verwendet CSS-Keyframe-Animationen für überlaufenden Text mit Auto-Scroll beim Überfahren mit der Maus, sodass JavaScript die Textposition nicht in jedem Frame aktualisieren muss. Deaktiviere dies, wenn du Verhalten vergleichst oder Auto Scroll untersuchst."
   },
   "optimisationTempBookmarkTreeMaps": {
     "message": "Optimierung: temporäre Lesezeichenbaum-Maps"
@@ -1180,9 +1210,6 @@
   },
   "closeDialog": {
     "message": "Dialog schließen"
-  },
-  "helpOptionSidebarModeDescription": {
-    "message": ": SBM in der Seitenleiste des Browsers statt in einem Tab öffnen. Chromium-Unterstützung für Seitenleisten ist erforderlich."
   },
   "sidebarMode": {
     "message": "Seitenleistenmodus"

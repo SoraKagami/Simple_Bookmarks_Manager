@@ -530,6 +530,9 @@
   "helpOptionFontSpacingDescription": {
     "message": ": налаштуйте міжрядковий інтервал для підписів і рядків."
   },
+  "helpOptionSidebarModeDescription": {
+    "message": ": відкривати SBM на бічній панелі браузера замість вкладки. Потрібна підтримка бічної панелі Chromium."
+  },
   "helpOptionLimitSearchDescription": {
     "message": "змінює головне поле пошуку так, щоб воно шукало лише в поточному дереві папок, а не в усіх закладках."
   },
@@ -592,6 +595,15 @@
   },
   "helpOptionDomRenderingDescription": {
     "message": ": зменшує вибрані зміни DOM у шляхах відтворення."
+  },
+  "helpOptionSearchInputDebounceDescription": {
+    "message": ": коротко чекає після введення в пошуку перед оновленням результатів, зменшуючи повторне відтворення пошуку під час введення у звичайному режимі та режимі бічної панелі."
+  },
+  "helpOptionSearchInputDebounceWaitDescription": {
+    "message": ": визначає, скільки SBM чекає після останнього введення в пошуку перед оновленням результатів."
+  },
+  "helpOptionAutoScrollAnimDescription": {
+    "message": ": використовує CSS-анімацію з ключовими кадрами для переповненого тексту Auto Scroll при наведенні, зменшуючи роботу JavaScript у кожному кадрі. Вимкніть, якщо порівнюєте продуктивність або діагностуєте поведінку Auto Scroll."
   },
   "helpOptionTempTreeMapsDescription": {
     "message": ": створює короткочасні карти пошуку під час деяких операцій із деревом, а потім відкидає їх."
@@ -838,6 +850,24 @@
   },
   "optimisationDOMrenderingHelp": {
     "message": "Експериментально. Зменшує зміни DOM для вибраного рендерингу, індикаторів перетягування та обробки піктограм рядків. Вимикайте лише для порівняння продуктивності або усунення проблем поведінки UI."
+  },
+  "optimisationSearchInputDebounce": {
+    "message": "Затримка введення пошуку"
+  },
+  "optimisationSearchInputDebounceHelp": {
+    "message": "Коротко затримує відтворення пошуку під час введення, щоб SBM не перебудовував результати після кожного натискання клавіші. Вимкніть для миттєвих оновлень пошуку на дуже швидких системах."
+  },
+  "optimisationSearchInputDebounceWait": {
+    "message": "Час затримки введення пошуку"
+  },
+  "optimisationSearchInputDebounceWaitHelp": {
+    "message": "Скільки SBM чекає після останнього введення в пошуку перед оновленням результатів пошуку."
+  },
+  "optimisationAutoScrollAnim": {
+    "message": "Оптимізація анімації Auto Scroll"
+  },
+  "optimisationAutoScrollAnimHelp": {
+    "message": "Використовує CSS-анімацію з ключовими кадрами для переповненого тексту Auto Scroll при наведенні, щоб JavaScript не оновлював позицію тексту в кожному кадрі. Вимкніть під час порівняння поведінки або діагностики Auto Scroll."
   },
   "optimisationTempBookmarkTreeMaps": {
     "message": "Оптимізація: тимчасові мапи дерева закладок"
@@ -1180,9 +1210,6 @@
   },
   "closeDialog": {
     "message": "Закрити діалогове вікно"
-  },
-  "helpOptionSidebarModeDescription": {
-    "message": ": відкривати SBM на бічній панелі браузера замість вкладки. Потрібна підтримка бічної панелі Chromium."
   },
   "sidebarMode": {
     "message": "Режим бічної панелі"

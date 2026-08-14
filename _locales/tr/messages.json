@@ -530,6 +530,9 @@
   "helpOptionFontSpacingDescription": {
     "message": ": etiketler ve satırlar için satır aralığını ayarlar."
   },
+  "helpOptionSidebarModeDescription": {
+    "message": ": SBM'yi sekme yerine tarayıcının kenar çubuğunda açın. Chromium kenar çubuğu desteği gereklidir."
+  },
   "helpOptionLimitSearchDescription": {
     "message": "ana arama kutusunu tüm yer imleri yerine yalnızca geçerli klasör ağacında arama yapacak şekilde değiştirir."
   },
@@ -592,6 +595,15 @@
   },
   "helpOptionDomRenderingDescription": {
     "message": ": render yollarında seçili DOM değişimlerini azaltır."
+  },
+  "helpOptionSearchInputDebounceDescription": {
+    "message": ": arama tuş vuruşlarından sonra sonuçları yenilemeden önce kısa süre bekler; normal modda ve Kenar Çubuğu Modu’nda yazarken tekrarlanan arama işlemelerini azaltır."
+  },
+  "helpOptionSearchInputDebounceWaitDescription": {
+    "message": ": son arama tuş vuruşundan sonra sonuçları yenilemeden önce SBM’nin ne kadar bekleyeceğini denetler."
+  },
+  "helpOptionAutoScrollAnimDescription": {
+    "message": ": üzerine gelinen taşan Auto Scroll metni için CSS anahtar kare animasyonu kullanarak kare başına JavaScript işini azaltır. Performansı karşılaştırıyorsanız veya Auto Scroll davranışını gideriyorsanız kapatın."
   },
   "helpOptionTempTreeMapsDescription": {
     "message": ": bazı ağaç işlemleri sırasında kısa ömürlü arama haritaları oluşturur ve sonra atar."
@@ -838,6 +850,24 @@
   },
   "optimisationDOMrenderingHelp": {
     "message": "Deneyseldir. Seçim işleme, sürükle/bırak göstergeleri ve satır simgesi işleme için DOM değişikliklerini azaltır. Yalnızca performansı karşılaştırırken veya arayüz davranışını giderirken devre dışı bırakın."
+  },
+  "optimisationSearchInputDebounce": {
+    "message": "Arama girişi geciktirme"
+  },
+  "optimisationSearchInputDebounceHelp": {
+    "message": "Yazarken arama işlemesini kısa süre geciktirir, böylece SBM her tuş vuruşunda sonuçları yeniden oluşturmaz. Çok hızlı sistemlerde anında arama güncellemeleri için devre dışı bırakın."
+  },
+  "optimisationSearchInputDebounceWait": {
+    "message": "Arama girişi geciktirme süresi"
+  },
+  "optimisationSearchInputDebounceWaitHelp": {
+    "message": "Son arama tuş vuruşundan sonra arama sonuçlarını yenilemeden önce SBM’nin ne kadar bekleyeceği."
+  },
+  "optimisationAutoScrollAnim": {
+    "message": "Auto Scroll animasyon optimizasyonu"
+  },
+  "optimisationAutoScrollAnimHelp": {
+    "message": "Üzerine gelinen taşan Auto Scroll metni için CSS anahtar kare animasyonu kullanır; böylece JavaScript her karede metin konumunu güncellemez. Davranışı karşılaştırırken veya Auto Scroll sorunlarını giderirken devre dışı bırakın."
   },
   "optimisationTempBookmarkTreeMaps": {
     "message": "Optimizasyon: geçici yer imi ağacı haritaları"
@@ -1180,9 +1210,6 @@
   },
   "closeDialog": {
     "message": "İletişim kutusunu kapat"
-  },
-  "helpOptionSidebarModeDescription": {
-    "message": ": SBM'yi sekme yerine tarayıcının kenar çubuğunda açın. Chromium kenar çubuğu desteği gereklidir."
   },
   "sidebarMode": {
     "message": "Kenar Çubuğu Modu"

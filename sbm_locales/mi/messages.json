@@ -530,6 +530,9 @@
   "helpOptionFontSpacingDescription": {
     "message": ": adjust the line spacing used by labels and rows."
   },
+  "helpOptionSidebarModeDescription": {
+    "message": ": huakina SBM ki te paetaha o te pūtirotiro, kaua ki tētahi ripa. Me tautoko a Chromium i te paetaha."
+  },
   "helpOptionLimitSearchDescription": {
     "message": "changes the main search box from searching all bookmarks to searching only within the current folder tree."
   },
@@ -592,6 +595,15 @@
   },
   "helpOptionDomRenderingDescription": {
     "message": ": reduces selected DOM churn in rendering paths."
+  },
+  "helpOptionSearchInputDebounceDescription": {
+    "message": ": ka tatari poto i muri i ngā pēhitanga pātuhi rapu i mua i te whakahou i ngā hua, hei whakaiti i ngā tāhuahua rapu tukurua i a koe e pato ana i te aratau noa me te Aratau Paetaha."
+  },
+  "helpOptionSearchInputDebounceWaitDescription": {
+    "message": ": ka whakahaere i te roa e tatari ai a SBM i muri i te pēhitanga pātuhi rapu whakamutunga i mua i te whakahou i ngā hua."
+  },
+  "helpOptionAutoScrollAnimDescription": {
+    "message": ": ka whakamahi i te CSS keyframe animation mō te kuputuhi Auto Scroll e puhake ana ina whakatūria te atatohu ki runga, hei whakaiti i te mahi JavaScript ia tāpare. Whakawetohia mēnā e whakataurite ana koe i te mahinga, e rapurongoā ana rānei i te whanonga Auto Scroll."
   },
   "helpOptionTempTreeMapsDescription": {
     "message": ": builds short-lived lookup maps during some tree operations, then discards them."
@@ -838,6 +850,24 @@
   },
   "optimisationDOMrenderingHelp": {
     "message": "Whakamātau. Ka whakaiti i te rerekētanga DOM mō te tāhuahua tīpakonga, ngā tohu tō/me-te-tuku, me te whakahaere ata haupae. Monokia anake ina whakataurite mahinga, ina raparongoā whanonga UI rānei."
+  },
+  "optimisationSearchInputDebounce": {
+    "message": "Whakaroa tāuru rapu"
+  },
+  "optimisationSearchInputDebounceHelp": {
+    "message": "Ka whakaroa poto i te tāhuahua rapu i a koe e pato ana kia kore ai a SBM e hanga anō i ngā hua mō ia pēhitanga pātuhi. Whakawetohia mō ngā whakahou rapu inamata ki ngā pūnaha tino tere."
+  },
+  "optimisationSearchInputDebounceWait": {
+    "message": "Wā tatari whakaroa tāuru rapu"
+  },
+  "optimisationSearchInputDebounceWaitHelp": {
+    "message": "Te roa e tatari ai a SBM i muri i te pēhitanga pātuhi rapu whakamutunga i mua i te whakahou i ngā hua rapu."
+  },
+  "optimisationAutoScrollAnim": {
+    "message": "Arotautanga hākoritanga Auto Scroll"
+  },
+  "optimisationAutoScrollAnimHelp": {
+    "message": "Ka whakamahi i te CSS keyframe animation mō te kuputuhi Auto Scroll e puhake ana ina whakatūria te atatohu ki runga, kia kore ai te JavaScript e whakahou i te tūranga kuputuhi i ia tāpare. Whakawetohia ina whakataurite whanonga, ina rapurongoā Auto Scroll rānei."
   },
   "optimisationTempBookmarkTreeMaps": {
     "message": "Arotautanga: mahere rākau tohuwāhi rangitahi"
@@ -1180,9 +1210,6 @@
   },
   "closeDialog": {
     "message": "Katia te kōrero"
-  },
-  "helpOptionSidebarModeDescription": {
-    "message": ": huakina SBM ki te paetaha o te pūtirotiro, kaua ki tētahi ripa. Me tautoko a Chromium i te paetaha."
   },
   "sidebarMode": {
     "message": "Aratau Paetaha"

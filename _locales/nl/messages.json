@@ -530,6 +530,9 @@
   "helpOptionFontSpacingDescription": {
     "message": ": pas de regelafstand voor labels en rijen aan."
   },
+  "helpOptionSidebarModeDescription": {
+    "message": ": open SBM in de zijbalk van de browser in plaats van in een tabblad. Chromium-ondersteuning voor de zijbalk is vereist."
+  },
   "helpOptionLimitSearchDescription": {
     "message": "wijzigt het hoofdzoekvak van zoeken in alle bladwijzers naar alleen zoeken binnen de huidige mapstructuur."
   },
@@ -592,6 +595,15 @@
   },
   "helpOptionDomRenderingDescription": {
     "message": ": vermindert geselecteerde DOM-wijzigingen in renderpaden."
+  },
+  "helpOptionSearchInputDebounceDescription": {
+    "message": ": wacht kort na toetsaanslagen in de zoekfunctie voordat resultaten worden vernieuwd, zodat herhaald zoekrenderen tijdens typen in normale modus en zijbalkmodus wordt verminderd."
+  },
+  "helpOptionSearchInputDebounceWaitDescription": {
+    "message": ": bepaalt hoe lang SBM wacht na de laatste zoektoetsaanslag voordat resultaten worden vernieuwd."
+  },
+  "helpOptionAutoScrollAnimDescription": {
+    "message": ": gebruikt CSS-keyframeanimatie voor overlopende Auto Scroll-tekst bij aanwijzen, waardoor JavaScript-werk per frame wordt verminderd. Schakel dit uit als je prestaties vergelijkt of Auto Scroll-gedrag onderzoekt."
   },
   "helpOptionTempTreeMapsDescription": {
     "message": ": bouwt tijdelijke zoekkaarten tijdens sommige boomoperaties en verwijdert ze daarna."
@@ -838,6 +850,24 @@
   },
   "optimisationDOMrenderingHelp": {
     "message": "Experimenteel. Vermindert DOM-wijzigingen voor geselecteerde rendering, sleep-/neerzetindicatoren en verwerking van rijpictogrammen. Schakel dit alleen uit bij prestatievergelijking of probleemoplossing van UI-gedrag."
+  },
+  "optimisationSearchInputDebounce": {
+    "message": "Zoekinvoer-debounce"
+  },
+  "optimisationSearchInputDebounceHelp": {
+    "message": "Vertraagt het renderen van zoekresultaten kort terwijl je typt, zodat SBM resultaten niet bij elke toetsaanslag opnieuw hoeft op te bouwen. Schakel uit voor directe zoekupdates op zeer snelle systemen."
+  },
+  "optimisationSearchInputDebounceWait": {
+    "message": "Wachttijd voor zoekinvoer-debounce"
+  },
+  "optimisationSearchInputDebounceWaitHelp": {
+    "message": "Hoe lang SBM wacht na de laatste zoektoetsaanslag voordat zoekresultaten worden vernieuwd."
+  },
+  "optimisationAutoScrollAnim": {
+    "message": "Optimalisatie van Auto Scroll-animatie"
+  },
+  "optimisationAutoScrollAnimHelp": {
+    "message": "Gebruikt CSS-keyframeanimatie voor overlopende Auto Scroll-tekst bij aanwijzen, zodat JavaScript de tekstpositie niet elk frame hoeft bij te werken. Schakel uit bij het vergelijken van gedrag of het onderzoeken van Auto Scroll."
   },
   "optimisationTempBookmarkTreeMaps": {
     "message": "Optimalisatie: tijdelijke bladwijzerboommappen"
@@ -1180,9 +1210,6 @@
   },
   "closeDialog": {
     "message": "Dialoog sluiten"
-  },
-  "helpOptionSidebarModeDescription": {
-    "message": ": open SBM in de zijbalk van de browser in plaats van in een tabblad. Chromium-ondersteuning voor de zijbalk is vereist."
   },
   "sidebarMode": {
     "message": "Zijbalkmodus"

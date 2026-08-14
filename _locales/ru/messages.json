@@ -530,6 +530,9 @@
   "helpOptionFontSpacingDescription": {
     "message": ": настройте межстрочный интервал для подписей и строк."
   },
+  "helpOptionSidebarModeDescription": {
+    "message": ": открывать SBM на боковой панели браузера вместо вкладки. Требуется поддержка боковой панели Chromium."
+  },
   "helpOptionLimitSearchDescription": {
     "message": "переключает основной поиск с поиска по всем закладкам на поиск только внутри текущего дерева папок."
   },
@@ -592,6 +595,15 @@
   },
   "helpOptionDomRenderingDescription": {
     "message": ": уменьшает отдельные изменения DOM в путях отрисовки."
+  },
+  "helpOptionSearchInputDebounceDescription": {
+    "message": ": делает короткую паузу после ввода в поиске перед обновлением результатов, уменьшая повторную отрисовку поиска при вводе в обычном режиме и режиме боковой панели."
+  },
+  "helpOptionSearchInputDebounceWaitDescription": {
+    "message": ": задаёт, сколько SBM ждёт после последнего ввода в поиске перед обновлением результатов."
+  },
+  "helpOptionAutoScrollAnimDescription": {
+    "message": ": использует CSS-анимацию с ключевыми кадрами для переполняющегося текста Auto Scroll при наведении, уменьшая работу JavaScript на каждом кадре. Отключите, если сравниваете производительность или устраняете проблемы с поведением Auto Scroll."
   },
   "helpOptionTempTreeMapsDescription": {
     "message": ": создаёт кратковременные карты поиска при некоторых операциях с деревом, затем удаляет их."
@@ -838,6 +850,24 @@
   },
   "optimisationDOMrenderingHelp": {
     "message": "Экспериментально. Уменьшает изменения DOM для выбранной отрисовки, индикаторов перетаскивания и обработки значков строк. Отключайте только при сравнении производительности или устранении проблем поведения UI."
+  },
+  "optimisationSearchInputDebounce": {
+    "message": "Задержка ввода поиска"
+  },
+  "optimisationSearchInputDebounceHelp": {
+    "message": "Ненадолго задерживает отрисовку поиска во время ввода, чтобы SBM не перестраивал результаты после каждого нажатия клавиши. Отключите для мгновенных обновлений поиска на очень быстрых системах."
+  },
+  "optimisationSearchInputDebounceWait": {
+    "message": "Время задержки ввода поиска"
+  },
+  "optimisationSearchInputDebounceWaitHelp": {
+    "message": "Сколько SBM ждёт после последнего ввода в поиске перед обновлением результатов поиска."
+  },
+  "optimisationAutoScrollAnim": {
+    "message": "Оптимизация анимации Auto Scroll"
+  },
+  "optimisationAutoScrollAnimHelp": {
+    "message": "Использует CSS-анимацию с ключевыми кадрами для переполняющегося текста Auto Scroll при наведении, чтобы JavaScript не обновлял позицию текста в каждом кадре. Отключите при сравнении поведения или устранении проблем с Auto Scroll."
   },
   "optimisationTempBookmarkTreeMaps": {
     "message": "Оптимизация: временные карты дерева закладок"
@@ -1180,9 +1210,6 @@
   },
   "closeDialog": {
     "message": "Закрыть диалог"
-  },
-  "helpOptionSidebarModeDescription": {
-    "message": ": открывать SBM на боковой панели браузера вместо вкладки. Требуется поддержка боковой панели Chromium."
   },
   "sidebarMode": {
     "message": "Режим боковой панели"

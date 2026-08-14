@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.10.8
+
+- Added locale translations for the Search input debounce and Auto Scroll animation optimisation strings in en_US, de, es, fr, it, nl, pl, pt_BR, ru, tr, uk, and mi.
+- Synced the requested locale key coverage with the base English locale.
+
 ## 0.10.7
 
 - Added en_Netspeak translations for the Search input debounce and Auto Scroll animation optimisation strings introduced in v0.10.4 and v0.10.6.

@@ -530,6 +530,9 @@
   "helpOptionFontSpacingDescription": {
     "message": ": dostosuj odstępy wierszy używane przez etykiety i wiersze."
   },
+  "helpOptionSidebarModeDescription": {
+    "message": ": otwieraj SBM na pasku bocznym przeglądarki zamiast w karcie. Wymagana jest obsługa paska bocznego Chromium."
+  },
   "helpOptionLimitSearchDescription": {
     "message": "zmienia główne pole wyszukiwania tak, aby przeszukiwało tylko bieżące drzewo folderów zamiast wszystkich zakładek."
   },
@@ -592,6 +595,15 @@
   },
   "helpOptionDomRenderingDescription": {
     "message": ": zmniejsza wybrane zmiany DOM w ścieżkach renderowania."
+  },
+  "helpOptionSearchInputDebounceDescription": {
+    "message": ": czeka krótko po naciśnięciach klawiszy w wyszukiwaniu przed odświeżeniem wyników, ograniczając powtarzane renderowanie wyszukiwania podczas pisania w trybie normalnym i trybie paska bocznego."
+  },
+  "helpOptionSearchInputDebounceWaitDescription": {
+    "message": ": określa, jak długo SBM czeka po ostatnim naciśnięciu klawisza w wyszukiwaniu przed odświeżeniem wyników."
+  },
+  "helpOptionAutoScrollAnimDescription": {
+    "message": ": używa animacji CSS z klatkami kluczowymi dla przepełnionego tekstu Auto Scroll po najechaniu kursorem, ograniczając pracę JavaScriptu w każdej klatce. Wyłącz, jeśli porównujesz wydajność lub diagnozujesz działanie Auto Scroll."
   },
   "helpOptionTempTreeMapsDescription": {
     "message": ": tworzy krótkotrwałe mapy wyszukiwania podczas niektórych operacji drzewa, a następnie je usuwa."
@@ -838,6 +850,24 @@
   },
   "optimisationDOMrenderingHelp": {
     "message": "Eksperymentalne. Zmniejsza liczbę zmian DOM przy renderowaniu zaznaczenia, wskaźnikach przeciągania i upuszczania oraz obsłudze ikon wierszy. Wyłączaj tylko podczas porównywania wydajności lub rozwiązywania problemów z interfejsem."
+  },
+  "optimisationSearchInputDebounce": {
+    "message": "Opóźnienie wejścia wyszukiwania"
+  },
+  "optimisationSearchInputDebounceHelp": {
+    "message": "Krótko opóźnia renderowanie wyszukiwania podczas pisania, aby SBM nie musiał przebudowywać wyników po każdym naciśnięciu klawisza. Wyłącz, aby uzyskać natychmiastowe aktualizacje wyszukiwania na bardzo szybkich systemach."
+  },
+  "optimisationSearchInputDebounceWait": {
+    "message": "Czas opóźnienia wejścia wyszukiwania"
+  },
+  "optimisationSearchInputDebounceWaitHelp": {
+    "message": "Jak długo SBM czeka po ostatnim naciśnięciu klawisza w wyszukiwaniu przed odświeżeniem wyników."
+  },
+  "optimisationAutoScrollAnim": {
+    "message": "Optymalizacja animacji Auto Scroll"
+  },
+  "optimisationAutoScrollAnimHelp": {
+    "message": "Używa animacji CSS z klatkami kluczowymi dla przepełnionego tekstu Auto Scroll po najechaniu kursorem, dzięki czemu JavaScript nie aktualizuje pozycji tekstu w każdej klatce. Wyłącz podczas porównywania zachowania lub diagnozowania Auto Scroll."
   },
   "optimisationTempBookmarkTreeMaps": {
     "message": "Optymalizacja: tymczasowe mapy drzewa zakładek"
@@ -1180,9 +1210,6 @@
   },
   "closeDialog": {
     "message": "Zamknij okno dialogowe"
-  },
-  "helpOptionSidebarModeDescription": {
-    "message": ": otwieraj SBM na pasku bocznym przeglądarki zamiast w karcie. Wymagana jest obsługa paska bocznego Chromium."
   },
   "sidebarMode": {
     "message": "Tryb paska bocznego"

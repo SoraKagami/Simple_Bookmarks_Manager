@@ -530,6 +530,9 @@
   "helpOptionFontSpacingDescription": {
     "message": ": ajuster l’interligne utilisé par les libellés et les lignes."
   },
+  "helpOptionSidebarModeDescription": {
+    "message": ": ouvrir SBM dans la barre latérale du navigateur au lieu d'un onglet. La prise en charge de la barre latérale Chromium est requise."
+  },
   "helpOptionLimitSearchDescription": {
     "message": "fait passer la recherche principale de tous les favoris à la seule arborescence du dossier actuel."
   },
@@ -592,6 +595,15 @@
   },
   "helpOptionDomRenderingDescription": {
     "message": ": réduire certaines modifications du DOM dans les chemins de rendu."
+  },
+  "helpOptionSearchInputDebounceDescription": {
+    "message": ": attend brièvement après les frappes dans la recherche avant d’actualiser les résultats, ce qui réduit les rendus de recherche répétés pendant la saisie en mode normal et en mode Barre latérale."
+  },
+  "helpOptionSearchInputDebounceWaitDescription": {
+    "message": ": contrôle combien de temps SBM attend après la dernière frappe dans la recherche avant d’actualiser les résultats."
+  },
+  "helpOptionAutoScrollAnimDescription": {
+    "message": ": utilise une animation CSS par images clés pour le texte débordant en Auto Scroll au survol, réduisant le travail JavaScript à chaque image. Désactivez cette option pour comparer les performances ou diagnostiquer le comportement d’Auto Scroll."
   },
   "helpOptionTempTreeMapsDescription": {
     "message": ": créer des tables de recherche temporaires lors de certaines opérations d’arborescence, puis les supprimer."
@@ -838,6 +850,24 @@
   },
   "optimisationDOMrenderingHelp": {
     "message": "Expérimental. Réduit les modifications du DOM pour le rendu sélectionné, les indicateurs de glisser-déposer et la gestion des icônes de ligne. À désactiver uniquement pour comparer les performances ou dépanner l’interface."
+  },
+  "optimisationSearchInputDebounce": {
+    "message": "Temporisation de la saisie de recherche"
+  },
+  "optimisationSearchInputDebounceHelp": {
+    "message": "Retarde brièvement le rendu de la recherche pendant la saisie afin que SBM évite de reconstruire les résultats à chaque frappe. Désactivez cette option pour des mises à jour immédiates sur les systèmes très rapides."
+  },
+  "optimisationSearchInputDebounceWait": {
+    "message": "Délai de temporisation de la recherche"
+  },
+  "optimisationSearchInputDebounceWaitHelp": {
+    "message": "Durée pendant laquelle SBM attend après la dernière frappe dans la recherche avant d’actualiser les résultats."
+  },
+  "optimisationAutoScrollAnim": {
+    "message": "Optimisation de l’animation Auto Scroll"
+  },
+  "optimisationAutoScrollAnimHelp": {
+    "message": "Utilise une animation CSS par images clés pour le texte débordant en Auto Scroll au survol, afin que JavaScript ne mette pas à jour la position du texte à chaque image. Désactivez cette option pour comparer le comportement ou diagnostiquer Auto Scroll."
   },
   "optimisationTempBookmarkTreeMaps": {
     "message": "Optimisation : cartes temporaires de l’arborescence des favoris"
@@ -1180,9 +1210,6 @@
   },
   "closeDialog": {
     "message": "Fermer la boîte de dialogue"
-  },
-  "helpOptionSidebarModeDescription": {
-    "message": ": ouvrir SBM dans la barre latérale du navigateur au lieu d'un onglet. La prise en charge de la barre latérale Chromium est requise."
   },
   "sidebarMode": {
     "message": "Mode barre latérale"

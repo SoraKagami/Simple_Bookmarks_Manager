@@ -530,6 +530,9 @@
   "helpOptionFontSpacingDescription": {
     "message": ": adjust the line spacing used by labels and rows."
   },
+  "helpOptionSidebarModeDescription": {
+    "message": ": open SBM in the browser's side panel instead of a tab. Chromium side-panel support is required."
+  },
   "helpOptionLimitSearchDescription": {
     "message": "changes the main search box from searching all bookmarks to searching only within the current folder tree."
   },
@@ -592,6 +595,15 @@
   },
   "helpOptionDomRenderingDescription": {
     "message": ": reduces selected DOM churn in rendering paths."
+  },
+  "helpOptionSearchInputDebounceDescription": {
+    "message": ": waits briefly after search keystrokes before refreshing results, reducing repeated search renders while typing in normal and Sidebar Mode."
+  },
+  "helpOptionSearchInputDebounceWaitDescription": {
+    "message": ": controls how long SBM waits after the latest search keystroke before refreshing results."
+  },
+  "helpOptionAutoScrollAnimDescription": {
+    "message": ": uses CSS keyframe animation for hovered overflowing Auto Scroll text, reducing per-frame JavaScript work. Turn it off if you are comparing performance or troubleshooting Auto Scroll behavior."
   },
   "helpOptionTempTreeMapsDescription": {
     "message": ": builds short-lived lookup maps during some tree operations, then discards them."
@@ -838,6 +850,24 @@
   },
   "optimisationDOMrenderingHelp": {
     "message": "Experimental. Enables reduced DOM churn for selected rendering, drag/drop indicators, and row icon handling. Disable only when comparing performance or troubleshooting UI behavior."
+  },
+  "optimisationSearchInputDebounce": {
+    "message": "Search input debounce"
+  },
+  "optimisationSearchInputDebounceHelp": {
+    "message": "Delays search rendering briefly while you are typing so SBM can avoid rebuilding results for every keystroke. Disable for immediate search updates on very fast systems."
+  },
+  "optimisationSearchInputDebounceWait": {
+    "message": "Search input debounce wait"
+  },
+  "optimisationSearchInputDebounceWaitHelp": {
+    "message": "How long SBM waits after the latest search keystroke before refreshing search results."
+  },
+  "optimisationAutoScrollAnim": {
+    "message": "Auto Scroll animation optimization"
+  },
+  "optimisationAutoScrollAnimHelp": {
+    "message": "Uses CSS keyframe animation for hovered Auto Scroll text so JavaScript does not update the text position every frame. Disable when comparing behavior or troubleshooting Auto Scroll."
   },
   "optimisationTempBookmarkTreeMaps": {
     "message": "Optimisation: temporary bookmark tree maps"
@@ -1180,9 +1210,6 @@
   },
   "closeDialog": {
     "message": "Close dialog"
-  },
-  "helpOptionSidebarModeDescription": {
-    "message": ": open SBM in the browser's side panel instead of a tab. Chromium side-panel support is required."
   },
   "sidebarMode": {
     "message": "Sidebar Mode"
