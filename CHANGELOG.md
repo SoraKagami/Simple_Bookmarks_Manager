@@ -1,5 +1,12 @@
 # Changelog
 
+## 0.10.13 - 2026-08-14
+
+- Replaced native blocked-bookmark URL alerts with an SBM-themed in-page warning dialog.
+- Routed blocked bookmark URL protection warnings to SBM's transient Warnings/Errors log instead of browser console warnings.
+- Moved Bookmark URL protections from Advanced to Safety in Options and Help.
+- Kept permissions unchanged.
+
 ## 0.10.12
 
 - Tightened the extension page CSP by removing `data:` from `img-src`; rollback note: restore `data:` in `manifest.json` if packaged UI images regress in testing.

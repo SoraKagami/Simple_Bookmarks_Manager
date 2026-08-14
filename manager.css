@@ -542,6 +542,10 @@ body.column-resizing { cursor: col-resize; user-select: none; }
   margin-top: -2px;
 }
 
+.sbm-message-modal p {
+  white-space: pre-wrap;
+}
+
 /* Sidebar Mode: narrow manager view using the existing manager.html document. */
 .library-full-view .toolbar {
   display: grid;

@@ -1006,15 +1006,27 @@ function safeBookmarkOpenUrl(rawValue) {
   return parsed.href;
 }
 
-/** Filter a list of bookmark URLs to the subset allowed by the current protections. */
-function safeBookmarkOpenUrls(urls) {
+/** Record blocked bookmark opens without writing a browser-console warning. */
+function logBlockedBookmarkUrlOpens(blockedCount) {
+  if (!blockedCount) return;
+  addSessionLogRecord(
+    "warn",
+    [t("bookmarkUrlBlockedLog", { count: blockedCount })],
+    "SBM Manager"
+  );
+}
+
+/** Filter bookmark URLs and count values blocked by URL-opening protections. */
+function bookmarkOpenUrlResults(urls) {
   const safeUrls = [];
+  let blockedCount = 0;
   for (const url of urls || []) {
     const safeUrl = safeBookmarkOpenUrl(url);
     if (safeUrl) safeUrls.push(safeUrl);
-    else console.warn("[SBM] Blocked bookmark URL from extension-initiated open.", { url });
+    else blockedCount += 1;
   }
-  return safeUrls;
+  logBlockedBookmarkUrlOpens(blockedCount);
+  return { safeUrls, blockedCount };
 }
 
 /** Build a user-facing explanation for bookmark URLs blocked by protection settings. */
@@ -1112,6 +1124,76 @@ function updateUrlWarning() {
   const message = urlValidationMessage(input.value);
   warning.textContent = message;
   warning.hidden = !message;
+}
+
+
+/**
+ * Show a reusable themed message dialog using safe text-only content.
+ *
+ * This is used for protection warnings where a native alert() would feel out of
+ * place and can be mistaken for a browser-level extension warning.
+ */
+function showMessageDialog({ heading, message, buttonLabel = t("ok") } = {}) {
+  return new Promise((resolve) => {
+    hideContextMenu();
+
+    const backdrop = document.createElement("div");
+    backdrop.className = "unsaved-modal-backdrop";
+    backdrop.setAttribute("role", "presentation");
+
+    const modal = document.createElement("section");
+    modal.className = "unsaved-modal bookmark-editor-modal sbm-message-modal";
+    modal.setAttribute("role", "dialog");
+    modal.setAttribute("aria-modal", "true");
+    modal.setAttribute("aria-labelledby", "sbm-message-title");
+    modal.setAttribute("aria-describedby", "sbm-message-body");
+
+    const headingEl = document.createElement("h3");
+    headingEl.id = "sbm-message-title";
+    headingEl.textContent = heading || t("appName");
+
+    const messageEl = document.createElement("p");
+    messageEl.id = "sbm-message-body";
+    messageEl.textContent = message || "";
+
+    const actions = document.createElement("div");
+    actions.className = "unsaved-modal-actions";
+
+    const finish = () => {
+      backdrop.remove();
+      resolve();
+    };
+
+    const okButton = document.createElement("button");
+    okButton.type = "button";
+    okButton.textContent = buttonLabel || t("ok");
+    okButton.onclick = finish;
+
+    backdrop.addEventListener("mousedown", (e) => {
+      if (e.target === backdrop) e.preventDefault();
+    });
+    modal.addEventListener("keydown", (e) => {
+      if (e.key === "Escape") {
+        e.preventDefault();
+        finish();
+      }
+    });
+
+    actions.append(okButton);
+    modal.append(headingEl, messageEl, actions);
+    backdrop.append(modal);
+    document.body.append(backdrop);
+    okButton.focus();
+  });
+}
+
+/** Show the themed warning used when URL-opening protections block all selected URLs. */
+function showBookmarkOpenBlockedDialog(message) {
+  return showMessageDialog({
+    heading: t("bookmarkUrlBlockedTitle"),
+    message,
+    buttonLabel: t("ok")
+  });
 }
 
 
@@ -2384,9 +2466,9 @@ async function sortFolderChildren(folder, key) {
 
 /** Open allowed bookmark URLs as new tabs in the current browser window. */
 async function openUrlsInCurrentWindow(urls) {
-  const safeUrls = safeBookmarkOpenUrls(urls);
+  const { safeUrls } = bookmarkOpenUrlResults(urls);
   if (!safeUrls.length) {
-    alert(t("couldNotOpenBookmark", { error: bookmarkOpenBlockedMessage(urls) }));
+    await showBookmarkOpenBlockedDialog(t("couldNotOpenBookmark", { error: bookmarkOpenBlockedMessage() }));
     return;
   }
   try {
@@ -2401,9 +2483,9 @@ async function openUrlsInCurrentWindow(urls) {
 
 /** Open allowed bookmark URLs in a new normal or private browser window. */
 async function openUrlsInWindow(urls, incognito = false) {
-  const safeUrls = safeBookmarkOpenUrls(urls);
+  const { safeUrls } = bookmarkOpenUrlResults(urls);
   if (!safeUrls.length) {
-    alert(t("couldNotOpenWindow", { windowType: incognito ? t("privateWindowType") : t("newWindowType"), error: bookmarkOpenBlockedMessage(urls) }));
+    await showBookmarkOpenBlockedDialog(t("couldNotOpenWindow", { windowType: incognito ? t("privateWindowType") : t("newWindowType"), error: bookmarkOpenBlockedMessage() }));
     return;
   }
   try {
@@ -2416,9 +2498,9 @@ async function openUrlsInWindow(urls, incognito = false) {
 /** Open allowed bookmark URLs and group them when the tabGroups API is available. */
 async function openUrlsInTabGroup(urls) {
   if (!api.tabs?.group) return;
-  const safeUrls = safeBookmarkOpenUrls(urls);
+  const { safeUrls } = bookmarkOpenUrlResults(urls);
   if (!safeUrls.length) {
-    alert(t("couldNotOpenTabGroup", { error: bookmarkOpenBlockedMessage(urls) }));
+    await showBookmarkOpenBlockedDialog(t("couldNotOpenTabGroup", { error: bookmarkOpenBlockedMessage() }));
     return;
   }
   try {
