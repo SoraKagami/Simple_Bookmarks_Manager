@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.10.7
+
+- Added en_Netspeak translations for the Search input debounce and Auto Scroll animation optimisation strings introduced in v0.10.4 and v0.10.6.
+- Synced en_Netspeak key coverage with the base English locale while preserving the playful visual-debug style.
+
 ## 0.10.6
 
 - Added an Advanced > Optimisations toggle for Auto Scroll animation optimisation, enabled by default, using CSS keyframes for hovered Auto Scroll text with the existing requestAnimationFrame path kept as the off-state comparison path.

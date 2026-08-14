@@ -596,6 +596,15 @@
   "helpOptionDomRenderingDescription": {
     "message": ": reduces selected DOM churn in rendering paths."
   },
+  "helpOptionSearchInputDebounceDescription": {
+    "message": ": w417z 4 tiny b34t 4f73r z34rch k3yz b3f0r3 r3fr3zh1ng r3zul7z, z0 SBM d03zn'7 r3bu1ld 7h3 p4r7y f0r 3v3ry k3ypr3zz 1n n0rm4l 4nd Z1d3b4r M0d3. ⌨️🐢"
+  },
+  "helpOptionSearchInputDebounceWaitDescription": {
+    "message": ": c0n7r0lz h0w l0ng SBM w417z 4f73r 7h3 l473z7 z34rch k3ypr3zz b3f0r3 r3fr3zh1ng r3zul7z. ⏱️"
+  },
+  "helpOptionAutoScrollAnimDescription": {
+    "message": ": uz3z CSS k3yfr4m3 m4g1c f0r h0v3r3d 0v3rfl0w1ng 4u70 Zcr0ll 73x7, r3duc1ng p3r-fr4m3 J4v4Zcr1p7 w0rk. 7urn 17 0ff f0r p3rf0rm4nc3 c0mp4r1z0nz 0r 4u70 Zcr0ll gr3ml1n hun7z. 🎞️"
+  },
   "helpOptionTempTreeMapsDescription": {
     "message": ": builds short-lived lookup maps during some tr33 operations, then discards them like responsible tiny confetti."
   },
@@ -841,6 +850,24 @@
   },
   "optimisationDOMrenderingHelp": {
     "message": "3xp3r1m3n74l. R3duc3z D0M ch4ng3-sp4m f0r z3l3c710n, dr4g/dr0p 1nd1c470rz, 4nd 1c0nz. D1z4bl3 0nly f0r p3rf t35tz 0r UI gr3ml1nz."
+  },
+  "optimisationSearchInputDebounce": {
+    "message": "Z34rch 1npu7 d3b0unc3"
+  },
+  "optimisationSearchInputDebounceHelp": {
+    "message": "D3l4yz z34rch r3nd3r1ng br13fly wh1l3 y0u 7yp3 z0 SBM d03zn'7 r3bu1ld r3zul7z f0r 3v3ry k3ypr3zz. D1z4bl3 f0r 1nstant z34rch 0n turbo b34st m4ch1n3z. 🏎️"
+  },
+  "optimisationSearchInputDebounceWait": {
+    "message": "Z34rch 1npu7 d3b0unc3 w417"
+  },
+  "optimisationSearchInputDebounceWaitHelp": {
+    "message": "H0w l0ng SBM w417z 4f73r 7h3 l473z7 z34rch k3ypr3zz b3f0r3 r3fr3zh1ng z34rch r3zul7z. ⏲️"
+  },
+  "optimisationAutoScrollAnim": {
+    "message": "4u70 Zcr0ll 4n1m4710n 0p71m1z4710n"
+  },
+  "optimisationAutoScrollAnimHelp": {
+    "message": "Uz3z CSS k3yfr4m3 4n1m4710n f0r h0v3r3d 4u70 Zcr0ll 73x7 z0 J4v4Zcr1p7 d03zn'7 nudg3 7h3 73x7 3v3ry fr4m3. D1z4bl3 wh3n c0mp4r1ng b3h4v10r 0r 7r0ubl3zh0071ng 4u70 Zcr0ll. 🛷"
   },
   "optimisationTempBookmarkTreeMaps": {
     "message": "0p71m1z4710n: 73mp b00km4rk 7r33 m4pz"
