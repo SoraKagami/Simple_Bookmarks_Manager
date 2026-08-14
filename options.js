@@ -271,6 +271,30 @@ function updateAutoExpandDelayOutput() {
   output.textContent = value.toFixed(1);
 }
 
+/** Reflect the search debounce wait slider value beside the control. */
+function updateSearchInputDebounceWaitOutput() {
+  const control = $("Optimisation_SearchInputDebounceWait");
+  const output = $("Optimisation_SearchInputDebounceWait-value");
+  if (!control || !output) return;
+  const value = normalizeSettingValue("Optimisation_SearchInputDebounceWait", control.value);
+  output.value = value.toFixed(2);
+  output.textContent = value.toFixed(2);
+}
+
+/** Disable the search debounce wait slider unless debounce is enabled. */
+function updateSearchInputDebounceOptionRows() {
+  const enabledControl = $("Optimisation_SearchInputDebounce");
+  const waitControl = $("Optimisation_SearchInputDebounceWait");
+  const waitRow = $("search-input-debounce-wait-row");
+  const enabled = Boolean(enabledControl?.checked);
+  if (waitControl) waitControl.disabled = !enabled;
+  if (waitRow) {
+    waitRow.classList.toggle("option-row-disabled", !enabled);
+    waitRow.setAttribute("aria-disabled", String(!enabled));
+  }
+}
+
+
 /** Reflect persisted settings into form controls and dependent disabled states. */
 function setControlState(settings) {
   populateLanguageSelect($("UserInterfaceLanguage"), settings.UserInterfaceLanguage);
@@ -282,6 +306,8 @@ function setControlState(settings) {
     else control.value = String(value);
   }
   updateAutoExpandDelayOutput();
+  updateSearchInputDebounceWaitOutput();
+  updateSearchInputDebounceOptionRows();
   updateBookmarkTextOutputs();
   updateBookmarkTextOptionRows();
 
@@ -351,6 +377,8 @@ applyFontOptionStyles();
 for (const key of Object.keys(DEFAULT_SETTINGS)) {
   $(key).addEventListener("input", () => {
     if (key === "Folder_AutoExpandAfterWait") updateAutoExpandDelayOutput();
+    if (key === "Optimisation_SearchInputDebounceWait") updateSearchInputDebounceWaitOutput();
+    if (key === "Optimisation_SearchInputDebounce") updateSearchInputDebounceOptionRows();
     if (key === "Bookmark_AutoScrollSpeed" || key === "Bookmark_AutoScrollPause") updateBookmarkTextOutputs();
     if (key === "Bookmark_TextTruncation") updateBookmarkTextOptionRows();
     if (key === "UserInterfaceFontFamily" || key === "UserInterfaceFontSize" || key === "UserInterfaceLineSpacing") {
@@ -359,6 +387,7 @@ for (const key of Object.keys(DEFAULT_SETTINGS)) {
   });
   $(key).addEventListener("change", () => {
     if (key === "Bookmark_TextTruncation") updateBookmarkTextOptionRows();
+    if (key === "Optimisation_SearchInputDebounce") updateSearchInputDebounceOptionRows();
     const value = readControlValue(key);
     const savePromise = saveOption(key, value);
     savePromise.catch((err) => {

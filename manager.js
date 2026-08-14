@@ -96,6 +96,8 @@ let BlockDataBookmarkOpens = DEFAULT_SETTINGS.BlockDataBookmarkOpens;
 let BlockBlobBookmarkOpens = DEFAULT_SETTINGS.BlockBlobBookmarkOpens;
 let Optimisation_TempBookmarkTreeMaps = DEFAULT_SETTINGS.Optimisation_TempBookmarkTreeMaps;
 let Optimisation_DOMrendering = DEFAULT_SETTINGS.Optimisation_DOMrendering;
+let Optimisation_SearchInputDebounce = DEFAULT_SETTINGS.Optimisation_SearchInputDebounce;
+let Optimisation_SearchInputDebounceWait = DEFAULT_SETTINGS.Optimisation_SearchInputDebounceWait;
 let Show_ErrorsWarnings = DEFAULT_SETTINGS.Show_ErrorsWarnings;
 let DebugOptions = DEFAULT_SETTINGS.DebugOptions;
 let ShowHelpOnLaunch = DEFAULT_SETTINGS.ShowHelpOnLaunch;
@@ -542,6 +544,8 @@ function applySettings(settings, { render = false } = {}) {
     else if (key === "BlockBlobBookmarkOpens") BlockBlobBookmarkOpens = value;
     else if (key === "Optimisation_TempBookmarkTreeMaps") Optimisation_TempBookmarkTreeMaps = value;
     else if (key === "Optimisation_DOMrendering") Optimisation_DOMrendering = value;
+    else if (key === "Optimisation_SearchInputDebounce") Optimisation_SearchInputDebounce = value;
+    else if (key === "Optimisation_SearchInputDebounceWait") Optimisation_SearchInputDebounceWait = value;
     else if (key === "Show_ErrorsWarnings") Show_ErrorsWarnings = value;
     else if (key === "DebugOptions") DebugOptions = value;
     else if (key === "ShowHelpOnLaunch") ShowHelpOnLaunch = value;
@@ -569,6 +573,7 @@ function applySettings(settings, { render = false } = {}) {
   if (!EnableAdvancedDetailsViewing) EnableAdvancedDetailsEditing = false;
   const searchLimit = $("search-limit");
   if (searchLimit) searchLimit.checked = SearchLimitToFolderAndSub;
+  if (!Optimisation_SearchInputDebounce) flushPendingSearchInput();
 
   if (render && state.tree) {
     const maps = tempBookmarkTreeMaps();
@@ -1723,6 +1728,7 @@ function ensureExpandedPath(folderId) {
 function resetFolderViewState() {
   refreshFaviconToken();
   state.resetMiddleScrollOnNextRender = true;
+  clearPendingSearchInput();
   state.search = "";
   state.sort = "index";
   state.sortDirection = defaultSortDirection(state.sort);
@@ -5509,9 +5515,23 @@ function setSortSelectTooltips() {
 
 $("back").onclick = goBack;
 $("forward").onclick = goForward;
-$("search").oninput = (e) => {
+/** Return the configured search debounce delay in milliseconds. */
+function searchInputDebounceWaitMs() {
+  return Math.round(normalizeSettingValue("Optimisation_SearchInputDebounceWait", Optimisation_SearchInputDebounceWait) * 1000);
+}
+
+/** Clear a queued debounced search update without changing the active query. */
+function clearPendingSearchInput() {
+  clearTimeout(searchInputDebounceTimer);
+  searchInputDebounceTimer = null;
+  pendingSearchInputValue = null;
+}
+
+/** Apply a search box value and refresh the active normal or Sidebar search view. */
+function applySearchInputValue(value) {
+  clearPendingSearchInput();
   const wasSidebarSearchView = isSidebarSearchView();
-  state.search = e.target.value;
+  state.search = String(value || "");
   const sidebarSearchView = updateSidebarSearchView();
   if (!LibraryFullView) {
     renderList();
@@ -5529,10 +5549,40 @@ $("search").oninput = (e) => {
     }
     renderRoots();
   }
+}
+
+/** Immediately apply any search value that is waiting for the debounce timer. */
+function flushPendingSearchInput() {
+  if (pendingSearchInputValue === null) return false;
+  const value = pendingSearchInputValue;
+  applySearchInputValue(value);
+  return true;
+}
+
+/** Schedule a search refresh, or run immediately when debounce is disabled. */
+function scheduleSearchInputValue(value) {
+  if (!Optimisation_SearchInputDebounce) {
+    applySearchInputValue(value);
+    return;
+  }
+  pendingSearchInputValue = String(value || "");
+  clearTimeout(searchInputDebounceTimer);
+  searchInputDebounceTimer = setTimeout(() => {
+    const queuedValue = pendingSearchInputValue;
+    applySearchInputValue(queuedValue);
+  }, searchInputDebounceWaitMs());
+}
+
+$("search").oninput = (e) => {
+  scheduleSearchInputValue(e.target.value);
 };
+$("search").addEventListener("change", () => {
+  flushPendingSearchInput();
+});
 
 $("search-limit").checked = SearchLimitToFolderAndSub;
 $("search-limit").onchange = async (e) => {
+  flushPendingSearchInput();
   await saveSetting("SearchLimitToFolderAndSub", e.target.checked);
 };
 $("sort").onchange = (e) => {

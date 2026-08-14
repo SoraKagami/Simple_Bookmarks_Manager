@@ -596,6 +596,12 @@
   "helpOptionDomRenderingDescription": {
     "message": ": reduces selected DOM churn in rendering paths."
   },
+  "helpOptionSearchInputDebounceDescription": {
+    "message": ": waits briefly after search keystrokes before refreshing results, reducing repeated search renders while typing in normal and Sidebar Mode."
+  },
+  "helpOptionSearchInputDebounceWaitDescription": {
+    "message": ": controls how long SBM waits after the latest search keystroke before refreshing results."
+  },
   "helpOptionTempTreeMapsDescription": {
     "message": ": builds short-lived lookup maps during some tree operations, then discards them."
   },
@@ -841,6 +847,18 @@
   },
   "optimisationDOMrenderingHelp": {
     "message": "Experimental. Enables reduced DOM churn for selected rendering, drag/drop indicators, and row icon handling. Disable only when comparing performance or troubleshooting UI behavior."
+  },
+  "optimisationSearchInputDebounce": {
+    "message": "Search input debounce"
+  },
+  "optimisationSearchInputDebounceHelp": {
+    "message": "Delays search rendering briefly while you are typing so SBM can avoid rebuilding results for every keystroke. Disable for immediate search updates on very fast systems."
+  },
+  "optimisationSearchInputDebounceWait": {
+    "message": "Search input debounce wait"
+  },
+  "optimisationSearchInputDebounceWaitHelp": {
+    "message": "How long SBM waits after the latest search keystroke before refreshing search results."
   },
   "optimisationTempBookmarkTreeMaps": {
     "message": "Optimisation: temporary bookmark tree maps"

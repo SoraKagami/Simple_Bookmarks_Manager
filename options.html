@@ -460,6 +460,23 @@ chrome://extensions/shortcuts</small>
               <small data-i18n="optimisationTempBookmarkTreeMapsHelp">Experimental. Builds short-lived lookup maps during some render/search/tree operations, then discards them to avoid a persistent stale cache.</small>
             </span>
           </label>
+          <label class="option-row">
+            <input id="Optimisation_SearchInputDebounce" type="checkbox">
+            <span>
+              <strong data-i18n="optimisationSearchInputDebounce">Search input debounce</strong>
+              <small data-i18n="optimisationSearchInputDebounceHelp">Delays search rendering briefly while you are typing so SBM can avoid rebuilding results for every keystroke. Disable for immediate search updates on very fast systems.</small>
+            </span>
+          </label>
+          <label id="search-input-debounce-wait-row" class="option-row option-row-control">
+            <span>
+              <strong data-i18n="optimisationSearchInputDebounceWait">Search input debounce wait</strong>
+              <small data-i18n="optimisationSearchInputDebounceWaitHelp">How long SBM waits after the latest search keystroke before refreshing search results.</small>
+            </span>
+            <span class="range-control">
+              <input id="Optimisation_SearchInputDebounceWait" type="range" min="0.05" max="0.5" step="0.05">
+              <output id="Optimisation_SearchInputDebounceWait-value" for="Optimisation_SearchInputDebounceWait">0.15</output>
+            </span>
+          </label>
         </div>
       </details>
 

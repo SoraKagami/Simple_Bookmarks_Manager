@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.10.4
+
+- Added an Advanced > Optimisations toggle for Search input debounce, enabled by default, with a configurable debounce wait slider.
+- Debounced normal and Sidebar Mode search rendering so rapid typing can coalesce into fewer result rebuilds.
+- Added Help and English locale text for the new search debounce optimisation.
+
 ## 0.10.3
 
 - Optimized simple selection changes so SBM refreshes only affected Library/Folder Contents rows and Details instead of rebuilding all visible pane DOM.

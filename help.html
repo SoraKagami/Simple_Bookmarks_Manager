@@ -214,6 +214,11 @@
       <p data-i18n="helpOptionOptimisationsDescription">These options are mainly for benchmarking and troubleshooting. Leave them enabled unless you are comparing performance or diagnosing a rendering issue.</p>
       <ul>
         <li><strong data-i18n="optimisationDOMrendering">DOM rendering pass</strong><span data-i18n="helpOptionDomRenderingDescription">: reduces selected DOM churn in rendering paths.</span></li>
+        <li><strong data-i18n="optimisationSearchInputDebounce">Search input debounce</strong><span data-i18n="helpOptionSearchInputDebounceDescription">: waits briefly after search keystrokes before refreshing results, reducing repeated search renders while typing in normal and Sidebar Mode.</span>
+          <ul>
+            <li><strong data-i18n="optimisationSearchInputDebounceWait">Search input debounce wait</strong><span data-i18n="helpOptionSearchInputDebounceWaitDescription">: controls how long SBM waits after the latest search keystroke before refreshing results.</span></li>
+          </ul>
+        </li>
         <li><strong data-i18n="optimisationTempBookmarkTreeMaps">Temporary bookmark tree maps</strong><span data-i18n="helpOptionTempTreeMapsDescription">: builds short-lived lookup maps during some tree operations, then discards them.</span></li>
       </ul>
     </details>
