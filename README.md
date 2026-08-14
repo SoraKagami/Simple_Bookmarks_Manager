@@ -1,4 +1,4 @@
-# Simple Bookmarks Manager
+# Simple Bookmarks Manager (SBM)
 
 A simple local bookmarks manager for Chromium browsers, inspired by Firefox Places, Firefox’s bookmark management system.
 
@@ -29,15 +29,13 @@ The latest stable release of Simple Bookmarks Manager is available on the [Chrom
 - Copy bookmark URLs and open search results in their containing folder
 - Configurable Details pane position, resizing, and visibility
 - Optional single-click bookmark opening and folder expansion/collapse controls for tab and Sidebar modes
-- Optional Bookmark URL opening protections for local file, external app, `javascript:`, `data:`, and `blob:` URL schemes
-- In-SBM About, Changelog, and Help dialogs
-- First-launch Help and configurable launch/startup behavior
+- Optional Bookmark URL opening protections (blocking) for local file, external app, `javascript:`, `data:`, and `blob:` URL schemes
 - Options menu with persistent settings
 - Persistent options are stored in `chrome.storage.local`.
 - Many advanced UI, usability, debugging, and performance options are available
 - GenAI-assisted translations available for multiple languages
 - Adjustable fonts (limited selection) and font sizes
-- Multiple themes available, including the default Soft Blue theme
+- Multiple themes available
 
 ## Languages with UI support
 
@@ -66,7 +64,7 @@ The latest stable release of Simple Bookmarks Manager is available on the [Chrom
 
 ## Pinning Simple Bookmarks Manager for easy access
 
-Pinning Simple Bookmarks Manager (SBM) to the toolbar allows faster and easier access to the extension.
+Pinning SBM to the toolbar allows faster and easier access to the extension.
 
 Once SBM is installed in your Chromium-based browser, you can pin it to the toolbar in one of the following ways:
 
@@ -108,16 +106,17 @@ To switch SBM to Sidebar Mode:
 4. Go to `User Interface`.
 5. Enable `Sidebar Mode`.
 6. Pin SBM to the toolbar if it is not already pinned.
+7. Close and relaunch SBM.
 
 After Sidebar Mode is enabled, launch SBM from the extension action, such as the pinned toolbar button or an assigned extension keyboard shortcut. Chromium should open SBM in the browser's Side Panel instead of the normal tab view.
 
-To set or update the keyboard shortcut:
+If a Chromium-based browser does not support the Side Panel API, SBM falls back to normal tab behavior.
+
+## To set or update the keyboard shortcut for launching SBM:
 
 1. Open `chrome://extensions/shortcuts`.
 2. Find `Simple Bookmarks Manager`.
 3. Assign a shortcut to launch the extension.
-
-If a Chromium-based browser does not support the Side Panel API, SBM falls back to normal tab behavior.
 
 ## Privacy and Permissions
 

@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.10.19 - 2026-08-14
+
+Manual `README.md` update.
+
 ## 0.10.18 - 2026-08-14
 
 - Updated `README.md` to document recent features, including Sidebar Mode, bookmark text truncation/Auto Scroll, URL opening protections, expanded UI/usability options, Help/About/Changelog dialogs, Details pane controls, and launch/startup options.
