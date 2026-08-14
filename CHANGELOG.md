@@ -1,5 +1,16 @@
 # Changelog
 
+## 0.9.25
+
+- Changed Auto Scroll mode to scroll overflowing bookmark text left once, pause, briefly blank the text, reset to the initial state, and repeat without reverse-scrolling.
+- Tightened Auto Scroll clipping for Sidebar Mode so animated bookmark/folder text stays inside its visible text box.
+- Updated Options text for keyboard shortcuts and bookmark truncation, moved the launch shortcut control to Advanced, and made the shortcut value follow the selected UI font.
+- Added Help entries for the keyboard shortcut setting, Bookmarks Truncation/Shortening, and the Auto Scroll/Truncate sub-options.
+
+Note:
+ChatGPT's session for SBM v0.9.0+ crashed and became unusable.
+A new instance was created using the same prompt used for v0.9.0.
+
 ## 0.9.24
 
 - Fixed Auto Scroll mode for Bookmarks Truncation/Shortening by replacing the previous Web Animations API-based text movement with a direct hover-only requestAnimationFrame transform loop.

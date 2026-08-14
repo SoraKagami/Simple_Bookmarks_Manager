@@ -108,22 +108,11 @@
         </div>
       </details>
 
-      <div class="option-row option-row-control">
-        <span>
-          <strong data-i18n="shortcutLaunchSbm">Shortcut to launch SBM</strong>
-          <small data-i18n="shortcutLaunchSbmHelp">Chromium does not allow extensions to change their own assigned shortcut. Use the browser's extension Keyboard Shortcuts page to set or change it.</small>
-          <small><code>chrome://extensions/shortcuts</code></small>
-        </span>
-        <div class="shortcut-control">
-          <div class="shortcut-current"><span data-i18n="shortcutCurrent">Current shortcut:</span> <output id="launch-shortcut-current" data-i18n="shortcutNotAssigned">Not assigned</output></div>
-          <a id="open-keyboard-shortcuts" class="shortcut-link" href="chrome://extensions/shortcuts" data-i18n="openKeyboardShortcuts">Open Keyboard Shortcuts</a>
-        </div>
-      </div>
-
       <label class="option-row option-row-control">
         <span>
           <strong data-i18n="bookmarkTextTruncation">Bookmarks Truncation/Shortening</strong>
-          <small data-i18n="bookmarkTextTruncationHelp">Choose how overflowing Library and Folder Contents text behaves when its row is hovered or clicked. Details and editor fields are not affected.</small>
+          <small data-i18n="bookmarkTextTruncationHelp">Choose how overflowing text in Library and Folder Contents behaves when its row is hovered over or clicked. Details and editor fields are not affected.
+Note: Turning this option on may slightly impact performance.</small>
         </span>
         <select id="Bookmark_TextTruncation">
           <option value="0" data-i18n="bookmarkTextTruncationNone">No Truncation/Shortening (Default)</option>
@@ -146,7 +135,7 @@
       <label id="bookmark-auto-scroll-pause-row" class="option-row option-row-control" hidden>
         <span>
           <strong data-i18n="bookmarkAutoScrollPause">Auto Scroll pause</strong>
-          <small data-i18n="bookmarkAutoScrollPauseHelp">Set how long overflowing text pauses at each end of its left/right movement, in seconds.</small>
+          <small data-i18n="bookmarkAutoScrollPauseHelp">Set how long overflowing text pauses after reaching its leftmost point before the brief blank reset, in seconds.</small>
         </span>
         <span class="range-control">
           <input id="Bookmark_AutoScrollPause" type="range" min="0" max="5" step="0.1">
@@ -156,7 +145,7 @@
 
       <label id="bookmark-truncate-length-row" class="option-row option-row-control" hidden>
         <span>
-          <strong data-i18n="bookmarkTruncateLength">Truncate character length</strong>
+          <strong data-i18n="bookmarkTruncateLength">Truncate text length</strong>
           <small data-i18n="bookmarkTruncateLengthHelp">0 = Auto, which fits the shortened middle-ellipsis text to the available visible width. A higher value limits the maximum displayed character count before the width fit is applied.</small>
         </span>
         <input id="Bookmark_TruncateLength" type="number" min="0" max="500" step="5">
@@ -267,6 +256,18 @@
           <output id="Folder_AutoExpandAfterWait-value" for="Folder_AutoExpandAfterWait">1.2</output>
         </span>
       </label>
+
+      <div class="option-row option-row-control">
+        <span>
+          <strong data-i18n="shortcutLaunchSbm">Keyboard Shortcut to launch SBM</strong>
+          <small class="shortcut-help" data-i18n="shortcutLaunchSbmHelp">Extension shortcuts have to be assigned in Chromium's settings. Please use the browser's Extension Keyboard Shortcuts page to set or update it.
+chrome://extensions/shortcuts</small>
+        </span>
+        <div class="shortcut-control">
+          <div class="shortcut-current"><span data-i18n="shortcutCurrent">Current shortcut:</span> <output id="launch-shortcut-current" data-i18n="shortcutNotAssigned">Not assigned</output></div>
+          <a id="open-keyboard-shortcuts" class="shortcut-link" href="chrome://extensions/shortcuts" data-i18n="openKeyboardShortcuts">Open Keyboard Shortcuts</a>
+        </div>
+      </div>
 
       <details class="option-subsection option-collapsible">
         <summary>

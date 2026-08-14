@@ -1284,10 +1284,10 @@
     "message": ": show or hide the Details pane in the normal manager layout. The manager's Show/Hide Details button updates the same setting. Sidebar Mode continues to hide the Details pane."
   },
   "shortcutLaunchSbm": {
-    "message": "Shortcut to launch SBM"
+    "message": "Keyboard Shortcut to launch SBM"
   },
   "shortcutLaunchSbmHelp": {
-    "message": "Chromium does not allow extensions to change their own assigned shortcut. Use the browser's extension Keyboard Shortcuts page to set or change it."
+    "message": "Extension shortcuts have to be assigned in Chromium's settings. Please use the browser's Extension Keyboard Shortcuts page to set or update it.\nchrome://extensions/shortcuts"
   },
   "shortcutNotAssigned": {
     "message": "Not assigned"
@@ -1302,7 +1302,7 @@
     "message": "Bookmarks Truncation/Shortening"
   },
   "bookmarkTextTruncationHelp": {
-    "message": "Choose how overflowing Library and Folder Contents text behaves when its row is hovered or clicked. Details and editor fields are not affected."
+    "message": "Choose how overflowing text in Library and Folder Contents behaves when its row is hovered over or clicked. Details and editor fields are not affected.\nNote: Turning this option on may slightly impact performance."
   },
   "bookmarkTextTruncationNone": {
     "message": "No Truncation/Shortening (Default)"
@@ -1323,15 +1323,30 @@
     "message": "Auto Scroll pause"
   },
   "bookmarkAutoScrollPauseHelp": {
-    "message": "Set how long overflowing text pauses at each end of its left/right movement, in seconds."
+    "message": "Set how long overflowing text pauses after reaching its leftmost point before the brief blank reset, in seconds."
   },
   "bookmarkTruncateLength": {
-    "message": "Truncate character length"
+    "message": "Truncate text length"
   },
   "bookmarkTruncateLengthHelp": {
     "message": "0 = Auto, which fits the shortened middle-ellipsis text to the available visible width. A higher value limits the maximum displayed character count before the width fit is applied."
   },
   "shortcutCurrent": {
     "message": "Current shortcut:"
+  },
+  "helpOptionKeyboardShortcutDescription": {
+    "message": ": shows the current extension launch shortcut. Assign or update the shortcut from Chromium's Extension Keyboard Shortcuts page: chrome://extensions/shortcuts."
+  },
+  "helpOptionBookmarkTextTruncationDescription": {
+    "message": ": choose how overflowing text in Library and Folder Contents behaves when its row is hovered over or clicked. Details and editor fields are not affected. Turning this option on may slightly impact performance."
+  },
+  "helpOptionBookmarkAutoScrollSpeedDescription": {
+    "message": ": when Auto Scroll is selected, controls how quickly overflowing text moves left."
+  },
+  "helpOptionBookmarkAutoScrollPauseDescription": {
+    "message": ": when Auto Scroll is selected, controls how long text pauses after reaching its leftmost point before the brief blank reset."
+  },
+  "helpOptionBookmarkTruncateLengthDescription": {
+    "message": ": when Truncate is selected, controls the maximum middle-ellipsis text length. 0 = Auto width fitting."
   }
 }

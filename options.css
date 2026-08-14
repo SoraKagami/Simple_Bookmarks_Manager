@@ -87,8 +87,11 @@ body.embedded header h1 {
   overflow-wrap: anywhere;
 }
 .shortcut-current output {
-  font-family: Consolas, 'Cascadia Mono', 'Courier New', monospace;
+  font-family: inherit;
   font-weight: 700;
+}
+.shortcut-help {
+  white-space: pre-line;
 }
 .shortcut-link {
   display: block;

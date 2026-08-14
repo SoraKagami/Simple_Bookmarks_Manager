@@ -317,7 +317,7 @@ function applyBookmarkTextTruncation(element) {
   element.textContent = shortened;
 }
 
-/** Apply a compositor-friendly left/right transform animation to one overflowing hover target. */
+/** Apply a one-way left-scroll, pause, hidden reset loop to one overflowing hover target. */
 function applyBookmarkTextAutoScroll(element) {
   const metrics = bookmarkTextOverflowMetrics(element);
   if (!metrics) return;
@@ -334,8 +334,9 @@ function applyBookmarkTextAutoScroll(element) {
 
   const speed = Math.max(1, Number(Bookmark_AutoScrollSpeed) || DEFAULT_SETTINGS.Bookmark_AutoScrollSpeed);
   const pauseMs = Math.max(0, Number(Bookmark_AutoScrollPause) || 0) * 1000;
+  const blankMs = 180;
   const travelMs = Math.max(1, (distance / speed) * 1000);
-  const totalMs = Math.max(1, (travelMs * 2) + (pauseMs * 2));
+  const totalMs = Math.max(1, travelMs + pauseMs + blankMs);
   const startTime = performance.now();
 
   const step = (now) => {
@@ -343,18 +344,19 @@ function applyBookmarkTextAutoScroll(element) {
 
     const elapsed = (now - startTime) % totalMs;
     let offset = 0;
+    let hidden = false;
 
-    if (elapsed < pauseMs) {
-      offset = 0;
-    } else if (elapsed < pauseMs + travelMs) {
-      offset = -distance * ((elapsed - pauseMs) / travelMs);
-    } else if (elapsed < pauseMs + travelMs + pauseMs) {
+    if (elapsed < travelMs) {
+      offset = -distance * (elapsed / travelMs);
+    } else if (elapsed < travelMs + pauseMs) {
       offset = -distance;
     } else {
-      offset = -distance * (1 - ((elapsed - pauseMs - travelMs - pauseMs) / travelMs));
+      offset = -distance;
+      hidden = true;
     }
 
     content.style.transform = `translate3d(${offset}px, 0, 0)`;
+    content.style.visibility = hidden ? "hidden" : "";
     const scrollState = bookmarkTextScrollStates.get(element);
     if (scrollState) scrollState.frameId = requestAnimationFrame(step);
   };

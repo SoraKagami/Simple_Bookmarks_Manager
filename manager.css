@@ -707,6 +707,10 @@ body.column-resizing { cursor: col-resize; user-select: none; }
 .title-text.sbm-text-effect-active {
   flex: 0 1 var(--sbm-text-effect-width);
 }
+.sbm-text-scroll-active {
+  contain: paint;
+  overflow: hidden;
+}
 .sbm-scroll-content {
   display: inline-block;
   min-width: max-content;
