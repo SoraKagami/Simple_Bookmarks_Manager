@@ -217,12 +217,17 @@ Note: Turning this option on may slightly impact performance.</small>
         </span>
       </label>
 
-      <label class="option-row">
-        <input id="Folder_SingleClickInteract" type="checkbox">
+      <label class="option-row option-row-control">
         <span>
           <strong data-i18n="folderSingleClickInteract">Single Click Folder Expansion/Collapse</strong>
-          <small data-i18n="folderSingleClickInteractHelp">When enabled, a single left click expands or collapses Library folders and opens folders in the Folder Contents pane. When disabled, these folder actions require a double click.</small>
+          <small data-i18n="folderSingleClickInteractHelp">Choose whether a single left click expands/collapses Library folders and opens folders in Folder Contents in all SBM layouts, Sidebar Mode only, Tab Mode only, or remains disabled. Modifier clicks used for multi-selection are not changed.</small>
         </span>
+        <select id="Folder_SingleClickInteract">
+          <option value="0" data-i18n="folderSingleClickInteractDisabled">Disabled (Double Click to open/expand folders)</option>
+          <option value="1" data-i18n="folderSingleClickInteractAll">Enabled for all</option>
+          <option value="2" data-i18n="folderSingleClickInteractSidebar">Enabled Only for Sidebar Mode</option>
+          <option value="3" data-i18n="folderSingleClickInteractTab">Enabled Only for Tab Mode</option>
+        </select>
       </label>
 
       <label class="option-row option-row-control">

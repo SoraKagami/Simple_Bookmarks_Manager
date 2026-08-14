@@ -2025,6 +2025,14 @@ async function handlePaneClick(e, pane, item) {
   render();
 }
 
+/** Return whether the configured folder single-click mode is active for the current SBM mode. */
+function folderSingleClickInteractEnabled() {
+  if (Folder_SingleClickInteract === 1) return true;
+  if (Folder_SingleClickInteract === 2) return SidebarMode;
+  if (Folder_SingleClickInteract === 3) return !SidebarMode;
+  return false;
+}
+
 /** Return whether the configured bookmark single-click mode is active for the current SBM mode. */
 function bookmarkSingleClickOpenEnabled() {
   if (Bookmarks_SingleClickOpen === 1) return true;
@@ -2050,7 +2058,7 @@ function shouldSingleClickOpenBookmark(e, item) {
  */
 async function handlePaneRowClick(e, pane, item) {
   const singleClickFolderAction =
-    Folder_SingleClickInteract &&
+    folderSingleClickInteractEnabled() &&
     isFolder(item) &&
     e.button === 0 &&
     !e.ctrlKey &&
@@ -4272,7 +4280,7 @@ function renderFolderTreeNode(
   };
 
   const toggleFolderOnDoubleClick = async (e) => {
-    if (Folder_SingleClickInteract || searchVisibleIds || !expandableChildren.length) return;
+    if (folderSingleClickInteractEnabled() || searchVisibleIds || !expandableChildren.length) return;
     e.preventDefault();
     e.stopPropagation();
     await toggleTreeFolderFromClick(folder);
@@ -4282,7 +4290,7 @@ function renderFolderTreeNode(
   label.className = "tree-label";
   label.type = "button";
   label.setAttribute("aria-current", String(folder.id === state.folderId));
-  label.title = expandableChildren.length ? t(Folder_SingleClickInteract ? "singleClickExpandCollapseTitle" : "doubleClickExpandCollapseTitle") : "";
+  label.title = expandableChildren.length ? t(folderSingleClickInteractEnabled() ? "singleClickExpandCollapseTitle" : "doubleClickExpandCollapseTitle") : "";
   label.onclick = (e) => { handlePaneRowClick(e, "tree", folder); };
   label.ondblclick = toggleFolderOnDoubleClick;
   row.ondblclick = toggleFolderOnDoubleClick;
@@ -4453,7 +4461,7 @@ function renderList(maps = state.search ? tempBookmarkTreeMaps() : null) {
     row.onclick = (e) => { handlePaneRowClick(e, "list", item); };
     row.onauxclick = (e) => { handleListAuxClick(e, item); };
     row.ondblclick = (e) => {
-      const folderHandledBySingleClick = Folder_SingleClickInteract && isFolder(item);
+      const folderHandledBySingleClick = folderSingleClickInteractEnabled() && isFolder(item);
       const bookmarkHandledBySingleClick = bookmarkSingleClickOpenEnabled() && !isFolder(item) && !isSeparator(item) && Boolean(item.url);
       if (folderHandledBySingleClick || bookmarkHandledBySingleClick) {
         e.preventDefault();

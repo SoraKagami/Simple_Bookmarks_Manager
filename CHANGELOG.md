@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.10.11
+
+- Converted Advanced > Single Click Folder Expansion/Collapse from a boolean checkbox to a four-mode dropdown: disabled, enabled for all, enabled only for Sidebar Mode, or enabled only for Tab Mode.
+- Updated folder single-click handling so Library expand/collapse and Folder Contents folder opening respect the selected mode while preserving Ctrl/Shift multi-selection clicks.
+- Added Help and English locale text for the new folder single-click mode choices.
+
 ## 0.10.10
 
 - Fixed non-modifier left-click selection after an active multi-selection so previously selected rows are visually and logically cleared in normal and Sidebar modes.

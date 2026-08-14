@@ -58,7 +58,7 @@ export const DEFAULT_SETTINGS = Object.freeze({
   SearchLimitToFolderAndSub: false,
   Launch_SearchFocused: true,
   MultipleInstancesAllowed: false,
-  Folder_SingleClickInteract: false,
+  Folder_SingleClickInteract: 0,
   Bookmarks_SingleClickOpen: 0,
   Folder_AutoExpandOnDrag: false,
   Folder_AutoExpandAfterWait: 1.2,
@@ -114,7 +114,8 @@ export function normalizeSettingValue(key, value) {
   if (key === "Bookmark_AutoScrollSpeed") return Math.round(clampNumber(value, 10, 120, DEFAULT_SETTINGS[key]));
   if (key === "Bookmark_AutoScrollPause") return clampNumber(value, 0, 5, DEFAULT_SETTINGS[key]);
   if (key === "Bookmark_TruncateLength") return Math.round(clampNumber(value, 0, 500, DEFAULT_SETTINGS[key]));
-  if (key === "Bookmarks_SingleClickOpen") {
+  if (key === "Folder_SingleClickInteract" || key === "Bookmarks_SingleClickOpen") {
+    if (typeof value === "boolean") return value ? 1 : 0;
     const mode = Number(value);
     return Number.isInteger(mode) && mode >= 0 && mode <= 3 ? mode : DEFAULT_SETTINGS[key];
   }

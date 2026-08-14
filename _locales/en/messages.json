@@ -1242,10 +1242,22 @@
     "message": "Single Click Folder Expansion/Collapse"
   },
   "folderSingleClickInteractHelp": {
-    "message": "When enabled, a single left click expands or collapses Library folders and opens folders in the Folder Contents pane. When disabled, these folder actions require a double click."
+    "message": "Choose whether a single left click expands/collapses Library folders and opens folders in Folder Contents in all SBM layouts, Sidebar Mode only, Tab Mode only, or remains disabled. Modifier clicks used for multi-selection are not changed."
   },
   "helpOptionFolderSingleClickInteractDescription": {
-    "message": ": when enabled, a single left click expands or collapses folders in the Library pane and opens folders in the Folder Contents pane. When disabled, these folder actions require a double click."
+    "message": ": controls whether a single left click expands/collapses folders in the Library pane and opens folders in the Folder Contents pane in all SBM layouts, Sidebar Mode only, Tab Mode only, or remains disabled. When disabled, SBM keeps its existing double-click folder behavior. Ctrl/Shift modifier clicks remain available for multi-selection."
+  },
+  "folderSingleClickInteractDisabled": {
+    "message": "Disabled (Double Click to open/expand folders)"
+  },
+  "folderSingleClickInteractAll": {
+    "message": "Enabled for all"
+  },
+  "folderSingleClickInteractSidebar": {
+    "message": "Enabled Only for Sidebar Mode"
+  },
+  "folderSingleClickInteractTab": {
+    "message": "Enabled Only for Tab Mode"
   },
   "singleClickExpandCollapseTitle": {
     "message": "Click to expand or collapse folder"
