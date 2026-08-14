@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.10.14 - 2026-08-14
+
+- Fixed bookmark URL protection block paths that still used native browser alerts or browser console warnings.
+- Routed Details, row, context-menu, folder, and multi-select protected URL open attempts through SBM's themed warning dialog and transient Warnings/Errors log.
+- Kept permissions unchanged.
+
 ## 0.10.13 - 2026-08-14
 
 - Replaced native blocked-bookmark URL alerts with an SBM-themed in-page warning dialog.

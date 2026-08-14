@@ -1196,6 +1196,16 @@ function showBookmarkOpenBlockedDialog(message) {
   });
 }
 
+/**
+ * Handle a direct bookmark-open block without using native alerts or console
+ * warnings.  The transient Options log remains available for diagnostics.
+ */
+function showBlockedBookmarkOpenWarning(rawUrl = null) {
+  logBlockedBookmarkUrlOpens(1);
+  const urls = rawUrl ? [rawUrl] : [];
+  return showBookmarkOpenBlockedDialog(t("couldNotOpenBookmark", { error: bookmarkOpenBlockedMessage(urls) }));
+}
+
 
 /**
  * Show an in-page bookmark editor for create/edit prompt flows.
@@ -2234,15 +2244,13 @@ function isInDetailsPane(element) {
   return !!element?.closest?.("#details-pane");
 }
 
-/** Collect bookmark URLs from a folder subtree in Chromium order. */
+/** Collect raw bookmark URLs from a folder subtree in Chromium order. */
 function folderUrls(folder) {
   const urls = [];
   const visit = (node) => {
     for (const child of node.children || []) {
       if (child.url) {
-        const safeUrl = isSeparator(child) ? null : safeBookmarkOpenUrl(child.url);
-        if (safeUrl) urls.push(safeUrl);
-        else if (!isSeparator(child)) console.warn("[SBM] Skipped unsupported bookmark URL while building folder open list.", { id: child.id, url: child.url });
+        if (!isSeparator(child)) urls.push(child.url);
       } else {
         visit(child);
       }
@@ -2287,18 +2295,14 @@ function selectedContextIds(context = state.contextMenu) {
   return context?.id ? [context.id] : [];
 }
 
-/** Return openable bookmark URLs for a set of selected IDs. */
+/** Return raw bookmark URLs for a set of selected IDs. */
 function selectionUrls(ids) {
   const urls = [];
   for (const id of ids) {
     const item = nodes.get(id);
     if (!item) continue;
     if (isFolder(item)) urls.push(...folderUrls(item));
-    else if (item.url && !isSeparator(item)) {
-      const safeUrl = safeBookmarkOpenUrl(item.url);
-      if (safeUrl) urls.push(safeUrl);
-      else console.warn("[SBM] Skipped bookmark URL while building selection open list.", { id: item.id, url: item.url });
-    }
+    else if (item.url && !isSeparator(item)) urls.push(item.url);
   }
   return urls;
 }
@@ -2562,15 +2566,12 @@ async function copyBookmarkUrlToClipboard(bookmark) {
   await writeTextToClipboard(bookmark.url);
 }
 
-/** Resolve all bookmark URLs affected by a context-menu open-all action. */
+/** Resolve raw bookmark URLs affected by a context-menu open-all action. */
 function contextUrls(context) {
   const item = nodes.get(context?.id);
-  if (!item) return [];
+  if (!item || isSeparator(item)) return [];
   if (isFolder(item)) return folderUrls(item);
-  if (isSeparator(item)) return [];
-  const safeUrl = item.url ? safeBookmarkOpenUrl(item.url) : null;
-  if (!safeUrl && item.url) console.warn("[SBM] Skipped bookmark URL while building context open list.", { id: item.id, url: item.url });
-  return safeUrl ? [safeUrl] : [];
+  return item.url ? [item.url] : [];
 }
 
 /** Return whether a search-result bookmark can offer its containing folder action. */
@@ -4888,8 +4889,7 @@ async function openDetailsBookmark() {
   if (!isDetailsOpenBookmarkAllowed(selected)) return;
   const safeUrl = safeBookmarkOpenUrl(selected.url);
   if (!safeUrl) {
-    console.warn("[SBM] Blocked bookmark URL from Details open action.", { url: selected.url });
-    alert(t("couldNotOpenBookmark", { error: bookmarkOpenBlockedMessage([selected.url]) }));
+    await showBlockedBookmarkOpenWarning(selected.url);
     return;
   }
   try {
@@ -5196,8 +5196,7 @@ function openOrNavigate(item) {
   } else if (item.url && !isSeparator(item)) {
     const safeUrl = safeBookmarkOpenUrl(item.url);
     if (!safeUrl) {
-      console.warn("[SBM] Blocked bookmark URL from row open action.", { id: item.id, url: item.url });
-      alert(t("couldNotOpenBookmark", { error: bookmarkOpenBlockedMessage([item.url]) }));
+      void showBlockedBookmarkOpenWarning(item.url);
       return;
     }
     api.tabs.create({ url: safeUrl }).catch((err) => {
